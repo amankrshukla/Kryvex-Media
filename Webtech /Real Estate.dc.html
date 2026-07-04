@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #06070d; }
+  ::selection { background: rgba(108,140,255,0.35); color: #fff; }
+  @keyframes wtc-pulse { 0%,100% { opacity: .55; } 50% { opacity: 1; } }
+  @keyframes wtc-fadein { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+</helmet>
+
+<div style="--accent:{{ accentColor }}; --accent2:{{ accent2Color }}; position:relative; background:#06070d; color:#e9ebf2; font-family:'Manrope',sans-serif; overflow:hidden; -webkit-font-smoothing:antialiased;">
+
+  <div style="position:absolute; inset:0; pointer-events:none; background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px); background-size:64px 64px; mask-image:radial-gradient(ellipse 90% 55% at 50% 0%,#000 30%,transparent 80%);"></div>
+  <div style="position:absolute; top:-280px; left:50%; transform:translateX(-50%); width:1100px; height:680px; background:radial-gradient(ellipse at center, var(--accent,#4d7cfe) 0%, transparent 62%); opacity:0.2; filter:blur(40px); pointer-events:none;"></div>
+
+  <!-- NAV -->
+  <nav style="position:relative; z-index:20; max-width:1200px; margin:0 auto; padding:30px 32px; display:flex; align-items:center; justify-content:space-between;">
+    <a href="WebTech Core.dc.html" style="display:flex; align-items:center; gap:12px; text-decoration:none; color:#e9ebf2;">
+      <svg width="36" height="36" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+        <rect x="3" y="3" width="24" height="24" rx="6" stroke="var(--accent,#4d7cfe)" stroke-width="1.6"></rect>
+        <rect x="9.5" y="9.5" width="11" height="11" rx="2" fill="var(--accent,#4d7cfe)"></rect>
+        <circle cx="15" cy="15" r="2.4" fill="#06070d"></circle>
+      </svg>
+      <span style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:21px; letter-spacing:0.16em;">WEBTECH<span style="color:var(--accent,#4d7cfe);">CORE</span></span>
+    </a>
+    <div style="display:flex; align-items:center; gap:30px;">
+      <a href="WebTech Core.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:15.5px; font-weight:500;" style-hover="color:#fff;">Home</a>
+      <a href="About Us.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:15.5px; font-weight:500;" style-hover="color:#fff;">About</a>
+
+      <!-- INDUSTRIES DROPDOWN -->
+      <div onMouseEnter="{{ openIndustries }}" onMouseLeave="{{ closeMenu }}">
+        <button onClick="{{ toggleIndustries }}" style="display:inline-flex; align-items:center; gap:7px; background:none; border:none; cursor:pointer; color:{{ industriesColor }}; font-family:'Manrope',sans-serif; font-size:15.5px; font-weight:600; padding:0;">
+          Industries
+          <span style="display:inline-block; transition:transform 0.2s; transform:rotate({{ industriesCaret }}deg);">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </span>
+        </button>
+        <sc-if value="{{ industriesOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute; top:68px; left:32px; z-index:30; width:980px; max-width:calc(100% - 64px); padding:16px; background:rgba(14,16,28,0.97); backdrop-filter:blur(14px); border:1px solid rgba(255,255,255,0.12); border-radius:16px; box-shadow:0 24px 60px -18px rgba(0,0,0,0.7); animation:wtc-fadein 0.18s ease-out;">
+            <div style="font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:0.1em; color:#7c8398; padding:6px 12px 12px;">INDUSTRIES WE SERVE</div>
+            <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:6px;">
+              <a href="Healthcare.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🏥</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Healthcare</span><span style="display:block; font-size:11.5px; color:#7c8398;">Clinics, dental, wellness</span></span>
+              </a>
+              <a href="Real Estate.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🏠</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Real Estate</span><span style="display:block; font-size:11.5px; color:#7c8398;">Agents, brokers, developers</span></span>
+              </a>
+              <a href="Ecommerce.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🛍️</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">E-commerce &amp; Retail</span><span style="display:block; font-size:11.5px; color:#7c8398;">Online &amp; omnichannel stores</span></span>
+              </a>
+              <a href="Restaurants.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🍽️</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Restaurants</span><span style="display:block; font-size:11.5px; color:#7c8398;">Cafes, dining, franchises</span></span>
+              </a>
+              <a href="Legal.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">⚖️</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Legal &amp; Professional</span><span style="display:block; font-size:11.5px; color:#7c8398;">Law, finance, consulting</span></span>
+              </a>
+              <a href="Home Services.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🔧</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Home Services</span><span style="display:block; font-size:11.5px; color:#7c8398;">Trades, repair, contractors</span></span>
+              </a>
+              <a href="Education.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🎓</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Education</span><span style="display:block; font-size:11.5px; color:#7c8398;">Schools, courses, edtech</span></span>
+              </a>
+              <a href="Fitness.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">💪</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Fitness &amp; Wellness</span><span style="display:block; font-size:11.5px; color:#7c8398;">Gyms, studios, coaches</span></span>
+              </a>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+
+      <!-- SERVICES DROPDOWN -->
+      <div onMouseEnter="{{ openServices }}" onMouseLeave="{{ closeMenu }}">
+        <button onClick="{{ toggleServices }}" style="display:inline-flex; align-items:center; gap:7px; background:none; border:none; cursor:pointer; color:{{ servicesColor }}; font-family:'Manrope',sans-serif; font-size:15.5px; font-weight:600; padding:0;">
+          Services
+          <span style="display:inline-block; transition:transform 0.2s; transform:rotate({{ servicesCaret }}deg);">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </span>
+        </button>
+        <sc-if value="{{ servicesOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute; top:68px; left:32px; z-index:30; width:980px; max-width:calc(100% - 64px); padding:16px; background:rgba(14,16,28,0.97); backdrop-filter:blur(14px); border:1px solid rgba(255,255,255,0.12); border-radius:16px; box-shadow:0 24px 60px -18px rgba(0,0,0,0.7); animation:wtc-fadein 0.18s ease-out;">
+            <div style="font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:0.1em; color:#7c8398; padding:6px 12px 12px;">WHAT WE DO</div>
+            <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:6px;">
+              <a href="SEO.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🔍</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Search Engine Optimization</span><span style="display:block; font-size:11.5px; color:#7c8398;">Organic growth</span></span>
+              </a>
+              <a href="Local SEO.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">📍</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Local SEO</span><span style="display:block; font-size:11.5px; color:#7c8398;">Map &amp; near-me</span></span>
+              </a>
+              <a href="PPC.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🎯</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Paid Advertising (PPC)</span><span style="display:block; font-size:11.5px; color:#7c8398;">Google ads</span></span>
+              </a>
+              <a href="Social Media.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">📱</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Social Media Marketing</span><span style="display:block; font-size:11.5px; color:#7c8398;">Build audience</span></span>
+              </a>
+              <a href="Meta Ads.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">⚡</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Meta Ads Services</span><span style="display:block; font-size:11.5px; color:#7c8398;">FB &amp; Instagram</span></span>
+              </a>
+              <a href="Content Marketing.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">✍️</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Content Marketing</span><span style="display:block; font-size:11.5px; color:#7c8398;">Blogs &amp; assets</span></span>
+              </a>
+              <a href="Email Marketing.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">✉️</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Email Marketing</span><span style="display:block; font-size:11.5px; color:#7c8398;">Flows &amp; campaigns</span></span>
+              </a>
+              <a href="Web Design.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🖥️</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Web Design &amp; Development</span><span style="display:block; font-size:11.5px; color:#7c8398;">Design &amp; build</span></span>
+              </a>
+              <a href="Graphics Design.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🎨</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Graphics Designing</span><span style="display:block; font-size:11.5px; color:#7c8398;">Brand visuals</span></span>
+              </a>
+            </div>
+            <a href="Services.dc.html" style="display:block; text-align:center; margin-top:10px; padding:10px; border-radius:10px; text-decoration:none; font-family:'Space Mono',monospace; font-size:11.5px; letter-spacing:0.06em; color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.07);" style-hover="background:rgba(77,124,254,0.13);">VIEW ALL SERVICES →</a>
+          </div>
+        </sc-if>
+      </div>
+
+      <!-- RESOURCES DROPDOWN -->
+      <div style="position:relative;" onMouseEnter="{{ openResources }}" onMouseLeave="{{ closeMenu }}">
+        <button onClick="{{ toggleResources }}" style="display:inline-flex; align-items:center; gap:7px; background:none; border:none; cursor:pointer; color:{{ resourcesColor }}; font-family:'Manrope',sans-serif; font-size:15.5px; font-weight:600; padding:0;">
+          Resources
+          <span style="display:inline-block; transition:transform 0.2s; transform:rotate({{ resourcesCaret }}deg);">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </span>
+        </button>
+        <sc-if value="{{ resourcesOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute; top:34px; left:0; z-index:30; width:320px; max-width:90vw; padding:16px; background:rgba(14,16,28,0.97); backdrop-filter:blur(14px); border:1px solid rgba(255,255,255,0.12); border-radius:16px; box-shadow:0 24px 60px -18px rgba(0,0,0,0.7); animation:wtc-fadein 0.18s ease-out;">
+            <div style="font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:0.1em; color:#7c8398; padding:6px 12px 12px;">RESOURCES</div>
+            <div style="display:grid; grid-template-columns:1fr; gap:4px;">
+              <a href="Blog.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">📝</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Blog</span><span style="display:block; font-size:11.5px; color:#7c8398;">Insights &amp; guides</span></span>
+              </a>
+              <a href="Press Release.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">📰</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Press Release</span><span style="display:block; font-size:11.5px; color:#7c8398;">News &amp; announcements</span></span>
+              </a>
+              <a href="Case Studies.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">📊</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Case Studies</span><span style="display:block; font-size:11.5px; color:#7c8398;">Real client results</span></span>
+              </a>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+
+      <a href="Contact Us.dc.html" style="display:inline-flex; align-items:center; gap:8px; background:var(--accent,#4d7cfe); color:#fff; text-decoration:none; font-weight:600; font-size:15px; padding:12px 22px; border-radius:11px; box-shadow:0 8px 28px -8px var(--accent,#4d7cfe);" style-hover="filter:brightness(1.08);">Book Free Consultation</a>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <div style="position:relative; z-index:4; max-width:1200px; margin:0 auto; padding:10px 32px 0; font-family:'Space Mono',monospace; font-size:12px; color:#7c8398;">
+    <a href="WebTech Core.dc.html" style="color:#7c8398; text-decoration:none;" style-hover="color:#aeb4c7;">Home</a>
+    <span style="margin:0 8px;">/</span>
+    <span style="color:#aeb4c7;">Industries</span>
+    <span style="margin:0 8px;">/</span>
+    <span style="color:var(--accent,#4d7cfe);">Real Estate</span>
+  </div>
+
+  <!-- HERO -->
+  <header style="position:relative; z-index:4; max-width:1200px; margin:0 auto; padding:40px 32px 16px; display:grid; grid-template-columns:1.05fr 0.95fr; gap:52px; align-items:center;">
+    <div>
+      <div style="display:inline-flex; align-items:center; gap:9px; padding:7px 14px; border:1px solid rgba(255,255,255,0.12); border-radius:100px; background:rgba(255,255,255,0.03); font-family:'Space Mono',monospace; font-size:11.5px; letter-spacing:0.08em; color:#aeb4c7;">
+        <span style="font-size:14px;">🏠</span> REAL ESTATE DIGITAL MARKETING
+      </div>
+      <h1 style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:42px; line-height:1.08; letter-spacing:-0.02em; margin:20px 0 0; text-wrap:balance;">Real estate digital marketing for agents, brokers &amp; developers — <span style="background:linear-gradient(100deg,var(--accent,#4d7cfe),var(--accent2,#8b5cf6)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;">India &amp; USA</span></h1>
+      <p style="font-size:16.5px; line-height:1.6; color:#aeb4c7; margin:18px 0 0; max-width:500px; text-wrap:pretty;">We help real estate professionals generate high-intent buyer and seller leads through local SEO, Google Ads, Meta campaigns, and IDX-integrated websites — built specifically for the Indian and US property market.</p>
+      <div style="margin-top:22px; border:1px solid rgba(77,124,254,0.4); border-left:3px solid var(--accent,#4d7cfe); border-radius:12px; background:rgba(77,124,254,0.08); padding:16px 20px; max-width:520px;">
+        <p style="font-size:14px; line-height:1.55; color:#d6dae6;"><strong style="color:#fff;">73–82% of property buyers research online</strong> before making a site visit. If your business isn't on page 1 of Google, your competitor is capturing those buyers right now.</p>
+      </div>
+      <div style="display:flex; flex-wrap:wrap; gap:14px; margin-top:26px;">
+        <a href="Contact Us.dc.html" style="display:inline-flex; align-items:center; gap:9px; background:var(--accent,#4d7cfe); color:#fff; text-decoration:none; font-weight:600; font-size:15px; padding:15px 24px; border-radius:12px; box-shadow:0 14px 38px -10px var(--accent,#4d7cfe);" style-hover="filter:brightness(1.08); transform:translateY(-1px);">Book Free Real Estate Audit →</a>
+        <a href="#how" style="display:inline-flex; align-items:center; gap:9px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.14); color:#e9ebf2; text-decoration:none; font-weight:600; font-size:15px; padding:15px 22px; border-radius:12px;" style-hover="background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.28);">How We Generate Leads →</a>
+      </div>
+    </div>
+    <div style="position:relative; min-width:0;">
+      <div style="position:absolute; inset:-1px; border-radius:20px; background:linear-gradient(140deg,var(--accent,#4d7cfe),transparent 45%,var(--accent2,#8b5cf6)); opacity:0.45; filter:blur(2px);"></div>
+      <div style="position:relative; background:linear-gradient(180deg,rgba(20,22,34,0.92),rgba(12,13,22,0.92)); border:1px solid rgba(255,255,255,0.1); border-radius:20px; padding:24px;">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:18px;">
+          <span style="font-family:'Space Mono',monospace; font-size:12px; color:#aeb4c7;">our_services</span>
+          <div style="display:flex; align-items:center; gap:10px;">
+            <span style="font-family:'Space Mono',monospace; font-size:11px; color:#7c8398;">{{ slideCounter }}</span>
+            <button onClick="{{ prevSlide }}" style="width:28px; height:28px; border-radius:8px; border:1px solid rgba(255,255,255,0.12); background:rgba(255,255,255,0.03); color:#aeb4c7; cursor:pointer; display:flex; align-items:center; justify-content:center; padding:0;" style-hover="background:rgba(255,255,255,0.08); color:#fff;"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M7.5 2.5 L4 6 L7.5 9.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+            <button onClick="{{ nextSlide }}" style="width:28px; height:28px; border-radius:8px; border:1px solid rgba(255,255,255,0.12); background:rgba(255,255,255,0.03); color:#aeb4c7; cursor:pointer; display:flex; align-items:center; justify-content:center; padding:0;" style-hover="background:rgba(255,255,255,0.08); color:#fff;"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M4.5 2.5 L8 6 L4.5 9.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+          </div>
+        </div>
+
+        <div style="overflow:hidden; border-radius:14px; min-width:0;">
+          <div style="display:flex; width:800%; transform:{{ trackTransform }}; transition:transform 0.55s cubic-bezier(0.22,1,0.36,1);">
+
+            <div style="flex:0 0 12.5%; padding:4px 2px;">
+              <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:16px; min-height:138px;">
+                <span style="display:inline-flex; width:38px; height:38px; border-radius:10px; background:rgba(77,124,254,0.13); align-items:center; justify-content:center;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="14" rx="2.5" stroke="var(--accent,#4d7cfe)" stroke-width="1.7"></rect><line x1="3" y1="8.5" x2="21" y2="8.5" stroke="var(--accent,#4d7cfe)" stroke-width="1.7"></line><line x1="9" y1="21" x2="15" y2="21" stroke="var(--accent,#4d7cfe)" stroke-width="1.7" stroke-linecap="round"></line></svg></span>
+                <h3 style="font-family:'Space Grotesk',sans-serif; font-size:15.5px; font-weight:600; margin:11px 0 5px;">Real Estate Website Development</h3>
+                <p style="font-size:14px; color:#9aa0b4; line-height:1.55;">Fast, conversion-focused websites that turn your hard-won traffic into booked customers.</p>
+                <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:11px;">
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Responsive</span>
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">CRO</span>
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Fast</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="flex:0 0 12.5%; padding:4px 2px;">
+              <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:16px; min-height:138px;">
+                <span style="display:inline-flex; width:38px; height:38px; border-radius:10px; background:rgba(77,124,254,0.13); align-items:center; justify-content:center;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><rect x="5" y="3" width="14" height="18" rx="2.5" stroke="var(--accent,#4d7cfe)" stroke-width="1.7"></rect><line x1="8.5" y1="8" x2="15.5" y2="8" stroke="var(--accent,#4d7cfe)" stroke-width="1.7" stroke-linecap="round"></line><line x1="8.5" y1="12" x2="15.5" y2="12" stroke="var(--accent,#4d7cfe)" stroke-width="1.7" stroke-linecap="round"></line><line x1="8.5" y1="16" x2="12.5" y2="16" stroke="var(--accent,#4d7cfe)" stroke-width="1.7" stroke-linecap="round"></line></svg></span>
+                <h3 style="font-family:'Space Grotesk',sans-serif; font-size:15.5px; font-weight:600; margin:11px 0 5px;">Real Estate Content Writing</h3>
+                <p style="font-size:14px; color:#9aa0b4; line-height:1.55;">SEO-driven blogs, landing pages, and copy that build trust and drive action.</p>
+                <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:11px;">
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Blogs</span>
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Landing pages</span>
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Copy</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="flex:0 0 12.5%; padding:4px 2px;">
+              <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:16px; min-height:138px;">
+                <span style="display:inline-flex; width:38px; height:38px; border-radius:10px; background:rgba(77,124,254,0.13); align-items:center; justify-content:center;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="var(--accent,#4d7cfe)" stroke-width="1.7"></circle><line x1="16" y1="16" x2="21" y2="21" stroke="var(--accent,#4d7cfe)" stroke-width="1.7" stroke-linecap="round"></line></svg></span>
+                <h3 style="font-family:'Space Grotesk',sans-serif; font-size:15.5px; font-weight:600; margin:11px 0 5px;">Real Estate SEO Services</h3>
+                <p style="font-size:14px; color:#9aa0b4; line-height:1.55;">Technical and on-page SEO that grows organic traffic and qualified leads.</p>
+                <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:11px;">
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Technical</span>
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">On-page</span>
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Content</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="flex:0 0 12.5%; padding:4px 2px;">
+              <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:16px; min-height:138px;">
+                <span style="display:inline-flex; width:38px; height:38px; border-radius:10px; background:rgba(77,124,254,0.13); align-items:center; justify-content:center;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><circle cx="8" cy="8" r="4" stroke="var(--accent,#4d7cfe)" stroke-width="1.7"></circle><rect x="13" y="13" width="8" height="8" rx="1.6" stroke="var(--accent,#4d7cfe)" stroke-width="1.7"></rect><path d="M15.5 3.5 L20.5 3.5 L18 8 Z" stroke="var(--accent,#4d7cfe)" stroke-width="1.7" fill="none" stroke-linejoin="round"></path></svg></span>
+                <h3 style="font-family:'Space Grotesk',sans-serif; font-size:15.5px; font-weight:600; margin:11px 0 5px;">Real Estate Graphics Designing</h3>
+                <p style="font-size:14px; color:#9aa0b4; line-height:1.55;">On-brand visuals for web, social, and ads that make you look the part.</p>
+                <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:11px;">
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Social</span>
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Ad creative</span>
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Brand</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="flex:0 0 12.5%; padding:4px 2px;">
+              <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:16px; min-height:138px;">
+                <span style="display:inline-flex; width:38px; height:38px; border-radius:10px; background:rgba(77,124,254,0.13); align-items:center; justify-content:center;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2.5" stroke="var(--accent,#4d7cfe)" stroke-width="1.7"></rect><path d="M4 7 L12 13 L20 7" stroke="var(--accent,#4d7cfe)" stroke-width="1.7" fill="none" stroke-linejoin="round"></path></svg></span>
+                <h3 style="font-family:'Space Grotesk',sans-serif; font-size:15.5px; font-weight:600; margin:11px 0 5px;">Real Estate Email Marketing</h3>
+                <p style="font-size:14px; color:#9aa0b4; line-height:1.55;">Automated nurture and broadcast campaigns that turn subscribers into revenue.</p>
+                <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:11px;">
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Automation</span>
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Newsletters</span>
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Flows</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="flex:0 0 12.5%; padding:4px 2px;">
+              <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:16px; min-height:138px;">
+                <span style="display:inline-flex; width:38px; height:38px; border-radius:10px; background:rgba(77,124,254,0.13); align-items:center; justify-content:center;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M5 4 L19 11 L12.5 12.5 L9.5 19.5 Z" stroke="var(--accent,#4d7cfe)" stroke-width="1.7" fill="none" stroke-linejoin="round"></path></svg></span>
+                <h3 style="font-family:'Space Grotesk',sans-serif; font-size:15.5px; font-weight:600; margin:11px 0 5px;">Real Estate Google Ads</h3>
+                <p style="font-size:14px; color:#9aa0b4; line-height:1.55;">Profitable search and display campaigns engineered for return, not just clicks.</p>
+                <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:11px;">
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Search</span>
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Display</span>
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">PMax</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="flex:0 0 12.5%; padding:4px 2px;">
+              <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:16px; min-height:138px;">
+                <span style="display:inline-flex; width:38px; height:38px; border-radius:10px; background:rgba(77,124,254,0.13); align-items:center; justify-content:center;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M12 21 C7 16 4 12.5 4 9 a8 8 0 0 1 16 0 C20 12.5 17 16 12 21 Z" stroke="var(--accent,#4d7cfe)" stroke-width="1.7" fill="none" stroke-linejoin="round"></path><circle cx="12" cy="9" r="2.4" stroke="var(--accent,#4d7cfe)" stroke-width="1.7"></circle></svg></span>
+                <h3 style="font-family:'Space Grotesk',sans-serif; font-size:15.5px; font-weight:600; margin:11px 0 5px;">Real Estate Local SEO</h3>
+                <p style="font-size:14px; color:#9aa0b4; line-height:1.55;">Own the map pack and "near me" searches with an optimized local presence.</p>
+                <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:11px;">
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Map pack</span>
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">GBP</span>
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Citations</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="flex:0 0 12.5%; padding:4px 2px;">
+              <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:16px; min-height:138px;">
+                <span style="display:inline-flex; width:38px; height:38px; border-radius:10px; background:rgba(77,124,254,0.13); align-items:center; justify-content:center;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="12" rx="3.5" stroke="var(--accent,#4d7cfe)" stroke-width="1.7"></rect><path d="M10.5 9.3 L15 12 L10.5 14.7 Z" fill="var(--accent,#4d7cfe)"></path></svg></span>
+                <h3 style="font-family:'Space Grotesk',sans-serif; font-size:15.5px; font-weight:600; margin:11px 0 5px;">Real Estate YouTube Management</h3>
+                <p style="font-size:14px; color:#9aa0b4; line-height:1.55;">Channel strategy, video SEO, and content that grows views and subscribers.</p>
+                <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:11px;">
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Strategy</span>
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Video SEO</span>
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Editing</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:center; justify-content:center; gap:8px; margin-top:14px;">
+          <sc-for list="{{ dots }}" as="dot" hint-placeholder-count="8">
+            <button onClick="{{ dot.go }}" style="height:7px; width:{{ dot.w }}; border:none; padding:0; border-radius:99px; cursor:pointer; background:{{ dot.bg }}; transition:width 0.3s, background 0.3s;"></button>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MARKET DATA BAR -->
+  <section style="position:relative; z-index:4; max-width:1200px; margin:48px auto 0; padding:0 32px;">
+    <div style="text-align:center; margin-bottom:24px;">
+      <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:12px;">// THE PROPERTY MARKET IN NUMBERS</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif; font-size:clamp(26px,4vw,36px); font-weight:700; letter-spacing:-0.02em; line-height:1.1;">Why real estate marketing wins online</h2>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:16px;">
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;"><div style="font-family:'Space Grotesk',sans-serif; font-size:30px; font-weight:700; color:var(--accent,#4d7cfe);">$1T</div><div style="font-size:13.5px; color:#aeb4c7; margin-top:6px; line-height:1.45;">India real estate market by 2030</div></div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;"><div style="font-family:'Space Grotesk',sans-serif; font-size:30px; font-weight:700; color:var(--accent,#4d7cfe);">73–82%</div><div style="font-size:13.5px; color:#aeb4c7; margin-top:6px; line-height:1.45;">Buyers research online first</div></div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;"><div style="font-family:'Space Grotesk',sans-serif; font-size:30px; font-weight:700; color:var(--accent,#4d7cfe);">7–14</div><div style="font-size:13.5px; color:#aeb4c7; margin-top:6px; line-height:1.45;">Digital touchpoints before a lead form</div></div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;"><div style="font-family:'Space Grotesk',sans-serif; font-size:30px; font-weight:700; color:#fff;">3–9 mo</div><div style="font-size:13.5px; color:#aeb4c7; margin-top:6px; line-height:1.45;">Average buyer research window</div></div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;"><div style="font-family:'Space Grotesk',sans-serif; font-size:30px; font-weight:700; color:#fff;">₹400–1,500</div><div style="font-size:13.5px; color:#aeb4c7; margin-top:6px; line-height:1.45;">Qualified cost per lead, mid-premium projects</div></div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;"><div style="font-family:'Space Grotesk',sans-serif; font-size:30px; font-weight:700; color:#fff;">25–40%</div><div style="font-size:13.5px; color:#aeb4c7; margin-top:6px; line-height:1.45;">Of bookings now influenced by digital</div></div>
+    </div>
+    <p style="font-family:'Space Mono',monospace; font-size:10.5px; color:#565c70; margin-top:14px; text-align:center;">Figures are indicative industry benchmarks for the India &amp; US property markets.</p>
+  </section>
+
+  <!-- CHALLENGES -->
+  <section style="position:relative; z-index:4; max-width:1200px; margin:0 auto; padding:88px 32px 0;">
+    <div style="text-align:center; margin-bottom:42px;">
+      <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:14px;">// WHAT WE FIX</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif; font-size:40px; font-weight:700; letter-spacing:-0.02em; line-height:1.1;">The challenges real estate teams face</h2>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(3,1fr); gap:18px;">
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:28px;">
+        <div style="font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:700; color:var(--accent,#4d7cfe);">01</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; margin:12px 0 8px;">Lost in a crowded market</h3>
+        <p style="font-size:14px; color:#9aa0b4; line-height:1.6;">Buyers scroll past you to bigger portals. We make your listings and brand stand out.</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:28px;">
+        <div style="font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:700; color:var(--accent,#4d7cfe);">02</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; margin:12px 0 8px;">Cold, low-quality leads</h3>
+        <p style="font-size:14px; color:#9aa0b4; line-height:1.6;">Hours wasted on tire-kickers. We target ready-to-act buyers and sellers.</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:28px;">
+        <div style="font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:700; color:var(--accent,#4d7cfe);">03</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; margin:12px 0 8px;">Inconsistent pipeline</h3>
+        <p style="font-size:14px; color:#9aa0b4; line-height:1.6;">Feast-or-famine months. We build a steady flow of inbound enquiries.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="how" style="position:relative; z-index:4; max-width:1200px; margin:0 auto; padding:88px 32px 0;">
+    <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:24px; margin-bottom:42px; flex-wrap:wrap;">
+      <div>
+        <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:14px;">// HOW WE HELP</div>
+        <h2 style="font-family:'Space Grotesk',sans-serif; font-size:40px; font-weight:700; letter-spacing:-0.02em; line-height:1.08; max-width:520px; text-wrap:balance;">Marketing built for real estate</h2>
+      </div>
+      <p style="font-size:15px; color:#aeb4c7; max-width:320px; line-height:1.6;">Lead-focused campaigns that fill your pipeline with motivated buyers and sellers.</p>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(2,1fr); gap:18px;">
+      <div style="display:flex; gap:18px; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;" style-hover="border-color:var(--accent,#4d7cfe);">
+        <span style="flex:none; width:46px; height:46px; border-radius:12px; background:rgba(77,124,254,0.12); display:flex; align-items:center; justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="var(--accent,#4d7cfe)" stroke-width="1.7"></circle><line x1="16" y1="16" x2="21" y2="21" stroke="var(--accent,#4d7cfe)" stroke-width="1.7" stroke-linecap="round"></line></svg></span>
+        <div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600;">Local SEO &amp; Map Pack</h3><p style="font-size:14px; color:#9aa0b4; line-height:1.6; margin-top:7px;">Rank for neighborhoods and "homes for sale" searches in your market.</p></div>
+      </div>
+      <div style="display:flex; gap:18px; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;" style-hover="border-color:var(--accent,#4d7cfe);">
+        <span style="flex:none; width:46px; height:46px; border-radius:12px; background:rgba(77,124,254,0.12); display:flex; align-items:center; justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="8.5" stroke="var(--accent,#4d7cfe)" stroke-width="1.7"></circle><circle cx="12" cy="12" r="4" stroke="var(--accent,#4d7cfe)" stroke-width="1.7"></circle></svg></span>
+        <div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600;">Buyer &amp; Seller Lead Ads</h3><p style="font-size:14px; color:#9aa0b4; line-height:1.6; margin-top:7px;">Google &amp; Meta campaigns that capture motivated, ready-to-move leads.</p></div>
+      </div>
+      <div style="display:flex; gap:18px; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;" style-hover="border-color:var(--accent,#4d7cfe);">
+        <span style="flex:none; width:46px; height:46px; border-radius:12px; background:rgba(77,124,254,0.12); display:flex; align-items:center; justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3 l2.5 5.5 6 .5 -4.5 4 1.4 5.8 -5.4 -3.2 -5.4 3.2 1.4 -5.8 -4.5 -4 6 -.5 Z" stroke="var(--accent,#4d7cfe)" stroke-width="1.5" fill="none" stroke-linejoin="round"></path></svg></span>
+        <div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600;">Listing &amp; Brand Social</h3><p style="font-size:14px; color:#9aa0b4; line-height:1.6; margin-top:7px;">Scroll-stopping listing content that builds your local reputation.</p></div>
+      </div>
+      <div style="display:flex; gap:18px; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;" style-hover="border-color:var(--accent,#4d7cfe);">
+        <span style="flex:none; width:46px; height:46px; border-radius:12px; background:rgba(77,124,254,0.12); display:flex; align-items:center; justify-content:center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="4" stroke="var(--accent,#4d7cfe)" stroke-width="1.7"></rect><line x1="4" y1="9" x2="20" y2="9" stroke="var(--accent,#4d7cfe)" stroke-width="1.7"></line></svg></span>
+        <div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600;">High-Converting IDX Sites</h3><p style="font-size:14px; color:#9aa0b4; line-height:1.6; margin-top:7px;">Fast websites with search and capture forms that turn clicks into calls.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO WE SERVE -->
+  <section style="position:relative; z-index:4; max-width:1200px; margin:0 auto; padding:88px 32px 0;">
+    <div style="text-align:center; margin-bottom:36px;">
+      <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:14px;">// WHO WE SERVE</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif; font-size:clamp(28px,4.5vw,38px); font-weight:700; letter-spacing:-0.02em; line-height:1.1;">Real estate professionals we work with</h2>
+      <p style="font-size:15px; color:#aeb4c7; line-height:1.65; margin:14px auto 0; max-width:660px;">From solo agents building their first online presence to developers marketing multi-tower launches — every campaign tuned to the property buyer’s journey.</p>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px,1fr)); gap:16px;">
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05); transform:translateY(-3px);"><div style="font-size:24px;">🏘️</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; margin:13px 0 8px; color:#e9ebf2;">Real Estate Agents &amp; Realtors</h3><p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">Independent agents and realtor teams. We build hyperlocal SEO, Google Business authority, and Meta lead campaigns that generate qualified buyer and seller inquiries — not tyre-kickers.</p></div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05); transform:translateY(-3px);"><div style="font-size:24px;">🏢</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; margin:13px 0 8px; color:#e9ebf2;">Brokerages &amp; Agencies</h3><p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">Multi-agent firms. We build a brand presence and a lead distribution system — a steady pipeline of buyer/seller leads routed to the right agent, with CRM-ready tracking.</p></div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05); transform:translateY(-3px);"><div style="font-size:24px;">🏗️</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; margin:13px 0 8px; color:#e9ebf2;">Builders &amp; Developers</h3><p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">New-launch and under-construction projects. We build project microsites, Meta and Google launch campaigns, and walkthrough/RERA content that fills the site-visit calendar.</p></div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05); transform:translateY(-3px);"><div style="font-size:24px;">🔑</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; margin:13px 0 8px; color:#e9ebf2;">Property Management &amp; Rentals</h3><p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">Rental and PG operators. We build ‘flats for rent in [area]’ visibility, listing SEO, and WhatsApp inquiry automation that fills vacancies faster.</p></div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05); transform:translateY(-3px);"><div style="font-size:24px;">🏖️</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; margin:13px 0 8px; color:#e9ebf2;">Plotting, Farmland &amp; Second Homes</h3><p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">Considered, high-ticket purchases. We build content-led nurture, video walkthroughs, and retargeting that stay with the buyer through a long decision cycle.</p></div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05); transform:translateY(-3px);"><div style="font-size:24px;">🌇</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; margin:13px 0 8px; color:#e9ebf2;">Commercial &amp; Co-working</h3><p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">Office, retail, and co-working space. We build LinkedIn + Google intent campaigns and location SEO that reach business decision-makers searching for space.</p></div>
+    </div>
+  </section>
+
+  <!-- PAIN POINTS -->
+  <section style="position:relative; z-index:4; max-width:1200px; margin:88px auto 0; padding:0 32px;">
+    <div style="text-align:center; margin-bottom:36px;">
+      <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:14px;">// WHAT WE FIX</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif; font-size:clamp(28px,4.5vw,38px); font-weight:700; letter-spacing:-0.02em; line-height:1.1;">The real problems real estate businesses face online</h2>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px,1fr)); gap:16px;">
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;"><div style="font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:700; color:var(--accent,#4d7cfe);">01</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:600; margin:11px 0 8px; color:#e9ebf2;">Portal dependency eating your margin</h3><p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">99acres, MagicBricks, and Housing charge heavily per lead — and share the same lead with 5 competitors. We build your own inbound channel so you own the relationship, not the portal.</p></div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;"><div style="font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:700; color:var(--accent,#4d7cfe);">02</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:600; margin:11px 0 8px; color:#e9ebf2;">Floods of unqualified leads</h3><p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">Most agents drown in low-intent inquiries. We build intent-based targeting and qualifying funnels that filter for budget, location, and timeline before a lead ever reaches you.</p></div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;"><div style="font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:700; color:var(--accent,#4d7cfe);">03</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:600; margin:11px 0 8px; color:#e9ebf2;">Slow follow-up losing the deal</h3><p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">Buyers go with whoever responds first. We build instant WhatsApp and auto-response systems so every inquiry gets an immediate, professional reply — not a callback hours later.</p></div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;"><div style="font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:700; color:var(--accent,#4d7cfe);">04</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:600; margin:11px 0 8px; color:#e9ebf2;">Invisible in local property search</h3><p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">‘Flats in [area]’ and ‘property near me’ buyers never see you. We build location and project SEO plus Google Business authority that puts you in front of high-intent local searches.</p></div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;"><div style="font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:700; color:var(--accent,#4d7cfe);">05</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:600; margin:11px 0 8px; color:#e9ebf2;">New launches that don’t fill site visits</h3><p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">A great project with an empty calendar. We build launch microsites, geo-targeted Meta/Google campaigns, and walkthrough content engineered to drive booked site visits.</p></div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;"><div style="font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:700; color:var(--accent,#4d7cfe);">06</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:600; margin:11px 0 8px; color:#e9ebf2;">No nurture for long buying cycles</h3><p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">Property decisions take months. Most leads go cold from silence. We build email, WhatsApp, and retargeting nurture that keeps you top-of-mind until the buyer is ready.</p></div>
+    </div>
+  </section>
+
+  <!-- FULL SERVICES GRID -->
+  <section style="position:relative; z-index:4; max-width:1200px; margin:88px auto 0; padding:0 32px;">
+    <div style="text-align:center; margin-bottom:36px;">
+      <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:14px;">// OUR SERVICES</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif; font-size:clamp(28px,4.5vw,38px); font-weight:700; letter-spacing:-0.02em; line-height:1.1;">Digital marketing services built for real estate</h2>
+      <p style="font-size:15px; color:#aeb4c7; line-height:1.65; margin:14px auto 0; max-width:660px;">Every service is built around the high-intent, high-value nature of property search — where lead quality and fast follow-up decide the commission.</p>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(270px,1fr)); gap:16px;">
+      <a href="Local SEO.dc.html" style="text-decoration:none; display:block; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:24px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05); transform:translateY(-3px);"><div style="font-size:22px;">📍</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:16.5px; font-weight:600; margin:12px 0 9px; color:#e9ebf2;">Local &amp; Project SEO</h3><div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:11px;"><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Map Pack</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Location Pages</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Project SEO</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">GBP</span></div><p style="font-size:13px; color:#9aa0b4; line-height:1.6;">Rank for ‘property in [area]’, ‘flats for sale [city]’, and project-name searches. Location landing pages, Google Business optimization, and content that captures high-intent local property demand.</p><div style="font-family:'Space Mono',monospace; font-size:11px; color:var(--accent,#4d7cfe); margin-top:13px;">Explore Local SEO →</div></a>
+      <a href="PPC.dc.html" style="text-decoration:none; display:block; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:24px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05); transform:translateY(-3px);"><div style="font-size:22px;">🎯</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:16.5px; font-weight:600; margin:12px 0 9px; color:#e9ebf2;">Google Ads &amp; Meta Lead Ads</h3><div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:11px;"><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Search</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Meta Lead Forms</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Geo-Targeting</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Retargeting</span></div><p style="font-size:13px; color:#9aa0b4; line-height:1.6;">Search campaigns for active property seekers and Meta Lead Ads with instant inquiry capture. Geo and intent targeting that delivers qualified buyer and seller leads, not clicks.</p><div style="font-family:'Space Mono',monospace; font-size:11px; color:var(--accent,#4d7cfe); margin-top:13px;">See PPC Service →</div></a>
+      <a href="Email Marketing.dc.html" style="text-decoration:none; display:block; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:24px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05); transform:translateY(-3px);"><div style="font-size:22px;">💬</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:16.5px; font-weight:600; margin:12px 0 9px; color:#e9ebf2;">WhatsApp &amp; Lead Nurture</h3><div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:11px;"><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Instant Response</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Drip Nurture</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">CRM-Ready</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Site-Visit Booking</span></div><p style="font-size:13px; color:#9aa0b4; line-height:1.6;">Instant WhatsApp auto-response, drip nurture for long buying cycles, and site-visit booking automation — so no lead goes cold and follow-up never slips.</p><div style="font-family:'Space Mono',monospace; font-size:11px; color:var(--accent,#4d7cfe); margin-top:13px;">Email Marketing →</div></a>
+      <a href="Web Design.dc.html" style="text-decoration:none; display:block; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:24px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05); transform:translateY(-3px);"><div style="font-size:22px;">💻</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:16.5px; font-weight:600; margin:12px 0 9px; color:#e9ebf2;">Project Microsites &amp; Websites</h3><div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:11px;"><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Mobile-First</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">IDX/Listings</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Lead Forms</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Fast</span></div><p style="font-size:13px; color:#9aa0b4; line-height:1.6;">Fast, mobile-first project microsites and brokerage websites with listing integration, gallery, walkthrough video, and lead forms engineered to convert a browser into a booked site visit.</p><div style="font-family:'Space Mono',monospace; font-size:11px; color:var(--accent,#4d7cfe); margin-top:13px;">Web Design Service →</div></a>
+      <a href="Social Media.dc.html" style="text-decoration:none; display:block; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:24px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05); transform:translateY(-3px);"><div style="font-size:22px;">📸</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:16.5px; font-weight:600; margin:12px 0 9px; color:#e9ebf2;">Social Media &amp; Reels</h3><div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:11px;"><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Instagram</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Walkthroughs</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Reels</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Community</span></div><p style="font-size:13px; color:#9aa0b4; line-height:1.6;">Property walkthrough Reels, market-update content, and client testimonials that build trust and generate direct inquiries from buyers who see your listings.</p><div style="font-family:'Space Mono',monospace; font-size:11px; color:var(--accent,#4d7cfe); margin-top:13px;">Social Media →</div></a>
+      <a href="Content Marketing.dc.html" style="text-decoration:none; display:block; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:24px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05); transform:translateY(-3px);"><div style="font-size:22px;">🎥</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:16.5px; font-weight:600; margin:12px 0 9px; color:#e9ebf2;">Video &amp; Virtual Tours</h3><div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:11px;"><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Walkthroughs</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Drone</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Virtual Tours</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">YouTube</span></div><p style="font-size:13px; color:#9aa0b4; line-height:1.6;">Property walkthrough videos, drone footage, and virtual tours that let buyers shortlist before they visit — the highest-converting content format in real estate.</p><div style="font-family:'Space Mono',monospace; font-size:11px; color:var(--accent,#4d7cfe); margin-top:13px;">Content Marketing →</div></a>
+      <a href="Social Media.dc.html" style="text-decoration:none; display:block; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:24px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05); transform:translateY(-3px);"><div style="font-size:22px;">⭐</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:16.5px; font-weight:600; margin:12px 0 9px; color:#e9ebf2;">Reputation &amp; Reviews</h3><div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:11px;"><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Google Reviews</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Trust Building</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">ORM</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Response</span></div><p style="font-size:13px; color:#9aa0b4; line-height:1.6;">Buyers trust agents with strong reviews. Systematic Google review generation after every closing and professional review responses that build the credibility a high-value purchase demands.</p><div style="font-family:'Space Mono',monospace; font-size:11px; color:var(--accent,#4d7cfe); margin-top:13px;">Reputation Management →</div></a>
+      <a href="Graphics Design.dc.html" style="text-decoration:none; display:block; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:24px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05); transform:translateY(-3px);"><div style="font-size:22px;">🎨</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:16.5px; font-weight:600; margin:12px 0 9px; color:#e9ebf2;">Branding &amp; Creative</h3><div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:11px;"><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Logo</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Brochures</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Project Branding</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Ad Creative</span></div><p style="font-size:13px; color:#9aa0b4; line-height:1.6;">Project branding, brochures, hoarding and ad creative, and a consistent identity that makes your listings and launches look premium — a direct trust signal in high-ticket property.</p><div style="font-family:'Space Mono',monospace; font-size:11px; color:var(--accent,#4d7cfe); margin-top:13px;">Graphic Design →</div></a>
+    </div>
+    <div style="text-align:center; margin-top:28px;">
+      <a href="Services.dc.html" style="display:inline-flex; align-items:center; gap:9px; font-family:'Space Mono',monospace; font-size:13px; letter-spacing:0.04em; color:var(--accent,#4d7cfe); text-decoration:none; border:1px solid rgba(77,124,254,0.3); padding:13px 24px; border-radius:11px; background:rgba(77,124,254,0.06);" style-hover="background:rgba(77,124,254,0.13);">→ View All Services &amp; Pricing</a>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section style="position:relative; z-index:4; max-width:1200px; margin:88px auto 0; padding:0 32px;">
+    <div style="text-align:center; margin-bottom:40px;">
+      <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:14px;">// HOW WE WORK</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif; font-size:clamp(28px,4.5vw,38px); font-weight:700; letter-spacing:-0.02em; line-height:1.1;">How we build a qualified real estate lead engine — 5 steps</h2>
+      <p style="font-size:15px; color:#aeb4c7; line-height:1.65; margin:14px auto 0; max-width:660px;">Not just more leads — a complete system that generates qualified buyers and sellers, responds instantly, and nurtures them through a months-long decision.</p>
+    </div>
+    <div style="position:relative; max-width:900px; margin:0 auto;">
+      <div style="position:absolute; left:1px; top:6px; bottom:6px; width:2px; background:linear-gradient(180deg,var(--accent,#4d7cfe),var(--accent2,#8b5cf6)); opacity:0.5;"></div>
+      <div style="position:relative; padding:0 0 30px 38px;"><div style="position:absolute; left:-9px; top:2px; width:20px; height:20px; border-radius:50%; background:var(--accent,#4d7cfe); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:9px; font-weight:700; color:#fff; box-shadow:0 0 0 5px rgba(77,124,254,0.15);">1</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; color:#e9ebf2;">Free real estate marketing audit (48 hours)</h3><p style="font-size:14px; color:#9aa0b4; line-height:1.6; margin-top:7px; max-width:760px;">We audit your Google Business Profile, website, current lead sources and cost per lead, portal dependency, and top 5 local competitors. Written report in 48 hours. No commitment required.</p></div>
+      <div style="position:relative; padding:0 0 30px 38px;"><div style="position:absolute; left:-9px; top:2px; width:20px; height:20px; border-radius:50%; background:var(--accent,#4d7cfe); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:9px; font-weight:700; color:#fff; box-shadow:0 0 0 5px rgba(77,124,254,0.15);">2</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; color:#e9ebf2;">Market &amp; audience mapping</h3><p style="font-size:14px; color:#9aa0b4; line-height:1.6; margin-top:7px; max-width:760px;">We map your target buyer/seller profiles, the localities and projects you serve, and the exact search and social behavior of property seekers in your market — the base for every campaign.</p></div>
+      <div style="position:relative; padding:0 0 30px 38px;"><div style="position:absolute; left:-9px; top:2px; width:20px; height:20px; border-radius:50%; background:var(--accent,#4d7cfe); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:9px; font-weight:700; color:#fff; box-shadow:0 0 0 5px rgba(77,124,254,0.15);">3</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; color:#e9ebf2;">Foundation — GBP + website + instant response</h3><p style="font-size:14px; color:#9aa0b4; line-height:1.6; margin-top:7px; max-width:760px;">Before scaling spend, we build your Google Business authority, a conversion-ready website or project microsite, and an instant WhatsApp response system so no lead ever goes cold.</p></div>
+      <div style="position:relative; padding:0 0 30px 38px;"><div style="position:absolute; left:-9px; top:2px; width:20px; height:20px; border-radius:50%; background:var(--accent,#4d7cfe); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:9px; font-weight:700; color:#fff; box-shadow:0 0 0 5px rgba(77,124,254,0.15);">4</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; color:#e9ebf2;">Qualified lead acquisition — Google + Meta</h3><p style="font-size:14px; color:#9aa0b4; line-height:1.6; margin-top:7px; max-width:760px;">Search campaigns for active seekers and Meta Lead Ads with qualifying questions, geo-targeted to your areas. All leads tracked to site visits and closings — not just form fills.</p></div>
+      <div style="position:relative; padding:0 0 0 38px;"><div style="position:absolute; left:-9px; top:2px; width:20px; height:20px; border-radius:50%; background:var(--accent,#4d7cfe); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:9px; font-weight:700; color:#fff; box-shadow:0 0 0 5px rgba(77,124,254,0.15);">5</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; color:#e9ebf2;">Nurture + reporting</h3><p style="font-size:14px; color:#9aa0b4; line-height:1.6; margin-top:7px; max-width:760px;">Email, WhatsApp, and retargeting nurture that keeps you top-of-mind through the buying cycle. Monthly report shows lead volume, cost per qualified lead, site visits, and closings by source.</p></div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section style="position:relative; z-index:4; max-width:1000px; margin:88px auto 0; padding:0 32px;">
+    <div style="text-align:center; margin-bottom:36px;">
+      <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:14px;">// WHY WEBTECH CORE</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif; font-size:clamp(28px,4.5vw,38px); font-weight:700; letter-spacing:-0.02em; line-height:1.1;">Why real estate businesses choose WebTech Core</h2>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:12px;">
+      <div style="display:flex; gap:14px; align-items:flex-start; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:18px 22px;"><span style="color:var(--accent,#4d7cfe); font-size:18px; flex:none;">✓</span><p style="font-size:14.5px; color:#d6dae6; line-height:1.55;">We optimize for qualified leads, not lead volume — budget, location, and timeline filtered before a lead reaches you.</p></div>
+      <div style="display:flex; gap:14px; align-items:flex-start; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:18px 22px;"><span style="color:var(--accent,#4d7cfe); font-size:18px; flex:none;">✓</span><p style="font-size:14.5px; color:#d6dae6; line-height:1.55;">We reduce portal dependency — building your own inbound channel so you own the buyer relationship.</p></div>
+      <div style="display:flex; gap:14px; align-items:flex-start; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:18px 22px;"><span style="color:var(--accent,#4d7cfe); font-size:18px; flex:none;">✓</span><p style="font-size:14.5px; color:#d6dae6; line-height:1.55;">Instant WhatsApp response is standard — because in property, whoever replies first usually wins the deal.</p></div>
+      <div style="display:flex; gap:14px; align-items:flex-start; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:18px 22px;"><span style="color:var(--accent,#4d7cfe); font-size:18px; flex:none;">✓</span><p style="font-size:14.5px; color:#d6dae6; line-height:1.55;">Nurture built for long buying cycles — email, WhatsApp, and retargeting that keep you top-of-mind for months.</p></div>
+      <div style="display:flex; gap:14px; align-items:flex-start; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:18px 22px;"><span style="color:var(--accent,#4d7cfe); font-size:18px; flex:none;">✓</span><p style="font-size:14.5px; color:#d6dae6; line-height:1.55;">Walkthrough video and virtual tours — the highest-converting content format in real estate.</p></div>
+      <div style="display:flex; gap:14px; align-items:flex-start; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:18px 22px;"><span style="color:var(--accent,#4d7cfe); font-size:18px; flex:none;">✓</span><p style="font-size:14.5px; color:#d6dae6; line-height:1.55;">Every lead tracked to site visits and closings — real numbers, not vanity form fills.</p></div>
+      <div style="display:flex; gap:14px; align-items:flex-start; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:18px 22px;"><span style="color:var(--accent,#4d7cfe); font-size:18px; flex:none;">✓</span><p style="font-size:14.5px; color:#d6dae6; line-height:1.55;">No long-term contracts — we earn your business every month. Free audit before you commit.</p></div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="position:relative; z-index:4; max-width:880px; margin:88px auto 0; padding:0 32px;">
+    <div style="text-align:center; margin-bottom:36px;">
+      <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:14px;">// COMMON QUESTIONS</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif; font-size:clamp(28px,4.5vw,38px); font-weight:700; letter-spacing:-0.02em; line-height:1.12;">Frequently asked questions — real estate digital marketing</h2>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:12px;">
+      <details style="border:1px solid rgba(255,255,255,0.08); border-radius:14px; background:rgba(255,255,255,0.025); padding:18px 22px;"><summary style="cursor:pointer; font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; color:#e9ebf2; list-style:none; display:flex; align-items:center; justify-content:space-between; gap:16px;"><span>How much does digital marketing cost for a real estate agent or builder in India?</span><span style="color:var(--accent,#4d7cfe); font-size:20px; flex:none;">+</span></summary><p style="font-size:14px; color:#9aa0b4; line-height:1.65; margin-top:14px; text-wrap:pretty;">For agents and brokerages, it typically ranges from ₹15,000 to ₹50,000/month for GBP, local SEO, and Meta lead campaigns. For builders running project launches, performance campaigns plus a microsite typically run ₹50,000–₹2,00,000/month plus ad spend, scaled to the launch. WebTech Core offers real estate starter packages from ₹14,999/month with a free 48-hour audit before you commit.</p></details>
+      <details style="border:1px solid rgba(255,255,255,0.08); border-radius:14px; background:rgba(255,255,255,0.025); padding:18px 22px;"><summary style="cursor:pointer; font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; color:#e9ebf2; list-style:none; display:flex; align-items:center; justify-content:space-between; gap:16px;"><span>How do I get qualified property leads instead of time-wasters?</span><span style="color:var(--accent,#4d7cfe); font-size:20px; flex:none;">+</span></summary><p style="font-size:14px; color:#9aa0b4; line-height:1.65; margin-top:14px; text-wrap:pretty;">Lead quality comes from intent-based targeting and qualifying funnels. We target active property searchers (not broad interest audiences), add qualifying questions on lead forms (budget, location, timeline), and route only filtered leads to you. This dramatically raises the share of leads that actually visit and buy.</p></details>
+      <details style="border:1px solid rgba(255,255,255,0.08); border-radius:14px; background:rgba(255,255,255,0.025); padding:18px 22px;"><summary style="cursor:pointer; font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; color:#e9ebf2; list-style:none; display:flex; align-items:center; justify-content:space-between; gap:16px;"><span>Are portals like 99acres and MagicBricks enough for real estate leads?</span><span style="color:var(--accent,#4d7cfe); font-size:20px; flex:none;">+</span></summary><p style="font-size:14px; color:#9aa0b4; line-height:1.65; margin-top:14px; text-wrap:pretty;">Portals deliver volume, but the same lead is shared with multiple competitors and costs rise every year. The most successful agents and builders use portals for reach while building their own inbound channel — Google, Meta, SEO, and WhatsApp — where the lead is exclusively theirs and the cost per qualified lead is lower over time.</p></details>
+      <details style="border:1px solid rgba(255,255,255,0.08); border-radius:14px; background:rgba(255,255,255,0.025); padding:18px 22px;"><summary style="cursor:pointer; font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; color:#e9ebf2; list-style:none; display:flex; align-items:center; justify-content:space-between; gap:16px;"><span>How long does real estate SEO take to show results?</span><span style="color:var(--accent,#4d7cfe); font-size:20px; flex:none;">+</span></summary><p style="font-size:14px; color:#9aa0b4; line-height:1.65; margin-top:14px; text-wrap:pretty;">Google Business Profile and local SEO typically show local-pack improvements within 30–60 days. Competitive ‘property in [city]’ keywords take 90–180 days. Google and Meta lead campaigns generate inquiries within the first 1–2 weeks — which is why we usually run paid for immediate leads while SEO builds the long-term, lower-cost channel.</p></details>
+      <details style="border:1px solid rgba(255,255,255,0.08); border-radius:14px; background:rgba(255,255,255,0.025); padding:18px 22px;"><summary style="cursor:pointer; font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; color:#e9ebf2; list-style:none; display:flex; align-items:center; justify-content:space-between; gap:16px;"><span>Can you help with a new project or property launch?</span><span style="color:var(--accent,#4d7cfe); font-size:20px; flex:none;">+</span></summary><p style="font-size:14px; color:#9aa0b4; line-height:1.65; margin-top:14px; text-wrap:pretty;">Yes. For launches we build a dedicated project microsite, geo-targeted Google and Meta campaigns, walkthrough and RERA content, and an instant inquiry-to-site-visit booking flow — all tracked to booked site visits, the metric that matters for a launch.</p></details>
+      <details style="border:1px solid rgba(255,255,255,0.08); border-radius:14px; background:rgba(255,255,255,0.025); padding:18px 22px;"><summary style="cursor:pointer; font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; color:#e9ebf2; list-style:none; display:flex; align-items:center; justify-content:space-between; gap:16px;"><span>Does WebTech Core serve real estate businesses across India and the USA?</span><span style="color:var(--accent,#4d7cfe); font-size:20px; flex:none;">+</span></summary><p style="font-size:14px; color:#9aa0b4; line-height:1.65; margin-top:14px; text-wrap:pretty;">Yes. We work with agents, brokerages, builders, and property managers across all major Indian cities and growth markets, and with real estate professionals across all 50 states of the USA — with market-specific search, portal, and ad strategies for each.</p></details>
+    </div>
+  </section>
+
+  <!-- RESULTS -->
+  <section style="position:relative; z-index:4; max-width:1200px; margin:0 auto; padding:88px 32px 0;">
+    <div style="display:grid; grid-template-columns:0.9fr 1.1fr; gap:48px; align-items:center; border:1px solid rgba(255,255,255,0.08); border-radius:24px; background:linear-gradient(135deg,rgba(77,124,254,0.07),rgba(139,92,246,0.04)); padding:44px;">
+      <div>
+        <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:16px;">// CASE STUDY · BOUTIQUE BROKERAGE</div>
+        <h2 style="font-family:'Space Grotesk',sans-serif; font-size:32px; font-weight:700; line-height:1.14; letter-spacing:-0.01em; text-wrap:balance;">A brokerage tripled inbound seller leads in one season.</h2>
+        <p style="font-size:15px; color:#aeb4c7; line-height:1.65; margin-top:18px;">We rebuilt their local SEO and launched seller-focused ads. Listing appointments climbed quarter over quarter.</p>
+        <div style="display:flex; gap:32px; margin-top:26px;">
+          <div><div style="font-family:'Space Grotesk',sans-serif; font-size:30px; font-weight:700; color:var(--accent,#4d7cfe);">+186</div><div style="font-size:12.5px; color:#9aa0b4;">Leads/mo</div></div>
+          <div><div style="font-family:'Space Grotesk',sans-serif; font-size:30px; font-weight:700; color:var(--accent,#4d7cfe);">−37%</div><div style="font-size:12.5px; color:#9aa0b4;">Cost per lead</div></div>
+          <div><div style="font-family:'Space Grotesk',sans-serif; font-size:30px; font-weight:700; color:var(--accent,#4d7cfe);">90d</div><div style="font-size:12.5px; color:#9aa0b4;">To results</div></div>
+        </div>
+      </div>
+      <div style="position:relative; aspect-ratio:4/3; border-radius:16px; border:1px solid rgba(255,255,255,0.1); background-image:repeating-linear-gradient(135deg,rgba(255,255,255,0.04) 0,rgba(255,255,255,0.04) 1px,transparent 1px,transparent 11px); background-color:rgba(8,9,16,0.6); display:flex; align-items:center; justify-content:center;">
+        <span style="font-family:'Space Mono',monospace; font-size:12.5px; color:#7c8398;">[ listings / results screenshot ]</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="position:relative; z-index:4; max-width:1200px; margin:0 auto; padding:88px 32px 0;">
+    <div style="position:relative; overflow:hidden; border:1px solid rgba(255,255,255,0.1); border-radius:28px; background:linear-gradient(140deg,#0d1020,#0a0b14); padding:56px 48px; text-align:center;">
+      <div style="position:absolute; top:-160px; left:50%; transform:translateX(-50%); width:560px; height:520px; background:radial-gradient(circle,var(--accent,#4d7cfe),transparent 60%); opacity:0.2; filter:blur(30px);"></div>
+      <div style="position:relative;">
+        <h2 style="font-family:'Space Grotesk',sans-serif; font-size:40px; font-weight:700; line-height:1.08; letter-spacing:-0.02em; max-width:600px; margin:0 auto; text-wrap:balance;">Ready to fill your pipeline?</h2>
+        <p style="font-size:16.5px; color:#aeb4c7; line-height:1.6; margin:18px auto 0; max-width:500px;">Book a free consultation and get a real estate marketing audit within 48 hours.</p>
+        <a href="Contact Us.dc.html" style="display:inline-flex; align-items:center; gap:9px; margin-top:30px; background:var(--accent,#4d7cfe); color:#fff; text-decoration:none; font-weight:700; font-size:15.5px; padding:16px 30px; border-radius:12px; box-shadow:0 14px 38px -10px var(--accent,#4d7cfe);" style-hover="filter:brightness(1.08); transform:translateY(-1px);">Book Free Consultation →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="position:relative; z-index:4; max-width:1200px; margin:88px auto 0; padding:0 32px 44px;">
+    <div style="display:grid; grid-template-columns:1.7fr 1fr 1fr 1fr; gap:40px; padding:56px 0 44px; border-top:1px solid rgba(255,255,255,0.08);">
+      <div>
+        <a href="WebTech Core.dc.html" style="display:flex; align-items:center; gap:12px; text-decoration:none; color:#e9ebf2;">
+          <svg width="34" height="34" viewBox="0 0 30 30" fill="none"><rect x="3" y="3" width="24" height="24" rx="6" stroke="var(--accent,#4d7cfe)" stroke-width="1.6"></rect><rect x="9.5" y="9.5" width="11" height="11" rx="2" fill="var(--accent,#4d7cfe)"></rect><circle cx="15" cy="15" r="2.4" fill="#06070d"></circle></svg>
+          <span style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:19px; letter-spacing:0.16em;">WEBTECH<span style="color:var(--accent,#4d7cfe);">CORE</span></span>
+        </a>
+        <p style="font-size:14.5px; color:#9aa0b4; line-height:1.65; margin:20px 0 0; max-width:300px;">The complete digital marketing partner for small businesses ready to grow — SEO, ads, social, web, and content under one roof.</p>
+        <div style="display:flex; gap:10px; margin-top:24px;">
+          <a href="#" aria-label="social" style="width:38px; height:38px; border-radius:10px; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.03); display:flex; align-items:center; justify-content:center;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.08);"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M14 8 h2 V5 h-2.5 C12 5 11 6 11 7.5 V9 H9 v3 h2 v7 h3 v-7 h2.2 l.5-3 H14 V8 Z" fill="#aeb4c7"></path></svg></a>
+          <a href="#" aria-label="social" style="width:38px; height:38px; border-radius:10px; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.03); display:flex; align-items:center; justify-content:center;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.08);"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 5 l6 7 -6 7 h2 l5-5.8 L16 19 h4 l-6.4-7.6 L19.5 5 h-2 l-4.6 5.4 L8 5 Z" fill="#aeb4c7"></path></svg></a>
+          <a href="#" aria-label="social" style="width:38px; height:38px; border-radius:10px; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.03); display:flex; align-items:center; justify-content:center;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.08);"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="4.5" stroke="#aeb4c7" stroke-width="1.6"></rect><circle cx="12" cy="12" r="3.6" stroke="#aeb4c7" stroke-width="1.6"></circle><circle cx="16.5" cy="7.5" r="1" fill="#aeb4c7"></circle></svg></a>
+          <a href="#" aria-label="social" style="width:38px; height:38px; border-radius:10px; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.03); display:flex; align-items:center; justify-content:center;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.08);"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="3.5" stroke="#aeb4c7" stroke-width="1.6"></rect><line x1="8" y1="10.5" x2="8" y2="17" stroke="#aeb4c7" stroke-width="1.6" stroke-linecap="round"></line><circle cx="8" cy="7.5" r="1.1" fill="#aeb4c7"></circle><path d="M11.5 17 v-4 a2.5 2.5 0 0 1 5 0 v4 M11.5 13 v4" stroke="#aeb4c7" stroke-width="1.6" fill="none" stroke-linecap="round"></path></svg></a>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.1em; color:#7c8398; margin-bottom:18px;">SERVICES</div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <a href="SEO.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Search Engine Optimization</a>
+          <a href="PPC.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Paid Advertising</a>
+          <a href="Social Media.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Social Media</a>
+          <a href="Web Design.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Web Design</a>
+          <a href="Services.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">View all services →</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.1em; color:#7c8398; margin-bottom:18px;">INDUSTRIES</div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <a href="Healthcare.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Healthcare</a>
+          <a href="Real Estate.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Real Estate</a>
+          <a href="Ecommerce.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">E-commerce</a>
+          <a href="Restaurants.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Restaurants</a>
+          <a href="Home Services.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Home Services</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.1em; color:#7c8398; margin-bottom:18px;">COMPANY</div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <a href="About Us.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">About Us</a>
+          <a href="Case Studies.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Case Studies</a>
+          <a href="Blog.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Blog</a>
+          <a href="Press Release.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Press</a>
+          <a href="Contact Us.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex; justify-content:space-between; align-items:center; padding-top:26px; border-top:1px solid rgba(255,255,255,0.08); flex-wrap:wrap; gap:14px;">
+      <div style="display:flex; align-items:center; gap:22px; flex-wrap:wrap;">
+        <span style="font-size:13px; color:#7c8398;">© 2026 WebTech Core. All rights reserved.</span>
+        <a href="Privacy Policy.dc.html" style="font-size:13px; color:#7c8398; text-decoration:none;" style-hover="color:#aeb4c7;">Privacy Policy</a>
+        <a href="Terms and Conditions.dc.html" style="font-size:13px; color:#7c8398; text-decoration:none;" style-hover="color:#aeb4c7;">Terms &amp; Conditions</a>
+        <a href="Sitemap.dc.html" style="font-size:13px; color:#7c8398; text-decoration:none;" style-hover="color:#aeb4c7;">Sitemap</a>
+      </div>
+      <div style="display:flex; align-items:center; gap:18px; flex-wrap:wrap;">
+        <span style="font-family:'Space Mono',monospace; font-size:12px; color:#7c8398;">info@webtechcore.io</span>
+        <span style="font-family:'Space Mono',monospace; font-size:12px; color:#7c8398;">+91 9110170824</span>
+        <span style="font-family:'Space Mono',monospace; font-size:12px; color:#565c70;">Engineered for growth.</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1200,&quot;height&quot;:2200},&quot;accent&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Electric Blue&quot;,&quot;Cyan&quot;,&quot;Violet&quot;,&quot;Emerald&quot;],&quot;default&quot;:&quot;Electric Blue&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { menu: null, slide: 0 };
+
+  componentDidMount() {
+    this._auto = setInterval(() => this.setState((s) => ({ slide: (s.slide + 1) % 8 })), 3800);
+  }
+  componentWillUnmount() { clearInterval(this._auto); }
+  _go(i) {
+    this.setState({ slide: ((i % 8) + 8) % 8 });
+    clearInterval(this._auto);
+    this._auto = setInterval(() => this.setState((s) => ({ slide: (s.slide + 1) % 8 })), 3800);
+  }
+
+  renderVals() {
+    const accents = {
+      "Electric Blue": ["#4d7cfe", "#8b5cf6"],
+      "Cyan":          ["#22d3ee", "#38bdf8"],
+      "Violet":        ["#8b5cf6", "#d946ef"],
+      "Emerald":       ["#34d399", "#22d3ee"],
+    };
+    const pick = accents[this.props.accent] || accents["Electric Blue"];
+    const m = this.state.menu;
+    const slide = this.state.slide;
+    const dots = [0,1,2,3,4,5,6,7].map((i) => ({
+      w: i === slide ? "22px" : "7px",
+      bg: i === slide ? pick[0] : "rgba(255,255,255,0.2)",
+      go: () => this._go(i),
+    }));
+    return {
+      accentColor: pick[0],
+      accent2Color: pick[1],
+      slide,
+      dots,
+      trackTransform: "translateX(-" + (slide * 12.5) + "%)",
+      slideCounter: ("0" + (slide + 1)) + " / 08",
+      prevSlide: () => this._go(slide - 1),
+      nextSlide: () => this._go(slide + 1),
+      servicesOpen: m === "services",
+      industriesOpen: m === "industries",
+      servicesCaret: m === "services" ? 180 : 0,
+      industriesCaret: m === "industries" ? 180 : 0,
+      servicesColor: m === "services" ? "#ffffff" : "#aeb4c7",
+      industriesColor: m === "industries" ? "#ffffff" : "#aeb4c7",
+      openServices: () => this.setState({ menu: "services" }),
+      openIndustries: () => this.setState({ menu: "industries" }),
+      closeMenu: () => this.setState({ menu: null }),
+      toggleServices: () => this.setState((s) => ({ menu: s.menu === "services" ? null : "services" })),
+      toggleIndustries: () => this.setState((s) => ({ menu: s.menu === "industries" ? null : "industries" })),
+      resourcesOpen: this.state.menu === "resources",
+      resourcesCaret: this.state.menu === "resources" ? 180 : 0,
+      resourcesColor: this.state.menu === "resources" ? "#ffffff" : "#aeb4c7",
+      openResources: () => this.setState({ menu: "resources" }),
+      toggleResources: () => this.setState((s) => ({ menu: s.menu === "resources" ? null : "resources" })),
+    };
+  }
+}
+</script>
+</body>
+</html>

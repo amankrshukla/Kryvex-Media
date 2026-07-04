@@ -45,8 +45,8 @@ body{background:#06070d;color:#e9ebf2;font-family:'Manrope',sans-serif;-webkit-f
 .dd-all{display:block;text-align:center;margin-top:10px;padding:10px;border-radius:10px;text-decoration:none;font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.06em;color:var(--accent);background:rgba(77,124,254,.07);transition:background .15s}
 .dd-all:hover{background:rgba(77,124,254,.13)}
 .dd-res-wrap{position:relative}
-#panel-resources{position:absolute;top:34px;left:0;z-index:30;width:320px;max-width:90vw;padding:16px;background:rgba(14,16,28,.97);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.12);border-radius:16px;box-shadow:0 24px 60px -18px rgba(0,0,0,.7);display:none}
-#panel-resources.open{display:block;animation:wtc-fadein .18s ease-out}
+#panel-resources,#panel-countries{position:absolute;top:34px;left:0;z-index:30;width:320px;max-width:90vw;padding:16px;background:rgba(14,16,28,.97);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.12);border-radius:16px;box-shadow:0 24px 60px -18px rgba(0,0,0,.7);display:none}
+#panel-resources.open,#panel-countries.open{display:block;animation:wtc-fadein .18s ease-out}
 .dd-grid1{display:grid;grid-template-columns:1fr;gap:4px}
 .breadcrumb{position:relative;z-index:4;max-width:1200px;margin:0 auto;padding:10px 32px 0;font-family:'Space Mono',monospace;font-size:12px;color:#7c8398}
 .breadcrumb a{color:#7c8398;text-decoration:none;transition:color .15s}.breadcrumb a:hover{color:#aeb4c7}
@@ -129,6 +129,8 @@ footer{position:relative;z-index:4;max-width:1200px;margin:88px auto 0;padding:0
 .ft-mono{font-family:'Space Mono',monospace;font-size:12px;color:#7c8398}
 .ft-tag{font-family:'Space Mono',monospace;font-size:12px;color:#565c70}
 </style>
+
+<link rel="stylesheet" href="../styles/responsive.css">
 </head>
 <body>
 <div class="bg-grid" aria-hidden="true"></div>
@@ -141,7 +143,6 @@ footer{position:relative;z-index:4;max-width:1200px;margin:88px auto 0;padding:0
   </a>
   <div class="nav-links">
     <a href="../index.html" class="nav-link">Home</a>
-    <a href="../about.html" class="nav-link">About</a>
     <div class="dd-wide-wrap" id="dd-industries" onmouseenter="openMenu('industries',true)" onmouseleave="closeAll()">
       <button class="nav-btn active" aria-haspopup="true" aria-expanded="false" onclick="toggleMenu('industries',true)">Industries<span class="nav-caret" id="caret-industries"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8l3.5-3.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
     </div>
@@ -175,6 +176,14 @@ footer{position:relative;z-index:4;max-width:1200px;margin:88px auto 0;padding:0
         <a href="../services/graphics-design.html" class="dd-item"><span class="dd-item-emoji">🎨</span><span><span class="dd-item-name">Graphics Designing</span><span class="dd-item-sub">Brand visuals</span></span></a>
       </div>
       <a href="../services/index.html" class="dd-all">VIEW ALL SERVICES →</a>
+    </div>
+    <div class="dd-res-wrap" id="dd-countries" onmouseenter="openMenu('countries',false)" onmouseleave="closeAll()">
+      <button class="nav-btn" aria-haspopup="true" aria-expanded="false" onclick="toggleMenu('countries',false)">Countries<span class="nav-caret" id="caret-countries"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8l3.5-3.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+      <div id="panel-countries" role="region" aria-label="Countries">
+        <div class="dd-label">COUNTRIES</div>
+        <div class="dd-grid1">
+          <a href="../locations/india.html" class="dd-item"><span class="dd-item-emoji">🇮🇳</span><span><span class="dd-item-name">India</span><span class="dd-item-sub">Live · all states</span></span></a><a href="../locations/usa.html" class="dd-item"><span class="dd-item-emoji">🇺🇸</span><span><span class="dd-item-name">USA</span><span class="dd-item-sub">Launching soon</span></span></a><a href="../locations/uk.html" class="dd-item"><span class="dd-item-emoji">🇬🇧</span><span><span class="dd-item-name">UK</span><span class="dd-item-sub">Launching soon</span></span></a><a href="../locations/singapore.html" class="dd-item"><span class="dd-item-emoji">🇸🇬</span><span><span class="dd-item-name">Singapore</span><span class="dd-item-sub">Launching soon</span></span></a></div>
+      </div>
     </div>
     <div class="dd-res-wrap" id="dd-resources" onmouseenter="openMenu('resources',false)" onmouseleave="closeAll()">
       <button class="nav-btn" aria-haspopup="true" aria-expanded="false" onclick="toggleMenu('resources',false)">Resources<span class="nav-caret" id="caret-resources"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8l3.5-3.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
@@ -304,7 +313,7 @@ footer{position:relative;z-index:4;max-width:1200px;margin:88px auto 0;padding:0
     </div>
     <div><div class="ft-col-label">SERVICES</div><div class="ft-links"><a href="../services/seo.html" class="ft-link">Search Engine Optimization</a><a href="../services/ppc.html" class="ft-link">Paid Advertising</a><a href="../services/social-media.html" class="ft-link">Social Media</a><a href="../services/web-design.html" class="ft-link">Web Design</a><a href="../services/index.html" class="ft-link">View all services →</a></div></div>
     <div><div class="ft-col-label">INDUSTRIES</div><div class="ft-links"><a href="healthcare.html" class="ft-link">Healthcare</a><a href="real-estate.html" class="ft-link">Real Estate</a><a href="ecommerce.html" class="ft-link">E-commerce</a><a href="restaurants.html" class="ft-link">Restaurants</a><a href="home-services.html" class="ft-link">Home Services</a></div></div>
-    <div><div class="ft-col-label">COMPANY</div><div class="ft-links"><a href="../about.html" class="ft-link">About Us</a><a href="../resources/case-studies.html" class="ft-link">Case Studies</a><a href="../resources/blog.html" class="ft-link">Blog</a><a href="../resources/press-release.html" class="ft-link">Press</a><a href="../contact-us.html" class="ft-link">Contact</a></div></div>
+    <div><div class="ft-col-label">COMPANY</div><div class="ft-links"><a href="../about.html" class="ft-link">About Us</a><a href="../resources/case-studies.html" class="ft-link">Case Studies</a><a href="../resources/blog.html" class="ft-link">Blog</a><a href="../resources/press-release.html" class="ft-link">Press</a><a href="../contact-us.html" class="ft-link">Contact</a><a href="../sitemap.html" class="ft-link">Sitemap</a></div></div>
   </div>
   <div class="ft-bar">
     <div class="ft-bar-left"><span class="ft-copy">© 2026 WebTech Core. All rights reserved.</span><a href="../privacy-policy.html" class="ft-copy" style="text-decoration:none;transition:color .15s" onmouseover="this.style.color='#aeb4c7'" onmouseout="this.style.color='#7c8398'">Privacy Policy</a><a href="../terms-and-conditions.html" class="ft-copy" style="text-decoration:none;transition:color .15s" onmouseover="this.style.color='#aeb4c7'" onmouseout="this.style.color='#7c8398'">Terms &amp; Conditions</a></div>
@@ -330,15 +339,16 @@ footer{position:relative;z-index:4;max-width:1200px;margin:88px auto 0;padding:0
 (function(){
   var activeMenu=null;
   function positionWide(id){var p=document.getElementById(id),n=document.querySelector('.nav');if(!n||!p)return;var r=n.getBoundingClientRect();p.style.left=(r.left+32)+'px';p.style.top=(r.bottom+8)+'px';p.style.width=Math.min(980,r.width-64)+'px';}
-  function closeAll(){['industries','services','resources'].forEach(function(id){var p=document.getElementById('panel-'+id),c=document.getElementById('caret-'+id),w=document.getElementById('dd-'+id);if(p)p.classList.remove('open');if(c)c.classList.remove('open');if(w){var b=w.querySelector('.nav-btn');if(b)b.setAttribute('aria-expanded','false');}});activeMenu=null;}
+  function closeAll(){['industries','services','resources','countries'].forEach(function(id){var p=document.getElementById('panel-'+id),c=document.getElementById('caret-'+id),w=document.getElementById('dd-'+id);if(p)p.classList.remove('open');if(c)c.classList.remove('open');if(w){var b=w.querySelector('.nav-btn');if(b)b.setAttribute('aria-expanded','false');}});activeMenu=null;}
   window.closeAll=closeAll;
   function openMenu(id,wide){closeAll();var p=document.getElementById('panel-'+id),c=document.getElementById('caret-'+id),w=document.getElementById('dd-'+id);if(!p)return;p.classList.add('open');if(c)c.classList.add('open');if(w){var b=w.querySelector('.nav-btn');if(b)b.setAttribute('aria-expanded','true');}if(wide)positionWide('panel-'+id);activeMenu=id;}
   window.openMenu=openMenu;
   function toggleMenu(id,wide){if(activeMenu===id)closeAll();else openMenu(id,wide);}
   window.toggleMenu=toggleMenu;
-  document.addEventListener('click',function(e){if(!e.target.closest('#dd-industries')&&!e.target.closest('#panel-industries')&&!e.target.closest('#dd-services')&&!e.target.closest('#panel-services')&&!e.target.closest('#dd-resources')&&!e.target.closest('#panel-resources'))closeAll();});
+  document.addEventListener('click',function(e){if(!e.target.closest('#dd-industries')&&!e.target.closest('#panel-industries')&&!e.target.closest('#dd-services')&&!e.target.closest('#panel-services')&&!e.target.closest('#dd-resources')&&!e.target.closest('#panel-resources')&&!e.target.closest('#dd-countries')&&!e.target.closest('#panel-countries'))closeAll();});
   window.addEventListener('resize',function(){if(activeMenu==='industries')positionWide('panel-industries');if(activeMenu==='services')positionWide('panel-services');});
 })();
 </script>
+<script src="../styles/mobile-nav.js"></script>
 </body>
 </html>

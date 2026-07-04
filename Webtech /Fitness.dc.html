@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #06070d; }
+  ::selection { background: rgba(108,140,255,0.35); color: #fff; }
+  @keyframes wtc-pulse { 0%,100% { opacity: .55; } 50% { opacity: 1; } }
+  @keyframes wtc-fadein { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+</helmet>
+
+<div style="--accent:{{ accentColor }}; --accent2:{{ accent2Color }}; position:relative; background:#06070d; color:#e9ebf2; font-family:'Manrope',sans-serif; overflow:hidden; -webkit-font-smoothing:antialiased;">
+
+  <div style="position:absolute; inset:0; pointer-events:none; background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px); background-size:64px 64px; mask-image:radial-gradient(ellipse 90% 55% at 50% 0%,#000 30%,transparent 80%);"></div>
+  <div style="position:absolute; top:-280px; left:50%; transform:translateX(-50%); width:1100px; height:680px; background:radial-gradient(ellipse at center, var(--accent,#4d7cfe) 0%, transparent 62%); opacity:0.2; filter:blur(40px); pointer-events:none;"></div>
+
+  <!-- NAV -->
+  <nav style="position:relative; z-index:20; max-width:1200px; margin:0 auto; padding:30px 32px; display:flex; align-items:center; justify-content:space-between;">
+    <a href="WebTech Core.dc.html" style="display:flex; align-items:center; gap:12px; text-decoration:none; color:#e9ebf2;">
+      <svg width="36" height="36" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+        <rect x="3" y="3" width="24" height="24" rx="6" stroke="var(--accent,#4d7cfe)" stroke-width="1.6"></rect>
+        <rect x="9.5" y="9.5" width="11" height="11" rx="2" fill="var(--accent,#4d7cfe)"></rect>
+        <circle cx="15" cy="15" r="2.4" fill="#06070d"></circle>
+      </svg>
+      <span style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:21px; letter-spacing:0.16em;">WEBTECH<span style="color:var(--accent,#4d7cfe);">CORE</span></span>
+    </a>
+    <div style="display:flex; align-items:center; gap:30px;">
+      <a href="WebTech Core.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:15.5px; font-weight:500;" style-hover="color:#fff;">Home</a>
+      <a href="About Us.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:15.5px; font-weight:500;" style-hover="color:#fff;">About</a>
+
+      <!-- INDUSTRIES DROPDOWN -->
+      <div onMouseEnter="{{ openIndustries }}" onMouseLeave="{{ closeMenu }}">
+        <button onClick="{{ toggleIndustries }}" style="display:inline-flex; align-items:center; gap:7px; background:none; border:none; cursor:pointer; color:{{ industriesColor }}; font-family:'Manrope',sans-serif; font-size:15.5px; font-weight:600; padding:0;">
+          Industries
+          <span style="display:inline-block; transition:transform 0.2s; transform:rotate({{ industriesCaret }}deg);">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </span>
+        </button>
+        <sc-if value="{{ industriesOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute; top:68px; left:32px; z-index:30; width:980px; max-width:calc(100% - 64px); padding:16px; background:rgba(14,16,28,0.97); backdrop-filter:blur(14px); border:1px solid rgba(255,255,255,0.12); border-radius:16px; box-shadow:0 24px 60px -18px rgba(0,0,0,0.7); animation:wtc-fadein 0.18s ease-out;">
+            <div style="font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:0.1em; color:#7c8398; padding:6px 12px 12px;">INDUSTRIES WE SERVE</div>
+            <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:6px;">
+              <a href="Healthcare.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🏥</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Healthcare</span><span style="display:block; font-size:11.5px; color:#7c8398;">Clinics, dental, wellness</span></span>
+              </a>
+              <a href="Real Estate.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🏠</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Real Estate</span><span style="display:block; font-size:11.5px; color:#7c8398;">Agents, brokers, developers</span></span>
+              </a>
+              <a href="Ecommerce.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🛍️</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">E-commerce &amp; Retail</span><span style="display:block; font-size:11.5px; color:#7c8398;">Online &amp; omnichannel stores</span></span>
+              </a>
+              <a href="Restaurants.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🍽️</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Restaurants</span><span style="display:block; font-size:11.5px; color:#7c8398;">Cafes, dining, franchises</span></span>
+              </a>
+              <a href="Legal.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">⚖️</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Legal &amp; Professional</span><span style="display:block; font-size:11.5px; color:#7c8398;">Law, finance, consulting</span></span>
+              </a>
+              <a href="Home Services.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🔧</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Home Services</span><span style="display:block; font-size:11.5px; color:#7c8398;">Trades, repair, contractors</span></span>
+              </a>
+              <a href="Education.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🎓</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Education</span><span style="display:block; font-size:11.5px; color:#7c8398;">Schools, courses, edtech</span></span>
+              </a>
+              <a href="Fitness.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">💪</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Fitness &amp; Wellness</span><span style="display:block; font-size:11.5px; color:#7c8398;">Gyms, studios, coaches</span></span>
+              </a>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+
+      <!-- SERVICES DROPDOWN -->
+      <div onMouseEnter="{{ openServices }}" onMouseLeave="{{ closeMenu }}">
+        <button onClick="{{ toggleServices }}" style="display:inline-flex; align-items:center; gap:7px; background:none; border:none; cursor:pointer; color:{{ servicesColor }}; font-family:'Manrope',sans-serif; font-size:15.5px; font-weight:600; padding:0;">
+          Services
+          <span style="display:inline-block; transition:transform 0.2s; transform:rotate({{ servicesCaret }}deg);">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </span>
+        </button>
+        <sc-if value="{{ servicesOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute; top:68px; left:32px; z-index:30; width:980px; max-width:calc(100% - 64px); padding:16px; background:rgba(14,16,28,0.97); backdrop-filter:blur(14px); border:1px solid rgba(255,255,255,0.12); border-radius:16px; box-shadow:0 24px 60px -18px rgba(0,0,0,0.7); animation:wtc-fadein 0.18s ease-out;">
+            <div style="font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:0.1em; color:#7c8398; padding:6px 12px 12px;">WHAT WE DO</div>
+            <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:6px;">
+              <a href="SEO.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🔍</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Search Engine Optimization</span><span style="display:block; font-size:11.5px; color:#7c8398;">Organic growth</span></span>
+              </a>
+              <a href="Local SEO.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">📍</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Local SEO</span><span style="display:block; font-size:11.5px; color:#7c8398;">Map &amp; near-me</span></span>
+              </a>
+              <a href="PPC.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🎯</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Paid Advertising (PPC)</span><span style="display:block; font-size:11.5px; color:#7c8398;">Google ads</span></span>
+              </a>
+              <a href="Social Media.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">📱</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Social Media Marketing</span><span style="display:block; font-size:11.5px; color:#7c8398;">Build audience</span></span>
+              </a>
+              <a href="Meta Ads.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">⚡</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Meta Ads Services</span><span style="display:block; font-size:11.5px; color:#7c8398;">FB &amp; Instagram</span></span>
+              </a>
+              <a href="Content Marketing.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">✍️</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Content Marketing</span><span style="display:block; font-size:11.5px; color:#7c8398;">Blogs &amp; assets</span></span>
+              </a>
+              <a href="Email Marketing.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">✉️</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Email Marketing</span><span style="display:block; font-size:11.5px; color:#7c8398;">Flows &amp; campaigns</span></span>
+              </a>
+              <a href="Web Design.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🖥️</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Web Design &amp; Development</span><span style="display:block; font-size:11.5px; color:#7c8398;">Design &amp; build</span></span>
+              </a>
+              <a href="Graphics Design.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🎨</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Graphics Designing</span><span style="display:block; font-size:11.5px; color:#7c8398;">Brand visuals</span></span>
+              </a>
+            </div>
+            <a href="Services.dc.html" style="display:block; text-align:center; margin-top:10px; padding:10px; border-radius:10px; text-decoration:none; font-family:'Space Mono',monospace; font-size:11.5px; letter-spacing:0.06em; color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.07);" style-hover="background:rgba(77,124,254,0.13);">VIEW ALL SERVICES →</a>
+          </div>
+        </sc-if>
+      </div>
+
+      <!-- RESOURCES DROPDOWN -->
+      <div style="position:relative;" onMouseEnter="{{ openResources }}" onMouseLeave="{{ closeMenu }}">
+        <button onClick="{{ toggleResources }}" style="display:inline-flex; align-items:center; gap:7px; background:none; border:none; cursor:pointer; color:{{ resourcesColor }}; font-family:'Manrope',sans-serif; font-size:15.5px; font-weight:600; padding:0;">
+          Resources
+          <span style="display:inline-block; transition:transform 0.2s; transform:rotate({{ resourcesCaret }}deg);">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </span>
+        </button>
+        <sc-if value="{{ resourcesOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute; top:34px; left:0; z-index:30; width:320px; max-width:90vw; padding:16px; background:rgba(14,16,28,0.97); backdrop-filter:blur(14px); border:1px solid rgba(255,255,255,0.12); border-radius:16px; box-shadow:0 24px 60px -18px rgba(0,0,0,0.7); animation:wtc-fadein 0.18s ease-out;">
+            <div style="font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:0.1em; color:#7c8398; padding:6px 12px 12px;">RESOURCES</div>
+            <div style="display:grid; grid-template-columns:1fr; gap:4px;">
+              <a href="Blog.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">📝</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Blog</span><span style="display:block; font-size:11.5px; color:#7c8398;">Insights &amp; guides</span></span>
+              </a>
+              <a href="Press Release.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">📰</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Press Release</span><span style="display:block; font-size:11.5px; color:#7c8398;">News &amp; announcements</span></span>
+              </a>
+              <a href="Case Studies.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">📊</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Case Studies</span><span style="display:block; font-size:11.5px; color:#7c8398;">Real client results</span></span>
+              </a>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+
+      <a href="Contact Us.dc.html" style="display:inline-flex; align-items:center; gap:8px; background:var(--accent,#4d7cfe); color:#fff; text-decoration:none; font-weight:600; font-size:15px; padding:12px 22px; border-radius:11px; box-shadow:0 8px 28px -8px var(--accent,#4d7cfe);" style-hover="filter:brightness(1.08);">Book Free Consultation</a>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <div style="position:relative; z-index:4; max-width:1200px; margin:0 auto; padding:10px 32px 0; font-family:'Space Mono',monospace; font-size:12px; color:#7c8398;">
+    <a href="WebTech Core.dc.html" style="color:#7c8398; text-decoration:none;" style-hover="color:#aeb4c7;">Home</a>
+    <span style="margin:0 8px;">/</span>
+    <span style="color:#aeb4c7;">Industries</span>
+    <span style="margin:0 8px;">/</span>
+    <span style="color:var(--accent,#4d7cfe);">Fitness &amp; Wellness</span>
+  </div>
+
+  <!-- HERO -->
+  <header style="position:relative; z-index:4; max-width:1200px; margin:0 auto; padding:40px 32px 16px; display:grid; grid-template-columns:1.05fr 0.95fr; gap:52px; align-items:center;">
+    <div>
+      <div style="display:inline-flex; align-items:center; gap:9px; padding:7px 14px; border:1px solid rgba(255,255,255,0.12); border-radius:100px; background:rgba(255,255,255,0.03); font-family:'Space Mono',monospace; font-size:11.5px; letter-spacing:0.08em; color:#aeb4c7;">
+        <span style="font-size:14px;">💪</span> FITNESS &amp; WELLNESS DIGITAL MARKETING
+      </div>
+      <h1 style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:38px; line-height:1.09; letter-spacing:-0.02em; margin:20px 0 0; text-wrap:balance;">Digital marketing for gyms, fitness studios, yoga centers &amp; personal trainers — <span style="background:linear-gradient(100deg,var(--accent,#4d7cfe),var(--accent2,#8b5cf6)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;">India &amp; USA</span></h1>
+      <p style="font-size:15.5px; line-height:1.6; color:#aeb4c7; margin:18px 0 0; max-width:500px; text-wrap:pretty;">We help gyms, fitness studios, yoga and pilates centers, CrossFit boxes, and personal trainers fill classes, sign more members, and cut churn — through local SEO, Google Maps dominance, Instagram and Meta lead campaigns, and automated retention journeys that build a community members don’t want to leave.</p>
+      <div style="margin-top:20px; border:1px solid rgba(77,124,254,0.4); border-left:3px solid var(--accent,#4d7cfe); border-radius:12px; background:rgba(77,124,254,0.08); padding:15px 18px; max-width:520px;">
+        <p style="font-size:13.5px; line-height:1.55; color:#d6dae6;"><strong style="color:#fff;">India’s fitness market is projected to cross $12B by 2030,</strong> and 79% of members find their gym through a local online search. But the average gym loses 50% of new members within 6 months — winning isn’t just getting found, it’s keeping them.</p>
+      </div>
+      <div style="display:flex; flex-wrap:wrap; gap:14px; margin-top:24px;">
+        <a href="Contact Us.dc.html" style="display:inline-flex; align-items:center; gap:9px; background:var(--accent,#4d7cfe); color:#fff; text-decoration:none; font-weight:600; font-size:15px; padding:15px 24px; border-radius:12px; box-shadow:0 14px 38px -10px var(--accent,#4d7cfe);" style-hover="filter:brightness(1.08); transform:translateY(-1px);">Book Free Fitness Marketing Audit →</a>
+        <a href="#how" style="display:inline-flex; align-items:center; gap:9px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.14); color:#e9ebf2; text-decoration:none; font-weight:600; font-size:15px; padding:15px 22px; border-radius:12px;" style-hover="background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.28);">See How We Fill Your Classes →</a>
+      </div>
+    </div>
+    <div style="position:relative; min-width:0;">
+      <div style="position:absolute; inset:-1px; border-radius:20px; background:linear-gradient(140deg,var(--accent,#4d7cfe),transparent 45%,var(--accent2,#8b5cf6)); opacity:0.45; filter:blur(2px);"></div>
+      <div style="position:relative; background:linear-gradient(180deg,rgba(20,22,34,0.92),rgba(12,13,22,0.92)); border:1px solid rgba(255,255,255,0.1); border-radius:20px; padding:24px;">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:18px;">
+          <span style="font-family:'Space Mono',monospace; font-size:12px; color:#aeb4c7;">our_services</span>
+          <div style="display:flex; align-items:center; gap:10px;">
+            <span style="font-family:'Space Mono',monospace; font-size:11px; color:#7c8398;">{{ slideCounter }}</span>
+            <button onClick="{{ prevSlide }}" style="width:28px; height:28px; border-radius:8px; border:1px solid rgba(255,255,255,0.12); background:rgba(255,255,255,0.03); color:#aeb4c7; cursor:pointer; display:flex; align-items:center; justify-content:center; padding:0;" style-hover="background:rgba(255,255,255,0.08); color:#fff;"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M7.5 2.5 L4 6 L7.5 9.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+            <button onClick="{{ nextSlide }}" style="width:28px; height:28px; border-radius:8px; border:1px solid rgba(255,255,255,0.12); background:rgba(255,255,255,0.03); color:#aeb4c7; cursor:pointer; display:flex; align-items:center; justify-content:center; padding:0;" style-hover="background:rgba(255,255,255,0.08); color:#fff;"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M4.5 2.5 L8 6 L4.5 9.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+          </div>
+        </div>
+
+        <div style="overflow:hidden; border-radius:14px; min-width:0;">
+          <div style="display:flex; width:800%; transform:{{ trackTransform }}; transition:transform 0.55s cubic-bezier(0.22,1,0.36,1);">
+
+            <div style="flex:0 0 12.5%; padding:4px 2px;">
+              <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:16px; min-height:138px;">
+                <span style="display:inline-flex; width:38px; height:38px; border-radius:10px; background:rgba(77,124,254,0.13); align-items:center; justify-content:center;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="14" rx="2.5" stroke="var(--accent,#4d7cfe)" stroke-width="1.7"></rect><line x1="3" y1="8.5" x2="21" y2="8.5" stroke="var(--accent,#4d7cfe)" stroke-width="1.7"></line><line x1="9" y1="21" x2="15" y2="21" stroke="var(--accent,#4d7cfe)" stroke-width="1.7" stroke-linecap="round"></line></svg></span>
+                <h3 style="font-family:'Space Grotesk',sans-serif; font-size:15.5px; font-weight:600; margin:11px 0 5px;">Fitness Website Development</h3>
+                <p style="font-size:14px; color:#9aa0b4; line-height:1.55;">Fast, conversion-focused websites that turn your hard-won traffic into booked customers.</p>
+                <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:11px;">
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Responsive</span>
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">CRO</span>
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Fast</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="flex:0 0 12.5%; padding:4px 2px;">
+              <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:16px; min-height:138px;">
+                <span style="display:inline-flex; width:38px; height:38px; border-radius:10px; background:rgba(77,124,254,0.13); align-items:center; justify-content:center;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><rect x="5" y="3" width="14" height="18" rx="2.5" stroke="var(--accent,#4d7cfe)" stroke-width="1.7"></rect><line x1="8.5" y1="8" x2="15.5" y2="8" stroke="var(--accent,#4d7cfe)" stroke-width="1.7" stroke-linecap="round"></line><line x1="8.5" y1="12" x2="15.5" y2="12" stroke="var(--accent,#4d7cfe)" stroke-width="1.7" stroke-linecap="round"></line><line x1="8.5" y1="16" x2="12.5" y2="16" stroke="var(--accent,#4d7cfe)" stroke-width="1.7" stroke-linecap="round"></line></svg></span>
+                <h3 style="font-family:'Space Grotesk',sans-serif; font-size:15.5px; font-weight:600; margin:11px 0 5px;">Fitness Content Writing</h3>
+                <p style="font-size:14px; color:#9aa0b4; line-height:1.55;">SEO-driven blogs, landing pages, and copy that build trust and drive action.</p>
+                <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:11px;">
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Blogs</span>
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Landing pages</span>
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Copy</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="flex:0 0 12.5%; padding:4px 2px;">
+              <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:16px; min-height:138px;">
+                <span style="display:inline-flex; width:38px; height:38px; border-radius:10px; background:rgba(77,124,254,0.13); align-items:center; justify-content:center;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="var(--accent,#4d7cfe)" stroke-width="1.7"></circle><line x1="16" y1="16" x2="21" y2="21" stroke="var(--accent,#4d7cfe)" stroke-width="1.7" stroke-linecap="round"></line></svg></span>
+                <h3 style="font-family:'Space Grotesk',sans-serif; font-size:15.5px; font-weight:600; margin:11px 0 5px;">Fitness SEO Services</h3>
+                <p style="font-size:14px; color:#9aa0b4; line-height:1.55;">Technical and on-page SEO that grows organic traffic and qualified leads.</p>
+                <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:11px;">
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Technical</span>
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">On-page</span>
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Content</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="flex:0 0 12.5%; padding:4px 2px;">
+              <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:16px; min-height:138px;">
+                <span style="display:inline-flex; width:38px; height:38px; border-radius:10px; background:rgba(77,124,254,0.13); align-items:center; justify-content:center;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><circle cx="8" cy="8" r="4" stroke="var(--accent,#4d7cfe)" stroke-width="1.7"></circle><rect x="13" y="13" width="8" height="8" rx="1.6" stroke="var(--accent,#4d7cfe)" stroke-width="1.7"></rect><path d="M15.5 3.5 L20.5 3.5 L18 8 Z" stroke="var(--accent,#4d7cfe)" stroke-width="1.7" fill="none" stroke-linejoin="round"></path></svg></span>
+                <h3 style="font-family:'Space Grotesk',sans-serif; font-size:15.5px; font-weight:600; margin:11px 0 5px;">Fitness Graphics Designing</h3>
+                <p style="font-size:14px; color:#9aa0b4; line-height:1.55;">On-brand visuals for web, social, and ads that make you look the part.</p>
+                <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:11px;">
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Social</span>
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Ad creative</span>
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Brand</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="flex:0 0 12.5%; padding:4px 2px;">
+              <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:16px; min-height:138px;">
+                <span style="display:inline-flex; width:38px; height:38px; border-radius:10px; background:rgba(77,124,254,0.13); align-items:center; justify-content:center;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2.5" stroke="var(--accent,#4d7cfe)" stroke-width="1.7"></rect><path d="M4 7 L12 13 L20 7" stroke="var(--accent,#4d7cfe)" stroke-width="1.7" fill="none" stroke-linejoin="round"></path></svg></span>
+                <h3 style="font-family:'Space Grotesk',sans-serif; font-size:15.5px; font-weight:600; margin:11px 0 5px;">Fitness Email Marketing</h3>
+                <p style="font-size:14px; color:#9aa0b4; line-height:1.55;">Automated nurture and broadcast campaigns that turn subscribers into revenue.</p>
+                <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:11px;">
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Automation</span>
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Newsletters</span>
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Flows</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="flex:0 0 12.5%; padding:4px 2px;">
+              <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:16px; min-height:138px;">
+                <span style="display:inline-flex; width:38px; height:38px; border-radius:10px; background:rgba(77,124,254,0.13); align-items:center; justify-content:center;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M5 4 L19 11 L12.5 12.5 L9.5 19.5 Z" stroke="var(--accent,#4d7cfe)" stroke-width="1.7" fill="none" stroke-linejoin="round"></path></svg></span>
+                <h3 style="font-family:'Space Grotesk',sans-serif; font-size:15.5px; font-weight:600; margin:11px 0 5px;">Fitness Google Ads</h3>
+                <p style="font-size:14px; color:#9aa0b4; line-height:1.55;">Profitable search and display campaigns engineered for return, not just clicks.</p>
+                <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:11px;">
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Search</span>
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Display</span>
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">PMax</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="flex:0 0 12.5%; padding:4px 2px;">
+              <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:16px; min-height:138px;">
+                <span style="display:inline-flex; width:38px; height:38px; border-radius:10px; background:rgba(77,124,254,0.13); align-items:center; justify-content:center;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M12 21 C7 16 4 12.5 4 9 a8 8 0 0 1 16 0 C20 12.5 17 16 12 21 Z" stroke="var(--accent,#4d7cfe)" stroke-width="1.7" fill="none" stroke-linejoin="round"></path><circle cx="12" cy="9" r="2.4" stroke="var(--accent,#4d7cfe)" stroke-width="1.7"></circle></svg></span>
+                <h3 style="font-family:'Space Grotesk',sans-serif; font-size:15.5px; font-weight:600; margin:11px 0 5px;">Fitness Local SEO</h3>
+                <p style="font-size:14px; color:#9aa0b4; line-height:1.55;">Own the map pack and "near me" searches with an optimized local presence.</p>
+                <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:11px;">
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Map pack</span>
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">GBP</span>
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Citations</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="flex:0 0 12.5%; padding:4px 2px;">
+              <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:16px; min-height:138px;">
+                <span style="display:inline-flex; width:38px; height:38px; border-radius:10px; background:rgba(77,124,254,0.13); align-items:center; justify-content:center;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="12" rx="3.5" stroke="var(--accent,#4d7cfe)" stroke-width="1.7"></rect><path d="M10.5 9.3 L15 12 L10.5 14.7 Z" fill="var(--accent,#4d7cfe)"></path></svg></span>
+                <h3 style="font-family:'Space Grotesk',sans-serif; font-size:15.5px; font-weight:600; margin:11px 0 5px;">Fitness YouTube Management</h3>
+                <p style="font-size:14px; color:#9aa0b4; line-height:1.55;">Channel strategy, video SEO, and content that grows views and subscribers.</p>
+                <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:11px;">
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Strategy</span>
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Video SEO</span>
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Editing</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:center; justify-content:center; gap:8px; margin-top:14px;">
+          <sc-for list="{{ dots }}" as="dot" hint-placeholder-count="8">
+            <button onClick="{{ dot.go }}" style="height:7px; width:{{ dot.w }}; border:none; padding:0; border-radius:99px; cursor:pointer; background:{{ dot.bg }}; transition:width 0.3s, background 0.3s;"></button>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MARKET DATA BAR -->
+  <section style="position:relative; z-index:4; max-width:1200px; margin:40px auto 0; padding:0 32px;">
+    <div style="text-align:center; margin-bottom:24px;">
+      <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:12px;">// THE FITNESS MARKET IN NUMBERS</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif; font-size:clamp(26px,4vw,36px); font-weight:700; letter-spacing:-0.02em; line-height:1.1;">A market set to double — if members stay</h2>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:16px;">
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;"><div style="font-family:'Space Grotesk',sans-serif; font-size:30px; font-weight:700; color:var(--accent,#4d7cfe);">$1.94B</div><div style="font-size:13.5px; color:#aeb4c7; margin-top:6px; line-height:1.45;">India fitness market today</div></div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;"><div style="font-family:'Space Grotesk',sans-serif; font-size:30px; font-weight:700; color:var(--accent,#4d7cfe);">$4.5B</div><div style="font-size:13.5px; color:#aeb4c7; margin-top:6px; line-height:1.45;">India fitness market by 2030</div></div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;"><div style="font-family:'Space Grotesk',sans-serif; font-size:30px; font-weight:700; color:var(--accent,#4d7cfe);">0.8%</div><div style="font-size:13.5px; color:#aeb4c7; margin-top:6px; line-height:1.45;">India gym membership penetration</div></div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;"><div style="font-family:'Space Grotesk',sans-serif; font-size:30px; font-weight:700; color:#fff;">28.6%</div><div style="font-size:13.5px; color:#aeb4c7; margin-top:6px; line-height:1.45;">Average annual gym member churn</div></div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;"><div style="font-family:'Space Grotesk',sans-serif; font-size:30px; font-weight:700; color:#fff;">45%</div><div style="font-size:13.5px; color:#aeb4c7; margin-top:6px; line-height:1.45;">Higher churn for January joiners</div></div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;"><div style="font-family:'Space Grotesk',sans-serif; font-size:30px; font-weight:700; color:#fff;">27%</div><div style="font-size:13.5px; color:#aeb4c7; margin-top:6px; line-height:1.45;">More annual spend by hybrid members</div></div>
+    </div>
+    <p style="font-family:'Space Mono',monospace; font-size:10.5px; color:#565c70; margin-top:14px; text-align:center;">Sources: Deloitte India / H&amp;FA India Fitness Market Report 2025 · IHRSA Health Club Consumer Report 2026 · SmartHealthClubs Retention Statistics 2025 · Les Mills Global Fitness Report 2026.</p>
+  </section>
+
+  <!-- THE JANUARY PROBLEM -->
+  <section id="how" style="position:relative; z-index:4; max-width:1200px; margin:88px auto 0; padding:0 32px;">
+    <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:14px;">// THE COUNTERINTUITIVE TRUTH</div>
+    <h2 style="font-family:'Space Grotesk',sans-serif; font-size:clamp(28px,4.5vw,38px); font-weight:700; letter-spacing:-0.02em; line-height:1.12; max-width:760px; text-wrap:balance;">The January problem — why your busiest month is also your most expensive one</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:24px; margin-top:20px;">
+      <div>
+        <p style="font-size:15px; color:#aeb4c7; line-height:1.65;">Every gym owner knows January. The phone rings constantly. Inquiries flood in. Trial bookings fill the schedule. New Year resolution seekers pack the floor for 3 weeks.</p>
+        <div style="margin-top:16px; border-left:3px solid var(--accent,#4d7cfe); padding-left:16px;"><p style="font-size:15px; color:#e9ebf2; line-height:1.6; font-weight:500;">What most owners don’t know: members who sign up during January resolution campaigns have a <strong style="color:#fff;">45% higher churn rate</strong> than members who join any other time of year. They’re the most expensive to acquire and the fastest to leave.</p></div>
+      </div>
+      <p style="font-size:15px; color:#aeb4c7; line-height:1.65;">The gym model is built on retention, not acquisition. A gym with 500 members at 85% annual retention generates more revenue over 3 years than a gym with 700 members at 70% retention — despite fewer members on paper. The math rewards keeping members, not just signing them.</p>
+    </div>
+    <h3 style="font-family:'Space Grotesk',sans-serif; font-size:19px; font-weight:600; color:#e9ebf2; margin:30px 0 18px;">What the top-performing fitness brands do instead:</h3>
+    <div style="display:flex; flex-direction:column; gap:14px; max-width:900px;">
+<div style="display:flex; gap:13px; align-items:flex-start;"><span style="color:var(--accent,#4d7cfe); font-size:17px; flex:none; line-height:1.4;">✓</span><span style="font-size:14px; color:#c9cedd; line-height:1.6;">Build marketing systems that attract members in March, June, August, and October — months when motivation is based on lifestyle change, not resolution.</span></div>
+<div style="display:flex; gap:13px; align-items:flex-start;"><span style="color:var(--accent,#4d7cfe); font-size:17px; flex:none; line-height:1.4;">✓</span><span style="font-size:14px; color:#c9cedd; line-height:1.6;">Spend 30–40% of their marketing budget on retention campaigns, not just acquisition.</span></div>
+<div style="display:flex; gap:13px; align-items:flex-start;"><span style="color:var(--accent,#4d7cfe); font-size:17px; flex:none; line-height:1.4;">✓</span><span style="font-size:14px; color:#c9cedd; line-height:1.6;">Build post-trial nurture sequences that convert free-trial members at 60–70% instead of the industry average of 20–30%.</span></div>
+<div style="display:flex; gap:13px; align-items:flex-start;"><span style="color:var(--accent,#4d7cfe); font-size:17px; flex:none; line-height:1.4;">✓</span><span style="font-size:14px; color:#c9cedd; line-height:1.6;">Use WhatsApp check-in sequences for members who go 7+ days without visiting — catching the churn signal before it becomes a cancellation.</span></div>
+<div style="display:flex; gap:13px; align-items:flex-start;"><span style="color:var(--accent,#4d7cfe); font-size:17px; flex:none; line-height:1.4;">✓</span><span style="font-size:14px; color:#c9cedd; line-height:1.6;">Build community — because members in community events and loyalty programs have 25% higher retention rates.</span></div>
+    </div>
+    <div style="margin-top:22px; border:1px solid rgba(77,124,254,0.4); border-left:3px solid var(--accent,#4d7cfe); border-radius:14px; background:rgba(77,124,254,0.08); padding:20px 22px; max-width:900px;">
+      <p style="font-size:14.5px; color:#d6dae6; line-height:1.6;"><strong style="color:#fff;">What this means for your marketing:</strong> year-round member acquisition with retention built into every campaign — not a January sprint followed by 11 months of silent churn. We build systems that fill your roster with members who stay.</p>
+    </div>
+  </section>
+
+  <!-- RETENTION REVENUE MODEL -->
+  <section style="position:relative; z-index:4; max-width:1200px; margin:88px auto 0; padding:0 32px;">
+    <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:14px;">// THE MATH</div>
+    <h2 style="font-family:'Space Grotesk',sans-serif; font-size:clamp(28px,4.5vw,38px); font-weight:700; letter-spacing:-0.02em; line-height:1.1; max-width:740px; text-wrap:balance;">Why 1% more retention is worth more than 50 new members</h2>
+    <p style="font-size:15px; color:#aeb4c7; line-height:1.65; margin-top:14px; max-width:680px;">Most fitness marketing is about new member acquisition. The math of gym revenue, however, is overwhelmingly driven by retention.</p>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:16px; margin-top:26px; align-items:start;">
+      <div style="border:1px solid rgba(255,255,255,0.08); border-radius:16px; background:rgba(255,255,255,0.025); padding:26px;">
+        <div style="font-size:22px;">📉</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:600; color:#e9ebf2; margin:10px 0 14px;">Acquisition-only focus</h3>
+        <div style="display:flex; flex-direction:column; gap:9px; font-size:13.5px; color:#aeb4c7; line-height:1.5;">
+          <div>400 members at ₹2,000/month = <strong style="color:#e9ebf2;">₹8,00,000 MRR</strong></div>
+          <div>Annual churn of 35% = 140 members lost</div>
+          <div>Cost to acquire 140 new members: ₹2.8L–7L/year</div>
+          <div style="color:#ff6b6b; font-weight:600;">Net revenue growth: ZERO</div>
+        </div>
+      </div>
+      <div style="border:1px solid rgba(52,211,153,0.3); border-radius:16px; background:rgba(52,211,153,0.06); padding:26px;">
+        <div style="font-size:22px;">📈</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:600; color:#e9ebf2; margin:10px 0 14px;">Retention + acquisition system</h3>
+        <div style="display:flex; flex-direction:column; gap:9px; font-size:13.5px; color:#aeb4c7; line-height:1.5;">
+          <div>Same gym, 400 members</div>
+          <div>Retention improves from 65% → 80%</div>
+          <div>Annual churn drops from 140 → 80 members</div>
+          <div>60 fewer replacements: ₹1.2L–3L saved</div>
+          <div>Loyalty members spend 25% more = ~100 extra members in revenue</div>
+          <div style="color:#34d399; font-weight:600;">Net revenue growth: 15–25% — zero extra members</div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top:18px; border:1px solid rgba(77,124,254,0.4); border-left:3px solid var(--accent,#4d7cfe); border-radius:14px; background:rgba(77,124,254,0.08); padding:20px 22px;">
+      <p style="font-size:14.5px; color:#d6dae6; line-height:1.6;">Members in loyalty programs have <strong style="color:#fff;">25% higher retention</strong>. Members using on-demand virtual workouts alongside membership stay 29% longer. Members attending community events are 3x more likely to refer a friend. We build every one of these systems for our fitness clients.</p>
+    </div>
+  </section>
+
+  <!-- WHO WE SERVE -->
+  <section style="position:relative; z-index:4; max-width:1200px; margin:88px auto 0; padding:0 32px;">
+    <div style="text-align:center; margin-bottom:36px;">
+      <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:14px;">// WHO WE SERVE</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif; font-size:clamp(28px,4.5vw,38px); font-weight:700; letter-spacing:-0.02em; line-height:1.1;">Fitness &amp; wellness businesses we work with</h2>
+      <p style="font-size:15px; color:#aeb4c7; line-height:1.65; margin:14px auto 0; max-width:660px;">Every format — from solo personal trainers building their first digital presence to multi-location gym chains running city-wide membership campaigns.</p>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px,1fr)); gap:16px;">
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05); transform:translateY(-3px);"><div style="font-size:24px;">🏋️</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; margin:13px 0 8px; color:#e9ebf2;">Gyms &amp; Fitness Centers</h3><p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">Independent gyms, budget centers, premium health clubs, and training facilities. We build Maps dominance for ‘gym near me’, manage Instagram with transformation content, run acquisition ads, and build WhatsApp retention sequences that catch the churn signal before cancellation.</p></div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05); transform:translateY(-3px);"><div style="font-size:24px;">🧘</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; margin:13px 0 8px; color:#e9ebf2;">Yoga Studios &amp; Pilates Centers</h3><p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">Hot yoga, Hatha, Vinyasa, Ashtanga, Yin, and Pilates studios. We build class-schedule visibility on Google, run Instagram content showcasing the studio community, manage ads for session and membership signups, and build class waitlist automation via WhatsApp.</p></div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05); transform:translateY(-3px);"><div style="font-size:24px;">🥊</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; margin:13px 0 8px; color:#e9ebf2;">Boutique Fitness Studios</h3><p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">CrossFit boxes, HIIT, cycling, boxing, functional fitness, and martial arts. Boutique studios win on community — we build Instagram and YouTube content that showcases your culture and attracts right-fit members who stay longer and refer more.</p></div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05); transform:translateY(-3px);"><div style="font-size:24px;">🏃</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; margin:13px 0 8px; color:#e9ebf2;">Personal Trainers &amp; Online Coaches</h3><p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">Solo trainers, group coaches, and online programs. We build personal-brand authority through Instagram Reels, YouTube workout content, and SEO sites that generate direct client inquiries — without depending on gym referrals or freelance platforms.</p></div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05); transform:translateY(-3px);"><div style="font-size:24px;">🌿</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; margin:13px 0 8px; color:#e9ebf2;">Ayurveda, Naturopathy &amp; Holistic Wellness</h3><p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">Ayurvedic centers, naturopathy clinics, meditation centers, and holistic retreats. We build content authority for treatment-specific and wellness-tourism queries, manage Instagram for lifestyle content, and run ads for high-intent wellness searches.</p></div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05); transform:translateY(-3px);"><div style="font-size:24px;">📱</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; margin:13px 0 8px; color:#e9ebf2;">Online Fitness Platforms &amp; Wellness Apps</h3><p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">Digital fitness platforms, on-demand workout apps, and corporate wellness programs. India’s digital fitness market is $1.5B growing at 12.93% CAGR. We build app-download campaigns, subscription funnels, and content marketing for online fitness brands.</p></div>
+    </div>
+  </section>
+
+  <!-- PAIN POINTS -->
+  <section style="position:relative; z-index:4; max-width:1200px; margin:88px auto 0; padding:0 32px;">
+    <div style="text-align:center; margin-bottom:36px;">
+      <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:14px;">// WHAT WE FIX</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif; font-size:clamp(28px,4.5vw,38px); font-weight:700; letter-spacing:-0.02em; line-height:1.1;">The real challenges fitness &amp; wellness businesses face</h2>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px,1fr)); gap:16px;">
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;"><div style="font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:700; color:var(--accent,#4d7cfe);">01</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:600; margin:11px 0 8px; color:#e9ebf2;">Invisible on Google Maps for ‘gym near me’ searches</h3><p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">Someone searching ‘gym near me’, ‘yoga class near me’, or ‘personal trainer in [area]’ is ready to join. If you’re not in the top 3 Maps results, that member walks into your competitor’s facility. We build GBP authority that puts you in the local pack for every relevant search.</p></div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;"><div style="font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:700; color:var(--accent,#4d7cfe);">02</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:600; margin:11px 0 8px; color:#e9ebf2;">High January signups, high February churn</h3><p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">January looks great on paper; February tells the real story. Resolution joiners have 45% higher churn. We build year-round campaigns that attract members based on lifestyle motivation, not temporal resolution.</p></div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;"><div style="font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:700; color:var(--accent,#4d7cfe);">03</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:600; margin:11px 0 8px; color:#e9ebf2;">Trial members who never convert to paid</h3><p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">The average trial-to-member rate is 20–30%. With a structured post-trial nurture — WhatsApp check-in Day 3, progress email Day 5, limited-time offer Day 7 — conversion reaches 60–70%. We build this infrastructure as standard.</p></div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;"><div style="font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:700; color:var(--accent,#4d7cfe);">04</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:600; margin:11px 0 8px; color:#e9ebf2;">Members going quiet before cancelling</h3><p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">A member who stops visiting 7–10 days in a row is 3x more likely to cancel within 30 days. We build automated WhatsApp check-ins that flag at-risk members the moment attendance drops — and send a personal re-engagement message before they mentally cancel.</p></div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;"><div style="font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:700; color:var(--accent,#4d7cfe);">05</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:600; margin:11px 0 8px; color:#e9ebf2;">No community or social proof for prospects</h3><p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">63% of millennials pay more for a gym with community events and wellness programs. Most fitness businesses have inconsistent social media that fails to convert a follower into a trial. We build a content program — transformations, class energy, trainer intros — that does exactly this.</p></div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;"><div style="font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:700; color:var(--accent,#4d7cfe);">06</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:600; margin:11px 0 8px; color:#e9ebf2;">Depending on walk-ins and word of mouth alone</h3><p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">Walk-ins and referrals spike in January and dry up in August. We build a consistent year-round pipeline: Maps for discovery, Google Ads for intent, Instagram for awareness, WhatsApp for trial booking and retention — all running simultaneously.</p></div>
+    </div>
+  </section>
+
+  <!-- SEASONAL STRATEGY -->
+  <section style="position:relative; z-index:4; max-width:1200px; margin:88px auto 0; padding:0 32px;">
+    <div style="border:1px solid rgba(77,124,254,0.2); border-radius:24px; background:linear-gradient(135deg,rgba(77,124,254,0.08),rgba(139,92,246,0.04)); padding:clamp(28px,4vw,40px);">
+      <div style="text-align:center; margin-bottom:30px;">
+        <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:14px;">// YEAR-ROUND MEMBER ACQUISITION</div>
+        <h2 style="font-family:'Space Grotesk',sans-serif; font-size:clamp(26px,4vw,34px); font-weight:700; letter-spacing:-0.02em; line-height:1.12; max-width:720px; margin:0 auto; text-wrap:balance;">Year-round member acquisition — never depend on January again</h2>
+        <p style="font-size:15px; color:#aeb4c7; line-height:1.65; margin:14px auto 0; max-width:660px;">The gym model requires consistent monthly member flow — not a single January spike followed by a flat year. Here’s how we plan your calendar across all 12 months.</p>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:16px;">
+      <div style="border:1px solid rgba(150,160,180,0.28); border-radius:18px; background:rgba(150,160,180,0.1); padding:24px;"><div style="font-size:24px;">❄️</div><div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.04em; color:#aeb4c7; margin:12px 0 6px;">January · Quality Filter</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; color:#e9ebf2;">Goal-driven, not resolution-driven</h3><p style="font-size:13px; color:#9aa0b4; line-height:1.6; margin-top:8px;">Target members motivated by specific goals — ‘strength training program’, ‘yoga for flexibility’, ‘weight loss coach’ — not ‘new year gym offer’. Quality over volume, with the post-trial nurture system fully activated.</p></div>
+      <div style="border:1px solid rgba(236,110,173,0.3); border-radius:18px; background:rgba(236,110,173,0.1); padding:24px;"><div style="font-size:24px;">🌸</div><div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.04em; color:#aeb4c7; margin:12px 0 6px;">Feb–March · Goal Season</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; color:#e9ebf2;">Transformation challenges</h3><p style="font-size:13px; color:#9aa0b4; line-height:1.6; margin-top:8px;">Feb–March joiners retain better than January. Run transformation challenge campaigns and Instagram showcasing 8-week results. ‘Pre-summer fitness challenge’ framing converts extremely well.</p></div>
+      <div style="border:1px solid rgba(255,150,60,0.3); border-radius:18px; background:rgba(255,150,60,0.1); padding:24px;"><div style="font-size:24px;">☀️</div><div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.04em; color:#aeb4c7; margin:12px 0 6px;">April–June · Pre-Summer Peak</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; color:#e9ebf2;">Highest-intent searches</h3><p style="font-size:13px; color:#9aa0b4; line-height:1.6; margin-top:8px;">Wedding and summer prep drive the year’s highest-intent fitness searches — ‘gym for weight loss’, ‘personal training for wedding’. The highest-conversion period; full Google Ads and Meta budget deployment.</p></div>
+      <div style="border:1px solid rgba(77,124,254,0.32); border-radius:18px; background:rgba(77,124,254,0.12); padding:24px;"><div style="font-size:24px;">🌧️</div><div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.04em; color:#aeb4c7; margin:12px 0 6px;">July–Sept · Retention + Online</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; color:#e9ebf2;">Keep members engaged</h3><p style="font-size:13px; color:#9aa0b4; line-height:1.6; margin-top:8px;">Monsoon reduces footfall. Focus on retention campaigns, online class promotion, indoor program launches, and community events that keep members engaged inside the facility.</p></div>
+      <div style="border:1px solid rgba(255,200,80,0.3); border-radius:18px; background:rgba(255,200,80,0.1); padding:24px;"><div style="font-size:24px;">🪔</div><div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.04em; color:#aeb4c7; margin:12px 0 6px;">Oct–Dec · Festive + Wedding</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; color:#e9ebf2;">Post-Diwali demand</h3><p style="font-size:13px; color:#9aa0b4; line-height:1.6; margin-top:8px;">Post-Diwali weight management and Q4 wedding season drive strong demand — ‘post-Diwali fitness challenge’, ‘wedding fitness program’. Referral and membership-gift campaigns for Diwali and Christmas.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section style="position:relative; z-index:4; max-width:1200px; margin:88px auto 0; padding:0 32px;">
+    <div style="text-align:center; margin-bottom:36px;">
+      <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:14px;">// OUR SERVICES</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif; font-size:clamp(28px,4.5vw,38px); font-weight:700; letter-spacing:-0.02em; line-height:1.1;">Digital marketing services built for fitness &amp; wellness businesses</h2>
+      <p style="font-size:15px; color:#aeb4c7; line-height:1.65; margin:14px auto 0; max-width:660px;">Every service is built around the dual challenge of fitness marketing: acquiring new members consistently AND retaining existing members long enough to generate real lifetime value.</p>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(270px,1fr)); gap:16px;">
+      <a href="Local SEO.dc.html" style="text-decoration:none; display:block; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:24px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05); transform:translateY(-3px);"><div style="font-size:22px;">📍</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:16.5px; font-weight:600; margin:12px 0 9px; color:#e9ebf2;">Local SEO &amp; Google Maps for Fitness</h3><div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:11px;"><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Map Pack</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">GBP</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Fitness Keywords</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Near Me</span></div><p style="font-size:13px; color:#9aa0b4; line-height:1.6;">Top-3 Maps position for every relevant query in your area — ‘gym near me’, ‘yoga class in [locality]’, ‘personal trainer [city]’. Weekly posts, real facility photos, class schedule updates, and systematic review responses.</p><div style="font-family:'Space Mono',monospace; font-size:11px; color:var(--accent,#4d7cfe); margin-top:13px;">Explore Local SEO →</div></a>
+      <a href="Social Media.dc.html" style="text-decoration:none; display:block; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:24px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05); transform:translateY(-3px);"><div style="font-size:22px;">📸</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:16.5px; font-weight:600; margin:12px 0 9px; color:#e9ebf2;">Instagram &amp; Social Media Marketing</h3><div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:11px;"><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Instagram</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Reels</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Transformation</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Community</span></div><p style="font-size:13px; color:#9aa0b4; line-height:1.6;">Transformation stories, member testimonials, class preview Reels, trainer intros, facility walkthroughs, and event coverage. Content that makes a prospect think ‘I want to be part of that community’ every time they see it.</p><div style="font-family:'Space Mono',monospace; font-size:11px; color:var(--accent,#4d7cfe); margin-top:13px;">Social Media Service →</div></a>
+      <a href="PPC.dc.html" style="text-decoration:none; display:block; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:24px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05); transform:translateY(-3px);"><div style="font-size:22px;">🎯</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:16.5px; font-weight:600; margin:12px 0 9px; color:#e9ebf2;">Google Ads &amp; Meta Ads for Members</h3><div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:11px;"><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Search</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Lead Forms</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Trials</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">New Mover</span></div><p style="font-size:13px; color:#9aa0b4; line-height:1.6;">Google Search for ‘gym near me’ and program searches. Meta Lead Ads with integrated trial booking. New-mover targeting — people who recently moved to your area — is one of the highest-converting audiences in fitness marketing.</p><div style="font-family:'Space Mono',monospace; font-size:11px; color:var(--accent,#4d7cfe); margin-top:13px;">Paid Ads Service →</div></a>
+      <a href="Email Marketing.dc.html" style="text-decoration:none; display:block; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:24px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05); transform:translateY(-3px);"><div style="font-size:22px;">📧</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:16.5px; font-weight:600; margin:12px 0 9px; color:#e9ebf2;">WhatsApp Retention &amp; Re-Engagement</h3><div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:11px;"><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Trial Nurture</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">At-Risk Alerts</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Loyalty</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Referral</span></div><p style="font-size:13px; color:#9aa0b4; line-height:1.6;">7-day post-trial WhatsApp nurture. Automated attendance monitoring with re-engagement for members missing 7+ days. Monthly loyalty messages and referral reward automation. Improves trial conversion 2–3x and reduces annual churn 10–15%.</p><div style="font-family:'Space Mono',monospace; font-size:11px; color:var(--accent,#4d7cfe); margin-top:13px;">Email &amp; Retention →</div></a>
+      <a href="Content Marketing.dc.html" style="text-decoration:none; display:block; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:24px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05); transform:translateY(-3px);"><div style="font-size:22px;">🔍</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:16.5px; font-weight:600; margin:12px 0 9px; color:#e9ebf2;">Fitness Local SEO &amp; Content</h3><div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:11px;"><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Fitness Blogs</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Program Pages</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Workout Guides</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Authority</span></div><p style="font-size:13px; color:#9aa0b4; line-height:1.6;">‘Best gym in [locality]’, ‘yoga for beginners [city]’, ‘how to lose weight fast’ — content that builds brand familiarity before a prospect is ready to join. Program-specific landing pages for every class and membership tier.</p><div style="font-family:'Space Mono',monospace; font-size:11px; color:var(--accent,#4d7cfe); margin-top:13px;">Content Marketing →</div></a>
+      <a href="Web Design.dc.html" style="text-decoration:none; display:block; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:24px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05); transform:translateY(-3px);"><div style="font-size:22px;">💻</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:16.5px; font-weight:600; margin:12px 0 9px; color:#e9ebf2;">Fitness Website with Online Booking</h3><div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:11px;"><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Mobile-First</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Class Schedule</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Online Booking</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Trial Signup</span></div><p style="font-size:13px; color:#9aa0b4; line-height:1.6;">Fast, mobile-first website with live class schedule, online trial booking, membership signup, trainer profiles, transformation gallery, and WhatsApp chat. Every visitor should be able to book a trial in under 60 seconds.</p><div style="font-family:'Space Mono',monospace; font-size:11px; color:var(--accent,#4d7cfe); margin-top:13px;">Web Design Service →</div></a>
+      <a href="Social Media.dc.html" style="text-decoration:none; display:block; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:24px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05); transform:translateY(-3px);"><div style="font-size:22px;">⭐</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:16.5px; font-weight:600; margin:12px 0 9px; color:#e9ebf2;">Reputation &amp; Review Management</h3><div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:11px;"><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Google Reviews</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Review Response</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Community Proof</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">ORM</span></div><p style="font-size:13px; color:#9aa0b4; line-height:1.6;">A studio with 4.7★ and 180 reviews consistently outperforms one with 3.9★ and 22 reviews. Systematic review generation after every positive milestone: after their first month, after a visible transformation, after a referral.</p><div style="font-family:'Space Mono',monospace; font-size:11px; color:var(--accent,#4d7cfe); margin-top:13px;">Reputation Management →</div></a>
+      <a href="Graphics Design.dc.html" style="text-decoration:none; display:block; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:24px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05); transform:translateY(-3px);"><div style="font-size:22px;">🎨</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:16.5px; font-weight:600; margin:12px 0 9px; color:#e9ebf2;">Fitness Brand Creative Design</h3><div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:11px;"><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Social Creatives</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Transformation</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Posters</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Ad Banners</span></div><p style="font-size:13px; color:#9aa0b4; line-height:1.6;">Bold, energy-driven visuals: Instagram templates, transformation story graphics, class posters, referral creatives, and ad banners. Real member before/after stories are consistently the highest-converting creative format in fitness.</p><div style="font-family:'Space Mono',monospace; font-size:11px; color:var(--accent,#4d7cfe); margin-top:13px;">Graphic Design →</div></a>
+    </div>
+    <div style="text-align:center; margin-top:28px;">
+      <a href="Services.dc.html" style="display:inline-flex; align-items:center; gap:9px; font-family:'Space Mono',monospace; font-size:13px; letter-spacing:0.04em; color:var(--accent,#4d7cfe); text-decoration:none; border:1px solid rgba(77,124,254,0.3); padding:13px 24px; border-radius:11px; background:rgba(77,124,254,0.06);" style-hover="background:rgba(77,124,254,0.13);">→ View All Services &amp; Pricing</a>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section style="position:relative; z-index:4; max-width:1200px; margin:88px auto 0; padding:0 32px;">
+    <div style="text-align:center; margin-bottom:40px;">
+      <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:14px;">// HOW WE WORK</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif; font-size:clamp(28px,4.5vw,38px); font-weight:700; letter-spacing:-0.02em; line-height:1.1;">How we build a full-membership marketing system — 5 steps</h2>
+      <p style="font-size:15px; color:#aeb4c7; line-height:1.65; margin:14px auto 0; max-width:660px;">Not just getting new people through the door — a complete acquisition and retention system that fills your gym consistently, converts trials reliably, and keeps members long enough to generate real lifetime value.</p>
+    </div>
+    <div style="position:relative; max-width:900px; margin:0 auto;">
+      <div style="position:absolute; left:1px; top:6px; bottom:6px; width:2px; background:linear-gradient(180deg,var(--accent,#4d7cfe),var(--accent2,#8b5cf6)); opacity:0.5;"></div>
+      <div style="position:relative; padding:0 0 30px 38px;"><div style="position:absolute; left:-9px; top:2px; width:20px; height:20px; border-radius:50%; background:var(--accent,#4d7cfe); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:9px; font-weight:700; color:#fff; box-shadow:0 0 0 5px rgba(77,124,254,0.15);">1</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; color:#e9ebf2;">Free fitness marketing audit (48 hours)</h3><p style="font-size:14px; color:#9aa0b4; line-height:1.6; margin-top:7px; max-width:760px;">We audit your GBP, Instagram presence, current ads, website trial booking flow, top 5 local competitor gyms, review profile, and post-trial follow-up process. Written report in 48 hours. No commitment required.</p></div>
+      <div style="position:relative; padding:0 0 30px 38px;"><div style="position:absolute; left:-9px; top:2px; width:20px; height:20px; border-radius:50%; background:var(--accent,#4d7cfe); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:9px; font-weight:700; color:#fff; box-shadow:0 0 0 5px rgba(77,124,254,0.15);">2</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; color:#e9ebf2;">Member profile &amp; fitness goal mapping</h3><p style="font-size:14px; color:#9aa0b4; line-height:1.6; margin-top:7px; max-width:760px;">We define the exact member profiles you want to attract: their goals, discovery channels, motivations, and churn triggers. Every campaign is designed to attract members who fit your facility and stay long-term — not the January rush.</p></div>
+      <div style="position:relative; padding:0 0 30px 38px;"><div style="position:absolute; left:-9px; top:2px; width:20px; height:20px; border-radius:50%; background:var(--accent,#4d7cfe); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:9px; font-weight:700; color:#fff; box-shadow:0 0 0 5px rgba(77,124,254,0.15);">3</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; color:#e9ebf2;">Foundation build — GBP + website + social baseline</h3><p style="font-size:14px; color:#9aa0b4; line-height:1.6; margin-top:7px; max-width:760px;">Before paid ads, we ensure your GBP has facility photos, class schedule, and active weekly posts; your website has a working trial booking system; and your Instagram has a consistent content calendar running.</p></div>
+      <div style="position:relative; padding:0 0 30px 38px;"><div style="position:absolute; left:-9px; top:2px; width:20px; height:20px; border-radius:50%; background:var(--accent,#4d7cfe); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:9px; font-weight:700; color:#fff; box-shadow:0 0 0 5px rgba(77,124,254,0.15);">4</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; color:#e9ebf2;">Member acquisition campaigns — Google + Meta + Instagram</h3><p style="font-size:14px; color:#9aa0b4; line-height:1.6; margin-top:7px; max-width:760px;">Google Search for local fitness queries, Meta Lead Ads with trial booking, and Instagram Reels for awareness and community showcase. New-mover targeting activated. All tracked to trial bookings and paid membership starts.</p></div>
+      <div style="position:relative; padding:0 0 0 38px;"><div style="position:absolute; left:-9px; top:2px; width:20px; height:20px; border-radius:50%; background:var(--accent,#4d7cfe); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:9px; font-weight:700; color:#fff; box-shadow:0 0 0 5px rgba(77,124,254,0.15);">5</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; color:#e9ebf2;">Retention system + loyalty program + monthly report</h3><p style="font-size:14px; color:#9aa0b4; line-height:1.6; margin-top:7px; max-width:760px;">Post-trial WhatsApp nurture activated. At-risk detection and re-engagement automated. Loyalty program designed, referral campaign launched. Monthly report shows new member volume, trial conversion, retention rate, Maps ranking, and Instagram growth.</p></div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section style="position:relative; z-index:4; max-width:1000px; margin:88px auto 0; padding:0 32px;">
+    <div style="text-align:center; margin-bottom:36px;">
+      <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:14px;">// WHY WEBTECH CORE</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif; font-size:clamp(28px,4.5vw,38px); font-weight:700; letter-spacing:-0.02em; line-height:1.1;">Why fitness &amp; wellness businesses choose WebTech Core</h2>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:12px;">
+      <div style="display:flex; gap:14px; align-items:flex-start; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:18px 22px;"><span style="color:var(--accent,#4d7cfe); font-size:18px; flex:none;">✓</span><p style="font-size:14.5px; color:#d6dae6; line-height:1.55;">We understand the January problem — and build year-round campaigns that attract members who stay, not resolution-driven members who churn.</p></div>
+      <div style="display:flex; gap:14px; align-items:flex-start; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:18px 22px;"><span style="color:var(--accent,#4d7cfe); font-size:18px; flex:none;">✓</span><p style="font-size:14.5px; color:#d6dae6; line-height:1.55;">Retention is built into every campaign — because 1% better retention is worth more than 50 new members over 12 months.</p></div>
+      <div style="display:flex; gap:14px; align-items:flex-start; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:18px 22px;"><span style="color:var(--accent,#4d7cfe); font-size:18px; flex:none;">✓</span><p style="font-size:14.5px; color:#d6dae6; line-height:1.55;">Post-trial WhatsApp nurture is standard — improving conversion from the industry average of 22% to 60–70%.</p></div>
+      <div style="display:flex; gap:14px; align-items:flex-start; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:18px 22px;"><span style="color:var(--accent,#4d7cfe); font-size:18px; flex:none;">✓</span><p style="font-size:14.5px; color:#d6dae6; line-height:1.55;">At-risk member detection and re-engagement automation — catching the churn signal 3–4 weeks before a cancellation.</p></div>
+      <div style="display:flex; gap:14px; align-items:flex-start; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:18px 22px;"><span style="color:var(--accent,#4d7cfe); font-size:18px; flex:none;">✓</span><p style="font-size:14.5px; color:#d6dae6; line-height:1.55;">Instagram content system that builds community — because 63% of millennials pay more for a gym with real community.</p></div>
+      <div style="display:flex; gap:14px; align-items:flex-start; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:18px 22px;"><span style="color:var(--accent,#4d7cfe); font-size:18px; flex:none;">✓</span><p style="font-size:14.5px; color:#d6dae6; line-height:1.55;">Transformation content and result proof in every campaign — the highest-converting creative format in fitness.</p></div>
+      <div style="display:flex; gap:14px; align-items:flex-start; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:18px 22px;"><span style="color:var(--accent,#4d7cfe); font-size:18px; flex:none;">✓</span><p style="font-size:14.5px; color:#d6dae6; line-height:1.55;">No long-term contracts — we earn your business every month. Free audit before you commit.</p></div>
+    </div>
+  </section>
+
+  <!-- CASE STUDY -->
+  <section style="position:relative; z-index:4; max-width:1200px; margin:88px auto 0; padding:0 32px;">
+    <div style="border:1px solid rgba(255,255,255,0.08); border-radius:24px; background:linear-gradient(135deg,rgba(77,124,254,0.08),rgba(139,92,246,0.04)); padding:clamp(28px,4vw,44px);">
+      <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:16px;">// CASE STUDY · BOUTIQUE FITNESS STUDIO · YOGA &amp; HIIT · INDIA</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif; font-size:clamp(26px,4vw,34px); font-weight:700; line-height:1.14; letter-spacing:-0.01em; max-width:780px; text-wrap:balance;">How a boutique studio filled its classes and raised retention to 91% in 90 days</h2>
+      <p style="font-size:15px; color:#aeb4c7; line-height:1.65; margin-top:18px; max-width:860px;">A boutique studio offering yoga and HIIT came to us with 3 problems: classes 60% full on weekdays, trial-to-member conversion at 22%, and members quietly cancelling after 3–4 months with no warning. 34 Google reviews, inconsistent Instagram, no retention system beyond a newsletter nobody opened. We rebuilt their GBP with real class photos and weekly posts, launched Instagram Reels showing class energy and transformations, ran Meta Lead Ads for trial booking with ‘First week free’, built a 7-day post-trial WhatsApp nurture, and activated automated 10-day attendance-gap re-engagement.</p>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(150px,1fr)); gap:14px; margin-top:28px;">
+      <div style="background:rgba(8,9,16,0.5); border:1px solid rgba(255,255,255,0.1); border-radius:14px; padding:22px; text-align:center;"><div style="font-family:'Space Grotesk',sans-serif; font-size:clamp(24px,3.5vw,30px); font-weight:700; color:var(--accent,#4d7cfe);">+148</div><div style="font-size:12.5px; color:#9aa0b4; margin-top:6px; line-height:1.4;">New members/month</div></div>
+      <div style="background:rgba(8,9,16,0.5); border:1px solid rgba(255,255,255,0.1); border-radius:14px; padding:22px; text-align:center;"><div style="font-family:'Space Grotesk',sans-serif; font-size:clamp(24px,3.5vw,30px); font-weight:700; color:var(--accent,#4d7cfe);">91%</div><div style="font-size:12.5px; color:#9aa0b4; margin-top:6px; line-height:1.4;">Membership retention rate</div></div>
+      <div style="background:rgba(8,9,16,0.5); border:1px solid rgba(255,255,255,0.1); border-radius:14px; padding:22px; text-align:center;"><div style="font-family:'Space Grotesk',sans-serif; font-size:clamp(24px,3.5vw,30px); font-weight:700; color:var(--accent,#4d7cfe);">90 Days</div><div style="font-size:12.5px; color:#9aa0b4; margin-top:6px; line-height:1.4;">To results</div></div>
+      <div style="background:rgba(8,9,16,0.5); border:1px solid rgba(255,255,255,0.1); border-radius:14px; padding:22px; text-align:center;"><div style="font-family:'Space Grotesk',sans-serif; font-size:clamp(24px,3.5vw,30px); font-weight:700; color:var(--accent,#4d7cfe);">68%</div><div style="font-size:12.5px; color:#9aa0b4; margin-top:6px; line-height:1.4;">Trial-to-member (from 22%)</div></div>
+      <div style="background:rgba(8,9,16,0.5); border:1px solid rgba(255,255,255,0.1); border-radius:14px; padding:22px; text-align:center;"><div style="font-family:'Space Grotesk',sans-serif; font-size:clamp(24px,3.5vw,30px); font-weight:700; color:var(--accent,#4d7cfe);">4.9★</div><div style="font-size:12.5px; color:#9aa0b4; margin-top:6px; line-height:1.4;">Google rating (from 4.0)</div></div>
+      <div style="background:rgba(8,9,16,0.5); border:1px solid rgba(255,255,255,0.1); border-radius:14px; padding:22px; text-align:center;"><div style="font-family:'Space Grotesk',sans-serif; font-size:clamp(24px,3.5vw,30px); font-weight:700; color:var(--accent,#4d7cfe);">3.2x</div><div style="font-size:12.5px; color:#9aa0b4; margin-top:6px; line-height:1.4;">Weekday class occupancy</div></div>
+      </div>
+      <div style="margin-top:26px; border-left:3px solid var(--accent,#4d7cfe); padding:6px 0 6px 20px;">
+        <p style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:500; line-height:1.5; color:#e9ebf2; text-wrap:pretty;">“We went from dreading quiet Tuesdays to having a waitlist for our 7 AM Vinyasa class. The WhatsApp re-engagement message alone saved 12 members in the first month who we’d have lost quietly. We finally have a real marketing system, not just an Instagram page.”</p>
+        <p style="font-size:13px; color:#9aa0b4; margin-top:12px;">— Owner, Boutique Fitness Studio, India (name withheld on request)</p>
+      </div>
+      <a href="Case Studies.dc.html" style="display:inline-flex; align-items:center; gap:8px; margin-top:22px; font-family:'Space Mono',monospace; font-size:12px; color:var(--accent,#4d7cfe); text-decoration:none;" style-hover="gap:12px;">→ Read Full Case Study</a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="position:relative; z-index:4; max-width:880px; margin:88px auto 0; padding:0 32px;">
+    <div style="text-align:center; margin-bottom:36px;">
+      <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:14px;">// COMMON QUESTIONS</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif; font-size:clamp(28px,4.5vw,38px); font-weight:700; letter-spacing:-0.02em; line-height:1.12;">Frequently asked questions — fitness &amp; wellness digital marketing</h2>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:12px;">
+      <details style="border:1px solid rgba(255,255,255,0.08); border-radius:14px; background:rgba(255,255,255,0.025); padding:18px 22px;"><summary style="cursor:pointer; font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; color:#e9ebf2; list-style:none; display:flex; align-items:center; justify-content:space-between; gap:16px;"><span>How much does digital marketing cost for a gym or fitness studio in India?</span><span style="color:var(--accent,#4d7cfe); font-size:20px; flex:none;">+</span></summary><p style="font-size:14px; color:#9aa0b4; line-height:1.65; margin-top:14px; text-wrap:pretty;">It ranges from ₹15,000 to ₹75,000/month. A basic package with GBP management, Instagram content, and review generation starts from ₹15,000/month. A full-service package including Google Ads, Meta lead campaigns, Instagram Reels, and WhatsApp retention automation ranges from ₹35,000–₹75,000/month. WebTech Core offers fitness starter packages from ₹14,999/month with a free 48-hour audit before you commit.</p></details>
+      <details style="border:1px solid rgba(255,255,255,0.08); border-radius:14px; background:rgba(255,255,255,0.025); padding:18px 22px;"><summary style="cursor:pointer; font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; color:#e9ebf2; list-style:none; display:flex; align-items:center; justify-content:space-between; gap:16px;"><span>Why do gym members cancel after 3–4 months?</span><span style="color:var(--accent,#4d7cfe); font-size:20px; flex:none;">+</span></summary><p style="font-size:14px; color:#9aa0b4; line-height:1.65; margin-top:14px; text-wrap:pretty;">The most common reasons are lack of perceived progress, loss of motivation, and feeling like ‘just a number’ rather than part of a community. Members who get personal check-in messages when they miss 7+ days are significantly less likely to cancel, and loyalty-program members have 25% higher retention. We build automated WhatsApp re-engagement and loyalty systems that address all three root causes.</p></details>
+      <details style="border:1px solid rgba(255,255,255,0.08); border-radius:14px; background:rgba(255,255,255,0.025); padding:18px 22px;"><summary style="cursor:pointer; font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; color:#e9ebf2; list-style:none; display:flex; align-items:center; justify-content:space-between; gap:16px;"><span>Is Instagram or Google Ads more effective for gym marketing in India?</span><span style="color:var(--accent,#4d7cfe); font-size:20px; flex:none;">+</span></summary><p style="font-size:14px; color:#9aa0b4; line-height:1.65; margin-top:14px; text-wrap:pretty;">Both serve different purposes. Google Ads captures people actively searching for a gym right now — high intent, immediate conversion. Instagram builds awareness, showcases community and transformations, and converts health-conscious people not yet searching. The best strategy uses Google Ads for immediate acquisition and Instagram for community and retention — both running simultaneously.</p></details>
+      <details style="border:1px solid rgba(255,255,255,0.08); border-radius:14px; background:rgba(255,255,255,0.025); padding:18px 22px;"><summary style="cursor:pointer; font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; color:#e9ebf2; list-style:none; display:flex; align-items:center; justify-content:space-between; gap:16px;"><span>How do I convert more free trial members into paid memberships?</span><span style="color:var(--accent,#4d7cfe); font-size:20px; flex:none;">+</span></summary><p style="font-size:14px; color:#9aa0b4; line-height:1.65; margin-top:14px; text-wrap:pretty;">The industry average is 20–30%, and the difference is almost entirely the post-trial follow-up. A structured 7-day WhatsApp nurture — Day 3 check-in, Day 5 personalized progress email, Day 7 limited-time offer — consistently achieves 60–70%. The key is personal acknowledgment plus a time-sensitive, value-based offer delivered at the peak of post-trial motivation.</p></details>
+      <details style="border:1px solid rgba(255,255,255,0.08); border-radius:14px; background:rgba(255,255,255,0.025); padding:18px 22px;"><summary style="cursor:pointer; font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; color:#e9ebf2; list-style:none; display:flex; align-items:center; justify-content:space-between; gap:16px;"><span>What is the best time of year to run fitness marketing campaigns in India?</span><span style="color:var(--accent,#4d7cfe); font-size:20px; flex:none;">+</span></summary><p style="font-size:14px; color:#9aa0b4; line-height:1.65; margin-top:14px; text-wrap:pretty;">Contrary to popular belief, January isn’t the best — January joiners have 45% higher churn. The highest-retention windows are April–June (pre-summer and wedding season) and September–October (post-monsoon). We build a year-round calendar that attracts goal-driven members every month, rather than a single January spike followed by silent churn.</p></details>
+      <details style="border:1px solid rgba(255,255,255,0.08); border-radius:14px; background:rgba(255,255,255,0.025); padding:18px 22px;"><summary style="cursor:pointer; font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; color:#e9ebf2; list-style:none; display:flex; align-items:center; justify-content:space-between; gap:16px;"><span>Does WebTech Core serve gyms and fitness studios across India?</span><span style="color:var(--accent,#4d7cfe); font-size:20px; flex:none;">+</span></summary><p style="font-size:14px; color:#9aa0b4; line-height:1.65; margin-top:14px; text-wrap:pretty;">Yes. We manage marketing for gyms, yoga and Pilates studios, boutique fitness, personal trainers, wellness centers, and online fitness brands across all major Indian cities — Mumbai, Delhi NCR, Bangalore, Hyderabad, Chennai, Pune, Kolkata, Ahmedabad, Jaipur, Lucknow — plus Tier-2 and Tier-3 markets. We also serve fitness businesses across all 50 states of the USA.</p></details>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="position:relative; z-index:4; max-width:1200px; margin:0 auto; padding:88px 32px 0;">
+    <div style="position:relative; overflow:hidden; border:1px solid rgba(255,255,255,0.1); border-radius:28px; background:linear-gradient(140deg,#0d1020,#0a0b14); padding:56px 48px; text-align:center;">
+      <div style="position:absolute; top:-160px; left:50%; transform:translateX(-50%); width:560px; height:520px; background:radial-gradient(circle,var(--accent,#4d7cfe),transparent 60%); opacity:0.2; filter:blur(30px);"></div>
+      <div style="position:relative;">
+        <h2 style="font-family:'Space Grotesk',sans-serif; font-size:clamp(30px,4.5vw,40px); font-weight:700; line-height:1.08; letter-spacing:-0.02em; max-width:640px; margin:0 auto; text-wrap:balance; color:#ffffff;">Ready to grow memberships — and keep them?</h2>
+        <p style="font-size:16.5px; color:#aeb4c7; line-height:1.6; margin:18px auto 0; max-width:560px;">Book a free fitness marketing audit and we'll analyze your Google Business Profile, Instagram, website trial flow, top 5 competitor gyms, and your post-trial follow-up. Written report. Delivered in 48 hours. No commitment required.</p>
+        <a href="Contact Us.dc.html" style="display:inline-flex; align-items:center; gap:9px; margin-top:30px; background:var(--accent,#4d7cfe); color:#fff; text-decoration:none; font-weight:700; font-size:15.5px; padding:16px 30px; border-radius:12px; box-shadow:0 14px 38px -10px var(--accent,#4d7cfe);" style-hover="filter:brightness(1.08); transform:translateY(-1px);">Book Free Fitness Marketing Audit →</a>
+        <p style="font-family:'Space Mono',monospace; font-size:11.5px; color:#7c8398; margin-top:18px;">✓ Free written audit in 48 hours · ✓ Retention system included · ✓ No long-term contracts · ✓ Packages from ₹14,999/month</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="position:relative; z-index:4; max-width:1200px; margin:88px auto 0; padding:0 32px 44px;">
+    <div style="display:grid; grid-template-columns:1.7fr 1fr 1fr 1fr; gap:40px; padding:56px 0 44px; border-top:1px solid rgba(255,255,255,0.08);">
+      <div>
+        <a href="WebTech Core.dc.html" style="display:flex; align-items:center; gap:12px; text-decoration:none; color:#e9ebf2;">
+          <svg width="34" height="34" viewBox="0 0 30 30" fill="none"><rect x="3" y="3" width="24" height="24" rx="6" stroke="var(--accent,#4d7cfe)" stroke-width="1.6"></rect><rect x="9.5" y="9.5" width="11" height="11" rx="2" fill="var(--accent,#4d7cfe)"></rect><circle cx="15" cy="15" r="2.4" fill="#06070d"></circle></svg>
+          <span style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:19px; letter-spacing:0.16em;">WEBTECH<span style="color:var(--accent,#4d7cfe);">CORE</span></span>
+        </a>
+        <p style="font-size:14.5px; color:#9aa0b4; line-height:1.65; margin:20px 0 0; max-width:300px;">The complete digital marketing partner for small businesses ready to grow — SEO, ads, social, web, and content under one roof.</p>
+        <div style="display:flex; gap:10px; margin-top:24px;">
+          <a href="#" aria-label="social" style="width:38px; height:38px; border-radius:10px; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.03); display:flex; align-items:center; justify-content:center;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.08);"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M14 8 h2 V5 h-2.5 C12 5 11 6 11 7.5 V9 H9 v3 h2 v7 h3 v-7 h2.2 l.5-3 H14 V8 Z" fill="#aeb4c7"></path></svg></a>
+          <a href="#" aria-label="social" style="width:38px; height:38px; border-radius:10px; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.03); display:flex; align-items:center; justify-content:center;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.08);"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 5 l6 7 -6 7 h2 l5-5.8 L16 19 h4 l-6.4-7.6 L19.5 5 h-2 l-4.6 5.4 L8 5 Z" fill="#aeb4c7"></path></svg></a>
+          <a href="#" aria-label="social" style="width:38px; height:38px; border-radius:10px; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.03); display:flex; align-items:center; justify-content:center;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.08);"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="4.5" stroke="#aeb4c7" stroke-width="1.6"></rect><circle cx="12" cy="12" r="3.6" stroke="#aeb4c7" stroke-width="1.6"></circle><circle cx="16.5" cy="7.5" r="1" fill="#aeb4c7"></circle></svg></a>
+          <a href="#" aria-label="social" style="width:38px; height:38px; border-radius:10px; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.03); display:flex; align-items:center; justify-content:center;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.08);"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="3.5" stroke="#aeb4c7" stroke-width="1.6"></rect><line x1="8" y1="10.5" x2="8" y2="17" stroke="#aeb4c7" stroke-width="1.6" stroke-linecap="round"></line><circle cx="8" cy="7.5" r="1.1" fill="#aeb4c7"></circle><path d="M11.5 17 v-4 a2.5 2.5 0 0 1 5 0 v4 M11.5 13 v4" stroke="#aeb4c7" stroke-width="1.6" fill="none" stroke-linecap="round"></path></svg></a>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.1em; color:#7c8398; margin-bottom:18px;">SERVICES</div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <a href="SEO.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Search Engine Optimization</a>
+          <a href="PPC.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Paid Advertising</a>
+          <a href="Social Media.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Social Media</a>
+          <a href="Web Design.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Web Design</a>
+          <a href="Services.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">View all services →</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.1em; color:#7c8398; margin-bottom:18px;">INDUSTRIES</div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <a href="Healthcare.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Healthcare</a>
+          <a href="Real Estate.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Real Estate</a>
+          <a href="Ecommerce.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">E-commerce</a>
+          <a href="Restaurants.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Restaurants</a>
+          <a href="Home Services.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Home Services</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.1em; color:#7c8398; margin-bottom:18px;">COMPANY</div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <a href="About Us.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">About Us</a>
+          <a href="Case Studies.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Case Studies</a>
+          <a href="Blog.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Blog</a>
+          <a href="Press Release.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Press</a>
+          <a href="Contact Us.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex; justify-content:space-between; align-items:center; padding-top:26px; border-top:1px solid rgba(255,255,255,0.08); flex-wrap:wrap; gap:14px;">
+      <div style="display:flex; align-items:center; gap:22px; flex-wrap:wrap;">
+        <span style="font-size:13px; color:#7c8398;">© 2026 WebTech Core. All rights reserved.</span>
+        <a href="Privacy Policy.dc.html" style="font-size:13px; color:#7c8398; text-decoration:none;" style-hover="color:#aeb4c7;">Privacy Policy</a>
+        <a href="Terms and Conditions.dc.html" style="font-size:13px; color:#7c8398; text-decoration:none;" style-hover="color:#aeb4c7;">Terms &amp; Conditions</a>
+        <a href="Sitemap.dc.html" style="font-size:13px; color:#7c8398; text-decoration:none;" style-hover="color:#aeb4c7;">Sitemap</a>
+      </div>
+      <div style="display:flex; align-items:center; gap:18px; flex-wrap:wrap;">
+        <span style="font-family:'Space Mono',monospace; font-size:12px; color:#7c8398;">info@webtechcore.io</span>
+        <span style="font-family:'Space Mono',monospace; font-size:12px; color:#7c8398;">+91 9110170824</span>
+        <span style="font-family:'Space Mono',monospace; font-size:12px; color:#565c70;">Engineered for growth.</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1200,&quot;height&quot;:2200},&quot;accent&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Electric Blue&quot;,&quot;Cyan&quot;,&quot;Violet&quot;,&quot;Emerald&quot;],&quot;default&quot;:&quot;Electric Blue&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { menu: null, slide: 0 };
+
+  componentDidMount() {
+    this._auto = setInterval(() => this.setState((s) => ({ slide: (s.slide + 1) % 8 })), 3800);
+  }
+  componentWillUnmount() { clearInterval(this._auto); }
+  _go(i) {
+    this.setState({ slide: ((i % 8) + 8) % 8 });
+    clearInterval(this._auto);
+    this._auto = setInterval(() => this.setState((s) => ({ slide: (s.slide + 1) % 8 })), 3800);
+  }
+
+  renderVals() {
+    const accents = {
+      "Electric Blue": ["#4d7cfe", "#8b5cf6"],
+      "Cyan":          ["#22d3ee", "#38bdf8"],
+      "Violet":        ["#8b5cf6", "#d946ef"],
+      "Emerald":       ["#34d399", "#22d3ee"],
+    };
+    const pick = accents[this.props.accent] || accents["Electric Blue"];
+    const m = this.state.menu;
+    const slide = this.state.slide;
+    const dots = [0,1,2,3,4,5,6,7].map((i) => ({
+      w: i === slide ? "22px" : "7px",
+      bg: i === slide ? pick[0] : "rgba(255,255,255,0.2)",
+      go: () => this._go(i),
+    }));
+    return {
+      accentColor: pick[0],
+      accent2Color: pick[1],
+      slide,
+      dots,
+      trackTransform: "translateX(-" + (slide * 12.5) + "%)",
+      slideCounter: ("0" + (slide + 1)) + " / 08",
+      prevSlide: () => this._go(slide - 1),
+      nextSlide: () => this._go(slide + 1),
+      servicesOpen: m === "services",
+      industriesOpen: m === "industries",
+      servicesCaret: m === "services" ? 180 : 0,
+      industriesCaret: m === "industries" ? 180 : 0,
+      servicesColor: m === "services" ? "#ffffff" : "#aeb4c7",
+      industriesColor: m === "industries" ? "#ffffff" : "#aeb4c7",
+      openServices: () => this.setState({ menu: "services" }),
+      openIndustries: () => this.setState({ menu: "industries" }),
+      closeMenu: () => this.setState({ menu: null }),
+      toggleServices: () => this.setState((s) => ({ menu: s.menu === "services" ? null : "services" })),
+      toggleIndustries: () => this.setState((s) => ({ menu: s.menu === "industries" ? null : "industries" })),
+      resourcesOpen: this.state.menu === "resources",
+      resourcesCaret: this.state.menu === "resources" ? 180 : 0,
+      resourcesColor: this.state.menu === "resources" ? "#ffffff" : "#aeb4c7",
+      openResources: () => this.setState({ menu: "resources" }),
+      toggleResources: () => this.setState((s) => ({ menu: s.menu === "resources" ? null : "resources" })),
+    };
+  }
+}
+</script>
+</body>
+</html>

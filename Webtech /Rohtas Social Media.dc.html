@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #06070d; }
+  ::selection { background: rgba(108,140,255,0.35); color: #fff; }
+  @keyframes wtc-pulse { 0%,100% { opacity: .55; } 50% { opacity: 1; } }
+  @keyframes wtc-fadein { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes wtc-ring { 0%,62%,100% { transform: rotate(0); } 6%,18%,30% { transform: rotate(16deg); } 12%,24%,36% { transform: rotate(-16deg); } 44% { transform: rotate(0); } }
+  @keyframes wtc-ringwave { 0% { transform: scale(1); opacity: .6; } 100% { transform: scale(1.7); opacity: 0; } }
+  .wtc-hero-grid { grid-template-columns: 1.3fr 0.7fr; }
+  @media (max-width: 880px) { .wtc-hero-grid { grid-template-columns: 1fr !important; } }
+  @keyframes wtc-floatup { 0% { transform: translateY(18px) scale(0.6); opacity: 0; } 18% { opacity: 1; } 78% { opacity: 1; } 100% { transform: translateY(-66px) scale(1.05); opacity: 0; } }
+  @keyframes wtc-heartpop { 0%,52% { transform: scale(0); opacity: 0; } 64% { transform: scale(1.25); opacity: 0.95; } 80% { transform: scale(1); opacity: 0.9; } 100% { transform: scale(1.15); opacity: 0; } }
+  @keyframes wtc-heartbeat { 0%,100% { transform: scale(1); } 50% { transform: scale(1.28); } }
+  @keyframes wtc-fillbar { 0% { width: 18%; } 100% { width: 86%; } }
+  @keyframes wtc-typeloop { 0% { width: 0; } 32% { width: 100%; } 72% { width: 100%; } 88% { width: 0; } 100% { width: 0; } }
+  @keyframes wtc-climb { 0%,8% { transform: translateY(192px); } 30% { transform: translateY(144px); } 50% { transform: translateY(96px); } 70% { transform: translateY(48px); } 88%,100% { transform: translateY(0); } }
+  @keyframes wtc-rankpop { 0%,80% { opacity: 0; transform: scale(0.6); } 90%,100% { opacity: 1; transform: scale(1); } }
+  @keyframes wtc-magnify { 0%,100% { transform: translate(0,0) rotate(0); } 50% { transform: translate(3px,2px) rotate(-8deg); } }
+</style>
+</helmet>
+
+<div style="--accent:{{ accentColor }}; --accent2:{{ accent2Color }}; position:relative; background:#06070d; color:#e9ebf2; font-family:'Manrope',sans-serif; overflow:hidden; -webkit-font-smoothing:antialiased;">
+
+  <div style="position:absolute; inset:0; pointer-events:none; background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px); background-size:64px 64px; mask-image:radial-gradient(ellipse 90% 55% at 50% 0%,#000 30%,transparent 80%);"></div>
+  <div style="position:absolute; top:-280px; left:50%; transform:translateX(-50%); width:1100px; height:680px; background:radial-gradient(ellipse at center, var(--accent,#4d7cfe) 0%, transparent 62%); opacity:0.2; filter:blur(40px); pointer-events:none;"></div>
+
+  <!-- NAV -->
+  <nav style="position:relative; z-index:20; max-width:1200px; margin:0 auto; padding:clamp(18px,4vw,30px) clamp(16px,4vw,32px); display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:14px;">
+    <a href="WebTech Core.dc.html" style="display:flex; align-items:center; gap:12px; text-decoration:none; color:#e9ebf2;">
+      <svg width="36" height="36" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+        <rect x="3" y="3" width="24" height="24" rx="6" stroke="var(--accent,#4d7cfe)" stroke-width="1.6"></rect>
+        <rect x="9.5" y="9.5" width="11" height="11" rx="2" fill="var(--accent,#4d7cfe)"></rect>
+        <circle cx="15" cy="15" r="2.4" fill="#06070d"></circle>
+      </svg>
+      <span style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:21px; letter-spacing:0.16em;">WEBTECH<span style="color:var(--accent,#4d7cfe);">CORE</span></span>
+    </a>
+    <div style="display:flex; flex-wrap:wrap; align-items:center; gap:clamp(14px,2.5vw,30px);">
+      <a href="WebTech Core.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:15.5px; font-weight:500;" style-hover="color:#fff;">Home</a>
+      <a href="About Us.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:15.5px; font-weight:500;" style-hover="color:#fff;">About</a>
+
+      <!-- INDUSTRIES DROPDOWN -->
+      <div onMouseEnter="{{ openIndustries }}" onMouseLeave="{{ closeMenu }}">
+        <button onClick="{{ toggleIndustries }}" style="display:inline-flex; align-items:center; gap:7px; background:none; border:none; cursor:pointer; color:{{ industriesColor }}; font-family:'Manrope',sans-serif; font-size:15.5px; font-weight:600; padding:0;">
+          Industries
+          <span style="display:inline-block; transition:transform 0.2s; transform:rotate({{ industriesCaret }}deg);">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </span>
+        </button>
+        <sc-if value="{{ industriesOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute; top:68px; left:32px; z-index:30; width:980px; max-width:calc(100% - 64px); padding:16px; background:rgba(14,16,28,0.97); backdrop-filter:blur(14px); border:1px solid rgba(255,255,255,0.12); border-radius:16px; box-shadow:0 24px 60px -18px rgba(0,0,0,0.7); animation:wtc-fadein 0.18s ease-out;">
+            <div style="font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:0.1em; color:#7c8398; padding:6px 12px 12px;">INDUSTRIES WE SERVE</div>
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(150px,1fr)); gap:6px;">
+              <a href="Healthcare.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🏥</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Healthcare</span><span style="display:block; font-size:11.5px; color:#7c8398;">Clinics, dental, wellness</span></span>
+              </a>
+              <a href="Real Estate.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🏠</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Real Estate</span><span style="display:block; font-size:11.5px; color:#7c8398;">Agents, brokers, developers</span></span>
+              </a>
+              <a href="Ecommerce.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🛍️</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">E-commerce &amp; Retail</span><span style="display:block; font-size:11.5px; color:#7c8398;">Online &amp; omnichannel stores</span></span>
+              </a>
+              <a href="Restaurants.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🍽️</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Restaurants</span><span style="display:block; font-size:11.5px; color:#7c8398;">Cafes, dining, franchises</span></span>
+              </a>
+              <a href="Legal.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">⚖️</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Legal &amp; Professional</span><span style="display:block; font-size:11.5px; color:#7c8398;">Law, finance, consulting</span></span>
+              </a>
+              <a href="Home Services.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🔧</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Home Services</span><span style="display:block; font-size:11.5px; color:#7c8398;">Trades, repair, contractors</span></span>
+              </a>
+              <a href="Education.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🎓</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Education</span><span style="display:block; font-size:11.5px; color:#7c8398;">Schools, courses, edtech</span></span>
+              </a>
+              <a href="Fitness.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">💪</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Fitness &amp; Wellness</span><span style="display:block; font-size:11.5px; color:#7c8398;">Gyms, studios, coaches</span></span>
+              </a>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+
+      <!-- SERVICES DROPDOWN -->
+      <div onMouseEnter="{{ openServices }}" onMouseLeave="{{ closeMenu }}">
+        <button onClick="{{ toggleServices }}" style="display:inline-flex; align-items:center; gap:7px; background:none; border:none; cursor:pointer; color:{{ servicesColor }}; font-family:'Manrope',sans-serif; font-size:15.5px; font-weight:600; padding:0;">
+          Services
+          <span style="display:inline-block; transition:transform 0.2s; transform:rotate({{ servicesCaret }}deg);">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </span>
+        </button>
+        <sc-if value="{{ servicesOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute; top:68px; left:32px; z-index:30; width:980px; max-width:calc(100% - 64px); padding:16px; background:rgba(14,16,28,0.97); backdrop-filter:blur(14px); border:1px solid rgba(255,255,255,0.12); border-radius:16px; box-shadow:0 24px 60px -18px rgba(0,0,0,0.7); animation:wtc-fadein 0.18s ease-out;">
+            <div style="font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:0.1em; color:#7c8398; padding:6px 12px 12px;">WHAT WE DO</div>
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(150px,1fr)); gap:6px;">
+              <a href="SEO.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🔍</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Search Engine Optimization</span><span style="display:block; font-size:11.5px; color:#7c8398;">Organic growth</span></span>
+              </a>
+              <a href="Local SEO.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">📍</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Local SEO</span><span style="display:block; font-size:11.5px; color:#7c8398;">Map &amp; near-me</span></span>
+              </a>
+              <a href="PPC.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🎯</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Paid Advertising (PPC)</span><span style="display:block; font-size:11.5px; color:#7c8398;">Google ads</span></span>
+              </a>
+              <a href="Social Media.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">📱</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Social Media Marketing</span><span style="display:block; font-size:11.5px; color:#7c8398;">Build audience</span></span>
+              </a>
+              <a href="Meta Ads.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">⚡</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Meta Ads Services</span><span style="display:block; font-size:11.5px; color:#7c8398;">FB &amp; Instagram</span></span>
+              </a>
+              <a href="Content Marketing.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">✍️</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Content Marketing</span><span style="display:block; font-size:11.5px; color:#7c8398;">Blogs &amp; assets</span></span>
+              </a>
+              <a href="Email Marketing.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">✉️</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Email Marketing</span><span style="display:block; font-size:11.5px; color:#7c8398;">Flows &amp; campaigns</span></span>
+              </a>
+              <a href="Web Design.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🖥️</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Web Design &amp; Development</span><span style="display:block; font-size:11.5px; color:#7c8398;">Design &amp; build</span></span>
+              </a>
+              <a href="Graphics Design.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🎨</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Graphics Designing</span><span style="display:block; font-size:11.5px; color:#7c8398;">Brand visuals</span></span>
+              </a>
+            </div>
+            <a href="Services.dc.html" style="display:block; text-align:center; margin-top:10px; padding:10px; border-radius:10px; text-decoration:none; font-family:'Space Mono',monospace; font-size:11.5px; letter-spacing:0.06em; color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.07);" style-hover="background:rgba(77,124,254,0.13);">VIEW ALL SERVICES →</a>
+          </div>
+        </sc-if>
+      </div>
+
+      <!-- RESOURCES DROPDOWN -->
+      <div style="position:relative;" onMouseEnter="{{ openResources }}" onMouseLeave="{{ closeMenu }}">
+        <button onClick="{{ toggleResources }}" style="display:inline-flex; align-items:center; gap:7px; background:none; border:none; cursor:pointer; color:{{ resourcesColor }}; font-family:'Manrope',sans-serif; font-size:15.5px; font-weight:600; padding:0;">
+          Resources
+          <span style="display:inline-block; transition:transform 0.2s; transform:rotate({{ resourcesCaret }}deg);">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </span>
+        </button>
+        <sc-if value="{{ resourcesOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute; top:34px; left:0; z-index:30; width:320px; max-width:90vw; padding:16px; background:rgba(14,16,28,0.97); backdrop-filter:blur(14px); border:1px solid rgba(255,255,255,0.12); border-radius:16px; box-shadow:0 24px 60px -18px rgba(0,0,0,0.7); animation:wtc-fadein 0.18s ease-out;">
+            <div style="font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:0.1em; color:#7c8398; padding:6px 12px 12px;">RESOURCES</div>
+            <div style="display:grid; grid-template-columns:1fr; gap:4px;">
+              <a href="Blog.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">📝</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Blog</span><span style="display:block; font-size:11.5px; color:#7c8398;">Insights &amp; guides</span></span>
+              </a>
+              <a href="Press Release.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">📰</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Press Release</span><span style="display:block; font-size:11.5px; color:#7c8398;">News &amp; announcements</span></span>
+              </a>
+              <a href="Case Studies.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">📊</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Case Studies</span><span style="display:block; font-size:11.5px; color:#7c8398;">Real client results</span></span>
+              </a>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+
+      <a href="Contact Us.dc.html" style="display:inline-flex; align-items:center; gap:8px; background:var(--accent,#4d7cfe); color:#fff; text-decoration:none; font-weight:600; font-size:15px; padding:12px 22px; border-radius:11px; box-shadow:0 8px 28px -8px var(--accent,#4d7cfe);" style-hover="filter:brightness(1.08);">Book Free Consultation</a>
+    </div>
+  </nav>
+  <!-- HERO -->
+  <header style="position:relative; z-index:4; max-width:1200px; margin:0 auto; padding:30px clamp(16px,4vw,32px) 8px;">
+    <div style="font-family:'Space Mono',monospace; font-size:12px; color:#7c8398; letter-spacing:0.04em; margin-bottom:26px;"><a href="WebTech Core.dc.html" style="color:#7c8398; text-decoration:none;" style-hover="color:#fff;">Home</a> &nbsp;/&nbsp; India &nbsp;/&nbsp; <a href="Bihar.dc.html" style="color:#7c8398; text-decoration:none;" style-hover="color:#fff;">Bihar</a> &nbsp;/&nbsp; <a href="Rohtas.dc.html" style="color:#7c8398; text-decoration:none;" style-hover="color:#fff;">Rohtas</a> &nbsp;/&nbsp; <span style="color:var(--accent,#4d7cfe);">Social Media</span></div>
+    <div class="wtc-hero-grid" style="display:grid; gap:clamp(28px,4vw,52px); align-items:center;">
+      <div>
+        <div style="display:inline-flex; align-items:center; gap:9px; padding:7px 14px; border:1px solid rgba(255,255,255,0.12); border-radius:100px; background:rgba(255,255,255,0.03); font-family:'Space Mono',monospace; font-size:11.5px; letter-spacing:0.06em; color:#aeb4c7;">
+          <span style="width:7px; height:7px; border-radius:50%; background:var(--accent,#4d7cfe); box-shadow:0 0 10px var(--accent,#4d7cfe); animation:wtc-pulse 2.4s infinite;"></span> SOCIAL MEDIA MARKETING · ROHTAS
+        </div>
+        <h1 style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:clamp(34px,7vw,58px); line-height:1.04; letter-spacing:-0.02em; margin:22px 0 0; text-wrap:balance;">Social media marketing that builds your <span style="background:linear-gradient(100deg,var(--accent,#4d7cfe),var(--accent2,#8b5cf6)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;">Rohtas brand.</span></h1>
+        <p style="font-size:17.5px; line-height:1.62; color:#aeb4c7; margin:22px 0 0; max-width:500px; text-wrap:pretty;">From content to community, we turn your social channels into a engine for awareness, trust, and sales — with creative tuned to the Rohtas audience.</p>
+        <div style="display:flex; flex-wrap:wrap; gap:14px; margin-top:30px;">
+          <a href="Contact Us.dc.html" style="display:inline-flex; align-items:center; gap:9px; background:var(--accent,#4d7cfe); color:#fff; text-decoration:none; font-weight:600; font-size:15.5px; padding:15px 26px; border-radius:12px; box-shadow:0 14px 38px -10px var(--accent,#4d7cfe);" style-hover="filter:brightness(1.08); transform:translateY(-1px);">Book Free Consultation</a>
+          <a href="Contact Us.dc.html" style="display:inline-flex; align-items:center; gap:9px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.14); color:#e9ebf2; text-decoration:none; font-weight:600; font-size:15.5px; padding:15px 24px; border-radius:12px;" style-hover="background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.28);">Get Free Audit Report →</a>
+        </div>
+        <p style="font-family:'Space Mono',monospace; font-size:12px; color:#7c8398; margin-top:18px;">Scroll-stopping content and community management, built for Rohtas brands.</p>
+      </div>
+      <div style="position:relative;">
+        <div style="position:absolute; inset:-1px; border-radius:20px; background:linear-gradient(140deg,var(--accent,#4d7cfe),transparent 45%,var(--accent2,#8b5cf6)); opacity:0.55; filter:blur(2px);"></div>
+        <div style="position:relative; background:linear-gradient(180deg,rgba(20,22,34,0.95),rgba(12,13,22,0.95)); border:1px solid rgba(255,255,255,0.1); border-radius:18px; padding:20px; overflow:hidden; max-width:360px; margin:0 auto;">
+          <div style="position:absolute; top:-120px; right:-60px; width:280px; height:280px; background:radial-gradient(circle,var(--accent,#4d7cfe),transparent 65%); opacity:0.18; filter:blur(20px); pointer-events:none;"></div>
+          <div style="position:relative;">
+            <div style="display:inline-flex; align-items:center; gap:8px; padding:6px 13px; border:1px solid rgba(255,193,77,0.4); border-radius:100px; background:rgba(255,193,77,0.1); font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.08em; color:#ffc14d;">
+              <span style="width:7px; height:7px; border-radius:50%; background:#ffc14d; box-shadow:0 0 10px #ffc14d; animation:wtc-pulse 1.6s infinite;"></span> LIMITED-TIME OFFER
+            </div>
+            <h3 style="font-family:'Space Grotesk',sans-serif; font-size:clamp(20px,3vw,24px); font-weight:700; line-height:1.12; letter-spacing:-0.01em; color:#fff; margin-top:13px; text-wrap:balance;">Get up to <span style="background:linear-gradient(100deg,var(--accent,#4d7cfe),var(--accent2,#8b5cf6)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;">30% OFF</span> your first 3 months of social</h3>
+            <p style="font-size:12.5px; color:#aeb4c7; line-height:1.5; margin-top:8px;">Book your free consultation before the timer runs out to lock in your discount.</p>
+            <div style="display:flex; gap:7px; margin-top:16px;">
+            <div style="flex:1; min-width:50px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); border-radius:10px; padding:9px 4px; text-align:center;">
+              <div style="font-family:'Space Grotesk',sans-serif; font-size:clamp(22px,3.2vw,28px); font-weight:700; color:#fff; line-height:1; font-variant-numeric:tabular-nums;">{{ tHrs }}</div>
+              <div style="font-family:'Space Mono',monospace; font-size:9px; letter-spacing:0.06em; color:#7c8398; margin-top:6px;">HOURS</div>
+            </div>
+            <div style="flex:1; min-width:50px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); border-radius:10px; padding:9px 4px; text-align:center;">
+              <div style="font-family:'Space Grotesk',sans-serif; font-size:clamp(22px,3.2vw,28px); font-weight:700; color:#fff; line-height:1; font-variant-numeric:tabular-nums;">{{ tMin }}</div>
+              <div style="font-family:'Space Mono',monospace; font-size:9px; letter-spacing:0.06em; color:#7c8398; margin-top:6px;">MINUTES</div>
+            </div>
+            <div style="flex:1; min-width:50px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.1); border-radius:10px; padding:9px 4px; text-align:center;">
+              <div style="font-family:'Space Grotesk',sans-serif; font-size:clamp(22px,3.2vw,28px); font-weight:700; color:#fff; line-height:1; font-variant-numeric:tabular-nums;">{{ tSec }}</div>
+              <div style="font-family:'Space Mono',monospace; font-size:9px; letter-spacing:0.06em; color:#7c8398; margin-top:6px;">SECONDS</div>
+            </div>
+            </div>
+            <a href="Contact Us.dc.html" style="display:flex; align-items:center; justify-content:center; gap:9px; margin-top:16px; background:var(--accent,#4d7cfe); color:#fff; text-decoration:none; font-weight:700; font-size:14.5px; padding:13px 22px; border-radius:11px; box-shadow:0 14px 38px -10px var(--accent,#4d7cfe);" style-hover="filter:brightness(1.08); transform:translateY(-1px);">Claim This Offer →</a>
+            <p style="font-family:'Space Mono',monospace; font-size:10px; color:#7c8398; margin-top:11px; text-align:center;">New clients only · Ends when the timer hits zero</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- LOCAL STATS -->
+  <section style="position:relative; z-index:4; max-width:1200px; margin:40px auto 0; padding:0 clamp(16px,4vw,32px);">
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px,1fr)); border:1px solid rgba(255,255,255,0.08); border-radius:16px; background:rgba(255,255,255,0.02); overflow:hidden;">
+      <div style="padding:26px 24px; border-right:1px solid rgba(255,255,255,0.08);">
+        <div style="font-family:'Space Grotesk',sans-serif; font-size:30px; font-weight:700; color:#fff;">Daily</div>
+        <div style="font-size:13px; color:#aeb4c7; margin-top:5px; line-height:1.4;">Content & engagement</div>
+      </div>
+      <div style="padding:26px 24px; border-right:1px solid rgba(255,255,255,0.08);">
+        <div style="font-family:'Space Grotesk',sans-serif; font-size:30px; font-weight:700; color:#fff;">+3x</div>
+        <div style="font-size:13px; color:#aeb4c7; margin-top:5px; line-height:1.4;">Average follower growth</div>
+      </div>
+      <div style="padding:26px 24px; border-right:1px solid rgba(255,255,255,0.08);">
+        <div style="font-family:'Space Grotesk',sans-serif; font-size:30px; font-weight:700; color:#fff;">All</div>
+        <div style="font-size:13px; color:#aeb4c7; margin-top:5px; line-height:1.4;">Major platforms covered</div>
+      </div>
+      <div style="padding:26px 24px;">
+        <div style="font-family:'Space Grotesk',sans-serif; font-size:30px; font-weight:700; color:var(--accent,#4d7cfe);">1</div>
+        <div style="font-size:13px; color:#aeb4c7; margin-top:5px; line-height:1.4;">Dedicated local team</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section style="position:relative; z-index:4; max-width:1200px; margin:84px auto 0; padding:0 clamp(16px,4vw,32px);">
+    <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:14px;">// WHAT'S INCLUDED</div>
+    <h2 style="font-family:'Space Grotesk',sans-serif; font-size:clamp(28px,5vw,40px); font-weight:700; letter-spacing:-0.02em; line-height:1.1; max-width:620px; text-wrap:balance;">Everything in your Rohtas social plan</h2>
+    <p style="font-size:15px; color:#aeb4c7; line-height:1.65; margin-top:14px; max-width:600px; text-wrap:pretty;">One team handling strategy, content, and community — so your brand stays consistent and active.</p>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:16px; margin-top:30px;">
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.06); transform:translateY(-3px);">
+        <div style="font-size:22px;">🗓️</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; margin:14px 0 8px; color:#e9ebf2;">Content Calendar</h3>
+        <p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">A planned monthly calendar of posts, stories and campaigns aligned to your goals.</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.06); transform:translateY(-3px);">
+        <div style="font-size:22px;">🎬</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; margin:14px 0 8px; color:#e9ebf2;">Reels & Video</h3>
+        <p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">Short-form video and reels designed to stop the scroll and grow reach.</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.06); transform:translateY(-3px);">
+        <div style="font-size:22px;">💬</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; margin:14px 0 8px; color:#e9ebf2;">Community Management</h3>
+        <p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">We reply, engage and build a loyal following that actually buys.</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.06); transform:translateY(-3px);">
+        <div style="font-size:22px;">🎯</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; margin:14px 0 8px; color:#e9ebf2;">Paid Social</h3>
+        <p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">Boosted posts and targeted campaigns that turn followers into customers.</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.06); transform:translateY(-3px);">
+        <div style="font-size:22px;">🎨</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; margin:14px 0 8px; color:#e9ebf2;">Creative Design</h3>
+        <p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">On-brand graphics and creatives for every post — designed in-house.</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.06); transform:translateY(-3px);">
+        <div style="font-size:22px;">📊</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; margin:14px 0 8px; color:#e9ebf2;">Analytics & Reporting</h3>
+        <p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">Monthly insights on reach, engagement and conversions.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY SOCIAL MATTERS -->
+  <section style="position:relative; z-index:4; max-width:1200px; margin:84px auto 0; padding:0 clamp(16px,4vw,32px);">
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:clamp(32px,5vw,56px); align-items:center;">
+      <div>
+        <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:14px;">// WHY SOCIAL MATTERS</div>
+        <h2 style="font-family:'Space Grotesk',sans-serif; font-size:clamp(28px,5vw,40px); font-weight:700; letter-spacing:-0.02em; line-height:1.1; text-wrap:balance;">Show up where your customers spend their time</h2>
+        <p style="font-size:15.5px; color:#aeb4c7; line-height:1.65; margin-top:16px; text-wrap:pretty;">Your customers in Rohtas scroll every day — and search for brands before they buy. Strong social plus search visibility means <strong style="color:#e9ebf2;">they discover you first</strong>, follow you, and trust you enough to choose you.</p>
+        <div style="display:flex; flex-direction:column; gap:14px; margin-top:24px;">
+          <div style="display:flex; gap:14px; align-items:flex-start;"><span style="color:var(--accent,#4d7cfe); font-size:18px; flex:none;">✓</span><div><div style="font-weight:600; font-size:15px; color:#e9ebf2;">Discovery drives sales</div><div style="font-size:13.5px; color:#9aa0b4; line-height:1.55;">People research brands online before they walk in or buy.</div></div></div>
+          <div style="display:flex; gap:14px; align-items:flex-start;"><span style="color:var(--accent,#4d7cfe); font-size:18px; flex:none;">✓</span><div><div style="font-weight:600; font-size:15px; color:#e9ebf2;">Consistency builds trust</div><div style="font-size:13.5px; color:#9aa0b4; line-height:1.55;">Regular, on-brand content keeps you top-of-mind.</div></div></div>
+          <div style="display:flex; gap:14px; align-items:flex-start;"><span style="color:var(--accent,#4d7cfe); font-size:18px; flex:none;">✓</span><div><div style="font-weight:600; font-size:15px; color:#e9ebf2;">Engagement = loyalty</div><div style="font-size:13.5px; color:#9aa0b4; line-height:1.55;">An active community turns followers into repeat customers.</div></div></div>
+        </div>
+        <a href="Contact Us.dc.html" style="display:inline-flex; align-items:center; gap:9px; margin-top:28px; background:var(--accent,#4d7cfe); color:#fff; text-decoration:none; font-weight:600; font-size:15px; padding:14px 24px; border-radius:12px; box-shadow:0 14px 38px -10px var(--accent,#4d7cfe);" style-hover="filter:brightness(1.08); transform:translateY(-1px);">Get your free social audit →</a>
+      </div>
+
+      <div style="position:relative;">
+        <div style="position:absolute; inset:-1px; border-radius:22px; background:linear-gradient(140deg,var(--accent,#4d7cfe),transparent 50%,var(--accent2,#8b5cf6)); opacity:0.4; filter:blur(3px);"></div>
+        <div style="position:relative; background:linear-gradient(180deg,rgba(20,22,34,0.95),rgba(12,13,22,0.95)); border:1px solid rgba(255,255,255,0.1); border-radius:22px; padding:22px;">
+          <!-- social post header -->
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;">
+            <div style="display:flex; align-items:center; gap:10px;">
+              <div style="width:36px; height:36px; border-radius:50%; background:linear-gradient(135deg,var(--accent,#4d7cfe),var(--accent2,#8b5cf6)); padding:2px;"><div style="width:100%; height:100%; border-radius:50%; background:#11131f;"></div></div>
+              <div>
+                <div style="height:8px; width:96px; border-radius:3px; background:rgba(255,255,255,0.22);"></div>
+                <div style="height:6px; width:58px; border-radius:3px; background:rgba(255,255,255,0.1); margin-top:5px;"></div>
+              </div>
+            </div>
+            <div style="display:flex; gap:3px;"><span style="width:4px; height:4px; border-radius:50%; background:#7c8398;"></span><span style="width:4px; height:4px; border-radius:50%; background:#7c8398;"></span><span style="width:4px; height:4px; border-radius:50%; background:#7c8398;"></span></div>
+          </div>
+          <!-- post media -->
+          <div style="position:relative; height:158px; border-radius:14px; overflow:hidden; background:linear-gradient(135deg, rgba(77,124,254,0.28), rgba(139,92,246,0.2)); border:1px solid rgba(255,255,255,0.08);">
+            <div style="position:absolute; inset:0; background-image:radial-gradient(circle at 30% 35%, rgba(255,255,255,0.12), transparent 40%), radial-gradient(circle at 75% 70%, rgba(255,255,255,0.08), transparent 38%);"></div>
+            <!-- floating reactions -->
+              <span style="position:absolute; bottom:12px; left:20%; font-size:16px; animation:wtc-floatup 3.2s ease-in 0s infinite;">❤️</span>
+              <span style="position:absolute; bottom:12px; left:44%; font-size:16px; animation:wtc-floatup 3.6s ease-in 0.9s infinite;">👍</span>
+              <span style="position:absolute; bottom:12px; left:66%; font-size:16px; animation:wtc-floatup 3s ease-in 1.7s infinite;">🔥</span>
+              <span style="position:absolute; bottom:12px; left:82%; font-size:16px; animation:wtc-floatup 3.4s ease-in 2.4s infinite;">💬</span>
+            <!-- double-tap heart burst -->
+            <div style="position:absolute; left:50%; top:50%; transform:translate(-50%,-50%); font-size:54px; filter:drop-shadow(0 6px 16px rgba(0,0,0,0.4)); animation:wtc-heartpop 4s ease-in-out infinite;">❤️</div>
+          </div>
+          <!-- actions -->
+          <div style="display:flex; align-items:center; gap:18px; margin-top:14px;">
+            <span style="font-size:20px; transform-origin:center; animation:wtc-heartbeat 4s ease-in-out infinite;">❤️</span>
+            <span style="font-size:18px; opacity:0.85;">💬</span>
+            <span style="font-size:18px; opacity:0.85;">📨</span>
+            <span style="margin-left:auto; font-size:18px; opacity:0.85;">🔖</span>
+          </div>
+          <!-- likes + engagement bar -->
+          <div style="margin-top:12px;">
+            <div style="display:flex; align-items:baseline; gap:7px;">
+              <span style="font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:700; color:#fff;">1,248</span>
+              <span style="font-size:12.5px; color:#aeb4c7;">likes</span>
+              <span style="margin-left:auto; font-family:'Space Mono',monospace; font-size:11px; color:#34d399;">▲ +18% today</span>
+            </div>
+            <div style="height:6px; border-radius:4px; background:rgba(255,255,255,0.08); margin-top:10px; overflow:hidden;">
+              <div style="height:100%; border-radius:4px; background:linear-gradient(90deg,var(--accent,#4d7cfe),var(--accent2,#8b5cf6)); animation:wtc-fillbar 3.2s ease-in-out infinite alternate;"></div>
+            </div>
+          </div>
+          <div style="display:flex; align-items:center; justify-content:space-between; margin-top:14px; font-family:'Space Mono',monospace; font-size:11px; color:#7c8398;">
+            <span>engagement rising…</span>
+            <span style="color:#34d399;">▲ reach +210%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY LOCAL -->
+  <section style="position:relative; z-index:4; max-width:1200px; margin:84px auto 0; padding:0 clamp(16px,4vw,32px);">
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:48px; align-items:center; border:1px solid rgba(255,255,255,0.08); border-radius:24px; background:linear-gradient(135deg,rgba(77,124,254,0.07),rgba(139,92,246,0.04)); padding:clamp(28px,4vw,44px);">
+      <div>
+        <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:14px;">// WHY ROHTAS</div>
+        <h2 style="font-family:'Space Grotesk',sans-serif; font-size:clamp(26px,4.5vw,34px); font-weight:700; line-height:1.12; letter-spacing:-0.01em; text-wrap:balance;">We know Rohtas, because we work here.</h2>
+        <p style="font-size:15px; color:#aeb4c7; line-height:1.65; margin-top:16px; text-wrap:pretty;">Rohtas is a fast-growing Bihar district rapidly moving online. We build marketing that speaks to local customers — the right language, the right offers, the right channels — backed by the strategy of a national-grade agency.</p>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:14px;">
+        <div style="display:flex; gap:14px; align-items:flex-start;"><span style="color:var(--accent,#4d7cfe); font-size:18px;">✓</span><div><div style="font-weight:600; font-size:15px; color:#e9ebf2;">Local-first strategy</div><div style="font-size:13.5px; color:#9aa0b4; line-height:1.55;">Campaigns tuned to Rohtas audiences, not generic templates.</div></div></div>
+        <div style="display:flex; gap:14px; align-items:flex-start;"><span style="color:var(--accent,#4d7cfe); font-size:18px;">✓</span><div><div style="font-weight:600; font-size:15px; color:#e9ebf2;">Transparent reporting</div><div style="font-size:13.5px; color:#9aa0b4; line-height:1.55;">Real numbers every month — leads and revenue, not vanity metrics.</div></div></div>
+        <div style="display:flex; gap:14px; align-items:flex-start;"><span style="color:var(--accent,#4d7cfe); font-size:18px;">✓</span><div><div style="font-weight:600; font-size:15px; color:#e9ebf2;">No long contracts</div><div style="font-size:13.5px; color:#9aa0b4; line-height:1.55;">Stay because it works, not because you're locked in.</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section style="position:relative; z-index:4; max-width:1200px; margin:84px auto 0; padding:0 clamp(16px,4vw,32px);">
+    <div style="text-align:center; margin-bottom:40px;">
+      <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:14px;">// HOW WE WORK</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif; font-size:clamp(28px,5vw,40px); font-weight:700; letter-spacing:-0.02em; line-height:1.1;">A clear path from audit to growth</h2>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:18px;">
+      <div style="padding:26px 22px; border:1px solid rgba(255,255,255,0.08); border-radius:16px; background:rgba(255,255,255,0.02);"><div style="font-family:'Space Mono',monospace; font-size:13px; color:var(--accent,#4d7cfe);">01</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; margin:14px 0 8px; color:#e9ebf2;">Free Audit</h3><p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">We analyse your site, ads and Rohtas competitors — report in 48 hours.</p></div>
+      <div style="padding:26px 22px; border:1px solid rgba(255,255,255,0.08); border-radius:16px; background:rgba(255,255,255,0.02);"><div style="font-family:'Space Mono',monospace; font-size:13px; color:var(--accent,#4d7cfe);">02</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; margin:14px 0 8px; color:#e9ebf2;">Strategy</h3><p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">A custom 90-day roadmap with clear channels, budgets and targets.</p></div>
+      <div style="padding:26px 22px; border:1px solid rgba(255,255,255,0.08); border-radius:16px; background:rgba(255,255,255,0.02);"><div style="font-family:'Space Mono',monospace; font-size:13px; color:var(--accent,#4d7cfe);">03</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; margin:14px 0 8px; color:#e9ebf2;">Execute</h3><p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">We launch campaigns and build assets — you focus on your business.</p></div>
+      <div style="padding:26px 22px; border:1px solid var(--accent,#4d7cfe); border-radius:16px; background:rgba(77,124,254,0.07);"><div style="font-family:'Space Mono',monospace; font-size:13px; color:var(--accent,#4d7cfe);">04</div><h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; margin:14px 0 8px; color:#e9ebf2;">Scale</h3><p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">We double down on what works and report real numbers every month.</p></div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section style="position:relative; z-index:4; max-width:1200px; margin:84px auto 0; padding:0 clamp(16px,4vw,32px);">
+    <div style="text-align:center; margin-bottom:36px;">
+      <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:14px;">// WHY CHOOSE US</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif; font-size:clamp(28px,5vw,40px); font-weight:700; letter-spacing:-0.02em; line-height:1.1;">Why Rohtas businesses choose WebTech Core</h2>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:16px;">
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:24px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.06);">
+        <div style="font-size:22px;">📍</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:600; margin:12px 0 7px; color:#e9ebf2;">Local Expertise</h3>
+        <p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">We understand Rohtas markets and customers — campaigns built for your area, not generic templates.</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:24px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.06);">
+        <div style="font-size:22px;">⚡</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:600; margin:12px 0 7px; color:#e9ebf2;">Fast Execution</h3>
+        <p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">Strategy to launch in days, not months. We move quickly so you start seeing results sooner.</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:24px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.06);">
+        <div style="font-size:22px;">📊</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:600; margin:12px 0 7px; color:#e9ebf2;">Transparent Reporting</h3>
+        <p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">Clear monthly reports on real leads and revenue — never vanity metrics.</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:24px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.06);">
+        <div style="font-size:22px;">🎯</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:600; margin:12px 0 7px; color:#e9ebf2;">Proven ROI</h3>
+        <p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">A 4.2x average return on ad spend across the businesses we manage.</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:24px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.06);">
+        <div style="font-size:22px;">🤝</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:600; margin:12px 0 7px; color:#e9ebf2;">One Team, Every Channel</h3>
+        <p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">SEO, ads, social, web and content under one roof — no juggling freelancers.</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:24px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.06);">
+        <div style="font-size:22px;">🏆</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:600; margin:12px 0 7px; color:#e9ebf2;">No Lock-In</h3>
+        <p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">Flexible, month-to-month engagements. You stay because it works.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIALS -->
+  <section style="position:relative; z-index:4; max-width:1200px; margin:84px auto 0; padding:0 clamp(16px,4vw,32px);">
+    <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:24px; flex-wrap:wrap; margin-bottom:30px;">
+      <div>
+        <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:14px;">// REVIEWS</div>
+        <h2 style="font-family:'Space Grotesk',sans-serif; font-size:clamp(28px,5vw,40px); font-weight:700; letter-spacing:-0.02em; line-height:1.1; text-wrap:balance;">Social clients in Rohtas love the results</h2>
+      </div>
+      <div style="display:flex; align-items:center; gap:14px; border:1px solid rgba(255,255,255,0.1); border-radius:14px; background:rgba(255,255,255,0.03); padding:14px 20px;">
+        <div style="font-family:'Space Grotesk',sans-serif; font-size:34px; font-weight:700; color:#fff;">4.9</div>
+        <div><div style="display:flex; gap:2px;"><span style="color:#ffc14d; font-size:15px;">★</span><span style="color:#ffc14d; font-size:15px;">★</span><span style="color:#ffc14d; font-size:15px;">★</span><span style="color:#ffc14d; font-size:15px;">★</span><span style="color:#ffc14d; font-size:15px;">★</span></div><div style="font-size:12px; color:#9aa0b4; margin-top:3px;">from 120+ reviews</div></div>
+      </div>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(260px,1fr)); gap:16px;">
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px; display:flex; flex-direction:column;">
+        <div style="display:flex; gap:2px; margin-bottom:14px;"><span style="color:#ffc14d; font-size:15px;">★</span><span style="color:#ffc14d; font-size:15px;">★</span><span style="color:#ffc14d; font-size:15px;">★</span><span style="color:#ffc14d; font-size:15px;">★</span><span style="color:#ffc14d; font-size:15px;">★</span></div>
+        <p style="font-size:14.5px; color:#d6dae6; line-height:1.6; flex:1; text-wrap:pretty;">&ldquo;They rebuilt our Google presence and the calls started coming in within weeks. Finally marketing that actually brings customers.&rdquo;</p>
+        <div style="display:flex; align-items:center; gap:12px; margin-top:20px;">
+          <div style="width:42px; height:42px; border-radius:50%; background:linear-gradient(135deg,var(--accent,#4d7cfe),var(--accent2,#8b5cf6)); display:flex; align-items:center; justify-content:center; font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:15px; color:#fff;">R</div>
+          <div><div style="font-weight:600; font-size:14.5px; color:#e9ebf2;">Rahul Kumar</div><div style="font-size:12.5px; color:#9aa0b4;">Retail, Rohtas</div></div>
+        </div>
+      </div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px; display:flex; flex-direction:column;">
+        <div style="display:flex; gap:2px; margin-bottom:14px;"><span style="color:#ffc14d; font-size:15px;">★</span><span style="color:#ffc14d; font-size:15px;">★</span><span style="color:#ffc14d; font-size:15px;">★</span><span style="color:#ffc14d; font-size:15px;">★</span><span style="color:#ffc14d; font-size:15px;">★</span></div>
+        <p style="font-size:14.5px; color:#d6dae6; line-height:1.6; flex:1; text-wrap:pretty;">&ldquo;Professional, transparent, and genuinely local. Our monthly reports show real leads — not just likes.&rdquo;</p>
+        <div style="display:flex; align-items:center; gap:12px; margin-top:20px;">
+          <div style="width:42px; height:42px; border-radius:50%; background:linear-gradient(135deg,var(--accent,#4d7cfe),var(--accent2,#8b5cf6)); display:flex; align-items:center; justify-content:center; font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:15px; color:#fff;">P</div>
+          <div><div style="font-weight:600; font-size:14.5px; color:#e9ebf2;">Priya Singh</div><div style="font-size:12.5px; color:#9aa0b4;">Clinic, Rohtas</div></div>
+        </div>
+      </div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px; display:flex; flex-direction:column;">
+        <div style="display:flex; gap:2px; margin-bottom:14px;"><span style="color:#ffc14d; font-size:15px;">★</span><span style="color:#ffc14d; font-size:15px;">★</span><span style="color:#ffc14d; font-size:15px;">★</span><span style="color:#ffc14d; font-size:15px;">★</span><span style="color:#ffc14d; font-size:15px;">★</span></div>
+        <p style="font-size:14.5px; color:#d6dae6; line-height:1.6; flex:1; text-wrap:pretty;">&ldquo;The free audit alone was more useful than our last agency in a year. Easy decision to work with them.&rdquo;</p>
+        <div style="display:flex; align-items:center; gap:12px; margin-top:20px;">
+          <div style="width:42px; height:42px; border-radius:50%; background:linear-gradient(135deg,var(--accent,#4d7cfe),var(--accent2,#8b5cf6)); display:flex; align-items:center; justify-content:center; font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:15px; color:#fff;">A</div>
+          <div><div style="font-weight:600; font-size:14.5px; color:#e9ebf2;">Amit Verma</div><div style="font-size:12.5px; color:#9aa0b4;">Services, Rohtas</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CALL CTA (animated) -->
+  <section style="position:relative; z-index:4; max-width:1200px; margin:84px auto 0; padding:0 clamp(16px,4vw,32px);">
+    <div style="position:relative; overflow:hidden; border:1px solid rgba(255,255,255,0.1); border-radius:28px; background:linear-gradient(135deg,rgba(77,124,254,0.14),rgba(139,92,246,0.08)); padding:clamp(32px,5vw,52px); display:flex; align-items:center; justify-content:space-between; gap:32px; flex-wrap:wrap;">
+      <div style="flex:1; min-width:300px;">
+        <div style="display:flex; align-items:center; gap:22px;">
+          <div style="position:relative; flex:none; width:64px; height:64px; border-radius:18px; background:var(--accent,#4d7cfe); display:flex; align-items:center; justify-content:center; box-shadow:0 14px 38px -10px var(--accent,#4d7cfe);">
+            <span style="position:absolute; inset:0; border-radius:18px; border:2px solid var(--accent,#4d7cfe); opacity:0.5; animation:wtc-ringwave 1.6s ease-out infinite;"></span>
+            <svg width="30" height="30" viewBox="0 0 24 24" fill="none" style="transform-origin:center; animation:wtc-ring 1.6s ease-in-out infinite;"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.3 21 3 13.7 3 4.5c0-.6.4-1 1-1H7.4c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1.1l-2.1 2.1z" fill="#fff"></path></svg>
+          </div>
+          <div>
+            <h2 style="font-family:'Space Grotesk',sans-serif; font-size:clamp(22px,3.5vw,30px); font-weight:700; line-height:1.12; letter-spacing:-0.01em; color:#fff; text-wrap:balance;">Ready to grow your Rohtas business?</h2>
+            <p style="font-size:14.5px; color:#aeb4c7; margin-top:8px;">Talk to a strategist today — your first call and audit are free.</p>
+          </div>
+        </div>
+        <div style="display:flex; gap:14px; flex-wrap:wrap; margin-top:24px;">
+          <a href="tel:+919110170824" style="display:inline-flex; align-items:center; gap:10px; background:var(--accent,#4d7cfe); color:#fff; text-decoration:none; font-weight:700; font-size:15.5px; padding:16px 26px; border-radius:12px; box-shadow:0 14px 38px -10px var(--accent,#4d7cfe);" style-hover="filter:brightness(1.08); transform:translateY(-1px);">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" style="transform-origin:center; animation:wtc-ring 1.6s ease-in-out infinite;"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.3 21 3 13.7 3 4.5c0-.6.4-1 1-1H7.4c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1.1l-2.1 2.1z" fill="#fff"></path></svg>
+            Call +91 91101 70824
+          </a>
+          <a href="Contact Us.dc.html" style="display:inline-flex; align-items:center; gap:9px; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.16); color:#e9ebf2; text-decoration:none; font-weight:600; font-size:15.5px; padding:16px 24px; border-radius:12px;" style-hover="background:rgba(255,255,255,0.1); border-color:rgba(255,255,255,0.3);">Book Free Consultation</a>
+        </div>
+      </div>
+      <div style="flex:none; position:relative;">
+        <svg viewBox="0 0 150 150" width="150" height="150" style="display:block;">
+            <defs>
+              <radialGradient id="agGlow" cx="0.5" cy="0.45" r="0.55"><stop offset="0" stop-color="var(--accent,#4d7cfe)" stop-opacity="0.35"></stop><stop offset="1" stop-color="var(--accent,#4d7cfe)" stop-opacity="0"></stop></radialGradient>
+            </defs>
+            <circle cx="75" cy="72" r="60" fill="url(#agGlow)"></circle>
+            <circle cx="75" cy="74" r="52" fill="rgba(10,12,22,0.6)" stroke="rgba(255,255,255,0.1)" stroke-width="1"></circle>
+            <!-- torso -->
+            <path d="M44 132 Q44 104 75 104 Q106 104 106 132 Z" fill="var(--accent2,#8b5cf6)"></path>
+            <path d="M44 132 Q44 104 75 104 L75 132 Z" fill="rgba(255,255,255,0.08)"></path>
+            <!-- neck -->
+            <rect x="68" y="90" width="14" height="16" rx="6" fill="#e7b894"></rect>
+            <!-- hair back -->
+            <path d="M49 74 Q47 102 56 110 L62 100 Q55 86 56 72 Z" fill="#2b2535"></path>
+            <path d="M101 74 Q103 102 94 110 L88 100 Q95 86 94 72 Z" fill="#2b2535"></path>
+            <!-- head -->
+            <circle cx="75" cy="72" r="22" fill="#f0c19a"></circle>
+            <!-- hair top -->
+            <path d="M51 74 Q49 44 75 44 Q101 44 99 74 Q99 60 88 56 Q83 70 75 70 Q67 70 62 56 Q51 60 51 74 Z" fill="#352d40"></path>
+            <!-- face -->
+            <circle cx="68" cy="72" r="2.2" fill="#2a2233"></circle>
+            <circle cx="82" cy="72" r="2.2" fill="#2a2233"></circle>
+            <path d="M69 80 Q75 84 81 80" stroke="#b5654a" stroke-width="2" fill="none" stroke-linecap="round"></path>
+            <!-- headset band -->
+            <path d="M50 70 Q50 40 75 40 Q100 40 100 70" stroke="var(--accent,#4d7cfe)" stroke-width="4.5" fill="none" stroke-linecap="round"></path>
+            <rect x="45" y="66" width="9" height="15" rx="4.5" fill="var(--accent,#4d7cfe)"></rect>
+            <rect x="96" y="66" width="9" height="15" rx="4.5" fill="var(--accent,#4d7cfe)"></rect>
+            <!-- mic boom -->
+            <path d="M49 78 Q43 96 62 96" stroke="var(--accent,#4d7cfe)" stroke-width="3" fill="none" stroke-linecap="round"></path>
+            <circle cx="64" cy="96" r="3.4" fill="var(--accent,#4d7cfe)"></circle>
+            <!-- notepad + pen -->
+            <g transform="rotate(-10 92 120)">
+              <rect x="80" y="108" width="30" height="24" rx="3" fill="#ffffff"></rect>
+              <line x1="84" y1="115" x2="106" y2="115" stroke="#c2c7d6" stroke-width="2"></line>
+              <line x1="84" y1="121" x2="106" y2="121" stroke="#c2c7d6" stroke-width="2"></line>
+              <line x1="84" y1="127" x2="99" y2="127" stroke="#c2c7d6" stroke-width="2"></line>
+            </g>
+            <line x1="110" y1="100" x2="122" y2="89" stroke="var(--accent2,#8b5cf6)" stroke-width="4.5" stroke-linecap="round"></line>
+            <path d="M122 89 l3 -3 2 2 -3 3 z" fill="#ffc14d"></path>
+          </svg>
+        <div style="position:absolute; bottom:6px; left:50%; transform:translateX(-50%); white-space:nowrap; font-family:'Space Mono',monospace; font-size:10px; letter-spacing:0.08em; color:#aeb4c7; background:rgba(6,7,13,0.7); border:1px solid rgba(255,255,255,0.12); padding:4px 10px; border-radius:100px;">● support online</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="position:relative; z-index:4; max-width:880px; margin:84px auto 0; padding:0 clamp(16px,4vw,32px);">
+    <div style="text-align:center; margin-bottom:36px;">
+      <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:14px;">// FAQ</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif; font-size:clamp(28px,5vw,40px); font-weight:700; letter-spacing:-0.02em; line-height:1.1;">Frequently asked questions</h2>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:12px;">
+      <details style="border:1px solid rgba(255,255,255,0.08); border-radius:14px; background:rgba(255,255,255,0.025); padding:18px 22px;">
+        <summary style="cursor:pointer; font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; color:#e9ebf2; list-style:none; display:flex; align-items:center; justify-content:space-between; gap:16px;">
+          <span>How soon will I see results?</span>
+          <span style="color:var(--accent,#4d7cfe); font-size:20px; font-weight:400; flex:none;">+</span>
+        </summary>
+        <p style="font-size:14px; color:#9aa0b4; line-height:1.65; margin-top:14px; text-wrap:pretty;">SEO typically builds over 3–6 months, while paid ads can drive leads within the first few weeks. In your free audit we give you a realistic, honest timeline for your goals.</p>
+      </details>
+      <details style="border:1px solid rgba(255,255,255,0.08); border-radius:14px; background:rgba(255,255,255,0.025); padding:18px 22px;">
+        <summary style="cursor:pointer; font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; color:#e9ebf2; list-style:none; display:flex; align-items:center; justify-content:space-between; gap:16px;">
+          <span>Do you work with small and local businesses in Rohtas?</span>
+          <span style="color:var(--accent,#4d7cfe); font-size:20px; font-weight:400; flex:none;">+</span>
+        </summary>
+        <p style="font-size:14px; color:#9aa0b4; line-height:1.65; margin-top:14px; text-wrap:pretty;">Absolutely — local Rohtas businesses and startups are exactly who we serve. We tailor every campaign to your area, audience, and budget.</p>
+      </details>
+      <details style="border:1px solid rgba(255,255,255,0.08); border-radius:14px; background:rgba(255,255,255,0.025); padding:18px 22px;">
+        <summary style="cursor:pointer; font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; color:#e9ebf2; list-style:none; display:flex; align-items:center; justify-content:space-between; gap:16px;">
+          <span>How much does it cost?</span>
+          <span style="color:var(--accent,#4d7cfe); font-size:20px; font-weight:400; flex:none;">+</span>
+        </summary>
+        <p style="font-size:14px; color:#9aa0b4; line-height:1.65; margin-top:14px; text-wrap:pretty;">There's no one-size-fits-all price. We build a plan around your goals and budget and quote transparently — no hidden fees, ever.</p>
+      </details>
+      <details style="border:1px solid rgba(255,255,255,0.08); border-radius:14px; background:rgba(255,255,255,0.025); padding:18px 22px;">
+        <summary style="cursor:pointer; font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; color:#e9ebf2; list-style:none; display:flex; align-items:center; justify-content:space-between; gap:16px;">
+          <span>Is there a long-term contract?</span>
+          <span style="color:var(--accent,#4d7cfe); font-size:20px; font-weight:400; flex:none;">+</span>
+        </summary>
+        <p style="font-size:14px; color:#9aa0b4; line-height:1.65; margin-top:14px; text-wrap:pretty;">No long lock-ins. We offer flexible, month-to-month engagements — we'd rather earn your business with results than tie you down.</p>
+      </details>
+      <details style="border:1px solid rgba(255,255,255,0.08); border-radius:14px; background:rgba(255,255,255,0.025); padding:18px 22px;">
+        <summary style="cursor:pointer; font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; color:#e9ebf2; list-style:none; display:flex; align-items:center; justify-content:space-between; gap:16px;">
+          <span>What's included in the free audit?</span>
+          <span style="color:var(--accent,#4d7cfe); font-size:20px; font-weight:400; flex:none;">+</span>
+        </summary>
+        <p style="font-size:14px; color:#9aa0b4; line-height:1.65; margin-top:14px; text-wrap:pretty;">A review of your website, ads, SEO, and competitors, delivered as a clear report within 48 hours — with no obligation to continue.</p>
+      </details>
+      <details style="border:1px solid rgba(255,255,255,0.08); border-radius:14px; background:rgba(255,255,255,0.025); padding:18px 22px;">
+        <summary style="cursor:pointer; font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; color:#e9ebf2; list-style:none; display:flex; align-items:center; justify-content:space-between; gap:16px;">
+          <span>Which services do I actually need?</span>
+          <span style="color:var(--accent,#4d7cfe); font-size:20px; font-weight:400; flex:none;">+</span>
+        </summary>
+        <p style="font-size:14px; color:#9aa0b4; line-height:1.65; margin-top:14px; text-wrap:pretty;">After the audit we recommend only the channels that will move the needle for you — never services you don't need.</p>
+      </details>
+      <details style="border:1px solid rgba(255,255,255,0.08); border-radius:14px; background:rgba(255,255,255,0.025); padding:18px 22px;">
+        <summary style="cursor:pointer; font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; color:#e9ebf2; list-style:none; display:flex; align-items:center; justify-content:space-between; gap:16px;">
+          <span>Will I get regular reports?</span>
+          <span style="color:var(--accent,#4d7cfe); font-size:20px; font-weight:400; flex:none;">+</span>
+        </summary>
+        <p style="font-size:14px; color:#9aa0b4; line-height:1.65; margin-top:14px; text-wrap:pretty;">Yes. You'll get a clear monthly report focused on leads and revenue — the numbers that matter, not vanity metrics.</p>
+      </details>
+      <details style="border:1px solid rgba(255,255,255,0.08); border-radius:14px; background:rgba(255,255,255,0.025); padding:18px 22px;">
+        <summary style="cursor:pointer; font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; color:#e9ebf2; list-style:none; display:flex; align-items:center; justify-content:space-between; gap:16px;">
+          <span>Do you handle content and creatives too?</span>
+          <span style="color:var(--accent,#4d7cfe); font-size:20px; font-weight:400; flex:none;">+</span>
+        </summary>
+        <p style="font-size:14px; color:#9aa0b4; line-height:1.65; margin-top:14px; text-wrap:pretty;">Yes — copywriting, graphic design, and video are all in-house, so your campaigns ship fast and stay on-brand.</p>
+      </details>
+      <details style="border:1px solid rgba(255,255,255,0.08); border-radius:14px; background:rgba(255,255,255,0.025); padding:18px 22px;">
+        <summary style="cursor:pointer; font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; color:#e9ebf2; list-style:none; display:flex; align-items:center; justify-content:space-between; gap:16px;">
+          <span>Can you manage my Google Business Profile and local SEO?</span>
+          <span style="color:var(--accent,#4d7cfe); font-size:20px; font-weight:400; flex:none;">+</span>
+        </summary>
+        <p style="font-size:14px; color:#9aa0b4; line-height:1.65; margin-top:14px; text-wrap:pretty;">Definitely. Local SEO and Google Business optimization are core to how we help you get found by nearby customers.</p>
+      </details>
+      <details style="border:1px solid rgba(255,255,255,0.08); border-radius:14px; background:rgba(255,255,255,0.025); padding:18px 22px;">
+        <summary style="cursor:pointer; font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; color:#e9ebf2; list-style:none; display:flex; align-items:center; justify-content:space-between; gap:16px;">
+          <span>How do we get started?</span>
+          <span style="color:var(--accent,#4d7cfe); font-size:20px; font-weight:400; flex:none;">+</span>
+        </summary>
+        <p style="font-size:14px; color:#9aa0b4; line-height:1.65; margin-top:14px; text-wrap:pretty;">Book a free consultation. We'll run your audit, walk you through the findings, and propose a 90-day growth plan — then it's your call.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- SOFT CLOSER -->
+  <section style="position:relative; z-index:4; max-width:1200px; margin:84px auto 0; padding:0 clamp(16px,4vw,32px);">
+    <div style="position:relative; overflow:hidden; border:1px solid rgba(255,255,255,0.1); border-radius:28px; background:linear-gradient(140deg,#0d1020,#0a0b14); padding:clamp(36px,6vw,56px) clamp(22px,5vw,48px); text-align:center;">
+      <div style="position:absolute; top:-160px; left:50%; transform:translateX(-50%); width:560px; height:520px; background:radial-gradient(circle,var(--accent,#4d7cfe),transparent 60%); opacity:0.18; filter:blur(30px);"></div>
+      <div style="position:relative;">
+        <h2 style="font-family:'Space Grotesk',sans-serif; font-size:38px; font-weight:700; line-height:1.08; letter-spacing:-0.02em; max-width:600px; margin:0 auto; text-wrap:balance;">Bihar's digital growth story is just beginning.</h2>
+        <p style="font-size:16px; color:#aeb4c7; line-height:1.6; margin:16px auto 0; max-width:520px;">We're proud to be part of it — telling local stories with technology, creativity, and craft.</p>
+        <a href="Contact Us.dc.html" style="display:inline-flex; align-items:center; gap:9px; margin-top:28px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.16); color:#e9ebf2; text-decoration:none; font-weight:600; font-size:15px; padding:14px 26px; border-radius:12px;" style-hover="background:rgba(255,255,255,0.1);">Say hello →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="position:relative; z-index:4; max-width:1200px; margin:88px auto 0; padding:0 clamp(16px,4vw,32px) 44px;">
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(160px,1fr)); gap:40px; padding:56px 0 44px; border-top:1px solid rgba(255,255,255,0.08);">
+      <div>
+        <a href="WebTech Core.dc.html" style="display:flex; align-items:center; gap:12px; text-decoration:none; color:#e9ebf2;">
+          <svg width="34" height="34" viewBox="0 0 30 30" fill="none"><rect x="3" y="3" width="24" height="24" rx="6" stroke="var(--accent,#4d7cfe)" stroke-width="1.6"></rect><rect x="9.5" y="9.5" width="11" height="11" rx="2" fill="var(--accent,#4d7cfe)"></rect><circle cx="15" cy="15" r="2.4" fill="#06070d"></circle></svg>
+          <span style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:19px; letter-spacing:0.16em;">WEBTECH<span style="color:var(--accent,#4d7cfe);">CORE</span></span>
+        </a>
+        <p style="font-size:14.5px; color:#9aa0b4; line-height:1.65; margin:20px 0 0; max-width:300px;">The complete digital marketing partner for small businesses ready to grow — SEO, ads, social, web, and content under one roof.</p>
+        <div style="display:flex; gap:10px; margin-top:24px;">
+          <a href="#" aria-label="social" style="width:38px; height:38px; border-radius:10px; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.03); display:flex; align-items:center; justify-content:center;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.08);"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M14 8 h2 V5 h-2.5 C12 5 11 6 11 7.5 V9 H9 v3 h2 v7 h3 v-7 h2.2 l.5-3 H14 V8 Z" fill="#aeb4c7"></path></svg></a>
+          <a href="#" aria-label="social" style="width:38px; height:38px; border-radius:10px; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.03); display:flex; align-items:center; justify-content:center;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.08);"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 5 l6 7 -6 7 h2 l5-5.8 L16 19 h4 l-6.4-7.6 L19.5 5 h-2 l-4.6 5.4 L8 5 Z" fill="#aeb4c7"></path></svg></a>
+          <a href="#" aria-label="social" style="width:38px; height:38px; border-radius:10px; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.03); display:flex; align-items:center; justify-content:center;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.08);"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="4.5" stroke="#aeb4c7" stroke-width="1.6"></rect><circle cx="12" cy="12" r="3.6" stroke="#aeb4c7" stroke-width="1.6"></circle><circle cx="16.5" cy="7.5" r="1" fill="#aeb4c7"></circle></svg></a>
+          <a href="#" aria-label="social" style="width:38px; height:38px; border-radius:10px; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.03); display:flex; align-items:center; justify-content:center;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.08);"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="3.5" stroke="#aeb4c7" stroke-width="1.6"></rect><line x1="8" y1="10.5" x2="8" y2="17" stroke="#aeb4c7" stroke-width="1.6" stroke-linecap="round"></line><circle cx="8" cy="7.5" r="1.1" fill="#aeb4c7"></circle><path d="M11.5 17 v-4 a2.5 2.5 0 0 1 5 0 v4 M11.5 13 v4" stroke="#aeb4c7" stroke-width="1.6" fill="none" stroke-linecap="round"></path></svg></a>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.1em; color:#7c8398; margin-bottom:18px;">SERVICES</div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <a href="SEO.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Search Engine Optimization</a>
+          <a href="PPC.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Paid Advertising</a>
+          <a href="Social Media.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Social Media</a>
+          <a href="Web Design.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Web Design</a>
+          <a href="Services.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">View all services →</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.1em; color:#7c8398; margin-bottom:18px;">INDUSTRIES</div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <a href="Healthcare.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Healthcare</a>
+          <a href="Real Estate.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Real Estate</a>
+          <a href="Ecommerce.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">E-commerce</a>
+          <a href="Restaurants.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Restaurants</a>
+          <a href="Home Services.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Home Services</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.1em; color:#7c8398; margin-bottom:18px;">COMPANY</div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <a href="About Us.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">About Us</a>
+          <a href="Case Studies.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Case Studies</a>
+          <a href="Blog.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Blog</a>
+          <a href="Press Release.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Press</a>
+          <a href="Contact Us.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex; justify-content:space-between; align-items:center; padding-top:26px; border-top:1px solid rgba(255,255,255,0.08); flex-wrap:wrap; gap:14px;">
+      <div style="display:flex; align-items:center; gap:22px; flex-wrap:wrap;">
+        <span style="font-size:13px; color:#7c8398;">© 2026 WebTech Core. All rights reserved.</span>
+        <a href="Privacy Policy.dc.html" style="font-size:13px; color:#7c8398; text-decoration:none;" style-hover="color:#aeb4c7;">Privacy Policy</a>
+        <a href="Terms and Conditions.dc.html" style="font-size:13px; color:#7c8398; text-decoration:none;" style-hover="color:#aeb4c7;">Terms &amp; Conditions</a>
+        <a href="Sitemap.dc.html" style="font-size:13px; color:#7c8398; text-decoration:none;" style-hover="color:#aeb4c7;">Sitemap</a>
+      </div>
+      <div style="display:flex; align-items:center; gap:18px; flex-wrap:wrap;">
+        <span style="font-family:'Space Mono',monospace; font-size:12px; color:#7c8398;">info@webtechcore.io</span>
+        <span style="font-family:'Space Mono',monospace; font-size:12px; color:#7c8398;">+91 9110170824</span>
+        <span style="font-family:'Space Mono',monospace; font-size:12px; color:#565c70;">Engineered for growth.</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1200,&quot;height&quot;:3000},&quot;accent&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Electric Blue&quot;,&quot;Cyan&quot;,&quot;Violet&quot;,&quot;Emerald&quot;],&quot;default&quot;:&quot;Electric Blue&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { menu: null, district: 0, now: Date.now() };
+  componentDidMount() {
+    this._dTimer = setInterval(() => this.setState((s) => ({ district: s.district + 1 })), 2200);
+    const KEY = 'wtc_rohtas_social_offer';
+    let dl = Number(localStorage.getItem(KEY));
+    if (!dl || dl < Date.now()) { dl = Date.now() + 48 * 3600 * 1000; try { localStorage.setItem(KEY, String(dl)); } catch (e) {} }
+    this._deadline = dl;
+    this._tTimer = setInterval(() => this.setState({ now: Date.now() }), 1000);
+  }
+  componentWillUnmount() {
+    clearInterval(this._dTimer);
+    clearInterval(this._tTimer);
+  }
+  renderVals() {
+    const accents = {
+      "Electric Blue": ["#4d7cfe", "#8b5cf6"],
+      "Cyan":          ["#22d3ee", "#38bdf8"],
+      "Violet":        ["#8b5cf6", "#d946ef"],
+      "Emerald":       ["#34d399", "#22d3ee"],
+    };
+    const pick = accents[this.props.accent] || accents["Electric Blue"];
+    const districts = [
+      ["Patna", 14], ["Gaya", 8], ["Muzaffarpur", 9], ["Bhagalpur", 7],
+      ["Darbhanga", 6], ["Purnia", 5], ["Rohtas", 5], ["Begusarai", 4],
+      ["Nalanda", 4], ["Saran", 3], ["Katihar", 3], ["Bhojpur", 4],
+    ];
+    const di = this.state.district % districts.length;
+    const dName = districts[di][0];
+    const dClients = districts[di][1];
+    const valBase = { fontFamily: "'Space Grotesk',sans-serif", fontSize: "18px", fontWeight: 700, marginTop: "3px", color: "#fff" };
+    const districtNameEl = React.createElement("div", { key: di, style: { ...valBase, animation: "wtc-fadein 0.5s ease" } }, dName);
+    const districtClientsEl = React.createElement(
+      "div",
+      { key: di, style: { ...valBase, animation: "wtc-fadein 0.5s ease", display: "flex", alignItems: "baseline", gap: "5px" } },
+      React.createElement("span", { style: { color: pick[0] } }, dClients),
+      React.createElement("span", { style: { fontSize: "12px", fontWeight: 600, color: "#aeb4c7" } }, "active ▲")
+    );
+    const m = this.state.menu;
+    const _dl = this._deadline || (Date.now() + 48 * 3600 * 1000);
+    const _rem = Math.max(0, Math.floor((_dl - (this.state.now || Date.now())) / 1000));
+    const tHrs = String(Math.floor(_rem / 3600)).padStart(2, '0');
+    const tMin = String(Math.floor((_rem % 3600) / 60)).padStart(2, '0');
+    const tSec = String(_rem % 60).padStart(2, '0');
+    return {
+      accentColor: pick[0],
+      accent2Color: pick[1],
+      tHrs,
+      tMin,
+      tSec,
+      districtNameEl,
+      districtClientsEl,
+      industriesOpen: m === "industries",
+      servicesOpen: m === "services",
+      resourcesOpen: m === "resources",
+      industriesCaret: m === "industries" ? 180 : 0,
+      servicesCaret: m === "services" ? 180 : 0,
+      resourcesCaret: m === "resources" ? 180 : 0,
+      industriesColor: m === "industries" ? "#ffffff" : "#aeb4c7",
+      servicesColor: m === "services" ? "#ffffff" : "#aeb4c7",
+      resourcesColor: m === "resources" ? "#ffffff" : "#aeb4c7",
+      openIndustries: () => this.setState({ menu: "industries" }),
+      openServices: () => this.setState({ menu: "services" }),
+      openResources: () => this.setState({ menu: "resources" }),
+      closeMenu: () => this.setState({ menu: null }),
+      toggleIndustries: () => this.setState((s) => ({ menu: s.menu === "industries" ? null : "industries" })),
+      toggleServices: () => this.setState((s) => ({ menu: s.menu === "services" ? null : "services" })),
+      toggleResources: () => this.setState((s) => ({ menu: s.menu === "resources" ? null : "resources" })),
+    };
+  }
+}
+</script>
+</body>
+</html>

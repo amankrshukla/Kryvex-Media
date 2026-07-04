@@ -1,0 +1,933 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #06070d; }
+  ::selection { background: rgba(108,140,255,0.35); color: #fff; }
+  @keyframes wtc-marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+  @keyframes wtc-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+  @keyframes wtc-pulse { 0%,100% { opacity: .55; } 50% { opacity: 1; } }
+  @keyframes wtc-fadein { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes wtc-grow { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+  @keyframes wtc-cycle { 0% { opacity: 0; transform: translateY(10px); } 12% { opacity: 1; transform: translateY(0); } 84% { opacity: 1; transform: translateY(0); } 100% { opacity: 0; transform: translateY(-10px); } }
+  @keyframes wtc-tick { 0% { opacity: 0.4; transform: translateY(4px); } 100% { opacity: 1; transform: translateY(0); } }
+  @keyframes wtc-blink { 0%, 90%, 100% { transform: scaleY(1); } 93%, 96% { transform: scaleY(0.08); } }
+  @keyframes wtc-breathe { 0%, 100% { transform: translateY(0) scale(1); } 50% { transform: translateY(-5px) scale(1.012); } }
+  @keyframes wtc-penwiggle { 0%, 100% { transform: rotate(34deg); } 50% { transform: rotate(28deg); } }
+</style>
+</helmet>
+
+<div style="--accent:{{ accentColor }}; --accent2:{{ accent2Color }}; position:relative; background:#06070d; color:#e9ebf2; font-family:'Manrope',sans-serif; overflow:hidden; -webkit-font-smoothing:antialiased;">
+
+  <!-- ambient glows + grid -->
+  <div style="position:absolute; inset:0; pointer-events:none; background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px); background-size:64px 64px; mask-image:radial-gradient(ellipse 90% 60% at 50% 0%,#000 30%,transparent 80%);"></div>
+  <div style="position:absolute; top:-280px; left:50%; transform:translateX(-50%); width:1100px; height:700px; background:radial-gradient(ellipse at center, var(--accent,#4d7cfe) 0%, transparent 62%); opacity:0.22; filter:blur(40px); pointer-events:none;"></div>
+  <div style="position:absolute; top:600px; right:-200px; width:700px; height:700px; background:radial-gradient(circle, var(--accent2,#8b5cf6) 0%, transparent 62%); opacity:0.14; filter:blur(50px); pointer-events:none;"></div>
+
+  <!-- ===== NAV ===== -->
+  <nav style="position:relative; z-index:20; max-width:1200px; margin:0 auto; padding:30px 32px; display:flex; align-items:center; justify-content:space-between;">
+    <a href="WebTech Core.dc.html" style="display:flex; align-items:center; gap:12px; text-decoration:none; color:#e9ebf2;">
+      <svg width="36" height="36" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+        <rect x="3" y="3" width="24" height="24" rx="6" stroke="var(--accent,#4d7cfe)" stroke-width="1.6"></rect>
+        <rect x="9.5" y="9.5" width="11" height="11" rx="2" fill="var(--accent,#4d7cfe)"></rect>
+        <circle cx="15" cy="15" r="2.4" fill="#06070d"></circle>
+      </svg>
+      <span style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:21px; letter-spacing:0.16em;">WEBTECH<span style="color:var(--accent,#4d7cfe);">CORE</span></span>
+    </a>
+    <div style="display:flex; align-items:center; gap:30px;">
+      <a href="WebTech Core.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:15.5px; font-weight:500;" style-hover="color:#fff;">Home</a>
+      <a href="About Us.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:15.5px; font-weight:500;" style-hover="color:#fff;">About</a>
+
+      <!-- INDUSTRIES DROPDOWN -->
+      <div onMouseEnter="{{ openIndustries }}" onMouseLeave="{{ closeMenu }}">
+        <button onClick="{{ toggleIndustries }}" style="display:inline-flex; align-items:center; gap:7px; background:none; border:none; cursor:pointer; color:{{ industriesColor }}; font-family:'Manrope',sans-serif; font-size:15.5px; font-weight:600; padding:0;">
+          Industries
+          <span style="display:inline-block; transition:transform 0.2s; transform:rotate({{ industriesCaret }}deg);">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </span>
+        </button>
+        <sc-if value="{{ industriesOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute; top:68px; left:32px; z-index:30; width:980px; max-width:calc(100% - 64px); padding:16px; background:rgba(14,16,28,0.97); backdrop-filter:blur(14px); border:1px solid rgba(255,255,255,0.12); border-radius:16px; box-shadow:0 24px 60px -18px rgba(0,0,0,0.7); animation:wtc-fadein 0.18s ease-out;">
+            <div style="font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:0.1em; color:#7c8398; padding:6px 12px 12px;">INDUSTRIES WE SERVE</div>
+            <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:6px;">
+              <a href="Healthcare.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🏥</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Healthcare</span><span style="display:block; font-size:11.5px; color:#7c8398;">Clinics, dental, wellness</span></span>
+              </a>
+              <a href="Real Estate.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🏠</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Real Estate</span><span style="display:block; font-size:11.5px; color:#7c8398;">Agents, brokers, developers</span></span>
+              </a>
+              <a href="Ecommerce.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🛍️</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">E-commerce &amp; Retail</span><span style="display:block; font-size:11.5px; color:#7c8398;">Online &amp; omnichannel stores</span></span>
+              </a>
+              <a href="Restaurants.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🍽️</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Restaurants</span><span style="display:block; font-size:11.5px; color:#7c8398;">Cafes, dining, franchises</span></span>
+              </a>
+              <a href="Legal.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">⚖️</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Legal &amp; Professional</span><span style="display:block; font-size:11.5px; color:#7c8398;">Law, finance, consulting</span></span>
+              </a>
+              <a href="Home Services.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🔧</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Home Services</span><span style="display:block; font-size:11.5px; color:#7c8398;">Trades, repair, contractors</span></span>
+              </a>
+              <a href="Education.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🎓</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Education</span><span style="display:block; font-size:11.5px; color:#7c8398;">Schools, courses, edtech</span></span>
+              </a>
+              <a href="Fitness.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">💪</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Fitness &amp; Wellness</span><span style="display:block; font-size:11.5px; color:#7c8398;">Gyms, studios, coaches</span></span>
+              </a>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+
+      <!-- SERVICES DROPDOWN -->
+      <div onMouseEnter="{{ openServices }}" onMouseLeave="{{ closeMenu }}">
+        <button onClick="{{ toggleServices }}" style="display:inline-flex; align-items:center; gap:7px; background:none; border:none; cursor:pointer; color:{{ servicesColor }}; font-family:'Manrope',sans-serif; font-size:15.5px; font-weight:600; padding:0;">
+          Services
+          <span style="display:inline-block; transition:transform 0.2s; transform:rotate({{ servicesCaret }}deg);">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </span>
+        </button>
+        <sc-if value="{{ servicesOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute; top:68px; left:32px; z-index:30; width:980px; max-width:calc(100% - 64px); padding:16px; background:rgba(14,16,28,0.97); backdrop-filter:blur(14px); border:1px solid rgba(255,255,255,0.12); border-radius:16px; box-shadow:0 24px 60px -18px rgba(0,0,0,0.7); animation:wtc-fadein 0.18s ease-out;">
+            <div style="font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:0.1em; color:#7c8398; padding:6px 12px 12px;">WHAT WE DO</div>
+            <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:6px;">
+              <a href="SEO.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🔍</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Search Engine Optimization</span><span style="display:block; font-size:11.5px; color:#7c8398;">Organic growth</span></span>
+              </a>
+              <a href="Local SEO.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">📍</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Local SEO</span><span style="display:block; font-size:11.5px; color:#7c8398;">Map &amp; near-me</span></span>
+              </a>
+              <a href="PPC.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🎯</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Paid Advertising (PPC)</span><span style="display:block; font-size:11.5px; color:#7c8398;">Google ads</span></span>
+              </a>
+              <a href="Social Media.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">📱</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Social Media Marketing</span><span style="display:block; font-size:11.5px; color:#7c8398;">Build audience</span></span>
+              </a>
+              <a href="Meta Ads.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">⚡</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Meta Ads Services</span><span style="display:block; font-size:11.5px; color:#7c8398;">FB &amp; Instagram</span></span>
+              </a>
+              <a href="Content Marketing.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">✍️</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Content Marketing</span><span style="display:block; font-size:11.5px; color:#7c8398;">Blogs &amp; assets</span></span>
+              </a>
+              <a href="Email Marketing.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">✉️</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Email Marketing</span><span style="display:block; font-size:11.5px; color:#7c8398;">Flows &amp; campaigns</span></span>
+              </a>
+              <a href="Web Design.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🖥️</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Web Design &amp; Development</span><span style="display:block; font-size:11.5px; color:#7c8398;">Design &amp; build</span></span>
+              </a>
+              <a href="Graphics Design.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🎨</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Graphics Designing</span><span style="display:block; font-size:11.5px; color:#7c8398;">Brand visuals</span></span>
+              </a>
+            </div>
+            <a href="Services.dc.html" style="display:block; text-align:center; margin-top:10px; padding:10px; border-radius:10px; text-decoration:none; font-family:'Space Mono',monospace; font-size:11.5px; letter-spacing:0.06em; color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.07);" style-hover="background:rgba(77,124,254,0.13);">VIEW ALL SERVICES →</a>
+          </div>
+        </sc-if>
+      </div>
+
+      <!-- COUNTRY DROPDOWN -->
+      <div style="position:relative;" onMouseEnter="{{ openCountry }}" onMouseLeave="{{ closeMenu }}">
+        <button onClick="{{ toggleCountry }}" style="display:inline-flex; align-items:center; gap:7px; background:none; border:none; cursor:pointer; color:{{ countryColor }}; font-family:'Manrope',sans-serif; font-size:15.5px; font-weight:600; padding:0;">
+          Country
+          <span style="display:inline-block; transition:transform 0.2s; transform:rotate({{ countryCaret }}deg);">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </span>
+        </button>
+        <sc-if value="{{ countryOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute; top:34px; left:0; z-index:30; width:300px; max-width:90vw; padding:16px; background:rgba(14,16,28,0.97); backdrop-filter:blur(14px); border:1px solid rgba(255,255,255,0.12); border-radius:16px; box-shadow:0 24px 60px -18px rgba(0,0,0,0.7); animation:wtc-fadein 0.18s ease-out;">
+            <div style="font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:0.1em; color:#7c8398; padding:6px 12px 12px;">WHERE WE WORK</div>
+            <div style="display:grid; grid-template-columns:1fr; gap:4px;">
+              <a href="India.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:18px; line-height:1;">🇮🇳</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">India</span><span style="display:block; font-size:11.5px; color:#7c8398;">All 28 states &amp; UTs</span></span>
+              </a>
+              <a href="USA.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:18px; line-height:1;">🇺🇸</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">USA</span><span style="display:block; font-size:11.5px; color:#7c8398;">All 50 states</span></span>
+              </a>
+              <a href="UK.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:18px; line-height:1;">🇬🇧</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">United Kingdom</span><span style="display:block; font-size:11.5px; color:#7c8398;">Now expanding</span></span>
+              </a>
+              <a href="Singapore.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:18px; line-height:1;">🇸🇬</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Singapore</span><span style="display:block; font-size:11.5px; color:#7c8398;">Now expanding</span></span>
+              </a>
+            </div>
+            <a href="Country.dc.html" style="display:block; text-align:center; margin-top:10px; padding:10px; border-radius:10px; text-decoration:none; font-family:'Space Mono',monospace; font-size:11.5px; letter-spacing:0.06em; color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.07);" style-hover="background:rgba(77,124,254,0.13);">VIEW GLOBAL PRESENCE →</a>
+          </div>
+        </sc-if>
+      </div>
+
+      <!-- RESOURCES DROPDOWN -->
+      <div style="position:relative;" onMouseEnter="{{ openResources }}" onMouseLeave="{{ closeMenu }}">
+        <button onClick="{{ toggleResources }}" style="display:inline-flex; align-items:center; gap:7px; background:none; border:none; cursor:pointer; color:{{ resourcesColor }}; font-family:'Manrope',sans-serif; font-size:15.5px; font-weight:600; padding:0;">
+          Resources
+          <span style="display:inline-block; transition:transform 0.2s; transform:rotate({{ resourcesCaret }}deg);">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </span>
+        </button>
+        <sc-if value="{{ resourcesOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute; top:34px; left:0; z-index:30; width:320px; max-width:90vw; padding:16px; background:rgba(14,16,28,0.97); backdrop-filter:blur(14px); border:1px solid rgba(255,255,255,0.12); border-radius:16px; box-shadow:0 24px 60px -18px rgba(0,0,0,0.7); animation:wtc-fadein 0.18s ease-out;">
+            <div style="font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:0.1em; color:#7c8398; padding:6px 12px 12px;">RESOURCES</div>
+            <div style="display:grid; grid-template-columns:1fr; gap:4px;">
+              <a href="Blog.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">📝</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Blog</span><span style="display:block; font-size:11.5px; color:#7c8398;">Insights &amp; guides</span></span>
+              </a>
+              <a href="Press Release.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">📰</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Press Release</span><span style="display:block; font-size:11.5px; color:#7c8398;">News &amp; announcements</span></span>
+              </a>
+              <a href="Case Studies.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">📊</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Case Studies</span><span style="display:block; font-size:11.5px; color:#7c8398;">Real client results</span></span>
+              </a>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+
+      <a href="Contact Us.dc.html" style="display:inline-flex; align-items:center; gap:8px; background:var(--accent,#4d7cfe); color:#fff; text-decoration:none; font-weight:600; font-size:15px; padding:12px 22px; border-radius:11px; box-shadow:0 8px 28px -8px var(--accent,#4d7cfe);" style-hover="filter:brightness(1.08);">Book Free Consultation</a>
+    </div>
+  </nav>
+
+  <!-- ===== HERO ===== -->
+  <header style="position:relative; z-index:4; max-width:1200px; margin:0 auto; padding:64px 32px 40px; display:grid; grid-template-columns:1.05fr 0.95fr; gap:56px; align-items:center;">
+    <div>
+      <div style="display:inline-flex; align-items:center; gap:9px; padding:7px 14px; border:1px solid rgba(255,255,255,0.12); border-radius:100px; background:rgba(255,255,255,0.03); font-family:'Space Mono',monospace; font-size:11.5px; letter-spacing:0.08em; color:#aeb4c7;">
+        <span style="width:7px; height:7px; border-radius:50%; background:var(--accent,#4d7cfe); box-shadow:0 0 10px var(--accent,#4d7cfe); animation:wtc-pulse 2.4s infinite;"></span>
+        DIGITAL MARKETING AGENCY · INDIA &amp; USA
+      </div>
+      <h1 style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:52px; line-height:1.05; letter-spacing:-0.02em; margin:22px 0 0; text-wrap:balance;">Digital Marketing Agency for Small Businesses — <span style="background:linear-gradient(100deg,var(--accent,#4d7cfe),var(--accent2,#8b5cf6)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;">India &amp; USA</span></h1>
+      <p style="font-size:18px; line-height:1.6; color:#e9ebf2; margin:20px 0 0; max-width:500px; text-wrap:pretty;">Your complete growth partner — SEO, Google Ads, social media, web design, and content working as one system to turn clicks into paying customers.</p>
+      <p style="font-size:14.5px; line-height:1.65; color:#9aa0b4; margin:14px 0 0; max-width:500px; text-wrap:pretty;">From local SEO that puts you on Google Maps to Google Ads campaigns engineered for measurable return, WebTech Core builds and runs your entire marketing engine under one roof — for small businesses across India and the USA.</p>
+      <div style="display:flex; align-items:center; gap:13px; margin-top:24px; height:30px;">
+        <span style="font-family:'Space Mono',monospace; font-size:11.5px; letter-spacing:0.08em; color:#7c8398; white-space:nowrap;">NOW DELIVERING:</span>
+        <span style="display:inline-flex; align-items:center; gap:9px;">
+          <span style="width:7px; height:7px; border-radius:50%; background:var(--accent,#4d7cfe); box-shadow:0 0 9px var(--accent,#4d7cfe); flex:none; animation:wtc-pulse 2s infinite;"></span>
+          <span style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:17px; letter-spacing:-0.01em; color:var(--accent,#4d7cfe); white-space:nowrap; display:inline-block; animation:wtc-cycle 2s ease-in-out infinite;">{{ currentService }}</span>
+        </span>
+      </div>
+      <div style="display:flex; flex-wrap:wrap; gap:14px; margin-top:28px;">
+        <a href="#contact" style="display:inline-flex; align-items:center; gap:9px; background:var(--accent,#4d7cfe); color:#fff; text-decoration:none; font-weight:600; font-size:15.5px; padding:15px 26px; border-radius:12px; box-shadow:0 14px 38px -10px var(--accent,#4d7cfe);" style-hover="filter:brightness(1.08); transform:translateY(-1px);">Book Free Consultation</a>
+        <a href="#contact" style="display:inline-flex; align-items:center; gap:9px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.14); color:#e9ebf2; text-decoration:none; font-weight:600; font-size:15.5px; padding:15px 24px; border-radius:12px;" style-hover="background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.28);">Get Free Audit Report →</a>
+      </div>
+      <p style="font-family:'Space Mono',monospace; font-size:12px; color:#7c8398; margin-top:18px; letter-spacing:0.02em;">No contracts · Free 30-min strategy call · Audit report in 48 hours · 250+ businesses grown</p>
+    </div>
+
+    <!-- hero visual: live metrics glass card -->
+    <div style="position:relative; animation:wtc-float 7s ease-in-out infinite;">
+      <div style="position:absolute; inset:-1px; border-radius:20px; background:linear-gradient(140deg,var(--accent,#4d7cfe),transparent 45%,var(--accent2,#8b5cf6)); opacity:0.5; filter:blur(2px);"></div>
+      <div style="position:relative; background:linear-gradient(180deg,rgba(20,22,34,0.92),rgba(12,13,22,0.92)); backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,0.1); border-radius:20px; padding:24px;">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:20px;">
+          <div style="display:flex; align-items:center; gap:9px;">
+            <span style="width:9px; height:9px; border-radius:50%; background:var(--accent,#4d7cfe);"></span>
+            <span style="font-family:'Space Mono',monospace; font-size:12px; color:#aeb4c7; letter-spacing:0.04em;">campaign_overview</span>
+          </div>
+          <span style="font-family:'Space Mono',monospace; font-size:11px; color:#34d399; background:rgba(52,211,153,0.12); padding:4px 9px; border-radius:6px;">● LIVE</span>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:18px;">
+          <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); border-radius:12px; padding:14px;">
+            <div style="font-family:'Space Mono',monospace; font-size:10.5px; color:#7c8398; letter-spacing:0.05em;">ACTIVE CLIENTS</div>
+            <div key="{{ activeClients }}" style="font-family:'Space Grotesk',sans-serif; font-size:26px; font-weight:700; margin-top:4px; animation:wtc-tick 0.5s ease-out;">{{ activeClients }}</div>
+            <div style="font-size:11px; color:#34d399; margin-top:2px;">● onboarding now</div>
+          </div>
+          <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); border-radius:12px; padding:14px;">
+            <div style="font-family:'Space Mono',monospace; font-size:10.5px; color:#7c8398; letter-spacing:0.05em;">ACTIVE PROJECTS</div>
+            <div key="{{ activeProjects }}" style="font-family:'Space Grotesk',sans-serif; font-size:26px; font-weight:700; margin-top:4px; animation:wtc-tick 0.5s ease-out;">{{ activeProjects }}</div>
+            <div style="font-size:11px; color:#34d399; margin-top:2px;">● shipping today</div>
+          </div>
+        </div>
+        <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); border-radius:12px; padding:16px 14px 12px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+            <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#7c8398;">organic_traffic</span>
+            <span style="font-family:'Space Mono',monospace; font-size:11px; color:var(--accent,#4d7cfe);">+162%</span>
+          </div>
+          <div style="display:flex; align-items:flex-end; gap:7px; height:74px;">
+            <div style="flex:1; height:32%; background:rgba(255,255,255,0.1); border-radius:4px 4px 2px 2px; transform-origin:bottom; animation:wtc-grow 0.7s ease-out;"></div>
+            <div style="flex:1; height:46%; background:rgba(255,255,255,0.13); border-radius:4px 4px 2px 2px; transform-origin:bottom; animation:wtc-grow 0.7s ease-out;"></div>
+            <div style="flex:1; height:40%; background:rgba(255,255,255,0.13); border-radius:4px 4px 2px 2px; transform-origin:bottom; animation:wtc-grow 0.7s ease-out;"></div>
+            <div style="flex:1; height:62%; background:linear-gradient(180deg,var(--accent2,#8b5cf6),rgba(139,92,246,0.4)); border-radius:4px 4px 2px 2px; transform-origin:bottom; animation:wtc-grow 0.8s ease-out;"></div>
+            <div style="flex:1; height:74%; background:linear-gradient(180deg,var(--accent,#4d7cfe),rgba(77,124,254,0.4)); border-radius:4px 4px 2px 2px; transform-origin:bottom; animation:wtc-grow 0.9s ease-out;"></div>
+            <div style="flex:1; height:90%; background:linear-gradient(180deg,var(--accent,#4d7cfe),rgba(77,124,254,0.4)); border-radius:4px 4px 2px 2px; transform-origin:bottom; animation:wtc-grow 1s ease-out;"></div>
+            <div style="flex:1; height:100%; background:linear-gradient(180deg,var(--accent,#4d7cfe),var(--accent2,#8b5cf6)); border-radius:4px 4px 2px 2px; box-shadow:0 0 16px -2px var(--accent,#4d7cfe); transform-origin:bottom; animation:wtc-grow 1.1s ease-out;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== STATS ===== -->
+  <sc-if value="{{ showStats }}" hint-placeholder-val="{{ true }}">
+  <section style="position:relative; z-index:4; max-width:1200px; margin:24px auto 0; padding:0 32px;">
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(160px,1fr)); border:1px solid rgba(255,255,255,0.08); border-radius:16px; background:rgba(255,255,255,0.02); overflow:hidden;">
+      <div style="padding:26px 24px; border-right:1px solid rgba(255,255,255,0.08);">
+        <div style="font-family:'Space Grotesk',sans-serif; font-size:30px; font-weight:700; color:#fff;">128</div>
+        <div style="font-size:13px; color:#aeb4c7; margin-top:4px;">Active clients</div>
+      </div>
+      <div style="padding:26px 24px; border-right:1px solid rgba(255,255,255,0.08);">
+        <div style="font-family:'Space Grotesk',sans-serif; font-size:30px; font-weight:700; color:#fff;">250<span style="color:var(--accent,#4d7cfe);">+</span></div>
+        <div style="font-size:13px; color:#aeb4c7; margin-top:4px;">Businesses grown</div>
+      </div>
+      <div style="padding:26px 24px; border-right:1px solid rgba(255,255,255,0.08);">
+        <div style="font-family:'Space Grotesk',sans-serif; font-size:30px; font-weight:700; color:#fff;">4.2<span style="color:var(--accent,#4d7cfe);">x</span></div>
+        <div style="font-size:13px; color:#aeb4c7; margin-top:4px;">Average ROAS</div>
+      </div>
+      <div style="padding:26px 24px; border-right:1px solid rgba(255,255,255,0.08);">
+        <div style="font-family:'Space Grotesk',sans-serif; font-size:30px; font-weight:700; color:#fff;"><span style="color:var(--accent,#4d7cfe);">+</span>162<span style="color:var(--accent,#4d7cfe);">%</span></div>
+        <div style="font-size:13px; color:#aeb4c7; margin-top:4px;">Avg. traffic growth</div>
+      </div>
+      <div style="padding:26px 24px; border-right:1px solid rgba(255,255,255,0.08);">
+        <div style="font-family:'Space Grotesk',sans-serif; font-size:30px; font-weight:700; color:#fff;">₹18Cr<span style="color:var(--accent,#4d7cfe);">+</span></div>
+        <div style="font-size:13px; color:#aeb4c7; margin-top:4px;">Revenue generated</div>
+      </div>
+      <div style="padding:26px 24px;">
+        <div style="font-family:'Space Grotesk',sans-serif; font-size:30px; font-weight:700; color:#fff;">98<span style="color:var(--accent,#4d7cfe);">%</span></div>
+        <div style="font-size:13px; color:#aeb4c7; margin-top:4px;">Client retention</div>
+      </div>
+    </div>
+  </section>
+  </sc-if>
+
+  <!-- ===== LOGO MARQUEE ===== -->
+  <section style="position:relative; z-index:4; margin-top:54px; overflow:hidden;">
+    <p style="text-align:center; font-family:'Space Mono',monospace; font-size:11.5px; letter-spacing:0.16em; color:#7c8398; margin-bottom:22px;">TRUSTED BY GROWING BRANDS ACROSS 12 INDUSTRIES</p>
+    <div style="position:relative; mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);">
+      <div style="display:flex; gap:56px; width:max-content; animation:wtc-marquee 32s linear infinite;">
+        <span style="font-family:'Space Grotesk',sans-serif; font-size:19px; font-weight:600; color:#565c70; white-space:nowrap;">NorthPeak</span>
+        <span style="font-family:'Space Grotesk',sans-serif; font-size:19px; font-weight:600; color:#565c70; white-space:nowrap;">BrightLeaf Co.</span>
+        <span style="font-family:'Space Grotesk',sans-serif; font-size:19px; font-weight:600; color:#565c70; white-space:nowrap;">Harborline</span>
+        <span style="font-family:'Space Grotesk',sans-serif; font-size:19px; font-weight:600; color:#565c70; white-space:nowrap;">Vela Studio</span>
+        <span style="font-family:'Space Grotesk',sans-serif; font-size:19px; font-weight:600; color:#565c70; white-space:nowrap;">Quanta Labs</span>
+        <span style="font-family:'Space Grotesk',sans-serif; font-size:19px; font-weight:600; color:#565c70; white-space:nowrap;">Maple &amp; Co</span>
+        <span style="font-family:'Space Grotesk',sans-serif; font-size:19px; font-weight:600; color:#565c70; white-space:nowrap;">Driftwave</span>
+        <span style="font-family:'Space Grotesk',sans-serif; font-size:19px; font-weight:600; color:#565c70; white-space:nowrap;">Sentari</span>
+        <span style="font-family:'Space Grotesk',sans-serif; font-size:19px; font-weight:600; color:#565c70; white-space:nowrap;">NorthPeak</span>
+        <span style="font-family:'Space Grotesk',sans-serif; font-size:19px; font-weight:600; color:#565c70; white-space:nowrap;">BrightLeaf Co.</span>
+        <span style="font-family:'Space Grotesk',sans-serif; font-size:19px; font-weight:600; color:#565c70; white-space:nowrap;">Harborline</span>
+        <span style="font-family:'Space Grotesk',sans-serif; font-size:19px; font-weight:600; color:#565c70; white-space:nowrap;">Vela Studio</span>
+        <span style="font-family:'Space Grotesk',sans-serif; font-size:19px; font-weight:600; color:#565c70; white-space:nowrap;">Quanta Labs</span>
+        <span style="font-family:'Space Grotesk',sans-serif; font-size:19px; font-weight:600; color:#565c70; white-space:nowrap;">Maple &amp; Co</span>
+        <span style="font-family:'Space Grotesk',sans-serif; font-size:19px; font-weight:600; color:#565c70; white-space:nowrap;">Driftwave</span>
+        <span style="font-family:'Space Grotesk',sans-serif; font-size:19px; font-weight:600; color:#565c70; white-space:nowrap;">Sentari</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES ===== -->
+  <section id="services" style="position:relative; z-index:4; max-width:1200px; margin:0 auto; padding:96px 32px 0;">
+    <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:24px; margin-bottom:42px; flex-wrap:wrap;">
+      <div>
+        <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:14px;">// DIGITAL MARKETING SERVICES</div>
+        <h2 style="font-family:'Space Grotesk',sans-serif; font-size:42px; font-weight:700; letter-spacing:-0.02em; line-height:1.08; max-width:600px; text-wrap:balance;">Digital marketing services that drive measurable growth.</h2>
+      </div>
+      <p style="font-size:15px; color:#aeb4c7; max-width:340px; line-height:1.6;">Whether you need to rank higher on Google, generate leads through paid ads, or build a brand customers trust — we deliver every service under one roof, built for lean budgets with maximum ROI.</p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(255px,1fr)); gap:18px;">
+      <!-- SEO -->
+      <a href="SEO.dc.html" style="display:block; text-decoration:none; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:28px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.06); transform:translateY(-3px);">
+        <svg width="34" height="34" viewBox="0 0 34 34" fill="none"><circle cx="15" cy="15" r="9" stroke="var(--accent,#4d7cfe)" stroke-width="1.8"></circle><line x1="22" y1="22" x2="28" y2="28" stroke="var(--accent,#4d7cfe)" stroke-width="1.8" stroke-linecap="round"></line></svg>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; margin:18px 0 8px; color:#e9ebf2;">Search Engine Optimization (SEO)</h3>
+        <p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">Rank on page 1 of Google for the keywords your customers search every day — technical SEO, on-page, link building, and content strategy.</p>
+        <div style="font-family:'Space Mono',monospace; font-size:11px; color:var(--accent,#4d7cfe); margin-top:16px;">Learn About SEO Services →</div>
+      </a>
+      <!-- Local SEO -->
+      <a href="Local SEO.dc.html" style="display:block; text-decoration:none; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:28px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.06); transform:translateY(-3px);">
+        <svg width="34" height="34" viewBox="0 0 34 34" fill="none"><path d="M17 4 C11 4 7 8.5 7 14 C7 21 17 30 17 30 C17 30 27 21 27 14 C27 8.5 23 4 17 4 Z" stroke="var(--accent,#4d7cfe)" stroke-width="1.8" stroke-linejoin="round"></path><circle cx="17" cy="14" r="3.4" stroke="var(--accent,#4d7cfe)" stroke-width="1.8"></circle></svg>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; margin:18px 0 8px; color:#e9ebf2;">Local SEO &amp; Google Business Profile</h3>
+        <p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">Dominate 'near me' searches in your city. We optimize your Google Business Profile, build local citations, and create location pages.</p>
+        <div style="font-family:'Space Mono',monospace; font-size:11px; color:var(--accent,#4d7cfe); margin-top:16px;">Explore Local SEO →</div>
+      </a>
+      <!-- Google Ads / PPC -->
+      <a href="PPC.dc.html" style="display:block; text-decoration:none; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:28px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.06); transform:translateY(-3px);">
+        <svg width="34" height="34" viewBox="0 0 34 34" fill="none"><circle cx="17" cy="17" r="12" stroke="var(--accent,#4d7cfe)" stroke-width="1.8"></circle><circle cx="17" cy="17" r="6.5" stroke="var(--accent,#4d7cfe)" stroke-width="1.8"></circle><circle cx="17" cy="17" r="2" fill="var(--accent,#4d7cfe)"></circle></svg>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; margin:18px 0 8px; color:#e9ebf2;">Google Ads (PPC Management)</h3>
+        <p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">Stop wasting ad budget on unqualified clicks. PPC campaigns engineered for return — high-intent keywords and conversion-optimized landing pages.</p>
+        <div style="font-family:'Space Mono',monospace; font-size:11px; color:var(--accent,#4d7cfe); margin-top:16px;">See Our PPC Service →</div>
+      </a>
+      <!-- Meta Ads -->
+      <a href="Meta Ads.dc.html" style="display:block; text-decoration:none; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:28px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.06); transform:translateY(-3px);">
+        <svg width="34" height="34" viewBox="0 0 34 34" fill="none"><path d="M18 3 L9 19 H16 L15 31 L25 14 H17 Z" stroke="var(--accent,#4d7cfe)" stroke-width="1.8" stroke-linejoin="round"></path></svg>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; margin:18px 0 8px; color:#e9ebf2;">Meta Ads (Facebook &amp; Instagram)</h3>
+        <p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">Reach your exact target customer with data-driven Facebook and Instagram campaigns — full-funnel Meta ad strategies for small budgets.</p>
+        <div style="font-family:'Space Mono',monospace; font-size:11px; color:var(--accent,#4d7cfe); margin-top:16px;">Explore Meta Ads →</div>
+      </a>
+      <!-- Social -->
+      <a href="Social Media.dc.html" style="display:block; text-decoration:none; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:28px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.06); transform:translateY(-3px);">
+        <svg width="34" height="34" viewBox="0 0 34 34" fill="none"><rect x="5" y="6" width="24" height="17" rx="5" stroke="var(--accent,#4d7cfe)" stroke-width="1.8"></rect><path d="M12 23 L12 28 L18 23" stroke="var(--accent,#4d7cfe)" stroke-width="1.8" stroke-linejoin="round" fill="none"></path><circle cx="13" cy="14.5" r="1.6" fill="var(--accent,#4d7cfe)"></circle><circle cx="21" cy="14.5" r="1.6" fill="var(--accent,#4d7cfe)"></circle></svg>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; margin:18px 0 8px; color:#e9ebf2;">Social Media Marketing</h3>
+        <p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">Build a brand community that buys. Monthly content calendars, platform-specific creative, and community management that converts.</p>
+        <div style="font-family:'Space Mono',monospace; font-size:11px; color:var(--accent,#4d7cfe); margin-top:16px;">Social Media Services →</div>
+      </a>
+      <!-- Web -->
+      <a href="Web Design.dc.html" style="display:block; text-decoration:none; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:28px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.06); transform:translateY(-3px);">
+        <svg width="34" height="34" viewBox="0 0 34 34" fill="none"><rect x="5" y="6" width="24" height="22" rx="4" stroke="var(--accent,#4d7cfe)" stroke-width="1.8"></rect><line x1="5" y1="13" x2="29" y2="13" stroke="var(--accent,#4d7cfe)" stroke-width="1.8"></line><circle cx="9" cy="9.5" r="1.1" fill="var(--accent,#4d7cfe)"></circle><circle cx="12.5" cy="9.5" r="1.1" fill="var(--accent,#4d7cfe)"></circle></svg>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; margin:18px 0 8px; color:#e9ebf2;">Web Design &amp; Development</h3>
+        <p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">Your website is your highest-ROI salesperson. We build fast, mobile-first, conversion-focused sites that turn traffic into bookings and sales.</p>
+        <div style="font-family:'Space Mono',monospace; font-size:11px; color:var(--accent,#4d7cfe); margin-top:16px;">Web Design Services →</div>
+      </a>
+      <!-- Content/Email -->
+      <a href="Content Marketing.dc.html" style="display:block; text-decoration:none; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:28px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.06); transform:translateY(-3px);">
+        <svg width="34" height="34" viewBox="0 0 34 34" fill="none"><rect x="5" y="8" width="24" height="18" rx="4" stroke="var(--accent,#4d7cfe)" stroke-width="1.8"></rect><path d="M6 10 L17 19 L28 10" stroke="var(--accent,#4d7cfe)" stroke-width="1.8" fill="none" stroke-linejoin="round"></path></svg>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; margin:18px 0 8px; color:#e9ebf2;">Content &amp; Email Marketing</h3>
+        <p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">Organic content that ranks. Email sequences that convert. SEO blogs, lead magnets, and drip campaigns that keep you top-of-mind.</p>
+        <div style="font-family:'Space Mono',monospace; font-size:11px; color:var(--accent,#4d7cfe); margin-top:16px;">Content Marketing →</div>
+      </a>
+      <!-- Graphic Design -->
+      <a href="Graphics Design.dc.html" style="display:block; text-decoration:none; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:28px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.06); transform:translateY(-3px);">
+        <svg width="34" height="34" viewBox="0 0 34 34" fill="none"><rect x="17" y="3" width="14" height="14" transform="rotate(45 17 3)" stroke="var(--accent,#4d7cfe)" stroke-width="1.8"></rect><circle cx="17" cy="17" r="3" fill="var(--accent,#4d7cfe)"></circle></svg>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; margin:18px 0 8px; color:#e9ebf2;">Graphic Design &amp; Branding</h3>
+        <p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">First impressions are digital. From logo to social creatives to pitch decks — brand visuals that communicate trust and authority.</p>
+        <div style="font-family:'Space Mono',monospace; font-size:11px; color:var(--accent,#4d7cfe); margin-top:16px;">Graphic Design →</div>
+      </a>
+    </div>
+    <div style="text-align:center; margin-top:30px;">
+      <a href="Services.dc.html" style="display:inline-flex; align-items:center; gap:9px; font-family:'Space Mono',monospace; font-size:13px; letter-spacing:0.04em; color:var(--accent,#4d7cfe); text-decoration:none; border:1px solid rgba(77,124,254,0.3); padding:13px 24px; border-radius:11px; background:rgba(77,124,254,0.06);" style-hover="background:rgba(77,124,254,0.13);">→ View All 9 Services &amp; Pricing</a>
+    </div>
+  </section>
+
+  <!-- ===== PROCESS ===== -->
+  <section id="process" style="position:relative; z-index:4; max-width:1200px; margin:0 auto; padding:104px 32px 0;">
+    <div style="text-align:center; margin-bottom:52px;">
+      <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:14px;">// HOW WE WORK</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif; font-size:42px; font-weight:700; letter-spacing:-0.02em; line-height:1.1;">A clear path from audit to scale</h2>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:18px;">
+      <div style="position:relative; padding:26px 22px; border:1px solid rgba(255,255,255,0.08); border-radius:16px; background:rgba(255,255,255,0.02);">
+        <div style="font-family:'Space Mono',monospace; font-size:13px; color:var(--accent,#4d7cfe);">01</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; margin:14px 0 8px;">Free Audit</h3>
+        <p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">We analyze your site, ads, and competitors and hand you a report in 48 hours.</p>
+      </div>
+      <div style="position:relative; padding:26px 22px; border:1px solid rgba(255,255,255,0.08); border-radius:16px; background:rgba(255,255,255,0.02);">
+        <div style="font-family:'Space Mono',monospace; font-size:13px; color:var(--accent,#4d7cfe);">02</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; margin:14px 0 8px;">Strategy</h3>
+        <p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">A custom 90-day roadmap with clear channels, budgets, and revenue targets.</p>
+      </div>
+      <div style="position:relative; padding:26px 22px; border:1px solid rgba(255,255,255,0.08); border-radius:16px; background:rgba(255,255,255,0.02);">
+        <div style="font-family:'Space Mono',monospace; font-size:13px; color:var(--accent,#4d7cfe);">03</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; margin:14px 0 8px;">Execute</h3>
+        <p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">Our team launches campaigns, builds assets, and ships — you stay focused on your business.</p>
+      </div>
+      <div style="position:relative; padding:26px 22px; border:1px solid var(--accent,#4d7cfe); border-radius:16px; background:rgba(77,124,254,0.07);">
+        <div style="font-family:'Space Mono',monospace; font-size:13px; color:var(--accent,#4d7cfe);">04</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; margin:14px 0 8px;">Scale</h3>
+        <p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">We double down on what's working and report on real numbers every single month.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== RESULTS ===== -->
+  <section id="results" style="position:relative; z-index:4; max-width:1200px; margin:0 auto; padding:104px 32px 0;">
+    <div style="display:grid; grid-template-columns:0.9fr 1.1fr; gap:48px; align-items:center; border:1px solid rgba(255,255,255,0.08); border-radius:24px; background:linear-gradient(135deg,rgba(77,124,254,0.07),rgba(139,92,246,0.04)); padding:44px;">
+      <div>
+        <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:16px;">// CASE STUDY · HOME SERVICES · MAHARASHTRA</div>
+        <h2 style="font-family:'Space Grotesk',sans-serif; font-size:32px; font-weight:700; line-height:1.14; letter-spacing:-0.01em; text-wrap:balance;">How we tripled leads for a 4-location service business in 90 days.</h2>
+        <p style="font-size:15px; color:#aeb4c7; line-height:1.65; margin-top:18px;">A 4-location home services business in Maharashtra came to us with wasted Google Ads spend and no organic visibility — cost per lead at ₹1,850 and rising. In 90 days we rebuilt their campaign structure, added 3 city-specific landing pages, and optimized their Google Business Profile for each location.</p>
+        <div style="display:flex; gap:28px; margin-top:28px; flex-wrap:wrap;">
+          <div>
+            <div style="font-family:'Space Grotesk',sans-serif; font-size:28px; font-weight:700; color:var(--accent,#4d7cfe);">+312%</div>
+            <div style="font-size:12.5px; color:#9aa0b4; margin-top:2px;">Qualified leads</div>
+          </div>
+          <div>
+            <div style="font-family:'Space Grotesk',sans-serif; font-size:28px; font-weight:700; color:var(--accent,#4d7cfe);">−41%</div>
+            <div style="font-size:12.5px; color:#9aa0b4; margin-top:2px;">Cost per lead</div>
+          </div>
+          <div>
+            <div style="font-family:'Space Grotesk',sans-serif; font-size:28px; font-weight:700; color:var(--accent,#4d7cfe);">4.2x</div>
+            <div style="font-size:12.5px; color:#9aa0b4; margin-top:2px;">GBP calls increase</div>
+          </div>
+          <div>
+            <div style="font-family:'Space Grotesk',sans-serif; font-size:28px; font-weight:700; color:var(--accent,#4d7cfe);">38</div>
+            <div style="font-size:12.5px; color:#9aa0b4; margin-top:2px;">New keyword rankings</div>
+          </div>
+        </div>
+        <a href="Case Studies.dc.html" style="display:inline-flex; align-items:center; gap:8px; margin-top:26px; font-family:'Space Mono',monospace; font-size:12px; color:var(--accent,#4d7cfe); text-decoration:none;" style-hover="gap:12px;">→ Read Full Case Study</a>
+      </div>
+      <div style="position:relative; aspect-ratio:4/3; border-radius:16px; border:1px solid rgba(255,255,255,0.1); background-image:repeating-linear-gradient(135deg,rgba(255,255,255,0.04) 0,rgba(255,255,255,0.04) 1px,transparent 1px,transparent 11px); background-color:rgba(8,9,16,0.6); display:flex; align-items:center; justify-content:center;">
+        <span style="font-family:'Space Mono',monospace; font-size:12.5px; color:#7c8398; letter-spacing:0.04em;">[ campaign dashboard screenshot ]</span>
+      </div>
+    </div>
+
+    <!-- testimonial -->
+    <div style="margin-top:18px; border:1px solid rgba(255,255,255,0.08); border-radius:24px; background:rgba(255,255,255,0.02); padding:44px; display:flex; gap:28px; align-items:flex-start;">
+      <svg width="40" height="40" viewBox="0 0 40 40" fill="none" style="flex:none; margin-top:4px;"><path d="M8 24 Q8 12 18 11 L18 16 Q13 17 13 24 Z" fill="var(--accent,#4d7cfe)" opacity="0.85"></path><path d="M22 24 Q22 12 32 11 L32 16 Q27 17 27 24 Z" fill="var(--accent,#4d7cfe)" opacity="0.85"></path></svg>
+      <div>
+        <p style="font-family:'Space Grotesk',sans-serif; font-size:24px; font-weight:500; line-height:1.4; letter-spacing:-0.01em; text-wrap:pretty;">"WebTech Core feels like our in-house marketing team — except they actually move fast. We finally have a pipeline we can predict."</p>
+        <div style="display:flex; align-items:center; gap:14px; margin-top:24px;">
+          <div style="width:46px; height:46px; border-radius:50%; background:repeating-linear-gradient(135deg,rgba(255,255,255,0.08) 0,rgba(255,255,255,0.08) 1px,transparent 1px,transparent 8px); border:1px solid rgba(255,255,255,0.12);"></div>
+          <div>
+            <div style="font-weight:600; font-size:15px;">Maya R.</div>
+            <div style="font-size:13px; color:#9aa0b4;">Founder, BrightLeaf Co.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== INDUSTRIES ===== -->
+  <section id="industries" style="position:relative; z-index:4; max-width:1200px; margin:0 auto; padding:104px 32px 0;">
+    <div style="text-align:center; margin-bottom:42px;">
+      <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:14px;">// INDUSTRIES WE SERVE</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif; font-size:42px; font-weight:700; letter-spacing:-0.02em; line-height:1.1; max-width:760px; margin:0 auto; text-wrap:balance;">Industries we serve across India and the USA</h2>
+      <p style="font-size:15.5px; color:#aeb4c7; line-height:1.65; margin:16px auto 0; max-width:660px; text-wrap:pretty;">We specialize in 8 key industries where digital marketing ROI is highest and competition is still winnable for small and medium businesses. Deep industry knowledge means faster results.</p>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(255px,1fr)); gap:16px;">
+      <a href="Healthcare.dc.html" style="display:block; text-decoration:none; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:24px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.06); transform:translateY(-3px);">
+        <div style="font-size:22px;">🏥</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:600; margin:12px 0 7px; color:#e9ebf2;">Healthcare Digital Marketing</h3>
+        <p style="font-size:13px; color:#9aa0b4; line-height:1.6;">Clinics, dental practices, and wellness centers — we drive appointment bookings through local SEO, Google Ads, and review management.</p>
+      </a>
+      <a href="Real Estate.dc.html" style="display:block; text-decoration:none; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:24px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.06); transform:translateY(-3px);">
+        <div style="font-size:22px;">🏠</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:600; margin:12px 0 7px; color:#e9ebf2;">Real Estate Digital Marketing</h3>
+        <p style="font-size:13px; color:#9aa0b4; line-height:1.6;">Agents, brokers, and developers — qualified buyer and seller leads with hyperlocal SEO, Meta Ads, and property-specific landing pages.</p>
+      </a>
+      <a href="Ecommerce.dc.html" style="display:block; text-decoration:none; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:24px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.06); transform:translateY(-3px);">
+        <div style="font-size:22px;">🛍️</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:600; margin:12px 0 7px; color:#e9ebf2;">E-commerce &amp; D2C Marketing</h3>
+        <p style="font-size:13px; color:#9aa0b4; line-height:1.6;">Online stores and D2C brands — grow revenue with SEO, Google Shopping, Meta retargeting, and email flows built for repeat purchases.</p>
+      </a>
+      <a href="Restaurants.dc.html" style="display:block; text-decoration:none; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:24px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.06); transform:translateY(-3px);">
+        <div style="font-size:22px;">🍽️</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:600; margin:12px 0 7px; color:#e9ebf2;">Restaurant &amp; Food Business</h3>
+        <p style="font-size:13px; color:#9aa0b4; line-height:1.6;">Cafes, restaurants, and cloud kitchens — fill tables and drive online orders through local SEO, Instagram, and Google profile optimization.</p>
+      </a>
+      <a href="Legal.dc.html" style="display:block; text-decoration:none; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:24px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.06); transform:translateY(-3px);">
+        <div style="font-size:22px;">⚖️</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:600; margin:12px 0 7px; color:#e9ebf2;">Legal &amp; Professional Services</h3>
+        <p style="font-size:13px; color:#9aa0b4; line-height:1.6;">Law firms, CA practices, and consultants — high-value client inquiries with trust-focused content, Google Ads, and local authority building.</p>
+      </a>
+      <a href="Home Services.dc.html" style="display:block; text-decoration:none; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:24px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.06); transform:translateY(-3px);">
+        <div style="font-size:22px;">🔧</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:600; margin:12px 0 7px; color:#e9ebf2;">Home Services &amp; Trades</h3>
+        <p style="font-size:13px; color:#9aa0b4; line-height:1.6;">Plumbers, electricians, contractors, and repair services — capture 'near me' demand through Google Maps optimization and local service ads.</p>
+      </a>
+      <a href="Education.dc.html" style="display:block; text-decoration:none; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:24px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.06); transform:translateY(-3px);">
+        <div style="font-size:22px;">🎓</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:600; margin:12px 0 7px; color:#e9ebf2;">Education &amp; EdTech</h3>
+        <p style="font-size:13px; color:#9aa0b4; line-height:1.6;">Schools, coaching institutes, and course creators — drive enrolment inquiries with SEO, YouTube, and Meta lead-generation campaigns.</p>
+      </a>
+      <a href="Fitness.dc.html" style="display:block; text-decoration:none; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:24px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.06); transform:translateY(-3px);">
+        <div style="font-size:22px;">💪</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:600; margin:12px 0 7px; color:#e9ebf2;">Fitness &amp; Wellness</h3>
+        <p style="font-size:13px; color:#9aa0b4; line-height:1.6;">Gyms, yoga studios, and personal coaches — grow memberships and class bookings through Instagram, local SEO, and targeted Google Ads.</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- ===== COVERAGE ===== -->
+  <section id="coverage" style="position:relative; z-index:4; max-width:1200px; margin:0 auto; padding:104px 32px 0;">
+    <div style="text-align:center; margin-bottom:42px;">
+      <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:14px;">// WHERE WE WORK</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif; font-size:40px; font-weight:700; letter-spacing:-0.02em; line-height:1.1; max-width:920px; margin:0 auto; text-wrap:balance;">Digital marketing services across every state and city in India &amp; the USA</h2>
+      <p style="font-size:15.5px; color:#aeb4c7; line-height:1.65; margin:16px auto 0; max-width:680px; text-wrap:pretty;">WebTech Core provides digital marketing services across all 29 states of India and all 50 states of the United States. Our location-specific strategies are built for the exact search behavior, local competition, and business culture of each region — never copy-pasted templates.</p>
+      <div style="display:flex; gap:40px; flex-wrap:wrap; justify-content:center; margin-top:28px;">
+        <div><div style="font-family:'Space Grotesk',sans-serif; font-size:30px; font-weight:700; color:#fff;">79</div><div style="font-size:12.5px; color:#9aa0b4;">States covered</div></div>
+        <div><div style="font-family:'Space Grotesk',sans-serif; font-size:30px; font-weight:700; color:#fff;">2</div><div style="font-size:12.5px; color:#9aa0b4;">Countries live</div></div>
+        <div><div style="font-family:'Space Grotesk',sans-serif; font-size:30px; font-weight:700; color:var(--accent,#4d7cfe);">+2</div><div style="font-size:12.5px; color:#9aa0b4;">Launching soon</div></div>
+      </div>
+    </div>
+
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:18px;">
+      <!-- INDIA -->
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:18px; padding:30px;">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:20px;">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span style="font-family:'Space Mono',monospace; font-size:12px; font-weight:700; letter-spacing:0.08em; color:#fff; background:var(--accent,#4d7cfe); padding:6px 10px; border-radius:8px;">IN</span>
+            <span style="font-family:'Space Grotesk',sans-serif; font-size:20px; font-weight:600;">India</span>
+          </div>
+          <span style="font-family:'Space Mono',monospace; font-size:12px; color:#aeb4c7; border:1px solid rgba(255,255,255,0.12); padding:5px 10px; border-radius:7px;">29 STATES</span>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:8px;">
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Andhra Pradesh</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Arunachal Pradesh</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Assam</span>
+          <a href="Bihar.dc.html" style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap; text-decoration:none; cursor:pointer;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Bihar</a>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Chhattisgarh</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Goa</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Gujarat</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Haryana</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Himachal Pradesh</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Jammu &amp; Kashmir</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Jharkhand</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Karnataka</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Kerala</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Madhya Pradesh</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Maharashtra</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Manipur</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Meghalaya</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Mizoram</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Nagaland</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Odisha</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Punjab</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Rajasthan</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Sikkim</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Tamil Nadu</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Telangana</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Tripura</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Uttar Pradesh</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Uttarakhand</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">West Bengal</span>
+        </div>
+      </div>
+
+      <!-- USA -->
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:18px; padding:30px;">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:20px;">
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span style="font-family:'Space Mono',monospace; font-size:12px; font-weight:700; letter-spacing:0.08em; color:#fff; background:var(--accent2,#8b5cf6); padding:6px 10px; border-radius:8px;">US</span>
+            <span style="font-family:'Space Grotesk',sans-serif; font-size:20px; font-weight:600;">United States</span>
+          </div>
+          <span style="font-family:'Space Mono',monospace; font-size:12px; color:#aeb4c7; border:1px solid rgba(255,255,255,0.12); padding:5px 10px; border-radius:7px;">50 STATES</span>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:8px;">
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">Alabama</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">Alaska</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">Arizona</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">Arkansas</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">California</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">Colorado</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">Connecticut</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">Delaware</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">Florida</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">Georgia</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">Hawaii</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">Idaho</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">Illinois</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">Indiana</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">Iowa</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">Kansas</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">Kentucky</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">Louisiana</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">Maine</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">Maryland</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">Massachusetts</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">Michigan</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">Minnesota</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">Mississippi</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">Missouri</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">Montana</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">Nebraska</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">Nevada</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">New Hampshire</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">New Jersey</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">New Mexico</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">New York</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">North Carolina</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">North Dakota</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">Ohio</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">Oklahoma</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">Oregon</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">Pennsylvania</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">Rhode Island</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">South Carolina</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">South Dakota</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">Tennessee</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">Texas</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">Utah</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">Vermont</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">Virginia</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">Washington</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">West Virginia</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">Wisconsin</span>
+          <span style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap;" style-hover="border-color:var(--accent2,#8b5cf6); color:#fff;">Wyoming</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXPANDING -->
+    <div style="margin-top:18px; border:1px dashed rgba(255,255,255,0.16); border-radius:18px; background:rgba(255,255,255,0.015); padding:26px 30px; display:flex; align-items:center; gap:24px; flex-wrap:wrap; justify-content:space-between;">
+      <div style="display:flex; align-items:center; gap:14px;">
+        <span style="font-family:'Space Mono',monospace; font-size:11.5px; letter-spacing:0.12em; color:var(--accent,#4d7cfe);">// EXPANDING NEXT</span>
+        <span style="font-size:14.5px; color:#aeb4c7;">New teams launching to serve clients in</span>
+      </div>
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <div style="display:flex; align-items:center; gap:11px; border:1px solid rgba(255,255,255,0.1); border-radius:10px; padding:10px 16px; background:rgba(255,255,255,0.02);">
+          <span style="font-family:'Space Mono',monospace; font-size:12px; font-weight:700; color:#fff; background:rgba(255,255,255,0.1); padding:5px 9px; border-radius:7px;">UK</span>
+          <span style="font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:600;">United Kingdom</span>
+          <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.12); padding:4px 8px; border-radius:6px;">SOON</span>
+        </div>
+        <div style="display:flex; align-items:center; gap:11px; border:1px solid rgba(255,255,255,0.1); border-radius:10px; padding:10px 16px; background:rgba(255,255,255,0.02);">
+          <span style="font-family:'Space Mono',monospace; font-size:12px; font-weight:700; color:#fff; background:rgba(255,255,255,0.1); padding:5px 9px; border-radius:7px;">SG</span>
+          <span style="font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:600;">Singapore</span>
+          <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.12); padding:4px 8px; border-radius:6px;">SOON</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FAQ ===== -->
+  <section id="faq" style="position:relative; z-index:4; max-width:880px; margin:0 auto; padding:104px 32px 0;">
+    <div style="text-align:center; margin-bottom:40px;">
+      <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:14px;">// FAQ</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif; font-size:38px; font-weight:700; letter-spacing:-0.02em; line-height:1.12; text-wrap:balance;">Frequently asked questions about digital marketing for small businesses</h2>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:12px;">
+      <details style="border:1px solid rgba(255,255,255,0.08); border-radius:14px; background:rgba(255,255,255,0.025); padding:18px 22px;">
+        <summary style="cursor:pointer; font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; color:#e9ebf2; list-style:none; display:flex; align-items:center; justify-content:space-between; gap:16px;"><span>How much does digital marketing cost for a small business in India?</span><span style="color:var(--accent,#4d7cfe); font-size:20px; flex:none;">+</span></summary>
+        <p style="font-size:14px; color:#9aa0b4; line-height:1.65; margin-top:14px; text-wrap:pretty;">Digital marketing pricing for small businesses in India ranges from ₹8,000/month for basic SEO to ₹50,000+/month for full-service packages including SEO, Google Ads, Meta Ads, and social media management. WebTech Core offers starter packages from ₹9,999/month with no long-term contracts required.</p>
+      </details>
+      <details style="border:1px solid rgba(255,255,255,0.08); border-radius:14px; background:rgba(255,255,255,0.025); padding:18px 22px;">
+        <summary style="cursor:pointer; font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; color:#e9ebf2; list-style:none; display:flex; align-items:center; justify-content:space-between; gap:16px;"><span>How long does SEO take to show results in India?</span><span style="color:var(--accent,#4d7cfe); font-size:20px; flex:none;">+</span></summary>
+        <p style="font-size:14px; color:#9aa0b4; line-height:1.65; margin-top:14px; text-wrap:pretty;">Most small businesses see measurable SEO results — keyword ranking improvements and organic traffic growth — within 90 to 180 days. Local SEO targeting city-specific searches on Google Maps can show results in 30 to 60 days when the Google Business Profile is fully optimized.</p>
+      </details>
+      <details style="border:1px solid rgba(255,255,255,0.08); border-radius:14px; background:rgba(255,255,255,0.025); padding:18px 22px;">
+        <summary style="cursor:pointer; font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; color:#e9ebf2; list-style:none; display:flex; align-items:center; justify-content:space-between; gap:16px;"><span>What is the difference between SEO and Google Ads for small businesses?</span><span style="color:var(--accent,#4d7cfe); font-size:20px; flex:none;">+</span></summary>
+        <p style="font-size:14px; color:#9aa0b4; line-height:1.65; margin-top:14px; text-wrap:pretty;">SEO builds long-term, free organic visibility on Google that compounds over time but takes 3–6 months. Google Ads delivers immediate traffic and leads from day one but stops when you stop paying. For most small businesses, the highest-ROI strategy combines both: Ads for immediate leads, SEO for long-term cost reduction.</p>
+      </details>
+      <details style="border:1px solid rgba(255,255,255,0.08); border-radius:14px; background:rgba(255,255,255,0.025); padding:18px 22px;">
+        <summary style="cursor:pointer; font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; color:#e9ebf2; list-style:none; display:flex; align-items:center; justify-content:space-between; gap:16px;"><span>Can WebTech Core manage both India and USA digital marketing campaigns?</span><span style="color:var(--accent,#4d7cfe); font-size:20px; flex:none;">+</span></summary>
+        <p style="font-size:14px; color:#9aa0b4; line-height:1.65; margin-top:14px; text-wrap:pretty;">Yes. WebTech Core operates across India (all 29 states) and the USA (all 50 states). Indian campaigns are managed with India-specific keyword behavior, local citation sites, and Indian search intent patterns. US campaigns follow separate market research and American search intent.</p>
+      </details>
+      <details style="border:1px solid rgba(255,255,255,0.08); border-radius:14px; background:rgba(255,255,255,0.025); padding:18px 22px;">
+        <summary style="cursor:pointer; font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; color:#e9ebf2; list-style:none; display:flex; align-items:center; justify-content:space-between; gap:16px;"><span>Does WebTech Core work with very small businesses with limited budgets?</span><span style="color:var(--accent,#4d7cfe); font-size:20px; flex:none;">+</span></summary>
+        <p style="font-size:14px; color:#9aa0b4; line-height:1.65; margin-top:14px; text-wrap:pretty;">Yes. Starter packages begin at ₹9,999/month in India or $299/month in the USA. Every engagement starts with a free 30-minute strategy call and a written audit report delivered within 48 hours — before you spend anything.</p>
+      </details>
+      <details style="border:1px solid rgba(255,255,255,0.08); border-radius:14px; background:rgba(255,255,255,0.025); padding:18px 22px;">
+        <summary style="cursor:pointer; font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; color:#e9ebf2; list-style:none; display:flex; align-items:center; justify-content:space-between; gap:16px;"><span>What industries does WebTech Core specialize in?</span><span style="color:var(--accent,#4d7cfe); font-size:20px; flex:none;">+</span></summary>
+        <p style="font-size:14px; color:#9aa0b4; line-height:1.65; margin-top:14px; text-wrap:pretty;">WebTech Core works with 8 industries: Healthcare, Real Estate, E-commerce &amp; D2C, Restaurants, Legal &amp; Professional Services, Home Services, Education &amp; EdTech, and Fitness &amp; Wellness.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ===== CTA / CONTACT ===== -->
+  <section id="contact" style="position:relative; z-index:4; max-width:1200px; margin:0 auto; padding:104px 32px 0;">
+    <div style="position:relative; overflow:hidden; border:1px solid rgba(255,255,255,0.1); border-radius:28px; background:linear-gradient(140deg,#0d1020,#0a0b14); padding:64px 48px;">
+      <div style="position:absolute; top:-160px; right:-60px; width:520px; height:520px; background:radial-gradient(circle,var(--accent,#4d7cfe),transparent 60%); opacity:0.22; filter:blur(30px);"></div>
+      <div style="position:relative; display:grid; grid-template-columns:1.05fr 0.95fr; gap:40px; align-items:center;">
+      <div style="max-width:620px;">
+        <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:16px;">// GET STARTED — IT'S FREE</div>
+        <h2 style="font-family:'Space Grotesk',sans-serif; font-size:44px; font-weight:700; line-height:1.06; letter-spacing:-0.02em; text-wrap:balance;">Book your free digital marketing strategy call.</h2>
+        <p style="font-size:16.5px; color:#aeb4c7; line-height:1.6; margin-top:18px;">No sales pitch. No commitment. Send us your website URL and we'll prepare a free written audit — SEO health, Google Ads performance, social presence, and your top 3 competitors — delivered within 48 hours.</p>
+
+        <sc-if value="{{ submitted }}" hint-placeholder-val="{{ false }}">
+          <div style="margin-top:30px; display:flex; align-items:center; gap:14px; background:rgba(52,211,153,0.1); border:1px solid rgba(52,211,153,0.3); border-radius:14px; padding:20px 24px;">
+            <svg width="26" height="26" viewBox="0 0 26 26" fill="none"><circle cx="13" cy="13" r="12" stroke="#34d399" stroke-width="1.6"></circle><path d="M8 13 L11.5 16.5 L18 9" stroke="#34d399" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+            <div>
+              <div style="font-weight:700; font-size:15.5px; color:#fff;">You're in — check your inbox.</div>
+              <div style="font-size:13.5px; color:#aeb4c7; margin-top:2px;">We'll send your free audit report within 48 hours.</div>
+            </div>
+          </div>
+        </sc-if>
+        <sc-if value="{{ notSubmitted }}" hint-placeholder-val="{{ true }}">
+          <form onSubmit="{{ onSubmit }}" style="margin-top:30px; display:flex; gap:12px; flex-wrap:wrap;">
+            <input type="email" required placeholder="you@yourbusiness.com" value="{{ email }}" onChange="{{ onEmail }}" style="flex:1; min-width:240px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.16); border-radius:12px; padding:16px 18px; color:#fff; font-family:'Manrope',sans-serif; font-size:15px; outline:none;" style-focus="border-color:var(--accent,#4d7cfe);"></input>
+            <button type="submit" style="background:var(--accent,#4d7cfe); color:#fff; border:none; font-family:'Manrope',sans-serif; font-weight:700; font-size:15px; padding:16px 28px; border-radius:12px; cursor:pointer; box-shadow:0 14px 38px -10px var(--accent,#4d7cfe);" style-hover="filter:brightness(1.08);">Get My Free Audit →</button>
+          </form>
+        </sc-if>
+        <p style="font-family:'Space Mono',monospace; font-size:11.5px; color:#7c8398; margin-top:16px;">Prefer to talk? Call +91 9110170824 · info@webtechcore.io</p>
+      </div>
+
+      <!-- consultant figure -->
+      <div style="position:relative; display:flex; flex-direction:column; align-items:center; gap:18px;">
+        <div style="position:absolute; bottom:40px; left:50%; transform:translateX(-50%); width:300px; height:300px; background:radial-gradient(circle, var(--accent,#4d7cfe) 0%, transparent 62%); opacity:0.22; filter:blur(34px); pointer-events:none;"></div>
+        <div style="display:inline-flex; align-items:center; gap:8px; padding:7px 14px; border:1px solid rgba(52,211,153,0.3); border-radius:100px; background:rgba(52,211,153,0.1); font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.06em; color:#34d399;"><span style="width:7px; height:7px; border-radius:50%; background:#34d399; box-shadow:0 0 9px #34d399; animation:wtc-pulse 2s infinite;"></span>AVAILABLE NOW</div>
+
+        <div style="position:relative; width:240px; height:312px; animation:wtc-breathe 7s ease-in-out infinite;">
+          <!-- torso -->
+          <div style="position:absolute; bottom:0; left:45px; width:150px; height:150px; border-radius:75px 75px 28px 28px; background:linear-gradient(180deg, var(--accent,#4d7cfe), var(--accent2,#8b5cf6));"></div>
+          <div style="position:absolute; bottom:118px; left:108px; width:24px; height:30px; background:#e7c4a0;"></div>
+          <!-- head -->
+          <div style="position:absolute; top:40px; left:74px; width:92px; height:92px; border-radius:50%; background:#ecccA6; background:#eccca6;"></div>
+          <!-- hair -->
+          <div style="position:absolute; top:30px; left:70px; width:100px; height:58px; border-radius:50px 50px 8px 8px; background:#2a2532;"></div>
+          <!-- headset band -->
+          <div style="position:absolute; top:26px; left:66px; width:108px; height:72px; border:5px solid var(--accent,#4d7cfe); border-bottom:none; border-radius:54px 54px 0 0; background:transparent;"></div>
+          <div style="position:absolute; top:84px; left:58px; width:16px; height:28px; border-radius:8px; background:var(--accent,#4d7cfe);"></div>
+          <div style="position:absolute; top:84px; left:166px; width:16px; height:28px; border-radius:8px; background:var(--accent,#4d7cfe);"></div>
+          <!-- mic -->
+          <div style="position:absolute; top:110px; left:70px; width:42px; height:7px; border-radius:4px; background:var(--accent,#4d7cfe); transform:rotate(14deg);"></div>
+          <!-- eyes (blinking) -->
+          <div style="position:absolute; top:92px; left:103px; width:9px; height:13px; border-radius:50%; background:#2a2532; transform-origin:center; animation:wtc-blink 4.6s infinite;"></div>
+          <div style="position:absolute; top:92px; left:129px; width:9px; height:13px; border-radius:50%; background:#2a2532; transform-origin:center; animation:wtc-blink 4.6s infinite 0.08s;"></div>
+          <!-- smile -->
+          <div style="position:absolute; top:114px; left:108px; width:24px; height:11px; border:3px solid #2a2532; border-top:none; border-radius:0 0 30px 30px;"></div>
+          <!-- arm -->
+          <div style="position:absolute; bottom:34px; left:150px; width:46px; height:26px; border-radius:13px; background:#eccca6; transform:rotate(-18deg);"></div>
+          <!-- clipboard -->
+          <div style="position:absolute; bottom:4px; left:122px; width:84px; height:106px; border-radius:8px; background:#f4f6fb; transform:rotate(-9deg); box-shadow:0 8px 22px -6px rgba(0,0,0,0.5); border:1px solid rgba(0,0,0,0.08);">
+            <div style="position:absolute; top:-7px; left:50%; transform:translateX(-50%); width:30px; height:11px; border-radius:4px; background:#c3c8d4;"></div>
+            <div style="position:absolute; top:22px; left:14px; width:54px; height:4px; border-radius:2px; background:#d3d8e2;"></div>
+            <div style="position:absolute; top:36px; left:14px; width:46px; height:4px; border-radius:2px; background:#d3d8e2;"></div>
+            <div style="position:absolute; top:50px; left:14px; width:54px; height:4px; border-radius:2px; background:#d3d8e2;"></div>
+            <div style="position:absolute; top:64px; left:14px; width:38px; height:4px; border-radius:2px; background:var(--accent,#4d7cfe); opacity:0.55;"></div>
+          </div>
+          <!-- pen -->
+          <div style="position:absolute; bottom:30px; left:176px; width:8px; height:62px; border-radius:4px 4px 2px 2px; background:linear-gradient(180deg, var(--accent2,#8b5cf6), var(--accent,#4d7cfe)); transform-origin:bottom center; animation:wtc-penwiggle 3.4s ease-in-out infinite;">
+            <div style="position:absolute; bottom:-7px; left:1px; width:0; height:0; border-left:3px solid transparent; border-right:3px solid transparent; border-top:8px solid #2a2532;"></div>
+          </div>
+        </div>
+
+        <div style="position:relative; text-align:center;">
+          <div style="font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600;">Your strategist is ready</div>
+          <div style="font-size:13px; color:#9aa0b4; margin-top:2px;">Pen in hand, plan in mind.</div>
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer style="position:relative; z-index:4; max-width:1200px; margin:88px auto 0; padding:0 32px 44px;">
+    <div style="display:grid; grid-template-columns:1.7fr 1fr 1fr 1fr; gap:40px; padding:56px 0 44px; border-top:1px solid rgba(255,255,255,0.08);">
+      <div>
+        <a href="WebTech Core.dc.html" style="display:flex; align-items:center; gap:12px; text-decoration:none; color:#e9ebf2;">
+          <svg width="34" height="34" viewBox="0 0 30 30" fill="none"><rect x="3" y="3" width="24" height="24" rx="6" stroke="var(--accent,#4d7cfe)" stroke-width="1.6"></rect><rect x="9.5" y="9.5" width="11" height="11" rx="2" fill="var(--accent,#4d7cfe)"></rect><circle cx="15" cy="15" r="2.4" fill="#06070d"></circle></svg>
+          <span style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:19px; letter-spacing:0.16em;">WEBTECH<span style="color:var(--accent,#4d7cfe);">CORE</span></span>
+        </a>
+        <p style="font-size:14.5px; color:#9aa0b4; line-height:1.65; margin:20px 0 0; max-width:300px;">The complete digital marketing partner for small businesses ready to grow — SEO, ads, social, web, and content under one roof.</p>
+        <div style="display:flex; gap:10px; margin-top:24px;">
+          <a href="#" aria-label="social" style="width:38px; height:38px; border-radius:10px; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.03); display:flex; align-items:center; justify-content:center;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.08);"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M14 8 h2 V5 h-2.5 C12 5 11 6 11 7.5 V9 H9 v3 h2 v7 h3 v-7 h2.2 l.5-3 H14 V8 Z" fill="#aeb4c7"></path></svg></a>
+          <a href="#" aria-label="social" style="width:38px; height:38px; border-radius:10px; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.03); display:flex; align-items:center; justify-content:center;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.08);"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 5 l6 7 -6 7 h2 l5-5.8 L16 19 h4 l-6.4-7.6 L19.5 5 h-2 l-4.6 5.4 L8 5 Z" fill="#aeb4c7"></path></svg></a>
+          <a href="#" aria-label="social" style="width:38px; height:38px; border-radius:10px; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.03); display:flex; align-items:center; justify-content:center;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.08);"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="4.5" stroke="#aeb4c7" stroke-width="1.6"></rect><circle cx="12" cy="12" r="3.6" stroke="#aeb4c7" stroke-width="1.6"></circle><circle cx="16.5" cy="7.5" r="1" fill="#aeb4c7"></circle></svg></a>
+          <a href="#" aria-label="social" style="width:38px; height:38px; border-radius:10px; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.03); display:flex; align-items:center; justify-content:center;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.08);"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="3.5" stroke="#aeb4c7" stroke-width="1.6"></rect><line x1="8" y1="10.5" x2="8" y2="17" stroke="#aeb4c7" stroke-width="1.6" stroke-linecap="round"></line><circle cx="8" cy="7.5" r="1.1" fill="#aeb4c7"></circle><path d="M11.5 17 v-4 a2.5 2.5 0 0 1 5 0 v4 M11.5 13 v4" stroke="#aeb4c7" stroke-width="1.6" fill="none" stroke-linecap="round"></path></svg></a>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.1em; color:#7c8398; margin-bottom:18px;">SERVICES</div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <a href="SEO.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Search Engine Optimization</a>
+          <a href="PPC.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Paid Advertising</a>
+          <a href="Social Media.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Social Media</a>
+          <a href="Web Design.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Web Design</a>
+          <a href="Services.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">View all services →</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.1em; color:#7c8398; margin-bottom:18px;">INDUSTRIES</div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <a href="Healthcare.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Healthcare</a>
+          <a href="Real Estate.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Real Estate</a>
+          <a href="Ecommerce.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">E-commerce</a>
+          <a href="Restaurants.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Restaurants</a>
+          <a href="Home Services.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Home Services</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.1em; color:#7c8398; margin-bottom:18px;">COMPANY</div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <a href="About Us.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">About Us</a>
+          <a href="Case Studies.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Case Studies</a>
+          <a href="Blog.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Blog</a>
+          <a href="Press Release.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Press</a>
+          <a href="Contact Us.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex; justify-content:space-between; align-items:center; padding-top:26px; border-top:1px solid rgba(255,255,255,0.08); flex-wrap:wrap; gap:14px;">
+      <div style="display:flex; align-items:center; gap:22px; flex-wrap:wrap;">
+        <span style="font-size:13px; color:#7c8398;">© 2026 WebTech Core. All rights reserved.</span>
+        <a href="Privacy Policy.dc.html" style="font-size:13px; color:#7c8398; text-decoration:none;" style-hover="color:#aeb4c7;">Privacy Policy</a>
+        <a href="Terms and Conditions.dc.html" style="font-size:13px; color:#7c8398; text-decoration:none;" style-hover="color:#aeb4c7;">Terms &amp; Conditions</a>
+        <a href="Sitemap.dc.html" style="font-size:13px; color:#7c8398; text-decoration:none;" style-hover="color:#aeb4c7;">Sitemap</a>
+      </div>
+      <div style="display:flex; align-items:center; gap:18px; flex-wrap:wrap;">
+        <span style="font-family:'Space Mono',monospace; font-size:12px; color:#7c8398;">info@webtechcore.io</span>
+        <span style="font-family:'Space Mono',monospace; font-size:12px; color:#7c8398;">+91 9110170824</span>
+        <span style="font-family:'Space Mono',monospace; font-size:12px; color:#565c70;">Engineered for growth.</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1200,&quot;height&quot;:3600},&quot;accent&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Electric Blue&quot;,&quot;Cyan&quot;,&quot;Violet&quot;,&quot;Emerald&quot;],&quot;default&quot;:&quot;Electric Blue&quot;,&quot;tsType&quot;:&quot;string&quot;},&quot;showStats&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  state = { email: "", submitted: false, serviceIndex: 0, activeClients: 128, activeProjects: 53 };
+
+  _services = ["SEO & Local Search", "Paid Advertising (PPC)", "Social Media Marketing", "Web Design & Dev", "Content & Email", "Branding & Strategy"];
+
+  componentDidMount() {
+    this._timer = setInterval(() => {
+      this.setState((s) => ({ serviceIndex: (s.serviceIndex + 1) % this._services.length }));
+    }, 2000);
+    this._counter = setInterval(() => {
+      this.setState((s) => {
+        const step = () => (Math.random() < 0.5 ? -1 : 1);
+        let c = s.activeClients + (Math.random() < 0.6 ? step() : 0);
+        let p = s.activeProjects + (Math.random() < 0.6 ? step() : 0);
+        c = Math.max(124, Math.min(134, c));
+        p = Math.max(49, Math.min(58, p));
+        return { activeClients: c, activeProjects: p };
+      });
+    }, 2600);
+  }
+  componentWillUnmount() { clearInterval(this._timer); clearInterval(this._counter); }
+
+  renderVals() {
+    const accents = {
+      "Electric Blue": ["#4d7cfe", "#8b5cf6"],
+      "Cyan":          ["#22d3ee", "#38bdf8"],
+      "Violet":        ["#8b5cf6", "#d946ef"],
+      "Emerald":       ["#34d399", "#22d3ee"],
+    };
+    const pick = accents[this.props.accent] || accents["Electric Blue"];
+    const si = this.state.serviceIndex;
+    return {
+      servicesOpen: this.state.menu === "services",
+      industriesOpen: this.state.menu === "industries",
+      servicesCaret: this.state.menu === "services" ? 180 : 0,
+      industriesCaret: this.state.menu === "industries" ? 180 : 0,
+      servicesColor: this.state.menu === "services" ? "#ffffff" : "#aeb4c7",
+      industriesColor: this.state.menu === "industries" ? "#ffffff" : "#aeb4c7",
+      openServices: () => this.setState({ menu: "services" }),
+      openIndustries: () => this.setState({ menu: "industries" }),
+      closeMenu: () => this.setState({ menu: null }),
+      toggleServices: () => this.setState((s) => ({ menu: s.menu === "services" ? null : "services" })),
+      toggleIndustries: () => this.setState((s) => ({ menu: s.menu === "industries" ? null : "industries" })),
+      resourcesOpen: this.state.menu === "resources",
+      resourcesCaret: this.state.menu === "resources" ? 180 : 0,
+      resourcesColor: this.state.menu === "resources" ? "#ffffff" : "#aeb4c7",
+      openResources: () => this.setState({ menu: "resources" }),
+      toggleResources: () => this.setState((s) => ({ menu: s.menu === "resources" ? null : "resources" })),
+      countryOpen: this.state.menu === "country",
+      countryCaret: this.state.menu === "country" ? 180 : 0,
+      countryColor: this.state.menu === "country" ? "#ffffff" : "#aeb4c7",
+      openCountry: () => this.setState({ menu: "country" }),
+      toggleCountry: () => this.setState((s) => ({ menu: s.menu === "country" ? null : "country" })),
+      currentService: this._services[si],
+      activeClients: this.state.activeClients,
+      activeProjects: this.state.activeProjects,
+      accentColor: pick[0],
+      accent2Color: pick[1],
+      showStats: this.props.showStats ?? true,
+      email: this.state.email,
+      submitted: this.state.submitted,
+      notSubmitted: !this.state.submitted,
+      onEmail: (e) => this.setState({ email: e.target.value }),
+      onSubmit: (e) => { e.preventDefault(); this.setState({ submitted: true }); },
+    };
+  }
+}
+</script>
+</body>
+</html>

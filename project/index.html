@@ -45,7 +45,7 @@ body{background:#06070d;color:#e9ebf2;font-family:'Manrope',sans-serif;-webkit-f
 .dropdown-panel{display:none;position:absolute;z-index:30;padding:16px;background:rgba(14,16,28,.97);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.12);border-radius:16px;box-shadow:0 24px 60px -18px rgba(0,0,0,.7);animation:wtc-fadein .18s ease-out;}
 .dropdown-panel.open{display:block;}
 #panel-industries,#panel-services{position:fixed;max-width:calc(100vw - 64px);}
-#panel-resources{top:34px;left:0;width:320px;max-width:90vw;}
+#panel-resources,#panel-countries{top:34px;left:0;width:320px;max-width:90vw;}
 .dropdown-label{font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.1em;color:#7c8398;padding:6px 12px 12px;}
 .dd-grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;}
 .dd-grid1{display:grid;grid-template-columns:1fr;gap:4px;}
@@ -227,6 +227,34 @@ footer{position:relative;z-index:4;max-width:1200px;margin:88px auto 0;padding:0
 .footer-contact{font-family:'Space Mono',monospace;font-size:12px;color:#7c8398;}
 .footer-tag{font-family:'Space Mono',monospace;font-size:12px;color:#565c70;}
 </style>
+<style>/*mobile-fix*/
+@media (max-width: 900px) {
+  .hero{grid-template-columns:1fr;padding:40px 20px 32px;gap:32px;}
+  .cta-grid{grid-template-columns:1fr;gap:32px;}
+  .results-case{grid-template-columns:1fr;gap:28px;padding:28px;}
+  .services-grid{grid-template-columns:repeat(2,1fr);}
+  .process-grid{grid-template-columns:repeat(2,1fr);}
+  .cov-grid{grid-template-columns:1fr;}
+  .stats-grid{grid-template-columns:repeat(2,1fr);}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:28px 20px;}
+}
+@media (max-width: 640px) {
+  .hero,.stats,.section,.cta-sec,footer{padding-left:20px !important;padding-right:20px !important;}
+  .hero h1{font-size:38px;}
+  .sec-h2{font-size:28px;}
+  .cta-h2{font-size:30px;}
+  .hero-sub{max-width:100%;font-size:16px;}
+  .services-grid,.process-grid,.footer-grid,.stats-grid{grid-template-columns:1fr;}
+  .metrics{flex-wrap:wrap;gap:20px;}
+  .testimonial{flex-direction:column;padding:24px;}
+  .sec-header{flex-direction:column;align-items:flex-start;}
+  .hero-ctas{flex-direction:column;}
+  .hero-ctas a{width:100%;text-align:center;}
+  .results-case,.cov-card{padding:22px;}
+  .cta-sec{padding-top:64px;}
+}
+</style>
+<link rel="stylesheet" href="styles/responsive.css">
 </head>
 <body>
 <div id="page">
@@ -242,8 +270,6 @@ footer{position:relative;z-index:4;max-width:1200px;margin:88px auto 0;padding:0
   </a>
   <div class="nav-links">
     <a href="index.html" class="nav-link active">Home</a>
-    <a href="about.html" class="nav-link">About</a>
-
     <div class="nav-dropdown" id="dd-industries">
       <button class="nav-btn" aria-expanded="false" aria-controls="panel-industries">
         Industries <span class="nav-caret"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
@@ -284,6 +310,15 @@ footer{position:relative;z-index:4;max-width:1200px;margin:88px auto 0;padding:0
       </div>
     </div>
 
+    <div class="nav-dropdown" id="dd-countries">
+      <button class="nav-btn" aria-expanded="false" aria-controls="panel-countries">Countries<span class="nav-caret"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </button>
+      <div class="dropdown-panel" id="panel-countries" role="menu">
+        <div class="dropdown-label">COUNTRIES</div>
+        <div class="dd-grid1">
+          <a href="locations/india.html" class="dd-item"><span class="dd-icon">🇮🇳</span><span><span class="dd-title">India</span><span class="dd-sub">Live · all states</span></span></a><a href="locations/usa.html" class="dd-item"><span class="dd-icon">🇺🇸</span><span><span class="dd-title">USA</span><span class="dd-sub">Launching soon</span></span></a><a href="locations/uk.html" class="dd-item"><span class="dd-icon">🇬🇧</span><span><span class="dd-title">UK</span><span class="dd-sub">Launching soon</span></span></a><a href="locations/singapore.html" class="dd-item"><span class="dd-icon">🇸🇬</span><span><span class="dd-title">Singapore</span><span class="dd-sub">Launching soon</span></span></a></div>
+      </div>
+    </div>
     <div class="nav-dropdown" id="dd-resources">
       <button class="nav-btn" aria-expanded="false" aria-controls="panel-resources">
         Resources <span class="nav-caret"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
@@ -478,7 +513,7 @@ footer{position:relative;z-index:4;max-width:1200px;margin:88px auto 0;padding:0
     <div class="sec-label">// WHERE WE WORK</div>
     <h2 class="sec-h2" style="max-width:920px;margin:0 auto;">Local teams across two countries — and expanding fast.</h2>
     <div class="coverage-stats">
-      <div><div class="cov-num" style="color:#fff;">79</div><div class="cov-lbl">States covered</div></div>
+      <div><div class="cov-num" style="color:#fff;">80</div><div class="cov-lbl">States covered</div></div>
       <div><div class="cov-num" style="color:#fff;">2</div><div class="cov-lbl">Countries live</div></div>
       <div><div class="cov-num" style="color:var(--accent);">+2</div><div class="cov-lbl">Launching soon</div></div>
     </div>
@@ -487,10 +522,10 @@ footer{position:relative;z-index:4;max-width:1200px;margin:88px auto 0;padding:0
     <div class="cov-card">
       <div class="cov-card-head">
         <div style="display:flex;align-items:center;"><span class="cov-badge in">IN</span><span class="cov-name">India</span></div>
-        <span class="cov-count">29 STATES</span>
+        <span class="cov-count">30 STATES &amp; UTS</span>
       </div>
       <div class="cov-tags">
-        <span class="cov-tag">Andhra Pradesh</span><span class="cov-tag">Arunachal Pradesh</span><span class="cov-tag">Assam</span><a href="locations/bihar.html" style="text-decoration:none;"><span class="cov-tag">Bihar</span></a><span class="cov-tag">Chhattisgarh</span><span class="cov-tag">Goa</span><span class="cov-tag">Gujarat</span><span class="cov-tag">Haryana</span><span class="cov-tag">Himachal Pradesh</span><span class="cov-tag">Jammu &amp; Kashmir</span><span class="cov-tag">Jharkhand</span><span class="cov-tag">Karnataka</span><span class="cov-tag">Kerala</span><span class="cov-tag">Madhya Pradesh</span><span class="cov-tag">Maharashtra</span><span class="cov-tag">Manipur</span><span class="cov-tag">Meghalaya</span><span class="cov-tag">Mizoram</span><span class="cov-tag">Nagaland</span><span class="cov-tag">Odisha</span><span class="cov-tag">Punjab</span><span class="cov-tag">Rajasthan</span><span class="cov-tag">Sikkim</span><span class="cov-tag">Tamil Nadu</span><span class="cov-tag">Telangana</span><span class="cov-tag">Tripura</span><span class="cov-tag">Uttar Pradesh</span><span class="cov-tag">Uttarakhand</span><span class="cov-tag">West Bengal</span>
+        <span class="cov-tag">Andhra Pradesh</span><span class="cov-tag">Arunachal Pradesh</span><span class="cov-tag">Assam</span><a href="locations/bihar.html" style="text-decoration:none;"><span class="cov-tag" style="color:#4d7cfe;border-color:rgba(77,124,254,.35);background:rgba(77,124,254,.06);">Bihar ●</span></a><span class="cov-tag">Chhattisgarh</span><a href="locations/delhi.html" style="text-decoration:none;"><span class="cov-tag" style="color:#4d7cfe;border-color:rgba(77,124,254,.35);background:rgba(77,124,254,.06);">Delhi ●</span></a><span class="cov-tag">Goa</span><span class="cov-tag">Gujarat</span><span class="cov-tag">Haryana</span><span class="cov-tag">Himachal Pradesh</span><span class="cov-tag">Jammu &amp; Kashmir</span><span class="cov-tag">Jharkhand</span><span class="cov-tag">Karnataka</span><span class="cov-tag">Kerala</span><span class="cov-tag">Madhya Pradesh</span><span class="cov-tag">Maharashtra</span><span class="cov-tag">Manipur</span><span class="cov-tag">Meghalaya</span><span class="cov-tag">Mizoram</span><span class="cov-tag">Nagaland</span><span class="cov-tag">Odisha</span><span class="cov-tag">Punjab</span><span class="cov-tag">Rajasthan</span><span class="cov-tag">Sikkim</span><span class="cov-tag">Tamil Nadu</span><span class="cov-tag">Telangana</span><span class="cov-tag">Tripura</span><a href="locations/uttar-pradesh.html" style="text-decoration:none;"><span class="cov-tag" style="color:#4d7cfe;border-color:rgba(77,124,254,.35);background:rgba(77,124,254,.06);">Uttar Pradesh ●</span></a><span class="cov-tag">Uttarakhand</span><span class="cov-tag">West Bengal</span>
       </div>
     </div>
     <div class="cov-card">
@@ -615,7 +650,7 @@ footer{position:relative;z-index:4;max-width:1200px;margin:88px auto 0;padding:0
         <a href="resources/case-studies.html" class="flink">Case Studies</a>
         <a href="resources/blog.html" class="flink">Blog</a>
         <a href="resources/press-release.html" class="flink">Press</a>
-        <a href="contact-us.html" class="flink">Contact</a>
+        <a href="contact-us.html" class="flink">Contact</a><a href="sitemap.html" class="flink">Sitemap</a>
       </div>
     </div>
   </div>
@@ -718,6 +753,12 @@ footer{position:relative;z-index:4;max-width:1200px;margin:88px auto 0;padding:0
   resDd.addEventListener('mouseenter',function(){if(!activeMenu)openMenu('resources',false);});
   resDd.addEventListener('mouseleave',closeAll);
   document.getElementById('panel-resources').addEventListener('mouseleave',closeAll);
+  var couDd=document.getElementById('dd-countries');
+  if(couDd){var couBtn=couDd.querySelector('.nav-btn');
+  couBtn.addEventListener('click',function(){activeMenu==='countries'?closeAll():openMenu('countries',false);});
+  couDd.addEventListener('mouseenter',function(){if(!activeMenu)openMenu('countries',false);});
+  couDd.addEventListener('mouseleave',closeAll);
+  document.getElementById('panel-countries').addEventListener('mouseleave',closeAll);}
 
   document.addEventListener('click',function(e){if(!e.target.closest('.nav-dropdown'))closeAll();});
   window.addEventListener('resize',function(){
@@ -736,5 +777,6 @@ footer{position:relative;z-index:4;max-width:1200px;margin:88px auto 0;padding:0
   });
 })();
 </script>
+<script src="styles/mobile-nav.js"></script>
 </body>
 </html>

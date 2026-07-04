@@ -60,6 +60,7 @@ details summary::-webkit-details-marker{display:none;}
   .btn-cta{display:none;}
 }
 </style>
+<link rel="stylesheet" href="../styles/responsive.css">
 </head>
 <body>
 <div style="--accent:#4d7cfe;--accent2:#8b5cf6;position:relative;background:#06070d;color:#e9ebf2;font-family:'Manrope',sans-serif;overflow:hidden;-webkit-font-smoothing:antialiased;">
@@ -76,8 +77,6 @@ details summary::-webkit-details-marker{display:none;}
   </a>
   <div class="nav-links">
     <a href="../index.html" class="nav-a">Home</a>
-    <a href="../about.html" class="nav-a">About</a>
-
     <!-- INDUSTRIES -->
     <div class="dd-wrap" id="dd-industries">
       <button class="nav-btn" onclick="toggleMenu('industries',true)" aria-expanded="false" aria-controls="panel-industries">
@@ -121,6 +120,18 @@ details summary::-webkit-details-marker{display:none;}
     </div>
 
     <!-- RESOURCES -->
+    <div class="dd-wrap" id="dd-countries" style="position:relative;">
+      <button class="nav-btn" onclick="toggleMenu('countries',false)" aria-expanded="false" aria-controls="panel-countries">Countries <span class="nav-caret" id="caret-countries"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8l3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+      <div class="dd-panel-rel" id="panel-countries">
+        <div class="dd-label">COUNTRIES</div>
+        <div class="dd-col">
+          <a href="india.html" class="dd-item"><span class="dd-item-icon">🇮🇳</span><span><span class="dd-item-name">India</span><span class="dd-item-sub">Live · all states</span></span></a>
+          <a href="usa.html" class="dd-item"><span class="dd-item-icon">🇺🇸</span><span><span class="dd-item-name">USA</span><span class="dd-item-sub">Launching soon</span></span></a>
+          <a href="uk.html" class="dd-item"><span class="dd-item-icon">🇬🇧</span><span><span class="dd-item-name">UK</span><span class="dd-item-sub">Launching soon</span></span></a>
+          <a href="singapore.html" class="dd-item"><span class="dd-item-icon">🇸🇬</span><span><span class="dd-item-name">Singapore</span><span class="dd-item-sub">Launching soon</span></span></a>
+        </div>
+      </div>
+    </div>
     <div class="dd-wrap" id="dd-resources" style="position:relative;">
       <button class="nav-btn" onclick="toggleMenu('resources',false)" aria-expanded="false" aria-controls="panel-resources">
         Resources <span class="nav-caret" id="caret-resources"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8l3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
@@ -460,6 +471,8 @@ details summary::-webkit-details-marker{display:none;}
 </section>
 
 <!-- FOOTER -->
+<section id="patna-services-links" style="position:relative;z-index:4;max-width:1100px;margin:84px auto 0;padding:0 clamp(16px,4vw,32px);"><div style="font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.14em;color:var(--accent,#4d7cfe);margin-bottom:14px;">// SERVICES IN PATNA</div><h2 style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(24px,4vw,34px);line-height:1.12;margin:0 0 14px;letter-spacing:-.01em;">Our services for Patna businesses</h2><div><a href="patna-seo.html" style="display:inline-block;font-size:14.5px;color:#aeb4c7;text-decoration:none;padding:8px 15px;border:1px solid rgba(255,255,255,.12);border-radius:9px;margin:0 8px 8px 0;">SEO</a><a href="patna-web-development.html" style="display:inline-block;font-size:14.5px;color:#aeb4c7;text-decoration:none;padding:8px 15px;border:1px solid rgba(255,255,255,.12);border-radius:9px;margin:0 8px 8px 0;">Web Development</a><a href="patna-google-ads.html" style="display:inline-block;font-size:14.5px;color:#aeb4c7;text-decoration:none;padding:8px 15px;border:1px solid rgba(255,255,255,.12);border-radius:9px;margin:0 8px 8px 0;">Google Ads</a><a href="patna-social-media.html" style="display:inline-block;font-size:14.5px;color:#aeb4c7;text-decoration:none;padding:8px 15px;border:1px solid rgba(255,255,255,.12);border-radius:9px;margin:0 8px 8px 0;">Social Media</a><a href="patna-graphics-design.html" style="display:inline-block;font-size:14.5px;color:#aeb4c7;text-decoration:none;padding:8px 15px;border:1px solid rgba(255,255,255,.12);border-radius:9px;margin:0 8px 8px 0;">Graphics Design</a></div></section>
+
 <footer style="position:relative;z-index:4;max-width:1200px;margin:88px auto 0;padding:0 clamp(16px,4vw,32px) 44px;">
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:40px;padding:56px 0 44px;border-top:1px solid rgba(255,255,255,.08);">
     <div>
@@ -501,7 +514,7 @@ details summary::-webkit-details-marker{display:none;}
         <a href="../resources/case-studies.html" style="color:#aeb4c7;text-decoration:none;font-size:14px;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#aeb4c7'">Case Studies</a>
         <a href="../resources/blog.html" style="color:#aeb4c7;text-decoration:none;font-size:14px;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#aeb4c7'">Blog</a>
         <a href="../resources/press-release.html" style="color:#aeb4c7;text-decoration:none;font-size:14px;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#aeb4c7'">Press</a>
-        <a href="../contact-us.html" style="color:#aeb4c7;text-decoration:none;font-size:14px;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#aeb4c7'">Contact</a>
+        <a href="../contact-us.html" style="color:#aeb4c7;text-decoration:none;font-size:14px;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#aeb4c7'">Contact</a><a href="../sitemap.html" style="color:#aeb4c7;text-decoration:none;font-size:14px;transition:color .15s;" onmouseover="this.style.color='#fff'" onmouseout="this.style.color='#aeb4c7'">Sitemap</a>
       </div>
     </div>
   </div>
@@ -525,15 +538,16 @@ details summary::-webkit-details-marker{display:none;}
 (function(){
   var activeMenu=null;
   function positionWide(id){var p=document.getElementById(id),n=document.querySelector('.nav');if(!n||!p)return;var r=n.getBoundingClientRect();p.style.left=(r.left+32)+'px';p.style.top=(r.bottom+8)+'px';p.style.width=Math.min(980,r.width-64)+'px';}
-  function closeAll(){['industries','services'].forEach(function(id){var p=document.getElementById('panel-'+id),w=document.getElementById('dd-'+id);if(p)p.classList.remove('open');if(w){var b=w.querySelector('.nav-btn');if(b)b.setAttribute('aria-expanded','false');}});var pr=document.getElementById('panel-resources');if(pr)pr.classList.remove('open');var dr=document.getElementById('dd-resources');if(dr){var br=dr.querySelector('.nav-btn');if(br)br.setAttribute('aria-expanded','false');}activeMenu=null;}
+  function closeAll(){['industries','services','countries'].forEach(function(id){var p=document.getElementById('panel-'+id),w=document.getElementById('dd-'+id);if(p)p.classList.remove('open');if(w){var b=w.querySelector('.nav-btn');if(b)b.setAttribute('aria-expanded','false');}});var pr=document.getElementById('panel-resources');if(pr)pr.classList.remove('open');var dr=document.getElementById('dd-resources');if(dr){var br=dr.querySelector('.nav-btn');if(br)br.setAttribute('aria-expanded','false');}activeMenu=null;}
   window.closeAll=closeAll;
   function openMenu(id,wide){closeAll();var p=document.getElementById('panel-'+id),w=document.getElementById('dd-'+id);if(!p)return;p.classList.add('open');if(w){var b=w.querySelector('.nav-btn');if(b)b.setAttribute('aria-expanded','true');}if(wide)positionWide('panel-'+id);activeMenu=id;}
   window.openMenu=openMenu;
   function toggleMenu(id,wide){if(activeMenu===id)closeAll();else openMenu(id,wide);}
   window.toggleMenu=toggleMenu;
-  document.addEventListener('click',function(e){if(!e.target.closest('#dd-industries')&&!e.target.closest('#panel-industries')&&!e.target.closest('#dd-services')&&!e.target.closest('#panel-services')&&!e.target.closest('#dd-resources')&&!e.target.closest('#panel-resources'))closeAll();});
+  document.addEventListener('click',function(e){if(!e.target.closest('#dd-industries')&&!e.target.closest('#panel-industries')&&!e.target.closest('#dd-services')&&!e.target.closest('#panel-services')&&!e.target.closest('#dd-resources')&&!e.target.closest('#panel-resources')&&!e.target.closest('#dd-countries')&&!e.target.closest('#panel-countries'))closeAll();});
   window.addEventListener('resize',function(){if(activeMenu==='industries')positionWide('panel-industries');if(activeMenu==='services')positionWide('panel-services');});
 })();
 </script>
+<script src="../styles/mobile-nav.js"></script>
 </body>
 </html>

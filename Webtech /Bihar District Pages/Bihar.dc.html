@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #06070d; }
+  ::selection { background: rgba(108,140,255,0.35); color: #fff; }
+  @keyframes wtc-pulse { 0%,100% { opacity: .55; } 50% { opacity: 1; } }
+  @keyframes wtc-fadein { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+</helmet>
+
+<div style="--accent:{{ accentColor }}; --accent2:{{ accent2Color }}; position:relative; background:#06070d; color:#e9ebf2; font-family:'Manrope',sans-serif; overflow:hidden; -webkit-font-smoothing:antialiased;">
+
+  <div style="position:absolute; inset:0; pointer-events:none; background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px); background-size:64px 64px; mask-image:radial-gradient(ellipse 90% 55% at 50% 0%,#000 30%,transparent 80%);"></div>
+  <div style="position:absolute; top:-280px; left:50%; transform:translateX(-50%); width:1100px; height:680px; background:radial-gradient(ellipse at center, var(--accent,#4d7cfe) 0%, transparent 62%); opacity:0.2; filter:blur(40px); pointer-events:none;"></div>
+
+  <!-- NAV -->
+  <nav style="position:relative; z-index:20; max-width:1200px; margin:0 auto; padding:clamp(18px,4vw,30px) clamp(16px,4vw,32px); display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:14px;">
+    <a href="WebTech Core.dc.html" style="display:flex; align-items:center; gap:12px; text-decoration:none; color:#e9ebf2;">
+      <svg width="36" height="36" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+        <rect x="3" y="3" width="24" height="24" rx="6" stroke="var(--accent,#4d7cfe)" stroke-width="1.6"></rect>
+        <rect x="9.5" y="9.5" width="11" height="11" rx="2" fill="var(--accent,#4d7cfe)"></rect>
+        <circle cx="15" cy="15" r="2.4" fill="#06070d"></circle>
+      </svg>
+      <span style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:21px; letter-spacing:0.16em;">WEBTECH<span style="color:var(--accent,#4d7cfe);">CORE</span></span>
+    </a>
+    <div style="display:flex; flex-wrap:wrap; align-items:center; gap:clamp(14px,2.5vw,30px);">
+      <a href="WebTech Core.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:15.5px; font-weight:500;" style-hover="color:#fff;">Home</a>
+      <a href="About Us.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:15.5px; font-weight:500;" style-hover="color:#fff;">About</a>
+
+      <!-- INDUSTRIES DROPDOWN -->
+      <div onMouseEnter="{{ openIndustries }}" onMouseLeave="{{ closeMenu }}">
+        <button onClick="{{ toggleIndustries }}" style="display:inline-flex; align-items:center; gap:7px; background:none; border:none; cursor:pointer; color:{{ industriesColor }}; font-family:'Manrope',sans-serif; font-size:15.5px; font-weight:600; padding:0;">
+          Industries
+          <span style="display:inline-block; transition:transform 0.2s; transform:rotate({{ industriesCaret }}deg);">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </span>
+        </button>
+        <sc-if value="{{ industriesOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute; top:68px; left:32px; z-index:30; width:980px; max-width:calc(100% - 64px); padding:16px; background:rgba(14,16,28,0.97); backdrop-filter:blur(14px); border:1px solid rgba(255,255,255,0.12); border-radius:16px; box-shadow:0 24px 60px -18px rgba(0,0,0,0.7); animation:wtc-fadein 0.18s ease-out;">
+            <div style="font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:0.1em; color:#7c8398; padding:6px 12px 12px;">INDUSTRIES WE SERVE</div>
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(150px,1fr)); gap:6px;">
+              <a href="Healthcare.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🏥</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Healthcare</span><span style="display:block; font-size:11.5px; color:#7c8398;">Clinics, dental, wellness</span></span>
+              </a>
+              <a href="Real Estate.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🏠</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Real Estate</span><span style="display:block; font-size:11.5px; color:#7c8398;">Agents, brokers, developers</span></span>
+              </a>
+              <a href="Ecommerce.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🛍️</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">E-commerce &amp; Retail</span><span style="display:block; font-size:11.5px; color:#7c8398;">Online &amp; omnichannel stores</span></span>
+              </a>
+              <a href="Restaurants.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🍽️</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Restaurants</span><span style="display:block; font-size:11.5px; color:#7c8398;">Cafes, dining, franchises</span></span>
+              </a>
+              <a href="Legal.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">⚖️</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Legal &amp; Professional</span><span style="display:block; font-size:11.5px; color:#7c8398;">Law, finance, consulting</span></span>
+              </a>
+              <a href="Home Services.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🔧</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Home Services</span><span style="display:block; font-size:11.5px; color:#7c8398;">Trades, repair, contractors</span></span>
+              </a>
+              <a href="Education.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🎓</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Education</span><span style="display:block; font-size:11.5px; color:#7c8398;">Schools, courses, edtech</span></span>
+              </a>
+              <a href="Fitness.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">💪</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Fitness &amp; Wellness</span><span style="display:block; font-size:11.5px; color:#7c8398;">Gyms, studios, coaches</span></span>
+              </a>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+
+      <!-- SERVICES DROPDOWN -->
+      <div onMouseEnter="{{ openServices }}" onMouseLeave="{{ closeMenu }}">
+        <button onClick="{{ toggleServices }}" style="display:inline-flex; align-items:center; gap:7px; background:none; border:none; cursor:pointer; color:{{ servicesColor }}; font-family:'Manrope',sans-serif; font-size:15.5px; font-weight:600; padding:0;">
+          Services
+          <span style="display:inline-block; transition:transform 0.2s; transform:rotate({{ servicesCaret }}deg);">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </span>
+        </button>
+        <sc-if value="{{ servicesOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute; top:68px; left:32px; z-index:30; width:980px; max-width:calc(100% - 64px); padding:16px; background:rgba(14,16,28,0.97); backdrop-filter:blur(14px); border:1px solid rgba(255,255,255,0.12); border-radius:16px; box-shadow:0 24px 60px -18px rgba(0,0,0,0.7); animation:wtc-fadein 0.18s ease-out;">
+            <div style="font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:0.1em; color:#7c8398; padding:6px 12px 12px;">WHAT WE DO</div>
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(150px,1fr)); gap:6px;">
+              <a href="SEO.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🔍</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Search Engine Optimization</span><span style="display:block; font-size:11.5px; color:#7c8398;">Organic growth</span></span>
+              </a>
+              <a href="Local SEO.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">📍</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Local SEO</span><span style="display:block; font-size:11.5px; color:#7c8398;">Map &amp; near-me</span></span>
+              </a>
+              <a href="PPC.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🎯</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Paid Advertising (PPC)</span><span style="display:block; font-size:11.5px; color:#7c8398;">Google ads</span></span>
+              </a>
+              <a href="Social Media.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">📱</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Social Media Marketing</span><span style="display:block; font-size:11.5px; color:#7c8398;">Build audience</span></span>
+              </a>
+              <a href="Meta Ads.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">⚡</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Meta Ads Services</span><span style="display:block; font-size:11.5px; color:#7c8398;">FB &amp; Instagram</span></span>
+              </a>
+              <a href="Content Marketing.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">✍️</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Content Marketing</span><span style="display:block; font-size:11.5px; color:#7c8398;">Blogs &amp; assets</span></span>
+              </a>
+              <a href="Email Marketing.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">✉️</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Email Marketing</span><span style="display:block; font-size:11.5px; color:#7c8398;">Flows &amp; campaigns</span></span>
+              </a>
+              <a href="Web Design.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🖥️</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Web Design &amp; Development</span><span style="display:block; font-size:11.5px; color:#7c8398;">Design &amp; build</span></span>
+              </a>
+              <a href="Graphics Design.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🎨</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Graphics Designing</span><span style="display:block; font-size:11.5px; color:#7c8398;">Brand visuals</span></span>
+              </a>
+            </div>
+            <a href="Services.dc.html" style="display:block; text-align:center; margin-top:10px; padding:10px; border-radius:10px; text-decoration:none; font-family:'Space Mono',monospace; font-size:11.5px; letter-spacing:0.06em; color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.07);" style-hover="background:rgba(77,124,254,0.13);">VIEW ALL SERVICES →</a>
+          </div>
+        </sc-if>
+      </div>
+
+      <!-- RESOURCES DROPDOWN -->
+      <div style="position:relative;" onMouseEnter="{{ openResources }}" onMouseLeave="{{ closeMenu }}">
+        <button onClick="{{ toggleResources }}" style="display:inline-flex; align-items:center; gap:7px; background:none; border:none; cursor:pointer; color:{{ resourcesColor }}; font-family:'Manrope',sans-serif; font-size:15.5px; font-weight:600; padding:0;">
+          Resources
+          <span style="display:inline-block; transition:transform 0.2s; transform:rotate({{ resourcesCaret }}deg);">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </span>
+        </button>
+        <sc-if value="{{ resourcesOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute; top:34px; left:0; z-index:30; width:320px; max-width:90vw; padding:16px; background:rgba(14,16,28,0.97); backdrop-filter:blur(14px); border:1px solid rgba(255,255,255,0.12); border-radius:16px; box-shadow:0 24px 60px -18px rgba(0,0,0,0.7); animation:wtc-fadein 0.18s ease-out;">
+            <div style="font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:0.1em; color:#7c8398; padding:6px 12px 12px;">RESOURCES</div>
+            <div style="display:grid; grid-template-columns:1fr; gap:4px;">
+              <a href="Blog.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">📝</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Blog</span><span style="display:block; font-size:11.5px; color:#7c8398;">Insights &amp; guides</span></span>
+              </a>
+              <a href="Press Release.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">📰</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Press Release</span><span style="display:block; font-size:11.5px; color:#7c8398;">News &amp; announcements</span></span>
+              </a>
+              <a href="Case Studies.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">📊</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Case Studies</span><span style="display:block; font-size:11.5px; color:#7c8398;">Real client results</span></span>
+              </a>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+
+      <a href="Contact Us.dc.html" style="display:inline-flex; align-items:center; gap:8px; background:var(--accent,#4d7cfe); color:#fff; text-decoration:none; font-weight:600; font-size:15px; padding:12px 22px; border-radius:11px; box-shadow:0 8px 28px -8px var(--accent,#4d7cfe);" style-hover="filter:brightness(1.08);">Book Free Consultation</a>
+    </div>
+  </nav>
+  <!-- BREADCRUMB -->
+  <div style="position:relative; z-index:4; max-width:1200px; margin:0 auto; padding:10px 32px 0; font-family:'Space Mono',monospace; font-size:12px; color:#7c8398;">
+    <a href="WebTech Core.dc.html" style="color:#7c8398; text-decoration:none;" style-hover="color:#aeb4c7;">Home</a>
+    <span style="margin:0 8px;">/</span>
+    <span style="color:#aeb4c7;">India</span>
+    <span style="margin:0 8px;">/</span>
+    <span style="color:var(--accent,#4d7cfe);">Bihar</span>
+  </div>
+
+  <!-- HERO -->
+  <header style="position:relative; z-index:4; max-width:1200px; margin:0 auto; padding:40px clamp(16px,4vw,32px) 8px; display:grid; grid-template-columns:repeat(auto-fit, minmax(min(100%,340px),1fr)); gap:clamp(28px,4vw,52px); align-items:center;">
+    <div>
+      <div style="display:inline-flex; align-items:center; gap:9px; padding:7px 14px; border:1px solid rgba(255,255,255,0.12); border-radius:100px; background:rgba(255,255,255,0.03); font-family:'Space Mono',monospace; font-size:11.5px; letter-spacing:0.08em; color:#aeb4c7;">
+        <span style="width:7px; height:7px; border-radius:50%; background:var(--accent,#4d7cfe); box-shadow:0 0 10px var(--accent,#4d7cfe); animation:wtc-pulse 2.4s infinite;"></span> INDIA · BIHAR
+      </div>
+      <h1 style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:clamp(34px,7vw,58px); line-height:1.04; letter-spacing:-0.02em; margin:22px 0 0; text-wrap:balance;">Bihar is <span style="background:linear-gradient(100deg,var(--accent,#4d7cfe),var(--accent2,#8b5cf6)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;">going digital.</span></h1>
+      <p style="font-size:17.5px; line-height:1.62; color:#aeb4c7; margin:22px 0 0; max-width:500px; text-wrap:pretty;">From the lanes of Patna to the towns of Gaya and Bhagalpur, a young, mobile-first generation is putting Bihar on the digital map — and reshaping how local businesses are discovered, trusted, and grown.</p>
+      <p style="font-family:'Space Mono',monospace; font-size:12px; color:#7c8398; margin-top:20px; letter-spacing:0.02em;">A snapshot of technology &amp; digital momentum across the state.</p>
+    </div>
+
+    <div style="position:relative;">
+      <div style="position:absolute; inset:-1px; border-radius:20px; background:linear-gradient(140deg,var(--accent,#4d7cfe),transparent 45%,var(--accent2,#8b5cf6)); opacity:0.45; filter:blur(2px);"></div>
+      <div style="position:relative; background:linear-gradient(180deg,rgba(20,22,34,0.92),rgba(12,13,22,0.92)); border:1px solid rgba(255,255,255,0.1); border-radius:20px; padding:22px;">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px;">
+          <span style="font-family:'Space Mono',monospace; font-size:12px; color:#aeb4c7; letter-spacing:0.04em;">digital_bihar.map</span>
+          <span style="font-family:'Space Mono',monospace; font-size:11px; color:#34d399; background:rgba(52,211,153,0.12); padding:4px 9px; border-radius:6px;">● GROWING</span>
+        </div>
+        <div style="position:relative; border-radius:12px; overflow:hidden;">
+          <img src="assets/bihar-map.png" alt="Digital map of Bihar with connected city network" style="display:block; width:100%; height:auto;"></img>
+          <svg viewBox="0 0 1536 1024" preserveAspectRatio="xMidYMid meet" style="position:absolute; inset:0; width:100%; height:100%; overflow:visible; pointer-events:none;">
+            <defs>
+              <linearGradient id="biharScan" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#ffc14d" stop-opacity="0"></stop>
+                <stop offset="0.5" stop-color="#ffc14d" stop-opacity="0.16"></stop>
+                <stop offset="1" stop-color="#ffc14d" stop-opacity="0"></stop>
+              </linearGradient>
+            </defs>
+            <!-- scan sweep -->
+            <rect x="0" y="0" width="1536" height="230" fill="url(#biharScan)">
+              <animateTransform attributeName="transform" type="translate" values="0 -250; 0 1040" dur="3.6s" repeatCount="indefinite"></animateTransform>
+            </rect>
+            <!-- district pulse rings over the map's bright nodes -->
+            <circle cx="492" cy="350" r="12" fill="none" stroke="#ffc14d" stroke-width="2" opacity="0.6"><animate attributeName="r" values="12;36;12" dur="2.6s" repeatCount="indefinite"></animate><animate attributeName="opacity" values="0.7;0;0.7" dur="2.6s" repeatCount="indefinite"></animate></circle>
+            <circle cx="1015" cy="435" r="12" fill="none" stroke="#ffc14d" stroke-width="2" opacity="0.6"><animate attributeName="r" values="12;34;12" dur="2.4s" repeatCount="indefinite"></animate><animate attributeName="opacity" values="0.7;0;0.7" dur="2.4s" repeatCount="indefinite"></animate></circle>
+            <circle cx="1090" cy="620" r="12" fill="none" stroke="#ffc14d" stroke-width="2" opacity="0.6"><animate attributeName="r" values="12;34;12" dur="2.8s" repeatCount="indefinite"></animate><animate attributeName="opacity" values="0.7;0;0.7" dur="2.8s" repeatCount="indefinite"></animate></circle>
+            <circle cx="370" cy="690" r="12" fill="none" stroke="#ffc14d" stroke-width="2" opacity="0.6"><animate attributeName="r" values="12;36;12" dur="3.2s" repeatCount="indefinite"></animate><animate attributeName="opacity" values="0.7;0;0.7" dur="3.2s" repeatCount="indefinite"></animate></circle>
+            <circle cx="585" cy="760" r="11" fill="none" stroke="#ffc14d" stroke-width="2" opacity="0.6"><animate attributeName="r" values="11;30;11" dur="3s" repeatCount="indefinite"></animate><animate attributeName="opacity" values="0.7;0;0.7" dur="3s" repeatCount="indefinite"></animate></circle>
+            <circle cx="875" cy="725" r="11" fill="none" stroke="#ffc14d" stroke-width="2" opacity="0.6"><animate attributeName="r" values="11;30;11" dur="3.4s" repeatCount="indefinite"></animate><animate attributeName="opacity" values="0.7;0;0.7" dur="3.4s" repeatCount="indefinite"></animate></circle>
+            <!-- Patna: capital pulse + label -->
+            <circle cx="705" cy="575" r="18" fill="none" stroke="#ffd98a" stroke-width="2.5" opacity="0.6"><animate attributeName="r" values="16;52;16" dur="2.8s" repeatCount="indefinite"></animate><animate attributeName="opacity" values="0.7;0;0.7" dur="2.8s" repeatCount="indefinite"></animate></circle>
+            <text x="735" y="566" fill="#ffe6b0" font-family="'Space Grotesk',sans-serif" font-size="34" font-weight="700" style="text-shadow:0 2px 8px rgba(0,0,0,0.6);">Patna</text>
+            <text x="735" y="600" fill="#caa45c" font-family="'Space Mono',monospace" font-size="19">capital · tech hub</text>
+          </svg>
+        </div>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:14px;">
+          <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); border-radius:11px; padding:12px 13px;">
+            <div style="font-family:'Space Mono',monospace; font-size:10px; color:#7c8398;">DISTRICT</div>
+            {{ districtNameEl }}
+          </div>
+          <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.07); border-radius:11px; padding:12px 13px;">
+            <div style="font-family:'Space Mono',monospace; font-size:10px; color:#7c8398;">ACTIVE CLIENTS</div>
+            {{ districtClientsEl }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- STATS -->
+  <section style="position:relative; z-index:4; max-width:1200px; margin:40px auto 0; padding:0 clamp(16px,4vw,32px);">
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(180px,1fr)); border:1px solid rgba(255,255,255,0.08); border-radius:16px; background:rgba(255,255,255,0.02); overflow:hidden;">
+      <div style="padding:26px 24px; border-right:1px solid rgba(255,255,255,0.08);">
+        <div style="font-family:'Space Grotesk',sans-serif; font-size:32px; font-weight:700; color:#fff;">12.7<span style="color:var(--accent,#4d7cfe);">Cr</span></div>
+        <div style="font-size:13px; color:#aeb4c7; margin-top:5px; line-height:1.4;">Among the most populous Indian states</div>
+      </div>
+      <div style="padding:26px 24px; border-right:1px solid rgba(255,255,255,0.08);">
+        <div style="font-family:'Space Grotesk',sans-serif; font-size:32px; font-weight:700; color:#fff;">~22<span style="color:var(--accent,#4d7cfe);">yrs</span></div>
+        <div style="font-size:13px; color:#aeb4c7; margin-top:5px; line-height:1.4;">Among the youngest median ages in India</div>
+      </div>
+      <div style="padding:26px 24px; border-right:1px solid rgba(255,255,255,0.08);">
+        <div style="font-family:'Space Grotesk',sans-serif; font-size:32px; font-weight:700; color:#fff;">38<span style="color:var(--accent,#4d7cfe);">dist</span></div>
+        <div style="font-size:13px; color:#aeb4c7; margin-top:5px; line-height:1.4;">Districts going increasingly online</div>
+      </div>
+      <div style="padding:26px 24px;">
+        <div style="font-family:'Space Grotesk',sans-serif; font-size:32px; font-weight:700; color:#fff;">4G/5G<span style="color:var(--accent,#4d7cfe);">+</span></div>
+        <div style="font-size:13px; color:#aeb4c7; margin-top:5px; line-height:1.4;">Mobile-first connectivity spreading statewide</div>
+      </div>
+    </div>
+    <p style="font-family:'Space Mono',monospace; font-size:10.5px; color:#565c70; margin-top:10px; text-align:right;">Figures indicative of regional trends.</p>
+  </section>
+
+  <!-- TECH MARKET -->
+  <section style="position:relative; z-index:4; max-width:1200px; margin:84px auto 0; padding:0 clamp(16px,4vw,32px);">
+    <div style="max-width:680px;">
+      <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:14px;">// A MARKET ON THE RISE</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif; font-size:clamp(28px,5vw,40px); font-weight:700; letter-spacing:-0.02em; line-height:1.1; text-wrap:balance;">Bihar's growing tech market</h2>
+      <p style="font-size:16px; color:#aeb4c7; line-height:1.7; margin-top:18px; text-wrap:pretty;">Bihar has long exported talent to India's biggest tech companies — now that energy is coming home. Patna is emerging as a regional technology hub, supported by a state startup policy, new co-working and incubation spaces, and a wave of young founders building for Bharat. Smartphones, cheap data, and UPI have collapsed the distance between a small-town shop and a national audience.</p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(150px,1fr)); gap:16px; margin-top:36px;">
+      <div style="border:1px solid rgba(255,255,255,0.08); border-radius:16px; background:rgba(255,255,255,0.025); overflow:hidden;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05);">
+        <div style="position:relative; height:128px; border-radius:14px; border:1px solid rgba(255,255,255,0.1); overflow:hidden; background-color:rgba(8,9,16,0.6); background-image:repeating-linear-gradient(135deg,rgba(255,255,255,0.035) 0,rgba(255,255,255,0.035) 1px,transparent 1px,transparent 11px); display:flex; align-items:flex-end;">
+        <div style="position:absolute; inset:0; background:radial-gradient(circle at 30% 20%, var(--accent,#4d7cfe) 0%, transparent 55%); opacity:0.1;"></div>
+        <svg width="100%" height="100%" viewBox="0 0 400 240" preserveAspectRatio="none" style="position:absolute; inset:0; opacity:0.16;"><path d="M0 200 H400 M0 160 H400 M40 0 V240 M120 0 V240 M200 0 V240 M280 0 V240 M360 0 V240" stroke="#4d7cfe" stroke-width="1"></path><circle cx="120" cy="160" r="4" fill="#4d7cfe"></circle><circle cx="280" cy="200" r="4" fill="#8b5cf6"></circle></svg>
+        <div style="position:relative; padding:14px 16px; width:100%; display:flex; align-items:center; justify-content:space-between;">
+          <span style="font-family:'Space Mono',monospace; font-size:12px; color:#aeb4c7; letter-spacing:0.02em;">Patna</span>
+          <span style="font-family:'Space Mono',monospace; font-size:10px; color:#565c70;">[ add photo ]</span>
+        </div>
+      </div>
+        <div style="padding:16px 18px 18px;">
+          <div style="display:flex; align-items:center; gap:9px;"><span style="font-size:16px;">🏛️</span><h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:600; color:#e9ebf2;">Patna</h3></div>
+          <p style="font-size:13px; color:#9aa0b4; line-height:1.55; margin-top:8px;">The capital and digital nerve-centre — startups, IT services, and the densest online audience in the state.</p>
+        </div>
+      </div>
+      <div style="border:1px solid rgba(255,255,255,0.08); border-radius:16px; background:rgba(255,255,255,0.025); overflow:hidden;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05);">
+        <div style="position:relative; height:128px; border-radius:14px; border:1px solid rgba(255,255,255,0.1); overflow:hidden; background-color:rgba(8,9,16,0.6); background-image:repeating-linear-gradient(135deg,rgba(255,255,255,0.035) 0,rgba(255,255,255,0.035) 1px,transparent 1px,transparent 11px); display:flex; align-items:flex-end;">
+        <div style="position:absolute; inset:0; background:radial-gradient(circle at 30% 20%, var(--accent,#4d7cfe) 0%, transparent 55%); opacity:0.1;"></div>
+        <svg width="100%" height="100%" viewBox="0 0 400 240" preserveAspectRatio="none" style="position:absolute; inset:0; opacity:0.16;"><path d="M0 200 H400 M0 160 H400 M40 0 V240 M120 0 V240 M200 0 V240 M280 0 V240 M360 0 V240" stroke="#4d7cfe" stroke-width="1"></path><circle cx="120" cy="160" r="4" fill="#4d7cfe"></circle><circle cx="280" cy="200" r="4" fill="#8b5cf6"></circle></svg>
+        <div style="position:relative; padding:14px 16px; width:100%; display:flex; align-items:center; justify-content:space-between;">
+          <span style="font-family:'Space Mono',monospace; font-size:12px; color:#aeb4c7; letter-spacing:0.02em;">Gaya</span>
+          <span style="font-family:'Space Mono',monospace; font-size:10px; color:#565c70;">[ add photo ]</span>
+        </div>
+      </div>
+        <div style="padding:16px 18px 18px;">
+          <div style="display:flex; align-items:center; gap:9px;"><span style="font-size:16px;">🌅</span><h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:600; color:#e9ebf2;">Gaya</h3></div>
+          <p style="font-size:13px; color:#9aa0b4; line-height:1.55; margin-top:8px;">A tourism and heritage hub increasingly discovered through search, maps, and social.</p>
+        </div>
+      </div>
+      <div style="border:1px solid rgba(255,255,255,0.08); border-radius:16px; background:rgba(255,255,255,0.025); overflow:hidden;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05);">
+        <div style="position:relative; height:128px; border-radius:14px; border:1px solid rgba(255,255,255,0.1); overflow:hidden; background-color:rgba(8,9,16,0.6); background-image:repeating-linear-gradient(135deg,rgba(255,255,255,0.035) 0,rgba(255,255,255,0.035) 1px,transparent 1px,transparent 11px); display:flex; align-items:flex-end;">
+        <div style="position:absolute; inset:0; background:radial-gradient(circle at 30% 20%, var(--accent,#4d7cfe) 0%, transparent 55%); opacity:0.1;"></div>
+        <svg width="100%" height="100%" viewBox="0 0 400 240" preserveAspectRatio="none" style="position:absolute; inset:0; opacity:0.16;"><path d="M0 200 H400 M0 160 H400 M40 0 V240 M120 0 V240 M200 0 V240 M280 0 V240 M360 0 V240" stroke="#4d7cfe" stroke-width="1"></path><circle cx="120" cy="160" r="4" fill="#4d7cfe"></circle><circle cx="280" cy="200" r="4" fill="#8b5cf6"></circle></svg>
+        <div style="position:relative; padding:14px 16px; width:100%; display:flex; align-items:center; justify-content:space-between;">
+          <span style="font-family:'Space Mono',monospace; font-size:12px; color:#aeb4c7; letter-spacing:0.02em;">Muzaffarpur</span>
+          <span style="font-family:'Space Mono',monospace; font-size:10px; color:#565c70;">[ add photo ]</span>
+        </div>
+      </div>
+        <div style="padding:16px 18px 18px;">
+          <div style="display:flex; align-items:center; gap:9px;"><span style="font-size:16px;">🥭</span><h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:600; color:#e9ebf2;">Muzaffarpur</h3></div>
+          <p style="font-size:13px; color:#9aa0b4; line-height:1.55; margin-top:8px;">A trade and agri town where local commerce is rapidly moving online.</p>
+        </div>
+      </div>
+      <div style="border:1px solid rgba(255,255,255,0.08); border-radius:16px; background:rgba(255,255,255,0.025); overflow:hidden;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05);">
+        <div style="position:relative; height:128px; border-radius:14px; border:1px solid rgba(255,255,255,0.1); overflow:hidden; background-color:rgba(8,9,16,0.6); background-image:repeating-linear-gradient(135deg,rgba(255,255,255,0.035) 0,rgba(255,255,255,0.035) 1px,transparent 1px,transparent 11px); display:flex; align-items:flex-end;">
+        <div style="position:absolute; inset:0; background:radial-gradient(circle at 30% 20%, var(--accent,#4d7cfe) 0%, transparent 55%); opacity:0.1;"></div>
+        <svg width="100%" height="100%" viewBox="0 0 400 240" preserveAspectRatio="none" style="position:absolute; inset:0; opacity:0.16;"><path d="M0 200 H400 M0 160 H400 M40 0 V240 M120 0 V240 M200 0 V240 M280 0 V240 M360 0 V240" stroke="#4d7cfe" stroke-width="1"></path><circle cx="120" cy="160" r="4" fill="#4d7cfe"></circle><circle cx="280" cy="200" r="4" fill="#8b5cf6"></circle></svg>
+        <div style="position:relative; padding:14px 16px; width:100%; display:flex; align-items:center; justify-content:space-between;">
+          <span style="font-family:'Space Mono',monospace; font-size:12px; color:#aeb4c7; letter-spacing:0.02em;">Bhagalpur</span>
+          <span style="font-family:'Space Mono',monospace; font-size:10px; color:#565c70;">[ add photo ]</span>
+        </div>
+      </div>
+        <div style="padding:16px 18px 18px;">
+          <div style="display:flex; align-items:center; gap:9px;"><span style="font-size:16px;">🌉</span><h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:600; color:#e9ebf2;">Bhagalpur</h3></div>
+          <p style="font-size:13px; color:#9aa0b4; line-height:1.55; margin-top:8px;">The silk city, where traditional crafts are finding new digital storefronts.</p>
+        </div>
+      </div>
+      <div style="border:1px solid rgba(255,255,255,0.08); border-radius:16px; background:rgba(255,255,255,0.025); overflow:hidden;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05);">
+        <div style="position:relative; height:128px; border-radius:14px; border:1px solid rgba(255,255,255,0.1); overflow:hidden; background-color:rgba(8,9,16,0.6); background-image:repeating-linear-gradient(135deg,rgba(255,255,255,0.035) 0,rgba(255,255,255,0.035) 1px,transparent 1px,transparent 11px); display:flex; align-items:flex-end;">
+        <div style="position:absolute; inset:0; background:radial-gradient(circle at 30% 20%, var(--accent,#4d7cfe) 0%, transparent 55%); opacity:0.1;"></div>
+        <svg width="100%" height="100%" viewBox="0 0 400 240" preserveAspectRatio="none" style="position:absolute; inset:0; opacity:0.16;"><path d="M0 200 H400 M0 160 H400 M40 0 V240 M120 0 V240 M200 0 V240 M280 0 V240 M360 0 V240" stroke="#4d7cfe" stroke-width="1"></path><circle cx="120" cy="160" r="4" fill="#4d7cfe"></circle><circle cx="280" cy="200" r="4" fill="#8b5cf6"></circle></svg>
+        <div style="position:relative; padding:14px 16px; width:100%; display:flex; align-items:center; justify-content:space-between;">
+          <span style="font-family:'Space Mono',monospace; font-size:12px; color:#aeb4c7; letter-spacing:0.02em;">Darbhanga</span>
+          <span style="font-family:'Space Mono',monospace; font-size:10px; color:#565c70;">[ add photo ]</span>
+        </div>
+      </div>
+        <div style="padding:16px 18px 18px;">
+          <div style="display:flex; align-items:center; gap:9px;"><span style="font-size:16px;">🌾</span><h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:600; color:#e9ebf2;">Darbhanga</h3></div>
+          <p style="font-size:13px; color:#9aa0b4; line-height:1.55; margin-top:8px;">An education and culture centre with a fast-growing young, connected population.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 5 PILLARS OF BIHAR -->
+  <section style="position:relative; z-index:4; max-width:1200px; margin:84px auto 0; padding:0 clamp(16px,4vw,32px);">
+    <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:14px;">// WHAT POWERS THE STATE</div>
+    <h2 style="font-family:'Space Grotesk',sans-serif; font-size:clamp(24px,4vw,34px); font-weight:700; letter-spacing:-0.02em; line-height:1.12; max-width:560px; text-wrap:balance;">The five pillars of Bihar</h2>
+    <p style="font-size:15px; color:#aeb4c7; line-height:1.65; margin-top:14px; max-width:600px; text-wrap:pretty;">From ancient knowledge to future technology — the foundations shaping Bihar's growth story.</p>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:16px; margin-top:30px;">
+      <div style="border:1px solid rgba(255,255,255,0.08); border-radius:18px; background:rgba(255,255,255,0.025); overflow:hidden; display:flex; flex-direction:column;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05);">
+        <div style="position:relative; height:170px; overflow:hidden; background-color:rgba(8,9,16,0.6); background-image:repeating-linear-gradient(135deg,rgba(255,255,255,0.035) 0,rgba(255,255,255,0.035) 1px,transparent 1px,transparent 11px); display:flex; align-items:flex-end;">
+          <div style="position:absolute; inset:0; background:radial-gradient(circle at 30% 22%, var(--accent,#4d7cfe) 0%, transparent 58%); opacity:0.12;"></div>
+          <svg width="100%" height="100%" viewBox="0 0 400 240" preserveAspectRatio="none" style="position:absolute; inset:0; opacity:0.14;"><path d="M0 200 H400 M0 160 H400 M40 0 V240 M120 0 V240 M200 0 V240 M280 0 V240 M360 0 V240" stroke="#4d7cfe" stroke-width="1"></path><circle cx="120" cy="160" r="4" fill="#4d7cfe"></circle><circle cx="280" cy="200" r="4" fill="#8b5cf6"></circle></svg>
+          <span style="position:absolute; top:12px; left:14px; font-family:'Space Mono',monospace; font-size:12px; font-weight:700; color:var(--accent,#4d7cfe); background:rgba(6,7,13,0.5); padding:4px 9px; border-radius:7px;">01</span>
+          <div style="position:relative; padding:12px 14px; width:100%; display:flex; align-items:center; justify-content:space-between;">
+            <span style="font-family:'Space Mono',monospace; font-size:11.5px; color:#aeb4c7;">Nalanda</span>
+            <span style="font-family:'Space Mono',monospace; font-size:10px; color:#565c70;">[ add photo ]</span>
+          </div>
+        </div>
+        <div style="padding:18px 18px 20px; flex:1; display:flex; flex-direction:column;">
+          <div style="display:flex; align-items:center; gap:9px;"><span style="font-size:18px;">🏛️</span><h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:700; color:#fff; letter-spacing:-0.01em;">Nalanda</h3></div>
+          <div style="display:flex; align-items:center; gap:7px; margin-top:9px;"><span style="color:var(--accent,#4d7cfe); font-size:14px;">→</span><span style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:var(--accent2,#8b5cf6);">Knowledge Economy</span></div>
+          <p style="font-size:13px; color:#9aa0b4; line-height:1.6; margin-top:12px;">Bihar's ancient seat of learning, reborn as a hub for education, research and a skilled, knowledge-driven workforce.</p>
+        </div>
+      </div>
+      <div style="border:1px solid rgba(255,255,255,0.08); border-radius:18px; background:rgba(255,255,255,0.025); overflow:hidden; display:flex; flex-direction:column;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05);">
+        <div style="position:relative; height:170px; overflow:hidden; background-color:rgba(8,9,16,0.6); background-image:repeating-linear-gradient(135deg,rgba(255,255,255,0.035) 0,rgba(255,255,255,0.035) 1px,transparent 1px,transparent 11px); display:flex; align-items:flex-end;">
+          <div style="position:absolute; inset:0; background:radial-gradient(circle at 30% 22%, var(--accent,#4d7cfe) 0%, transparent 58%); opacity:0.12;"></div>
+          <svg width="100%" height="100%" viewBox="0 0 400 240" preserveAspectRatio="none" style="position:absolute; inset:0; opacity:0.14;"><path d="M0 200 H400 M0 160 H400 M40 0 V240 M120 0 V240 M200 0 V240 M280 0 V240 M360 0 V240" stroke="#4d7cfe" stroke-width="1"></path><circle cx="120" cy="160" r="4" fill="#4d7cfe"></circle><circle cx="280" cy="200" r="4" fill="#8b5cf6"></circle></svg>
+          <span style="position:absolute; top:12px; left:14px; font-family:'Space Mono',monospace; font-size:12px; font-weight:700; color:var(--accent,#4d7cfe); background:rgba(6,7,13,0.5); padding:4px 9px; border-radius:7px;">02</span>
+          <div style="position:relative; padding:12px 14px; width:100%; display:flex; align-items:center; justify-content:space-between;">
+            <span style="font-family:'Space Mono',monospace; font-size:11.5px; color:#aeb4c7;">Ganga</span>
+            <span style="font-family:'Space Mono',monospace; font-size:10px; color:#565c70;">[ add photo ]</span>
+          </div>
+        </div>
+        <div style="padding:18px 18px 20px; flex:1; display:flex; flex-direction:column;">
+          <div style="display:flex; align-items:center; gap:9px;"><span style="font-size:18px;">🌊</span><h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:700; color:#fff; letter-spacing:-0.01em;">Ganga</h3></div>
+          <div style="display:flex; align-items:center; gap:7px; margin-top:9px;"><span style="color:var(--accent,#4d7cfe); font-size:14px;">→</span><span style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:var(--accent2,#8b5cf6);">Connectivity & Growth</span></div>
+          <p style="font-size:13px; color:#9aa0b4; line-height:1.6; margin-top:12px;">The lifeline of the state — powering trade, transport and the flow of people and commerce across Bihar.</p>
+        </div>
+      </div>
+      <div style="border:1px solid rgba(255,255,255,0.08); border-radius:18px; background:rgba(255,255,255,0.025); overflow:hidden; display:flex; flex-direction:column;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05);">
+        <div style="position:relative; height:170px; overflow:hidden; background-color:rgba(8,9,16,0.6); background-image:repeating-linear-gradient(135deg,rgba(255,255,255,0.035) 0,rgba(255,255,255,0.035) 1px,transparent 1px,transparent 11px); display:flex; align-items:flex-end;">
+          <div style="position:absolute; inset:0; background:radial-gradient(circle at 30% 22%, var(--accent,#4d7cfe) 0%, transparent 58%); opacity:0.12;"></div>
+          <svg width="100%" height="100%" viewBox="0 0 400 240" preserveAspectRatio="none" style="position:absolute; inset:0; opacity:0.14;"><path d="M0 200 H400 M0 160 H400 M40 0 V240 M120 0 V240 M200 0 V240 M280 0 V240 M360 0 V240" stroke="#4d7cfe" stroke-width="1"></path><circle cx="120" cy="160" r="4" fill="#4d7cfe"></circle><circle cx="280" cy="200" r="4" fill="#8b5cf6"></circle></svg>
+          <span style="position:absolute; top:12px; left:14px; font-family:'Space Mono',monospace; font-size:12px; font-weight:700; color:var(--accent,#4d7cfe); background:rgba(6,7,13,0.5); padding:4px 9px; border-radius:7px;">03</span>
+          <div style="position:relative; padding:12px 14px; width:100%; display:flex; align-items:center; justify-content:space-between;">
+            <span style="font-family:'Space Mono',monospace; font-size:11.5px; color:#aeb4c7;">Gandhi Setu</span>
+            <span style="font-family:'Space Mono',monospace; font-size:10px; color:#565c70;">[ add photo ]</span>
+          </div>
+        </div>
+        <div style="padding:18px 18px 20px; flex:1; display:flex; flex-direction:column;">
+          <div style="display:flex; align-items:center; gap:9px;"><span style="font-size:18px;">🌉</span><h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:700; color:#fff; letter-spacing:-0.01em;">Gandhi Setu</h3></div>
+          <div style="display:flex; align-items:center; gap:7px; margin-top:9px;"><span style="color:var(--accent,#4d7cfe); font-size:14px;">→</span><span style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:var(--accent2,#8b5cf6);">Infrastructure</span></div>
+          <p style="font-size:13px; color:#9aa0b4; line-height:1.6; margin-top:12px;">New bridges, highways and digital networks connecting every district to markets and opportunity.</p>
+        </div>
+      </div>
+      <div style="border:1px solid rgba(255,255,255,0.08); border-radius:18px; background:rgba(255,255,255,0.025); overflow:hidden; display:flex; flex-direction:column;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05);">
+        <div style="position:relative; height:170px; overflow:hidden; background-color:rgba(8,9,16,0.6); background-image:repeating-linear-gradient(135deg,rgba(255,255,255,0.035) 0,rgba(255,255,255,0.035) 1px,transparent 1px,transparent 11px); display:flex; align-items:flex-end;">
+          <div style="position:absolute; inset:0; background:radial-gradient(circle at 30% 22%, var(--accent,#4d7cfe) 0%, transparent 58%); opacity:0.12;"></div>
+          <svg width="100%" height="100%" viewBox="0 0 400 240" preserveAspectRatio="none" style="position:absolute; inset:0; opacity:0.14;"><path d="M0 200 H400 M0 160 H400 M40 0 V240 M120 0 V240 M200 0 V240 M280 0 V240 M360 0 V240" stroke="#4d7cfe" stroke-width="1"></path><circle cx="120" cy="160" r="4" fill="#4d7cfe"></circle><circle cx="280" cy="200" r="4" fill="#8b5cf6"></circle></svg>
+          <span style="position:absolute; top:12px; left:14px; font-family:'Space Mono',monospace; font-size:12px; font-weight:700; color:var(--accent,#4d7cfe); background:rgba(6,7,13,0.5); padding:4px 9px; border-radius:7px;">04</span>
+          <div style="position:relative; padding:12px 14px; width:100%; display:flex; align-items:center; justify-content:space-between;">
+            <span style="font-family:'Space Mono',monospace; font-size:11.5px; color:#aeb4c7;">Agriculture</span>
+            <span style="font-family:'Space Mono',monospace; font-size:10px; color:#565c70;">[ add photo ]</span>
+          </div>
+        </div>
+        <div style="padding:18px 18px 20px; flex:1; display:flex; flex-direction:column;">
+          <div style="display:flex; align-items:center; gap:9px;"><span style="font-size:18px;">🌾</span><h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:700; color:#fff; letter-spacing:-0.01em;">Agriculture</h3></div>
+          <div style="display:flex; align-items:center; gap:7px; margin-top:9px;"><span style="color:var(--accent,#4d7cfe); font-size:14px;">→</span><span style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:var(--accent2,#8b5cf6);">Food Processing</span></div>
+          <p style="font-size:13px; color:#9aa0b4; line-height:1.6; margin-top:12px;">From fertile fields to value-added food processing — modernising Bihar's largest economic engine.</p>
+        </div>
+      </div>
+      <div style="border:1px solid rgba(255,255,255,0.08); border-radius:18px; background:rgba(255,255,255,0.025); overflow:hidden; display:flex; flex-direction:column;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05);">
+        <div style="position:relative; height:170px; overflow:hidden; background-color:rgba(8,9,16,0.6); background-image:repeating-linear-gradient(135deg,rgba(255,255,255,0.035) 0,rgba(255,255,255,0.035) 1px,transparent 1px,transparent 11px); display:flex; align-items:flex-end;">
+          <div style="position:absolute; inset:0; background:radial-gradient(circle at 30% 22%, var(--accent,#4d7cfe) 0%, transparent 58%); opacity:0.12;"></div>
+          <svg width="100%" height="100%" viewBox="0 0 400 240" preserveAspectRatio="none" style="position:absolute; inset:0; opacity:0.14;"><path d="M0 200 H400 M0 160 H400 M40 0 V240 M120 0 V240 M200 0 V240 M280 0 V240 M360 0 V240" stroke="#4d7cfe" stroke-width="1"></path><circle cx="120" cy="160" r="4" fill="#4d7cfe"></circle><circle cx="280" cy="200" r="4" fill="#8b5cf6"></circle></svg>
+          <span style="position:absolute; top:12px; left:14px; font-family:'Space Mono',monospace; font-size:12px; font-weight:700; color:var(--accent,#4d7cfe); background:rgba(6,7,13,0.5); padding:4px 9px; border-radius:7px;">05</span>
+          <div style="position:relative; padding:12px 14px; width:100%; display:flex; align-items:center; justify-content:space-between;">
+            <span style="font-family:'Space Mono',monospace; font-size:11.5px; color:#aeb4c7;">AI & Technology</span>
+            <span style="font-family:'Space Mono',monospace; font-size:10px; color:#565c70;">[ add photo ]</span>
+          </div>
+        </div>
+        <div style="padding:18px 18px 20px; flex:1; display:flex; flex-direction:column;">
+          <div style="display:flex; align-items:center; gap:9px;"><span style="font-size:18px;">🤖</span><h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:700; color:#fff; letter-spacing:-0.01em;">AI & Technology</h3></div>
+          <div style="display:flex; align-items:center; gap:7px; margin-top:9px;"><span style="color:var(--accent,#4d7cfe); font-size:14px;">→</span><span style="font-family:'Space Grotesk',sans-serif; font-size:14px; font-weight:600; color:var(--accent2,#8b5cf6);">Future Bihar</span></div>
+          <p style="font-size:13px; color:#9aa0b4; line-height:1.6; margin-top:12px;">Startups, AI and digital skills shaping the next chapter of a young, ambitious state.</p>
+        </div>
+      </div>
+    </div>
+    <p style="font-family:'Space Mono',monospace; font-size:10.5px; color:#565c70; margin-top:12px;">Photo slots ready — drop in imagery for each pillar to bring them to life.</p>
+  </section>
+
+  <!-- BUSINESS GROWTH & MARKETING -->
+  <section style="position:relative; z-index:4; max-width:1200px; margin:84px auto 0; padding:0 clamp(16px,4vw,32px);">
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:48px; align-items:center; border:1px solid rgba(255,255,255,0.08); border-radius:24px; background:linear-gradient(135deg,rgba(77,124,254,0.07),rgba(139,92,246,0.04)); padding:44px;">
+      <div>
+        <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:14px;">// BUSINESS GROWTH &amp; MARKETING</div>
+        <h2 style="font-family:'Space Grotesk',sans-serif; font-size:32px; font-weight:700; line-height:1.14; letter-spacing:-0.01em; text-wrap:balance;">Going online is the new going to market.</h2>
+        <p style="font-size:15px; color:#aeb4c7; line-height:1.68; margin-top:16px; text-wrap:pretty;">As Bihar's customers shop, search, and pay on their phones, the businesses that show up online are the ones that grow. Discovery now starts on Google and Instagram, trust is built through reviews and content, and a single well-run campaign can reach an entire district. For local brands, that's the biggest opportunity in a generation.</p>
+        <div style="display:flex; flex-direction:column; gap:14px; margin-top:24px;">
+          <div style="display:flex; align-items:flex-start; gap:12px;"><span style="margin-top:6px; width:7px; height:7px; border-radius:2px; background:var(--accent,#4d7cfe); flex:none;"></span><div><div style="font-weight:600; font-size:15px; color:#e9ebf2;">Online-first consumers</div><div style="font-size:13.5px; color:#9aa0b4; line-height:1.55;">A young, mobile audience that researches before it buys.</div></div></div>
+          <div style="display:flex; align-items:flex-start; gap:12px;"><span style="margin-top:6px; width:7px; height:7px; border-radius:2px; background:var(--accent,#4d7cfe); flex:none;"></span><div><div style="font-weight:600; font-size:15px; color:#e9ebf2;">Local businesses digitizing</div><div style="font-size:13.5px; color:#9aa0b4; line-height:1.55;">Shops, clinics, and services building their first real online presence.</div></div></div>
+          <div style="display:flex; align-items:flex-start; gap:12px;"><span style="margin-top:6px; width:7px; height:7px; border-radius:2px; background:var(--accent,#4d7cfe); flex:none;"></span><div><div style="font-weight:600; font-size:15px; color:#e9ebf2;">Marketing that travels</div><div style="font-size:13.5px; color:#9aa0b4; line-height:1.55;">Content and ads that reach whole districts at a fraction of old costs.</div></div></div>
+        </div>
+      </div>
+      <div style="background:rgba(8,9,16,0.55); border:1px solid rgba(255,255,255,0.08); border-radius:18px; padding:26px;">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:18px;">
+          <span style="font-family:'Space Mono',monospace; font-size:11px; color:#7c8398;">digital_adoption · bihar</span>
+          <span style="font-family:'Space Mono',monospace; font-size:11px; color:var(--accent,#4d7cfe);">▲ trending up</span>
+        </div>
+        <div style="display:flex; align-items:flex-end; gap:12px; height:150px;">
+          <div style="flex:1; height:36%; background:rgba(255,255,255,0.1); border-radius:5px 5px 2px 2px;"></div>
+          <div style="flex:1; height:50%; background:rgba(255,255,255,0.13); border-radius:5px 5px 2px 2px;"></div>
+          <div style="flex:1; height:62%; background:linear-gradient(180deg,var(--accent2,#8b5cf6),rgba(139,92,246,0.4)); border-radius:5px 5px 2px 2px;"></div>
+          <div style="flex:1; height:80%; background:linear-gradient(180deg,var(--accent,#4d7cfe),rgba(77,124,254,0.4)); border-radius:5px 5px 2px 2px;"></div>
+          <div style="flex:1; height:100%; background:linear-gradient(180deg,var(--accent,#4d7cfe),var(--accent2,#8b5cf6)); border-radius:5px 5px 2px 2px; box-shadow:0 0 18px -2px var(--accent,#4d7cfe);"></div>
+        </div>
+        <div style="display:flex; justify-content:space-between; margin-top:12px; font-family:'Space Mono',monospace; font-size:10px; color:#565c70;">
+          <span>2021</span><span>2022</span><span>2023</span><span>2024</span><span>now</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GLIMPSES OF BIHAR -->
+  <section style="position:relative; z-index:4; max-width:1200px; margin:96px auto 0; padding:0 clamp(16px,4vw,32px);">
+    <div style="display:flex; align-items:flex-end; justify-content:space-between; gap:24px; flex-wrap:wrap; margin-bottom:28px;">
+      <div>
+        <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:14px;">// GLIMPSES OF BIHAR</div>
+        <h2 style="font-family:'Space Grotesk',sans-serif; font-size:clamp(28px,5vw,40px); font-weight:700; letter-spacing:-0.02em; line-height:1.1; max-width:560px; text-wrap:balance;">A land of history, rivers &amp; living culture</h2>
+      </div>
+      <p style="font-size:15px; color:#aeb4c7; max-width:340px; line-height:1.65;">Where the Ganga meets ancient capitals, sacred sites, and a craft heritage that still shapes daily life across the state.</p>
+    </div>
+
+    <div style="display:grid; grid-template-columns:repeat(4, minmax(0,1fr)); grid-auto-rows:200px; gap:14px;">
+      <div style="grid-column:span 2; grid-row:span 2; position:relative; border-radius:16px; border:1px solid rgba(255,255,255,0.1); overflow:hidden; background-color:rgba(8,9,16,0.6); display:flex; align-items:flex-end;" style-hover="border-color:var(--accent,#4d7cfe);">
+        <img src="assets/river-ganga.png" alt="River Ganga & Gandhi Setu" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;"></img>
+        <div style="position:absolute; inset:0; background:linear-gradient(180deg,rgba(6,7,13,0.05) 45%,rgba(6,7,13,0.85) 100%);"></div>
+        <div style="position:relative; padding:18px 20px;"><div style="font-family:'Space Grotesk',sans-serif; font-size:19px; font-weight:600; color:#fff; text-shadow:0 1px 12px rgba(0,0,0,0.7);">The Ganga &amp; Patna riverfront</div></div>
+      </div>
+      <div style="position:relative; border-radius:16px; border:1px solid rgba(255,255,255,0.1); overflow:hidden; background-color:rgba(8,9,16,0.6); display:flex; align-items:flex-end;" style-hover="border-color:var(--accent,#4d7cfe);">
+        <img src="assets/bodh-gaya.png" alt="Mahabodhi Temple, Bodh Gaya" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;"></img>
+        <div style="position:absolute; inset:0; background:linear-gradient(180deg,rgba(6,7,13,0.1) 40%,rgba(6,7,13,0.82) 100%);"></div>
+        <div style="position:relative; padding:14px 16px;"><div style="font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:600; color:#fff; text-shadow:0 1px 10px rgba(0,0,0,0.7);">Mahabodhi Temple, Bodh Gaya</div></div>
+      </div>
+      <div style="position:relative; border-radius:16px; border:1px solid rgba(255,255,255,0.1); overflow:hidden; background-color:rgba(8,9,16,0.6); display:flex; align-items:flex-end;" style-hover="border-color:var(--accent,#4d7cfe);">
+        <img src="assets/madhubani.png" alt="Madhubani art" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;"></img>
+        <div style="position:absolute; inset:0; background:linear-gradient(180deg,rgba(6,7,13,0.1) 40%,rgba(6,7,13,0.82) 100%);"></div>
+        <div style="position:relative; padding:14px 16px;"><div style="font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:600; color:#fff; text-shadow:0 1px 10px rgba(0,0,0,0.7);">Madhubani art</div></div>
+      </div>
+      <div style="position:relative; border-radius:16px; border:1px solid rgba(255,255,255,0.1); overflow:hidden; background-color:rgba(8,9,16,0.6); display:flex; align-items:flex-end;" style-hover="border-color:var(--accent,#4d7cfe);">
+        <img src="assets/ashoka-chakra.png" alt="Ashoka Chakra" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;"></img>
+        <div style="position:absolute; inset:0; background:linear-gradient(180deg,rgba(6,7,13,0.1) 40%,rgba(6,7,13,0.82) 100%);"></div>
+        <div style="position:relative; padding:14px 16px;"><div style="font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:600; color:#fff; text-shadow:0 1px 10px rgba(0,0,0,0.7);">Ashoka Chakra</div></div>
+      </div>
+      <div style="position:relative; border-radius:16px; border:1px solid rgba(255,255,255,0.1); overflow:hidden; background-color:rgba(8,9,16,0.6); display:flex; align-items:flex-end;" style-hover="border-color:var(--accent,#4d7cfe);">
+        <img src="assets/chhath-puja.png" alt="Festivals & Chhath Puja" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover;"></img>
+        <div style="position:absolute; inset:0; background:linear-gradient(180deg,rgba(6,7,13,0.1) 40%,rgba(6,7,13,0.82) 100%);"></div>
+        <div style="position:relative; padding:14px 16px;"><div style="font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:600; color:#fff; text-shadow:0 1px 10px rgba(0,0,0,0.7);">Festivals &amp; Chhath Puja</div></div>
+      </div>
+    </div>
+    <p style="font-family:'Space Mono',monospace; font-size:10.5px; color:#565c70; margin-top:12px;">Drop your own Bihar photography into these slots — each card is a labeled placeholder.</p>
+  </section>
+
+  <!-- DISTRICTS WE SERVE -->
+  <section style="position:relative; z-index:4; max-width:1200px; margin:84px auto 0; padding:0 clamp(16px,4vw,32px);">
+    <div style="text-align:center; margin-bottom:34px;">
+      <h2 style="font-family:'Space Grotesk',sans-serif; font-size:clamp(28px,5vw,40px); font-weight:700; letter-spacing:-0.02em; line-height:1.1; max-width:760px; margin:0 auto; text-wrap:balance;">Serving businesses across every district</h2>
+      <div style="display:flex; gap:40px; flex-wrap:wrap; justify-content:center; margin-top:24px;">
+        <div><div style="font-family:'Space Grotesk',sans-serif; font-size:30px; font-weight:700; color:#fff;">38</div><div style="font-size:12.5px; color:#9aa0b4;">Districts covered</div></div>
+        <div><div style="font-family:'Space Grotesk',sans-serif; font-size:30px; font-weight:700; color:#fff;">9</div><div style="font-size:12.5px; color:#9aa0b4;">Divisions</div></div>
+        <div><div style="font-family:'Space Grotesk',sans-serif; font-size:30px; font-weight:700; color:var(--accent,#4d7cfe);">1</div><div style="font-size:12.5px; color:#9aa0b4;">State, fully local</div></div>
+      </div>
+    </div>
+    <div style="border:1px solid rgba(255,255,255,0.08); border-radius:18px; background:rgba(255,255,255,0.025); padding:30px;">
+      <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:18px; gap:12px; flex-wrap:wrap;">
+        <div style="display:flex; align-items:center; gap:12px;">
+          <span style="font-family:'Space Mono',monospace; font-size:12px; font-weight:700; letter-spacing:0.08em; color:#fff; background:var(--accent,#4d7cfe); padding:6px 10px; border-radius:8px;">BR</span>
+          <span style="font-family:'Space Grotesk',sans-serif; font-size:20px; font-weight:600;">Bihar</span>
+        </div>
+        <span style="font-family:'Space Mono',monospace; font-size:12px; color:#aeb4c7; border:1px solid rgba(255,255,255,0.12); padding:5px 10px; border-radius:7px;">38 DISTRICTS</span>
+      </div>
+      <div style="display:flex; flex-wrap:wrap; gap:8px;">
+          <a href="Araria.dc.html" style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap; text-decoration:none; cursor:pointer;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Araria</a>
+          <a href="Arwal.dc.html" style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap; text-decoration:none; cursor:pointer;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Arwal</a>
+          <a href="Aurangabad.dc.html" style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap; text-decoration:none; cursor:pointer;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Aurangabad</a>
+          <a href="Banka.dc.html" style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap; text-decoration:none; cursor:pointer;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Banka</a>
+          <a href="Begusarai.dc.html" style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap; text-decoration:none; cursor:pointer;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Begusarai</a>
+          <a href="Bhagalpur.dc.html" style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap; text-decoration:none; cursor:pointer;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Bhagalpur</a>
+          <a href="Bhojpur.dc.html" style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap; text-decoration:none; cursor:pointer;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Bhojpur</a>
+          <a href="Buxar.dc.html" style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap; text-decoration:none; cursor:pointer;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Buxar</a>
+          <a href="Darbhanga.dc.html" style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap; text-decoration:none; cursor:pointer;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Darbhanga</a>
+          <a href="East Champaran.dc.html" style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap; text-decoration:none; cursor:pointer;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">East Champaran</a>
+          <a href="Gaya.dc.html" style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap; text-decoration:none; cursor:pointer;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Gaya</a>
+          <a href="Gopalganj.dc.html" style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap; text-decoration:none; cursor:pointer;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Gopalganj</a>
+          <a href="Jamui.dc.html" style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap; text-decoration:none; cursor:pointer;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Jamui</a>
+          <a href="Jehanabad.dc.html" style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap; text-decoration:none; cursor:pointer;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Jehanabad</a>
+          <a href="Kaimur.dc.html" style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap; text-decoration:none; cursor:pointer;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Kaimur</a>
+          <a href="Katihar.dc.html" style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap; text-decoration:none; cursor:pointer;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Katihar</a>
+          <a href="Khagaria.dc.html" style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap; text-decoration:none; cursor:pointer;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Khagaria</a>
+          <a href="Kishanganj.dc.html" style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap; text-decoration:none; cursor:pointer;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Kishanganj</a>
+          <a href="Lakhisarai.dc.html" style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap; text-decoration:none; cursor:pointer;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Lakhisarai</a>
+          <a href="Madhepura.dc.html" style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap; text-decoration:none; cursor:pointer;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Madhepura</a>
+          <a href="Madhubani.dc.html" style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap; text-decoration:none; cursor:pointer;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Madhubani</a>
+          <a href="Munger.dc.html" style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap; text-decoration:none; cursor:pointer;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Munger</a>
+          <a href="Muzaffarpur.dc.html" style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap; text-decoration:none; cursor:pointer;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Muzaffarpur</a>
+          <a href="Nalanda.dc.html" style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap; text-decoration:none; cursor:pointer;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Nalanda</a>
+          <a href="Nawada.dc.html" style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap; text-decoration:none; cursor:pointer;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Nawada</a>
+          <a href="Patna.dc.html" style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap; text-decoration:none; cursor:pointer;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Patna</a>
+          <a href="Purnia.dc.html" style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap; text-decoration:none; cursor:pointer;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Purnia</a>
+          <a href="Rohtas.dc.html" style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap; text-decoration:none; cursor:pointer;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Rohtas</a>
+          <a href="Saharsa.dc.html" style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap; text-decoration:none; cursor:pointer;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Saharsa</a>
+          <a href="Samastipur.dc.html" style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap; text-decoration:none; cursor:pointer;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Samastipur</a>
+          <a href="Saran.dc.html" style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap; text-decoration:none; cursor:pointer;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Saran</a>
+          <a href="Sheikhpura.dc.html" style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap; text-decoration:none; cursor:pointer;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Sheikhpura</a>
+          <a href="Sheohar.dc.html" style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap; text-decoration:none; cursor:pointer;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Sheohar</a>
+          <a href="Sitamarhi.dc.html" style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap; text-decoration:none; cursor:pointer;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Sitamarhi</a>
+          <a href="Siwan.dc.html" style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap; text-decoration:none; cursor:pointer;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Siwan</a>
+          <a href="Supaul.dc.html" style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap; text-decoration:none; cursor:pointer;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Supaul</a>
+          <a href="Vaishali.dc.html" style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap; text-decoration:none; cursor:pointer;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">Vaishali</a>
+          <a href="West Champaran.dc.html" style="font-size:12.5px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); padding:6px 11px; border-radius:8px; white-space:nowrap; text-decoration:none; cursor:pointer;" style-hover="border-color:var(--accent,#4d7cfe); color:#fff;">West Champaran</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOFT CLOSER -->
+  <section style="position:relative; z-index:4; max-width:1200px; margin:84px auto 0; padding:0 clamp(16px,4vw,32px);">
+    <div style="position:relative; overflow:hidden; border:1px solid rgba(255,255,255,0.1); border-radius:28px; background:linear-gradient(140deg,#0d1020,#0a0b14); padding:clamp(36px,6vw,56px) clamp(22px,5vw,48px); text-align:center;">
+      <div style="position:absolute; top:-160px; left:50%; transform:translateX(-50%); width:560px; height:520px; background:radial-gradient(circle,var(--accent,#4d7cfe),transparent 60%); opacity:0.18; filter:blur(30px);"></div>
+      <div style="position:relative;">
+        <h2 style="font-family:'Space Grotesk',sans-serif; font-size:38px; font-weight:700; line-height:1.08; letter-spacing:-0.02em; max-width:600px; margin:0 auto; text-wrap:balance;">Bihar's digital growth story is just beginning.</h2>
+        <p style="font-size:16px; color:#aeb4c7; line-height:1.6; margin:16px auto 0; max-width:520px;">We're proud to be part of it — telling local stories with technology, creativity, and craft.</p>
+        <a href="Contact Us.dc.html" style="display:inline-flex; align-items:center; gap:9px; margin-top:28px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.16); color:#e9ebf2; text-decoration:none; font-weight:600; font-size:15px; padding:14px 26px; border-radius:12px;" style-hover="background:rgba(255,255,255,0.1);">Say hello →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="position:relative; z-index:4; max-width:1200px; margin:88px auto 0; padding:0 clamp(16px,4vw,32px) 44px;">
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(160px,1fr)); gap:40px; padding:56px 0 44px; border-top:1px solid rgba(255,255,255,0.08);">
+      <div>
+        <a href="WebTech Core.dc.html" style="display:flex; align-items:center; gap:12px; text-decoration:none; color:#e9ebf2;">
+          <svg width="34" height="34" viewBox="0 0 30 30" fill="none"><rect x="3" y="3" width="24" height="24" rx="6" stroke="var(--accent,#4d7cfe)" stroke-width="1.6"></rect><rect x="9.5" y="9.5" width="11" height="11" rx="2" fill="var(--accent,#4d7cfe)"></rect><circle cx="15" cy="15" r="2.4" fill="#06070d"></circle></svg>
+          <span style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:19px; letter-spacing:0.16em;">WEBTECH<span style="color:var(--accent,#4d7cfe);">CORE</span></span>
+        </a>
+        <p style="font-size:14.5px; color:#9aa0b4; line-height:1.65; margin:20px 0 0; max-width:300px;">The complete digital marketing partner for small businesses ready to grow — SEO, ads, social, web, and content under one roof.</p>
+        <div style="display:flex; gap:10px; margin-top:24px;">
+          <a href="#" aria-label="social" style="width:38px; height:38px; border-radius:10px; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.03); display:flex; align-items:center; justify-content:center;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.08);"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M14 8 h2 V5 h-2.5 C12 5 11 6 11 7.5 V9 H9 v3 h2 v7 h3 v-7 h2.2 l.5-3 H14 V8 Z" fill="#aeb4c7"></path></svg></a>
+          <a href="#" aria-label="social" style="width:38px; height:38px; border-radius:10px; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.03); display:flex; align-items:center; justify-content:center;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.08);"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 5 l6 7 -6 7 h2 l5-5.8 L16 19 h4 l-6.4-7.6 L19.5 5 h-2 l-4.6 5.4 L8 5 Z" fill="#aeb4c7"></path></svg></a>
+          <a href="#" aria-label="social" style="width:38px; height:38px; border-radius:10px; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.03); display:flex; align-items:center; justify-content:center;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.08);"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="4.5" stroke="#aeb4c7" stroke-width="1.6"></rect><circle cx="12" cy="12" r="3.6" stroke="#aeb4c7" stroke-width="1.6"></circle><circle cx="16.5" cy="7.5" r="1" fill="#aeb4c7"></circle></svg></a>
+          <a href="#" aria-label="social" style="width:38px; height:38px; border-radius:10px; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.03); display:flex; align-items:center; justify-content:center;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.08);"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="3.5" stroke="#aeb4c7" stroke-width="1.6"></rect><line x1="8" y1="10.5" x2="8" y2="17" stroke="#aeb4c7" stroke-width="1.6" stroke-linecap="round"></line><circle cx="8" cy="7.5" r="1.1" fill="#aeb4c7"></circle><path d="M11.5 17 v-4 a2.5 2.5 0 0 1 5 0 v4 M11.5 13 v4" stroke="#aeb4c7" stroke-width="1.6" fill="none" stroke-linecap="round"></path></svg></a>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.1em; color:#7c8398; margin-bottom:18px;">SERVICES</div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <a href="SEO.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Search Engine Optimization</a>
+          <a href="PPC.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Paid Advertising</a>
+          <a href="Social Media.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Social Media</a>
+          <a href="Web Design.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Web Design</a>
+          <a href="Services.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">View all services →</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.1em; color:#7c8398; margin-bottom:18px;">INDUSTRIES</div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <a href="Healthcare.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Healthcare</a>
+          <a href="Real Estate.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Real Estate</a>
+          <a href="Ecommerce.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">E-commerce</a>
+          <a href="Restaurants.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Restaurants</a>
+          <a href="Home Services.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Home Services</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.1em; color:#7c8398; margin-bottom:18px;">COMPANY</div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <a href="About Us.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">About Us</a>
+          <a href="Case Studies.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Case Studies</a>
+          <a href="Blog.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Blog</a>
+          <a href="Press Release.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Press</a>
+          <a href="Contact Us.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex; justify-content:space-between; align-items:center; padding-top:26px; border-top:1px solid rgba(255,255,255,0.08); flex-wrap:wrap; gap:14px;">
+      <div style="display:flex; align-items:center; gap:22px; flex-wrap:wrap;">
+        <span style="font-size:13px; color:#7c8398;">© 2026 WebTech Core. All rights reserved.</span>
+        <a href="Privacy Policy.dc.html" style="font-size:13px; color:#7c8398; text-decoration:none;" style-hover="color:#aeb4c7;">Privacy Policy</a>
+        <a href="Terms and Conditions.dc.html" style="font-size:13px; color:#7c8398; text-decoration:none;" style-hover="color:#aeb4c7;">Terms &amp; Conditions</a>
+      </div>
+      <div style="display:flex; align-items:center; gap:18px; flex-wrap:wrap;">
+        <span style="font-family:'Space Mono',monospace; font-size:12px; color:#7c8398;">info@webtechcore.io</span>
+        <span style="font-family:'Space Mono',monospace; font-size:12px; color:#7c8398;">+91 9110170824</span>
+        <span style="font-family:'Space Mono',monospace; font-size:12px; color:#565c70;">Engineered for growth.</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1200,&quot;height&quot;:3000},&quot;accent&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Electric Blue&quot;,&quot;Cyan&quot;,&quot;Violet&quot;,&quot;Emerald&quot;],&quot;default&quot;:&quot;Electric Blue&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { menu: null, district: 0 };
+  componentDidMount() {
+    this._dTimer = setInterval(() => this.setState((s) => ({ district: s.district + 1 })), 2200);
+  }
+  componentWillUnmount() {
+    clearInterval(this._dTimer);
+  }
+  renderVals() {
+    const accents = {
+      "Electric Blue": ["#4d7cfe", "#8b5cf6"],
+      "Cyan":          ["#22d3ee", "#38bdf8"],
+      "Violet":        ["#8b5cf6", "#d946ef"],
+      "Emerald":       ["#34d399", "#22d3ee"],
+    };
+    const pick = accents[this.props.accent] || accents["Electric Blue"];
+    const districts = [
+      ["Patna", 14], ["Gaya", 8], ["Muzaffarpur", 9], ["Bhagalpur", 7],
+      ["Darbhanga", 6], ["Purnia", 5], ["Madhubani", 5], ["Begusarai", 4],
+      ["Nalanda", 4], ["Saran", 3], ["Katihar", 3], ["Bhojpur", 4],
+    ];
+    const di = this.state.district % districts.length;
+    const dName = districts[di][0];
+    const dClients = districts[di][1];
+    const valBase = { fontFamily: "'Space Grotesk',sans-serif", fontSize: "18px", fontWeight: 700, marginTop: "3px", color: "#fff" };
+    const districtNameEl = React.createElement("div", { key: di, style: { ...valBase, animation: "wtc-fadein 0.5s ease" } }, dName);
+    const districtClientsEl = React.createElement(
+      "div",
+      { key: di, style: { ...valBase, animation: "wtc-fadein 0.5s ease", display: "flex", alignItems: "baseline", gap: "5px" } },
+      React.createElement("span", { style: { color: pick[0] } }, dClients),
+      React.createElement("span", { style: { fontSize: "12px", fontWeight: 600, color: "#aeb4c7" } }, "active ▲")
+    );
+    const m = this.state.menu;
+    return {
+      accentColor: pick[0],
+      accent2Color: pick[1],
+      districtNameEl,
+      districtClientsEl,
+      industriesOpen: m === "industries",
+      servicesOpen: m === "services",
+      resourcesOpen: m === "resources",
+      industriesCaret: m === "industries" ? 180 : 0,
+      servicesCaret: m === "services" ? 180 : 0,
+      resourcesCaret: m === "resources" ? 180 : 0,
+      industriesColor: m === "industries" ? "#ffffff" : "#aeb4c7",
+      servicesColor: m === "services" ? "#ffffff" : "#aeb4c7",
+      resourcesColor: m === "resources" ? "#ffffff" : "#aeb4c7",
+      openIndustries: () => this.setState({ menu: "industries" }),
+      openServices: () => this.setState({ menu: "services" }),
+      openResources: () => this.setState({ menu: "resources" }),
+      closeMenu: () => this.setState({ menu: null }),
+      toggleIndustries: () => this.setState((s) => ({ menu: s.menu === "industries" ? null : "industries" })),
+      toggleServices: () => this.setState((s) => ({ menu: s.menu === "services" ? null : "services" })),
+      toggleResources: () => this.setState((s) => ({ menu: s.menu === "resources" ? null : "resources" })),
+    };
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+.DS_Store
+**/.DS_Store
+.thumbnail
+**/.thumbnail
+_DUPLICATES_REMOVED_*/
+duplicate_fix_log_*.txt
+manifest.csv
+coverage_matrix.csv
+organize_log.txt
+WebTech Core - Organized/

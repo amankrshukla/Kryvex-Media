@@ -47,8 +47,8 @@ body{background:#06070d;color:#e9ebf2;font-family:'Manrope',sans-serif;-webkit-f
 .dd-all{display:block;text-align:center;margin-top:10px;padding:10px;border-radius:10px;text-decoration:none;font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.06em;color:var(--accent);background:rgba(77,124,254,.07);transition:background .15s}
 .dd-all:hover{background:rgba(77,124,254,.13)}
 .dd-res-wrap{position:relative}
-#panel-resources{position:absolute;top:34px;left:0;z-index:30;width:320px;max-width:90vw;padding:16px;background:rgba(14,16,28,.97);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.12);border-radius:16px;box-shadow:0 24px 60px -18px rgba(0,0,0,.7);display:none}
-#panel-resources.open{display:block;animation:wtc-fadein .18s ease-out}
+#panel-resources,#panel-countries{position:absolute;top:34px;left:0;z-index:30;width:320px;max-width:90vw;padding:16px;background:rgba(14,16,28,.97);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.12);border-radius:16px;box-shadow:0 24px 60px -18px rgba(0,0,0,.7);display:none}
+#panel-resources.open,#panel-countries.open{display:block;animation:wtc-fadein .18s ease-out}
 .dd-grid1{display:grid;grid-template-columns:1fr;gap:4px}
 
 .breadcrumb{position:relative;z-index:4;max-width:1200px;margin:0 auto;padding:10px 32px 0;font-family:'Space Mono',monospace;font-size:12px;color:#7c8398}
@@ -100,6 +100,8 @@ footer{position:relative;z-index:4;max-width:1200px;margin:88px auto 0;padding:0
 .ft-mono{font-family:'Space Mono',monospace;font-size:12px;color:#7c8398}
 .ft-tag{font-family:'Space Mono',monospace;font-size:12px;color:#565c70}
 </style>
+
+<link rel="stylesheet" href="../styles/responsive.css">
 </head>
 <body>
 
@@ -118,8 +120,6 @@ footer{position:relative;z-index:4;max-width:1200px;margin:88px auto 0;padding:0
   </a>
   <div class="nav-links">
     <a href="../index.html" class="nav-link">Home</a>
-    <a href="../about.html" class="nav-link">About</a>
-
     <!-- Industries -->
     <div class="dd-wide-wrap" id="dd-industries"
          onmouseenter="openMenu('industries',true)" onmouseleave="closeAll()">
@@ -177,6 +177,21 @@ footer{position:relative;z-index:4;max-width:1200px;margin:88px auto 0;padding:0
     </div>
 
     <!-- Resources -->
+    <div class="dd-res-wrap" id="dd-countries"
+         onmouseenter="openMenu('countries',false)" onmouseleave="closeAll()">
+      <button class="nav-btn" aria-haspopup="true" aria-expanded="false"
+              onclick="toggleMenu('countries',false)">Countries<span class="nav-caret" id="caret-countries">
+          <svg width="11" height="11" viewBox="0 0 12 12" fill="none" aria-hidden="true">
+            <path d="M2.5 4.5L6 8l3.5-3.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </span>
+      </button>
+      <div id="panel-countries" role="region" aria-label="Countries">
+        <div class="dd-label">COUNTRIES</div>
+        <div class="dd-grid1">
+          <a href="../locations/india.html" class="dd-item"><span class="dd-item-emoji">🇮🇳</span><span><span class="dd-item-name">India</span><span class="dd-item-sub">Live · all states</span></span></a><a href="../locations/usa.html" class="dd-item"><span class="dd-item-emoji">🇺🇸</span><span><span class="dd-item-name">USA</span><span class="dd-item-sub">Launching soon</span></span></a><a href="../locations/uk.html" class="dd-item"><span class="dd-item-emoji">🇬🇧</span><span><span class="dd-item-name">UK</span><span class="dd-item-sub">Launching soon</span></span></a><a href="../locations/singapore.html" class="dd-item"><span class="dd-item-emoji">🇸🇬</span><span><span class="dd-item-name">Singapore</span><span class="dd-item-sub">Launching soon</span></span></a></div>
+      </div>
+    </div>
     <div class="dd-res-wrap" id="dd-resources"
          onmouseenter="openMenu('resources',false)" onmouseleave="closeAll()">
       <button class="nav-btn" aria-haspopup="true" aria-expanded="false"
@@ -365,7 +380,7 @@ footer{position:relative;z-index:4;max-width:1200px;margin:88px auto 0;padding:0
         <a href="../resources/case-studies.html" class="ft-link">Case Studies</a>
         <a href="../resources/blog.html" class="ft-link">Blog</a>
         <a href="../resources/press-release.html" class="ft-link">Press</a>
-        <a href="../contact-us.html" class="ft-link">Contact</a>
+        <a href="../contact-us.html" class="ft-link">Contact</a><a href="../sitemap.html" class="ft-link">Sitemap</a>
       </div>
     </div>
   </div>
@@ -398,7 +413,7 @@ footer{position:relative;z-index:4;max-width:1200px;margin:88px auto 0;padding:0
   }
 
   function closeAll(){
-    ['industries','services','resources'].forEach(function(id){
+    ['industries','services','resources','countries'].forEach(function(id){
       var panel=document.getElementById('panel-'+id);
       var caret=document.getElementById('caret-'+id);
       var wrap=document.getElementById('dd-'+id);
@@ -446,5 +461,6 @@ footer{position:relative;z-index:4;max-width:1200px;margin:88px auto 0;padding:0
   });
 })();
 </script>
+<script src="../styles/mobile-nav.js"></script>
 </body>
 </html>

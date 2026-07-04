@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #06070d; }
+  ::selection { background: rgba(108,140,255,0.35); color: #fff; }
+  @keyframes wtc-pulse { 0%,100% { opacity: .55; } 50% { opacity: 1; } }
+  @keyframes wtc-fadein { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+</helmet>
+
+<div style="--accent:{{ accentColor }}; --accent2:{{ accent2Color }}; position:relative; background:#06070d; color:#e9ebf2; font-family:'Manrope',sans-serif; overflow:hidden; -webkit-font-smoothing:antialiased;">
+
+  <div style="position:absolute; inset:0; pointer-events:none; background-image:linear-gradient(rgba(255,255,255,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.025) 1px,transparent 1px); background-size:64px 64px; mask-image:radial-gradient(ellipse 90% 55% at 50% 0%,#000 30%,transparent 80%);"></div>
+  <div style="position:absolute; top:-280px; left:50%; transform:translateX(-50%); width:1100px; height:680px; background:radial-gradient(ellipse at center, var(--accent,#4d7cfe) 0%, transparent 62%); opacity:0.2; filter:blur(40px); pointer-events:none;"></div>
+
+  <!-- NAV -->
+  <nav style="position:relative; z-index:20; max-width:1200px; margin:0 auto; padding:30px 32px; display:flex; align-items:center; justify-content:space-between;">
+    <a href="WebTech Core.dc.html" style="display:flex; align-items:center; gap:12px; text-decoration:none; color:#e9ebf2;">
+      <svg width="36" height="36" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+        <rect x="3" y="3" width="24" height="24" rx="6" stroke="var(--accent,#4d7cfe)" stroke-width="1.6"></rect>
+        <rect x="9.5" y="9.5" width="11" height="11" rx="2" fill="var(--accent,#4d7cfe)"></rect>
+        <circle cx="15" cy="15" r="2.4" fill="#06070d"></circle>
+      </svg>
+      <span style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:21px; letter-spacing:0.16em;">WEBTECH<span style="color:var(--accent,#4d7cfe);">CORE</span></span>
+    </a>
+    <div style="display:flex; align-items:center; gap:30px;">
+      <a href="WebTech Core.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:15.5px; font-weight:500;" style-hover="color:#fff;">Home</a>
+      <a href="About Us.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:15.5px; font-weight:500;" style-hover="color:#fff;">About</a>
+
+      <!-- INDUSTRIES DROPDOWN -->
+      <div onMouseEnter="{{ openIndustries }}" onMouseLeave="{{ closeMenu }}">
+        <button onClick="{{ toggleIndustries }}" style="display:inline-flex; align-items:center; gap:7px; background:none; border:none; cursor:pointer; color:{{ industriesColor }}; font-family:'Manrope',sans-serif; font-size:15.5px; font-weight:600; padding:0;">
+          Industries
+          <span style="display:inline-block; transition:transform 0.2s; transform:rotate({{ industriesCaret }}deg);">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </span>
+        </button>
+        <sc-if value="{{ industriesOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute; top:68px; left:32px; z-index:30; width:980px; max-width:calc(100% - 64px); padding:16px; background:rgba(14,16,28,0.97); backdrop-filter:blur(14px); border:1px solid rgba(255,255,255,0.12); border-radius:16px; box-shadow:0 24px 60px -18px rgba(0,0,0,0.7); animation:wtc-fadein 0.18s ease-out;">
+            <div style="font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:0.1em; color:#7c8398; padding:6px 12px 12px;">INDUSTRIES WE SERVE</div>
+            <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:6px;">
+              <a href="Healthcare.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🏥</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Healthcare</span><span style="display:block; font-size:11.5px; color:#7c8398;">Clinics, dental, wellness</span></span>
+              </a>
+              <a href="Real Estate.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🏠</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Real Estate</span><span style="display:block; font-size:11.5px; color:#7c8398;">Agents, brokers, developers</span></span>
+              </a>
+              <a href="Ecommerce.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🛍️</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">E-commerce &amp; Retail</span><span style="display:block; font-size:11.5px; color:#7c8398;">Online &amp; omnichannel stores</span></span>
+              </a>
+              <a href="Restaurants.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🍽️</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Restaurants</span><span style="display:block; font-size:11.5px; color:#7c8398;">Cafes, dining, franchises</span></span>
+              </a>
+              <a href="Legal.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">⚖️</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Legal &amp; Professional</span><span style="display:block; font-size:11.5px; color:#7c8398;">Law, finance, consulting</span></span>
+              </a>
+              <a href="Home Services.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🔧</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Home Services</span><span style="display:block; font-size:11.5px; color:#7c8398;">Trades, repair, contractors</span></span>
+              </a>
+              <a href="Education.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🎓</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Education</span><span style="display:block; font-size:11.5px; color:#7c8398;">Schools, courses, edtech</span></span>
+              </a>
+              <a href="Fitness.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">💪</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Fitness &amp; Wellness</span><span style="display:block; font-size:11.5px; color:#7c8398;">Gyms, studios, coaches</span></span>
+              </a>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+
+      <!-- SERVICES DROPDOWN -->
+      <div onMouseEnter="{{ openServices }}" onMouseLeave="{{ closeMenu }}">
+        <button onClick="{{ toggleServices }}" style="display:inline-flex; align-items:center; gap:7px; background:none; border:none; cursor:pointer; color:{{ servicesColor }}; font-family:'Manrope',sans-serif; font-size:15.5px; font-weight:600; padding:0;">
+          Services
+          <span style="display:inline-block; transition:transform 0.2s; transform:rotate({{ servicesCaret }}deg);">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </span>
+        </button>
+        <sc-if value="{{ servicesOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute; top:68px; left:32px; z-index:30; width:980px; max-width:calc(100% - 64px); padding:16px; background:rgba(14,16,28,0.97); backdrop-filter:blur(14px); border:1px solid rgba(255,255,255,0.12); border-radius:16px; box-shadow:0 24px 60px -18px rgba(0,0,0,0.7); animation:wtc-fadein 0.18s ease-out;">
+            <div style="font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:0.1em; color:#7c8398; padding:6px 12px 12px;">WHAT WE DO</div>
+            <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:6px;">
+              <a href="SEO.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🔍</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Search Engine Optimization</span><span style="display:block; font-size:11.5px; color:#7c8398;">Organic growth</span></span>
+              </a>
+              <a href="Local SEO.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">📍</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Local SEO</span><span style="display:block; font-size:11.5px; color:#7c8398;">Map &amp; near-me</span></span>
+              </a>
+              <a href="PPC.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🎯</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Paid Advertising (PPC)</span><span style="display:block; font-size:11.5px; color:#7c8398;">Google ads</span></span>
+              </a>
+              <a href="Social Media.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">📱</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Social Media Marketing</span><span style="display:block; font-size:11.5px; color:#7c8398;">Build audience</span></span>
+              </a>
+              <a href="Meta Ads.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">⚡</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Meta Ads Services</span><span style="display:block; font-size:11.5px; color:#7c8398;">FB &amp; Instagram</span></span>
+              </a>
+              <a href="Content Marketing.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">✍️</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Content Marketing</span><span style="display:block; font-size:11.5px; color:#7c8398;">Blogs &amp; assets</span></span>
+              </a>
+              <a href="Email Marketing.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">✉️</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Email Marketing</span><span style="display:block; font-size:11.5px; color:#7c8398;">Flows &amp; campaigns</span></span>
+              </a>
+              <a href="Web Design.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🖥️</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Web Design &amp; Development</span><span style="display:block; font-size:11.5px; color:#7c8398;">Design &amp; build</span></span>
+              </a>
+              <a href="Graphics Design.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">🎨</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Graphics Designing</span><span style="display:block; font-size:11.5px; color:#7c8398;">Brand visuals</span></span>
+              </a>
+            </div>
+            <a href="Services.dc.html" style="display:block; text-align:center; margin-top:10px; padding:10px; border-radius:10px; text-decoration:none; font-family:'Space Mono',monospace; font-size:11.5px; letter-spacing:0.06em; color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.07);" style-hover="background:rgba(77,124,254,0.13);">VIEW ALL SERVICES →</a>
+          </div>
+        </sc-if>
+      </div>
+
+      <!-- RESOURCES DROPDOWN -->
+      <div style="position:relative;" onMouseEnter="{{ openResources }}" onMouseLeave="{{ closeMenu }}">
+        <button onClick="{{ toggleResources }}" style="display:inline-flex; align-items:center; gap:7px; background:none; border:none; cursor:pointer; color:{{ resourcesColor }}; font-family:'Manrope',sans-serif; font-size:15.5px; font-weight:600; padding:0;">
+          Resources
+          <span style="display:inline-block; transition:transform 0.2s; transform:rotate({{ resourcesCaret }}deg);">
+            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </span>
+        </button>
+        <sc-if value="{{ resourcesOpen }}" hint-placeholder-val="{{ false }}">
+          <div style="position:absolute; top:34px; left:0; z-index:30; width:320px; max-width:90vw; padding:16px; background:rgba(14,16,28,0.97); backdrop-filter:blur(14px); border:1px solid rgba(255,255,255,0.12); border-radius:16px; box-shadow:0 24px 60px -18px rgba(0,0,0,0.7); animation:wtc-fadein 0.18s ease-out;">
+            <div style="font-family:'Space Mono',monospace; font-size:10.5px; letter-spacing:0.1em; color:#7c8398; padding:6px 12px 12px;">RESOURCES</div>
+            <div style="display:grid; grid-template-columns:1fr; gap:4px;">
+              <a href="Blog.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">📝</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Blog</span><span style="display:block; font-size:11.5px; color:#7c8398;">Insights &amp; guides</span></span>
+              </a>
+              <a href="Press Release.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">📰</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Press Release</span><span style="display:block; font-size:11.5px; color:#7c8398;">News &amp; announcements</span></span>
+              </a>
+              <a href="Case Studies.dc.html" style="display:flex; align-items:center; gap:11px; padding:11px 12px; border-radius:10px; text-decoration:none; color:#aeb4c7;" style-hover="background:rgba(255,255,255,0.05);">
+                <span style="font-size:16px; line-height:1;">📊</span>
+                <span><span style="display:block; font-size:14px; font-weight:600;">Case Studies</span><span style="display:block; font-size:11.5px; color:#7c8398;">Real client results</span></span>
+              </a>
+            </div>
+          </div>
+        </sc-if>
+      </div>
+
+      <a href="Contact Us.dc.html" style="display:inline-flex; align-items:center; gap:8px; background:var(--accent,#4d7cfe); color:#fff; text-decoration:none; font-weight:600; font-size:15px; padding:12px 22px; border-radius:11px; box-shadow:0 8px 28px -8px var(--accent,#4d7cfe);" style-hover="filter:brightness(1.08);">Book Free Consultation</a>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <div style="position:relative; z-index:4; max-width:1200px; margin:0 auto; padding:10px 32px 0; font-family:'Space Mono',monospace; font-size:12px; color:#7c8398;">
+    <a href="WebTech Core.dc.html" style="color:#7c8398; text-decoration:none;" style-hover="color:#aeb4c7;">Home</a>
+    <span style="margin:0 8px;">/</span>
+    <span style="color:#aeb4c7;">Industries</span>
+    <span style="margin:0 8px;">/</span>
+    <span style="color:var(--accent,#4d7cfe);">Home Services</span>
+  </div>
+
+  <!-- HERO -->
+  <header style="position:relative; z-index:4; max-width:1200px; margin:0 auto; padding:40px 32px 16px; display:grid; grid-template-columns:1.05fr 0.95fr; gap:52px; align-items:center;">
+    <div>
+      <div style="display:inline-flex; align-items:center; gap:9px; padding:7px 14px; border:1px solid rgba(255,255,255,0.12); border-radius:100px; background:rgba(255,255,255,0.03); font-family:'Space Mono',monospace; font-size:11.5px; letter-spacing:0.08em; color:#aeb4c7;">
+        <span style="font-size:14px;">🔧</span> HOME SERVICES DIGITAL MARKETING
+      </div>
+      <h1 style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:38px; line-height:1.09; letter-spacing:-0.02em; margin:20px 0 0; text-wrap:balance;">Digital marketing for plumbers, electricians, HVAC, contractors &amp; home service businesses — <span style="background:linear-gradient(100deg,var(--accent,#4d7cfe),var(--accent2,#8b5cf6)); -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;">India &amp; USA</span></h1>
+      <p style="font-size:15.5px; line-height:1.6; color:#aeb4c7; margin:18px 0 0; max-width:500px; text-wrap:pretty;">We help home service businesses — plumbers, electricians, HVAC, pest control, painting, cleaning, carpentry, and repair — stay fully booked through Google Maps dominance, Local Service Ads, and a review system that makes you the trusted choice the moment someone searches for help.</p>
+      <div style="margin-top:20px; border:1px solid rgba(77,124,254,0.4); border-left:3px solid var(--accent,#4d7cfe); border-radius:12px; background:rgba(77,124,254,0.08); padding:15px 18px; max-width:520px;">
+        <p style="font-size:13.5px; line-height:1.55; color:#d6dae6;"><strong style="color:#fff;">78% of local service searches lead to a call or visit within 24 hours.</strong> Someone searching ‘AC repair near me’ isn’t browsing — they need help right now. If you’re not in the top 3 on Google Maps, that call goes to whoever is. Every single time.</p>
+      </div>
+      <div style="display:flex; flex-wrap:wrap; gap:14px; margin-top:24px;">
+        <a href="Contact Us.dc.html" style="display:inline-flex; align-items:center; gap:9px; background:var(--accent,#4d7cfe); color:#fff; text-decoration:none; font-weight:600; font-size:15px; padding:15px 24px; border-radius:12px; box-shadow:0 14px 38px -10px var(--accent,#4d7cfe);" style-hover="filter:brightness(1.08); transform:translateY(-1px);">Book Free Home Services Audit →</a>
+        <a href="#calendar" style="display:inline-flex; align-items:center; gap:9px; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.14); color:#e9ebf2; text-decoration:none; font-weight:600; font-size:15px; padding:15px 22px; border-radius:12px;" style-hover="background:rgba(255,255,255,0.08); border-color:rgba(255,255,255,0.28);">Fill Your Job Calendar →</a>
+      </div>
+    </div>
+    <div style="position:relative; min-width:0;">
+      <div style="position:absolute; inset:-1px; border-radius:20px; background:linear-gradient(140deg,var(--accent,#4d7cfe),transparent 45%,var(--accent2,#8b5cf6)); opacity:0.45; filter:blur(2px);"></div>
+      <div style="position:relative; background:linear-gradient(180deg,rgba(20,22,34,0.92),rgba(12,13,22,0.92)); border:1px solid rgba(255,255,255,0.1); border-radius:20px; padding:24px;">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:18px;">
+          <span style="font-family:'Space Mono',monospace; font-size:12px; color:#aeb4c7;">our_services</span>
+          <div style="display:flex; align-items:center; gap:10px;">
+            <span style="font-family:'Space Mono',monospace; font-size:11px; color:#7c8398;">{{ slideCounter }}</span>
+            <button onClick="{{ prevSlide }}" style="width:28px; height:28px; border-radius:8px; border:1px solid rgba(255,255,255,0.12); background:rgba(255,255,255,0.03); color:#aeb4c7; cursor:pointer; display:flex; align-items:center; justify-content:center; padding:0;" style-hover="background:rgba(255,255,255,0.08); color:#fff;"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M7.5 2.5 L4 6 L7.5 9.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+            <button onClick="{{ nextSlide }}" style="width:28px; height:28px; border-radius:8px; border:1px solid rgba(255,255,255,0.12); background:rgba(255,255,255,0.03); color:#aeb4c7; cursor:pointer; display:flex; align-items:center; justify-content:center; padding:0;" style-hover="background:rgba(255,255,255,0.08); color:#fff;"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M4.5 2.5 L8 6 L4.5 9.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg></button>
+          </div>
+        </div>
+
+        <div style="overflow:hidden; border-radius:14px; min-width:0;">
+          <div style="display:flex; width:800%; transform:{{ trackTransform }}; transition:transform 0.55s cubic-bezier(0.22,1,0.36,1);">
+
+            <div style="flex:0 0 12.5%; padding:4px 2px;">
+              <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:16px; min-height:138px;">
+                <span style="display:inline-flex; width:38px; height:38px; border-radius:10px; background:rgba(77,124,254,0.13); align-items:center; justify-content:center;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="14" rx="2.5" stroke="var(--accent,#4d7cfe)" stroke-width="1.7"></rect><line x1="3" y1="8.5" x2="21" y2="8.5" stroke="var(--accent,#4d7cfe)" stroke-width="1.7"></line><line x1="9" y1="21" x2="15" y2="21" stroke="var(--accent,#4d7cfe)" stroke-width="1.7" stroke-linecap="round"></line></svg></span>
+                <h3 style="font-family:'Space Grotesk',sans-serif; font-size:15.5px; font-weight:600; margin:11px 0 5px;">Home Services Website Development</h3>
+                <p style="font-size:14px; color:#9aa0b4; line-height:1.55;">Fast, conversion-focused websites that turn your hard-won traffic into booked customers.</p>
+                <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:11px;">
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Responsive</span>
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">CRO</span>
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Fast</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="flex:0 0 12.5%; padding:4px 2px;">
+              <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:16px; min-height:138px;">
+                <span style="display:inline-flex; width:38px; height:38px; border-radius:10px; background:rgba(77,124,254,0.13); align-items:center; justify-content:center;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><rect x="5" y="3" width="14" height="18" rx="2.5" stroke="var(--accent,#4d7cfe)" stroke-width="1.7"></rect><line x1="8.5" y1="8" x2="15.5" y2="8" stroke="var(--accent,#4d7cfe)" stroke-width="1.7" stroke-linecap="round"></line><line x1="8.5" y1="12" x2="15.5" y2="12" stroke="var(--accent,#4d7cfe)" stroke-width="1.7" stroke-linecap="round"></line><line x1="8.5" y1="16" x2="12.5" y2="16" stroke="var(--accent,#4d7cfe)" stroke-width="1.7" stroke-linecap="round"></line></svg></span>
+                <h3 style="font-family:'Space Grotesk',sans-serif; font-size:15.5px; font-weight:600; margin:11px 0 5px;">Home Services Content Writing</h3>
+                <p style="font-size:14px; color:#9aa0b4; line-height:1.55;">SEO-driven blogs, landing pages, and copy that build trust and drive action.</p>
+                <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:11px;">
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Blogs</span>
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Landing pages</span>
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Copy</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="flex:0 0 12.5%; padding:4px 2px;">
+              <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:16px; min-height:138px;">
+                <span style="display:inline-flex; width:38px; height:38px; border-radius:10px; background:rgba(77,124,254,0.13); align-items:center; justify-content:center;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="var(--accent,#4d7cfe)" stroke-width="1.7"></circle><line x1="16" y1="16" x2="21" y2="21" stroke="var(--accent,#4d7cfe)" stroke-width="1.7" stroke-linecap="round"></line></svg></span>
+                <h3 style="font-family:'Space Grotesk',sans-serif; font-size:15.5px; font-weight:600; margin:11px 0 5px;">Home Services SEO Services</h3>
+                <p style="font-size:14px; color:#9aa0b4; line-height:1.55;">Technical and on-page SEO that grows organic traffic and qualified leads.</p>
+                <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:11px;">
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Technical</span>
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">On-page</span>
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Content</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="flex:0 0 12.5%; padding:4px 2px;">
+              <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:16px; min-height:138px;">
+                <span style="display:inline-flex; width:38px; height:38px; border-radius:10px; background:rgba(77,124,254,0.13); align-items:center; justify-content:center;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><circle cx="8" cy="8" r="4" stroke="var(--accent,#4d7cfe)" stroke-width="1.7"></circle><rect x="13" y="13" width="8" height="8" rx="1.6" stroke="var(--accent,#4d7cfe)" stroke-width="1.7"></rect><path d="M15.5 3.5 L20.5 3.5 L18 8 Z" stroke="var(--accent,#4d7cfe)" stroke-width="1.7" fill="none" stroke-linejoin="round"></path></svg></span>
+                <h3 style="font-family:'Space Grotesk',sans-serif; font-size:15.5px; font-weight:600; margin:11px 0 5px;">Home Services Graphics Designing</h3>
+                <p style="font-size:14px; color:#9aa0b4; line-height:1.55;">On-brand visuals for web, social, and ads that make you look the part.</p>
+                <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:11px;">
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Social</span>
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Ad creative</span>
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Brand</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="flex:0 0 12.5%; padding:4px 2px;">
+              <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:16px; min-height:138px;">
+                <span style="display:inline-flex; width:38px; height:38px; border-radius:10px; background:rgba(77,124,254,0.13); align-items:center; justify-content:center;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2.5" stroke="var(--accent,#4d7cfe)" stroke-width="1.7"></rect><path d="M4 7 L12 13 L20 7" stroke="var(--accent,#4d7cfe)" stroke-width="1.7" fill="none" stroke-linejoin="round"></path></svg></span>
+                <h3 style="font-family:'Space Grotesk',sans-serif; font-size:15.5px; font-weight:600; margin:11px 0 5px;">Home Services Email Marketing</h3>
+                <p style="font-size:14px; color:#9aa0b4; line-height:1.55;">Automated nurture and broadcast campaigns that turn subscribers into revenue.</p>
+                <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:11px;">
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Automation</span>
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Newsletters</span>
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Flows</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="flex:0 0 12.5%; padding:4px 2px;">
+              <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:16px; min-height:138px;">
+                <span style="display:inline-flex; width:38px; height:38px; border-radius:10px; background:rgba(77,124,254,0.13); align-items:center; justify-content:center;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M5 4 L19 11 L12.5 12.5 L9.5 19.5 Z" stroke="var(--accent,#4d7cfe)" stroke-width="1.7" fill="none" stroke-linejoin="round"></path></svg></span>
+                <h3 style="font-family:'Space Grotesk',sans-serif; font-size:15.5px; font-weight:600; margin:11px 0 5px;">Home Services Google Ads</h3>
+                <p style="font-size:14px; color:#9aa0b4; line-height:1.55;">Profitable search and display campaigns engineered for return, not just clicks.</p>
+                <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:11px;">
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Search</span>
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Display</span>
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">PMax</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="flex:0 0 12.5%; padding:4px 2px;">
+              <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:16px; min-height:138px;">
+                <span style="display:inline-flex; width:38px; height:38px; border-radius:10px; background:rgba(77,124,254,0.13); align-items:center; justify-content:center;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M12 21 C7 16 4 12.5 4 9 a8 8 0 0 1 16 0 C20 12.5 17 16 12 21 Z" stroke="var(--accent,#4d7cfe)" stroke-width="1.7" fill="none" stroke-linejoin="round"></path><circle cx="12" cy="9" r="2.4" stroke="var(--accent,#4d7cfe)" stroke-width="1.7"></circle></svg></span>
+                <h3 style="font-family:'Space Grotesk',sans-serif; font-size:15.5px; font-weight:600; margin:11px 0 5px;">Home Services Local SEO</h3>
+                <p style="font-size:14px; color:#9aa0b4; line-height:1.55;">Own the map pack and "near me" searches with an optimized local presence.</p>
+                <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:11px;">
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Map pack</span>
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">GBP</span>
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Citations</span>
+                </div>
+              </div>
+            </div>
+
+            <div style="flex:0 0 12.5%; padding:4px 2px;">
+              <div style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:16px; min-height:138px;">
+                <span style="display:inline-flex; width:38px; height:38px; border-radius:10px; background:rgba(77,124,254,0.13); align-items:center; justify-content:center;"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="12" rx="3.5" stroke="var(--accent,#4d7cfe)" stroke-width="1.7"></rect><path d="M10.5 9.3 L15 12 L10.5 14.7 Z" fill="var(--accent,#4d7cfe)"></path></svg></span>
+                <h3 style="font-family:'Space Grotesk',sans-serif; font-size:15.5px; font-weight:600; margin:11px 0 5px;">Home Services YouTube Management</h3>
+                <p style="font-size:14px; color:#9aa0b4; line-height:1.55;">Channel strategy, video SEO, and content that grows views and subscribers.</p>
+                <div style="display:flex; flex-wrap:wrap; gap:6px; margin-top:11px;">
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Strategy</span>
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Video SEO</span>
+                  <span style="font-family:'Space Mono',monospace; font-size:10.5px; color:#aeb4c7; background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); padding:5px 9px; border-radius:7px;">Editing</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div style="display:flex; align-items:center; justify-content:center; gap:8px; margin-top:14px;">
+          <sc-for list="{{ dots }}" as="dot" hint-placeholder-count="8">
+            <button onClick="{{ dot.go }}" style="height:7px; width:{{ dot.w }}; border:none; padding:0; border-radius:99px; cursor:pointer; background:{{ dot.bg }}; transition:width 0.3s, background 0.3s;"></button>
+          </sc-for>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MARKET DATA BAR -->
+  <section style="position:relative; z-index:4; max-width:1200px; margin:40px auto 0; padding:0 32px;">
+    <div style="text-align:center; margin-bottom:24px;">
+      <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:12px;">// THE HOME SERVICES MARKET IN NUMBERS</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif; font-size:clamp(26px,4vw,36px); font-weight:700; letter-spacing:-0.02em; line-height:1.1;">When they search, they call within hours</h2>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px,1fr)); gap:16px;">
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;"><div style="font-family:'Space Grotesk',sans-serif; font-size:30px; font-weight:700; color:var(--accent,#4d7cfe);">97%</div><div style="font-size:13.5px; color:#aeb4c7; margin-top:6px; line-height:1.45;">Go online to find local services</div></div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;"><div style="font-family:'Space Grotesk',sans-serif; font-size:30px; font-weight:700; color:var(--accent,#4d7cfe);">78%</div><div style="font-size:13.5px; color:#aeb4c7; margin-top:6px; line-height:1.45;">Local searches lead to a call within 24h</div></div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;"><div style="font-family:'Space Grotesk',sans-serif; font-size:30px; font-weight:700; color:var(--accent,#4d7cfe);">84%</div><div style="font-size:13.5px; color:#aeb4c7; margin-top:6px; line-height:1.45;">Plumber searches start on Google</div></div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;"><div style="font-family:'Space Grotesk',sans-serif; font-size:30px; font-weight:700; color:#fff;">55%</div><div style="font-size:13.5px; color:#aeb4c7; margin-top:6px; line-height:1.45;">Click one of the first 3 results</div></div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;"><div style="font-family:'Space Grotesk',sans-serif; font-size:30px; font-weight:700; color:#fff;">10.22%</div><div style="font-size:13.5px; color:#aeb4c7; margin-top:6px; line-height:1.45;">Avg. conversion rate, home services ads</div></div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;"><div style="font-family:'Space Grotesk',sans-serif; font-size:30px; font-weight:700; color:#fff;">673K</div><div style="font-size:13.5px; color:#aeb4c7; margin-top:6px; line-height:1.45;">Monthly US ‘plumbers near me’ searches</div></div>
+    </div>
+    <p style="font-family:'Space Mono',monospace; font-size:10.5px; color:#565c70; margin-top:14px; text-align:center;">Sources: BrightLight Consumer Index 2026 · Google Local Search Data 2026 · LocaliQ Home Services Ad Benchmarks 2025 · Gridwork Local SEO Statistics 2026.</p>
+  </section>
+
+  <!-- NEAR ME = NOW -->
+  <section id="calendar" style="position:relative; z-index:4; max-width:1200px; margin:88px auto 0; padding:0 32px;">
+    <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:14px;">// THE URGENCY ADVANTAGE</div>
+    <h2 style="font-family:'Space Grotesk',sans-serif; font-size:clamp(28px,4.5vw,38px); font-weight:700; letter-spacing:-0.02em; line-height:1.12; max-width:760px; text-wrap:balance;">‘Near me’ means ‘right now’ — the home services search urgency advantage</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:24px; margin-top:20px;">
+      <p style="font-size:15px; color:#aeb4c7; line-height:1.65;">Home services is categorically different. When someone searches ‘plumber near me’, they don’t have days to research — their pipe is actively leaking. ‘Emergency electrician’ at 11 PM means they need help tonight. ‘AC repair Hyderabad’ in May means their apartment is 38 degrees.</p>
+      <p style="font-size:15px; color:#aeb4c7; line-height:1.65;">This urgency creates the highest-intent, most conversion-ready traffic in all of local search. No consideration stage, no comparison shopping, no 3-week research window. Just: who shows up first and looks trustworthy? That’s who gets the call.</p>
+    </div>
+    <h3 style="font-family:'Space Grotesk',sans-serif; font-size:19px; font-weight:600; color:#e9ebf2; margin:30px 0 18px;">What winning in this environment requires:</h3>
+    <div style="display:flex; flex-direction:column; gap:14px; max-width:900px;">
+<div style="display:flex; gap:13px; align-items:flex-start;"><span style="color:var(--accent,#4d7cfe); font-size:17px; flex:none; line-height:1.4;">✓</span><span style="font-size:14px; color:#c9cedd; line-height:1.6;"><strong style="color:#e9ebf2;">Google Maps top-3 position</strong> for every service + city you serve — because 55% of users click one of the first 3 results.</span></div>
+<div style="display:flex; gap:13px; align-items:flex-start;"><span style="color:var(--accent,#4d7cfe); font-size:17px; flex:none; line-height:1.4;">✓</span><span style="font-size:14px; color:#c9cedd; line-height:1.6;"><strong style="color:#e9ebf2;">A fully optimized Google Business Profile</strong> with real photos, complete service list, and fresh weekly posts — your GBP is the decision your customer makes in 8 seconds.</span></div>
+<div style="display:flex; gap:13px; align-items:flex-start;"><span style="color:var(--accent,#4d7cfe); font-size:17px; flex:none; line-height:1.4;">✓</span><span style="font-size:14px; color:#c9cedd; line-height:1.6;"><strong style="color:#e9ebf2;">100+ Google reviews averaging 4.7★ or higher</strong> — because 72% of homeowners choose based on reviews and website quality combined.</span></div>
+<div style="display:flex; gap:13px; align-items:flex-start;"><span style="color:var(--accent,#4d7cfe); font-size:17px; flex:none; line-height:1.4;">✓</span><span style="font-size:14px; color:#c9cedd; line-height:1.6;"><strong style="color:#e9ebf2;">Click-to-call on every device and page</strong> — because 82% of home service searches happen on mobile and the customer wants to call, not browse.</span></div>
+<div style="display:flex; gap:13px; align-items:flex-start;"><span style="color:var(--accent,#4d7cfe); font-size:17px; flex:none; line-height:1.4;">✓</span><span style="font-size:14px; color:#c9cedd; line-height:1.6;"><strong style="color:#e9ebf2;">Google Local Service Ads (LSAs) with the Google Guaranteed badge</strong> — they appear above all other results and carry an instant trust signal that converts immediately.</span></div>
+    </div>
+  </section>
+
+  <!-- URBAN COMPANY PROBLEM -->
+  <section style="position:relative; z-index:4; max-width:1200px; margin:88px auto 0; padding:0 32px;">
+    <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:14px;">// THE PLATFORM PROBLEM</div>
+    <h2 style="font-family:'Space Grotesk',sans-serif; font-size:clamp(28px,4.5vw,38px); font-weight:700; letter-spacing:-0.02em; line-height:1.1; max-width:680px; text-wrap:balance;">The Urban Company commission problem — and how we help you solve it</h2>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(300px,1fr)); gap:24px; margin-top:20px;">
+      <p style="font-size:15px; color:#aeb4c7; line-height:1.65;">Urban Company has transformed how Indians book home services — but for the provider it comes at a steep cost: 10–20% commission per job, no access to customer contact details, zero ability to build a repeat base, and the constant risk of platform suspension with zero notice.</p>
+      <p style="font-size:15px; color:#aeb4c7; line-height:1.65;">A plumber doing ₹2,00,000/month in Urban Company jobs pays ₹20,000–₹40,000 in commissions — every month — to a platform that owns the customer relationship, not them.</p>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px,1fr)); gap:16px; margin-top:28px; align-items:start;">
+      <div style="border:1px solid rgba(255,255,255,0.08); border-radius:16px; background:rgba(255,255,255,0.025); padding:26px;">
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:600; color:#e9ebf2; margin-bottom:14px;">What we build instead</h3>
+        <div style="display:flex; flex-direction:column; gap:11px;">
+<div style="display:flex; gap:13px; align-items:flex-start;"><span style="color:var(--accent,#4d7cfe); font-size:17px; flex:none; line-height:1.4;">✓</span><span style="font-size:14px; color:#c9cedd; line-height:1.6;">A Google Maps presence that generates direct inbound calls — no platform intermediary.</span></div>
+<div style="display:flex; gap:13px; align-items:flex-start;"><span style="color:var(--accent,#4d7cfe); font-size:17px; flex:none; line-height:1.4;">✓</span><span style="font-size:14px; color:#c9cedd; line-height:1.6;">A WhatsApp booking system with automated confirmation and job scheduling.</span></div>
+<div style="display:flex; gap:13px; align-items:flex-start;"><span style="color:var(--accent,#4d7cfe); font-size:17px; flex:none; line-height:1.4;">✓</span><span style="font-size:14px; color:#c9cedd; line-height:1.6;">A customer database you own — with repeat-booking and seasonal maintenance campaigns.</span></div>
+<div style="display:flex; gap:13px; align-items:flex-start;"><span style="color:var(--accent,#4d7cfe); font-size:17px; flex:none; line-height:1.4;">✓</span><span style="font-size:14px; color:#c9cedd; line-height:1.6;">A Google review system that builds the trust Urban Company provides — on your own GBP.</span></div>
+<div style="display:flex; gap:13px; align-items:flex-start;"><span style="color:var(--accent,#4d7cfe); font-size:17px; flex:none; line-height:1.4;">✓</span><span style="font-size:14px; color:#c9cedd; line-height:1.6;">Google Local Service Ads (USA) — Urban Company’s trust badge equivalent, commission-free.</span></div>
+        </div>
+      </div>
+      <div style="border:1px solid rgba(77,124,254,0.4); border-left:3px solid var(--accent,#4d7cfe); border-radius:16px; background:rgba(77,124,254,0.08); padding:26px;">
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:600; color:#fff; margin-bottom:12px;">The math</h3>
+        <p style="font-size:14.5px; color:#d6dae6; line-height:1.6;">A provider paying ₹30,000/month in Urban Company commissions. We shift 50% of that volume to direct bookings through Google Maps and WhatsApp. Commission saving: <strong style="color:#fff;">₹15,000/month</strong> — which covers your entire digital marketing budget.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHO WE SERVE -->
+  <section style="position:relative; z-index:4; max-width:1200px; margin:88px auto 0; padding:0 32px;">
+    <div style="text-align:center; margin-bottom:36px;">
+      <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:14px;">// WHO WE SERVE</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif; font-size:clamp(28px,4.5vw,38px); font-weight:700; letter-spacing:-0.02em; line-height:1.1;">Home service businesses we work with</h2>
+      <p style="font-size:15px; color:#aeb4c7; line-height:1.65; margin:14px auto 0; max-width:640px;">Every trade and home service category — from solo operators building their first digital presence to multi-crew companies expanding across cities.</p>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px,1fr)); gap:16px;">
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05); transform:translateY(-3px);">
+        <div style="font-size:24px;">🚿</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; margin:13px 0 8px; color:#e9ebf2;">Plumbers &amp; Pipe Repair Services</h3>
+        <p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">Emergency plumbing, pipe repair, water heater installation, drain cleaning, bathroom fitting. ‘Plumber near me’ is one of the highest-urgency local categories. We build Maps dominance and run ads for emergency and scheduled plumbing searches in your area.</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05); transform:translateY(-3px);">
+        <div style="font-size:24px;">⚡</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; margin:13px 0 8px; color:#e9ebf2;">Electricians &amp; Electrical Contractors</h3>
+        <p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">Residential wiring, panel upgrades, EV charger installation, lighting, and emergency repairs. We target ‘electrician near me’, ‘power outage repair [city]’, and ‘panel upgrade [city]’ with service-area pages and Google LSAs.</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05); transform:translateY(-3px);">
+        <div style="font-size:24px;">❄️</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; margin:13px 0 8px; color:#e9ebf2;">AC Repair, HVAC &amp; Appliance Services</h3>
+        <p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">AC repair, servicing, gas refill, installation, and appliance repair. In India, AC repair is one of the highest-volume seasonal categories — April through June. We build year-round visibility and pre-season campaigns that capture demand before peak.</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05); transform:translateY(-3px);">
+        <div style="font-size:24px;">🪲</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; margin:13px 0 8px; color:#e9ebf2;">Pest Control Services</h3>
+        <p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">Cockroach, termite, mosquito, rodent, and bed bug control. Post-monsoon searches spike dramatically. We build Maps authority, run ‘pest control near me’ ads, and time seasonal bursts to monsoon demand cycles.</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05); transform:translateY(-3px);">
+        <div style="font-size:24px;">🏠</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; margin:13px 0 8px; color:#e9ebf2;">Home Cleaning &amp; Housekeeping</h3>
+        <p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">Deep cleaning, bathroom, kitchen, sofa, carpet, and regular housekeeping. We build a direct booking system that reduces Urban Company dependency and a loyal repeat base through WhatsApp maintenance reminders.</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05); transform:translateY(-3px);">
+        <div style="font-size:24px;">🔨</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; margin:13px 0 8px; color:#e9ebf2;">Carpenters, Painters &amp; Renovation Contractors</h3>
+        <p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">Furniture assembly, custom carpentry, interior painting, waterproofing, and renovation. A longer consideration cycle — we use a content-led approach targeting ‘painting cost [city]’, ‘renovation contractor [city]’, and ‘carpenter near me’.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PAIN POINTS -->
+  <section style="position:relative; z-index:4; max-width:1200px; margin:88px auto 0; padding:0 32px;">
+    <div style="text-align:center; margin-bottom:36px;">
+      <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:14px;">// WHAT WE FIX</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif; font-size:clamp(28px,4.5vw,38px); font-weight:700; letter-spacing:-0.02em; line-height:1.1;">The real problems home service businesses face online</h2>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px,1fr)); gap:16px;">
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;">
+        <div style="font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:700; color:var(--accent,#4d7cfe);">01</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:600; margin:11px 0 8px; color:#e9ebf2;">Not in the Google Maps top 3 — invisible when it matters</h3>
+        <p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">When a homeowner searches ‘electrician near me’, they see three map results and call one. Positions 4–10 are effectively invisible — not because they’re less skilled, but because their GBP is incomplete, reviews are outdated, or citations are inconsistent. We fix every factor systematically.</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;">
+        <div style="font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:700; color:var(--accent,#4d7cfe);">02</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:600; margin:11px 0 8px; color:#e9ebf2;">Feast-or-famine booking calendar</h3>
+        <p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">Fully booked in summer, empty in winter. Packed midweek, quiet on weekends. We build year-round lead flow with seasonal planning, off-peak Google Ads targeting, and maintenance reminders to past customers that fill the calendar in your slowest months.</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;">
+        <div style="font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:700; color:var(--accent,#4d7cfe);">03</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:600; margin:11px 0 8px; color:#e9ebf2;">Paying 10–20% commission to Urban Company per job</h3>
+        <p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">Urban Company generates bookings — but at 10–20% commission, no customer contact details, and constant suspension risk. We build your own direct booking channel through Google Maps and WhatsApp that generates commission-free jobs and a database you own permanently.</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;">
+        <div style="font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:700; color:var(--accent,#4d7cfe);">04</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:600; margin:11px 0 8px; color:#e9ebf2;">No review system — old or low reviews costing you jobs</h3>
+        <p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">72% of homeowners choose based on Google reviews. A plumber with 12 reviews at 4.1★ loses jobs daily to a competitor with 180 reviews at 4.8★. We build an automated review process that generates 10–20 new reviews per month from completed jobs.</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;">
+        <div style="font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:700; color:var(--accent,#4d7cfe);">05</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:600; margin:11px 0 8px; color:#e9ebf2;">Website that doesn’t work on mobile or have click-to-call</h3>
+        <p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">82% of home service searches happen on mobile. A customer with a burst pipe who can’t tap to call will close the tab and call the next result. We build fast, mobile-first sites with click-to-call on every page, instant WhatsApp, and a booking form above the fold.</p>
+      </div>
+      <div style="background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:26px;">
+        <div style="font-family:'Space Grotesk',sans-serif; font-size:15px; font-weight:700; color:var(--accent,#4d7cfe);">06</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:600; margin:11px 0 8px; color:#e9ebf2;">No system to re-book past customers</h3>
+        <p style="font-size:13.5px; color:#9aa0b4; line-height:1.6;">Acquiring a new customer costs 5x more than re-booking an existing one. Most businesses have no system to remind past customers about seasonal servicing. We build WhatsApp and email reminder sequences that keep your name top-of-mind when they need their AC serviced again.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SEASONAL STRATEGY -->
+  <section style="position:relative; z-index:4; max-width:1200px; margin:88px auto 0; padding:0 32px;">
+    <div style="border:1px solid rgba(77,124,254,0.2); border-radius:24px; background:linear-gradient(135deg,rgba(77,124,254,0.08),rgba(139,92,246,0.04)); padding:clamp(28px,4vw,40px);">
+      <div style="text-align:center; margin-bottom:30px;">
+        <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:14px;">// SEASONAL PLANNING</div>
+        <h2 style="font-family:'Space Grotesk',sans-serif; font-size:clamp(26px,4vw,34px); font-weight:700; letter-spacing:-0.02em; line-height:1.12; max-width:720px; margin:0 auto; text-wrap:balance;">India home services seasonality — how we keep you booked year-round</h2>
+        <p style="font-size:15px; color:#aeb4c7; line-height:1.65; margin:14px auto 0; max-width:640px;">Demand is intensely seasonal. Most businesses ride the peaks and survive the valleys. We build campaigns that smooth the whole curve — booked during peak AND during the months your competitors go quiet.</p>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px,1fr)); gap:16px;">
+      <div style="border:1px solid rgba(255,150,60,0.3); border-radius:18px; background:rgba(255,150,60,0.1); padding:26px;">
+        <div style="font-size:24px;">🌞</div>
+        <div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.04em; color:#aeb4c7; margin:12px 0 6px;">March–June · Summer Peak</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:16.5px; font-weight:600; color:#e9ebf2;">AC repair, servicing &amp; gas refill</h3>
+        <p style="font-size:13px; color:#9aa0b4; line-height:1.6; margin-top:8px;">Highest-demand period for cooling. We launch pre-season campaigns in February to capture early bookings before April competition spikes; ad budgets scale from March with AC keywords dominating your area.</p>
+      </div>
+      <div style="border:1px solid rgba(77,124,254,0.32); border-radius:18px; background:rgba(77,124,254,0.12); padding:26px;">
+        <div style="font-size:24px;">🌧️</div>
+        <div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.04em; color:#aeb4c7; margin:12px 0 6px;">July–September · Monsoon</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:16.5px; font-weight:600; color:#e9ebf2;">Pest control, waterproofing &amp; plumbing</h3>
+        <p style="font-size:13px; color:#9aa0b4; line-height:1.6; margin-top:8px;">Post-monsoon pest searches spike; waterproofing and drain clearing peak. We launch 2–3 weeks before monsoon onset — because homeowners search AFTER it hits, and we want you to be the first result.</p>
+      </div>
+      <div style="border:1px solid rgba(255,200,80,0.3); border-radius:18px; background:rgba(255,200,80,0.1); padding:26px;">
+        <div style="font-size:24px;">🪔</div>
+        <div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.04em; color:#aeb4c7; margin:12px 0 6px;">October–November · Post-Diwali</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:16.5px; font-weight:600; color:#e9ebf2;">Home cleaning, painting &amp; renovation</h3>
+        <p style="font-size:13px; color:#9aa0b4; line-height:1.6; margin-top:8px;">Deep cleaning and painting peak post-Diwali. We build Facebook/Instagram awareness in September with home-readiness messaging, transitioning to direct booking campaigns in October when intent is highest.</p>
+      </div>
+      <div style="border:1px solid rgba(150,160,180,0.28); border-radius:18px; background:rgba(150,160,180,0.1); padding:26px;">
+        <div style="font-size:24px;">❄️</div>
+        <div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.04em; color:#aeb4c7; margin:12px 0 6px;">December–February · Off-Peak</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:16.5px; font-weight:600; color:#e9ebf2;">Re-booking past customers &amp; new launches</h3>
+        <p style="font-size:13px; color:#9aa0b4; line-height:1.6; margin-top:8px;">The quietest months. We run WhatsApp maintenance reminders to your database, seasonal bundle promotions, and lower-competition Google Ads that generate jobs at the lowest CPL of the year — while competitors go quiet.</p>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section style="position:relative; z-index:4; max-width:1200px; margin:88px auto 0; padding:0 32px;">
+    <div style="text-align:center; margin-bottom:36px;">
+      <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:14px;">// OUR SERVICES</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif; font-size:clamp(28px,4.5vw,38px); font-weight:700; letter-spacing:-0.02em; line-height:1.1;">Digital marketing services built for home service businesses</h2>
+      <p style="font-size:15px; color:#aeb4c7; line-height:1.65; margin:14px auto 0; max-width:660px;">Every service is built around the hyperlocal, high-urgency nature of home services search — where Google Maps dominance and review authority are the primary revenue drivers.</p>
+    </div>
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(270px,1fr)); gap:16px;">
+      <a href="Local SEO.dc.html" style="text-decoration:none; display:block; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:24px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05); transform:translateY(-3px);">
+        <div style="font-size:22px;">📍</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:16.5px; font-weight:600; margin:12px 0 9px; color:#e9ebf2;">Local SEO &amp; Google Maps Dominance</h3>
+        <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:11px;"><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Map Pack</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">GBP</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Service Area Pages</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Citations</span></div>
+        <p style="font-size:13px; color:#9aa0b4; line-height:1.6;">Top-3 Maps position for every service in every area you serve. Complete GBP optimization, weekly posts with job photos, service-area landing pages, and citation building across JustDial, IndiaMart, Sulekha, and all relevant directories.</p>
+        <div style="font-family:'Space Mono',monospace; font-size:11px; color:var(--accent,#4d7cfe); margin-top:13px;">Explore Local SEO →</div>
+      </a>
+      <a href="PPC.dc.html" style="text-decoration:none; display:block; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:24px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05); transform:translateY(-3px);">
+        <div style="font-size:22px;">🎯</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:16.5px; font-weight:600; margin:12px 0 9px; color:#e9ebf2;">Google Ads &amp; Local Service Ads (LSA)</h3>
+        <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:11px;"><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Search</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">LSA</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Geo-Targeting</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Emergency</span></div>
+        <p style="font-size:13px; color:#9aa0b4; line-height:1.6;">Search campaigns targeting emergency and scheduled queries with dedicated landing pages. Google LSAs (USA) — the Pay-Per-Lead format appearing above all results with the Google Guaranteed badge. Avg. home services ad conversion: 10.22%.</p>
+        <div style="font-family:'Space Mono',monospace; font-size:11px; color:var(--accent,#4d7cfe); margin-top:13px;">See PPC Service →</div>
+      </a>
+      <a href="Social Media.dc.html" style="text-decoration:none; display:block; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:24px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05); transform:translateY(-3px);">
+        <div style="font-size:22px;">⭐</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:16.5px; font-weight:600; margin:12px 0 9px; color:#e9ebf2;">Google Review Generation</h3>
+        <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:11px;"><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Review Automation</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">WhatsApp Requests</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Review Response</span></div>
+        <p style="font-size:13px; color:#9aa0b4; line-height:1.6;">72% of homeowners choose based on reviews. Automated WhatsApp requests sent 2 hours after job completion. Every review gets a professional response within 24 hours. Clients consistently hit 4.7–4.9★ with 100+ reviews within 6 months.</p>
+        <div style="font-family:'Space Mono',monospace; font-size:11px; color:var(--accent,#4d7cfe); margin-top:13px;">Reputation Management →</div>
+      </a>
+      <a href="Web Design.dc.html" style="text-decoration:none; display:block; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:24px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05); transform:translateY(-3px);">
+        <div style="font-size:22px;">💻</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:16.5px; font-weight:600; margin:12px 0 9px; color:#e9ebf2;">Home Services Website with Click-to-Call</h3>
+        <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:11px;"><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Mobile-First</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Click-to-Call</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">WhatsApp</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Instant Booking</span></div>
+        <p style="font-size:13px; color:#9aa0b4; line-height:1.6;">Fast, mobile-first website with click-to-call on every page, WhatsApp chat, service-specific pages for every trade, before/after galleries, and a simple booking form. Load under 2 seconds — because a slow site is a lead problem regardless of GBP quality.</p>
+        <div style="font-family:'Space Mono',monospace; font-size:11px; color:var(--accent,#4d7cfe); margin-top:13px;">Web Design Service →</div>
+      </a>
+      <a href="Email Marketing.dc.html" style="text-decoration:none; display:block; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:24px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05); transform:translateY(-3px);">
+        <div style="font-size:22px;">📧</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:16.5px; font-weight:600; margin:12px 0 9px; color:#e9ebf2;">WhatsApp &amp; Email Re-Booking Campaigns</h3>
+        <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:11px;"><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Seasonal Reminders</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Maintenance Alerts</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Loyalty Offers</span></div>
+        <p style="font-size:13px; color:#9aa0b4; line-height:1.6;">Email delivers ₹36 for every ₹1 spent. We build a customer database from every job, then run WhatsApp and email maintenance reminders timed to seasonal peaks. Re-booking a past customer costs 5x less than acquiring a new one.</p>
+        <div style="font-family:'Space Mono',monospace; font-size:11px; color:var(--accent,#4d7cfe); margin-top:13px;">Email Marketing →</div>
+      </a>
+      <a href="Social Media.dc.html" style="text-decoration:none; display:block; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:24px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05); transform:translateY(-3px);">
+        <div style="font-size:22px;">📱</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:16.5px; font-weight:600; margin:12px 0 9px; color:#e9ebf2;">Social Media for Home Services</h3>
+        <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:11px;"><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Facebook</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Instagram</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Before/After</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Community Trust</span></div>
+        <p style="font-size:13px; color:#9aa0b4; line-height:1.6;">Before/after job photos, team intro content, homeowner tip videos, and community engagement that build familiarity in your local area. Social generates direct inquiries from homeowners who see your work and message you directly.</p>
+        <div style="font-family:'Space Mono',monospace; font-size:11px; color:var(--accent,#4d7cfe); margin-top:13px;">Social Media →</div>
+      </a>
+      <a href="Graphics Design.dc.html" style="text-decoration:none; display:block; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:24px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05); transform:translateY(-3px);">
+        <div style="font-size:22px;">🎨</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:16.5px; font-weight:600; margin:12px 0 9px; color:#e9ebf2;">Brand Design for Home Service Businesses</h3>
+        <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:11px;"><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Logo</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Truck Wrap</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Uniform</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Flyers</span></div>
+        <p style="font-size:13px; color:#9aa0b4; line-height:1.6;">Professional identity: logo, vehicle wrap graphics, uniform printing files, service flyers, and digital ad banners. In home services, looking consistently branded — truck, uniform, website — is a direct conversion signal that increases call-back rate.</p>
+        <div style="font-family:'Space Mono',monospace; font-size:11px; color:var(--accent,#4d7cfe); margin-top:13px;">Graphic Design →</div>
+      </a>
+      <a href="Content Marketing.dc.html" style="text-decoration:none; display:block; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:16px; padding:24px;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.05); transform:translateY(-3px);">
+        <div style="font-size:22px;">🔍</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:16.5px; font-weight:600; margin:12px 0 9px; color:#e9ebf2;">Home Services Content Marketing</h3>
+        <div style="display:flex; flex-wrap:wrap; gap:6px; margin-bottom:11px;"><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Service Pages</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">How-To Guides</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Cost Guides</span><span style="font-family:'Space Mono',monospace; font-size:10px; color:#9fb4e8; background:rgba(77,124,254,0.1); border:1px solid rgba(77,124,254,0.2); padding:4px 8px; border-radius:6px;">Area Pages</span></div>
+        <p style="font-size:13px; color:#9aa0b4; line-height:1.6;">‘How much does AC repair cost in Hyderabad?’ — high-volume, low-competition queries. Service cost guides, how-to content, and locality pages that rank AND position you as the local expert Google trusts enough to recommend in AI answers.</p>
+        <div style="font-family:'Space Mono',monospace; font-size:11px; color:var(--accent,#4d7cfe); margin-top:13px;">Content Marketing →</div>
+      </a>
+    </div>
+    <div style="text-align:center; margin-top:28px;">
+      <a href="Services.dc.html" style="display:inline-flex; align-items:center; gap:9px; font-family:'Space Mono',monospace; font-size:13px; letter-spacing:0.04em; color:var(--accent,#4d7cfe); text-decoration:none; border:1px solid rgba(77,124,254,0.3); padding:13px 24px; border-radius:11px; background:rgba(77,124,254,0.06);" style-hover="background:rgba(77,124,254,0.13);">→ View All Services &amp; Pricing</a>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section style="position:relative; z-index:4; max-width:1200px; margin:88px auto 0; padding:0 32px;">
+    <div style="text-align:center; margin-bottom:40px;">
+      <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:14px;">// HOW WE WORK</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif; font-size:clamp(28px,4.5vw,38px); font-weight:700; letter-spacing:-0.02em; line-height:1.1;">How we build a full-calendar marketing system — 5 steps</h2>
+      <p style="font-size:15px; color:#aeb4c7; line-height:1.65; margin:14px auto 0; max-width:660px;">Most home service marketing focuses on one channel. We build a complete system — Maps, ads, reviews, website, and re-booking — that works together to fill your calendar in every season.</p>
+    </div>
+    <div style="position:relative; max-width:900px; margin:0 auto;">
+      <div style="position:absolute; left:1px; top:6px; bottom:6px; width:2px; background:linear-gradient(180deg,var(--accent,#4d7cfe),var(--accent2,#8b5cf6)); opacity:0.5;"></div>
+      <div style="position:relative; padding:0 0 30px 38px;">
+        <div style="position:absolute; left:-9px; top:2px; width:20px; height:20px; border-radius:50%; background:var(--accent,#4d7cfe); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:9px; font-weight:700; color:#fff; box-shadow:0 0 0 5px rgba(77,124,254,0.15);">1</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; color:#e9ebf2;">Free home services marketing audit (48 hours)</h3>
+        <p style="font-size:14px; color:#9aa0b4; line-height:1.6; margin-top:7px; max-width:760px;">We audit your GBP, website, review profile, top 5 local competitors, and seasonal keyword landscape. Written report in 48 hours. No commitment required.</p>
+      </div>
+      <div style="position:relative; padding:0 0 30px 38px;">
+        <div style="position:absolute; left:-9px; top:2px; width:20px; height:20px; border-radius:50%; background:var(--accent,#4d7cfe); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:9px; font-weight:700; color:#fff; box-shadow:0 0 0 5px rgba(77,124,254,0.15);">2</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; color:#e9ebf2;">Service area &amp; keyword mapping</h3>
+        <p style="font-size:14px; color:#9aa0b4; line-height:1.6; margin-top:7px; max-width:760px;">We map every service to the exact queries your customers use across every postcode you serve — ‘emergency plumber Andheri West’, ‘AC repair BTM Layout’, ‘pest control Gurgaon Sector 14’ — all mapped to dedicated landing pages.</p>
+      </div>
+      <div style="position:relative; padding:0 0 30px 38px;">
+        <div style="position:absolute; left:-9px; top:2px; width:20px; height:20px; border-radius:50%; background:var(--accent,#4d7cfe); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:9px; font-weight:700; color:#fff; box-shadow:0 0 0 5px rgba(77,124,254,0.15);">3</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; color:#e9ebf2;">Google Maps &amp; GBP foundation</h3>
+        <p style="font-size:14px; color:#9aa0b4; line-height:1.6; margin-top:7px; max-width:760px;">Before a single paid ad, we ensure your GBP has complete service listings, real job photos, active weekly posts, and growing review velocity. Your GBP is the lever; your website is the conversion surface. Both must work.</p>
+      </div>
+      <div style="position:relative; padding:0 0 30px 38px;">
+        <div style="position:absolute; left:-9px; top:2px; width:20px; height:20px; border-radius:50%; background:var(--accent,#4d7cfe); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:9px; font-weight:700; color:#fff; box-shadow:0 0 0 5px rgba(77,124,254,0.15);">4</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; color:#e9ebf2;">Paid job acquisition — Google Ads + LSA</h3>
+        <p style="font-size:14px; color:#9aa0b4; line-height:1.6; margin-top:7px; max-width:760px;">Search campaigns for emergency and scheduled services, geo-targeted to your service radius. Google LSAs (USA) with Google Guaranteed setup. All campaigns tracked to phone calls and form submissions — not just clicks.</p>
+      </div>
+      <div style="position:relative; padding:0 0 0 38px;">
+        <div style="position:absolute; left:-9px; top:2px; width:20px; height:20px; border-radius:50%; background:var(--accent,#4d7cfe); display:flex; align-items:center; justify-content:center; font-family:'Space Mono',monospace; font-size:9px; font-weight:700; color:#fff; box-shadow:0 0 0 5px rgba(77,124,254,0.15);">5</div>
+        <h3 style="font-family:'Space Grotesk',sans-serif; font-size:18px; font-weight:600; color:#e9ebf2;">Re-booking system + seasonal campaigns + monthly report</h3>
+        <p style="font-size:14px; color:#9aa0b4; line-height:1.6; margin-top:7px; max-width:760px;">WhatsApp and email re-booking for past customers, a seasonal calendar planned 6 weeks ahead, and a monthly report showing job inquiries by service and channel, Maps ranking movement, review growth, and cost per booked job.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section style="position:relative; z-index:4; max-width:1000px; margin:88px auto 0; padding:0 32px;">
+    <div style="text-align:center; margin-bottom:36px;">
+      <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:14px;">// WHY WEBTECH CORE</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif; font-size:clamp(28px,4.5vw,38px); font-weight:700; letter-spacing:-0.02em; line-height:1.1;">Why home service businesses choose WebTech Core</h2>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:12px;">
+      <div style="display:flex; gap:14px; align-items:flex-start; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:18px 22px;"><span style="color:var(--accent,#4d7cfe); font-size:18px; flex:none;">✓</span><p style="font-size:14.5px; color:#d6dae6; line-height:1.55;">We understand the ‘near me = right now’ urgency — every campaign is built for immediate call generation, not brand awareness.</p></div>
+      <div style="display:flex; gap:14px; align-items:flex-start; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:18px 22px;"><span style="color:var(--accent,#4d7cfe); font-size:18px; flex:none;">✓</span><p style="font-size:14.5px; color:#d6dae6; line-height:1.55;">GBP is our primary focus, not an afterthought — it’s the single highest-leverage asset for any local contractor.</p></div>
+      <div style="display:flex; gap:14px; align-items:flex-start; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:18px 22px;"><span style="color:var(--accent,#4d7cfe); font-size:18px; flex:none;">✓</span><p style="font-size:14.5px; color:#d6dae6; line-height:1.55;">Automated review generation after every job — because 72% of homeowners choose based on Google reviews.</p></div>
+      <div style="display:flex; gap:14px; align-items:flex-start; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:18px 22px;"><span style="color:var(--accent,#4d7cfe); font-size:18px; flex:none;">✓</span><p style="font-size:14.5px; color:#d6dae6; line-height:1.55;">Seasonal campaign calendar planned 6 weeks ahead — off-season is not the time to start thinking about off-season marketing.</p></div>
+      <div style="display:flex; gap:14px; align-items:flex-start; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:18px 22px;"><span style="color:var(--accent,#4d7cfe); font-size:18px; flex:none;">✓</span><p style="font-size:14.5px; color:#d6dae6; line-height:1.55;">We solve the Urban Company commission problem — building direct booking channels through Google Maps and WhatsApp.</p></div>
+      <div style="display:flex; gap:14px; align-items:flex-start; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:18px 22px;"><span style="color:var(--accent,#4d7cfe); font-size:18px; flex:none;">✓</span><p style="font-size:14.5px; color:#d6dae6; line-height:1.55;">Click-to-call on every page, every device — because 82% of home service searches are on mobile.</p></div>
+      <div style="display:flex; gap:14px; align-items:flex-start; background:rgba(255,255,255,0.025); border:1px solid rgba(255,255,255,0.08); border-radius:14px; padding:18px 22px;"><span style="color:var(--accent,#4d7cfe); font-size:18px; flex:none;">✓</span><p style="font-size:14.5px; color:#d6dae6; line-height:1.55;">No long-term contracts — we earn your business every month. Free audit before you commit.</p></div>
+    </div>
+  </section>
+
+  <!-- CASE STUDY -->
+  <section style="position:relative; z-index:4; max-width:1200px; margin:88px auto 0; padding:0 32px;">
+    <div style="border:1px solid rgba(255,255,255,0.08); border-radius:24px; background:linear-gradient(135deg,rgba(77,124,254,0.08),rgba(139,92,246,0.04)); padding:clamp(28px,4vw,44px);">
+      <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:16px;">// CASE STUDY · HVAC &amp; AC REPAIR CONTRACTOR · 3 CITIES · INDIA</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif; font-size:clamp(26px,4vw,34px); font-weight:700; line-height:1.14; letter-spacing:-0.01em; max-width:760px; text-wrap:balance;">How an HVAC contractor kept every crew booked through the off-season</h2>
+      <p style="font-size:15px; color:#aeb4c7; line-height:1.65; margin-top:18px; max-width:860px;">An HVAC and AC repair contractor across 3 South India cities came to us fully booked April–June, phone nearly silent August–February. No Google Ads, 23 reviews averaging 4.0★, GBP with stock photos and incomplete listings. We rebuilt their GBP with real job photos and complete service listings, launched automated post-job WhatsApp review requests, set up Search campaigns for emergency and annual-servicing keywords, built 6 service-area landing pages, and created a pre-winter maintenance reminder campaign to their existing customer database.</p>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(150px,1fr)); gap:14px; margin-top:28px;">
+      <div style="background:rgba(8,9,16,0.5); border:1px solid rgba(255,255,255,0.1); border-radius:14px; padding:22px; text-align:center;"><div style="font-family:'Space Grotesk',sans-serif; font-size:clamp(24px,3.5vw,30px); font-weight:700; color:var(--accent,#4d7cfe);">+318</div><div style="font-size:12.5px; color:#9aa0b4; margin-top:6px; line-height:1.4;">Jobs booked/month</div></div>
+      <div style="background:rgba(8,9,16,0.5); border:1px solid rgba(255,255,255,0.1); border-radius:14px; padding:22px; text-align:center;"><div style="font-family:'Space Grotesk',sans-serif; font-size:clamp(24px,3.5vw,30px); font-weight:700; color:var(--accent,#4d7cfe);">−41%</div><div style="font-size:12.5px; color:#9aa0b4; margin-top:6px; line-height:1.4;">Cost per lead</div></div>
+      <div style="background:rgba(8,9,16,0.5); border:1px solid rgba(255,255,255,0.1); border-radius:14px; padding:22px; text-align:center;"><div style="font-family:'Space Grotesk',sans-serif; font-size:clamp(24px,3.5vw,30px); font-weight:700; color:var(--accent,#4d7cfe);">₹890</div><div style="font-size:12.5px; color:#9aa0b4; margin-top:6px; line-height:1.4;">New CPL (from ₹1,510)</div></div>
+      <div style="background:rgba(8,9,16,0.5); border:1px solid rgba(255,255,255,0.1); border-radius:14px; padding:22px; text-align:center;"><div style="font-family:'Space Grotesk',sans-serif; font-size:clamp(24px,3.5vw,30px); font-weight:700; color:var(--accent,#4d7cfe);">4.8★</div><div style="font-size:12.5px; color:#9aa0b4; margin-top:6px; line-height:1.4;">Google rating (from 4.0)</div></div>
+      <div style="background:rgba(8,9,16,0.5); border:1px solid rgba(255,255,255,0.1); border-radius:14px; padding:22px; text-align:center;"><div style="font-family:'Space Grotesk',sans-serif; font-size:clamp(24px,3.5vw,30px); font-weight:700; color:var(--accent,#4d7cfe);">188</div><div style="font-size:12.5px; color:#9aa0b4; margin-top:6px; line-height:1.4;">Reviews (from 23)</div></div>
+      <div style="background:rgba(8,9,16,0.5); border:1px solid rgba(255,255,255,0.1); border-radius:14px; padding:22px; text-align:center;"><div style="font-family:'Space Grotesk',sans-serif; font-size:clamp(24px,3.5vw,30px); font-weight:700; color:var(--accent,#4d7cfe);">90 Days</div><div style="font-size:12.5px; color:#9aa0b4; margin-top:6px; line-height:1.4;">To full results</div></div>
+      </div>
+      <div style="margin-top:26px; border-left:3px solid var(--accent,#4d7cfe); padding:6px 0 6px 20px;">
+        <p style="font-family:'Space Grotesk',sans-serif; font-size:17px; font-weight:500; line-height:1.5; color:#e9ebf2; text-wrap:pretty;">“We used to dread August. Now we have maintenance jobs booked 3 weeks out even in January. The WhatsApp reminder campaign alone brought back 60+ past customers in the first month — people who would have called someone else if we hadn’t reached out.”</p>
+        <p style="font-size:13px; color:#9aa0b4; margin-top:12px;">— Owner, HVAC &amp; AC Repair Service, South India (name withheld on request)</p>
+      </div>
+      <a href="Case Studies.dc.html" style="display:inline-flex; align-items:center; gap:8px; margin-top:22px; font-family:'Space Mono',monospace; font-size:12px; color:var(--accent,#4d7cfe); text-decoration:none;" style-hover="gap:12px;">→ Read Full Case Study</a>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section style="position:relative; z-index:4; max-width:880px; margin:88px auto 0; padding:0 32px;">
+    <div style="text-align:center; margin-bottom:36px;">
+      <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:14px;">// COMMON QUESTIONS</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif; font-size:clamp(28px,4.5vw,38px); font-weight:700; letter-spacing:-0.02em; line-height:1.12;">Frequently asked questions — home services digital marketing</h2>
+    </div>
+    <div style="display:flex; flex-direction:column; gap:12px;">
+      <details style="border:1px solid rgba(255,255,255,0.08); border-radius:14px; background:rgba(255,255,255,0.025); padding:18px 22px;">
+        <summary style="cursor:pointer; font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; color:#e9ebf2; list-style:none; display:flex; align-items:center; justify-content:space-between; gap:16px;"><span>How much does digital marketing cost for a plumber or electrician in India?</span><span style="color:var(--accent,#4d7cfe); font-size:20px; flex:none;">+</span></summary>
+        <p style="font-size:14px; color:#9aa0b4; line-height:1.65; margin-top:14px; text-wrap:pretty;">Digital marketing for home service businesses typically starts from ₹12,000–₹30,000/month for basic GBP management, local SEO, and review generation. A full-service package including Google Ads, GBP management, website optimization, and WhatsApp re-booking ranges from ₹25,000–₹60,000/month. WebTech Core offers starter packages from ₹12,999/month with a free 48-hour audit before you commit.</p>
+      </details>
+      <details style="border:1px solid rgba(255,255,255,0.08); border-radius:14px; background:rgba(255,255,255,0.025); padding:18px 22px;">
+        <summary style="cursor:pointer; font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; color:#e9ebf2; list-style:none; display:flex; align-items:center; justify-content:space-between; gap:16px;"><span>What is the most important digital marketing channel for a plumber or electrician?</span><span style="color:var(--accent,#4d7cfe); font-size:20px; flex:none;">+</span></summary>
+        <p style="font-size:14px; color:#9aa0b4; line-height:1.65; margin-top:14px; text-wrap:pretty;">Google Business Profile (Google Maps) is the single most important asset for any local home service business. 78% of local service searches lead to a call or visit within 24 hours, and most of those calls come directly from the Maps listing. A fully optimized GBP with real job photos, complete listings, and 100+ genuine reviews consistently outperforms paid advertising for routine job generation.</p>
+      </details>
+      <details style="border:1px solid rgba(255,255,255,0.08); border-radius:14px; background:rgba(255,255,255,0.025); padding:18px 22px;">
+        <summary style="cursor:pointer; font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; color:#e9ebf2; list-style:none; display:flex; align-items:center; justify-content:space-between; gap:16px;"><span>How do I get more Google reviews for my home service business?</span><span style="color:var(--accent,#4d7cfe); font-size:20px; flex:none;">+</span></summary>
+        <p style="font-size:14px; color:#9aa0b4; line-height:1.65; margin-top:14px; text-wrap:pretty;">The most effective method is an automated review request sent via WhatsApp within 2 hours of every completed job — timing is critical, because the customer is most satisfied right after a good job. A WhatsApp message with a one-tap Google review link converts 3–4x higher than an email a week later. We build this automation into every engagement. Target: 10–20 new reviews per month.</p>
+      </details>
+      <details style="border:1px solid rgba(255,255,255,0.08); border-radius:14px; background:rgba(255,255,255,0.025); padding:18px 22px;">
+        <summary style="cursor:pointer; font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; color:#e9ebf2; list-style:none; display:flex; align-items:center; justify-content:space-between; gap:16px;"><span>How can I reduce my dependence on Urban Company in India?</span><span style="color:var(--accent,#4d7cfe); font-size:20px; flex:none;">+</span></summary>
+        <p style="font-size:14px; color:#9aa0b4; line-height:1.65; margin-top:14px; text-wrap:pretty;">Build a parallel direct booking channel through Google Maps and WhatsApp. An optimized GBP generates direct inbound calls with no commission. A WhatsApp booking system with automated confirmation gives customers the same convenience as Urban Company — without giving away 10–20% of every job. Building a database and sending seasonal WhatsApp reminders creates the repeat revenue that makes you independent of any aggregator.</p>
+      </details>
+      <details style="border:1px solid rgba(255,255,255,0.08); border-radius:14px; background:rgba(255,255,255,0.025); padding:18px 22px;">
+        <summary style="cursor:pointer; font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; color:#e9ebf2; list-style:none; display:flex; align-items:center; justify-content:space-between; gap:16px;"><span>How long does local SEO take to show results for a home service business?</span><span style="color:var(--accent,#4d7cfe); font-size:20px; flex:none;">+</span></summary>
+        <p style="font-size:14px; color:#9aa0b4; line-height:1.65; margin-top:14px; text-wrap:pretty;">GBP optimization typically shows measurable local-pack improvements within 30–60 days. Organic website SEO shows ranking improvements within 90–180 days. Google Ads and LSAs generate calls within the first 1–2 weeks. Most home service clients see meaningful increases in inbound call volume within 45–60 days of a complete local SEO and GBP program.</p>
+      </details>
+      <details style="border:1px solid rgba(255,255,255,0.08); border-radius:14px; background:rgba(255,255,255,0.025); padding:18px 22px;">
+        <summary style="cursor:pointer; font-family:'Space Grotesk',sans-serif; font-size:16px; font-weight:600; color:#e9ebf2; list-style:none; display:flex; align-items:center; justify-content:space-between; gap:16px;"><span>Does WebTech Core serve home service businesses across India?</span><span style="color:var(--accent,#4d7cfe); font-size:20px; flex:none;">+</span></summary>
+        <p style="font-size:14px; color:#9aa0b4; line-height:1.65; margin-top:14px; text-wrap:pretty;">Yes. We manage marketing for plumbers, electricians, HVAC contractors, pest control, cleaning services, carpenters, painters, and renovation contractors across all major Indian cities — Mumbai, Delhi NCR, Bangalore, Hyderabad, Chennai, Pune, Kolkata, Ahmedabad, Jaipur, Lucknow — and all Tier-2 and Tier-3 markets. We also serve home service contractors across all 50 states of the USA.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- LOCATION COVERAGE -->
+  <section style="position:relative; z-index:4; max-width:1200px; margin:88px auto 0; padding:0 32px;">
+    <div style="border:1px solid rgba(255,255,255,0.08); border-radius:24px; background:rgba(255,255,255,0.02); padding:clamp(28px,4vw,40px);">
+      <div style="font-family:'Space Mono',monospace; font-size:12px; letter-spacing:0.12em; color:var(--accent,#4d7cfe); margin-bottom:14px;">// WHERE WE OPERATE</div>
+      <h2 style="font-family:'Space Grotesk',sans-serif; font-size:clamp(26px,4vw,34px); font-weight:700; letter-spacing:-0.02em; line-height:1.1;">Home services digital marketing across India and the USA</h2>
+      <div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.08em; color:#7c8398; margin:26px 0 12px;">METRO &amp; TIER-1 MARKETS</div>
+      <div style="display:flex; flex-wrap:wrap; gap:8px;"><span style="font-size:13px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(77,124,254,0.3); padding:7px 13px; border-radius:8px; white-space:nowrap;">Mumbai</span><span style="font-size:13px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(77,124,254,0.3); padding:7px 13px; border-radius:8px; white-space:nowrap;">Delhi NCR</span><span style="font-size:13px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(77,124,254,0.3); padding:7px 13px; border-radius:8px; white-space:nowrap;">Bangalore</span><span style="font-size:13px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(77,124,254,0.3); padding:7px 13px; border-radius:8px; white-space:nowrap;">Hyderabad</span><span style="font-size:13px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(77,124,254,0.3); padding:7px 13px; border-radius:8px; white-space:nowrap;">Chennai</span><span style="font-size:13px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(77,124,254,0.3); padding:7px 13px; border-radius:8px; white-space:nowrap;">Pune</span><span style="font-size:13px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(77,124,254,0.3); padding:7px 13px; border-radius:8px; white-space:nowrap;">Kolkata</span><span style="font-size:13px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(77,124,254,0.3); padding:7px 13px; border-radius:8px; white-space:nowrap;">Ahmedabad</span></div>
+      <div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.08em; color:#7c8398; margin:24px 0 12px;">HIGH-GROWTH TIER-2 MARKETS</div>
+      <div style="display:flex; flex-wrap:wrap; gap:8px;"><span style="font-size:13px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(77,124,254,0.3); padding:7px 13px; border-radius:8px; white-space:nowrap;">Jaipur</span><span style="font-size:13px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(77,124,254,0.3); padding:7px 13px; border-radius:8px; white-space:nowrap;">Lucknow</span><span style="font-size:13px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(77,124,254,0.3); padding:7px 13px; border-radius:8px; white-space:nowrap;">Indore</span><span style="font-size:13px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(77,124,254,0.3); padding:7px 13px; border-radius:8px; white-space:nowrap;">Chandigarh</span><span style="font-size:13px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(77,124,254,0.3); padding:7px 13px; border-radius:8px; white-space:nowrap;">Bhopal</span><span style="font-size:13px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(77,124,254,0.3); padding:7px 13px; border-radius:8px; white-space:nowrap;">Patna</span><span style="font-size:13px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(77,124,254,0.3); padding:7px 13px; border-radius:8px; white-space:nowrap;">Bhubaneswar</span><span style="font-size:13px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(77,124,254,0.3); padding:7px 13px; border-radius:8px; white-space:nowrap;">Nagpur</span><span style="font-size:13px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(77,124,254,0.3); padding:7px 13px; border-radius:8px; white-space:nowrap;">Surat</span><span style="font-size:13px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(77,124,254,0.3); padding:7px 13px; border-radius:8px; white-space:nowrap;">Kochi</span><span style="font-size:13px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(77,124,254,0.3); padding:7px 13px; border-radius:8px; white-space:nowrap;">Coimbatore</span><span style="font-size:13px; color:#aeb4c7; background:rgba(255,255,255,0.03); border:1px solid rgba(77,124,254,0.3); padding:7px 13px; border-radius:8px; white-space:nowrap;">Vizag</span></div>
+      <div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.08em; color:#7c8398; margin:24px 0 10px;">ACROSS THE USA</div>
+      <p style="font-size:14.5px; color:#aeb4c7; line-height:1.65; max-width:820px;">We serve plumbers, electricians, HVAC contractors, pest control, cleaning services, carpenters, and renovation contractors across all 50 states of the United States — with Google Local Service Ads (Google Guaranteed) setup, Angi and Thumbtack profile optimization, and American home services search behavior targeting.</p>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="position:relative; z-index:4; max-width:1200px; margin:0 auto; padding:88px 32px 0;">
+    <div style="position:relative; overflow:hidden; border:1px solid rgba(255,255,255,0.1); border-radius:28px; background:linear-gradient(140deg,#0d1020,#0a0b14); padding:56px 48px; text-align:center;">
+      <div style="position:absolute; top:-160px; left:50%; transform:translateX(-50%); width:560px; height:520px; background:radial-gradient(circle,var(--accent,#4d7cfe),transparent 60%); opacity:0.2; filter:blur(30px);"></div>
+      <div style="position:relative;">
+        <h2 style="font-family:'Space Grotesk',sans-serif; font-size:clamp(30px,4.5vw,40px); font-weight:700; line-height:1.08; letter-spacing:-0.02em; max-width:640px; margin:0 auto; text-wrap:balance; color:#ffffff;">Ready to keep your calendar full — every month, every season?</h2>
+        <p style="font-size:16.5px; color:#aeb4c7; line-height:1.6; margin:18px auto 0; max-width:560px;">Book a free home services marketing audit and we'll analyze your Google Business Profile, review profile, website, top 5 local competitors, and your seasonal keyword opportunity. Written report. Delivered in 48 hours. No commitment required.</p>
+        <a href="Contact Us.dc.html" style="display:inline-flex; align-items:center; gap:9px; margin-top:30px; background:var(--accent,#4d7cfe); color:#fff; text-decoration:none; font-weight:700; font-size:15.5px; padding:16px 30px; border-radius:12px; box-shadow:0 14px 38px -10px var(--accent,#4d7cfe);" style-hover="filter:brightness(1.08); transform:translateY(-1px);">Book Free Home Services Audit →</a>
+        <p style="font-family:'Space Mono',monospace; font-size:11.5px; color:#7c8398; margin-top:18px;">✓ Free written audit in 48 hours · ✓ Direct booking setup included · ✓ No long-term contracts · ✓ Packages from ₹12,999/month</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="position:relative; z-index:4; max-width:1200px; margin:88px auto 0; padding:0 32px 44px;">
+    <div style="display:grid; grid-template-columns:1.7fr 1fr 1fr 1fr; gap:40px; padding:56px 0 44px; border-top:1px solid rgba(255,255,255,0.08);">
+      <div>
+        <a href="WebTech Core.dc.html" style="display:flex; align-items:center; gap:12px; text-decoration:none; color:#e9ebf2;">
+          <svg width="34" height="34" viewBox="0 0 30 30" fill="none"><rect x="3" y="3" width="24" height="24" rx="6" stroke="var(--accent,#4d7cfe)" stroke-width="1.6"></rect><rect x="9.5" y="9.5" width="11" height="11" rx="2" fill="var(--accent,#4d7cfe)"></rect><circle cx="15" cy="15" r="2.4" fill="#06070d"></circle></svg>
+          <span style="font-family:'Space Grotesk',sans-serif; font-weight:700; font-size:19px; letter-spacing:0.16em;">WEBTECH<span style="color:var(--accent,#4d7cfe);">CORE</span></span>
+        </a>
+        <p style="font-size:14.5px; color:#9aa0b4; line-height:1.65; margin:20px 0 0; max-width:300px;">The complete digital marketing partner for small businesses ready to grow — SEO, ads, social, web, and content under one roof.</p>
+        <div style="display:flex; gap:10px; margin-top:24px;">
+          <a href="#" aria-label="social" style="width:38px; height:38px; border-radius:10px; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.03); display:flex; align-items:center; justify-content:center;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.08);"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M14 8 h2 V5 h-2.5 C12 5 11 6 11 7.5 V9 H9 v3 h2 v7 h3 v-7 h2.2 l.5-3 H14 V8 Z" fill="#aeb4c7"></path></svg></a>
+          <a href="#" aria-label="social" style="width:38px; height:38px; border-radius:10px; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.03); display:flex; align-items:center; justify-content:center;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.08);"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 5 l6 7 -6 7 h2 l5-5.8 L16 19 h4 l-6.4-7.6 L19.5 5 h-2 l-4.6 5.4 L8 5 Z" fill="#aeb4c7"></path></svg></a>
+          <a href="#" aria-label="social" style="width:38px; height:38px; border-radius:10px; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.03); display:flex; align-items:center; justify-content:center;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.08);"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="4.5" stroke="#aeb4c7" stroke-width="1.6"></rect><circle cx="12" cy="12" r="3.6" stroke="#aeb4c7" stroke-width="1.6"></circle><circle cx="16.5" cy="7.5" r="1" fill="#aeb4c7"></circle></svg></a>
+          <a href="#" aria-label="social" style="width:38px; height:38px; border-radius:10px; border:1px solid rgba(255,255,255,0.1); background:rgba(255,255,255,0.03); display:flex; align-items:center; justify-content:center;" style-hover="border-color:var(--accent,#4d7cfe); background:rgba(77,124,254,0.08);"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="3.5" stroke="#aeb4c7" stroke-width="1.6"></rect><line x1="8" y1="10.5" x2="8" y2="17" stroke="#aeb4c7" stroke-width="1.6" stroke-linecap="round"></line><circle cx="8" cy="7.5" r="1.1" fill="#aeb4c7"></circle><path d="M11.5 17 v-4 a2.5 2.5 0 0 1 5 0 v4 M11.5 13 v4" stroke="#aeb4c7" stroke-width="1.6" fill="none" stroke-linecap="round"></path></svg></a>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.1em; color:#7c8398; margin-bottom:18px;">SERVICES</div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <a href="SEO.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Search Engine Optimization</a>
+          <a href="PPC.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Paid Advertising</a>
+          <a href="Social Media.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Social Media</a>
+          <a href="Web Design.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Web Design</a>
+          <a href="Services.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">View all services →</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.1em; color:#7c8398; margin-bottom:18px;">INDUSTRIES</div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <a href="Healthcare.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Healthcare</a>
+          <a href="Real Estate.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Real Estate</a>
+          <a href="Ecommerce.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">E-commerce</a>
+          <a href="Restaurants.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Restaurants</a>
+          <a href="Home Services.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Home Services</a>
+        </div>
+      </div>
+      <div>
+        <div style="font-family:'Space Mono',monospace; font-size:11px; letter-spacing:0.1em; color:#7c8398; margin-bottom:18px;">COMPANY</div>
+        <div style="display:flex; flex-direction:column; gap:12px;">
+          <a href="About Us.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">About Us</a>
+          <a href="Case Studies.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Case Studies</a>
+          <a href="Blog.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Blog</a>
+          <a href="Press Release.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Press</a>
+          <a href="Contact Us.dc.html" style="color:#aeb4c7; text-decoration:none; font-size:14px;" style-hover="color:#fff;">Contact</a>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex; justify-content:space-between; align-items:center; padding-top:26px; border-top:1px solid rgba(255,255,255,0.08); flex-wrap:wrap; gap:14px;">
+      <div style="display:flex; align-items:center; gap:22px; flex-wrap:wrap;">
+        <span style="font-size:13px; color:#7c8398;">© 2026 WebTech Core. All rights reserved.</span>
+        <a href="Privacy Policy.dc.html" style="font-size:13px; color:#7c8398; text-decoration:none;" style-hover="color:#aeb4c7;">Privacy Policy</a>
+        <a href="Terms and Conditions.dc.html" style="font-size:13px; color:#7c8398; text-decoration:none;" style-hover="color:#aeb4c7;">Terms &amp; Conditions</a>
+        <a href="Sitemap.dc.html" style="font-size:13px; color:#7c8398; text-decoration:none;" style-hover="color:#aeb4c7;">Sitemap</a>
+      </div>
+      <div style="display:flex; align-items:center; gap:18px; flex-wrap:wrap;">
+        <span style="font-family:'Space Mono',monospace; font-size:12px; color:#7c8398;">info@webtechcore.io</span>
+        <span style="font-family:'Space Mono',monospace; font-size:12px; color:#7c8398;">+91 9110170824</span>
+        <span style="font-family:'Space Mono',monospace; font-size:12px; color:#565c70;">Engineered for growth.</span>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1200,&quot;height&quot;:2200},&quot;accent&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Electric Blue&quot;,&quot;Cyan&quot;,&quot;Violet&quot;,&quot;Emerald&quot;],&quot;default&quot;:&quot;Electric Blue&quot;,&quot;tsType&quot;:&quot;string&quot;}}">
+class Component extends DCLogic {
+  state = { menu: null, slide: 0 };
+
+  componentDidMount() {
+    this._auto = setInterval(() => this.setState((s) => ({ slide: (s.slide + 1) % 8 })), 3800);
+  }
+  componentWillUnmount() { clearInterval(this._auto); }
+  _go(i) {
+    this.setState({ slide: ((i % 8) + 8) % 8 });
+    clearInterval(this._auto);
+    this._auto = setInterval(() => this.setState((s) => ({ slide: (s.slide + 1) % 8 })), 3800);
+  }
+
+  renderVals() {
+    const accents = {
+      "Electric Blue": ["#4d7cfe", "#8b5cf6"],
+      "Cyan":          ["#22d3ee", "#38bdf8"],
+      "Violet":        ["#8b5cf6", "#d946ef"],
+      "Emerald":       ["#34d399", "#22d3ee"],
+    };
+    const pick = accents[this.props.accent] || accents["Electric Blue"];
+    const m = this.state.menu;
+    const slide = this.state.slide;
+    const dots = [0,1,2,3,4,5,6,7].map((i) => ({
+      w: i === slide ? "22px" : "7px",
+      bg: i === slide ? pick[0] : "rgba(255,255,255,0.2)",
+      go: () => this._go(i),
+    }));
+    return {
+      accentColor: pick[0],
+      accent2Color: pick[1],
+      slide,
+      dots,
+      trackTransform: "translateX(-" + (slide * 12.5) + "%)",
+      slideCounter: ("0" + (slide + 1)) + " / 08",
+      prevSlide: () => this._go(slide - 1),
+      nextSlide: () => this._go(slide + 1),
+      servicesOpen: m === "services",
+      industriesOpen: m === "industries",
+      servicesCaret: m === "services" ? 180 : 0,
+      industriesCaret: m === "industries" ? 180 : 0,
+      servicesColor: m === "services" ? "#ffffff" : "#aeb4c7",
+      industriesColor: m === "industries" ? "#ffffff" : "#aeb4c7",
+      openServices: () => this.setState({ menu: "services" }),
+      openIndustries: () => this.setState({ menu: "industries" }),
+      closeMenu: () => this.setState({ menu: null }),
+      toggleServices: () => this.setState((s) => ({ menu: s.menu === "services" ? null : "services" })),
+      toggleIndustries: () => this.setState((s) => ({ menu: s.menu === "industries" ? null : "industries" })),
+      resourcesOpen: this.state.menu === "resources",
+      resourcesCaret: this.state.menu === "resources" ? 180 : 0,
+      resourcesColor: this.state.menu === "resources" ? "#ffffff" : "#aeb4c7",
+      openResources: () => this.setState({ menu: "resources" }),
+      toggleResources: () => this.setState((s) => ({ menu: s.menu === "resources" ? null : "resources" })),
+    };
+  }
+}
+</script>
+</body>
+</html>
