@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Digital Marketing in West Bengal — WebTech Core</title>
+<meta name="description" content="WebTech Core brings world-class digital marketing to West Bengal — from Kolkata's cultural and IT districts to every district of the state. SEO, ads, social and web for West Bengal businesses.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#06070d;color:#e9ebf2;font-family:'Manrope',sans-serif;-webkit-font-smoothing:antialiased}
+::selection{background:rgba(108,140,255,.35);color:#fff}
+:root{--accent:#4d7cfe;--accent2:#8b5cf6}
+@keyframes wtc-pulse{0%,100%{opacity:.55}50%{opacity:1}}
+@keyframes wtc-fadein{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+@keyframes wtc-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes wtc-grow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes wtc-ringwave{0%{transform:scale(1);opacity:.6}100%{transform:scale(1.7);opacity:0}}
+
+.bg-grid{position:fixed;inset:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 90% 55% at 50% 0%,#000 30%,transparent 80%);z-index:0}
+.bg-glow{position:fixed;top:-280px;left:50%;transform:translateX(-50%);width:1100px;height:680px;background:radial-gradient(ellipse at center,var(--accent) 0%,transparent 62%);opacity:.2;filter:blur(40px);pointer-events:none;z-index:0}
+.bg-glow2{position:fixed;top:600px;right:-200px;width:600px;height:600px;background:radial-gradient(circle,var(--accent2) 0%,transparent 62%);opacity:.12;filter:blur(50px);pointer-events:none;z-index:0}
+
+/* NAV */
+.nav{position:relative;z-index:20;max-width:1200px;margin:0 auto;padding:30px 32px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:#e9ebf2}
+.nav-logo-text{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:21px;letter-spacing:.16em}
+.nav-logo-text span{color:var(--accent)}
+.nav-links{display:flex;align-items:center;gap:30px}
+.nav-link{color:#aeb4c7;text-decoration:none;font-size:15.5px;font-weight:500;transition:color .15s}
+.nav-link:hover{color:#fff}
+.nav-btn{display:inline-flex;align-items:center;gap:7px;background:none;border:none;cursor:pointer;color:#aeb4c7;font-family:'Manrope',sans-serif;font-size:15.5px;font-weight:600;padding:0;transition:color .15s}
+.nav-btn:hover,.nav-btn[aria-expanded="true"]{color:#fff}
+.nav-caret{display:inline-block;transition:transform .2s}
+.nav-caret.open{transform:rotate(180deg)}
+.nav-cta{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;font-size:15px;padding:12px 22px;border-radius:11px;box-shadow:0 8px 28px -8px var(--accent);transition:filter .15s}
+.nav-cta:hover{filter:brightness(1.08)}
+#dd-industries,#dd-services{position:static}
+#dd-resources{position:relative}
+.dd-panel{display:none;position:fixed;z-index:30;padding:16px;background:rgba(14,16,28,.97);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.12);border-radius:16px;box-shadow:0 24px 60px -18px rgba(0,0,0,.7);animation:wtc-fadein .18s ease-out}
+.dd-panel.open{display:block}
+#panel-resources{position:absolute;top:34px;left:0;width:320px;max-width:90vw}
+.dd-label{font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.1em;color:#7c8398;padding:6px 12px 12px}
+.dd-grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
+.dd-grid-1{display:grid;grid-template-columns:1fr;gap:4px}
+.dd-item{display:flex;align-items:center;gap:11px;padding:11px 12px;border-radius:10px;text-decoration:none;color:#aeb4c7;transition:background .15s}
+.dd-item:hover{background:rgba(255,255,255,.05)}
+.dd-item-title{display:block;font-size:14px;font-weight:600}
+.dd-item-sub{display:block;font-size:11.5px;color:#7c8398}
+.dd-footer{display:block;text-align:center;margin-top:10px;padding:10px;border-radius:10px;text-decoration:none;font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.06em;color:var(--accent);background:rgba(77,124,254,.07);transition:background .15s}
+.dd-footer:hover{background:rgba(77,124,254,.13)}
+
+/* BREADCRUMB */
+.breadcrumb{position:relative;z-index:4;max-width:1200px;margin:0 auto;padding:10px 32px 0;font-family:'Space Mono',monospace;font-size:12px;color:#7c8398}
+.breadcrumb a{color:#7c8398;text-decoration:none;transition:color .15s}
+.breadcrumb a:hover{color:#aeb4c7}
+.breadcrumb span{margin:0 8px}
+
+/* HERO */
+.hero{position:relative;z-index:4;max-width:1200px;margin:0 auto;padding:40px 32px 8px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:clamp(28px,4vw,52px);align-items:center}
+.badge{display:inline-flex;align-items:center;gap:9px;padding:7px 14px;border:1px solid rgba(255,255,255,.12);border-radius:100px;background:rgba(255,255,255,.03);font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.08em;color:#aeb4c7}
+.badge-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent);animation:wtc-pulse 2.4s infinite;flex:none}
+.hero h1{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:clamp(34px,7vw,58px);line-height:1.04;letter-spacing:-.02em;margin:22px 0 0;text-wrap:balance}
+.hero h1 .grad{background:linear-gradient(100deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero-sub{font-size:17.5px;line-height:1.62;color:#aeb4c7;margin:22px 0 0;max-width:500px;text-wrap:pretty}
+.hero-fn{font-family:'Space Mono',monospace;font-size:12px;color:#7c8398;margin-top:20px;letter-spacing:.02em}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:26px}
+.btn-primary{display:inline-flex;align-items:center;gap:9px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;font-size:15px;padding:14px 24px;border-radius:12px;box-shadow:0 12px 34px -10px var(--accent);transition:filter .15s,transform .15s}
+.btn-primary:hover{filter:brightness(1.08);transform:translateY(-1px)}
+.btn-ghost{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.14);color:#e9ebf2;text-decoration:none;font-weight:600;font-size:15px;padding:14px 22px;border-radius:12px;transition:background .15s,border-color .15s}
+.btn-ghost:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.28)}
+
+/* MAP CARD */
+.map-card-wrap{position:relative;animation:wtc-float 7s ease-in-out infinite}
+.map-card-border{position:absolute;inset:-1px;border-radius:20px;background:linear-gradient(140deg,var(--accent),transparent 45%,var(--accent2));opacity:.45;filter:blur(2px)}
+.map-card{position:relative;background:linear-gradient(180deg,rgba(20,22,34,.92),rgba(12,13,22,.92));border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:22px;overflow:hidden}
+.map-card-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.map-card-lbl{font-family:'Space Mono',monospace;font-size:12px;color:#aeb4c7;letter-spacing:.04em}
+.map-card-live{font-family:'Space Mono',monospace;font-size:11px;color:#34d399;background:rgba(52,211,153,.12);padding:4px 9px;border-radius:6px}
+.map-img-wrap{position:relative;border-radius:12px;overflow:hidden}
+.map-img-wrap img{display:block;width:100%;height:auto}
+.map-svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;pointer-events:none}
+.district-card{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.district-cell{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:11px;padding:12px 13px}
+.district-cell-lbl{font-family:'Space Mono',monospace;font-size:10px;color:#7c8398}
+.district-cell-val{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;margin-top:3px;color:#fff;transition:opacity .18s}
+
+/* STATS */
+.stats{position:relative;z-index:4;max-width:1200px;margin:40px auto 0;padding:0 32px}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));border:1px solid rgba(255,255,255,.08);border-radius:16px;background:rgba(255,255,255,.02);overflow:hidden}
+.stat-cell{padding:26px 24px;border-right:1px solid rgba(255,255,255,.08)}
+.stat-cell:last-child{border-right:none}
+.stat-num{font-family:'Space Grotesk',sans-serif;font-size:30px;font-weight:700;color:#fff}
+.stat-num span{color:var(--accent)}
+.stat-lbl{font-size:13px;color:#aeb4c7;margin-top:5px;line-height:1.4}
+.stat-fn{font-family:'Space Mono',monospace;font-size:10.5px;color:#565c70;margin-top:10px;text-align:right;padding:0 32px}
+
+/* SECTIONS */
+.section{position:relative;z-index:4;max-width:1200px;margin:0 auto}
+.pad-top{padding:80px 32px 0}
+.sec-label{font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.12em;color:var(--accent);margin-bottom:12px}
+.sec-h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(28px,5vw,40px);font-weight:700;letter-spacing:-.02em;line-height:1.08}
+.sec-h2 .grad{background:linear-gradient(100deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.sec-sub{font-size:15px;color:#aeb4c7;line-height:1.6;margin-top:12px;max-width:600px;text-wrap:pretty}
+.sec-header{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:28px}
+
+/* CITY CARDS */
+.city-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;margin-top:30px}
+.city-card{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.08);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;text-decoration:none;color:#e9ebf2;transition:border-color .2s,background .2s,transform .2s}
+.city-card:hover{border-color:var(--accent);background:rgba(77,124,254,.05);transform:translateY(-3px)}
+.city-card-photo{position:relative;height:128px;overflow:hidden;background-color:rgba(8,9,16,.6);background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.035) 0,rgba(255,255,255,.035) 1px,transparent 1px,transparent 11px);display:flex;align-items:flex-end}
+.city-card-photo-glow{position:absolute;inset:0;background:radial-gradient(circle at 30% 20%,var(--accent) 0%,transparent 55%);opacity:.1}
+.city-card-photo-label{position:relative;padding:12px 14px;width:100%;display:flex;align-items:center;justify-content:space-between}
+.city-card-photo-name{font-family:'Space Mono',monospace;font-size:11.5px;color:#aeb4c7}
+.city-card-photo-hint{font-family:'Space Mono',monospace;font-size:10px;color:#565c70}
+.city-card-body{padding:16px 18px 18px;flex:1;display:flex;flex-direction:column}
+.city-card-icon{font-size:18px;margin-bottom:9px}
+.city-card-name{font-family:'Space Grotesk',sans-serif;font-size:17px;font-weight:600;color:#e9ebf2}
+.city-card-sub{font-size:13px;color:#9aa0b4;line-height:1.55;margin-top:7px}
+
+/* PILLARS */
+.pillars-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:30px}
+.pillar-card{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.08);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;transition:border-color .2s,background .2s}
+.pillar-card:hover{border-color:rgba(77,124,254,.4);background:rgba(77,124,254,.04)}
+.pillar-photo{position:relative;height:170px;overflow:hidden;background-color:rgba(8,9,16,.6);background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.035) 0,rgba(255,255,255,.035) 1px,transparent 1px,transparent 11px);display:flex;align-items:flex-end}
+.pillar-photo-glow{position:absolute;inset:0;background:radial-gradient(circle at 30% 22%,var(--accent) 0%,transparent 58%);opacity:.12}
+.pillar-num-badge{position:absolute;top:12px;left:14px;font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:var(--accent);background:rgba(6,7,13,.5);padding:4px 9px;border-radius:7px}
+.pillar-photo-label{position:relative;padding:12px 14px;width:100%;display:flex;align-items:center;justify-content:space-between}
+.pillar-photo-name{font-family:'Space Mono',monospace;font-size:11.5px;color:#aeb4c7}
+.pillar-photo-hint{font-family:'Space Mono',monospace;font-size:10px;color:#565c70}
+.pillar-body{padding:18px 18px 20px;flex:1;display:flex;flex-direction:column}
+.pillar-icon-row{display:flex;align-items:center;gap:9px}
+.pillar-icon{font-size:18px}
+.pillar-h3{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:700;color:#fff;letter-spacing:-.01em}
+.pillar-tag{display:flex;align-items:center;gap:7px;margin-top:9px}
+.pillar-tag-arrow{color:var(--accent);font-size:14px}
+.pillar-tag-name{font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;color:var(--accent2)}
+.pillar-desc{font-size:13px;color:#9aa0b4;line-height:1.6;margin-top:12px}
+
+/* GROWTH */
+.growth-card{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.08);border-radius:20px;padding:28px}
+.growth-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px;align-items:center;border:1px solid rgba(255,255,255,.08);border-radius:24px;background:linear-gradient(135deg,rgba(77,124,254,.07),rgba(139,92,246,.04));padding:44px;margin-top:30px}
+.chart-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:18px}
+.chart-name{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.08em;color:#7c8398}
+.chart-val{font-family:'Space Mono',monospace;font-size:12px;color:var(--accent)}
+.bars{display:flex;align-items:flex-end;gap:12px;height:150px}
+.bar{flex:1;border-radius:5px 5px 2px 2px;transform-origin:bottom;animation:wtc-grow .8s ease-out both}
+.chart-labels{display:flex;justify-content:space-between;margin-top:12px;font-family:'Space Mono',monospace;font-size:10px;color:#565c70}
+.growth-points{display:flex;flex-direction:column;gap:18px}
+.gpoint{display:flex;align-items:flex-start;gap:12px}
+.gpoint-dot{margin-top:6px;width:7px;height:7px;border-radius:2px;background:var(--accent);flex:none}
+.gpoint-title{font-weight:600;font-size:15px;color:#e9ebf2}
+.gpoint-sub{font-size:13.5px;color:#9aa0b4;line-height:1.55;margin-top:3px}
+
+/* PHOTO GRID */
+.photo-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));grid-auto-rows:200px;gap:14px;margin-top:28px}
+.photo-cell{border-radius:16px;border:1px solid rgba(255,255,255,.1);overflow:hidden;background-color:rgba(8,9,16,.6);background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.04) 0,rgba(255,255,255,.04) 1px,transparent 1px,transparent 12px);position:relative;display:flex;align-items:flex-end;transition:border-color .2s}
+.photo-cell:hover{border-color:var(--accent)}
+.photo-cell img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.photo-cell-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,7,13,.05) 45%,rgba(6,7,13,.85) 100%)}
+.photo-cell-label{position:relative;padding:14px 16px;font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;color:#fff;text-shadow:0 1px 10px rgba(0,0,0,.7)}
+.photo-cell.wide{grid-column:span 2}
+.photo-cell.tall{grid-row:span 2}
+
+/* CHIPS */
+.chips-box{border:1px solid rgba(255,255,255,.08);border-radius:18px;background:rgba(255,255,255,.025);padding:30px;margin-top:28px}
+.chips-header{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;margin-bottom:18px}
+.chips-badge{font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:.08em;color:#fff;background:var(--accent);padding:6px 10px;border-radius:8px}
+.chips-count{font-family:'Space Mono',monospace;font-size:12px;color:#aeb4c7;border:1px solid rgba(255,255,255,.12);padding:5px 10px;border-radius:7px}
+.chips-list{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-size:12.5px;color:#aeb4c7;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);padding:6px 11px;border-radius:8px;white-space:nowrap;transition:border-color .15s,color .15s}
+.chip:hover{border-color:var(--accent);color:#fff}
+a.chip{text-decoration:none;display:inline-block}
+
+/* CLOSER */
+.closer{position:relative;z-index:4;max-width:1200px;margin:0 auto;padding:80px 32px 0}
+.closer-card{position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.1);border-radius:28px;background:linear-gradient(140deg,#0d1020,#0a0b14);padding:clamp(36px,6vw,56px) clamp(22px,5vw,48px);text-align:center}
+.closer-glow{position:absolute;top:-160px;left:50%;transform:translateX(-50%);width:560px;height:520px;background:radial-gradient(circle,var(--accent),transparent 60%);opacity:.18;filter:blur(30px)}
+.closer-label{font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.14em;color:var(--accent);margin-bottom:18px;position:relative}
+.closer h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(26px,4vw,38px);font-weight:700;letter-spacing:-.02em;line-height:1.08;max-width:600px;margin:0 auto;text-wrap:balance;position:relative}
+.closer p{font-size:16px;color:#9aa0b4;max-width:520px;margin:16px auto 0;line-height:1.6;position:relative}
+.closer-btns{display:flex;justify-content:center;gap:14px;margin-top:28px;flex-wrap:wrap;position:relative}
+
+/* FOOTER */
+footer{position:relative;z-index:4;max-width:1200px;margin:88px auto 0;padding:0 32px 44px}
+.footer-grid{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:40px;padding:56px 0 44px;border-top:1px solid rgba(255,255,255,.08)}
+.footer-logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:#e9ebf2}
+.footer-logo-text{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;letter-spacing:.16em}
+.footer-logo-text span{color:var(--accent)}
+.footer-desc{font-size:14.5px;color:#9aa0b4;line-height:1.65;margin:20px 0 0;max-width:300px}
+.footer-social{display:flex;gap:10px;margin-top:24px}
+.social-btn{width:38px;height:38px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);display:flex;align-items:center;justify-content:center;text-decoration:none;transition:border-color .15s,background .15s}
+.social-btn:hover{border-color:var(--accent);background:rgba(77,124,254,.08)}
+.footer-col-label{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.1em;color:#7c8398;margin-bottom:18px}
+.footer-links{display:flex;flex-direction:column;gap:12px}
+.footer-links a{color:#aeb4c7;text-decoration:none;font-size:14px;transition:color .15s}
+.footer-links a:hover{color:#fff}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:26px;border-top:1px solid rgba(255,255,255,.08);flex-wrap:wrap;gap:14px}
+.footer-copy{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.footer-copy span,.footer-copy a{font-size:13px;color:#7c8398;text-decoration:none}
+.footer-copy a:hover{color:#aeb4c7}
+.footer-contact{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.footer-contact span{font-family:'Space Mono',monospace;font-size:12px;color:#7c8398}
+.footer-contact .tagline{color:#565c70}
+
+@media(max-width:768px){
+  .nav{flex-wrap:wrap;gap:14px;padding:20px 20px}
+  .nav-links{gap:14px;flex-wrap:wrap}
+  .hero{padding:32px 20px 8px}
+  .stats{padding:0 20px}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .stat-cell{border-right:none;border-bottom:1px solid rgba(255,255,255,.08)}
+  .stat-cell:nth-child(odd){border-right:1px solid rgba(255,255,255,.08)}
+  .section .pad-top,.pad-top{padding:56px 20px 0}
+  .section{padding-left:0;padding-right:0}
+  .dd-grid-4{grid-template-columns:1fr 1fr}
+  .photo-grid{grid-template-columns:1fr 1fr;grid-auto-rows:160px}
+  .photo-cell.wide{grid-column:span 2}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:28px}
+  .closer{padding:56px 20px 0}
+}
+</style>
+
+<link rel="stylesheet" href="../styles/responsive.css">
+</head>
+<body>
+<div class="bg-grid"></div>
+<div class="bg-glow"></div>
+<div class="bg-glow2"></div>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="../index.html" class="nav-logo" aria-label="WebTech Core home">
+    <svg width="36" height="36" viewBox="0 0 30 30" fill="none"><rect x="3" y="3" width="24" height="24" rx="6" stroke="var(--accent)" stroke-width="1.6"/><rect x="9.5" y="9.5" width="11" height="11" rx="2" fill="var(--accent)"/><circle cx="15" cy="15" r="2.4" fill="#06070d"/></svg>
+    <span class="nav-logo-text">WEBTECH<span>CORE</span></span>
+  </a>
+  <div class="nav-links">
+    <a href="../index.html" class="nav-link">Home</a>
+    <div id="dd-industries"><button class="nav-btn" onclick="toggleMenu('industries',true)" aria-expanded="false" aria-controls="panel-industries">Industries <svg class="nav-caret" id="caret-industries" width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8l3.5-3.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
+    <div id="dd-services"><button class="nav-btn" onclick="toggleMenu('services',true)" aria-expanded="false" aria-controls="panel-services">Services <svg class="nav-caret" id="caret-services" width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8l3.5-3.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button></div>
+    <div id="dd-countries" style="position:relative">
+      <button class="nav-btn" onclick="toggleMenu('countries',false)" aria-expanded="false" aria-controls="panel-countries">Countries <svg class="nav-caret" id="caret-countries" width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8l3.5-3.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div id="panel-countries" class="dd-panel" role="menu" style="position:absolute;top:34px;left:0;width:320px;max-width:90vw">
+        <div class="dd-label">COUNTRIES</div>
+        <div class="dd-grid-1">
+          <a href="india.html" class="dd-item" role="menuitem"><span style="font-size:16px;line-height:1">🇮🇳</span><span><span class="dd-item-title">India</span><span class="dd-item-sub">Live · all states</span></span></a>
+          <a href="usa.html" class="dd-item" role="menuitem"><span style="font-size:16px;line-height:1">🇺🇸</span><span><span class="dd-item-title">USA</span><span class="dd-item-sub">Launching soon</span></span></a>
+          <a href="uk.html" class="dd-item" role="menuitem"><span style="font-size:16px;line-height:1">🇬🇧</span><span><span class="dd-item-title">UK</span><span class="dd-item-sub">Launching soon</span></span></a>
+          <a href="singapore.html" class="dd-item" role="menuitem"><span style="font-size:16px;line-height:1">🇸🇬</span><span><span class="dd-item-title">Singapore</span><span class="dd-item-sub">Launching soon</span></span></a>
+        </div>
+      </div>
+    </div>
+    <div id="dd-resources" style="position:relative">
+      <button class="nav-btn" onclick="toggleMenu('resources',false)" aria-expanded="false" aria-controls="panel-resources">Resources <svg class="nav-caret" id="caret-resources" width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8l3.5-3.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      <div id="panel-resources" class="dd-panel" role="menu">
+        <div class="dd-label">RESOURCES</div>
+        <div class="dd-grid-1">
+          <a href="../resources/blog.html" class="dd-item" role="menuitem"><span style="font-size:16px;line-height:1">📝</span><span><span class="dd-item-title">Blog</span><span class="dd-item-sub">Insights &amp; guides</span></span></a>
+          <a href="../resources/press-release.html" class="dd-item" role="menuitem"><span style="font-size:16px;line-height:1">📰</span><span><span class="dd-item-title">Press Release</span><span class="dd-item-sub">News &amp; announcements</span></span></a>
+          <a href="../resources/case-studies.html" class="dd-item" role="menuitem"><span style="font-size:16px;line-height:1">📊</span><span><span class="dd-item-title">Case Studies</span><span class="dd-item-sub">Real client results</span></span></a>
+        </div>
+      </div>
+    </div>
+    <a href="../contact-us.html" class="nav-cta">Book Free Consultation</a>
+  </div>
+</nav>
+
+<div id="panel-industries" class="dd-panel" role="menu">
+  <div class="dd-label">INDUSTRIES WE SERVE</div>
+  <div class="dd-grid-4">
+    <a href="../industries/healthcare.html" class="dd-item"><span style="font-size:16px;line-height:1">🏥</span><span><span class="dd-item-title">Healthcare</span><span class="dd-item-sub">Clinics, dental, wellness</span></span></a>
+    <a href="../industries/real-estate.html" class="dd-item"><span style="font-size:16px;line-height:1">🏠</span><span><span class="dd-item-title">Real Estate</span><span class="dd-item-sub">Agents, brokers, developers</span></span></a>
+    <a href="../industries/ecommerce.html" class="dd-item"><span style="font-size:16px;line-height:1">🛍️</span><span><span class="dd-item-title">E-commerce &amp; Retail</span><span class="dd-item-sub">Online &amp; omnichannel stores</span></span></a>
+    <a href="../industries/restaurants.html" class="dd-item"><span style="font-size:16px;line-height:1">🍽️</span><span><span class="dd-item-title">Restaurants</span><span class="dd-item-sub">Cafes, dining, franchises</span></span></a>
+    <a href="../industries/legal.html" class="dd-item"><span style="font-size:16px;line-height:1">⚖️</span><span><span class="dd-item-title">Legal &amp; Professional</span><span class="dd-item-sub">Law, finance, consulting</span></span></a>
+    <a href="../industries/home-services.html" class="dd-item"><span style="font-size:16px;line-height:1">🔧</span><span><span class="dd-item-title">Home Services</span><span class="dd-item-sub">Trades, repair, contractors</span></span></a>
+    <a href="../industries/education.html" class="dd-item"><span style="font-size:16px;line-height:1">🎓</span><span><span class="dd-item-title">Education</span><span class="dd-item-sub">Schools, courses, edtech</span></span></a>
+    <a href="../industries/fitness.html" class="dd-item"><span style="font-size:16px;line-height:1">💪</span><span><span class="dd-item-title">Fitness &amp; Wellness</span><span class="dd-item-sub">Gyms, studios, coaches</span></span></a>
+  </div>
+</div>
+<div id="panel-services" class="dd-panel" role="menu">
+  <div class="dd-label">WHAT WE DO</div>
+  <div class="dd-grid-4">
+    <a href="../services/seo.html" class="dd-item"><span style="font-size:16px;line-height:1">🔍</span><span><span class="dd-item-title">Search Engine Optimization</span><span class="dd-item-sub">Organic growth</span></span></a>
+    <a href="../services/local-seo.html" class="dd-item"><span style="font-size:16px;line-height:1">📍</span><span><span class="dd-item-title">Local SEO</span><span class="dd-item-sub">Map &amp; near-me</span></span></a>
+    <a href="../services/ppc.html" class="dd-item"><span style="font-size:16px;line-height:1">🎯</span><span><span class="dd-item-title">Paid Advertising (PPC)</span><span class="dd-item-sub">Google ads</span></span></a>
+    <a href="../services/social-media.html" class="dd-item"><span style="font-size:16px;line-height:1">📱</span><span><span class="dd-item-title">Social Media Marketing</span><span class="dd-item-sub">Build audience</span></span></a>
+    <a href="../services/meta-ads.html" class="dd-item"><span style="font-size:16px;line-height:1">⚡</span><span><span class="dd-item-title">Meta Ads Services</span><span class="dd-item-sub">FB &amp; Instagram</span></span></a>
+    <a href="../services/content-marketing.html" class="dd-item"><span style="font-size:16px;line-height:1">✍️</span><span><span class="dd-item-title">Content Marketing</span><span class="dd-item-sub">Blogs &amp; assets</span></span></a>
+    <a href="../services/email-marketing.html" class="dd-item"><span style="font-size:16px;line-height:1">✉️</span><span><span class="dd-item-title">Email Marketing</span><span class="dd-item-sub">Flows &amp; campaigns</span></span></a>
+    <a href="../services/web-design.html" class="dd-item"><span style="font-size:16px;line-height:1">🖥️</span><span><span class="dd-item-title">Web Design &amp; Development</span><span class="dd-item-sub">Design &amp; build</span></span></a>
+  </div>
+  <a href="../services/index.html" class="dd-footer">VIEW ALL SERVICES →</a>
+</div>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <a href="../index.html">Home</a><span>/</span>India<span>/</span><span style="color:var(--accent)">West Bengal</span>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <div class="badge"><span class="badge-dot"></span>INDIA · WEST BENGAL</div>
+    <h1>West Bengal is <span class="grad">going digital.</span></h1>
+    <p class="hero-sub">From Kolkata's Salt Lake IT corridor and centuries of cultural heritage to Howrah's engineering belt and the tea gardens of Darjeeling, West Bengal is eastern India's intellectual and commercial gateway — and a fast-growing digital market.</p>
+    <p class="hero-fn">A snapshot of technology &amp; digital momentum across the state.</p>
+    <div class="hero-ctas">
+      <a href="../contact-us.html" class="btn-primary">Start in West Bengal →</a>
+      <a href="../resources/case-studies.html" class="btn-ghost">View Results</a>
+    </div>
+  </div>
+
+  <div class="map-card-wrap">
+    <div class="map-card-border"></div>
+    <div class="map-card">
+      <div class="map-card-head">
+        <span class="map-card-lbl">digital_westbengal.map</span>
+        <span class="map-card-live">● GROWING</span>
+      </div>
+      <div class="map-img-wrap" style="aspect-ratio:1536/1024;background:radial-gradient(ellipse at 50% 45%,rgba(77,124,254,.14),rgba(6,7,13,.4) 65%);display:flex;align-items:center;justify-content:center;">
+        <svg class="map-svg" viewBox="0 0 1536 1024" preserveAspectRatio="xMidYMid meet" style="position:static;">
+          <defs>
+            <linearGradient id="upScan" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#ffc14d" stop-opacity="0"/>
+              <stop offset="0.5" stop-color="#ffc14d" stop-opacity="0.16"/>
+              <stop offset="1" stop-color="#ffc14d" stop-opacity="0"/>
+            </linearGradient>
+          </defs>
+          <rect x="0" y="0" width="1536" height="230" fill="url(#upScan)"><animateTransform attributeName="transform" type="translate" values="0 -250; 0 1040" dur="3.6s" repeatCount="indefinite"/></rect>
+          <circle cx="492" cy="350" r="12" fill="none" stroke="#ffc14d" stroke-width="2" opacity="0.6"><animate attributeName="r" values="12;36;12" dur="2.6s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.7;0;0.7" dur="2.6s" repeatCount="indefinite"/></circle>
+          <circle cx="1015" cy="435" r="12" fill="none" stroke="#ffc14d" stroke-width="2" opacity="0.6"><animate attributeName="r" values="12;34;12" dur="2.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.7;0;0.7" dur="2.4s" repeatCount="indefinite"/></circle>
+          <circle cx="1090" cy="620" r="12" fill="none" stroke="#ffc14d" stroke-width="2" opacity="0.6"><animate attributeName="r" values="12;34;12" dur="2.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.7;0;0.7" dur="2.8s" repeatCount="indefinite"/></circle>
+          <circle cx="370" cy="690" r="12" fill="none" stroke="#ffc14d" stroke-width="2" opacity="0.6"><animate attributeName="r" values="12;36;12" dur="3.2s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.7;0;0.7" dur="3.2s" repeatCount="indefinite"/></circle>
+          <circle cx="585" cy="760" r="11" fill="none" stroke="#ffc14d" stroke-width="2" opacity="0.6"><animate attributeName="r" values="11;30;11" dur="3s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.7;0;0.7" dur="3s" repeatCount="indefinite"/></circle>
+          <circle cx="875" cy="725" r="11" fill="none" stroke="#ffc14d" stroke-width="2" opacity="0.6"><animate attributeName="r" values="11;30;11" dur="3.4s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.7;0;0.7" dur="3.4s" repeatCount="indefinite"/></circle>
+          <circle cx="705" cy="575" r="18" fill="none" stroke="#ffd98a" stroke-width="2.5" opacity="0.6"><animate attributeName="r" values="16;52;16" dur="2.8s" repeatCount="indefinite"/><animate attributeName="opacity" values="0.7;0;0.7" dur="2.8s" repeatCount="indefinite"/></circle>
+          <text x="735" y="566" fill="#ffe6b0" font-family="'Space Grotesk',sans-serif" font-size="34" font-weight="700" style="text-shadow:0 2px 8px rgba(0,0,0,.6)" text-anchor="middle">Kolkata</text>
+          <text x="735" y="600" fill="#caa45c" font-family="'Space Mono',monospace" font-size="19" text-anchor="middle">cultural capital</text>
+        </svg>
+      </div>
+      <div class="district-card">
+        <div class="district-cell">
+          <div class="district-cell-lbl">DISTRICT</div>
+          <div class="district-cell-val" id="district-name">Kolkata</div>
+        </div>
+        <div class="district-cell">
+          <div class="district-cell-lbl">ACTIVE CLIENTS</div>
+          <div class="district-cell-val"><span style="color:var(--accent)" id="district-num">14</span> <span style="font-size:12px;color:#aeb4c7">active ▲</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stats-grid">
+    <div class="stat-cell"><div class="stat-num">10<span>Cr+</span></div><div class="stat-lbl">Population of West Bengal</div></div>
+    <div class="stat-cell"><div class="stat-num">23<span>dist</span></div><div class="stat-lbl">Districts across the state</div></div>
+    <div class="stat-cell"><div class="stat-num">4<span>th</span></div><div class="stat-lbl">India's 4th most populous state</div></div>
+    <div class="stat-cell"><div class="stat-num">4G<span>/</span>5G+</div><div class="stat-lbl">Mobile-first connectivity spreading statewide</div></div>
+  </div>
+  <p class="stat-fn">Figures indicative of regional trends.</p>
+</div>
+
+<!-- CITIES -->
+<div class="section">
+  <div class="pad-top">
+    <div class="sec-label">// OUR COVERAGE</div>
+    <h2 class="sec-h2">Major cities <span class="grad">we serve</span></h2>
+    <p class="sec-sub">Digital marketing expertise across West Bengal's key cities — with local insight and data-driven strategy.</p>
+    <div class="city-grid">
+      <a href="kolkata.html" class="city-card">
+        <div class="city-card-photo"><div class="city-card-photo-glow"></div><div class="city-card-photo-label"><span class="city-card-photo-name">Kolkata</span><span class="city-card-photo-hint">[ photo ]</span></div></div>
+        <div class="city-card-body"><div class="city-card-icon">🏙️</div><div class="city-card-name">Kolkata</div><p class="city-card-sub">West Bengal's capital and India's cultural capital — a growing IT and BPO hub at Salt Lake Sector V.</p></div>
+      </a>
+      <a href="howrah.html" class="city-card">
+        <div class="city-card-photo"><div class="city-card-photo-glow"></div><div class="city-card-photo-label"><span class="city-card-photo-name">Howrah</span><span class="city-card-photo-hint">[ photo ]</span></div></div>
+        <div class="city-card-body"><div class="city-card-icon">🏭</div><div class="city-card-name">Howrah</div><p class="city-card-sub">A historic engineering and jute manufacturing hub across the river from Kolkata.</p></div>
+      </a>
+      <a href="darjeeling.html" class="city-card">
+        <div class="city-card-photo"><div class="city-card-photo-glow"></div><div class="city-card-photo-label"><span class="city-card-photo-name">Darjeeling</span><span class="city-card-photo-hint">[ photo ]</span></div></div>
+        <div class="city-card-body"><div class="city-card-icon">🍃</div><div class="city-card-name">Darjeeling</div><p class="city-card-sub">World-famous tea gardens and a Himalayan hill station tourism hub.</p></div>
+      </a>
+      <a href="paschim-bardhaman.html" class="city-card">
+        <div class="city-card-photo"><div class="city-card-photo-glow"></div><div class="city-card-photo-label"><span class="city-card-photo-name">Paschim Bardhaman</span><span class="city-card-photo-hint">[ photo ]</span></div></div>
+        <div class="city-card-body"><div class="city-card-icon">⚙️</div><div class="city-card-name">Paschim Bardhaman</div><p class="city-card-sub">Home to Durgapur and Asansol — West Bengal's steel and heavy industry belt.</p></div>
+      </a>
+      <a href="north-24-parganas.html" class="city-card">
+        <div class="city-card-photo"><div class="city-card-photo-glow"></div><div class="city-card-photo-label"><span class="city-card-photo-name">North 24 Parganas</span><span class="city-card-photo-hint">[ photo ]</span></div></div>
+        <div class="city-card-body"><div class="city-card-icon">🏘️</div><div class="city-card-name">North 24 Parganas</div><p class="city-card-sub">West Bengal's most populous district, home to a dense manufacturing and trading economy.</p></div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- 5 PILLARS -->
+<div class="section">
+  <div class="pad-top">
+    <div class="sec-label">// WHAT POWERS THE STATE</div>
+    <h2 class="sec-h2">The five pillars of <span class="grad">West Bengal's rise</span></h2>
+    <p class="sec-sub">From a Salt Lake IT corridor to the world's largest mangrove forest — the foundations shaping West Bengal's growth story.</p>
+    <div class="pillars-grid">
+      <div class="pillar-card">
+        <div class="pillar-photo"><div class="pillar-photo-glow"></div><span class="pillar-num-badge">01</span><div class="pillar-photo-label"><span class="pillar-photo-name">Salt Lake Sector V, Kolkata</span><span class="pillar-photo-hint">[ photo ]</span></div></div>
+        <div class="pillar-body"><div class="pillar-icon-row"><span class="pillar-icon">💻</span><h3 class="pillar-h3">Salt Lake Sector V, Kolkata</h3></div><div class="pillar-tag"><span class="pillar-tag-arrow">→</span><span class="pillar-tag-name">East India's IT &amp; BPO Hub</span></div><p class="pillar-desc">Kolkata's dedicated IT corridor anchors eastern India's largest technology and business process economy.</p></div>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-photo"><div class="pillar-photo-glow"></div><span class="pillar-num-badge">02</span><div class="pillar-photo-label"><span class="pillar-photo-name">Howrah-Durgapur Industrial Belt</span><span class="pillar-photo-hint">[ photo ]</span></div></div>
+        <div class="pillar-body"><div class="pillar-icon-row"><span class="pillar-icon">🏭</span><h3 class="pillar-h3">Howrah-Durgapur Industrial Belt</h3></div><div class="pillar-tag"><span class="pillar-tag-arrow">→</span><span class="pillar-tag-name">Steel, Engineering &amp; Jute</span></div><p class="pillar-desc">Decades of steel plants, engineering works and jute mills anchor West Bengal's industrial base.</p></div>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-photo"><div class="pillar-photo-glow"></div><span class="pillar-num-badge">03</span><div class="pillar-photo-label"><span class="pillar-photo-name">Darjeeling &amp; Dooars Tea Gardens</span><span class="pillar-photo-hint">[ photo ]</span></div></div>
+        <div class="pillar-body"><div class="pillar-icon-row"><span class="pillar-icon">🍃</span><h3 class="pillar-h3">Darjeeling &amp; Dooars Tea Gardens</h3></div><div class="pillar-tag"><span class="pillar-tag-arrow">→</span><span class="pillar-tag-name">World-Famous Tea &amp; Hill Tourism</span></div><p class="pillar-desc">The Darjeeling and Dooars tea gardens supply some of the world's most prized tea, alongside a thriving hill tourism economy.</p></div>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-photo"><div class="pillar-photo-glow"></div><span class="pillar-num-badge">04</span><div class="pillar-photo-label"><span class="pillar-photo-name">Sundarbans</span><span class="pillar-photo-hint">[ photo ]</span></div></div>
+        <div class="pillar-body"><div class="pillar-icon-row"><span class="pillar-icon">🐅</span><h3 class="pillar-h3">Sundarbans</h3></div><div class="pillar-tag"><span class="pillar-tag-arrow">→</span><span class="pillar-tag-name">World's Largest Mangrove Forest</span></div><p class="pillar-desc">A UNESCO World Heritage Site and home to the Royal Bengal Tiger, driving eco-tourism across the delta.</p></div>
+      </div>
+      <div class="pillar-card">
+        <div class="pillar-photo"><div class="pillar-photo-glow"></div><span class="pillar-num-badge">05</span><div class="pillar-photo-label"><span class="pillar-photo-name">Haldia &amp; Kolkata Port</span><span class="pillar-photo-hint">[ photo ]</span></div></div>
+        <div class="pillar-body"><div class="pillar-icon-row"><span class="pillar-icon">🚢</span><h3 class="pillar-h3">Haldia &amp; Kolkata Port</h3></div><div class="pillar-tag"><span class="pillar-tag-arrow">→</span><span class="pillar-tag-name">Major Port &amp; Petrochemical Hub</span></div><p class="pillar-desc">The Hooghly river ports at Kolkata and Haldia anchor eastern India's shipping, petrochemical and trade economy.</p></div>
+      </div>
+    </div>
+    <p style="font-family:'Space Mono',monospace;font-size:10.5px;color:#565c70;margin-top:12px">Photo slots ready — drop in imagery for each pillar to bring them to life.</p>
+  </div>
+</div>
+
+<!-- BUSINESS GROWTH -->
+<div class="section">
+  <div class="pad-top">
+    <div class="growth-grid">
+      <div>
+        <div class="sec-label">// BUSINESS GROWTH &amp; MARKETING</div>
+        <h2 class="sec-h2" style="font-size:32px">Going online is the new going to market.</h2>
+        <p style="font-size:15px;color:#aeb4c7;line-height:1.68;margin-top:16px;text-wrap:pretty">As West Bengal's customers shop, search, and pay on their phones, the businesses that show up online are the ones that grow. Discovery now starts on Google and Instagram, trust is built through reviews and content, and a single well-run campaign can reach an entire district.</p>
+        <div class="growth-points" style="margin-top:24px">
+          <div class="gpoint"><span class="gpoint-dot"></span><div><div class="gpoint-title">Online-first consumers</div><div class="gpoint-sub">A young, mobile audience that researches before it buys.</div></div></div>
+          <div class="gpoint"><span class="gpoint-dot"></span><div><div class="gpoint-title">Local businesses digitizing</div><div class="gpoint-sub">Shops, clinics, and services building their first real online presence.</div></div></div>
+          <div class="gpoint"><span class="gpoint-dot"></span><div><div class="gpoint-title">Marketing that travels</div><div class="gpoint-sub">Content and ads that reach whole districts at a fraction of old costs.</div></div></div>
+        </div>
+      </div>
+      <div class="growth-card">
+        <div class="chart-head"><span class="chart-name">DIGITAL ADOPTION · WEST BENGAL</span><span class="chart-val">▲ trending up</span></div>
+        <div class="bars">
+          <div class="bar" style="height:36%;background:rgba(255,255,255,.1);animation-delay:.05s"></div>
+          <div class="bar" style="height:50%;background:rgba(255,255,255,.13);animation-delay:.1s"></div>
+          <div class="bar" style="height:62%;background:linear-gradient(180deg,var(--accent2),rgba(139,92,246,.4));animation-delay:.15s"></div>
+          <div class="bar" style="height:80%;background:linear-gradient(180deg,var(--accent),rgba(77,124,254,.4));animation-delay:.2s"></div>
+          <div class="bar" style="height:100%;background:linear-gradient(180deg,var(--accent),var(--accent2));box-shadow:0 0 18px -2px var(--accent);animation-delay:.25s"></div>
+        </div>
+        <div class="chart-labels"><span>2021</span><span>2022</span><span>2023</span><span>2024</span><span>now</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- GLIMPSES OF MADHYA PRADESH -->
+<div class="section">
+  <div class="pad-top">
+    <div class="sec-header">
+      <div><div class="sec-label">// GLIMPSES OF WEST BENGAL</div><h2 class="sec-h2">A state of culture, industry <span class="grad">&amp; living heritage</span></h2></div>
+      <p style="font-size:15px;color:#aeb4c7;max-width:340px;line-height:1.65">Where colonial-era grandeur meets Himalayan tea gardens, and a mangrove delta sits beside a booming IT corridor.</p>
+    </div>
+    <div class="photo-grid">
+      <div class="photo-cell wide tall">
+        <div class="photo-cell-overlay"></div>
+        <div class="photo-cell-label" style="font-size:19px">Victoria Memorial, Kolkata</div>
+      </div>
+      <div class="photo-cell">
+        <div class="photo-cell-overlay"></div>
+        <div class="photo-cell-label">Darjeeling tea gardens &amp; toy train</div>
+      </div>
+      <div class="photo-cell">
+        <div class="photo-cell-overlay"></div>
+        <div class="photo-cell-label">Sundarbans mangrove delta</div>
+      </div>
+      <div class="photo-cell">
+        <div class="photo-cell-overlay"></div>
+        <div class="photo-cell-label">Howrah Bridge at dusk</div>
+      </div>
+      <div class="photo-cell">
+        <div class="photo-cell-overlay"></div>
+        <div class="photo-cell-label">Durga Puja pandal, Kolkata</div>
+      </div>
+    </div>
+    <p style="font-family:'Space Mono',monospace;font-size:10.5px;color:#565c70;margin-top:12px">Photo slots ready — drop in imagery for each location to bring them to life.</p>
+  </div>
+</div>
+
+<!-- 55 DISTRICTS -->
+<div class="section">
+  <div class="pad-top">
+    <div style="text-align:center;margin-bottom:34px">
+      <h2 class="sec-h2">Serving businesses across <span class="grad">every district</span></h2>
+      <div style="display:flex;gap:40px;flex-wrap:wrap;justify-content:center;margin-top:24px">
+        <div><div style="font-family:'Space Grotesk',sans-serif;font-size:30px;font-weight:700;color:var(--accent)">23</div><div style="font-size:12.5px;color:#9aa0b4">Districts, fully live</div></div>
+        <div><div style="font-family:'Space Grotesk',sans-serif;font-size:30px;font-weight:700">5</div><div style="font-size:12.5px;color:#9aa0b4">Administrative divisions</div></div>
+        <div><div style="font-family:'Space Grotesk',sans-serif;font-size:30px;font-weight:700;color:var(--accent)">1</div><div style="font-size:12.5px;color:#9aa0b4">State, fully local</div></div>
+      </div>
+    </div>
+    <div class="chips-box">
+      <div class="chips-header">
+        <div style="display:flex;align-items:center;gap:12px"><span class="chips-badge">WB</span><span style="font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:600">West Bengal</span></div>
+        <span class="chips-count">23 DISTRICTS</span>
+      </div>
+      <div class="chips-list">
+<a href="alipurduar.html" class="chip" style="color:#4d7cfe;border-color:rgba(77,124,254,.35);text-decoration:none">Alipurduar</a><a href="bankura.html" class="chip" style="color:#4d7cfe;border-color:rgba(77,124,254,.35);text-decoration:none">Bankura</a><a href="birbhum.html" class="chip" style="color:#4d7cfe;border-color:rgba(77,124,254,.35);text-decoration:none">Birbhum</a><a href="cooch-behar.html" class="chip" style="color:#4d7cfe;border-color:rgba(77,124,254,.35);text-decoration:none">Cooch Behar</a><a href="dakshin-dinajpur.html" class="chip" style="color:#4d7cfe;border-color:rgba(77,124,254,.35);text-decoration:none">Dakshin Dinajpur</a><a href="darjeeling.html" class="chip" style="color:#4d7cfe;border-color:rgba(77,124,254,.35);text-decoration:none">Darjeeling</a><a href="hooghly.html" class="chip" style="color:#4d7cfe;border-color:rgba(77,124,254,.35);text-decoration:none">Hooghly</a><a href="howrah.html" class="chip" style="color:#4d7cfe;border-color:rgba(77,124,254,.35);text-decoration:none">Howrah</a><a href="jalpaiguri.html" class="chip" style="color:#4d7cfe;border-color:rgba(77,124,254,.35);text-decoration:none">Jalpaiguri</a><a href="jhargram.html" class="chip" style="color:#4d7cfe;border-color:rgba(77,124,254,.35);text-decoration:none">Jhargram</a><a href="kalimpong.html" class="chip" style="color:#4d7cfe;border-color:rgba(77,124,254,.35);text-decoration:none">Kalimpong</a><a href="kolkata.html" class="chip" style="color:#4d7cfe;border-color:rgba(77,124,254,.35);text-decoration:none">Kolkata</a><a href="malda.html" class="chip" style="color:#4d7cfe;border-color:rgba(77,124,254,.35);text-decoration:none">Malda</a><a href="murshidabad.html" class="chip" style="color:#4d7cfe;border-color:rgba(77,124,254,.35);text-decoration:none">Murshidabad</a><a href="nadia.html" class="chip" style="color:#4d7cfe;border-color:rgba(77,124,254,.35);text-decoration:none">Nadia</a><a href="north-24-parganas.html" class="chip" style="color:#4d7cfe;border-color:rgba(77,124,254,.35);text-decoration:none">North 24 Parganas</a><a href="paschim-bardhaman.html" class="chip" style="color:#4d7cfe;border-color:rgba(77,124,254,.35);text-decoration:none">Paschim Bardhaman</a><a href="paschim-medinipur.html" class="chip" style="color:#4d7cfe;border-color:rgba(77,124,254,.35);text-decoration:none">Paschim Medinipur</a><a href="purba-bardhaman.html" class="chip" style="color:#4d7cfe;border-color:rgba(77,124,254,.35);text-decoration:none">Purba Bardhaman</a><a href="purba-medinipur.html" class="chip" style="color:#4d7cfe;border-color:rgba(77,124,254,.35);text-decoration:none">Purba Medinipur</a><a href="purulia.html" class="chip" style="color:#4d7cfe;border-color:rgba(77,124,254,.35);text-decoration:none">Purulia</a><a href="south-24-parganas.html" class="chip" style="color:#4d7cfe;border-color:rgba(77,124,254,.35);text-decoration:none">South 24 Parganas</a><a href="uttar-dinajpur.html" class="chip" style="color:#4d7cfe;border-color:rgba(77,124,254,.35);text-decoration:none">Uttar Dinajpur</a>
+    </div>
+  </div>
+</div>
+
+<!-- CLOSER -->
+<div class="closer">
+  <div class="closer-card">
+    <div class="closer-glow"></div>
+    <div class="closer-label">WEST BENGAL · DIGITAL GROWTH</div>
+    <h2>West Bengal's digital growth story<br>is <span class="grad">just beginning.</span></h2>
+    <p>We're proud to be part of it — telling local stories with technology, creativity, and craft.</p>
+    <div class="closer-btns">
+      <a href="../contact-us.html" class="btn-primary">Book a free strategy call →</a>
+      <a href="../resources/case-studies.html" class="btn-ghost">See client results</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <a href="../index.html" class="footer-logo">
+        <svg width="32" height="32" viewBox="0 0 30 30" fill="none"><rect x="3" y="3" width="24" height="24" rx="6" stroke="var(--accent)" stroke-width="1.6"/><rect x="9.5" y="9.5" width="11" height="11" rx="2" fill="var(--accent)"/><circle cx="15" cy="15" r="2.4" fill="#06070d"/></svg>
+        <span class="footer-logo-text">WEBTECH<span>CORE</span></span>
+      </a>
+      <p class="footer-desc">Digital marketing that turns attention into revenue. SEO, ads, social and web — working as one system for West Bengal businesses.</p>
+      <div class="footer-social">
+        <a href="#" class="social-btn" aria-label="Facebook"><svg width="16" height="16" fill="#aeb4c7" viewBox="0 0 24 24"><path d="M14 8h2V5h-2.5C12 5 11 6 11 7.5V9H9v3h2v7h3v-7h2.2l.5-3H14V8Z"/></svg></a>
+        <a href="#" class="social-btn" aria-label="X"><svg width="16" height="16" fill="#aeb4c7" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.763l7.738-8.835L1.254 2.25h6.857l4.26 5.632zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+        <a href="#" class="social-btn" aria-label="Instagram"><svg width="16" height="16" fill="#aeb4c7" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+        <a href="#" class="social-btn" aria-label="LinkedIn"><svg width="16" height="16" fill="#aeb4c7" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-label">SERVICES</div>
+      <div class="footer-links">
+        <a href="../services/seo.html">Search Engine Optimization</a>
+        <a href="../services/ppc.html">Paid Advertising</a>
+        <a href="../services/social-media.html">Social Media</a>
+        <a href="../services/web-design.html">Web Design</a>
+        <a href="../services/index.html">View all services →</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-label">INDUSTRIES</div>
+      <div class="footer-links">
+        <a href="../industries/healthcare.html">Healthcare</a>
+        <a href="../industries/real-estate.html">Real Estate</a>
+        <a href="../industries/ecommerce.html">E-commerce</a>
+        <a href="../industries/restaurants.html">Restaurants</a>
+        <a href="../industries/home-services.html">Home Services</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-col-label">COMPANY</div>
+      <div class="footer-links">
+        <a href="../about.html">About Us</a>
+        <a href="../resources/case-studies.html">Case Studies</a>
+        <a href="../resources/blog.html">Blog</a>
+        <a href="../resources/press-release.html">Press</a>
+        <a href="../contact-us.html">Contact</a><a href="../sitemap.html">Sitemap</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy"><span>© 2026 WebTech Core. All rights reserved.</span><a href="../privacy-policy.html">Privacy Policy</a><a href="../terms-and-conditions.html">Terms &amp; Conditions</a></div>
+    <div class="footer-contact"><span>info@webtechcore.io</span><span>+91 9110170824</span><span class="tagline">Engineered for growth.</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var activeMenu=null;
+  function positionWide(id){var p=document.getElementById(id),n=document.querySelector('.nav');if(!n||!p)return;var r=n.getBoundingClientRect();p.style.left=(r.left+32)+'px';p.style.top=(r.bottom+8)+'px';p.style.width=Math.min(980,r.width-64)+'px';}
+  function closeAll(){['industries','services','resources','countries'].forEach(function(id){var p=document.getElementById('panel-'+id),c=document.getElementById('caret-'+id),w=document.getElementById('dd-'+id);if(p)p.classList.remove('open');if(c)c.classList.remove('open');if(w){var b=w.querySelector('.nav-btn');if(b)b.setAttribute('aria-expanded','false');}});activeMenu=null;}
+  window.closeAll=closeAll;
+  function openMenu(id,wide){closeAll();var p=document.getElementById('panel-'+id),c=document.getElementById('caret-'+id),w=document.getElementById('dd-'+id);if(!p)return;p.classList.add('open');if(c)c.classList.add('open');if(w){var b=w.querySelector('.nav-btn');if(b)b.setAttribute('aria-expanded','true');}if(wide)positionWide('panel-'+id);activeMenu=id;}
+  window.openMenu=openMenu;
+  function toggleMenu(id,wide){if(activeMenu===id)closeAll();else openMenu(id,wide);}
+  window.toggleMenu=toggleMenu;
+  document.addEventListener('click',function(e){if(!e.target.closest('#dd-industries')&&!e.target.closest('#panel-industries')&&!e.target.closest('#dd-services')&&!e.target.closest('#panel-services')&&!e.target.closest('#dd-resources')&&!e.target.closest('#panel-resources')&&!e.target.closest('#dd-countries')&&!e.target.closest('#panel-countries'))closeAll();});
+  window.addEventListener('resize',function(){if(activeMenu==='industries')positionWide('panel-industries');if(activeMenu==='services')positionWide('panel-services');});
+})();
+
+(function(){
+  var districts=[["Kolkata",14],["Howrah",9],["North 24 Parganas",8],["South 24 Parganas",6],["Paschim Bardhaman",4],["Hooghly",3],["Darjeeling",3],["Nadia",3],["Murshidabad",2],["Purba Bardhaman",2],["Jalpaiguri",2],["Malda",2],["Purba Medinipur",2],["Birbhum",2],["Bankura",2],["Cooch Behar",2]];
+  var idx=0;
+  var nameEl=document.getElementById('district-name');
+  var numEl=document.getElementById('district-num');
+  if(!nameEl||!numEl||districts.length<2)return;
+  setInterval(function(){
+    idx=(idx+1)%districts.length;
+    nameEl.style.opacity='0';numEl.style.opacity='0';
+    setTimeout(function(){nameEl.textContent=districts[idx][0];numEl.textContent=districts[idx][1];nameEl.style.opacity='1';numEl.style.opacity='1';},180);
+  },2200);
+})();
+</script>
+<script src="../styles/mobile-nav.js"></script>
+</body>
+</html>
