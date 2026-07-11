@@ -1,0 +1,137 @@
+/* Kryvex Media — shared light theme design system.
+   Tokens match the brand spec exactly: lavender-white ground, dark ink text,
+   three purples driving buttons/links/icons only — never large color blocks. */
+
+:root{
+  --bg:#F5F3FB;
+  --surface:#FFFFFF;
+  --ink:#161423;
+  --muted:#63626E;
+  --accent:#7046B6;
+  --accent-dark:#3B1C6C;
+  --accent-light:#A272F5;
+  --tag:#896CC9;
+  --line:rgba(22,20,35,.11);
+  --line-soft:rgba(22,20,35,.07);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--ink);
+  font-family:'Manrope','Segoe UI',system-ui,sans-serif;
+  font-weight:500;
+  -webkit-font-smoothing:antialiased;
+  line-height:1.5;
+}
+h1,h2,h3,h4{font-weight:800;letter-spacing:-.02em;color:var(--ink);margin:0;text-wrap:balance}
+p{margin:0}
+a{color:inherit}
+img{max-width:100%;display:block}
+::selection{background:rgba(162,114,245,.32);color:var(--ink)}
+
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+.eyebrow{font-size:11.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--tag)}
+.muted{color:var(--muted);font-weight:500}
+
+/* ===== NAV ===== */
+.k-header{position:sticky;top:0;z-index:40;background:rgba(245,243,251,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line-soft)}
+.k-nav{display:flex;align-items:center;justify-content:space-between;padding:18px 0;gap:20px}
+.k-logo{display:flex;align-items:center;gap:11px;text-decoration:none;flex:none}
+.k-logo-tile{width:40px;height:40px;border-radius:9px;background:var(--bg);border:1px solid var(--line);display:flex;align-items:center;justify-content:center;flex:none}
+.k-logo-word{display:flex;flex-direction:column;line-height:1.05}
+.k-logo-word b{font-size:16.5px;font-weight:800;letter-spacing:.01em;white-space:nowrap}
+.k-logo-word b span{font-weight:500;color:var(--muted)}
+.k-logo-word small{font-size:8.5px;font-weight:700;letter-spacing:.16em;color:var(--tag);margin-top:3px;white-space:nowrap}
+
+.k-navlinks{display:flex;align-items:center;gap:28px;font-size:14px;font-weight:600;flex-wrap:wrap}
+.k-navlinks>a{text-decoration:none;color:var(--ink);opacity:.75;transition:opacity .15s;white-space:nowrap}
+.k-navlinks>a:hover,.k-navlinks>a.active{opacity:1;color:var(--accent)}
+.k-dd{position:relative}
+.k-dd-btn{display:inline-flex;align-items:center;gap:6px;background:none;border:none;cursor:pointer;color:var(--ink);opacity:.75;font-family:inherit;font-size:14px;font-weight:600;padding:0;transition:opacity .15s}
+.k-dd-btn:hover,.k-dd-btn.active{opacity:1;color:var(--accent)}
+.k-caret{display:inline-block;transition:transform .18s}
+.k-caret.open{transform:rotate(180deg)}
+.k-panel{display:none;position:absolute;z-index:50;top:32px;left:0;padding:14px;background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:0 18px 40px -18px rgba(22,20,35,.22);min-width:270px}
+.k-panel.wide{min-width:560px;left:auto;right:-40px}
+.k-panel.open{display:block}
+.k-panel-label{font-size:10.5px;font-weight:700;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;padding:4px 10px 10px}
+.k-panel-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px}
+.k-panel-col{display:grid;grid-template-columns:1fr;gap:4px}
+.k-item{display:flex;align-items:center;gap:10px;padding:9px 10px;border-radius:9px;text-decoration:none;color:var(--ink);transition:background .15s}
+.k-item:hover{background:rgba(112,70,182,.07)}
+.k-item-icon{width:30px;height:30px;border-radius:8px;background:rgba(162,114,245,.14);color:var(--accent);display:flex;align-items:center;justify-content:center;flex:none;font-size:14px}
+.k-item-title{display:block;font-size:13px;font-weight:700}
+.k-item-sub{display:block;font-size:11px;color:var(--muted);font-weight:600}
+.k-panel-all{display:block;text-align:center;margin-top:8px;padding:9px;border-radius:9px;text-decoration:none;font-size:11.5px;font-weight:700;letter-spacing:.04em;color:var(--accent);background:rgba(112,70,182,.08)}
+.k-panel-all:hover{background:rgba(112,70,182,.14)}
+
+.k-nav-cta{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;font-size:13.5px;padding:11px 20px;border-radius:9px;transition:background .15s;flex:none;white-space:nowrap}
+.k-nav-cta:hover{background:var(--accent-dark)}
+.k-burger{display:none}
+
+/* ===== BUTTONS ===== */
+.btn-primary{display:inline-flex;align-items:center;gap:9px;background:var(--accent);color:#fff;text-decoration:none;font-weight:700;font-size:14.5px;padding:15px 26px;border-radius:10px;transition:background .15s;border:none;cursor:pointer;font-family:inherit}
+.btn-primary:hover{background:var(--accent-dark)}
+.btn-ghost{display:inline-flex;align-items:center;gap:9px;background:transparent;border:1px solid var(--line);color:var(--ink);text-decoration:none;font-weight:700;font-size:14.5px;padding:14px 24px;border-radius:10px;transition:border-color .15s,background .15s}
+.btn-ghost:hover{border-color:var(--accent);background:rgba(112,70,182,.05)}
+.btn-text{text-decoration:none;font-weight:700;font-size:14.5px;color:var(--ink);border-bottom:2px solid var(--accent-light);padding-bottom:3px;display:inline-block}
+
+/* ===== SECTIONS ===== */
+.k-section{padding:96px 0}
+.k-section.tight{padding-top:0}
+.sec-head{max-width:640px;margin-bottom:48px}
+.sec-head h2{font-size:clamp(26px,3.2vw,38px);margin-top:14px}
+.sec-head p{color:var(--muted);font-weight:500;font-size:15.5px;margin-top:14px;line-height:1.65}
+.sec-head.center{max-width:680px;margin-left:auto;margin-right:auto;text-align:center}
+
+/* cards */
+.k-card{background:var(--surface);border:1px solid var(--line);border-radius:16px}
+.k-badge{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border:1px solid var(--line);border-radius:100px;background:var(--surface);font-size:11.5px;font-weight:700;letter-spacing:.06em;color:var(--muted)}
+.k-badge i{width:6px;height:6px;border-radius:50%;background:var(--accent-light)}
+.k-chip{font-size:12.5px;font-weight:600;color:var(--muted);border:1px solid var(--line);padding:6px 12px;border-radius:8px;text-decoration:none;white-space:nowrap;display:inline-block;transition:border-color .15s,color .15s}
+.k-chip:hover{border-color:var(--accent);color:var(--accent)}
+.k-chip.on{color:var(--accent);border-color:rgba(112,70,182,.4);background:rgba(112,70,182,.05)}
+
+/* ===== FOOTER ===== */
+.k-footer{border-top:1px solid var(--line);padding:64px 0 36px;margin-top:40px}
+.k-foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;padding-bottom:44px}
+.k-foot-desc{font-size:13.5px;color:var(--muted);font-weight:500;line-height:1.6;margin-top:18px;max-width:280px}
+.k-foot-social{display:flex;gap:10px;margin-top:22px}
+.k-fsoc{width:36px;height:36px;border-radius:9px;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;transition:border-color .15s,background .15s;flex:none;text-decoration:none}
+.k-fsoc:hover{border-color:var(--accent);background:rgba(112,70,182,.06)}
+.k-foot-col-label{font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--muted);text-transform:uppercase;margin-bottom:16px}
+.k-foot-links{display:flex;flex-direction:column;gap:11px}
+.k-foot-links a{font-size:13.5px;font-weight:600;text-decoration:none;color:var(--ink);opacity:.8}
+.k-foot-links a:hover{opacity:1;color:var(--accent)}
+.k-foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:28px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted);font-weight:600;flex-wrap:wrap;gap:12px}
+.k-foot-bottom a{text-decoration:none;color:var(--muted);margin-left:18px}
+.k-foot-bottom a:hover{color:var(--accent)}
+
+/* utility */
+.k-cta-band{background:var(--accent-dark);border-radius:20px;padding:64px 56px;text-align:center;position:relative;overflow:hidden}
+.k-cta-band h2{color:#fff;font-size:clamp(24px,3vw,34px)}
+.k-cta-band p{color:rgba(255,255,255,.7);font-weight:500;font-size:15px;margin-top:12px;max-width:460px;margin-left:auto;margin-right:auto}
+.k-cta-band .btn-primary{margin-top:26px;background:#fff;color:var(--accent-dark)}
+.k-cta-band .btn-primary:hover{background:var(--accent-light);color:#fff}
+
+@media(max-width:900px){
+  .k-navlinks{display:none}
+  .k-burger{display:flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:9px;border:1px solid var(--line);background:none;cursor:pointer}
+  .k-nav-cta{display:none}
+  .wrap{padding:0 20px}
+  .k-section{padding:64px 0}
+  .k-foot-grid{grid-template-columns:1fr 1fr;gap:28px 20px}
+
+  /* Dropdown panels: on mobile they open inline (static flow) inside the
+     nav overlay instead of desktop's absolute/offset positioning, which
+     would otherwise push wide panels off the left edge of the viewport. */
+  .k-panel{position:static;top:auto;left:auto;right:auto;width:100%;margin-top:8px;box-shadow:none;border-radius:10px}
+  .k-panel.wide{min-width:0;right:auto}
+  .k-panel-grid{grid-template-columns:1fr}
+}
+@media(max-width:640px){
+  .k-foot-grid{grid-template-columns:1fr}
+}

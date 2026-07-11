@@ -1,790 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Contact Us — Kryvex Media</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-  <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Contact Us — Kryvex Media</title>
+<meta name="description" content="Tell us what you need and we'll get back to you within 48 hours with a free audit and a clear next step.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/theme.css">
+<style>
 
-    :root {
-      --accent: #4d7cfe;
-      --accent2: #8b5cf6;
-    }
+.ct-hero{padding:64px 0 8px;text-align:center}
+.ct-hero h1{font-size:clamp(32px,4.5vw,50px);margin-top:18px;max-width:760px;margin-left:auto;margin-right:auto}
+.ct-hero p{font-size:17px;line-height:1.6;color:var(--muted);font-weight:500;margin:18px auto 0;max-width:560px}
+.ct-body{max-width:1180px;margin:48px auto 0}
+.ct-grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:24px;align-items:start}
+.info-cards{display:flex;flex-direction:column;gap:14px}
+.info-card{border:1px solid var(--line);border-radius:16px;background:var(--surface);padding:24px;display:flex;align-items:center;gap:16px}
+.info-card-icon{flex:none;width:46px;height:46px;border-radius:12px;background:rgba(112,70,182,0.1);display:flex;align-items:center;justify-content:center}
+.info-card-label{font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--tag);text-transform:uppercase}
+.info-card-value{font-size:15px;font-weight:700;color:var(--ink);margin-top:3px}
+.reply-card{border:1px solid var(--line);border-radius:16px;background:var(--bg);padding:24px}
+.reply-badge{display:flex;align-items:center;gap:9px}
+.reply-dot{width:8px;height:8px;border-radius:50%;background:#2f9e6e}
+.reply-badge-text{font-size:11.5px;font-weight:700;letter-spacing:.06em;color:#2f9e6e;text-transform:uppercase}
+.reply-card p{font-size:13.5px;color:var(--muted);line-height:1.6;margin-top:10px;font-weight:500}
+.form-card{border:1px solid var(--line);border-radius:22px;background:var(--surface);padding:38px}
+form{display:flex;flex-direction:column;gap:20px}
+.field label{display:block;font-size:11px;font-weight:700;letter-spacing:.08em;color:var(--muted);text-transform:uppercase;margin-bottom:9px}
+.field label .req{color:var(--accent)}
+.field-row{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.field input,.field textarea{width:100%;background:var(--bg);border:1px solid var(--line);border-radius:11px;padding:14px 16px;color:var(--ink);font-family:'Manrope',sans-serif;font-size:15px;font-weight:600;outline:none;transition:border-color .15s;appearance:none}
+.field input:focus,.field textarea:focus{border-color:var(--accent)}
+.field input.error,.field textarea.error{border-color:#d9534f}
+.field textarea{resize:vertical;min-height:110px}
+.field-error{font-size:12.5px;color:#d9534f;margin-top:7px;display:none;font-weight:600}
+.field-error.visible{display:block}
+.submit-btn{background:var(--accent);color:#fff;border:none;font-family:'Manrope',sans-serif;font-weight:700;font-size:15.5px;padding:16px 28px;border-radius:12px;cursor:pointer;margin-top:2px;transition:background .15s}
+.submit-btn:hover{background:var(--accent-dark)}
+.form-privacy{font-size:11px;color:var(--muted);text-align:center;font-weight:600}
+.success-state{display:none;flex-direction:column;align-items:center;text-align:center;padding:40px 10px}
+.success-state.visible{display:flex}
+.success-icon{width:72px;height:72px;border-radius:50%;background:rgba(47,158,110,0.1);border:1px solid rgba(47,158,110,0.35);display:flex;align-items:center;justify-content:center}
+.success-state h2{font-size:26px;margin-top:22px}
+.success-state p{font-size:15px;color:var(--muted);line-height:1.6;margin-top:12px;max-width:380px;font-weight:500}
+.reset-btn{margin-top:26px;background:var(--bg);border:1px solid var(--line);color:var(--ink);font-family:'Manrope',sans-serif;font-weight:700;font-size:14px;padding:12px 22px;border-radius:11px;cursor:pointer;transition:background .15s}
+.reset-btn:hover{background:var(--surface)}
+@media(max-width:900px){.ct-grid{grid-template-columns:1fr}.form-card{padding:26px}}
 
-    body {
-      background: #06070d;
-      color: #e9ebf2;
-      font-family: 'Manrope', sans-serif;
-      -webkit-font-smoothing: antialiased;
-      min-height: 100vh;
-    }
-
-    ::selection { background: rgba(108,140,255,0.35); color: #fff; }
-
-    @keyframes wtc-pulse {
-      0%, 100% { opacity: .55; }
-      50%       { opacity: 1; }
-    }
-    @keyframes wtc-fadein {
-      from { opacity: 0; transform: translateY(-6px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes wtc-pop {
-      0%   { opacity: 0; transform: scale(0.85); }
-      100% { opacity: 1; transform: scale(1); }
-    }
-
-    /* ── Page background decorations ── */
-    .page-wrap {
-      position: relative;
-      overflow: hidden;
-    }
-    .bg-grid {
-      position: fixed;
-      inset: 0;
-      pointer-events: none;
-      background-image:
-        linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
-      background-size: 64px 64px;
-      -webkit-mask-image: radial-gradient(ellipse 90% 55% at 50% 0%, #000 30%, transparent 80%);
-              mask-image: radial-gradient(ellipse 90% 55% at 50% 0%, #000 30%, transparent 80%);
-      z-index: 0;
-    }
-    .bg-glow {
-      position: fixed;
-      top: -280px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 1100px;
-      height: 680px;
-      background: radial-gradient(ellipse at center, var(--accent) 0%, transparent 62%);
-      opacity: 0.2;
-      filter: blur(40px);
-      pointer-events: none;
-      z-index: 0;
-    }
-
-    /* ── Nav ── */
-    nav {
-      position: relative;
-      z-index: 20;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 30px 32px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      color: #e9ebf2;
-    }
-    .nav-logo-text {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      font-size: 21px;
-      letter-spacing: 0.16em;
-    }
-    .nav-logo-text span { color: var(--accent); }
-
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 30px;
-    }
-    .nav-link {
-      color: #aeb4c7;
-      text-decoration: none;
-      font-size: 15.5px;
-      font-weight: 500;
-      transition: color 0.15s;
-    }
-    .nav-link:hover { color: #fff; }
-
-    /* Dropdown trigger */
-    .nav-dropdown {
-      position: relative;
-    }
-    .nav-dropdown-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
-      background: none;
-      border: none;
-      cursor: pointer;
-      color: #aeb4c7;
-      font-family: 'Manrope', sans-serif;
-      font-size: 15.5px;
-      font-weight: 600;
-      padding: 0;
-      transition: color 0.15s;
-    }
-    .nav-dropdown-btn.open,
-    .nav-dropdown-btn:hover { color: #fff; }
-    .nav-dropdown-btn .caret {
-      display: inline-block;
-      transition: transform 0.2s;
-    }
-    .nav-dropdown-btn.open .caret { transform: rotate(180deg); }
-
-    /* Dropdown panels */
-    .dropdown-panel {
-      display: none;
-      position: absolute;
-      top: 42px;
-      z-index: 30;
-      padding: 16px;
-      background: rgba(14,16,28,0.97);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 16px;
-      box-shadow: 0 24px 60px -18px rgba(0,0,0,0.7);
-      animation: wtc-fadein 0.18s ease-out;
-    }
-    .dropdown-panel.open { display: block; }
-
-    /* Industries & Services: wide panels anchored to nav left */
-    .panel-wide {
-      /* positioned relative to nav via JS; width set inline */
-      width: 980px;
-      max-width: calc(100vw - 64px);
-    }
-    /* Resources: narrow, anchored to its own button */
-    .panel-resources {
-      width: 320px;
-      max-width: 90vw;
-      left: 0;
-    }
-
-    .panel-label {
-      font-family: 'Space Mono', monospace;
-      font-size: 10.5px;
-      letter-spacing: 0.1em;
-      color: #7c8398;
-      padding: 6px 12px 12px;
-    }
-    .panel-grid-4 {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 6px;
-    }
-    .panel-grid-1 {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 4px;
-    }
-    .panel-item {
-      display: flex;
-      align-items: center;
-      gap: 11px;
-      padding: 11px 12px;
-      border-radius: 10px;
-      text-decoration: none;
-      color: #aeb4c7;
-      transition: background 0.12s;
-    }
-    .panel-item:hover { background: rgba(255,255,255,0.05); }
-    .panel-item .icon { font-size: 16px; line-height: 1; flex-shrink: 0; }
-    .panel-item .name { display: block; font-size: 14px; font-weight: 600; }
-    .panel-item .sub  { display: block; font-size: 11.5px; color: #7c8398; }
-
-    .panel-footer-link {
-      display: block;
-      text-align: center;
-      margin-top: 10px;
-      padding: 10px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-family: 'Space Mono', monospace;
-      font-size: 11.5px;
-      letter-spacing: 0.06em;
-      color: var(--accent);
-      background: rgba(77,124,254,0.07);
-      transition: background 0.12s;
-    }
-    .panel-footer-link:hover { background: rgba(77,124,254,0.13); }
-
-    /* CTA button */
-    .nav-cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: var(--accent);
-      color: #fff;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 15px;
-      padding: 12px 22px;
-      border-radius: 11px;
-      box-shadow: 0 8px 28px -8px var(--accent);
-      transition: filter 0.15s;
-    }
-    .nav-cta:hover { filter: brightness(1.08); }
-
-    /* ── Hero ── */
-    .hero {
-      position: relative;
-      z-index: 4;
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 64px 32px 8px;
-      text-align: center;
-    }
-    .hero-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 9px;
-      padding: 7px 14px;
-      border: 1px solid rgba(255,255,255,0.12);
-      border-radius: 100px;
-      background: rgba(255,255,255,0.03);
-      font-family: 'Space Mono', monospace;
-      font-size: 11.5px;
-      letter-spacing: 0.08em;
-      color: #aeb4c7;
-    }
-    .hero-badge-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      background: var(--accent);
-      box-shadow: 0 0 10px var(--accent);
-      animation: wtc-pulse 2.4s infinite;
-    }
-    .hero h1 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-weight: 700;
-      font-size: 56px;
-      line-height: 1.05;
-      letter-spacing: -0.02em;
-      margin: 22px auto 0;
-      max-width: 760px;
-    }
-    .hero h1 .gradient {
-      background: linear-gradient(100deg, var(--accent), var(--accent2));
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-    .hero p {
-      font-size: 17.5px;
-      line-height: 1.6;
-      color: #aeb4c7;
-      margin: 20px auto 0;
-      max-width: 580px;
-    }
-
-    /* ── Contact body ── */
-    .contact-body {
-      position: relative;
-      z-index: 4;
-      max-width: 1200px;
-      margin: 48px auto 0;
-      padding: 0 32px;
-    }
-    .contact-grid {
-      display: grid;
-      grid-template-columns: 0.85fr 1.15fr;
-      gap: 24px;
-      align-items: start;
-    }
-
-    /* Info cards */
-    .info-cards {
-      display: flex;
-      flex-direction: column;
-      gap: 14px;
-    }
-    .info-card {
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 16px;
-      background: rgba(255,255,255,0.025);
-      padding: 24px;
-      display: flex;
-      align-items: center;
-      gap: 16px;
-    }
-    .info-card-icon {
-      flex: none;
-      width: 46px;
-      height: 46px;
-      border-radius: 12px;
-      background: rgba(77,124,254,0.12);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .info-card-label {
-      font-family: 'Space Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.08em;
-      color: #7c8398;
-    }
-    .info-card-value {
-      font-size: 15px;
-      font-weight: 600;
-      margin-top: 3px;
-    }
-    .reply-card {
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 16px;
-      background: linear-gradient(140deg, rgba(77,124,254,0.08), rgba(255,255,255,0.02));
-      padding: 24px;
-    }
-    .reply-badge {
-      display: flex;
-      align-items: center;
-      gap: 9px;
-    }
-    .reply-dot {
-      width: 8px;
-      height: 8px;
-      border-radius: 50%;
-      background: #34d399;
-      box-shadow: 0 0 9px #34d399;
-      animation: wtc-pulse 2s infinite;
-    }
-    .reply-badge-text {
-      font-family: 'Space Mono', monospace;
-      font-size: 11.5px;
-      letter-spacing: 0.06em;
-      color: #34d399;
-    }
-    .reply-card p {
-      font-size: 13.5px;
-      color: #aeb4c7;
-      line-height: 1.6;
-      margin-top: 10px;
-    }
-
-    /* Form card */
-    .form-card {
-      position: relative;
-      overflow: hidden;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 22px;
-      background: linear-gradient(160deg, #0d1020, #0a0b14);
-      padding: 38px;
-    }
-    .form-card-glow {
-      position: absolute;
-      top: -140px;
-      right: -60px;
-      width: 420px;
-      height: 420px;
-      background: radial-gradient(circle, var(--accent), transparent 62%);
-      opacity: 0.16;
-      filter: blur(30px);
-      pointer-events: none;
-    }
-    form {
-      position: relative;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-    }
-    .field label {
-      display: block;
-      font-family: 'Space Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.08em;
-      color: #aeb4c7;
-      margin-bottom: 9px;
-    }
-    .field label .req { color: var(--accent); }
-    .field-row {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
-    }
-    .field input,
-    .field textarea {
-      width: 100%;
-      background: rgba(255,255,255,0.04);
-      border: 1px solid rgba(255,255,255,0.14);
-      border-radius: 11px;
-      padding: 14px 16px;
-      color: #fff;
-      font-family: 'Manrope', sans-serif;
-      font-size: 15px;
-      outline: none;
-      transition: border-color 0.15s;
-      appearance: none;
-      -webkit-appearance: none;
-    }
-    .field input:focus,
-    .field textarea:focus { border-color: var(--accent); }
-    .field input.error,
-    .field textarea.error { border-color: #f87171; }
-    .field textarea {
-      resize: vertical;
-      min-height: 110px;
-    }
-    .field-error {
-      font-size: 12.5px;
-      color: #f87171;
-      margin-top: 7px;
-      display: none;
-    }
-    .field-error.visible { display: block; }
-    .submit-btn {
-      background: var(--accent);
-      color: #fff;
-      border: none;
-      font-family: 'Manrope', sans-serif;
-      font-weight: 700;
-      font-size: 15.5px;
-      padding: 16px 28px;
-      border-radius: 12px;
-      cursor: pointer;
-      box-shadow: 0 14px 38px -10px var(--accent);
-      margin-top: 2px;
-      transition: filter 0.15s;
-    }
-    .submit-btn:hover { filter: brightness(1.08); }
-    .form-privacy {
-      font-family: 'Space Mono', monospace;
-      font-size: 11px;
-      color: #7c8398;
-      text-align: center;
-    }
-
-    /* Success state */
-    .success-state {
-      position: relative;
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      padding: 40px 10px;
-      animation: wtc-pop 0.4s ease-out;
-    }
-    .success-state.visible { display: flex; }
-    .success-icon {
-      width: 72px;
-      height: 72px;
-      border-radius: 50%;
-      background: rgba(52,211,153,0.12);
-      border: 1px solid rgba(52,211,153,0.35);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    .success-state h2 {
-      font-family: 'Space Grotesk', sans-serif;
-      font-size: 26px;
-      font-weight: 700;
-      margin-top: 22px;
-    }
-    .success-state p {
-      font-size: 15px;
-      color: #aeb4c7;
-      line-height: 1.6;
-      margin-top: 12px;
-      max-width: 380px;
-    }
-    .reset-btn {
-      margin-top: 26px;
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.16);
-      color: #e9ebf2;
-      font-family: 'Manrope', sans-serif;
-      font-weight: 600;
-      font-size: 14px;
-      padding: 12px 22px;
-      border-radius: 11px;
-      cursor: pointer;
-      transition: background 0.15s;
-    }
-    .reset-btn:hover { background: rgba(255,255,255,0.1); }
-
-    /* ── Footer ── */
-    footer {
-      position: relative;
-      z-index: 4;
-      max-width: 1200px;
-      margin: 88px auto 0;
-      padding: 0 32px 44px;
-    }
-    .footer-top {
-      display: grid;
-      grid-template-columns: 1.7fr 1fr 1fr 1fr;
-      gap: 40px;
-      padding: 56px 0 44px;
-      border-top: 1px solid rgba(255,255,255,0.08);
-    }
-    .footer-brand-text {
-      font-size: 14.5px;
-      color: #9aa0b4;
-      line-height: 1.65;
-      margin: 20px 0 0;
-      max-width: 300px;
-    }
-    .footer-social {
-      display: flex;
-      gap: 10px;
-      margin-top: 24px;
-    }
-    .social-btn {
-      width: 38px;
-      height: 38px;
-      border-radius: 10px;
-      border: 1px solid rgba(255,255,255,0.1);
-      background: rgba(255,255,255,0.03);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: border-color 0.15s, background 0.15s;
-      text-decoration: none;
-    }
-    .social-btn:hover {
-      border-color: var(--accent);
-      background: rgba(77,124,254,0.08);
-    }
-    .footer-col-label {
-      font-family: 'Space Mono', monospace;
-      font-size: 11px;
-      letter-spacing: 0.1em;
-      color: #7c8398;
-      margin-bottom: 18px;
-    }
-    .footer-links {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-    .footer-link {
-      color: #aeb4c7;
-      text-decoration: none;
-      font-size: 14px;
-      transition: color 0.15s;
-    }
-    .footer-link:hover { color: #fff; }
-    .footer-bottom {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding-top: 26px;
-      border-top: 1px solid rgba(255,255,255,0.08);
-      flex-wrap: wrap;
-      gap: 14px;
-    }
-    .footer-legal {
-      display: flex;
-      align-items: center;
-      gap: 22px;
-      flex-wrap: wrap;
-    }
-    .footer-copy {
-      font-size: 13px;
-      color: #7c8398;
-    }
-    .footer-legal-link {
-      font-size: 13px;
-      color: #7c8398;
-      text-decoration: none;
-      transition: color 0.15s;
-    }
-    .footer-legal-link:hover { color: #aeb4c7; }
-    .footer-contact-info {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      flex-wrap: wrap;
-    }
-    .footer-contact-info span {
-      font-family: 'Space Mono', monospace;
-      font-size: 12px;
-      color: #7c8398;
-    }
-    .footer-contact-info .tagline { color: #565c70; }
-  </style>
-<link rel="stylesheet" href="styles/responsive.css">
+</style>
 </head>
 <body>
-<div class="page-wrap">
-  <div class="bg-grid"></div>
-  <div class="bg-glow"></div>
-
-  <!-- ── NAV ── -->
-  <nav id="main-nav">
-    <a href="index.html" class="nav-logo">
-      <svg width="36" height="36" viewBox="0 0 30 30" fill="none" aria-hidden="true">
-        <rect x="3" y="3" width="24" height="24" rx="6" stroke="var(--accent)" stroke-width="1.6"/>
-        <rect x="9.5" y="9.5" width="11" height="11" rx="2" fill="var(--accent)"/>
-        <circle cx="15" cy="15" r="2.4" fill="#06070d"/>
-      </svg>
-      <span class="nav-logo-text">KRYVEX<span>MEDIA</span></span>
+<header class="k-header">
+  <div class="wrap k-nav">
+    <a href="index.html" class="k-logo">
+      <div class="k-logo-tile">
+        <svg width="22" height="22" viewBox="0 0 30 30" fill="none">
+          <rect x="9" y="5" width="6" height="20" rx="1.5" fill="#3B1C6C"/>
+          <path d="M15 12.5 L26 4 L20.5 14.5 Z" fill="#7046B6"/>
+          <path d="M15 17.5 L26 26 L20.5 14.5 Z" fill="#A272F5"/>
+        </svg>
+      </div>
+      <div class="k-logo-word">
+        <b>KRYVEX<span> MEDIA</span></b>
+        <small>GLOBAL DIGITAL MARKETING</small>
+      </div>
     </a>
-
-    <div class="nav-links">
-      <a href="index.html" class="nav-link">Home</a>
-      <a href="about.html" class="nav-link">About</a>
-
-      <!-- Industries dropdown -->
-      <div class="nav-dropdown" id="dd-industries">
-        <button class="nav-dropdown-btn" aria-haspopup="true" aria-expanded="false" data-dd="industries">
-          Industries
-          <span class="caret">
-            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-        </button>
-        <div class="dropdown-panel panel-wide" id="panel-industries">
-          <div class="panel-label">INDUSTRIES WE SERVE</div>
-          <div class="panel-grid-4">
-            <a href="industries/healthcare.html" class="panel-item">
-              <span class="icon">🏥</span>
-              <span><span class="name">Healthcare</span><span class="sub">Clinics, dental, wellness</span></span>
-            </a>
-            <a href="industries/real-estate.html" class="panel-item">
-              <span class="icon">🏠</span>
-              <span><span class="name">Real Estate</span><span class="sub">Agents, brokers, developers</span></span>
-            </a>
-            <a href="industries/ecommerce.html" class="panel-item">
-              <span class="icon">🛍️</span>
-              <span><span class="name">E-commerce &amp; Retail</span><span class="sub">Online &amp; omnichannel stores</span></span>
-            </a>
-            <a href="industries/restaurants.html" class="panel-item">
-              <span class="icon">🍽️</span>
-              <span><span class="name">Restaurants</span><span class="sub">Cafes, dining, franchises</span></span>
-            </a>
-            <a href="industries/legal.html" class="panel-item">
-              <span class="icon">⚖️</span>
-              <span><span class="name">Legal &amp; Professional</span><span class="sub">Law, finance, consulting</span></span>
-            </a>
-            <a href="industries/home-services.html" class="panel-item">
-              <span class="icon">🔧</span>
-              <span><span class="name">Home Services</span><span class="sub">Trades, repair, contractors</span></span>
-            </a>
-            <a href="industries/education.html" class="panel-item">
-              <span class="icon">🎓</span>
-              <span><span class="name">Education</span><span class="sub">Schools, courses, edtech</span></span>
-            </a>
-            <a href="industries/fitness.html" class="panel-item">
-              <span class="icon">💪</span>
-              <span><span class="name">Fitness &amp; Wellness</span><span class="sub">Gyms, studios, coaches</span></span>
-            </a>
+    <div class="k-navlinks">
+      <a href="index.html">Home</a>
+      <div class="k-dd" id="dd-industries">
+        <button class="k-dd-btn" aria-expanded="false" aria-controls="panel-industries">Industries <span class="k-caret"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="k-panel wide" id="panel-industries" role="menu">
+          <div class="k-panel-label">Industries We Serve</div>
+          <div class="k-panel-grid">
+            <a href="industries/healthcare.html" class="k-item"><span class="k-item-icon">🏥</span><span><span class="k-item-title">Healthcare</span><span class="k-item-sub">Clinics, dental, wellness</span></span></a>
+            <a href="industries/real-estate.html" class="k-item"><span class="k-item-icon">🏠</span><span><span class="k-item-title">Real Estate</span><span class="k-item-sub">Agents, brokers, developers</span></span></a>
+            <a href="industries/ecommerce.html" class="k-item"><span class="k-item-icon">🛍️</span><span><span class="k-item-title">E-commerce &amp; Retail</span><span class="k-item-sub">Online &amp; omnichannel</span></span></a>
+            <a href="industries/restaurants.html" class="k-item"><span class="k-item-icon">🍽️</span><span><span class="k-item-title">Restaurants</span><span class="k-item-sub">Cafes, dining, franchises</span></span></a>
+            <a href="industries/legal.html" class="k-item"><span class="k-item-icon">⚖️</span><span><span class="k-item-title">Legal &amp; Professional</span><span class="k-item-sub">Law, finance, consulting</span></span></a>
+            <a href="industries/home-services.html" class="k-item"><span class="k-item-icon">🔧</span><span><span class="k-item-title">Home Services</span><span class="k-item-sub">Trades, repair, contractors</span></span></a>
+            <a href="industries/education.html" class="k-item"><span class="k-item-icon">🎓</span><span><span class="k-item-title">Education</span><span class="k-item-sub">Schools, courses, edtech</span></span></a>
+            <a href="industries/fitness.html" class="k-item"><span class="k-item-icon">💪</span><span><span class="k-item-title">Fitness &amp; Wellness</span><span class="k-item-sub">Gyms, studios, coaches</span></span></a>
           </div>
         </div>
       </div>
-
-      <!-- Services dropdown -->
-      <div class="nav-dropdown" id="dd-services">
-        <button class="nav-dropdown-btn" aria-haspopup="true" aria-expanded="false" data-dd="services">
-          Services
-          <span class="caret">
-            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-        </button>
-        <div class="dropdown-panel panel-wide" id="panel-services">
-          <div class="panel-label">WHAT WE DO</div>
-          <div class="panel-grid-4">
-            <a href="services/seo.html" class="panel-item">
-              <span class="icon">🔍</span>
-              <span><span class="name">Search Engine Optimization</span><span class="sub">Organic growth</span></span>
-            </a>
-            <a href="services/local-seo.html" class="panel-item">
-              <span class="icon">📍</span>
-              <span><span class="name">Local SEO</span><span class="sub">Map &amp; near-me</span></span>
-            </a>
-            <a href="services/ppc.html" class="panel-item">
-              <span class="icon">🎯</span>
-              <span><span class="name">Paid Advertising (PPC)</span><span class="sub">Google ads</span></span>
-            </a>
-            <a href="services/social-media.html" class="panel-item">
-              <span class="icon">📱</span>
-              <span><span class="name">Social Media Marketing</span><span class="sub">Build audience</span></span>
-            </a>
-            <a href="services/meta-ads.html" class="panel-item">
-              <span class="icon">⚡</span>
-              <span><span class="name">Meta Ads Services</span><span class="sub">FB &amp; Instagram</span></span>
-            </a>
-            <a href="services/content-marketing.html" class="panel-item">
-              <span class="icon">✍️</span>
-              <span><span class="name">Content Marketing</span><span class="sub">Blogs &amp; assets</span></span>
-            </a>
-            <a href="services/email-marketing.html" class="panel-item">
-              <span class="icon">✉️</span>
-              <span><span class="name">Email Marketing</span><span class="sub">Flows &amp; campaigns</span></span>
-            </a>
-            <a href="services/web-design.html" class="panel-item">
-              <span class="icon">🖥️</span>
-              <span><span class="name">Web Design &amp; Development</span><span class="sub">Design &amp; build</span></span>
-            </a>
-            <a href="services/graphics-design.html" class="panel-item">
-              <span class="icon">🎨</span>
-              <span><span class="name">Graphics Designing</span><span class="sub">Brand visuals</span></span>
-            </a>
+      <div class="k-dd" id="dd-services">
+        <button class="k-dd-btn" aria-expanded="false" aria-controls="panel-services">Services <span class="k-caret"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="k-panel wide" id="panel-services" role="menu">
+          <div class="k-panel-label">What We Do</div>
+          <div class="k-panel-grid">
+            <a href="services/seo.html" class="k-item"><span class="k-item-icon">🔍</span><span><span class="k-item-title">Search Engine Optimization</span><span class="k-item-sub">Organic growth</span></span></a>
+            <a href="services/local-seo.html" class="k-item"><span class="k-item-icon">📍</span><span><span class="k-item-title">Local SEO</span><span class="k-item-sub">Map &amp; near-me</span></span></a>
+            <a href="services/ppc.html" class="k-item"><span class="k-item-icon">🎯</span><span><span class="k-item-title">Paid Advertising (PPC)</span><span class="k-item-sub">Google ads</span></span></a>
+            <a href="services/social-media.html" class="k-item"><span class="k-item-icon">📱</span><span><span class="k-item-title">Social Media Marketing</span><span class="k-item-sub">Build audience</span></span></a>
+            <a href="services/meta-ads.html" class="k-item"><span class="k-item-icon">⚡</span><span><span class="k-item-title">Meta Ads Services</span><span class="k-item-sub">FB &amp; Instagram</span></span></a>
+            <a href="services/content-marketing.html" class="k-item"><span class="k-item-icon">✍️</span><span><span class="k-item-title">Content Marketing</span><span class="k-item-sub">Blogs &amp; assets</span></span></a>
+            <a href="services/email-marketing.html" class="k-item"><span class="k-item-icon">✉️</span><span><span class="k-item-title">Email Marketing</span><span class="k-item-sub">Flows &amp; campaigns</span></span></a>
+            <a href="services/web-design.html" class="k-item"><span class="k-item-icon">🖥️</span><span><span class="k-item-title">Web Design &amp; Development</span><span class="k-item-sub">Design &amp; build</span></span></a>
+            <a href="services/graphics-design.html" class="k-item"><span class="k-item-icon">🎨</span><span><span class="k-item-title">Graphics Designing</span><span class="k-item-sub">Brand visuals</span></span></a>
           </div>
-          <a href="services/index.html" class="panel-footer-link">VIEW ALL SERVICES →</a>
+          <a href="services/index.html" class="k-panel-all">VIEW ALL SERVICES →</a>
         </div>
       </div>
-
-      <!-- Resources dropdown -->
-      <div class="nav-dropdown" id="dd-resources">
-        <button class="nav-dropdown-btn" aria-haspopup="true" aria-expanded="false" data-dd="resources">
-          Resources
-          <span class="caret">
-            <svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          </span>
-        </button>
-        <div class="dropdown-panel panel-resources" id="panel-resources">
-          <div class="panel-label">RESOURCES</div>
-          <div class="panel-grid-1">
-            <a href="resources/blog.html" class="panel-item">
-              <span class="icon">📝</span>
-              <span><span class="name">Blog</span><span class="sub">Insights &amp; guides</span></span>
-            </a>
-            <a href="resources/press-release.html" class="panel-item">
-              <span class="icon">📰</span>
-              <span><span class="name">Press Release</span><span class="sub">News &amp; announcements</span></span>
-            </a>
-            <a href="resources/case-studies.html" class="panel-item">
-              <span class="icon">📊</span>
-              <span><span class="name">Case Studies</span><span class="sub">Real client results</span></span>
-            </a>
+      <div class="k-dd" id="dd-countries">
+        <button class="k-dd-btn" aria-expanded="false" aria-controls="panel-countries">Countries <span class="k-caret"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="k-panel" id="panel-countries" role="menu">
+          <div class="k-panel-label">Countries</div>
+          <div class="k-panel-col">
+            <a href="locations/india.html" class="k-item"><span class="k-item-icon">🇮🇳</span><span><span class="k-item-title">India</span><span class="k-item-sub">Live · all states</span></span></a>
+            <a href="locations/usa.html" class="k-item"><span class="k-item-icon">🇺🇸</span><span><span class="k-item-title">USA</span><span class="k-item-sub">Launching soon</span></span></a>
+            <a href="locations/uk.html" class="k-item"><span class="k-item-icon">🇬🇧</span><span><span class="k-item-title">UK</span><span class="k-item-sub">Launching soon</span></span></a>
+            <a href="locations/singapore.html" class="k-item"><span class="k-item-icon">🇸🇬</span><span><span class="k-item-title">Singapore</span><span class="k-item-sub">Launching soon</span></span></a>
           </div>
         </div>
       </div>
-
-      <a href="contact-us.html" class="nav-cta">Book Free Consultation</a>
+      <div class="k-dd" id="dd-resources">
+        <button class="k-dd-btn" aria-expanded="false" aria-controls="panel-resources">Resources <span class="k-caret"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="k-panel" id="panel-resources" role="menu">
+          <div class="k-panel-label">Resources</div>
+          <div class="k-panel-col">
+            <a href="resources/blog.html" class="k-item"><span class="k-item-icon">📝</span><span><span class="k-item-title">Blog</span><span class="k-item-sub">Insights &amp; guides</span></span></a>
+            <a href="resources/press-release.html" class="k-item"><span class="k-item-icon">📰</span><span><span class="k-item-title">Press Release</span><span class="k-item-sub">News &amp; announcements</span></span></a>
+            <a href="resources/case-studies.html" class="k-item"><span class="k-item-icon">📊</span><span><span class="k-item-title">Case Studies</span><span class="k-item-sub">Real client results</span></span></a>
+          </div>
+        </div>
+      </div>
     </div>
-  </nav>
-
-  <!-- ── HERO ── -->
-  <header class="hero" id="contact">
-    <div class="hero-badge">
-      <span class="hero-badge-dot"></span>
-      GET IN TOUCH
-    </div>
-    <h1>Let's talk about <span class="gradient">growing your business.</span></h1>
+    <a href="contact-us.html" class="k-nav-cta">Book Free Consultation</a>
+    <button class="k-burger" id="mnb" aria-label="Open menu"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+  </div>
+</header>
+<div class="wrap" style="padding:14px 32px 0;font-size:12.5px;color:var(--muted);font-weight:600">
+  <a href="index.html">Home</a> <span style="margin:0 6px;color:var(--line)">/</span> <span style="color:var(--ink);font-weight:700">Contact</span>
+</div>
+<main>
+  <section class="wrap ct-hero">
+    <div class="k-badge"><i></i>GET IN TOUCH</div>
+    <h1>Let's talk about <span style="color:var(--accent)">growing your business.</span></h1>
     <p>Tell us what you need and we'll get back to you within 48 hours with a free audit and a clear next step.</p>
-  </header>
+  </section>
 
-  <!-- ── CONTACT BODY ── -->
-  <section class="contact-body">
-    <div class="contact-grid">
+  <div class="wrap ct-body">
+    <div class="ct-grid">
 
-      <!-- Left: info cards -->
       <div class="info-cards">
         <div class="info-card">
           <span class="info-card-icon">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-              <rect x="3" y="5" width="18" height="14" rx="3" stroke="var(--accent)" stroke-width="1.7"/>
-              <path d="M4 7 L12 13 L20 7" stroke="var(--accent)" stroke-width="1.7" fill="none" stroke-linejoin="round"/>
+              <rect x="3" y="5" width="18" height="14" rx="3" stroke="#7046B6" stroke-width="1.7"/>
+              <path d="M4 7 L12 13 L20 7" stroke="#7046B6" stroke-width="1.7" fill="none" stroke-linejoin="round"/>
             </svg>
           </span>
           <div>
-            <div class="info-card-label">EMAIL US</div>
+            <div class="info-card-label">Email Us</div>
             <div class="info-card-value">info@kryvexmedia.com</div>
           </div>
         </div>
@@ -792,11 +161,11 @@
         <div class="info-card">
           <span class="info-card-icon">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-              <path d="M5 4 h4 l2 5 -2.5 1.5 a11 11 0 0 0 5 5 L16 13 l5 2 v4 a1 1 0 0 1 -1 1 A16 16 0 0 1 4 5 a1 1 0 0 1 1 -1 Z" stroke="var(--accent)" stroke-width="1.7" fill="none" stroke-linejoin="round"/>
+              <path d="M5 4 h4 l2 5 -2.5 1.5 a11 11 0 0 0 5 5 L16 13 l5 2 v4 a1 1 0 0 1 -1 1 A16 16 0 0 1 4 5 a1 1 0 0 1 1 -1 Z" stroke="#7046B6" stroke-width="1.7" fill="none" stroke-linejoin="round"/>
             </svg>
           </span>
           <div>
-            <div class="info-card-label">CALL US</div>
+            <div class="info-card-label">Call Us</div>
             <div class="info-card-value">+91 9110170824</div>
           </div>
         </div>
@@ -804,12 +173,12 @@
         <div class="info-card">
           <span class="info-card-icon">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none">
-              <path d="M12 21 C7 16 4 12.5 4 9 a8 8 0 0 1 16 0 C20 12.5 17 16 12 21 Z" stroke="var(--accent)" stroke-width="1.7" fill="none" stroke-linejoin="round"/>
-              <circle cx="12" cy="9" r="2.4" stroke="var(--accent)" stroke-width="1.7"/>
+              <path d="M12 21 C7 16 4 12.5 4 9 a8 8 0 0 1 16 0 C20 12.5 17 16 12 21 Z" stroke="#7046B6" stroke-width="1.7" fill="none" stroke-linejoin="round"/>
+              <circle cx="12" cy="9" r="2.4" stroke="#7046B6" stroke-width="1.7"/>
             </svg>
           </span>
           <div>
-            <div class="info-card-label">VISIT US</div>
+            <div class="info-card-label">Visit Us</div>
             <div class="info-card-value">Across India &amp; the US</div>
           </div>
         </div>
@@ -817,21 +186,17 @@
         <div class="reply-card">
           <div class="reply-badge">
             <span class="reply-dot"></span>
-            <span class="reply-badge-text">REPLY IN 48 HOURS</span>
+            <span class="reply-badge-text">Reply in 48 hours</span>
           </div>
           <p>Every enquiry gets a free marketing audit — no obligation, no sales pressure.</p>
         </div>
       </div>
 
-      <!-- Right: form -->
       <div class="form-card">
-        <div class="form-card-glow"></div>
-
-        <!-- Success state (hidden initially) -->
         <div class="success-state" id="success-state">
           <div class="success-icon">
             <svg width="34" height="34" viewBox="0 0 34 34" fill="none">
-              <path d="M8 17 L14 23 L26 10" stroke="#34d399" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <path d="M8 17 L14 23 L26 10" stroke="#2f9e6e" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
           <h2>Thanks, <span id="success-name">there</span> — message received.</h2>
@@ -839,29 +204,28 @@
           <button class="reset-btn" id="reset-btn">Send another message</button>
         </div>
 
-        <!-- Contact form -->
         <form id="contact-form" novalidate>
           <div class="field">
-            <label for="name">FULL NAME <span class="req">*</span></label>
+            <label for="name">Full Name <span class="req">*</span></label>
             <input type="text" id="name" name="name" placeholder="Jane Cooper" autocomplete="name">
             <div class="field-error" id="err-name">Please enter your name.</div>
           </div>
 
           <div class="field-row">
             <div class="field">
-              <label for="email">EMAIL <span class="req">*</span></label>
+              <label for="email">Email <span class="req">*</span></label>
               <input type="email" id="email" name="email" placeholder="jane@business.com" autocomplete="email">
               <div class="field-error" id="err-email">Please enter your email.</div>
             </div>
             <div class="field">
-              <label for="mobile">MOBILE <span class="req">*</span></label>
+              <label for="mobile">Mobile <span class="req">*</span></label>
               <input type="tel" id="mobile" name="mobile" placeholder="+1 555 012 3400" autocomplete="tel">
               <div class="field-error" id="err-mobile">Please enter your mobile.</div>
             </div>
           </div>
 
           <div class="field">
-            <label for="requirement">YOUR REQUIREMENT <span class="req">*</span></label>
+            <label for="requirement">Your Requirement <span class="req">*</span></label>
             <textarea id="requirement" name="requirement" rows="4" placeholder="Tell us what you're looking for — SEO, ads, a new website, more leads…"></textarea>
             <div class="field-error" id="err-req">Tell us what you need.</div>
           </div>
@@ -871,162 +235,116 @@
         </form>
       </div>
     </div>
-  </section>
-
-  <!-- ── FOOTER ── -->
-  <footer>
-    <div class="footer-top">
+  </div>
+</main>
+<footer class="k-footer">
+  <div class="wrap">
+    <div class="k-foot-grid">
       <div>
-        <a href="index.html" class="nav-logo">
-          <svg width="34" height="34" viewBox="0 0 30 30" fill="none">
-            <rect x="3" y="3" width="24" height="24" rx="6" stroke="var(--accent)" stroke-width="1.6"/>
-            <rect x="9.5" y="9.5" width="11" height="11" rx="2" fill="var(--accent)"/>
-            <circle cx="15" cy="15" r="2.4" fill="#06070d"/>
-          </svg>
-          <span class="nav-logo-text" style="font-size:19px;">KRYVEX<span>MEDIA</span></span>
+        <a href="index.html" class="k-logo">
+          <div class="k-logo-tile">
+            <svg width="20" height="20" viewBox="0 0 30 30" fill="none">
+              <rect x="9" y="5" width="6" height="20" rx="1.5" fill="#3B1C6C"/>
+              <path d="M15 12.5 L26 4 L20.5 14.5 Z" fill="#7046B6"/>
+              <path d="M15 17.5 L26 26 L20.5 14.5 Z" fill="#A272F5"/>
+            </svg>
+          </div>
+          <div class="k-logo-word"><b>KRYVEX<span> MEDIA</span></b></div>
         </a>
-        <p class="footer-brand-text">The complete digital marketing partner for small businesses ready to grow — SEO, ads, social, web, and content under one roof.</p>
-        <div class="footer-social">
-          <a href="#" class="social-btn" aria-label="Facebook">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M14 8 h2 V5 h-2.5 C12 5 11 6 11 7.5 V9 H9 v3 h2 v7 h3 v-7 h2.2 l.5-3 H14 V8 Z" fill="#aeb4c7"/></svg>
-          </a>
-          <a href="#" class="social-btn" aria-label="X (Twitter)">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 5 l6 7 -6 7 h2 l5-5.8 L16 19 h4 l-6.4-7.6 L19.5 5 h-2 l-4.6 5.4 L8 5 Z" fill="#aeb4c7"/></svg>
-          </a>
-          <a href="#" class="social-btn" aria-label="Instagram">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="4.5" stroke="#aeb4c7" stroke-width="1.6"/><circle cx="12" cy="12" r="3.6" stroke="#aeb4c7" stroke-width="1.6"/><circle cx="16.5" cy="7.5" r="1" fill="#aeb4c7"/></svg>
-          </a>
-          <a href="#" class="social-btn" aria-label="LinkedIn">
-            <svg width="17" height="17" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="3.5" stroke="#aeb4c7" stroke-width="1.6"/><line x1="8" y1="10.5" x2="8" y2="17" stroke="#aeb4c7" stroke-width="1.6" stroke-linecap="round"/><circle cx="8" cy="7.5" r="1.1" fill="#aeb4c7"/><path d="M11.5 17 v-4 a2.5 2.5 0 0 1 5 0 v4 M11.5 13 v4" stroke="#aeb4c7" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>
-          </a>
+        <p class="k-foot-desc">The complete digital marketing partner for small businesses ready to grow — SEO, ads, social, web, and content under one roof.</p>
+        <div class="k-foot-social">
+          <a href="#" class="k-fsoc" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M14 8 h2 V5 h-2.5 C12 5 11 6 11 7.5 V9 H9 v3 h2 v7 h3 v-7 h2.2 l.5-3 H14 V8 Z" fill="#63626E"/></svg></a>
+          <a href="#" class="k-fsoc" aria-label="X / Twitter"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 5 l6 7 -6 7 h2 l5-5.8 L16 19 h4 l-6.4-7.6 L19.5 5 h-2 l-4.6 5.4 L8 5 Z" fill="#63626E"/></svg></a>
+          <a href="#" class="k-fsoc" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="4.5" stroke="#63626E" stroke-width="1.6"/><circle cx="12" cy="12" r="3.6" stroke="#63626E" stroke-width="1.6"/><circle cx="16.5" cy="7.5" r="1" fill="#63626E"/></svg></a>
+          <a href="#" class="k-fsoc" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="3.5" stroke="#63626E" stroke-width="1.6"/><line x1="8" y1="10.5" x2="8" y2="17" stroke="#63626E" stroke-width="1.6" stroke-linecap="round"/><circle cx="8" cy="7.5" r="1.1" fill="#63626E"/><path d="M11.5 17 v-4 a2.5 2.5 0 0 1 5 0 v4 M11.5 13 v4" stroke="#63626E" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg></a>
         </div>
       </div>
-
       <div>
-        <div class="footer-col-label">SERVICES</div>
-        <div class="footer-links">
-          <a href="services/seo.html" class="footer-link">Search Engine Optimization</a>
-          <a href="services/ppc.html" class="footer-link">Paid Advertising</a>
-          <a href="services/social-media.html" class="footer-link">Social Media</a>
-          <a href="services/web-design.html" class="footer-link">Web Design</a>
-          <a href="services/index.html" class="footer-link">View all services →</a>
+        <div class="k-foot-col-label">Services</div>
+        <div class="k-foot-links">
+          <a href="services/seo.html">Search Engine Optimization</a>
+          <a href="services/ppc.html">Paid Advertising</a>
+          <a href="services/social-media.html">Social Media</a>
+          <a href="services/web-design.html">Web Design</a>
+          <a href="services/index.html">View all services →</a>
         </div>
       </div>
-
       <div>
-        <div class="footer-col-label">INDUSTRIES</div>
-        <div class="footer-links">
-          <a href="industries/healthcare.html" class="footer-link">Healthcare</a>
-          <a href="industries/real-estate.html" class="footer-link">Real Estate</a>
-          <a href="industries/ecommerce.html" class="footer-link">E-commerce</a>
-          <a href="industries/restaurants.html" class="footer-link">Restaurants</a>
-          <a href="industries/home-services.html" class="footer-link">Home Services</a>
+        <div class="k-foot-col-label">Industries</div>
+        <div class="k-foot-links">
+          <a href="industries/healthcare.html">Healthcare</a>
+          <a href="industries/real-estate.html">Real Estate</a>
+          <a href="industries/ecommerce.html">E-commerce</a>
+          <a href="industries/restaurants.html">Restaurants</a>
+          <a href="industries/home-services.html">Home Services</a>
         </div>
       </div>
-
       <div>
-        <div class="footer-col-label">COMPANY</div>
-        <div class="footer-links">
-          <a href="about.html" class="footer-link">About Us</a>
-          <a href="resources/case-studies.html" class="footer-link">Case Studies</a>
-          <a href="resources/blog.html" class="footer-link">Blog</a>
-          <a href="resources/press-release.html" class="footer-link">Press</a>
-          <a href="contact-us.html" class="footer-link">Contact</a><a href="sitemap.html" class="footer-link">Sitemap</a>
+        <div class="k-foot-col-label">Company</div>
+        <div class="k-foot-links">
+          <a href="about.html">About Us</a>
+          <a href="resources/case-studies.html">Case Studies</a>
+          <a href="resources/blog.html">Blog</a>
+          <a href="resources/press-release.html">Press</a>
+          <a href="contact-us.html">Contact</a>
+          <a href="sitemap.html">Sitemap</a>
         </div>
       </div>
     </div>
-
-    <div class="footer-bottom">
-      <div class="footer-legal">
-        <span class="footer-copy">© 2026 Kryvex Media. All rights reserved.</span>
-        <a href="privacy-policy.html" class="footer-legal-link">Privacy Policy</a>
-        <a href="terms-and-conditions.html" class="footer-legal-link">Terms &amp; Conditions</a>
+    <div class="k-foot-bottom">
+      <div>
+        <span>© 2026 Kryvex Media. All rights reserved.</span>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
       </div>
-      <div class="footer-contact-info">
+      <div>
         <span>info@kryvexmedia.com</span>
-        <span>+91 9110170824</span>
-        <span class="tagline">Engineered for growth.</span>
+        <a href="tel:+919110170824" style="margin-left:18px">+91 9110170824</a>
       </div>
     </div>
-  </footer>
-</div>
+  </div>
+</footer><script>
+(function(){
+  var ids=['industries','services','countries','resources'];
+  var activeMenu=null;
+  function closeAll(){
+    document.querySelectorAll('.k-panel').forEach(function(p){p.classList.remove('open');});
+    document.querySelectorAll('.k-dd-btn').forEach(function(b){b.classList.remove('active');b.setAttribute('aria-expanded','false');});
+    document.querySelectorAll('.k-caret').forEach(function(c){c.classList.remove('open');});
+    activeMenu=null;
+  }
+  function openMenu(id){
+    closeAll();
+    var panel=document.getElementById('panel-'+id);
+    var dd=document.getElementById('dd-'+id);
+    if(!panel||!dd)return;
+    var btn=dd.querySelector('.k-dd-btn');
+    var caret=btn.querySelector('.k-caret');
+    panel.classList.add('open');
+    btn.classList.add('active');
+    btn.setAttribute('aria-expanded','true');
+    caret.classList.add('open');
+    activeMenu=id;
+  }
+  ids.forEach(function(id){
+    var dd=document.getElementById('dd-'+id);
+    if(!dd)return;
+    var btn=dd.querySelector('.k-dd-btn');
+    btn.addEventListener('click',function(e){e.stopPropagation();activeMenu===id?closeAll():openMenu(id);});
+  });
+  document.addEventListener('click',function(e){if(!e.target.closest('.k-dd'))closeAll();});
 
-<script>
-  /* ── Dropdown logic ── */
-  (function () {
-    const nav = document.getElementById('main-nav');
-    const dropdowns = {
-      industries: {
-        wrapper: document.getElementById('dd-industries'),
-        panel:   document.getElementById('panel-industries'),
-        btn:     document.querySelector('[data-dd="industries"]'),
-      },
-      services: {
-        wrapper: document.getElementById('dd-services'),
-        panel:   document.getElementById('panel-services'),
-        btn:     document.querySelector('[data-dd="services"]'),
-      },
-      resources: {
-        wrapper: document.getElementById('dd-resources'),
-        panel:   document.getElementById('panel-resources'),
-        btn:     document.querySelector('[data-dd="resources"]'),
-      },
-    };
-
-    let openKey = null;
-
-    function positionWidePanel(panel) {
-      // Anchor wide panels (Industries, Services) to nav's left edge
-      const navRect = nav.getBoundingClientRect();
-      const wrapRect = panel.parentElement.getBoundingClientRect();
-      panel.style.left = (navRect.left - wrapRect.left) + 'px';
-    }
-
-    function open(key) {
-      if (openKey === key) return;
-      closeAll();
-      openKey = key;
-      const dd = dropdowns[key];
-      dd.panel.classList.add('open');
-      dd.btn.classList.add('open');
-      dd.btn.setAttribute('aria-expanded', 'true');
-      if (key === 'industries' || key === 'services') {
-        positionWidePanel(dd.panel);
-      }
-    }
-
-    function closeAll() {
-      for (const key of Object.keys(dropdowns)) {
-        const dd = dropdowns[key];
-        dd.panel.classList.remove('open');
-        dd.btn.classList.remove('open');
-        dd.btn.setAttribute('aria-expanded', 'false');
-      }
-      openKey = null;
-    }
-
-    for (const [key, dd] of Object.entries(dropdowns)) {
-      // Hover
-      dd.wrapper.addEventListener('mouseenter', () => open(key));
-      dd.wrapper.addEventListener('mouseleave', closeAll);
-      // Click toggle
-      dd.btn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        openKey === key ? closeAll() : open(key);
-      });
-    }
-
-    document.addEventListener('click', closeAll);
-
-    // Re-position wide panels on resize
-    window.addEventListener('resize', () => {
-      if (openKey === 'industries' || openKey === 'services') {
-        positionWidePanel(dropdowns[openKey].panel);
-      }
+  var burger=document.getElementById('mnb');
+  if(burger){
+    burger.addEventListener('click',function(){
+      var links=document.querySelector('.k-navlinks');
+      var open=links.style.display==='flex';
+      links.style.cssText=open?'':'display:flex;flex-direction:column;align-items:flex-start;gap:14px;position:absolute;top:100%;left:0;right:0;background:var(--surface);padding:20px 32px;border-bottom:1px solid var(--line);box-shadow:0 18px 40px -18px rgba(22,20,35,.18);max-height:80vh;overflow-y:auto';
     });
-  })();
-
-  /* ── Form validation & submission ── */
+  }
+})();
+</script>
+<script>
   (function () {
     const form        = document.getElementById('contact-form');
     const successEl   = document.getElementById('success-state');
@@ -1081,14 +399,12 @@
       showErrors(errs);
       if (Object.keys(errs).length > 0) return;
 
-      // Success
       const firstName = fields.name.value.trim().split(' ')[0] || 'there';
       successName.textContent = firstName;
       form.style.display = 'none';
       successEl.classList.add('visible');
     });
 
-    // Live re-validation after first submit attempt
     for (const key of Object.keys(fields)) {
       fields[key].addEventListener('input', function () {
         if (!attempted) return;
@@ -1109,6 +425,6 @@
     });
   })();
 </script>
-<script src="styles/mobile-nav.js"></script>
+
 </body>
 </html>

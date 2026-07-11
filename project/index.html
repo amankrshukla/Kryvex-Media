@@ -7,667 +7,560 @@
 <meta name="description" content="Kryvex Media is your complete digital marketing partner — SEO, paid ads, social, web and content working as one system to turn clicks into customers.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles/theme.css">
 <style>
-*{margin:0;padding:0;box-sizing:border-box;}
-body{background:#06070d;color:#e9ebf2;font-family:'Manrope',sans-serif;-webkit-font-smoothing:antialiased;}
-::selection{background:rgba(108,140,255,.35);color:#fff;}
-:root{--accent:#4d7cfe;--accent2:#8b5cf6;}
-
-@keyframes wtc-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-@keyframes wtc-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
-@keyframes wtc-pulse{0%,100%{opacity:.55}50%{opacity:1}}
-@keyframes wtc-fadein{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
-@keyframes wtc-grow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
-@keyframes wtc-tick{0%{opacity:.4;transform:translateY(4px)}100%{opacity:1;transform:translateY(0)}}
-@keyframes wtc-blink{0%,90%,100%{transform:scaleY(1)}93%,96%{transform:scaleY(.08)}}
-@keyframes wtc-breathe{0%,100%{transform:translateY(0) scale(1)}50%{transform:translateY(-5px) scale(1.012)}}
-@keyframes wtc-penwiggle{0%,100%{transform:rotate(34deg)}50%{transform:rotate(28deg)}}
-
-/* BG */
-.bg-grid{position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 90% 60% at 50% 0%,#000 30%,transparent 80%);}
-.bg-glow-top{position:fixed;top:-280px;left:50%;transform:translateX(-50%);width:1100px;height:700px;background:radial-gradient(ellipse at center,var(--accent) 0%,transparent 62%);opacity:.22;filter:blur(40px);pointer-events:none;z-index:0;}
-.bg-glow-right{position:fixed;top:600px;right:-200px;width:700px;height:700px;background:radial-gradient(circle,var(--accent2) 0%,transparent 62%);opacity:.14;filter:blur(50px);pointer-events:none;z-index:0;}
-
-/* NAV */
-.nav{position:relative;z-index:20;max-width:1200px;margin:0 auto;padding:30px 32px;display:flex;align-items:center;justify-content:space-between;}
-.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:#e9ebf2;}
-.nav-logo-text{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:21px;letter-spacing:.16em;}
-.nav-logo-text span{color:var(--accent);}
-.nav-links{display:flex;align-items:center;gap:30px;}
-.nav-link{color:#aeb4c7;text-decoration:none;font-size:15.5px;font-weight:500;transition:color .15s;}
-.nav-link:hover,.nav-link.active{color:#fff;}
-.nav-dropdown{position:relative;}
-.nav-btn{display:inline-flex;align-items:center;gap:7px;background:none;border:none;cursor:pointer;color:#aeb4c7;font-family:'Manrope',sans-serif;font-size:15.5px;font-weight:600;padding:0;transition:color .15s;}
-.nav-btn:hover,.nav-btn.active{color:#fff;}
-.nav-caret{display:inline-block;transition:transform .2s;}
-.nav-caret.open{transform:rotate(180deg);}
-.dropdown-panel{display:none;position:absolute;z-index:30;padding:16px;background:rgba(14,16,28,.97);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.12);border-radius:16px;box-shadow:0 24px 60px -18px rgba(0,0,0,.7);animation:wtc-fadein .18s ease-out;}
-.dropdown-panel.open{display:block;}
-#panel-industries,#panel-services{position:fixed;max-width:calc(100vw - 64px);}
-#panel-resources,#panel-countries{top:34px;left:0;width:320px;max-width:90vw;}
-.dropdown-label{font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.1em;color:#7c8398;padding:6px 12px 12px;}
-.dd-grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;}
-.dd-grid1{display:grid;grid-template-columns:1fr;gap:4px;}
-.dd-item{display:flex;align-items:center;gap:11px;padding:11px 12px;border-radius:10px;text-decoration:none;color:#aeb4c7;transition:background .15s;}
-.dd-item:hover{background:rgba(255,255,255,.05);}
-.dd-icon{font-size:16px;line-height:1;}
-.dd-title{display:block;font-size:14px;font-weight:600;}
-.dd-sub{display:block;font-size:11.5px;color:#7c8398;}
-.dd-all{display:block;text-align:center;margin-top:10px;padding:10px;border-radius:10px;text-decoration:none;font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.06em;color:var(--accent);background:rgba(77,124,254,.07);transition:background .15s;}
-.dd-all:hover{background:rgba(77,124,254,.13);}
-.nav-cta{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;font-size:15px;padding:12px 22px;border-radius:11px;box-shadow:0 8px 28px -8px var(--accent);transition:filter .15s;}
-.nav-cta:hover{filter:brightness(1.08);}
+@keyframes k-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes k-grow{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+@keyframes k-tick{0%{opacity:.4;transform:translateY(4px)}100%{opacity:1;transform:translateY(0)}}
 
 /* HERO */
-.hero{position:relative;z-index:4;max-width:1200px;margin:0 auto;padding:64px 32px 40px;display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center;}
-.hero-badge{display:inline-flex;align-items:center;gap:9px;padding:7px 14px;border:1px solid rgba(255,255,255,.12);border-radius:100px;background:rgba(255,255,255,.03);font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.08em;color:#aeb4c7;}
-.badge-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 10px var(--accent);animation:wtc-pulse 2.4s infinite;flex:none;}
-.hero h1{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:60px;line-height:1.04;letter-spacing:-.02em;margin:24px 0 0;}
-.hero h1 span{background:linear-gradient(100deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;}
-.hero-sub{font-size:18px;line-height:1.6;color:#aeb4c7;margin:22px 0 0;max-width:480px;}
-.rotator-row{display:flex;align-items:center;gap:13px;margin-top:24px;height:30px;overflow:hidden;}
-.rotator-label{font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.08em;color:#7c8398;white-space:nowrap;}
-.rotator-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);box-shadow:0 0 9px var(--accent);flex:none;animation:wtc-pulse 2s infinite;}
-#service-rotator{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:17px;letter-spacing:-.01em;color:var(--accent);white-space:nowrap;transition:opacity .25s ease,transform .25s ease;}
-.hero-ctas{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px;}
-.btn-primary{display:inline-flex;align-items:center;gap:9px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;font-size:15.5px;padding:15px 26px;border-radius:12px;box-shadow:0 14px 38px -10px var(--accent);transition:filter .15s,transform .15s;}
-.btn-primary:hover{filter:brightness(1.08);transform:translateY(-1px);}
-.btn-ghost{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.14);color:#e9ebf2;text-decoration:none;font-weight:600;font-size:15.5px;padding:15px 24px;border-radius:12px;transition:background .15s,border-color .15s;}
-.btn-ghost:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.28);}
-.hero-fn{font-family:'Space Mono',monospace;font-size:12px;color:#7c8398;margin-top:18px;letter-spacing:.02em;}
+.hero{padding:72px 0 8px}
+.hero-grid{display:grid;grid-template-columns:1.08fr .92fr;gap:60px;align-items:center}
+.hero h1{font-size:clamp(34px,4.6vw,54px);line-height:1.06;margin-top:20px}
+.hero h1 span{color:var(--accent)}
+.hero p.hero-sub{font-size:17px;color:var(--muted);font-weight:500;line-height:1.65;margin-top:20px;max-width:460px}
+.rotator-row{display:flex;align-items:center;gap:11px;margin-top:22px;height:26px;overflow:hidden}
+.rotator-label{font-size:11.5px;font-weight:700;letter-spacing:.08em;color:var(--muted);white-space:nowrap;text-transform:uppercase}
+.rotator-dot{width:6px;height:6px;border-radius:50%;background:var(--accent-light);flex:none}
+#service-rotator{font-weight:800;font-size:15.5px;color:var(--accent);white-space:nowrap;transition:opacity .25s ease,transform .25s ease}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:18px;align-items:center;margin-top:30px}
+.hero-fn{font-size:12.5px;color:var(--muted);font-weight:600;margin-top:20px}
 
-/* HERO CARD */
-.card-wrap{position:relative;animation:wtc-float 7s ease-in-out infinite;}
-.card-border{position:absolute;inset:-1px;border-radius:20px;background:linear-gradient(140deg,var(--accent),transparent 45%,var(--accent2));opacity:.5;filter:blur(2px);}
-.card{position:relative;background:linear-gradient(180deg,rgba(20,22,34,.92),rgba(12,13,22,.92));backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:24px;}
-.card-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;}
-.card-title{display:flex;align-items:center;gap:9px;}
-.card-dot{width:9px;height:9px;border-radius:50%;background:var(--accent);}
-.card-lbl{font-family:'Space Mono',monospace;font-size:12px;color:#aeb4c7;letter-spacing:.04em;}
-.card-live{font-family:'Space Mono',monospace;font-size:11px;color:#34d399;background:rgba(52,211,153,.12);padding:4px 9px;border-radius:6px;}
-.card-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px;}
-.cstat{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:14px;}
-.cstat-lbl{font-family:'Space Mono',monospace;font-size:10.5px;color:#7c8398;letter-spacing:.05em;}
-.cstat-num{font-family:'Space Grotesk',sans-serif;font-size:26px;font-weight:700;margin-top:4px;}
-.cstat-status{font-size:11px;color:#34d399;margin-top:2px;}
-.chart-wrap{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.07);border-radius:12px;padding:16px 14px 12px;}
-.chart-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px;}
-.chart-name{font-family:'Space Mono',monospace;font-size:10.5px;color:#7c8398;}
-.chart-val{font-family:'Space Mono',monospace;font-size:11px;color:var(--accent);}
-.bars{display:flex;align-items:flex-end;gap:7px;height:74px;}
-.bar{flex:1;border-radius:4px 4px 2px 2px;transform-origin:bottom;}
+.hero-panel{padding:26px}
+.hp-row{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.hp-title{font-size:11.5px;font-weight:700;letter-spacing:.08em;color:var(--muted);text-transform:uppercase}
+.hp-live{font-size:11px;font-weight:700;color:#2f9e6e;background:rgba(47,158,110,.12);padding:4px 10px;border-radius:100px}
+.hp-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:18px}
+.hp-stat{border:1px solid var(--line);border-radius:11px;padding:14px}
+.hp-stat-lbl{font-size:10.5px;font-weight:700;letter-spacing:.05em;color:var(--muted);text-transform:uppercase}
+.hp-stat-num{font-size:24px;font-weight:800;margin-top:5px}
+.hp-stat-status{font-size:11px;color:#2f9e6e;margin-top:3px;font-weight:600}
+.chart-wrap{border:1px solid var(--line);border-radius:11px;padding:16px 14px 12px}
+.chart-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.chart-name{font-size:10.5px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+.chart-val{font-size:11px;color:var(--accent);font-weight:700}
+.bars{display:flex;align-items:flex-end;gap:7px;height:70px}
+.bar{flex:1;border-radius:4px 4px 2px 2px;transform-origin:bottom;background:var(--accent-light)}
+.bar.hi{background:var(--accent)}
 
 /* STATS */
-.stats{position:relative;z-index:4;max-width:1200px;margin:24px auto 0;padding:0 32px;}
-.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid rgba(255,255,255,.08);border-radius:16px;background:rgba(255,255,255,.02);overflow:hidden;}
-.stat-cell{padding:28px 26px;}
-.stat-cell:not(:last-child){border-right:1px solid rgba(255,255,255,.08);}
-.stat-num{font-family:'Space Grotesk',sans-serif;font-size:34px;font-weight:700;}
-.stat-num span{color:var(--accent);}
-.stat-lbl{font-size:13.5px;color:#aeb4c7;margin-top:4px;}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr)}
+.stat-cell{padding:28px 26px;border-right:1px solid var(--line)}
+.stat-cell:last-child{border-right:none}
+.stat-num{font-size:32px;font-weight:800}
+.stat-num span{color:var(--accent)}
+.stat-lbl{font-size:13px;color:var(--muted);font-weight:600;margin-top:4px}
 
 /* MARQUEE */
-.marquee-sec{position:relative;z-index:4;margin-top:54px;overflow:hidden;}
-.marquee-ttl{text-align:center;font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.16em;color:#7c8398;margin-bottom:22px;}
-.marquee-fade{mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);}
-.marquee-track{display:flex;gap:56px;width:max-content;animation:wtc-marquee 32s linear infinite;}
-.marquee-item{font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:600;color:#565c70;white-space:nowrap;}
+.marquee-sec{padding:52px 0}
+.marquee-ttl{text-align:center;font-size:11.5px;font-weight:700;letter-spacing:.16em;color:var(--muted);text-transform:uppercase;margin-bottom:22px}
+.marquee-fade{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.marquee-track{display:flex;gap:56px;width:max-content;animation:k-marquee 32s linear infinite}
+.marquee-item{font-size:18px;font-weight:800;color:var(--muted);opacity:.55;white-space:nowrap}
 
 /* SERVICES */
-.section{position:relative;z-index:4;max-width:1200px;margin:0 auto;}
-.pad-top{padding:96px 32px 0;}
-.pad-top-lg{padding:104px 32px 0;}
-.sec-label{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.12em;color:var(--accent);margin-bottom:14px;}
-.sec-h2{font-family:'Space Grotesk',sans-serif;font-size:42px;font-weight:700;letter-spacing:-.02em;line-height:1.08;}
-.sec-header{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:42px;flex-wrap:wrap;}
-.sec-sub{font-size:15px;color:#aeb4c7;max-width:320px;line-height:1.6;}
-.sec-center{text-align:center;margin-bottom:52px;}
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;}
-.svc-card{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:28px;transition:border-color .2s,background .2s,transform .2s;}
-.svc-card:hover{border-color:var(--accent);background:rgba(77,124,254,.06);transform:translateY(-3px);}
-.svc-card h3{font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:600;margin:18px 0 8px;}
-.svc-card p{font-size:14px;color:#9aa0b4;line-height:1.6;}
+.sec-header{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:42px;flex-wrap:wrap}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.svc-card{background:var(--surface);padding:30px}
+.svc-icon{width:42px;height:42px;border-radius:10px;background:rgba(162,114,245,.14);display:flex;align-items:center;justify-content:center;color:var(--accent)}
+.svc-card h3{font-size:17px;margin-top:18px}
+.svc-card p{font-size:13.5px;color:var(--muted);font-weight:500;line-height:1.6;margin-top:8px}
 
 /* PROCESS */
-.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;}
-.proc-card{padding:26px 22px;border:1px solid rgba(255,255,255,.08);border-radius:16px;background:rgba(255,255,255,.02);}
-.proc-card.hi{border-color:var(--accent);background:rgba(77,124,254,.07);}
-.proc-num{font-family:'Space Mono',monospace;font-size:13px;color:var(--accent);}
-.proc-card h3{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:600;margin:14px 0 8px;}
-.proc-card p{font-size:13.5px;color:#9aa0b4;line-height:1.6;}
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.proc-card{padding:26px 22px;border:1px solid var(--line);border-radius:14px;background:var(--surface)}
+.proc-card.hi{border-color:var(--accent)}
+.proc-num{font-size:12.5px;font-weight:800;color:var(--accent-light)}
+.proc-card.hi .proc-num{color:var(--accent)}
+.proc-card h3{font-size:16.5px;margin:14px 0 8px}
+.proc-card p{font-size:13.5px;color:var(--muted);font-weight:500;line-height:1.6}
 
 /* RESULTS */
-.results-case{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:center;border:1px solid rgba(255,255,255,.08);border-radius:24px;background:linear-gradient(135deg,rgba(77,124,254,.07),rgba(139,92,246,.04));padding:44px;}
-.metrics{display:flex;gap:32px;margin-top:28px;}
-.metric-num{font-family:'Space Grotesk',sans-serif;font-size:30px;font-weight:700;color:var(--accent);}
-.metric-lbl{font-size:12.5px;color:#9aa0b4;margin-top:2px;}
-.results-img{aspect-ratio:4/3;border-radius:16px;border:1px solid rgba(255,255,255,.1);background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.04) 0,rgba(255,255,255,.04) 1px,transparent 1px,transparent 11px);background-color:rgba(8,9,16,.6);display:flex;align-items:center;justify-content:center;}
-.results-img span{font-family:'Space Mono',monospace;font-size:12.5px;color:#7c8398;}
-.testimonial{margin-top:18px;border:1px solid rgba(255,255,255,.08);border-radius:24px;background:rgba(255,255,255,.02);padding:44px;display:flex;gap:28px;align-items:flex-start;}
-.test-quote{font-family:'Space Grotesk',sans-serif;font-size:24px;font-weight:500;line-height:1.4;letter-spacing:-.01em;}
-.test-author{display:flex;align-items:center;gap:14px;margin-top:24px;}
-.test-avatar{width:46px;height:46px;border-radius:50%;background:repeating-linear-gradient(135deg,rgba(255,255,255,.08) 0,rgba(255,255,255,.08) 1px,transparent 1px,transparent 8px);border:1px solid rgba(255,255,255,.12);flex:none;}
-.test-name{font-weight:600;font-size:15px;}
-.test-role{font-size:13px;color:#9aa0b4;}
+.results-case{display:grid;grid-template-columns:.95fr 1.05fr;gap:48px;align-items:center;border:1px solid var(--line);border-radius:20px;background:var(--surface);padding:44px}
+.results-case .eyebrow{color:var(--tag)}
+.results-case h2{font-size:31px;line-height:1.14;margin-top:14px}
+.results-case>div:first-child>p{font-size:14.5px;color:var(--muted);font-weight:500;line-height:1.65;margin-top:16px}
+.metrics{display:flex;gap:30px;margin-top:26px}
+.metric-num{font-size:28px;font-weight:800;color:var(--accent)}
+.metric-lbl{font-size:12px;color:var(--muted);font-weight:600;margin-top:2px}
+.results-visual{aspect-ratio:4/3;border-radius:14px;border:1px solid var(--line);background:var(--bg);display:flex;align-items:center;justify-content:center}
+.results-visual span{font-size:12px;color:var(--muted);font-weight:600}
+.testimonial{margin-top:20px;border:1px solid var(--line);border-radius:20px;background:var(--surface);padding:40px;display:flex;gap:26px;align-items:flex-start}
+.test-quote{font-size:21px;font-weight:700;line-height:1.42;letter-spacing:-.01em}
+.test-author{display:flex;align-items:center;gap:13px;margin-top:22px}
+.test-avatar{width:42px;height:42px;border-radius:50%;background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px;flex:none}
+.test-name{font-weight:700;font-size:14.5px}
+.test-role{font-size:12.5px;color:var(--muted);font-weight:600}
 
 /* COVERAGE */
-.coverage-stats{display:flex;gap:40px;flex-wrap:wrap;justify-content:center;margin-top:28px;}
-.cov-num{font-family:'Space Grotesk',sans-serif;font-size:30px;font-weight:700;}
-.cov-lbl{font-size:12.5px;color:#9aa0b4;}
-.cov-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:42px;}
-.cov-card{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:30px;}
-.cov-card-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;}
-.cov-badge{font-family:'Space Mono',monospace;font-size:12px;font-weight:700;letter-spacing:.08em;color:#fff;padding:6px 10px;border-radius:8px;}
-.cov-badge.in{background:var(--accent);}
-.cov-badge.us{background:var(--accent2);}
-.cov-name{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:600;margin-left:12px;}
-.cov-count{font-family:'Space Mono',monospace;font-size:12px;color:#aeb4c7;border:1px solid rgba(255,255,255,.12);padding:5px 10px;border-radius:7px;}
-.cov-tags{display:flex;flex-wrap:wrap;gap:8px;}
-.cov-tag{font-size:12.5px;color:#aeb4c7;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);padding:6px 11px;border-radius:8px;white-space:nowrap;transition:border-color .15s,color .15s;}
-.cov-tag:hover{border-color:var(--accent);color:#fff;}
-.expand-strip{margin-top:18px;border:1px dashed rgba(255,255,255,.16);border-radius:18px;background:rgba(255,255,255,.015);padding:26px 30px;display:flex;align-items:center;gap:24px;flex-wrap:wrap;justify-content:space-between;}
-.expand-label{font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.12em;color:var(--accent);}
-.expand-text{font-size:14.5px;color:#aeb4c7;}
-.expand-countries{display:flex;gap:12px;flex-wrap:wrap;}
-.expand-country{display:flex;align-items:center;gap:11px;border:1px solid rgba(255,255,255,.1);border-radius:10px;padding:10px 16px;background:rgba(255,255,255,.02);}
-.expand-code{font-family:'Space Mono',monospace;font-size:12px;font-weight:700;color:#fff;background:rgba(255,255,255,.1);padding:5px 9px;border-radius:7px;}
-.expand-cname{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:600;}
-.expand-soon{font-family:'Space Mono',monospace;font-size:10.5px;color:var(--accent);background:rgba(77,124,254,.12);padding:4px 8px;border-radius:6px;}
+.coverage-stats{display:flex;gap:40px;flex-wrap:wrap;justify-content:center;margin-top:26px}
+.cov-num{font-size:28px;font-weight:800}
+.cov-lbl{font-size:12.5px;color:var(--muted);font-weight:600}
+.cov-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:40px}
+.cov-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:28px}
+.cov-card-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.cov-badge{font-size:11.5px;font-weight:800;letter-spacing:.06em;color:#fff;padding:5px 10px;border-radius:7px}
+.cov-badge.in{background:var(--accent)}
+.cov-badge.us{background:var(--accent-light)}
+.cov-name{font-size:18px;font-weight:800;margin-left:12px}
+.cov-count{font-size:11.5px;color:var(--muted);font-weight:700;border:1px solid var(--line);padding:5px 10px;border-radius:7px}
+.cov-tags{display:flex;flex-wrap:wrap;gap:8px}
+.expand-strip{margin-top:18px;border:1px dashed var(--line);border-radius:16px;padding:24px 28px;display:flex;align-items:center;gap:22px;flex-wrap:wrap;justify-content:space-between}
+.expand-label{font-size:11.5px;font-weight:700;letter-spacing:.1em;color:var(--tag);text-transform:uppercase}
+.expand-text{font-size:14px;color:var(--muted);font-weight:600}
+.expand-countries{display:flex;gap:12px;flex-wrap:wrap}
+.expand-country{display:flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:10px;padding:9px 15px}
+.expand-code{font-size:11px;font-weight:800;color:#fff;background:var(--ink);padding:4px 8px;border-radius:6px}
+.expand-cname{font-size:14px;font-weight:700}
+.expand-soon{font-size:10px;font-weight:800;letter-spacing:.04em;color:var(--accent);background:rgba(112,70,182,.1);padding:4px 8px;border-radius:6px}
 
-/* CTA */
-.cta-sec{position:relative;z-index:4;max-width:1200px;margin:0 auto;padding:104px 32px 0;}
-.cta-card{position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.1);border-radius:28px;background:linear-gradient(140deg,#0d1020,#0a0b14);padding:64px 48px;}
-.cta-glow{position:absolute;top:-160px;right:-60px;width:520px;height:520px;background:radial-gradient(circle,var(--accent),transparent 60%);opacity:.22;filter:blur(30px);pointer-events:none;}
-.cta-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;}
-.cta-label{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.12em;color:var(--accent);margin-bottom:16px;}
-.cta-h2{font-family:'Space Grotesk',sans-serif;font-size:46px;font-weight:700;line-height:1.06;letter-spacing:-.02em;}
-.cta-sub{font-size:16.5px;color:#aeb4c7;line-height:1.6;margin-top:18px;}
-.cta-success{display:none;margin-top:30px;align-items:center;gap:14px;background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.3);border-radius:14px;padding:20px 24px;}
-.cta-success.show{display:flex;}
-.cta-success-title{font-weight:700;font-size:15.5px;}
-.cta-success-sub{font-size:13.5px;color:#aeb4c7;margin-top:2px;}
-.cta-form{margin-top:30px;display:flex;gap:12px;flex-wrap:wrap;}
-.cta-input{flex:1;min-width:240px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.16);border-radius:12px;padding:16px 18px;color:#fff;font-family:'Manrope',sans-serif;font-size:15px;outline:none;transition:border-color .15s;}
-.cta-input:focus{border-color:var(--accent);}
-.cta-submit{background:var(--accent);color:#fff;border:none;font-family:'Manrope',sans-serif;font-weight:700;font-size:15px;padding:16px 28px;border-radius:12px;cursor:pointer;box-shadow:0 14px 38px -10px var(--accent);transition:filter .15s;}
-.cta-submit:hover{filter:brightness(1.08);}
-.cta-contact{font-family:'Space Mono',monospace;font-size:11.5px;color:#7c8398;margin-top:16px;}
+/* CTA / CONTACT */
+.cta-card{border:1px solid var(--line);border-radius:24px;background:var(--surface);padding:56px}
+.cta-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:44px;align-items:center}
+.cta-label{color:var(--tag)}
+.cta-h2{font-size:32px;line-height:1.1;margin-top:14px}
+.cta-sub{font-size:15.5px;color:var(--muted);font-weight:500;line-height:1.6;margin-top:16px}
+.cta-success{display:none;margin-top:26px;align-items:center;gap:13px;background:rgba(47,158,110,.08);border:1px solid rgba(47,158,110,.28);border-radius:12px;padding:18px 20px}
+.cta-success.show{display:flex}
+.cta-success-title{font-weight:800;font-size:14.5px}
+.cta-success-sub{font-size:13px;color:var(--muted);margin-top:2px}
+.cta-form{margin-top:26px;display:flex;gap:12px;flex-wrap:wrap}
+.cta-input{flex:1;min-width:220px;background:var(--bg);border:1px solid var(--line);border-radius:10px;padding:14px 16px;color:var(--ink);font-family:inherit;font-size:14.5px;outline:none;transition:border-color .15s}
+.cta-input:focus{border-color:var(--accent)}
+.cta-submit{background:var(--accent);color:#fff;border:none;font-family:inherit;font-weight:700;font-size:14.5px;padding:14px 24px;border-radius:10px;cursor:pointer;transition:background .15s}
+.cta-submit:hover{background:var(--accent-dark)}
+.cta-contact{font-size:12px;color:var(--muted);font-weight:600;margin-top:16px}
 
-/* CONSULTANT */
-.consultant-wrap{position:relative;display:flex;flex-direction:column;align-items:center;gap:18px;}
-.consultant-glow{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);width:300px;height:300px;background:radial-gradient(circle,var(--accent) 0%,transparent 62%);opacity:.22;filter:blur(34px);pointer-events:none;}
-.avail-badge{display:inline-flex;align-items:center;gap:8px;padding:7px 14px;border:1px solid rgba(52,211,153,.3);border-radius:100px;background:rgba(52,211,153,.1);font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.06em;color:#34d399;}
-.avail-dot{width:7px;height:7px;border-radius:50%;background:#34d399;box-shadow:0 0 9px #34d399;animation:wtc-pulse 2s infinite;}
-.consultant-fig{position:relative;width:240px;height:312px;animation:wtc-breathe 7s ease-in-out infinite;}
-.consultant-cap{text-align:center;}
-.consultant-cap-name{font-family:'Space Grotesk',sans-serif;font-size:16px;font-weight:600;}
-.consultant-cap-sub{font-size:13px;color:#9aa0b4;margin-top:2px;}
+.avail-card{border:1px solid var(--line);border-radius:16px;padding:26px;text-align:center}
+.avail-badge{display:inline-flex;align-items:center;gap:8px;padding:6px 13px;border:1px solid rgba(47,158,110,.28);border-radius:100px;background:rgba(47,158,110,.08);font-size:11px;font-weight:700;letter-spacing:.05em;color:#2f9e6e}
+.avail-dot{width:6px;height:6px;border-radius:50%;background:#2f9e6e}
+.avail-avatar{width:64px;height:64px;border-radius:50%;background:var(--accent);color:#fff;font-weight:800;font-size:22px;display:flex;align-items:center;justify-content:center;margin:20px auto 0}
+.avail-name{font-weight:800;font-size:15.5px;margin-top:14px}
+.avail-role{font-size:12.5px;color:var(--muted);font-weight:600;margin-top:2px}
+.avail-response{margin-top:18px;padding-top:18px;border-top:1px solid var(--line);font-size:12px;color:var(--muted);font-weight:600}
+.avail-response b{color:var(--ink);display:block;font-size:18px;font-weight:800}
 
-/* FOOTER */
-footer{position:relative;z-index:4;max-width:1200px;margin:88px auto 0;padding:0 32px 44px;}
-.footer-grid{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:40px;padding:56px 0 44px;border-top:1px solid rgba(255,255,255,.08);}
-.footer-logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:#e9ebf2;}
-.footer-logo-text{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;letter-spacing:.16em;}
-.footer-logo-text span{color:var(--accent);}
-.footer-desc{font-size:14.5px;color:#9aa0b4;line-height:1.65;margin:20px 0 0;max-width:300px;}
-.footer-socials{display:flex;gap:10px;margin-top:24px;}
-.fsoc{width:38px;height:38px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);display:flex;align-items:center;justify-content:center;transition:border-color .15s,background .15s;flex:none;}
-.fsoc:hover{border-color:var(--accent);background:rgba(77,124,254,.08);}
-.fcol-label{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.1em;color:#7c8398;margin-bottom:18px;}
-.flinks{display:flex;flex-direction:column;gap:12px;}
-.flink{color:#aeb4c7;text-decoration:none;font-size:14px;transition:color .15s;}
-.flink:hover{color:#fff;}
-.footer-legal{display:flex;justify-content:space-between;align-items:center;padding-top:26px;border-top:1px solid rgba(255,255,255,.08);flex-wrap:wrap;gap:14px;}
-.legal-left{display:flex;align-items:center;gap:22px;flex-wrap:wrap;}
-.legal-copy{font-size:13px;color:#7c8398;}
-.legal-link{font-size:13px;color:#7c8398;text-decoration:none;transition:color .15s;}
-.legal-link:hover{color:#aeb4c7;}
-.footer-right{display:flex;align-items:center;gap:18px;flex-wrap:wrap;}
-.footer-contact{font-family:'Space Mono',monospace;font-size:12px;color:#7c8398;}
-.footer-tag{font-family:'Space Mono',monospace;font-size:12px;color:#565c70;}
-</style>
-<style>/*mobile-fix*/
-@media (max-width: 900px) {
-  .hero{grid-template-columns:1fr;padding:40px 20px 32px;gap:32px;}
-  .cta-grid{grid-template-columns:1fr;gap:32px;}
-  .results-case{grid-template-columns:1fr;gap:28px;padding:28px;}
-  .services-grid{grid-template-columns:repeat(2,1fr);}
-  .process-grid{grid-template-columns:repeat(2,1fr);}
-  .cov-grid{grid-template-columns:1fr;}
-  .stats-grid{grid-template-columns:repeat(2,1fr);}
-  .footer-grid{grid-template-columns:1fr 1fr;gap:28px 20px;}
+@media(max-width:900px){
+  .hero-grid,.cta-grid{grid-template-columns:1fr;gap:32px}
+  .results-case{grid-template-columns:1fr;gap:28px;padding:28px}
+  .services-grid{grid-template-columns:1fr 1fr}
+  .process-grid{grid-template-columns:1fr 1fr}
+  .cov-grid{grid-template-columns:1fr}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .stat-cell:nth-child(odd){border-right:1px solid var(--line)}
+  .stat-cell:nth-child(even){border-right:none}
+  .stat-cell{border-bottom:1px solid var(--line)}
 }
-@media (max-width: 640px) {
-  .hero,.stats,.section,.cta-sec,footer{padding-left:20px !important;padding-right:20px !important;}
-  .hero h1{font-size:38px;}
-  .sec-h2{font-size:28px;}
-  .cta-h2{font-size:30px;}
-  .hero-sub{max-width:100%;font-size:16px;}
-  .services-grid,.process-grid,.footer-grid,.stats-grid{grid-template-columns:1fr;}
-  .metrics{flex-wrap:wrap;gap:20px;}
-  .testimonial{flex-direction:column;padding:24px;}
-  .sec-header{flex-direction:column;align-items:flex-start;}
-  .hero-ctas{flex-direction:column;}
-  .hero-ctas a{width:100%;text-align:center;}
-  .results-case,.cov-card{padding:22px;}
-  .cta-sec{padding-top:64px;}
+@media(max-width:640px){
+  .hero h1{font-size:32px}
+  .services-grid,.process-grid,.stats-grid{grid-template-columns:1fr}
+  .metrics{flex-wrap:wrap;gap:18px}
+  .testimonial{flex-direction:column;padding:26px}
+  .sec-header{flex-direction:column;align-items:flex-start}
+  .hero-ctas{flex-direction:column;align-items:stretch}
+  .cta-card{padding:28px}
 }
 </style>
-<link rel="stylesheet" href="styles/responsive.css">
 </head>
 <body>
-<div id="page">
-<div class="bg-grid" aria-hidden="true"></div>
-<div class="bg-glow-top" aria-hidden="true"></div>
-<div class="bg-glow-right" aria-hidden="true"></div>
 
-<!-- NAV -->
-<nav class="nav">
-  <a href="index.html" class="nav-logo">
-    <svg width="36" height="36" viewBox="0 0 30 30" fill="none" aria-hidden="true"><rect x="3" y="3" width="24" height="24" rx="6" stroke="var(--accent)" stroke-width="1.6"/><rect x="9.5" y="9.5" width="11" height="11" rx="2" fill="var(--accent)"/><circle cx="15" cy="15" r="2.4" fill="#06070d"/></svg>
-    <span class="nav-logo-text">KRYVEX<span>MEDIA</span></span>
-  </a>
-  <div class="nav-links">
-    <a href="index.html" class="nav-link active">Home</a>
-    <div class="nav-dropdown" id="dd-industries">
-      <button class="nav-btn" aria-expanded="false" aria-controls="panel-industries">
-        Industries <span class="nav-caret"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      </button>
-      <div class="dropdown-panel" id="panel-industries" role="menu">
-        <div class="dropdown-label">INDUSTRIES WE SERVE</div>
-        <div class="dd-grid4">
-          <a href="industries/healthcare.html" class="dd-item"><span class="dd-icon">🏥</span><span><span class="dd-title">Healthcare</span><span class="dd-sub">Clinics, dental, wellness</span></span></a>
-          <a href="industries/real-estate.html" class="dd-item"><span class="dd-icon">🏠</span><span><span class="dd-title">Real Estate</span><span class="dd-sub">Agents, brokers, developers</span></span></a>
-          <a href="industries/ecommerce.html" class="dd-item"><span class="dd-icon">🛍️</span><span><span class="dd-title">E-commerce &amp; Retail</span><span class="dd-sub">Online &amp; omnichannel stores</span></span></a>
-          <a href="industries/restaurants.html" class="dd-item"><span class="dd-icon">🍽️</span><span><span class="dd-title">Restaurants</span><span class="dd-sub">Cafes, dining, franchises</span></span></a>
-          <a href="industries/legal.html" class="dd-item"><span class="dd-icon">⚖️</span><span><span class="dd-title">Legal &amp; Professional</span><span class="dd-sub">Law, finance, consulting</span></span></a>
-          <a href="industries/home-services.html" class="dd-item"><span class="dd-icon">🔧</span><span><span class="dd-title">Home Services</span><span class="dd-sub">Trades, repair, contractors</span></span></a>
-          <a href="industries/education.html" class="dd-item"><span class="dd-icon">🎓</span><span><span class="dd-title">Education</span><span class="dd-sub">Schools, courses, edtech</span></span></a>
-          <a href="industries/fitness.html" class="dd-item"><span class="dd-icon">💪</span><span><span class="dd-title">Fitness &amp; Wellness</span><span class="dd-sub">Gyms, studios, coaches</span></span></a>
+<header class="k-header">
+  <div class="wrap k-nav">
+    <a href="index.html" class="k-logo">
+      <div class="k-logo-tile">
+        <svg width="22" height="22" viewBox="0 0 30 30" fill="none">
+          <rect x="9" y="5" width="6" height="20" rx="1.5" fill="#3B1C6C"/>
+          <path d="M15 12.5 L26 4 L20.5 14.5 Z" fill="#7046B6"/>
+          <path d="M15 17.5 L26 26 L20.5 14.5 Z" fill="#A272F5"/>
+        </svg>
+      </div>
+      <div class="k-logo-word">
+        <b>KRYVEX<span> MEDIA</span></b>
+        <small>GLOBAL DIGITAL MARKETING</small>
+      </div>
+    </a>
+    <div class="k-navlinks">
+      <a href="index.html" class="active">Home</a>
+      <div class="k-dd" id="dd-industries">
+        <button class="k-dd-btn" aria-expanded="false" aria-controls="panel-industries">Industries <span class="k-caret"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="k-panel wide" id="panel-industries" role="menu">
+          <div class="k-panel-label">Industries We Serve</div>
+          <div class="k-panel-grid">
+            <a href="industries/healthcare.html" class="k-item"><span class="k-item-icon">🏥</span><span><span class="k-item-title">Healthcare</span><span class="k-item-sub">Clinics, dental, wellness</span></span></a>
+            <a href="industries/real-estate.html" class="k-item"><span class="k-item-icon">🏠</span><span><span class="k-item-title">Real Estate</span><span class="k-item-sub">Agents, brokers, developers</span></span></a>
+            <a href="industries/ecommerce.html" class="k-item"><span class="k-item-icon">🛍️</span><span><span class="k-item-title">E-commerce &amp; Retail</span><span class="k-item-sub">Online &amp; omnichannel</span></span></a>
+            <a href="industries/restaurants.html" class="k-item"><span class="k-item-icon">🍽️</span><span><span class="k-item-title">Restaurants</span><span class="k-item-sub">Cafes, dining, franchises</span></span></a>
+            <a href="industries/legal.html" class="k-item"><span class="k-item-icon">⚖️</span><span><span class="k-item-title">Legal &amp; Professional</span><span class="k-item-sub">Law, finance, consulting</span></span></a>
+            <a href="industries/home-services.html" class="k-item"><span class="k-item-icon">🔧</span><span><span class="k-item-title">Home Services</span><span class="k-item-sub">Trades, repair, contractors</span></span></a>
+            <a href="industries/education.html" class="k-item"><span class="k-item-icon">🎓</span><span><span class="k-item-title">Education</span><span class="k-item-sub">Schools, courses, edtech</span></span></a>
+            <a href="industries/fitness.html" class="k-item"><span class="k-item-icon">💪</span><span><span class="k-item-title">Fitness &amp; Wellness</span><span class="k-item-sub">Gyms, studios, coaches</span></span></a>
+          </div>
+        </div>
+      </div>
+      <div class="k-dd" id="dd-services">
+        <button class="k-dd-btn" aria-expanded="false" aria-controls="panel-services">Services <span class="k-caret"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="k-panel wide" id="panel-services" role="menu">
+          <div class="k-panel-label">What We Do</div>
+          <div class="k-panel-grid">
+            <a href="services/seo.html" class="k-item"><span class="k-item-icon">🔍</span><span><span class="k-item-title">Search Engine Optimization</span><span class="k-item-sub">Organic growth</span></span></a>
+            <a href="services/local-seo.html" class="k-item"><span class="k-item-icon">📍</span><span><span class="k-item-title">Local SEO</span><span class="k-item-sub">Map &amp; near-me</span></span></a>
+            <a href="services/ppc.html" class="k-item"><span class="k-item-icon">🎯</span><span><span class="k-item-title">Paid Advertising (PPC)</span><span class="k-item-sub">Google ads</span></span></a>
+            <a href="services/social-media.html" class="k-item"><span class="k-item-icon">📱</span><span><span class="k-item-title">Social Media Marketing</span><span class="k-item-sub">Build audience</span></span></a>
+            <a href="services/meta-ads.html" class="k-item"><span class="k-item-icon">⚡</span><span><span class="k-item-title">Meta Ads Services</span><span class="k-item-sub">FB &amp; Instagram</span></span></a>
+            <a href="services/content-marketing.html" class="k-item"><span class="k-item-icon">✍️</span><span><span class="k-item-title">Content Marketing</span><span class="k-item-sub">Blogs &amp; assets</span></span></a>
+            <a href="services/email-marketing.html" class="k-item"><span class="k-item-icon">✉️</span><span><span class="k-item-title">Email Marketing</span><span class="k-item-sub">Flows &amp; campaigns</span></span></a>
+            <a href="services/web-design.html" class="k-item"><span class="k-item-icon">🖥️</span><span><span class="k-item-title">Web Design &amp; Development</span><span class="k-item-sub">Design &amp; build</span></span></a>
+            <a href="services/graphics-design.html" class="k-item"><span class="k-item-icon">🎨</span><span><span class="k-item-title">Graphics Designing</span><span class="k-item-sub">Brand visuals</span></span></a>
+          </div>
+          <a href="services/index.html" class="k-panel-all">VIEW ALL SERVICES →</a>
+        </div>
+      </div>
+      <div class="k-dd" id="dd-countries">
+        <button class="k-dd-btn" aria-expanded="false" aria-controls="panel-countries">Countries <span class="k-caret"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="k-panel" id="panel-countries" role="menu">
+          <div class="k-panel-label">Countries</div>
+          <div class="k-panel-col">
+            <a href="locations/india.html" class="k-item"><span class="k-item-icon">🇮🇳</span><span><span class="k-item-title">India</span><span class="k-item-sub">Live · all states</span></span></a>
+            <a href="locations/usa.html" class="k-item"><span class="k-item-icon">🇺🇸</span><span><span class="k-item-title">USA</span><span class="k-item-sub">Launching soon</span></span></a>
+            <a href="locations/uk.html" class="k-item"><span class="k-item-icon">🇬🇧</span><span><span class="k-item-title">UK</span><span class="k-item-sub">Launching soon</span></span></a>
+            <a href="locations/singapore.html" class="k-item"><span class="k-item-icon">🇸🇬</span><span><span class="k-item-title">Singapore</span><span class="k-item-sub">Launching soon</span></span></a>
+          </div>
+        </div>
+      </div>
+      <div class="k-dd" id="dd-resources">
+        <button class="k-dd-btn" aria-expanded="false" aria-controls="panel-resources">Resources <span class="k-caret"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="k-panel" id="panel-resources" role="menu">
+          <div class="k-panel-label">Resources</div>
+          <div class="k-panel-col">
+            <a href="resources/blog.html" class="k-item"><span class="k-item-icon">📝</span><span><span class="k-item-title">Blog</span><span class="k-item-sub">Insights &amp; guides</span></span></a>
+            <a href="resources/press-release.html" class="k-item"><span class="k-item-icon">📰</span><span><span class="k-item-title">Press Release</span><span class="k-item-sub">News &amp; announcements</span></span></a>
+            <a href="resources/case-studies.html" class="k-item"><span class="k-item-icon">📊</span><span><span class="k-item-title">Case Studies</span><span class="k-item-sub">Real client results</span></span></a>
+          </div>
         </div>
       </div>
     </div>
-
-    <div class="nav-dropdown" id="dd-services">
-      <button class="nav-btn" aria-expanded="false" aria-controls="panel-services">
-        Services <span class="nav-caret"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      </button>
-      <div class="dropdown-panel" id="panel-services" role="menu">
-        <div class="dropdown-label">WHAT WE DO</div>
-        <div class="dd-grid4">
-          <a href="services/seo.html" class="dd-item"><span class="dd-icon">🔍</span><span><span class="dd-title">Search Engine Optimization</span><span class="dd-sub">Organic growth</span></span></a>
-          <a href="services/local-seo.html" class="dd-item"><span class="dd-icon">📍</span><span><span class="dd-title">Local SEO</span><span class="dd-sub">Map &amp; near-me</span></span></a>
-          <a href="services/ppc.html" class="dd-item"><span class="dd-icon">🎯</span><span><span class="dd-title">Paid Advertising (PPC)</span><span class="dd-sub">Google ads</span></span></a>
-          <a href="services/social-media.html" class="dd-item"><span class="dd-icon">📱</span><span><span class="dd-title">Social Media Marketing</span><span class="dd-sub">Build audience</span></span></a>
-          <a href="services/meta-ads.html" class="dd-item"><span class="dd-icon">⚡</span><span><span class="dd-title">Meta Ads Services</span><span class="dd-sub">FB &amp; Instagram</span></span></a>
-          <a href="services/content-marketing.html" class="dd-item"><span class="dd-icon">✍️</span><span><span class="dd-title">Content Marketing</span><span class="dd-sub">Blogs &amp; assets</span></span></a>
-          <a href="services/email-marketing.html" class="dd-item"><span class="dd-icon">✉️</span><span><span class="dd-title">Email Marketing</span><span class="dd-sub">Flows &amp; campaigns</span></span></a>
-          <a href="services/web-design.html" class="dd-item"><span class="dd-icon">🖥️</span><span><span class="dd-title">Web Design &amp; Development</span><span class="dd-sub">Design &amp; build</span></span></a>
-          <a href="services/graphics-design.html" class="dd-item"><span class="dd-icon">🎨</span><span><span class="dd-title">Graphics Designing</span><span class="dd-sub">Brand visuals</span></span></a>
-        </div>
-        <a href="services/index.html" class="dd-all">VIEW ALL SERVICES →</a>
-      </div>
-    </div>
-
-    <div class="nav-dropdown" id="dd-countries">
-      <button class="nav-btn" aria-expanded="false" aria-controls="panel-countries">Countries<span class="nav-caret"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      </button>
-      <div class="dropdown-panel" id="panel-countries" role="menu">
-        <div class="dropdown-label">COUNTRIES</div>
-        <div class="dd-grid1">
-          <a href="locations/india.html" class="dd-item"><span class="dd-icon">🇮🇳</span><span><span class="dd-title">India</span><span class="dd-sub">Live · all states</span></span></a><a href="locations/usa.html" class="dd-item"><span class="dd-icon">🇺🇸</span><span><span class="dd-title">USA</span><span class="dd-sub">Launching soon</span></span></a><a href="locations/uk.html" class="dd-item"><span class="dd-icon">🇬🇧</span><span><span class="dd-title">UK</span><span class="dd-sub">Launching soon</span></span></a><a href="locations/singapore.html" class="dd-item"><span class="dd-icon">🇸🇬</span><span><span class="dd-title">Singapore</span><span class="dd-sub">Launching soon</span></span></a></div>
-      </div>
-    </div>
-    <div class="nav-dropdown" id="dd-resources">
-      <button class="nav-btn" aria-expanded="false" aria-controls="panel-resources">
-        Resources <span class="nav-caret"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      </button>
-      <div class="dropdown-panel" id="panel-resources" role="menu">
-        <div class="dropdown-label">RESOURCES</div>
-        <div class="dd-grid1">
-          <a href="resources/blog.html" class="dd-item"><span class="dd-icon">📝</span><span><span class="dd-title">Blog</span><span class="dd-sub">Insights &amp; guides</span></span></a>
-          <a href="resources/press-release.html" class="dd-item"><span class="dd-icon">📰</span><span><span class="dd-title">Press Release</span><span class="dd-sub">News &amp; announcements</span></span></a>
-          <a href="resources/case-studies.html" class="dd-item"><span class="dd-icon">📊</span><span><span class="dd-title">Case Studies</span><span class="dd-sub">Real client results</span></span></a>
-        </div>
-      </div>
-    </div>
-
-    <a href="contact-us.html" class="nav-cta">Book Free Consultation</a>
-  </div>
-</nav>
-
-<!-- HERO -->
-<header class="hero">
-  <div>
-    <div class="hero-badge">
-      <span class="badge-dot"></span>
-      DIGITAL MARKETING FOR SMALL BUSINESSES
-    </div>
-    <h1>Growth, engineered for <span>small businesses.</span></h1>
-    <p class="hero-sub">Kryvex Media is your complete digital marketing partner — SEO, paid ads, social, web and content working as one system to turn clicks into customers.</p>
-    <div class="rotator-row">
-      <span class="rotator-label">NOW DELIVERING:</span>
-      <span style="display:inline-flex;align-items:center;gap:9px;">
-        <span class="rotator-dot"></span>
-        <span id="service-rotator">SEO &amp; Local Search</span>
-      </span>
-    </div>
-    <div class="hero-ctas">
-      <a href="#contact" class="btn-primary">Book Free Consultation</a>
-      <a href="#contact" class="btn-ghost">Get Free Audit Report →</a>
-    </div>
-    <p class="hero-fn">No contracts · Free 30-min strategy call · Report in 48h</p>
-  </div>
-
-  <!-- Glass metrics card -->
-  <div class="card-wrap">
-    <div class="card-border" aria-hidden="true"></div>
-    <div class="card">
-      <div class="card-head">
-        <div class="card-title">
-          <span class="card-dot"></span>
-          <span class="card-lbl">campaign_overview</span>
-        </div>
-        <span class="card-live">● LIVE</span>
-      </div>
-      <div class="card-stats">
-        <div class="cstat">
-          <div class="cstat-lbl">ACTIVE CLIENTS</div>
-          <div class="cstat-num" id="active-clients">128</div>
-          <div class="cstat-status">● onboarding now</div>
-        </div>
-        <div class="cstat">
-          <div class="cstat-lbl">ACTIVE PROJECTS</div>
-          <div class="cstat-num" id="active-projects">53</div>
-          <div class="cstat-status">● shipping today</div>
-        </div>
-      </div>
-      <div class="chart-wrap">
-        <div class="chart-head">
-          <span class="chart-name">organic_traffic</span>
-          <span class="chart-val">+162%</span>
-        </div>
-        <div class="bars">
-          <div class="bar" style="height:32%;background:rgba(255,255,255,.1);animation:wtc-grow .7s ease-out;"></div>
-          <div class="bar" style="height:46%;background:rgba(255,255,255,.13);animation:wtc-grow .7s ease-out;"></div>
-          <div class="bar" style="height:40%;background:rgba(255,255,255,.13);animation:wtc-grow .7s ease-out;"></div>
-          <div class="bar" style="height:62%;background:linear-gradient(180deg,var(--accent2),rgba(139,92,246,.4));animation:wtc-grow .8s ease-out;"></div>
-          <div class="bar" style="height:74%;background:linear-gradient(180deg,var(--accent),rgba(77,124,254,.4));animation:wtc-grow .9s ease-out;"></div>
-          <div class="bar" style="height:90%;background:linear-gradient(180deg,var(--accent),rgba(77,124,254,.4));animation:wtc-grow 1s ease-out;"></div>
-          <div class="bar" style="height:100%;background:linear-gradient(180deg,var(--accent),var(--accent2));box-shadow:0 0 16px -2px var(--accent);animation:wtc-grow 1.1s ease-out;"></div>
-        </div>
-      </div>
-    </div>
+    <a href="contact-us.html" class="k-nav-cta">Book Free Consultation</a>
+    <button class="k-burger" id="mnb" aria-label="Open menu"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
   </div>
 </header>
 
-<!-- STATS -->
-<section class="stats" aria-label="Key metrics">
-  <div class="stats-grid">
-    <div class="stat-cell"><div class="stat-num">250<span>+</span></div><div class="stat-lbl">Small businesses grown</div></div>
-    <div class="stat-cell"><div class="stat-num">4.2<span>x</span></div><div class="stat-lbl">Average return on ad spend</div></div>
-    <div class="stat-cell"><div class="stat-num">$18<span>M</span></div><div class="stat-lbl">Revenue generated for clients</div></div>
-    <div class="stat-cell"><div class="stat-num">98<span>%</span></div><div class="stat-lbl">Client retention rate</div></div>
-  </div>
-</section>
-
-<!-- MARQUEE -->
-<section class="marquee-sec" aria-label="Trusted by growing brands">
-  <p class="marquee-ttl">TRUSTED BY GROWING BRANDS ACROSS 12 INDUSTRIES</p>
-  <div class="marquee-fade">
-    <div class="marquee-track" aria-hidden="true">
-      <span class="marquee-item">NorthPeak</span><span class="marquee-item">BrightLeaf Co.</span><span class="marquee-item">Harborline</span><span class="marquee-item">Vela Studio</span><span class="marquee-item">Quanta Labs</span><span class="marquee-item">Maple &amp; Co</span><span class="marquee-item">Driftwave</span><span class="marquee-item">Sentari</span>
-      <span class="marquee-item">NorthPeak</span><span class="marquee-item">BrightLeaf Co.</span><span class="marquee-item">Harborline</span><span class="marquee-item">Vela Studio</span><span class="marquee-item">Quanta Labs</span><span class="marquee-item">Maple &amp; Co</span><span class="marquee-item">Driftwave</span><span class="marquee-item">Sentari</span>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICES -->
-<section id="services" class="section pad-top">
-  <div class="sec-header">
-    <div>
-      <div class="sec-label">// WHAT WE DO</div>
-      <h2 class="sec-h2">One team for every channel that drives growth.</h2>
-    </div>
-    <p class="sec-sub">No piecing together five freelancers. We run your entire marketing engine under one roof.</p>
-  </div>
-  <div class="services-grid">
-    <div class="svc-card">
-      <svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true"><circle cx="15" cy="15" r="9" stroke="var(--accent)" stroke-width="1.8"/><line x1="22" y1="22" x2="28" y2="28" stroke="var(--accent)" stroke-width="1.8" stroke-linecap="round"/></svg>
-      <h3>SEO &amp; Local Search</h3>
-      <p>Rank where your customers are searching. Technical SEO, content, and Google Business optimization.</p>
-    </div>
-    <div class="svc-card">
-      <svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true"><circle cx="17" cy="17" r="12" stroke="var(--accent)" stroke-width="1.8"/><circle cx="17" cy="17" r="6.5" stroke="var(--accent)" stroke-width="1.8"/><circle cx="17" cy="17" r="2" fill="var(--accent)"/></svg>
-      <h3>Paid Advertising (PPC)</h3>
-      <p>Profitable Google &amp; Meta ad campaigns engineered for return, not just clicks and impressions.</p>
-    </div>
-    <div class="svc-card">
-      <svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true"><rect x="5" y="6" width="24" height="17" rx="5" stroke="var(--accent)" stroke-width="1.8"/><path d="M12 23 L12 28 L18 23" stroke="var(--accent)" stroke-width="1.8" stroke-linejoin="round" fill="none"/><circle cx="13" cy="14.5" r="1.6" fill="var(--accent)"/><circle cx="21" cy="14.5" r="1.6" fill="var(--accent)"/></svg>
-      <h3>Social Media Marketing</h3>
-      <p>Content and community management that builds a brand people actually want to follow and buy from.</p>
-    </div>
-    <div class="svc-card">
-      <svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true"><rect x="5" y="6" width="24" height="22" rx="4" stroke="var(--accent)" stroke-width="1.8"/><line x1="5" y1="13" x2="29" y2="13" stroke="var(--accent)" stroke-width="1.8"/><circle cx="9" cy="9.5" r="1.1" fill="var(--accent)"/><circle cx="12.5" cy="9.5" r="1.1" fill="var(--accent)"/></svg>
-      <h3>Web Design &amp; Development</h3>
-      <p>Fast, conversion-focused websites that turn your hard-won traffic into booked calls and sales.</p>
-    </div>
-    <div class="svc-card">
-      <svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true"><rect x="5" y="8" width="24" height="18" rx="4" stroke="var(--accent)" stroke-width="1.8"/><path d="M6 10 L17 19 L28 10" stroke="var(--accent)" stroke-width="1.8" fill="none" stroke-linejoin="round"/></svg>
-      <h3>Content &amp; Email Marketing</h3>
-      <p>Nurture sequences and content that keep you top-of-mind and turn one-time buyers into regulars.</p>
-    </div>
-    <div class="svc-card">
-      <svg width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true"><rect x="17" y="3" width="14" height="14" transform="rotate(45 17 3)" stroke="var(--accent)" stroke-width="1.8"/><circle cx="17" cy="17" r="3" fill="var(--accent)"/></svg>
-      <h3>Branding &amp; Strategy</h3>
-      <p>Positioning, identity, and a clear marketing roadmap so every dollar pulls in the same direction.</p>
-    </div>
-  </div>
-</section>
-
-<!-- PROCESS -->
-<section id="process" class="section pad-top-lg">
-  <div class="sec-center">
-    <div class="sec-label">// HOW WE WORK</div>
-    <h2 class="sec-h2">A clear path from audit to scale</h2>
-  </div>
-  <div class="process-grid">
-    <div class="proc-card"><div class="proc-num">01</div><h3>Free Audit</h3><p>We analyze your site, ads, and competitors and hand you a report in 48 hours.</p></div>
-    <div class="proc-card"><div class="proc-num">02</div><h3>Strategy</h3><p>A custom 90-day roadmap with clear channels, budgets, and revenue targets.</p></div>
-    <div class="proc-card"><div class="proc-num">03</div><h3>Execute</h3><p>Our team launches campaigns, builds assets, and ships — you stay focused on your business.</p></div>
-    <div class="proc-card hi"><div class="proc-num">04</div><h3>Scale</h3><p>We double down on what's working and report on real numbers every single month.</p></div>
-  </div>
-</section>
-
-<!-- RESULTS -->
-<section id="results" class="section pad-top-lg">
-  <div class="results-case">
-    <div>
-      <div class="sec-label">// CASE STUDY · LOCAL RETAIL</div>
-      <h2 style="font-family:'Space Grotesk',sans-serif;font-size:34px;font-weight:700;line-height:1.12;letter-spacing:-.01em;">From 12 leads a month to a fully-booked calendar.</h2>
-      <p style="font-size:15px;color:#aeb4c7;line-height:1.65;margin-top:18px;">A 4-location service business came to us drowning in wasted ad spend. In 90 days we rebuilt their funnel and tripled qualified leads — at a lower cost per lead.</p>
-      <div class="metrics">
-        <div><div class="metric-num">+312%</div><div class="metric-lbl">Qualified leads</div></div>
-        <div><div class="metric-num">−41%</div><div class="metric-lbl">Cost per lead</div></div>
-        <div><div class="metric-num">90d</div><div class="metric-lbl">To results</div></div>
-      </div>
-    </div>
-    <div class="results-img"><span>[ campaign dashboard screenshot ]</span></div>
-  </div>
-  <div class="testimonial">
-    <svg width="40" height="40" viewBox="0 0 40 40" fill="none" style="flex:none;margin-top:4px;" aria-hidden="true"><path d="M8 24 Q8 12 18 11 L18 16 Q13 17 13 24 Z" fill="var(--accent)" opacity=".85"/><path d="M22 24 Q22 12 32 11 L32 16 Q27 17 27 24 Z" fill="var(--accent)" opacity=".85"/></svg>
-    <div>
-      <p class="test-quote">"Kryvex Media feels like our in-house marketing team — except they actually move fast. We finally have a pipeline we can predict."</p>
-      <div class="test-author">
-        <div class="test-avatar"></div>
-        <div><div class="test-name">Maya R.</div><div class="test-role">Founder, BrightLeaf Co.</div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- COVERAGE -->
-<section id="coverage" class="section pad-top-lg">
-  <div style="text-align:center;">
-    <div class="sec-label">// WHERE WE WORK</div>
-    <h2 class="sec-h2" style="max-width:920px;margin:0 auto;">Local teams across two countries — and expanding fast.</h2>
-    <div class="coverage-stats">
-      <div><div class="cov-num" style="color:#fff;">80</div><div class="cov-lbl">States covered</div></div>
-      <div><div class="cov-num" style="color:#fff;">2</div><div class="cov-lbl">Countries live</div></div>
-      <div><div class="cov-num" style="color:var(--accent);">+2</div><div class="cov-lbl">Launching soon</div></div>
-    </div>
-  </div>
-  <div class="cov-grid">
-    <div class="cov-card">
-      <div class="cov-card-head">
-        <div style="display:flex;align-items:center;"><span class="cov-badge in">IN</span><span class="cov-name">India</span></div>
-        <span class="cov-count">30 STATES &amp; UTS</span>
-      </div>
-      <div class="cov-tags">
-        <span class="cov-tag">Andhra Pradesh</span><span class="cov-tag">Arunachal Pradesh</span><span class="cov-tag">Assam</span><a href="locations/bihar.html" style="text-decoration:none;"><span class="cov-tag" style="color:#4d7cfe;border-color:rgba(77,124,254,.35);background:rgba(77,124,254,.06);">Bihar ●</span></a><span class="cov-tag">Chhattisgarh</span><a href="locations/delhi.html" style="text-decoration:none;"><span class="cov-tag" style="color:#4d7cfe;border-color:rgba(77,124,254,.35);background:rgba(77,124,254,.06);">Delhi ●</span></a><span class="cov-tag">Goa</span><a href="locations/gujarat.html" style="text-decoration:none;"><span class="cov-tag" style="color:#4d7cfe;border-color:rgba(77,124,254,.35);background:rgba(77,124,254,.06);">Gujarat ●</span></a><span class="cov-tag">Haryana</span><span class="cov-tag">Himachal Pradesh</span><span class="cov-tag">Jammu &amp; Kashmir</span><span class="cov-tag">Jharkhand</span><a href="locations/karnataka.html" style="text-decoration:none;"><span class="cov-tag" style="color:#4d7cfe;border-color:rgba(77,124,254,.35);background:rgba(77,124,254,.06);">Karnataka ●</span></a><span class="cov-tag">Kerala</span><a href="locations/madhya-pradesh.html" style="text-decoration:none;"><span class="cov-tag" style="color:#4d7cfe;border-color:rgba(77,124,254,.35);background:rgba(77,124,254,.06);">Madhya Pradesh ●</span></a><a href="locations/maharashtra.html" style="text-decoration:none;"><span class="cov-tag" style="color:#4d7cfe;border-color:rgba(77,124,254,.35);background:rgba(77,124,254,.06);">Maharashtra ●</span></a><span class="cov-tag">Manipur</span><span class="cov-tag">Meghalaya</span><span class="cov-tag">Mizoram</span><span class="cov-tag">Nagaland</span><span class="cov-tag">Odisha</span><span class="cov-tag">Punjab</span><a href="locations/rajasthan.html" style="text-decoration:none;"><span class="cov-tag" style="color:#4d7cfe;border-color:rgba(77,124,254,.35);background:rgba(77,124,254,.06);">Rajasthan ●</span></a><span class="cov-tag">Sikkim</span><a href="locations/tamil-nadu.html" style="text-decoration:none;"><span class="cov-tag" style="color:#4d7cfe;border-color:rgba(77,124,254,.35);background:rgba(77,124,254,.06);">Tamil Nadu ●</span></a><span class="cov-tag">Telangana</span><span class="cov-tag">Tripura</span><a href="locations/uttar-pradesh.html" style="text-decoration:none;"><span class="cov-tag" style="color:#4d7cfe;border-color:rgba(77,124,254,.35);background:rgba(77,124,254,.06);">Uttar Pradesh ●</span></a><span class="cov-tag">Uttarakhand</span><a href="locations/west-bengal.html" style="text-decoration:none;"><span class="cov-tag" style="color:#4d7cfe;border-color:rgba(77,124,254,.35);background:rgba(77,124,254,.06);">West Bengal ●</span></a>
-      </div>
-    </div>
-    <div class="cov-card">
-      <div class="cov-card-head">
-        <div style="display:flex;align-items:center;"><span class="cov-badge us">US</span><span class="cov-name">United States</span></div>
-        <span class="cov-count">50 STATES</span>
-      </div>
-      <div class="cov-tags">
-        <span class="cov-tag">Alabama</span><span class="cov-tag">Alaska</span><span class="cov-tag">Arizona</span><span class="cov-tag">Arkansas</span><span class="cov-tag">California</span><span class="cov-tag">Colorado</span><span class="cov-tag">Connecticut</span><span class="cov-tag">Delaware</span><span class="cov-tag">Florida</span><span class="cov-tag">Georgia</span><span class="cov-tag">Hawaii</span><span class="cov-tag">Idaho</span><span class="cov-tag">Illinois</span><span class="cov-tag">Indiana</span><span class="cov-tag">Iowa</span><span class="cov-tag">Kansas</span><span class="cov-tag">Kentucky</span><span class="cov-tag">Louisiana</span><span class="cov-tag">Maine</span><span class="cov-tag">Maryland</span><span class="cov-tag">Massachusetts</span><span class="cov-tag">Michigan</span><span class="cov-tag">Minnesota</span><span class="cov-tag">Mississippi</span><span class="cov-tag">Missouri</span><span class="cov-tag">Montana</span><span class="cov-tag">Nebraska</span><span class="cov-tag">Nevada</span><span class="cov-tag">New Hampshire</span><span class="cov-tag">New Jersey</span><span class="cov-tag">New Mexico</span><span class="cov-tag">New York</span><span class="cov-tag">North Carolina</span><span class="cov-tag">North Dakota</span><span class="cov-tag">Ohio</span><span class="cov-tag">Oklahoma</span><span class="cov-tag">Oregon</span><span class="cov-tag">Pennsylvania</span><span class="cov-tag">Rhode Island</span><span class="cov-tag">South Carolina</span><span class="cov-tag">South Dakota</span><span class="cov-tag">Tennessee</span><span class="cov-tag">Texas</span><span class="cov-tag">Utah</span><span class="cov-tag">Vermont</span><span class="cov-tag">Virginia</span><span class="cov-tag">Washington</span><span class="cov-tag">West Virginia</span><span class="cov-tag">Wisconsin</span><span class="cov-tag">Wyoming</span>
-      </div>
-    </div>
-  </div>
-  <div class="expand-strip">
-    <div style="display:flex;align-items:center;gap:14px;">
-      <span class="expand-label">// EXPANDING NEXT</span>
-      <span class="expand-text">New teams launching to serve clients in</span>
-    </div>
-    <div class="expand-countries">
-      <div class="expand-country"><span class="expand-code">UK</span><span class="expand-cname">United Kingdom</span><span class="expand-soon">SOON</span></div>
-      <div class="expand-country"><span class="expand-code">SG</span><span class="expand-cname">Singapore</span><span class="expand-soon">SOON</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA / CONTACT -->
-<section id="contact" class="cta-sec">
-  <div class="cta-card">
-    <div class="cta-glow" aria-hidden="true"></div>
-    <div class="cta-grid">
-      <div style="max-width:620px;">
-        <div class="cta-label">// GET STARTED — IT'S FREE</div>
-        <h2 class="cta-h2">Book your free consultation &amp; get an audit report.</h2>
-        <p class="cta-sub">Tell us where to send your free marketing audit. We'll review your site and ads and reply within 48 hours — no obligation.</p>
-        <div class="cta-success" id="cta-success" role="status">
-          <svg width="26" height="26" viewBox="0 0 26 26" fill="none" aria-hidden="true"><circle cx="13" cy="13" r="12" stroke="#34d399" stroke-width="1.6"/><path d="M8 13 L11.5 16.5 L18 9" stroke="#34d399" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <div><div class="cta-success-title">You're in — check your inbox.</div><div class="cta-success-sub">We'll send your free audit report within 48 hours.</div></div>
+<main>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="k-badge"><i></i>DIGITAL MARKETING FOR SMALL BUSINESSES</div>
+        <h1>Growth, engineered for <span>small businesses.</span></h1>
+        <p class="hero-sub">Kryvex Media is your complete digital marketing partner — SEO, paid ads, social, web and content working as one system to turn clicks into customers.</p>
+        <div class="rotator-row">
+          <span class="rotator-label">Now delivering:</span>
+          <span style="display:inline-flex;align-items:center;gap:9px">
+            <span class="rotator-dot"></span>
+            <span id="service-rotator">SEO &amp; Local Search</span>
+          </span>
         </div>
-        <form class="cta-form" id="cta-form" novalidate>
-          <input type="email" class="cta-input" id="cta-email" placeholder="you@yourbusiness.com" required autocomplete="email">
-          <button type="submit" class="cta-submit">Get My Free Audit →</button>
-        </form>
-        <p class="cta-contact">Prefer to talk? Call +91 9110170824 · info@kryvexmedia.com</p>
+        <div class="hero-ctas">
+          <a href="#contact" class="btn-primary">Book Free Consultation</a>
+          <a href="#contact" class="btn-text">Get Free Audit Report →</a>
+        </div>
+        <p class="hero-fn">No contracts · Free 30-min strategy call · Report in 48h</p>
       </div>
 
-      <!-- Consultant figure -->
-      <div class="consultant-wrap">
-        <div class="consultant-glow" aria-hidden="true"></div>
-        <div class="avail-badge"><span class="avail-dot"></span>AVAILABLE NOW</div>
-        <div class="consultant-fig" aria-hidden="true">
-          <div style="position:absolute;bottom:0;left:45px;width:150px;height:150px;border-radius:75px 75px 28px 28px;background:linear-gradient(180deg,var(--accent),var(--accent2));"></div>
-          <div style="position:absolute;bottom:118px;left:108px;width:24px;height:30px;background:#e7c4a0;"></div>
-          <div style="position:absolute;top:40px;left:74px;width:92px;height:92px;border-radius:50%;background:#eccca6;"></div>
-          <div style="position:absolute;top:30px;left:70px;width:100px;height:58px;border-radius:50px 50px 8px 8px;background:#2a2532;"></div>
-          <div style="position:absolute;top:26px;left:66px;width:108px;height:72px;border:5px solid var(--accent);border-bottom:none;border-radius:54px 54px 0 0;background:transparent;"></div>
-          <div style="position:absolute;top:84px;left:58px;width:16px;height:28px;border-radius:8px;background:var(--accent);"></div>
-          <div style="position:absolute;top:84px;left:166px;width:16px;height:28px;border-radius:8px;background:var(--accent);"></div>
-          <div style="position:absolute;top:110px;left:70px;width:42px;height:7px;border-radius:4px;background:var(--accent);transform:rotate(14deg);"></div>
-          <div style="position:absolute;top:92px;left:103px;width:9px;height:13px;border-radius:50%;background:#2a2532;transform-origin:center;animation:wtc-blink 4.6s infinite;"></div>
-          <div style="position:absolute;top:92px;left:129px;width:9px;height:13px;border-radius:50%;background:#2a2532;transform-origin:center;animation:wtc-blink 4.6s infinite .08s;"></div>
-          <div style="position:absolute;top:114px;left:108px;width:24px;height:11px;border:3px solid #2a2532;border-top:none;border-radius:0 0 30px 30px;"></div>
-          <div style="position:absolute;bottom:34px;left:150px;width:46px;height:26px;border-radius:13px;background:#eccca6;transform:rotate(-18deg);"></div>
-          <div style="position:absolute;bottom:4px;left:122px;width:84px;height:106px;border-radius:8px;background:#f4f6fb;transform:rotate(-9deg);box-shadow:0 8px 22px -6px rgba(0,0,0,.5);border:1px solid rgba(0,0,0,.08);">
-            <div style="position:absolute;top:-7px;left:50%;transform:translateX(-50%);width:30px;height:11px;border-radius:4px;background:#c3c8d4;"></div>
-            <div style="position:absolute;top:22px;left:14px;width:54px;height:4px;border-radius:2px;background:#d3d8e2;"></div>
-            <div style="position:absolute;top:36px;left:14px;width:46px;height:4px;border-radius:2px;background:#d3d8e2;"></div>
-            <div style="position:absolute;top:50px;left:14px;width:54px;height:4px;border-radius:2px;background:#d3d8e2;"></div>
-            <div style="position:absolute;top:64px;left:14px;width:38px;height:4px;border-radius:2px;background:var(--accent);opacity:.55;"></div>
+      <div class="k-card hero-panel">
+        <div class="hp-row">
+          <div class="hp-title">Campaign Overview</div>
+          <span class="hp-live">● Live</span>
+        </div>
+        <div class="hp-stats">
+          <div class="hp-stat">
+            <div class="hp-stat-lbl">Active Clients</div>
+            <div class="hp-stat-num" id="active-clients">128</div>
+            <div class="hp-stat-status">● onboarding now</div>
           </div>
-          <div style="position:absolute;bottom:30px;left:176px;width:8px;height:62px;border-radius:4px 4px 2px 2px;background:linear-gradient(180deg,var(--accent2),var(--accent));transform-origin:bottom center;animation:wtc-penwiggle 3.4s ease-in-out infinite;">
-            <div style="position:absolute;bottom:-7px;left:1px;width:0;height:0;border-left:3px solid transparent;border-right:3px solid transparent;border-top:8px solid #2a2532;"></div>
+          <div class="hp-stat">
+            <div class="hp-stat-lbl">Active Projects</div>
+            <div class="hp-stat-num" id="active-projects">53</div>
+            <div class="hp-stat-status">● shipping today</div>
           </div>
         </div>
-        <div class="consultant-cap">
-          <div class="consultant-cap-name">Your strategist is ready</div>
-          <div class="consultant-cap-sub">Pen in hand, plan in mind.</div>
+        <div class="chart-wrap">
+          <div class="chart-head">
+            <span class="chart-name">Organic Traffic</span>
+            <span class="chart-val">+162%</span>
+          </div>
+          <div class="bars">
+            <div class="bar" style="height:32%"></div>
+            <div class="bar" style="height:46%"></div>
+            <div class="bar" style="height:40%"></div>
+            <div class="bar" style="height:62%"></div>
+            <div class="bar" style="height:74%"></div>
+            <div class="bar hi" style="height:90%"></div>
+            <div class="bar hi" style="height:100%"></div>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
-<!-- FOOTER -->
-<footer>
-  <div class="footer-grid">
-    <div>
-      <a href="index.html" class="footer-logo">
-        <svg width="34" height="34" viewBox="0 0 30 30" fill="none" aria-hidden="true"><rect x="3" y="3" width="24" height="24" rx="6" stroke="var(--accent)" stroke-width="1.6"/><rect x="9.5" y="9.5" width="11" height="11" rx="2" fill="var(--accent)"/><circle cx="15" cy="15" r="2.4" fill="#06070d"/></svg>
-        <span class="footer-logo-text">KRYVEX<span>MEDIA</span></span>
-      </a>
-      <p class="footer-desc">The complete digital marketing partner for small businesses ready to grow — SEO, ads, social, web, and content under one roof.</p>
-      <div class="footer-socials">
-        <a href="#" class="fsoc" aria-label="Facebook"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M14 8 h2 V5 h-2.5 C12 5 11 6 11 7.5 V9 H9 v3 h2 v7 h3 v-7 h2.2 l.5-3 H14 V8 Z" fill="#aeb4c7"/></svg></a>
-        <a href="#" class="fsoc" aria-label="X / Twitter"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 5 l6 7 -6 7 h2 l5-5.8 L16 19 h4 l-6.4-7.6 L19.5 5 h-2 l-4.6 5.4 L8 5 Z" fill="#aeb4c7"/></svg></a>
-        <a href="#" class="fsoc" aria-label="Instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="4.5" stroke="#aeb4c7" stroke-width="1.6"/><circle cx="12" cy="12" r="3.6" stroke="#aeb4c7" stroke-width="1.6"/><circle cx="16.5" cy="7.5" r="1" fill="#aeb4c7"/></svg></a>
-        <a href="#" class="fsoc" aria-label="LinkedIn"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="3.5" stroke="#aeb4c7" stroke-width="1.6"/><line x1="8" y1="10.5" x2="8" y2="17" stroke="#aeb4c7" stroke-width="1.6" stroke-linecap="round"/><circle cx="8" cy="7.5" r="1.1" fill="#aeb4c7"/><path d="M11.5 17 v-4 a2.5 2.5 0 0 1 5 0 v4 M11.5 13 v4" stroke="#aeb4c7" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg></a>
+  <!-- STATS -->
+  <section class="k-section" style="padding-bottom:0" aria-label="Key metrics">
+    <div class="wrap">
+      <div class="k-card stats-grid">
+        <div class="stat-cell"><div class="stat-num">250<span>+</span></div><div class="stat-lbl">Small businesses grown</div></div>
+        <div class="stat-cell"><div class="stat-num">4.2<span>x</span></div><div class="stat-lbl">Average return on ad spend</div></div>
+        <div class="stat-cell"><div class="stat-num">$18<span>M</span></div><div class="stat-lbl">Revenue generated for clients</div></div>
+        <div class="stat-cell"><div class="stat-num">98<span>%</span></div><div class="stat-lbl">Client retention rate</div></div>
       </div>
     </div>
-    <div>
-      <div class="fcol-label">SERVICES</div>
-      <div class="flinks">
-        <a href="services/seo.html" class="flink">Search Engine Optimization</a>
-        <a href="services/ppc.html" class="flink">Paid Advertising</a>
-        <a href="services/social-media.html" class="flink">Social Media</a>
-        <a href="services/web-design.html" class="flink">Web Design</a>
-        <a href="services/index.html" class="flink">View all services →</a>
+  </section>
+
+  <!-- MARQUEE -->
+  <section class="marquee-sec" aria-label="Trusted by growing brands">
+    <p class="marquee-ttl">Trusted by growing brands across 12 industries</p>
+    <div class="marquee-fade">
+      <div class="marquee-track" aria-hidden="true">
+        <span class="marquee-item">NorthPeak</span><span class="marquee-item">BrightLeaf Co.</span><span class="marquee-item">Harborline</span><span class="marquee-item">Vela Studio</span><span class="marquee-item">Quanta Labs</span><span class="marquee-item">Maple &amp; Co</span><span class="marquee-item">Driftwave</span><span class="marquee-item">Sentari</span>
+        <span class="marquee-item">NorthPeak</span><span class="marquee-item">BrightLeaf Co.</span><span class="marquee-item">Harborline</span><span class="marquee-item">Vela Studio</span><span class="marquee-item">Quanta Labs</span><span class="marquee-item">Maple &amp; Co</span><span class="marquee-item">Driftwave</span><span class="marquee-item">Sentari</span>
       </div>
     </div>
-    <div>
-      <div class="fcol-label">INDUSTRIES</div>
-      <div class="flinks">
-        <a href="industries/healthcare.html" class="flink">Healthcare</a>
-        <a href="industries/real-estate.html" class="flink">Real Estate</a>
-        <a href="industries/ecommerce.html" class="flink">E-commerce</a>
-        <a href="industries/restaurants.html" class="flink">Restaurants</a>
-        <a href="industries/home-services.html" class="flink">Home Services</a>
+  </section>
+
+  <!-- SERVICES -->
+  <section id="services" class="k-section tight">
+    <div class="wrap">
+      <div class="sec-header">
+        <div>
+          <div class="eyebrow">// What We Do</div>
+          <h2 class="sec-head" style="margin-bottom:0">One team for every channel that drives growth.</h2>
+        </div>
+        <p class="muted" style="font-size:15px;max-width:320px;line-height:1.6">No piecing together five freelancers. We run your entire marketing engine under one roof.</p>
+      </div>
+      <div class="services-grid">
+        <div class="svc-card">
+          <div class="svc-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></div>
+          <h3>SEO &amp; Local Search</h3>
+          <p>Rank where your customers are searching. Technical SEO, content, and Google Business optimization.</p>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><circle cx="12" cy="12" r="1"/></svg></div>
+          <h3>Paid Advertising (PPC)</h3>
+          <p>Profitable Google &amp; Meta ad campaigns engineered for return, not just clicks and impressions.</p>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="13" rx="3"/><path d="M8 21h8M12 17v4"/></svg></div>
+          <h3>Social Media Marketing</h3>
+          <p>Content and community management that builds a brand people actually want to follow and buy from.</p>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 9h18"/></svg></div>
+          <h3>Web Design &amp; Development</h3>
+          <p>Fast, conversion-focused websites that turn your hard-won traffic into booked calls and sales.</p>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="M4 7l8 6 8-6"/></svg></div>
+          <h3>Content &amp; Email Marketing</h3>
+          <p>Nurture sequences and content that keep you top-of-mind and turn one-time buyers into regulars.</p>
+        </div>
+        <div class="svc-card">
+          <div class="svc-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8z"/></svg></div>
+          <h3>Branding &amp; Strategy</h3>
+          <p>Positioning, identity, and a clear marketing roadmap so every dollar pulls in the same direction.</p>
+        </div>
       </div>
     </div>
-    <div>
-      <div class="fcol-label">COMPANY</div>
-      <div class="flinks">
-        <a href="about.html" class="flink">About Us</a>
-        <a href="resources/case-studies.html" class="flink">Case Studies</a>
-        <a href="resources/blog.html" class="flink">Blog</a>
-        <a href="resources/press-release.html" class="flink">Press</a>
-        <a href="contact-us.html" class="flink">Contact</a><a href="sitemap.html" class="flink">Sitemap</a>
+  </section>
+
+  <!-- PROCESS -->
+  <section id="process" class="k-section">
+    <div class="wrap">
+      <div class="sec-head center" style="margin-left:auto;margin-right:auto">
+        <div class="eyebrow">// How We Work</div>
+        <h2>A clear path from audit to scale</h2>
+      </div>
+      <div class="process-grid">
+        <div class="proc-card"><div class="proc-num">01</div><h3>Free Audit</h3><p>We analyze your site, ads, and competitors and hand you a report in 48 hours.</p></div>
+        <div class="proc-card"><div class="proc-num">02</div><h3>Strategy</h3><p>A custom 90-day roadmap with clear channels, budgets, and revenue targets.</p></div>
+        <div class="proc-card"><div class="proc-num">03</div><h3>Execute</h3><p>Our team launches campaigns, builds assets, and ships — you stay focused on your business.</p></div>
+        <div class="proc-card hi"><div class="proc-num">04</div><h3>Scale</h3><p>We double down on what's working and report on real numbers every single month.</p></div>
       </div>
     </div>
-  </div>
-  <div class="footer-legal">
-    <div class="legal-left">
-      <span class="legal-copy">© 2026 Kryvex Media. All rights reserved.</span>
-      <a href="privacy-policy.html" class="legal-link">Privacy Policy</a>
-      <a href="terms-and-conditions.html" class="legal-link">Terms &amp; Conditions</a>
+  </section>
+
+  <!-- RESULTS -->
+  <section id="results" class="k-section">
+    <div class="wrap">
+      <div class="results-case">
+        <div>
+          <div class="eyebrow">// Case Study · Local Retail</div>
+          <h2>From 12 leads a month to a fully-booked calendar.</h2>
+          <p>A 4-location service business came to us drowning in wasted ad spend. In 90 days we rebuilt their funnel and tripled qualified leads — at a lower cost per lead.</p>
+          <div class="metrics">
+            <div><div class="metric-num">+312%</div><div class="metric-lbl">Qualified leads</div></div>
+            <div><div class="metric-num">−41%</div><div class="metric-lbl">Cost per lead</div></div>
+            <div><div class="metric-num">90d</div><div class="metric-lbl">To results</div></div>
+          </div>
+        </div>
+        <div class="results-visual"><span>[ campaign dashboard screenshot ]</span></div>
+      </div>
+      <div class="testimonial">
+        <svg width="34" height="34" viewBox="0 0 40 40" fill="none" style="flex:none;margin-top:2px" aria-hidden="true"><path d="M8 24 Q8 12 18 11 L18 16 Q13 17 13 24 Z" fill="var(--accent-light)"/><path d="M22 24 Q22 12 32 11 L32 16 Q27 17 27 24 Z" fill="var(--accent-light)"/></svg>
+        <div>
+          <p class="test-quote">"Kryvex Media feels like our in-house marketing team — except they actually move fast. We finally have a pipeline we can predict."</p>
+          <div class="test-author">
+            <div class="test-avatar">M</div>
+            <div><div class="test-name">Maya R.</div><div class="test-role">Founder, BrightLeaf Co.</div></div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="footer-right">
-      <span class="footer-contact">info@kryvexmedia.com</span>
-      <span class="footer-contact">+91 9110170824</span>
-      <span class="footer-tag">Engineered for growth.</span>
+  </section>
+
+  <!-- COVERAGE -->
+  <section id="coverage" class="k-section">
+    <div class="wrap">
+      <div class="sec-head center" style="max-width:920px">
+        <div class="eyebrow">// Where We Work</div>
+        <h2>Local teams across two countries — and expanding fast.</h2>
+        <div class="coverage-stats">
+          <div><div class="cov-num">80</div><div class="cov-lbl">States covered</div></div>
+          <div><div class="cov-num">2</div><div class="cov-lbl">Countries live</div></div>
+          <div><div class="cov-num" style="color:var(--accent)">+2</div><div class="cov-lbl">Launching soon</div></div>
+        </div>
+      </div>
+      <div class="cov-grid">
+        <div class="cov-card">
+          <div class="cov-card-head">
+            <div style="display:flex;align-items:center"><span class="cov-badge in">IN</span><span class="cov-name">India</span></div>
+            <span class="cov-count">30 STATES &amp; UTS</span>
+          </div>
+          <div class="cov-tags">
+            <span class="k-chip">Andhra Pradesh</span><span class="k-chip">Arunachal Pradesh</span><span class="k-chip">Assam</span><a href="locations/bihar.html"><span class="k-chip on">Bihar ●</span></a><span class="k-chip">Chhattisgarh</span><a href="locations/delhi.html"><span class="k-chip on">Delhi ●</span></a><span class="k-chip">Goa</span><a href="locations/gujarat.html"><span class="k-chip on">Gujarat ●</span></a><span class="k-chip">Haryana</span><span class="k-chip">Himachal Pradesh</span><span class="k-chip">Jammu &amp; Kashmir</span><span class="k-chip">Jharkhand</span><a href="locations/karnataka.html"><span class="k-chip on">Karnataka ●</span></a><span class="k-chip">Kerala</span><a href="locations/madhya-pradesh.html"><span class="k-chip on">Madhya Pradesh ●</span></a><a href="locations/maharashtra.html"><span class="k-chip on">Maharashtra ●</span></a><span class="k-chip">Manipur</span><span class="k-chip">Meghalaya</span><span class="k-chip">Mizoram</span><span class="k-chip">Nagaland</span><span class="k-chip">Odisha</span><span class="k-chip">Punjab</span><a href="locations/rajasthan.html"><span class="k-chip on">Rajasthan ●</span></a><span class="k-chip">Sikkim</span><a href="locations/tamil-nadu.html"><span class="k-chip on">Tamil Nadu ●</span></a><span class="k-chip">Telangana</span><span class="k-chip">Tripura</span><a href="locations/uttar-pradesh.html"><span class="k-chip on">Uttar Pradesh ●</span></a><span class="k-chip">Uttarakhand</span><a href="locations/west-bengal.html"><span class="k-chip on">West Bengal ●</span></a>
+          </div>
+        </div>
+        <div class="cov-card">
+          <div class="cov-card-head">
+            <div style="display:flex;align-items:center"><span class="cov-badge us">US</span><span class="cov-name">United States</span></div>
+            <span class="cov-count">50 STATES</span>
+          </div>
+          <div class="cov-tags">
+            <span class="k-chip">Alabama</span><span class="k-chip">Alaska</span><span class="k-chip">Arizona</span><span class="k-chip">Arkansas</span><span class="k-chip">California</span><span class="k-chip">Colorado</span><span class="k-chip">Connecticut</span><span class="k-chip">Delaware</span><span class="k-chip">Florida</span><span class="k-chip">Georgia</span><span class="k-chip">Hawaii</span><span class="k-chip">Idaho</span><span class="k-chip">Illinois</span><span class="k-chip">Indiana</span><span class="k-chip">Iowa</span><span class="k-chip">Kansas</span><span class="k-chip">Kentucky</span><span class="k-chip">Louisiana</span><span class="k-chip">Maine</span><span class="k-chip">Maryland</span><span class="k-chip">Massachusetts</span><span class="k-chip">Michigan</span><span class="k-chip">Minnesota</span><span class="k-chip">Mississippi</span><span class="k-chip">Missouri</span><span class="k-chip">Montana</span><span class="k-chip">Nebraska</span><span class="k-chip">Nevada</span><span class="k-chip">New Hampshire</span><span class="k-chip">New Jersey</span><span class="k-chip">New Mexico</span><span class="k-chip">New York</span><span class="k-chip">North Carolina</span><span class="k-chip">North Dakota</span><span class="k-chip">Ohio</span><span class="k-chip">Oklahoma</span><span class="k-chip">Oregon</span><span class="k-chip">Pennsylvania</span><span class="k-chip">Rhode Island</span><span class="k-chip">South Carolina</span><span class="k-chip">South Dakota</span><span class="k-chip">Tennessee</span><span class="k-chip">Texas</span><span class="k-chip">Utah</span><span class="k-chip">Vermont</span><span class="k-chip">Virginia</span><span class="k-chip">Washington</span><span class="k-chip">West Virginia</span><span class="k-chip">Wisconsin</span><span class="k-chip">Wyoming</span>
+          </div>
+        </div>
+      </div>
+      <div class="expand-strip">
+        <div style="display:flex;align-items:center;gap:14px">
+          <span class="expand-label">// Expanding Next</span>
+          <span class="expand-text">New teams launching to serve clients in</span>
+        </div>
+        <div class="expand-countries">
+          <div class="expand-country"><span class="expand-code">UK</span><span class="expand-cname">United Kingdom</span><span class="expand-soon">SOON</span></div>
+          <div class="expand-country"><span class="expand-code">SG</span><span class="expand-cname">Singapore</span><span class="expand-soon">SOON</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA / CONTACT -->
+  <section id="contact" class="k-section" style="padding-bottom:100px">
+    <div class="wrap">
+      <div class="cta-card">
+        <div class="cta-grid">
+          <div>
+            <div class="eyebrow cta-label">// Get Started — It's Free</div>
+            <h2 class="cta-h2">Book your free consultation &amp; get an audit report.</h2>
+            <p class="cta-sub">Tell us where to send your free marketing audit. We'll review your site and ads and reply within 48 hours — no obligation.</p>
+            <div class="cta-success" id="cta-success" role="status">
+              <svg width="24" height="24" viewBox="0 0 26 26" fill="none" aria-hidden="true"><circle cx="13" cy="13" r="12" stroke="#2f9e6e" stroke-width="1.6"/><path d="M8 13 L11.5 16.5 L18 9" stroke="#2f9e6e" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              <div><div class="cta-success-title">You're in — check your inbox.</div><div class="cta-success-sub">We'll send your free audit report within 48 hours.</div></div>
+            </div>
+            <form class="cta-form" id="cta-form" novalidate>
+              <input type="email" class="cta-input" id="cta-email" placeholder="you@yourbusiness.com" required autocomplete="email">
+              <button type="submit" class="cta-submit">Get My Free Audit →</button>
+            </form>
+            <p class="cta-contact">Prefer to talk? Call +91 9110170824 · info@kryvexmedia.com</p>
+          </div>
+
+          <div class="avail-card">
+            <div class="avail-badge"><span class="avail-dot"></span>AVAILABLE NOW</div>
+            <div class="avail-avatar">K</div>
+            <div class="avail-name">Your strategist is ready</div>
+            <div class="avail-role">Free 30-minute call, no pitch deck</div>
+            <div class="avail-response"><b>48h</b>Typical response time</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="k-footer">
+  <div class="wrap">
+    <div class="k-foot-grid">
+      <div>
+        <a href="index.html" class="k-logo">
+          <div class="k-logo-tile">
+            <svg width="20" height="20" viewBox="0 0 30 30" fill="none">
+              <rect x="9" y="5" width="6" height="20" rx="1.5" fill="#3B1C6C"/>
+              <path d="M15 12.5 L26 4 L20.5 14.5 Z" fill="#7046B6"/>
+              <path d="M15 17.5 L26 26 L20.5 14.5 Z" fill="#A272F5"/>
+            </svg>
+          </div>
+          <div class="k-logo-word"><b>KRYVEX<span> MEDIA</span></b></div>
+        </a>
+        <p class="k-foot-desc">The complete digital marketing partner for small businesses ready to grow — SEO, ads, social, web, and content under one roof.</p>
+        <div class="k-foot-social">
+          <a href="#" class="k-fsoc" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M14 8 h2 V5 h-2.5 C12 5 11 6 11 7.5 V9 H9 v3 h2 v7 h3 v-7 h2.2 l.5-3 H14 V8 Z" fill="#63626E"/></svg></a>
+          <a href="#" class="k-fsoc" aria-label="X / Twitter"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 5 l6 7 -6 7 h2 l5-5.8 L16 19 h4 l-6.4-7.6 L19.5 5 h-2 l-4.6 5.4 L8 5 Z" fill="#63626E"/></svg></a>
+          <a href="#" class="k-fsoc" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="4.5" stroke="#63626E" stroke-width="1.6"/><circle cx="12" cy="12" r="3.6" stroke="#63626E" stroke-width="1.6"/><circle cx="16.5" cy="7.5" r="1" fill="#63626E"/></svg></a>
+          <a href="#" class="k-fsoc" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="3.5" stroke="#63626E" stroke-width="1.6"/><line x1="8" y1="10.5" x2="8" y2="17" stroke="#63626E" stroke-width="1.6" stroke-linecap="round"/><circle cx="8" cy="7.5" r="1.1" fill="#63626E"/><path d="M11.5 17 v-4 a2.5 2.5 0 0 1 5 0 v4 M11.5 13 v4" stroke="#63626E" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <div class="k-foot-col-label">Services</div>
+        <div class="k-foot-links">
+          <a href="services/seo.html">Search Engine Optimization</a>
+          <a href="services/ppc.html">Paid Advertising</a>
+          <a href="services/social-media.html">Social Media</a>
+          <a href="services/web-design.html">Web Design</a>
+          <a href="services/index.html">View all services →</a>
+        </div>
+      </div>
+      <div>
+        <div class="k-foot-col-label">Industries</div>
+        <div class="k-foot-links">
+          <a href="industries/healthcare.html">Healthcare</a>
+          <a href="industries/real-estate.html">Real Estate</a>
+          <a href="industries/ecommerce.html">E-commerce</a>
+          <a href="industries/restaurants.html">Restaurants</a>
+          <a href="industries/home-services.html">Home Services</a>
+        </div>
+      </div>
+      <div>
+        <div class="k-foot-col-label">Company</div>
+        <div class="k-foot-links">
+          <a href="about.html">About Us</a>
+          <a href="resources/case-studies.html">Case Studies</a>
+          <a href="resources/blog.html">Blog</a>
+          <a href="resources/press-release.html">Press</a>
+          <a href="contact-us.html">Contact</a>
+          <a href="sitemap.html">Sitemap</a>
+        </div>
+      </div>
+    </div>
+    <div class="k-foot-bottom">
+      <div>
+        <span>© 2026 Kryvex Media. All rights reserved.</span>
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-and-conditions.html">Terms &amp; Conditions</a>
+      </div>
+      <div>
+        <span>info@kryvexmedia.com</span>
+        <a href="tel:+919110170824" style="margin-left:18px">+91 9110170824</a>
+      </div>
     </div>
   </div>
 </footer>
-</div>
 
 <script>
 (function(){
@@ -677,11 +570,11 @@ footer{position:relative;z-index:4;max-width:1200px;margin:88px auto 0;padding:0
   var rotEl=document.getElementById('service-rotator');
   setInterval(function(){
     rotEl.style.opacity='0';
-    rotEl.style.transform='translateY(-10px)';
+    rotEl.style.transform='translateY(-8px)';
     setTimeout(function(){
       si=(si+1)%services.length;
       rotEl.textContent=services[si];
-      rotEl.style.transform='translateY(10px)';
+      rotEl.style.transform='translateY(8px)';
       void rotEl.offsetWidth;
       rotEl.style.opacity='1';
       rotEl.style.transform='translateY(0)';
@@ -698,72 +591,50 @@ footer{position:relative;z-index:4;max-width:1200px;margin:88px auto 0;padding:0
     if(Math.random()<.6)projects+=s();
     clients=Math.max(124,Math.min(134,clients));
     projects=Math.max(49,Math.min(58,projects));
-    [cEl,pEl].forEach(function(el){el.style.animation='none';void el.offsetWidth;el.style.animation='wtc-tick .5s ease-out';});
+    [cEl,pEl].forEach(function(el){el.style.animation='none';void el.offsetWidth;el.style.animation='k-tick .5s ease-out';});
     cEl.textContent=clients;
     pEl.textContent=projects;
   },2600);
 
   // Nav dropdowns
-  var wideIds=['industries','services'];
+  var ids=['industries','services','countries','resources'];
   var activeMenu=null;
 
   function closeAll(){
-    document.querySelectorAll('.dropdown-panel').forEach(function(p){p.classList.remove('open');});
-    document.querySelectorAll('.nav-btn').forEach(function(b){b.classList.remove('active');b.setAttribute('aria-expanded','false');});
-    document.querySelectorAll('.nav-caret').forEach(function(c){c.classList.remove('open');});
+    document.querySelectorAll('.k-panel').forEach(function(p){p.classList.remove('open');});
+    document.querySelectorAll('.k-dd-btn').forEach(function(b){b.classList.remove('active');b.setAttribute('aria-expanded','false');});
+    document.querySelectorAll('.k-caret').forEach(function(c){c.classList.remove('open');});
     activeMenu=null;
   }
-
-  function positionWide(panelId){
-    var panel=document.getElementById(panelId);
-    var nav=document.querySelector('.nav');
-    if(!nav||!panel)return;
-    var r=nav.getBoundingClientRect();
-    panel.style.left=(r.left+32)+'px';
-    panel.style.top=(r.bottom+8)+'px';
-    panel.style.width=Math.min(980,r.width-64)+'px';
-  }
-
-  function openMenu(id,isWide){
+  function openMenu(id){
     closeAll();
     var panel=document.getElementById('panel-'+id);
     var dd=document.getElementById('dd-'+id);
-    var btn=dd.querySelector('.nav-btn');
-    var caret=btn.querySelector('.nav-caret');
+    var btn=dd.querySelector('.k-dd-btn');
+    var caret=btn.querySelector('.k-caret');
     panel.classList.add('open');
     btn.classList.add('active');
     btn.setAttribute('aria-expanded','true');
     caret.classList.add('open');
-    if(isWide)positionWide('panel-'+id);
     activeMenu=id;
   }
-
-  wideIds.forEach(function(id){
+  ids.forEach(function(id){
     var dd=document.getElementById('dd-'+id);
-    var btn=dd.querySelector('.nav-btn');
-    btn.addEventListener('click',function(){activeMenu===id?closeAll():openMenu(id,true);});
-    dd.addEventListener('mouseenter',function(){if(!activeMenu)openMenu(id,true);});
-    dd.addEventListener('mouseleave',closeAll);
-    document.getElementById('panel-'+id).addEventListener('mouseleave',closeAll);
+    if(!dd)return;
+    var btn=dd.querySelector('.k-dd-btn');
+    btn.addEventListener('click',function(e){e.stopPropagation();activeMenu===id?closeAll():openMenu(id);});
   });
+  document.addEventListener('click',function(e){if(!e.target.closest('.k-dd'))closeAll();});
 
-  var resDd=document.getElementById('dd-resources');
-  var resBtn=resDd.querySelector('.nav-btn');
-  resBtn.addEventListener('click',function(){activeMenu==='resources'?closeAll():openMenu('resources',false);});
-  resDd.addEventListener('mouseenter',function(){if(!activeMenu)openMenu('resources',false);});
-  resDd.addEventListener('mouseleave',closeAll);
-  document.getElementById('panel-resources').addEventListener('mouseleave',closeAll);
-  var couDd=document.getElementById('dd-countries');
-  if(couDd){var couBtn=couDd.querySelector('.nav-btn');
-  couBtn.addEventListener('click',function(){activeMenu==='countries'?closeAll():openMenu('countries',false);});
-  couDd.addEventListener('mouseenter',function(){if(!activeMenu)openMenu('countries',false);});
-  couDd.addEventListener('mouseleave',closeAll);
-  document.getElementById('panel-countries').addEventListener('mouseleave',closeAll);}
-
-  document.addEventListener('click',function(e){if(!e.target.closest('.nav-dropdown'))closeAll();});
-  window.addEventListener('resize',function(){
-    wideIds.forEach(function(id){if(document.getElementById('panel-'+id).classList.contains('open'))positionWide('panel-'+id);});
-  });
+  // Mobile menu toggle (simple: jump nav links into view via native scroll for now)
+  var burger=document.getElementById('mnb');
+  if(burger){
+    burger.addEventListener('click',function(){
+      var links=document.querySelector('.k-navlinks');
+      var open=links.style.display==='flex';
+      links.style.cssText=open?'':'display:flex;flex-direction:column;align-items:flex-start;gap:14px;position:absolute;top:100%;left:0;right:0;background:var(--surface);padding:20px 32px;border-bottom:1px solid var(--line);box-shadow:0 18px 40px -18px rgba(22,20,35,.18)';
+    });
+  }
 
   // CTA form
   var form=document.getElementById('cta-form');
@@ -777,6 +648,5 @@ footer{position:relative;z-index:4;max-width:1200px;margin:88px auto 0;padding:0
   });
 })();
 </script>
-<script src="styles/mobile-nav.js"></script>
 </body>
 </html>

@@ -2,323 +2,352 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Restaurant Marketing — Kryvex Media</title>
 <meta name="description" content="We help cafes, restaurants, and franchises fill tables and grow orders — with local SEO, social, and ads that bring hungry locals in.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles/theme.css">
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{background:#06070d;color:#e9ebf2;font-family:'Manrope',sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-::selection{background:rgba(108,140,255,.35);color:#fff}
-:root{--accent:#4d7cfe;--accent2:#8b5cf6}
-.bg-grid{position:fixed;inset:0;pointer-events:none;z-index:0;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:64px 64px;mask-image:radial-gradient(ellipse 90% 55% at 50% 0%,#000 30%,transparent 80%)}
-.bg-glow-top{position:fixed;top:-280px;left:50%;transform:translateX(-50%);width:1100px;height:680px;background:radial-gradient(ellipse at center,var(--accent) 0%,transparent 62%);opacity:.2;filter:blur(40px);pointer-events:none;z-index:0}
-@keyframes wtc-fadein{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
-.nav{position:relative;z-index:20;max-width:1200px;margin:0 auto;padding:30px 32px;display:flex;align-items:center;justify-content:space-between}
-.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:#e9ebf2}
-.nav-logo-text{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:21px;letter-spacing:.16em}
-.nav-links{display:flex;align-items:center;gap:30px}
-.nav-link{color:#aeb4c7;text-decoration:none;font-size:15.5px;font-weight:500;transition:color .15s}
-.nav-link:hover{color:#fff}
-.nav-btn{display:inline-flex;align-items:center;gap:7px;background:none;border:none;cursor:pointer;color:#aeb4c7;font-family:'Manrope',sans-serif;font-size:15.5px;font-weight:600;padding:0;transition:color .15s}
-.nav-btn:hover,.nav-btn.active{color:#fff}
-.nav-caret{display:inline-block;transition:transform .2s;line-height:0}
-.nav-caret.open{transform:rotate(180deg)}
-.nav-cta{display:inline-flex;align-items:center;gap:8px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;font-size:15px;padding:12px 22px;border-radius:11px;box-shadow:0 8px 28px -8px var(--accent);transition:filter .15s}
-.nav-cta:hover{filter:brightness(1.08)}
-.dd-wide-wrap{position:static}
-#panel-industries,#panel-services{position:fixed;z-index:30;padding:16px;background:rgba(14,16,28,.97);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.12);border-radius:16px;box-shadow:0 24px 60px -18px rgba(0,0,0,.7);display:none}
-#panel-industries.open,#panel-services.open{display:block;animation:wtc-fadein .18s ease-out}
-.dd-label{font-family:'Space Mono',monospace;font-size:10.5px;letter-spacing:.1em;color:#7c8398;padding:6px 12px 12px}
-.dd-grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:6px}
-.dd-item{display:flex;align-items:center;gap:11px;padding:11px 12px;border-radius:10px;text-decoration:none;color:#aeb4c7;transition:background .15s}
-.dd-item:hover{background:rgba(255,255,255,.05)}
-.dd-item.active-item{background:rgba(77,124,254,.1);color:#e9ebf2}
-.dd-item-name{display:block;font-size:14px;font-weight:600}
-.dd-item-sub{display:block;font-size:11.5px;color:#7c8398}
-.dd-item.active-item .dd-item-sub{color:#9aa0b4}
-.dd-item-emoji{font-size:16px;line-height:1}
-.dd-all{display:block;text-align:center;margin-top:10px;padding:10px;border-radius:10px;text-decoration:none;font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.06em;color:var(--accent);background:rgba(77,124,254,.07);transition:background .15s}
-.dd-all:hover{background:rgba(77,124,254,.13)}
-.dd-res-wrap{position:relative}
-#panel-resources,#panel-countries{position:absolute;top:34px;left:0;z-index:30;width:320px;max-width:90vw;padding:16px;background:rgba(14,16,28,.97);backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.12);border-radius:16px;box-shadow:0 24px 60px -18px rgba(0,0,0,.7);display:none}
-#panel-resources.open,#panel-countries.open{display:block;animation:wtc-fadein .18s ease-out}
-.dd-grid1{display:grid;grid-template-columns:1fr;gap:4px}
-.breadcrumb{position:relative;z-index:4;max-width:1200px;margin:0 auto;padding:10px 32px 0;font-family:'Space Mono',monospace;font-size:12px;color:#7c8398}
-.breadcrumb a{color:#7c8398;text-decoration:none;transition:color .15s}.breadcrumb a:hover{color:#aeb4c7}
-.bc-sep{margin:0 8px}.bc-cur{color:var(--accent)}
-.hero{position:relative;z-index:4;max-width:1200px;margin:0 auto;padding:40px 32px 16px;display:grid;grid-template-columns:1.05fr 0.95fr;gap:52px;align-items:center}
-.badge{display:inline-flex;align-items:center;gap:9px;padding:7px 14px;border:1px solid rgba(255,255,255,.12);border-radius:100px;background:rgba(255,255,255,.03);font-family:'Space Mono',monospace;font-size:11.5px;letter-spacing:.08em;color:#aeb4c7}
-.hero h1{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:56px;line-height:1.04;letter-spacing:-.02em;margin:22px 0 0;text-wrap:balance}
-.grad{background:linear-gradient(100deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.hero-desc{font-size:18px;line-height:1.6;color:#aeb4c7;margin:20px 0 0;max-width:480px;text-wrap:pretty}
-.hero-btns{display:flex;flex-wrap:wrap;gap:14px;margin-top:30px}
-.btn-primary{display:inline-flex;align-items:center;gap:9px;background:var(--accent);color:#fff;text-decoration:none;font-weight:600;font-size:15.5px;padding:15px 26px;border-radius:12px;box-shadow:0 14px 38px -10px var(--accent);transition:filter .15s,transform .15s}
-.btn-primary:hover{filter:brightness(1.08);transform:translateY(-1px)}
-.btn-ghost{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.14);color:#e9ebf2;text-decoration:none;font-weight:600;font-size:15.5px;padding:15px 24px;border-radius:12px;transition:background .15s,border-color .15s}
-.btn-ghost:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.28)}
-.slide-wrap{position:relative;min-width:0;background:linear-gradient(180deg,rgba(20,22,34,.92),rgba(12,13,22,.92));border:1px solid rgba(255,255,255,.1);border-radius:20px;padding:24px}
-.slide-border{position:absolute;inset:-1px;border-radius:20px;background:linear-gradient(140deg,var(--accent),transparent 45%,var(--accent2));opacity:.45;filter:blur(2px);pointer-events:none}
+
+.ind-hero{padding:40px 0 16px;display:grid;grid-template-columns:1.05fr 0.95fr;gap:52px;align-items:center}
+.ind-hero h1{font-size:clamp(34px,4.6vw,52px);margin-top:20px;text-wrap:balance}
+.ind-hero .desc{font-size:17px;line-height:1.6;color:var(--muted);font-weight:500;margin-top:18px;max-width:480px}
+.ind-hero-btns{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
+
+.slide-wrap{position:relative;min-width:0;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:24px}
 .slide-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
-.slide-lbl{font-family:'Space Mono',monospace;font-size:12px;color:#aeb4c7}
+.slide-lbl{font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--tag);text-transform:uppercase}
 .slide-nav{display:flex;align-items:center;gap:10px}
-.slide-ctr{font-family:'Space Mono',monospace;font-size:11px;color:#7c8398}
-.slide-btn{width:28px;height:28px;border-radius:8px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.03);color:#aeb4c7;cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;transition:background .15s,color .15s}
-.slide-btn:hover{background:rgba(255,255,255,.08);color:#fff}
+.slide-ctr{font-size:11px;font-weight:600;color:var(--muted)}
+.slide-btn{width:28px;height:28px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--muted);cursor:pointer;display:flex;align-items:center;justify-content:center;padding:0;transition:background .15s,color .15s}
+.slide-btn:hover{background:var(--surface);color:var(--ink);border-color:var(--accent)}
 .slide-viewport{overflow:hidden;border-radius:14px}
 .slide-track{display:flex;width:800%;transition:transform .55s cubic-bezier(.22,1,.36,1)}
 .slide-card{flex:0 0 12.5%;padding:4px 2px}
-.slide-card-inner{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:16px;min-height:138px}
-.slide-icon{display:inline-flex;width:38px;height:38px;border-radius:10px;background:rgba(77,124,254,.13);align-items:center;justify-content:center}
-.slide-card-inner h3{font-family:'Space Grotesk',sans-serif;font-size:15.5px;font-weight:600;margin:11px 0 5px}
-.slide-card-inner p{font-size:14px;color:#9aa0b4;line-height:1.55}
+.slide-card-inner{background:var(--bg);border:1px solid var(--line);border-radius:14px;padding:16px;min-height:150px}
+.slide-icon{display:inline-flex;width:38px;height:38px;border-radius:10px;background:rgba(112,70,182,0.1);align-items:center;justify-content:center}
+.slide-card-inner h3{font-size:15.5px;font-weight:800;margin:11px 0 5px}
+.slide-card-inner p{font-size:13.5px;color:var(--muted);line-height:1.55;font-weight:500}
 .slide-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:11px}
-.slide-tag{font-family:'Space Mono',monospace;font-size:10.5px;color:#aeb4c7;background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);padding:5px 9px;border-radius:7px}
+.slide-tag{font-size:10.5px;font-weight:600;color:var(--muted);background:var(--surface);border:1px solid var(--line);padding:5px 9px;border-radius:7px}
 .slide-dots{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:14px}
-.slide-dot{height:7px;width:7px;border:none;padding:0;border-radius:99px;cursor:pointer;background:rgba(255,255,255,.2);transition:width .3s,background .3s}
-.sec{position:relative;z-index:4;max-width:1200px;margin:0 auto;padding:88px 32px 0}
-.sec-head{text-align:center;margin-bottom:42px}
-.sec-label{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.12em;color:var(--accent);margin-bottom:14px}
-.sec-head h2{font-family:'Space Grotesk',sans-serif;font-size:40px;font-weight:700;letter-spacing:-.02em;line-height:1.1}
-.chal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.chal-card{background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:28px}
-.chal-num{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;color:var(--accent)}
-.chal-card h3{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:600;margin:12px 0 8px}
-.chal-card p{font-size:14px;color:#9aa0b4;line-height:1.6}
-.sec-split{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:42px;flex-wrap:wrap}
-.sec-split-note{font-size:15px;color:#aeb4c7;max-width:320px;line-height:1.6}
-.svc-grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
-.svc-card{display:flex;gap:18px;background:rgba(255,255,255,.025);border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:26px;transition:border-color .2s}
-.svc-card:hover{border-color:var(--accent)}
-.svc-icon{flex:none;width:46px;height:46px;border-radius:12px;background:rgba(77,124,254,.12);display:flex;align-items:center;justify-content:center}
-.svc-card h3{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:600}
-.svc-card p{font-size:14px;color:#9aa0b4;line-height:1.6;margin-top:7px}
-.result-box{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:center;border:1px solid rgba(255,255,255,.08);border-radius:24px;background:linear-gradient(135deg,rgba(77,124,254,.07),rgba(139,92,246,.04));padding:44px}
-.result-kicker{font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.12em;color:var(--accent);margin-bottom:16px}
-.result-box h2{font-family:'Space Grotesk',sans-serif;font-size:32px;font-weight:700;line-height:1.14;letter-spacing:-.01em;text-wrap:balance}
-.result-box p{font-size:15px;color:#aeb4c7;line-height:1.65;margin-top:18px}
-.result-stats{display:flex;gap:32px;margin-top:26px}
-.result-stat-num{font-family:'Space Grotesk',sans-serif;font-size:30px;font-weight:700;color:var(--accent)}
-.result-stat-label{font-size:12.5px;color:#9aa0b4}
-.result-img{position:relative;aspect-ratio:4/3;border-radius:16px;border:1px solid rgba(255,255,255,.1);background-image:repeating-linear-gradient(135deg,rgba(255,255,255,.04) 0,rgba(255,255,255,.04) 1px,transparent 1px,transparent 11px);background-color:rgba(8,9,16,.6);display:flex;align-items:center;justify-content:center}
-.result-img span{font-family:'Space Mono',monospace;font-size:12.5px;color:#7c8398}
-.cta-sec{position:relative;z-index:4;max-width:1200px;margin:0 auto;padding:88px 32px 0}
-.cta-box{position:relative;overflow:hidden;border:1px solid rgba(255,255,255,.1);border-radius:28px;background:linear-gradient(140deg,#0d1020,#0a0b14);padding:56px 48px;text-align:center}
-.cta-glow{position:absolute;top:-160px;left:50%;transform:translateX(-50%);width:560px;height:520px;background:radial-gradient(circle,var(--accent),transparent 60%);opacity:.2;filter:blur(30px);pointer-events:none}
-.cta-box h2{font-family:'Space Grotesk',sans-serif;font-size:40px;font-weight:700;line-height:1.08;letter-spacing:-.02em;max-width:600px;margin:0 auto;text-wrap:balance}
-.cta-box p{font-size:16.5px;color:#aeb4c7;line-height:1.6;margin:18px auto 0;max-width:500px}
-footer{position:relative;z-index:4;max-width:1200px;margin:88px auto 0;padding:0 32px 44px}
-.ft-grid{display:grid;grid-template-columns:1.7fr 1fr 1fr 1fr;gap:40px;padding:56px 0 44px;border-top:1px solid rgba(255,255,255,.08)}
-.ft-brand p{font-size:14.5px;color:#9aa0b4;line-height:1.65;margin:20px 0 0;max-width:300px}
-.ft-socials{display:flex;gap:10px;margin-top:24px}
-.ft-social{width:38px;height:38px;border-radius:10px;border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.03);display:flex;align-items:center;justify-content:center;transition:border-color .15s,background .15s}
-.ft-social:hover{border-color:var(--accent);background:rgba(77,124,254,.08)}
-.ft-col-label{font-family:'Space Mono',monospace;font-size:11px;letter-spacing:.1em;color:#7c8398;margin-bottom:18px}
-.ft-links{display:flex;flex-direction:column;gap:12px}
-.ft-link{color:#aeb4c7;text-decoration:none;font-size:14px;transition:color .15s}.ft-link:hover{color:#fff}
-.ft-bar{display:flex;justify-content:space-between;align-items:center;padding-top:26px;border-top:1px solid rgba(255,255,255,.08);flex-wrap:wrap;gap:14px}
-.ft-bar-left{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
-.ft-copy{font-size:13px;color:#7c8398}
-.ft-bar-right{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
-.ft-mono{font-family:'Space Mono',monospace;font-size:12px;color:#7c8398}
-.ft-tag{font-family:'Space Mono',monospace;font-size:12px;color:#565c70}
-</style>
+.slide-dot{height:7px;width:7px;border:none;padding:0;border-radius:99px;cursor:pointer;background:var(--line);transition:width .3s,background .3s}
 
-<link rel="stylesheet" href="../styles/responsive.css">
+.chal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.chal-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:28px}
+.chal-num{font-size:15px;font-weight:800;color:var(--accent)}
+.chal-card h3{font-size:18px;font-weight:800;margin:12px 0 8px}
+.chal-card p{font-size:14px;color:var(--muted);line-height:1.6;font-weight:500}
+
+.sec-split{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;margin-bottom:42px;flex-wrap:wrap}
+.sec-split-note{font-size:15px;color:var(--muted);max-width:320px;line-height:1.6;font-weight:500}
+.svc-grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.svc-card{display:flex;gap:18px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:26px;transition:border-color .2s}
+.svc-card:hover{border-color:var(--accent)}
+.svc-icon{flex:none;width:46px;height:46px;border-radius:12px;background:rgba(112,70,182,0.1);display:flex;align-items:center;justify-content:center}
+.svc-card h3{font-size:18px;font-weight:800}
+.svc-card p{font-size:14px;color:var(--muted);line-height:1.6;margin-top:7px;font-weight:500}
+
+.result-box{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:center;border:1px solid var(--line);border-radius:24px;background:var(--surface);padding:44px}
+.result-kicker{font-size:11px;font-weight:700;letter-spacing:.1em;color:var(--tag);text-transform:uppercase;margin-bottom:16px}
+.result-box h2{font-size:30px;font-weight:800;line-height:1.14;letter-spacing:-.01em;text-wrap:balance}
+.result-box p{font-size:15px;color:var(--muted);line-height:1.65;margin-top:18px;font-weight:500}
+.result-stats{display:flex;gap:32px;margin-top:26px}
+.result-stat-num{font-size:28px;font-weight:800;color:var(--accent)}
+.result-stat-label{font-size:12.5px;color:var(--muted);font-weight:600}
+.result-img{position:relative;aspect-ratio:4/3;border-radius:16px;border:1px solid var(--line);background:var(--bg);display:flex;align-items:center;justify-content:center}
+.result-img span{font-size:12.5px;color:var(--muted);font-weight:600}
+
+@media(max-width:900px){
+  .ind-hero{grid-template-columns:1fr}
+  .chal-grid,.svc-grid2{grid-template-columns:1fr}
+  .result-box{grid-template-columns:1fr}
+}
+
+</style>
 </head>
 <body>
-<div class="bg-grid" aria-hidden="true"></div>
-<div class="bg-glow-top" aria-hidden="true"></div>
-
-<nav class="nav">
-  <a href="../index.html" class="nav-logo" aria-label="Kryvex Media home">
-    <svg width="36" height="36" viewBox="0 0 30 30" fill="none" aria-hidden="true"><rect x="3" y="3" width="24" height="24" rx="6" stroke="var(--accent)" stroke-width="1.6"/><rect x="9.5" y="9.5" width="11" height="11" rx="2" fill="var(--accent)"/><circle cx="15" cy="15" r="2.4" fill="#06070d"/></svg>
-    <span class="nav-logo-text">KRYVEX<span style="color:var(--accent)">MEDIA</span></span>
-  </a>
-  <div class="nav-links">
-    <a href="../index.html" class="nav-link">Home</a>
-    <div class="dd-wide-wrap" id="dd-industries" onmouseenter="openMenu('industries',true)" onmouseleave="closeAll()">
-      <button class="nav-btn active" aria-haspopup="true" aria-expanded="false" onclick="toggleMenu('industries',true)">Industries<span class="nav-caret" id="caret-industries"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8l3.5-3.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
-    </div>
-    <div id="panel-industries" role="region" aria-label="Industries">
-      <div class="dd-label">INDUSTRIES WE SERVE</div>
-      <div class="dd-grid4">
-        <a href="healthcare.html" class="dd-item"><span class="dd-item-emoji">🏥</span><span><span class="dd-item-name">Healthcare</span><span class="dd-item-sub">Clinics, dental, wellness</span></span></a>
-        <a href="real-estate.html" class="dd-item"><span class="dd-item-emoji">🏠</span><span><span class="dd-item-name">Real Estate</span><span class="dd-item-sub">Agents, brokers, developers</span></span></a>
-        <a href="ecommerce.html" class="dd-item"><span class="dd-item-emoji">🛍️</span><span><span class="dd-item-name">E-commerce &amp; Retail</span><span class="dd-item-sub">Online &amp; omnichannel stores</span></span></a>
-        <a href="restaurants.html" class="dd-item active-item"><span class="dd-item-emoji">🍽️</span><span><span class="dd-item-name">Restaurants</span><span class="dd-item-sub">Cafes, dining, franchises</span></span></a>
-        <a href="legal.html" class="dd-item"><span class="dd-item-emoji">⚖️</span><span><span class="dd-item-name">Legal &amp; Professional</span><span class="dd-item-sub">Law, finance, consulting</span></span></a>
-        <a href="home-services.html" class="dd-item"><span class="dd-item-emoji">🔧</span><span><span class="dd-item-name">Home Services</span><span class="dd-item-sub">Trades, repair, contractors</span></span></a>
-        <a href="education.html" class="dd-item"><span class="dd-item-emoji">🎓</span><span><span class="dd-item-name">Education</span><span class="dd-item-sub">Schools, courses, edtech</span></span></a>
-        <a href="fitness.html" class="dd-item"><span class="dd-item-emoji">💪</span><span><span class="dd-item-name">Fitness &amp; Wellness</span><span class="dd-item-sub">Gyms, studios, coaches</span></span></a>
+<header class="k-header">
+  <div class="wrap k-nav">
+    <a href="../index.html" class="k-logo">
+      <div class="k-logo-tile">
+        <svg width="22" height="22" viewBox="0 0 30 30" fill="none">
+          <rect x="9" y="5" width="6" height="20" rx="1.5" fill="#3B1C6C"/>
+          <path d="M15 12.5 L26 4 L20.5 14.5 Z" fill="#7046B6"/>
+          <path d="M15 17.5 L26 26 L20.5 14.5 Z" fill="#A272F5"/>
+        </svg>
       </div>
-    </div>
-    <div class="dd-wide-wrap" id="dd-services" onmouseenter="openMenu('services',true)" onmouseleave="closeAll()">
-      <button class="nav-btn" aria-haspopup="true" aria-expanded="false" onclick="toggleMenu('services',true)">Services<span class="nav-caret" id="caret-services"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8l3.5-3.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
-    </div>
-    <div id="panel-services" role="region" aria-label="Services">
-      <div class="dd-label">WHAT WE DO</div>
-      <div class="dd-grid4">
-        <a href="../services/seo.html" class="dd-item"><span class="dd-item-emoji">🔍</span><span><span class="dd-item-name">Search Engine Optimization</span><span class="dd-item-sub">Organic growth</span></span></a>
-        <a href="../services/local-seo.html" class="dd-item"><span class="dd-item-emoji">📍</span><span><span class="dd-item-name">Local SEO</span><span class="dd-item-sub">Map &amp; near-me</span></span></a>
-        <a href="../services/ppc.html" class="dd-item"><span class="dd-item-emoji">🎯</span><span><span class="dd-item-name">Paid Advertising (PPC)</span><span class="dd-item-sub">Google ads</span></span></a>
-        <a href="../services/social-media.html" class="dd-item"><span class="dd-item-emoji">📱</span><span><span class="dd-item-name">Social Media Marketing</span><span class="dd-item-sub">Build audience</span></span></a>
-        <a href="../services/meta-ads.html" class="dd-item"><span class="dd-item-emoji">⚡</span><span><span class="dd-item-name">Meta Ads Services</span><span class="dd-item-sub">FB &amp; Instagram</span></span></a>
-        <a href="../services/content-marketing.html" class="dd-item"><span class="dd-item-emoji">✍️</span><span><span class="dd-item-name">Content Marketing</span><span class="dd-item-sub">Blogs &amp; assets</span></span></a>
-        <a href="../services/email-marketing.html" class="dd-item"><span class="dd-item-emoji">✉️</span><span><span class="dd-item-name">Email Marketing</span><span class="dd-item-sub">Flows &amp; campaigns</span></span></a>
-        <a href="../services/web-design.html" class="dd-item"><span class="dd-item-emoji">🖥️</span><span><span class="dd-item-name">Web Design &amp; Development</span><span class="dd-item-sub">Design &amp; build</span></span></a>
-        <a href="../services/graphics-design.html" class="dd-item"><span class="dd-item-emoji">🎨</span><span><span class="dd-item-name">Graphics Designing</span><span class="dd-item-sub">Brand visuals</span></span></a>
+      <div class="k-logo-word">
+        <b>KRYVEX<span> MEDIA</span></b>
+        <small>GLOBAL DIGITAL MARKETING</small>
       </div>
-      <a href="../services/index.html" class="dd-all">VIEW ALL SERVICES →</a>
-    </div>
-    <div class="dd-res-wrap" id="dd-countries" onmouseenter="openMenu('countries',false)" onmouseleave="closeAll()">
-      <button class="nav-btn" aria-haspopup="true" aria-expanded="false" onclick="toggleMenu('countries',false)">Countries<span class="nav-caret" id="caret-countries"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8l3.5-3.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
-      <div id="panel-countries" role="region" aria-label="Countries">
-        <div class="dd-label">COUNTRIES</div>
-        <div class="dd-grid1">
-          <a href="../locations/india.html" class="dd-item"><span class="dd-item-emoji">🇮🇳</span><span><span class="dd-item-name">India</span><span class="dd-item-sub">Live · all states</span></span></a><a href="../locations/usa.html" class="dd-item"><span class="dd-item-emoji">🇺🇸</span><span><span class="dd-item-name">USA</span><span class="dd-item-sub">Launching soon</span></span></a><a href="../locations/uk.html" class="dd-item"><span class="dd-item-emoji">🇬🇧</span><span><span class="dd-item-name">UK</span><span class="dd-item-sub">Launching soon</span></span></a><a href="../locations/singapore.html" class="dd-item"><span class="dd-item-emoji">🇸🇬</span><span><span class="dd-item-name">Singapore</span><span class="dd-item-sub">Launching soon</span></span></a></div>
+    </a>
+    <div class="k-navlinks">
+      <a href="../index.html">Home</a>
+      <div class="k-dd" id="dd-industries">
+        <button class="k-dd-btn" aria-expanded="false" aria-controls="panel-industries">Industries <span class="k-caret"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="k-panel wide" id="panel-industries" role="menu">
+          <div class="k-panel-label">Industries We Serve</div>
+          <div class="k-panel-grid">
+            <a href="../industries/healthcare.html" class="k-item"><span class="k-item-icon">🏥</span><span><span class="k-item-title">Healthcare</span><span class="k-item-sub">Clinics, dental, wellness</span></span></a>
+            <a href="../industries/real-estate.html" class="k-item"><span class="k-item-icon">🏠</span><span><span class="k-item-title">Real Estate</span><span class="k-item-sub">Agents, brokers, developers</span></span></a>
+            <a href="../industries/ecommerce.html" class="k-item"><span class="k-item-icon">🛍️</span><span><span class="k-item-title">E-commerce &amp; Retail</span><span class="k-item-sub">Online &amp; omnichannel</span></span></a>
+            <a href="../industries/restaurants.html" class="k-item"><span class="k-item-icon">🍽️</span><span><span class="k-item-title">Restaurants</span><span class="k-item-sub">Cafes, dining, franchises</span></span></a>
+            <a href="../industries/legal.html" class="k-item"><span class="k-item-icon">⚖️</span><span><span class="k-item-title">Legal &amp; Professional</span><span class="k-item-sub">Law, finance, consulting</span></span></a>
+            <a href="../industries/home-services.html" class="k-item"><span class="k-item-icon">🔧</span><span><span class="k-item-title">Home Services</span><span class="k-item-sub">Trades, repair, contractors</span></span></a>
+            <a href="../industries/education.html" class="k-item"><span class="k-item-icon">🎓</span><span><span class="k-item-title">Education</span><span class="k-item-sub">Schools, courses, edtech</span></span></a>
+            <a href="../industries/fitness.html" class="k-item"><span class="k-item-icon">💪</span><span><span class="k-item-title">Fitness &amp; Wellness</span><span class="k-item-sub">Gyms, studios, coaches</span></span></a>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="dd-res-wrap" id="dd-resources" onmouseenter="openMenu('resources',false)" onmouseleave="closeAll()">
-      <button class="nav-btn" aria-haspopup="true" aria-expanded="false" onclick="toggleMenu('resources',false)">Resources<span class="nav-caret" id="caret-resources"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5L6 8l3.5-3.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
-      <div id="panel-resources" role="region" aria-label="Resources">
-        <div class="dd-label">RESOURCES</div>
-        <div class="dd-grid1">
-          <a href="../resources/blog.html" class="dd-item"><span class="dd-item-emoji">📝</span><span><span class="dd-item-name">Blog</span><span class="dd-item-sub">Insights &amp; guides</span></span></a>
-          <a href="../resources/press-release.html" class="dd-item"><span class="dd-item-emoji">📰</span><span><span class="dd-item-name">Press Release</span><span class="dd-item-sub">News &amp; announcements</span></span></a>
-          <a href="../resources/case-studies.html" class="dd-item"><span class="dd-item-emoji">📊</span><span><span class="dd-item-name">Case Studies</span><span class="dd-item-sub">Real client results</span></span></a>
+      <div class="k-dd" id="dd-services">
+        <button class="k-dd-btn" aria-expanded="false" aria-controls="panel-services">Services <span class="k-caret"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="k-panel wide" id="panel-services" role="menu">
+          <div class="k-panel-label">What We Do</div>
+          <div class="k-panel-grid">
+            <a href="../services/seo.html" class="k-item"><span class="k-item-icon">🔍</span><span><span class="k-item-title">Search Engine Optimization</span><span class="k-item-sub">Organic growth</span></span></a>
+            <a href="../services/local-seo.html" class="k-item"><span class="k-item-icon">📍</span><span><span class="k-item-title">Local SEO</span><span class="k-item-sub">Map &amp; near-me</span></span></a>
+            <a href="../services/ppc.html" class="k-item"><span class="k-item-icon">🎯</span><span><span class="k-item-title">Paid Advertising (PPC)</span><span class="k-item-sub">Google ads</span></span></a>
+            <a href="../services/social-media.html" class="k-item"><span class="k-item-icon">📱</span><span><span class="k-item-title">Social Media Marketing</span><span class="k-item-sub">Build audience</span></span></a>
+            <a href="../services/meta-ads.html" class="k-item"><span class="k-item-icon">⚡</span><span><span class="k-item-title">Meta Ads Services</span><span class="k-item-sub">FB &amp; Instagram</span></span></a>
+            <a href="../services/content-marketing.html" class="k-item"><span class="k-item-icon">✍️</span><span><span class="k-item-title">Content Marketing</span><span class="k-item-sub">Blogs &amp; assets</span></span></a>
+            <a href="../services/email-marketing.html" class="k-item"><span class="k-item-icon">✉️</span><span><span class="k-item-title">Email Marketing</span><span class="k-item-sub">Flows &amp; campaigns</span></span></a>
+            <a href="../services/web-design.html" class="k-item"><span class="k-item-icon">🖥️</span><span><span class="k-item-title">Web Design &amp; Development</span><span class="k-item-sub">Design &amp; build</span></span></a>
+            <a href="../services/graphics-design.html" class="k-item"><span class="k-item-icon">🎨</span><span><span class="k-item-title">Graphics Designing</span><span class="k-item-sub">Brand visuals</span></span></a>
+          </div>
+          <a href="../services/index.html" class="k-panel-all">VIEW ALL SERVICES →</a>
+        </div>
+      </div>
+      <div class="k-dd" id="dd-countries">
+        <button class="k-dd-btn" aria-expanded="false" aria-controls="panel-countries">Countries <span class="k-caret"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="k-panel" id="panel-countries" role="menu">
+          <div class="k-panel-label">Countries</div>
+          <div class="k-panel-col">
+            <a href="../locations/india.html" class="k-item"><span class="k-item-icon">🇮🇳</span><span><span class="k-item-title">India</span><span class="k-item-sub">Live · all states</span></span></a>
+            <a href="../locations/usa.html" class="k-item"><span class="k-item-icon">🇺🇸</span><span><span class="k-item-title">USA</span><span class="k-item-sub">Launching soon</span></span></a>
+            <a href="../locations/uk.html" class="k-item"><span class="k-item-icon">🇬🇧</span><span><span class="k-item-title">UK</span><span class="k-item-sub">Launching soon</span></span></a>
+            <a href="../locations/singapore.html" class="k-item"><span class="k-item-icon">🇸🇬</span><span><span class="k-item-title">Singapore</span><span class="k-item-sub">Launching soon</span></span></a>
+          </div>
+        </div>
+      </div>
+      <div class="k-dd" id="dd-resources">
+        <button class="k-dd-btn" aria-expanded="false" aria-controls="panel-resources">Resources <span class="k-caret"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="k-panel" id="panel-resources" role="menu">
+          <div class="k-panel-label">Resources</div>
+          <div class="k-panel-col">
+            <a href="../resources/blog.html" class="k-item"><span class="k-item-icon">📝</span><span><span class="k-item-title">Blog</span><span class="k-item-sub">Insights &amp; guides</span></span></a>
+            <a href="../resources/press-release.html" class="k-item"><span class="k-item-icon">📰</span><span><span class="k-item-title">Press Release</span><span class="k-item-sub">News &amp; announcements</span></span></a>
+            <a href="../resources/case-studies.html" class="k-item"><span class="k-item-icon">📊</span><span><span class="k-item-title">Case Studies</span><span class="k-item-sub">Real client results</span></span></a>
+          </div>
         </div>
       </div>
     </div>
-    <a href="../contact-us.html" class="nav-cta">Book Free Consultation</a>
-  </div>
-</nav>
-
-<div class="breadcrumb">
-  <a href="../index.html">Home</a><span class="bc-sep">/</span>
-  <span style="color:#aeb4c7">Industries</span><span class="bc-sep">/</span>
-  <span class="bc-cur">Restaurants</span>
-</div>
-
-<header class="hero">
-  <div>
-    <div class="badge"><span style="font-size:14px">🍽️</span> RESTAURANT MARKETING</div>
-    <h1>More covers, <span class="grad">fewer empty tables.</span></h1>
-    <p class="hero-desc">We help cafes, restaurants, and franchises fill tables and grow orders — with local SEO, social, and ads that bring hungry locals in.</p>
-    <div class="hero-btns">
-      <a href="../contact-us.html" class="btn-primary">Book Free Consultation</a>
-      <a href="../contact-us.html" class="btn-ghost">Get Free Audit →</a>
-    </div>
-  </div>
-  <div style="position:relative;min-width:0">
-    <div class="slide-border" aria-hidden="true"></div>
-    <div class="slide-wrap">
-      <div class="slide-hdr">
-        <span class="slide-lbl">our_services</span>
-        <div class="slide-nav">
-          <span class="slide-ctr" id="slide-ctr">01 / 08</span>
-          <button class="slide-btn" id="slide-prev" aria-label="Previous"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M7.5 2.5L4 6l3.5 3.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-          <button class="slide-btn" id="slide-next" aria-label="Next"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M4.5 2.5L8 6l-3.5 3.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
-        </div>
-      </div>
-      <div class="slide-viewport">
-        <div class="slide-track" id="slide-track">
-          <div class="slide-card"><div class="slide-card-inner"><span class="slide-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="14" rx="2.5" stroke="var(--accent)" stroke-width="1.7"/><line x1="3" y1="8.5" x2="21" y2="8.5" stroke="var(--accent)" stroke-width="1.7"/><line x1="9" y1="21" x2="15" y2="21" stroke="var(--accent)" stroke-width="1.7" stroke-linecap="round"/></svg></span><h3>Restaurant Website Development</h3><p>Beautiful, mobile-first restaurant sites with online reservation, ordering, and menu integration.</p><div class="slide-tags"><span class="slide-tag">Menu</span><span class="slide-tag">Reservations</span><span class="slide-tag">Fast</span></div></div></div>
-          <div class="slide-card"><div class="slide-card-inner"><span class="slide-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><rect x="5" y="3" width="14" height="18" rx="2.5" stroke="var(--accent)" stroke-width="1.7"/><line x1="8.5" y1="8" x2="15.5" y2="8" stroke="var(--accent)" stroke-width="1.7" stroke-linecap="round"/><line x1="8.5" y1="12" x2="15.5" y2="12" stroke="var(--accent)" stroke-width="1.7" stroke-linecap="round"/><line x1="8.5" y1="16" x2="12.5" y2="16" stroke="var(--accent)" stroke-width="1.7" stroke-linecap="round"/></svg></span><h3>Restaurant Content Writing</h3><p>Mouth-watering menu copy, food blogs, and event announcements that drive foot traffic.</p><div class="slide-tags"><span class="slide-tag">Menus</span><span class="slide-tag">Food blogs</span><span class="slide-tag">Events</span></div></div></div>
-          <div class="slide-card"><div class="slide-card-inner"><span class="slide-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="var(--accent)" stroke-width="1.7"/><line x1="16" y1="16" x2="21" y2="21" stroke="var(--accent)" stroke-width="1.7" stroke-linecap="round"/></svg></span><h3>Restaurant SEO Services</h3><p>Rank for "best [cuisine] near me" and local dining searches that send hungry customers your way.</p><div class="slide-tags"><span class="slide-tag">Local</span><span class="slide-tag">On-page</span><span class="slide-tag">Schema</span></div></div></div>
-          <div class="slide-card"><div class="slide-card-inner"><span class="slide-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><circle cx="8" cy="8" r="4" stroke="var(--accent)" stroke-width="1.7"/><rect x="13" y="13" width="8" height="8" rx="1.6" stroke="var(--accent)" stroke-width="1.7"/><path d="M15.5 3.5L20.5 3.5L18 8Z" stroke="var(--accent)" stroke-width="1.7" fill="none" stroke-linejoin="round"/></svg></span><h3>Restaurant Graphics Designing</h3><p>Stunning food photography layouts, social creatives, and ad visuals that make people hungry.</p><div class="slide-tags"><span class="slide-tag">Social</span><span class="slide-tag">Food visuals</span><span class="slide-tag">Ads</span></div></div></div>
-          <div class="slide-card"><div class="slide-card-inner"><span class="slide-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2.5" stroke="var(--accent)" stroke-width="1.7"/><path d="M4 7L12 13L20 7" stroke="var(--accent)" stroke-width="1.7" fill="none" stroke-linejoin="round"/></svg></span><h3>Restaurant Email Marketing</h3><p>Weekly specials, event invites, and loyalty campaigns that turn one-time diners into regulars.</p><div class="slide-tags"><span class="slide-tag">Specials</span><span class="slide-tag">Events</span><span class="slide-tag">Loyalty</span></div></div></div>
-          <div class="slide-card"><div class="slide-card-inner"><span class="slide-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M5 4L19 11L12.5 12.5L9.5 19.5Z" stroke="var(--accent)" stroke-width="1.7" fill="none" stroke-linejoin="round"/></svg></span><h3>Restaurant Google Ads</h3><p>Local search campaigns targeting "restaurants open now" and delivery queries in your area.</p><div class="slide-tags"><span class="slide-tag">Local search</span><span class="slide-tag">Delivery</span><span class="slide-tag">Events</span></div></div></div>
-          <div class="slide-card"><div class="slide-card-inner"><span class="slide-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M12 21C7 16 4 12.5 4 9a8 8 0 0 1 16 0C20 12.5 17 16 12 21Z" stroke="var(--accent)" stroke-width="1.7" fill="none" stroke-linejoin="round"/><circle cx="12" cy="9" r="2.4" stroke="var(--accent)" stroke-width="1.7"/></svg></span><h3>Restaurant Local SEO</h3><p>Own the map pack with an optimised Google Business profile, photos, and weekly posts.</p><div class="slide-tags"><span class="slide-tag">Map pack</span><span class="slide-tag">GBP</span><span class="slide-tag">Photos</span></div></div></div>
-          <div class="slide-card"><div class="slide-card-inner"><span class="slide-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="12" rx="3.5" stroke="var(--accent)" stroke-width="1.7"/><path d="M10.5 9.3L15 12L10.5 14.7Z" fill="var(--accent)"/></svg></span><h3>Restaurant YouTube Management</h3><p>Kitchen tours, chef interviews, and behind-the-scenes content that builds a loyal following.</p><div class="slide-tags"><span class="slide-tag">Kitchen tours</span><span class="slide-tag">Chef</span><span class="slide-tag">Brand</span></div></div></div>
-        </div>
-      </div>
-      <div class="slide-dots" id="slide-dots"></div>
-    </div>
+    <a href="../contact-us.html" class="k-nav-cta">Book Free Consultation</a>
+    <button class="k-burger" id="mnb" aria-label="Open menu"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
   </div>
 </header>
-
-<section class="sec">
-  <div class="sec-head">
-    <div class="sec-label">// WHAT WE FIX</div>
-    <h2>The challenges restaurants face</h2>
-  </div>
-  <div class="chal-grid">
-    <div class="chal-card"><div class="chal-num">01</div><h3>Hard to find online</h3><p>Diners search "restaurants near me" and scroll past you. We fix your local search presence so you show up first.</p></div>
-    <div class="chal-card"><div class="chal-num">02</div><h3>Quiet weeknights</h3><p>Tuesday at 7 PM shouldn't be empty. We drive midweek bookings with targeted promotions and ads.</p></div>
-    <div class="chal-card"><div class="chal-num">03</div><h3>Weak online ordering</h3><p>Third-party apps eat your margin. We build direct ordering funnels that keep the revenue yours.</p></div>
-  </div>
-</section>
-
-<section class="sec">
-  <div class="sec-split">
+<div class="wrap" style="padding:14px 32px 0;font-size:12.5px;color:var(--muted);font-weight:600">
+  <a href="../index.html">Home</a> <span style="margin:0 6px;color:var(--line)">/</span> <span style="color:var(--ink);font-weight:700">Industries</span> <span style="margin:0 6px;color:var(--line)">/</span> <span style="color:var(--ink);font-weight:700">Restaurants</span>
+</div>
+<main>
+  <header class="wrap ind-hero">
     <div>
-      <div class="sec-label">// HOW WE HELP</div>
-      <h2 style="font-family:'Space Grotesk',sans-serif;font-size:40px;font-weight:700;letter-spacing:-.02em;line-height:1.08;max-width:520px;text-wrap:balance">Marketing built for restaurants</h2>
-    </div>
-    <p class="sec-split-note">Local-first campaigns that fill your dining room, grow your online orders, and build a loyal community.</p>
-  </div>
-  <div class="svc-grid2">
-    <div class="svc-card"><span class="svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 21C7 16 4 12.5 4 9a8 8 0 0 1 16 0C20 12.5 17 16 12 21Z" stroke="var(--accent)" stroke-width="1.7" fill="none"/><circle cx="12" cy="9" r="2.4" stroke="var(--accent)" stroke-width="1.7"/></svg></span><div><h3>Local SEO &amp; Google Business</h3><p>Rank for "best [food] near me" searches and own the map pack with an optimised profile.</p></div></div>
-    <div class="svc-card"><span class="svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="7" height="7" rx="2" stroke="var(--accent)" stroke-width="1.7"/><rect x="13" y="4" width="7" height="7" rx="2" stroke="var(--accent)" stroke-width="1.7"/><rect x="4" y="13" width="7" height="7" rx="2" stroke="var(--accent)" stroke-width="1.7"/><rect x="13" y="13" width="7" height="7" rx="2" stroke="var(--accent)" stroke-width="1.7"/></svg></span><div><h3>Social &amp; Food Content</h3><p>Consistent, crave-worthy Instagram and TikTok content that grows your audience and fills seats.</p></div></div>
-    <div class="svc-card"><span class="svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 4L19 11L12.5 12.5L9.5 19.5Z" stroke="var(--accent)" stroke-width="1.7" fill="none" stroke-linejoin="round"/></svg></span><div><h3>Reservation &amp; Order Ads</h3><p>Google and Meta ads with "Book a Table" or "Order Now" CTAs that drive direct revenue.</p></div></div>
-    <div class="svc-card"><span class="svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3l2.5 5.5 6 .5-4.5 4 1.4 5.8-5.4-3.2-5.4 3.2 1.4-5.8-4.5-4 6-.5Z" stroke="var(--accent)" stroke-width="1.5" fill="none" stroke-linejoin="round"/></svg></span><div><h3>Reviews &amp; Reputation</h3><p>Automated review generation on Google and Yelp that builds trust and boosts search rankings.</p></div></div>
-  </div>
-</section>
-
-<section class="sec">
-  <div class="result-box">
-    <div>
-      <div class="result-kicker">// CASE STUDY · MULTI-UNIT CAFE</div>
-      <h2>A multi-unit cafe chain went from half-empty to fully booked every night.</h2>
-      <p>We relaunched their local SEO, built a food-first social presence, and ran reservation ads. Within 90 days, bookings went through the roof.</p>
-      <div class="result-stats">
-        <div><div class="result-stat-num">+940</div><div class="result-stat-label">Reservations/mo</div></div>
-        <div><div class="result-stat-num">4.8★</div><div class="result-stat-label">Average rating</div></div>
-        <div><div class="result-stat-num">90d</div><div class="result-stat-label">To results</div></div>
+      <div class="k-badge"><span style="font-size:14px">🍽️</span> RESTAURANT MARKETING</div>
+      <h1>More covers, <span style="color:var(--accent)">fewer empty tables.</span></h1>
+      <p class="desc">We help cafes, restaurants, and franchises fill tables and grow orders — with local SEO, social, and ads that bring hungry locals in.</p>
+      <div class="ind-hero-btns">
+        <a href="../contact-us.html" class="btn-primary">Book Free Consultation</a>
+        <a href="../contact-us.html" class="btn-ghost">Get Free Audit →</a>
       </div>
     </div>
-    <div class="result-img"><span>[ cafe / results screenshot ]</span></div>
-  </div>
-</section>
+    <div style="position:relative;min-width:0">
+      <div class="slide-wrap">
+        <div class="slide-hdr">
+          <span class="slide-lbl">Our Services</span>
+          <div class="slide-nav">
+            <span class="slide-ctr" id="slide-ctr">01 / 08</span>
+            <button class="slide-btn" id="slide-prev" aria-label="Previous"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M7.5 2.5L4 6l3.5 3.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+            <button class="slide-btn" id="slide-next" aria-label="Next"><svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M4.5 2.5L8 6l-3.5 3.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+          </div>
+        </div>
+        <div class="slide-viewport">
+          <div class="slide-track" id="slide-track">
+<div class="slide-card"><div class="slide-card-inner"><span class="slide-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><rect x="3" y="4" width="18" height="14" rx="2.5" stroke="var(--accent)" stroke-width="1.7"/><line x1="3" y1="8.5" x2="21" y2="8.5" stroke="var(--accent)" stroke-width="1.7"/><line x1="9" y1="21" x2="15" y2="21" stroke="var(--accent)" stroke-width="1.7" stroke-linecap="round"/></svg></span><h3>Restaurant Website Development</h3><p>Beautiful, mobile-first restaurant sites with online reservation, ordering, and menu integration.</p><div class="slide-tags"><span class="slide-tag">Menu</span><span class="slide-tag">Reservations</span><span class="slide-tag">Fast</span></div></div></div>
+<div class="slide-card"><div class="slide-card-inner"><span class="slide-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><rect x="5" y="3" width="14" height="18" rx="2.5" stroke="var(--accent)" stroke-width="1.7"/><line x1="8.5" y1="8" x2="15.5" y2="8" stroke="var(--accent)" stroke-width="1.7" stroke-linecap="round"/><line x1="8.5" y1="12" x2="15.5" y2="12" stroke="var(--accent)" stroke-width="1.7" stroke-linecap="round"/><line x1="8.5" y1="16" x2="12.5" y2="16" stroke="var(--accent)" stroke-width="1.7" stroke-linecap="round"/></svg></span><h3>Restaurant Content Writing</h3><p>Mouth-watering menu copy, food blogs, and event announcements that drive foot traffic.</p><div class="slide-tags"><span class="slide-tag">Menus</span><span class="slide-tag">Food blogs</span><span class="slide-tag">Events</span></div></div></div>
+<div class="slide-card"><div class="slide-card-inner"><span class="slide-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><circle cx="11" cy="11" r="7" stroke="var(--accent)" stroke-width="1.7"/><line x1="16" y1="16" x2="21" y2="21" stroke="var(--accent)" stroke-width="1.7" stroke-linecap="round"/></svg></span><h3>Restaurant SEO Services</h3><p>Rank for "best [cuisine] near me" and local dining searches that send hungry customers your way.</p><div class="slide-tags"><span class="slide-tag">Local</span><span class="slide-tag">On-page</span><span class="slide-tag">Schema</span></div></div></div>
+<div class="slide-card"><div class="slide-card-inner"><span class="slide-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><circle cx="8" cy="8" r="4" stroke="var(--accent)" stroke-width="1.7"/><rect x="13" y="13" width="8" height="8" rx="1.6" stroke="var(--accent)" stroke-width="1.7"/><path d="M15.5 3.5L20.5 3.5L18 8Z" stroke="var(--accent)" stroke-width="1.7" fill="none" stroke-linejoin="round"/></svg></span><h3>Restaurant Graphics Designing</h3><p>Stunning food photography layouts, social creatives, and ad visuals that make people hungry.</p><div class="slide-tags"><span class="slide-tag">Social</span><span class="slide-tag">Food visuals</span><span class="slide-tag">Ads</span></div></div></div>
+<div class="slide-card"><div class="slide-card-inner"><span class="slide-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><rect x="3" y="5" width="18" height="14" rx="2.5" stroke="var(--accent)" stroke-width="1.7"/><path d="M4 7L12 13L20 7" stroke="var(--accent)" stroke-width="1.7" fill="none" stroke-linejoin="round"/></svg></span><h3>Restaurant Email Marketing</h3><p>Weekly specials, event invites, and loyalty campaigns that turn one-time diners into regulars.</p><div class="slide-tags"><span class="slide-tag">Specials</span><span class="slide-tag">Events</span><span class="slide-tag">Loyalty</span></div></div></div>
+<div class="slide-card"><div class="slide-card-inner"><span class="slide-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M5 4L19 11L12.5 12.5L9.5 19.5Z" stroke="var(--accent)" stroke-width="1.7" fill="none" stroke-linejoin="round"/></svg></span><h3>Restaurant Google Ads</h3><p>Local search campaigns targeting "restaurants open now" and delivery queries in your area.</p><div class="slide-tags"><span class="slide-tag">Local search</span><span class="slide-tag">Delivery</span><span class="slide-tag">Events</span></div></div></div>
+<div class="slide-card"><div class="slide-card-inner"><span class="slide-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><path d="M12 21C7 16 4 12.5 4 9a8 8 0 0 1 16 0C20 12.5 17 16 12 21Z" stroke="var(--accent)" stroke-width="1.7" fill="none" stroke-linejoin="round"/><circle cx="12" cy="9" r="2.4" stroke="var(--accent)" stroke-width="1.7"/></svg></span><h3>Restaurant Local SEO</h3><p>Own the map pack with an optimised Google Business profile, photos, and weekly posts.</p><div class="slide-tags"><span class="slide-tag">Map pack</span><span class="slide-tag">GBP</span><span class="slide-tag">Photos</span></div></div></div>
+<div class="slide-card"><div class="slide-card-inner"><span class="slide-icon"><svg width="19" height="19" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="12" rx="3.5" stroke="var(--accent)" stroke-width="1.7"/><path d="M10.5 9.3L15 12L10.5 14.7Z" fill="var(--accent)"/></svg></span><h3>Restaurant YouTube Management</h3><p>Kitchen tours, chef interviews, and behind-the-scenes content that builds a loyal following.</p><div class="slide-tags"><span class="slide-tag">Kitchen tours</span><span class="slide-tag">Chef</span><span class="slide-tag">Brand</span></div></div></div>
+          </div>
+        </div>
+        <div class="slide-dots" id="slide-dots"></div>
+      </div>
+    </div>
+  </header>
 
-<section class="cta-sec">
-  <div class="cta-box">
-    <div class="cta-glow" aria-hidden="true"></div>
-    <div style="position:relative">
+  <section class="wrap k-section">
+    <div class="sec-head center">
+      <div class="eyebrow">What We Fix</div>
+      <h2>The challenges restaurants businesses face</h2>
+    </div>
+    <div class="chal-grid">
+<div class="chal-card"><div class="chal-num">01</div><h3>Hard to find online</h3><p>Diners search "restaurants near me" and scroll past you. We fix your local search presence so you show up first.</p></div>
+<div class="chal-card"><div class="chal-num">02</div><h3>Quiet weeknights</h3><p>Tuesday at 7 PM shouldn't be empty. We drive midweek bookings with targeted promotions and ads.</p></div>
+<div class="chal-card"><div class="chal-num">03</div><h3>Weak online ordering</h3><p>Third-party apps eat your margin. We build direct ordering funnels that keep the revenue yours.</p></div>
+    </div>
+  </section>
+
+  <section class="wrap k-section" style="padding-top:0">
+    <div class="sec-split">
+      <div>
+        <div class="eyebrow">How We Help</div>
+        <h2 style="font-size:clamp(26px,3.2vw,38px);margin-top:14px;max-width:520px;text-wrap:balance">Marketing built for restaurants</h2>
+      </div>
+      <p class="sec-split-note">Local-first campaigns that fill your dining room, grow your online orders, and build a loyal community.</p>
+    </div>
+    <div class="svc-grid2">
+<div class="svc-card"><span class="svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 21C7 16 4 12.5 4 9a8 8 0 0 1 16 0C20 12.5 17 16 12 21Z" stroke="var(--accent)" stroke-width="1.7" fill="none"/><circle cx="12" cy="9" r="2.4" stroke="var(--accent)" stroke-width="1.7"/></svg></span><div><h3>Local SEO &amp; Google Business</h3><p>Rank for "best [food] near me" searches and own the map pack with an optimised profile.</p></div></div>
+<div class="svc-card"><span class="svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="7" height="7" rx="2" stroke="var(--accent)" stroke-width="1.7"/><rect x="13" y="4" width="7" height="7" rx="2" stroke="var(--accent)" stroke-width="1.7"/><rect x="4" y="13" width="7" height="7" rx="2" stroke="var(--accent)" stroke-width="1.7"/><rect x="13" y="13" width="7" height="7" rx="2" stroke="var(--accent)" stroke-width="1.7"/></svg></span><div><h3>Social &amp; Food Content</h3><p>Consistent, crave-worthy Instagram and TikTok content that grows your audience and fills seats.</p></div></div>
+<div class="svc-card"><span class="svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M5 4L19 11L12.5 12.5L9.5 19.5Z" stroke="var(--accent)" stroke-width="1.7" fill="none" stroke-linejoin="round"/></svg></span><div><h3>Reservation &amp; Order Ads</h3><p>Google and Meta ads with "Book a Table" or "Order Now" CTAs that drive direct revenue.</p></div></div>
+<div class="svc-card"><span class="svc-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M12 3l2.5 5.5 6 .5-4.5 4 1.4 5.8-5.4-3.2-5.4 3.2 1.4-5.8-4.5-4 6-.5Z" stroke="var(--accent)" stroke-width="1.5" fill="none" stroke-linejoin="round"/></svg></span><div><h3>Reviews &amp; Reputation</h3><p>Automated review generation on Google and Yelp that builds trust and boosts search rankings.</p></div></div>
+    </div>
+  </section>
+
+  <section class="wrap k-section" style="padding-top:0">
+    <div class="result-box">
+      <div>
+        <div class="result-kicker">CASE STUDY · MULTI-UNIT CAFE</div>
+        <h2>A multi-unit cafe chain went from half-empty to fully booked every night.</h2>
+        <p>We relaunched their local SEO, built a food-first social presence, and ran reservation ads. Within 90 days, bookings went through the roof.</p>
+        <div class="result-stats">
+<div><div class="result-stat-num">+940</div><div class="result-stat-label">Reservations/mo</div></div>
+<div><div class="result-stat-num">4.8★</div><div class="result-stat-label">Average rating</div></div>
+<div><div class="result-stat-num">90d</div><div class="result-stat-label">To results</div></div>
+        </div>
+      </div>
+      <div class="result-img"><span>[ cafe / results screenshot ]</span></div>
+    </div>
+  </section>
+
+  <section class="wrap k-section" style="padding-top:0">
+    <div class="k-cta-band">
       <h2>Ready to fill every table?</h2>
       <p>Book a free consultation and get a restaurant marketing audit within 48 hours.</p>
-      <a href="../contact-us.html" class="btn-primary" style="margin-top:30px">Book Free Consultation →</a>
+      <a href="../contact-us.html" class="btn-primary">Book Free Consultation →</a>
     </div>
-  </div>
-</section>
-
-<footer>
-  <div class="ft-grid">
-    <div class="ft-brand">
-      <a href="../index.html" class="nav-logo"><svg width="34" height="34" viewBox="0 0 30 30" fill="none"><rect x="3" y="3" width="24" height="24" rx="6" stroke="var(--accent)" stroke-width="1.6"/><rect x="9.5" y="9.5" width="11" height="11" rx="2" fill="var(--accent)"/><circle cx="15" cy="15" r="2.4" fill="#06070d"/></svg><span style="font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;letter-spacing:.16em">KRYVEX<span style="color:var(--accent)">MEDIA</span></span></a>
-      <p>The complete digital marketing partner for small businesses ready to grow — SEO, ads, social, web, and content under one roof.</p>
-      <div class="ft-socials">
-        <a href="#" class="ft-social" aria-label="Facebook"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M14 8h2V5h-2.5C12 5 11 6 11 7.5V9H9v3h2v7h3v-7h2.2l.5-3H14V8Z" fill="#aeb4c7"/></svg></a>
-        <a href="#" class="ft-social" aria-label="X"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><path d="M4 5l6 7-6 7h2l5-5.8L16 19h4l-6.4-7.6L19.5 5h-2l-4.6 5.4L8 5Z" fill="#aeb4c7"/></svg></a>
-        <a href="#" class="ft-social" aria-label="Instagram"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="4.5" stroke="#aeb4c7" stroke-width="1.6"/><circle cx="12" cy="12" r="3.6" stroke="#aeb4c7" stroke-width="1.6"/><circle cx="16.5" cy="7.5" r="1" fill="#aeb4c7"/></svg></a>
-        <a href="#" class="ft-social" aria-label="LinkedIn"><svg width="17" height="17" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="3.5" stroke="#aeb4c7" stroke-width="1.6"/><line x1="8" y1="10.5" x2="8" y2="17" stroke="#aeb4c7" stroke-width="1.6" stroke-linecap="round"/><circle cx="8" cy="7.5" r="1.1" fill="#aeb4c7"/><path d="M11.5 17v-4a2.5 2.5 0 0 1 5 0v4M11.5 13v4" stroke="#aeb4c7" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg></a>
+  </section>
+</main>
+<footer class="k-footer">
+  <div class="wrap">
+    <div class="k-foot-grid">
+      <div>
+        <a href="../index.html" class="k-logo">
+          <div class="k-logo-tile">
+            <svg width="20" height="20" viewBox="0 0 30 30" fill="none">
+              <rect x="9" y="5" width="6" height="20" rx="1.5" fill="#3B1C6C"/>
+              <path d="M15 12.5 L26 4 L20.5 14.5 Z" fill="#7046B6"/>
+              <path d="M15 17.5 L26 26 L20.5 14.5 Z" fill="#A272F5"/>
+            </svg>
+          </div>
+          <div class="k-logo-word"><b>KRYVEX<span> MEDIA</span></b></div>
+        </a>
+        <p class="k-foot-desc">The complete digital marketing partner for small businesses ready to grow — SEO, ads, social, web, and content under one roof.</p>
+        <div class="k-foot-social">
+          <a href="#" class="k-fsoc" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M14 8 h2 V5 h-2.5 C12 5 11 6 11 7.5 V9 H9 v3 h2 v7 h3 v-7 h2.2 l.5-3 H14 V8 Z" fill="#63626E"/></svg></a>
+          <a href="#" class="k-fsoc" aria-label="X / Twitter"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 5 l6 7 -6 7 h2 l5-5.8 L16 19 h4 l-6.4-7.6 L19.5 5 h-2 l-4.6 5.4 L8 5 Z" fill="#63626E"/></svg></a>
+          <a href="#" class="k-fsoc" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="4.5" stroke="#63626E" stroke-width="1.6"/><circle cx="12" cy="12" r="3.6" stroke="#63626E" stroke-width="1.6"/><circle cx="16.5" cy="7.5" r="1" fill="#63626E"/></svg></a>
+          <a href="#" class="k-fsoc" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="3.5" stroke="#63626E" stroke-width="1.6"/><line x1="8" y1="10.5" x2="8" y2="17" stroke="#63626E" stroke-width="1.6" stroke-linecap="round"/><circle cx="8" cy="7.5" r="1.1" fill="#63626E"/><path d="M11.5 17 v-4 a2.5 2.5 0 0 1 5 0 v4 M11.5 13 v4" stroke="#63626E" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <div class="k-foot-col-label">Services</div>
+        <div class="k-foot-links">
+          <a href="../services/seo.html">Search Engine Optimization</a>
+          <a href="../services/ppc.html">Paid Advertising</a>
+          <a href="../services/social-media.html">Social Media</a>
+          <a href="../services/web-design.html">Web Design</a>
+          <a href="../services/index.html">View all services →</a>
+        </div>
+      </div>
+      <div>
+        <div class="k-foot-col-label">Industries</div>
+        <div class="k-foot-links">
+          <a href="../industries/healthcare.html">Healthcare</a>
+          <a href="../industries/real-estate.html">Real Estate</a>
+          <a href="../industries/ecommerce.html">E-commerce</a>
+          <a href="../industries/restaurants.html">Restaurants</a>
+          <a href="../industries/home-services.html">Home Services</a>
+        </div>
+      </div>
+      <div>
+        <div class="k-foot-col-label">Company</div>
+        <div class="k-foot-links">
+          <a href="../about.html">About Us</a>
+          <a href="../resources/case-studies.html">Case Studies</a>
+          <a href="../resources/blog.html">Blog</a>
+          <a href="../resources/press-release.html">Press</a>
+          <a href="../contact-us.html">Contact</a>
+          <a href="../sitemap.html">Sitemap</a>
+        </div>
       </div>
     </div>
-    <div><div class="ft-col-label">SERVICES</div><div class="ft-links"><a href="../services/seo.html" class="ft-link">Search Engine Optimization</a><a href="../services/ppc.html" class="ft-link">Paid Advertising</a><a href="../services/social-media.html" class="ft-link">Social Media</a><a href="../services/web-design.html" class="ft-link">Web Design</a><a href="../services/index.html" class="ft-link">View all services →</a></div></div>
-    <div><div class="ft-col-label">INDUSTRIES</div><div class="ft-links"><a href="healthcare.html" class="ft-link">Healthcare</a><a href="real-estate.html" class="ft-link">Real Estate</a><a href="ecommerce.html" class="ft-link">E-commerce</a><a href="restaurants.html" class="ft-link">Restaurants</a><a href="home-services.html" class="ft-link">Home Services</a></div></div>
-    <div><div class="ft-col-label">COMPANY</div><div class="ft-links"><a href="../about.html" class="ft-link">About Us</a><a href="../resources/case-studies.html" class="ft-link">Case Studies</a><a href="../resources/blog.html" class="ft-link">Blog</a><a href="../resources/press-release.html" class="ft-link">Press</a><a href="../contact-us.html" class="ft-link">Contact</a><a href="../sitemap.html" class="ft-link">Sitemap</a></div></div>
+    <div class="k-foot-bottom">
+      <div>
+        <span>© 2026 Kryvex Media. All rights reserved.</span>
+        <a href="../privacy-policy.html">Privacy Policy</a>
+        <a href="../terms-and-conditions.html">Terms &amp; Conditions</a>
+      </div>
+      <div>
+        <span>info@kryvexmedia.com</span>
+        <a href="tel:+919110170824" style="margin-left:18px">+91 9110170824</a>
+      </div>
+    </div>
   </div>
-  <div class="ft-bar">
-    <div class="ft-bar-left"><span class="ft-copy">© 2026 Kryvex Media. All rights reserved.</span><a href="../privacy-policy.html" class="ft-copy" style="text-decoration:none;transition:color .15s" onmouseover="this.style.color='#aeb4c7'" onmouseout="this.style.color='#7c8398'">Privacy Policy</a><a href="../terms-and-conditions.html" class="ft-copy" style="text-decoration:none;transition:color .15s" onmouseover="this.style.color='#aeb4c7'" onmouseout="this.style.color='#7c8398'">Terms &amp; Conditions</a></div>
-    <div class="ft-bar-right"><span class="ft-mono">info@kryvexmedia.com</span><span class="ft-mono">+91 9110170824</span><span class="ft-tag">Engineered for growth.</span></div>
-  </div>
-</footer>
+</footer><script>
+(function(){
+  var ids=['industries','services','countries','resources'];
+  var activeMenu=null;
+  function closeAll(){
+    document.querySelectorAll('.k-panel').forEach(function(p){p.classList.remove('open');});
+    document.querySelectorAll('.k-dd-btn').forEach(function(b){b.classList.remove('active');b.setAttribute('aria-expanded','false');});
+    document.querySelectorAll('.k-caret').forEach(function(c){c.classList.remove('open');});
+    activeMenu=null;
+  }
+  function openMenu(id){
+    closeAll();
+    var panel=document.getElementById('panel-'+id);
+    var dd=document.getElementById('dd-'+id);
+    if(!panel||!dd)return;
+    var btn=dd.querySelector('.k-dd-btn');
+    var caret=btn.querySelector('.k-caret');
+    panel.classList.add('open');
+    btn.classList.add('active');
+    btn.setAttribute('aria-expanded','true');
+    caret.classList.add('open');
+    activeMenu=id;
+  }
+  ids.forEach(function(id){
+    var dd=document.getElementById('dd-'+id);
+    if(!dd)return;
+    var btn=dd.querySelector('.k-dd-btn');
+    btn.addEventListener('click',function(e){e.stopPropagation();activeMenu===id?closeAll():openMenu(id);});
+  });
+  document.addEventListener('click',function(e){if(!e.target.closest('.k-dd'))closeAll();});
 
-<script>
+  var burger=document.getElementById('mnb');
+  if(burger){
+    burger.addEventListener('click',function(){
+      var links=document.querySelector('.k-navlinks');
+      var open=links.style.display==='flex';
+      links.style.cssText=open?'':'display:flex;flex-direction:column;align-items:flex-start;gap:14px;position:absolute;top:100%;left:0;right:0;background:var(--surface);padding:20px 32px;border-bottom:1px solid var(--line);box-shadow:0 18px 40px -18px rgba(22,20,35,.18);max-height:80vh;overflow-y:auto';
+    });
+  }
+})();
+</script><script>
 (function(){
   var slide=0,total=8,auto;
   var track=document.getElementById('slide-track');
@@ -326,26 +355,13 @@ footer{position:relative;z-index:4;max-width:1200px;margin:88px auto 0;padding:0
   var dotsEl=document.getElementById('slide-dots');
   var dots=[];
   for(var i=0;i<total;i++){var d=document.createElement('button');d.className='slide-dot';d.setAttribute('aria-label','Slide '+(i+1));(function(n){d.onclick=function(){go(n)};})(i);dotsEl.appendChild(d);dots.push(d);}
-  function update(){track.style.transform='translateX(-'+(slide*(100/total))+'%)';ctr.textContent=('0'+(slide+1)).slice(-2)+' / 08';dots.forEach(function(d,i){d.style.width=i===slide?'22px':'7px';d.style.background=i===slide?'var(--accent)':'rgba(255,255,255,0.2)';})}
+  function update(){track.style.transform='translateX(-'+(slide*(100/total))+'%)';ctr.textContent=('0'+(slide+1)).slice(-2)+' / 08';dots.forEach(function(d,i){d.style.width=i===slide?'22px':'7px';d.style.background=i===slide?'var(--accent)':'var(--line)';})}
   function go(n){slide=((n%total)+total)%total;update();clearInterval(auto);auto=setInterval(function(){go(slide+1);},3800);}
   document.getElementById('slide-prev').onclick=function(){go(slide-1);};
   document.getElementById('slide-next').onclick=function(){go(slide+1);};
   auto=setInterval(function(){go(slide+1);},3800);
   update();
 })();
-(function(){
-  var activeMenu=null;
-  function positionWide(id){var p=document.getElementById(id),n=document.querySelector('.nav');if(!n||!p)return;var r=n.getBoundingClientRect();p.style.left=(r.left+32)+'px';p.style.top=(r.bottom+8)+'px';p.style.width=Math.min(980,r.width-64)+'px';}
-  function closeAll(){['industries','services','resources','countries'].forEach(function(id){var p=document.getElementById('panel-'+id),c=document.getElementById('caret-'+id),w=document.getElementById('dd-'+id);if(p)p.classList.remove('open');if(c)c.classList.remove('open');if(w){var b=w.querySelector('.nav-btn');if(b)b.setAttribute('aria-expanded','false');}});activeMenu=null;}
-  window.closeAll=closeAll;
-  function openMenu(id,wide){closeAll();var p=document.getElementById('panel-'+id),c=document.getElementById('caret-'+id),w=document.getElementById('dd-'+id);if(!p)return;p.classList.add('open');if(c)c.classList.add('open');if(w){var b=w.querySelector('.nav-btn');if(b)b.setAttribute('aria-expanded','true');}if(wide)positionWide('panel-'+id);activeMenu=id;}
-  window.openMenu=openMenu;
-  function toggleMenu(id,wide){if(activeMenu===id)closeAll();else openMenu(id,wide);}
-  window.toggleMenu=toggleMenu;
-  document.addEventListener('click',function(e){if(!e.target.closest('#dd-industries')&&!e.target.closest('#panel-industries')&&!e.target.closest('#dd-services')&&!e.target.closest('#panel-services')&&!e.target.closest('#dd-resources')&&!e.target.closest('#panel-resources')&&!e.target.closest('#dd-countries')&&!e.target.closest('#panel-countries'))closeAll();});
-  window.addEventListener('resize',function(){if(activeMenu==='industries')positionWide('panel-industries');if(activeMenu==='services')positionWide('panel-services');});
-})();
 </script>
-<script src="../styles/mobile-nav.js"></script>
 </body>
 </html>
