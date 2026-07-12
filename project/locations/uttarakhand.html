@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Digital Marketing in Uttarakhand | Kryvex Media</title>
+<meta name="description" content="Digital marketing agency for Uttarakhand businesses — SEO, PPC, social &amp; web across Dehradun, Haridwar, Nainital and all 13 districts.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" href="../favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="../favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles/theme.css">
+<style>
+
+.st-hero{padding:22px 0 8px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:clamp(28px,4vw,52px);align-items:center}
+.st-hero h1{font-size:clamp(36px,6.5vw,58px);line-height:1.04;margin:20px 0 0;text-wrap:balance}
+.st-hero .sub{font-size:16.5px;line-height:1.6;color:var(--muted);font-weight:500;margin-top:20px;max-width:520px}
+.st-hero .fn{font-size:12.5px;color:var(--muted);font-weight:600;margin-top:14px}
+.st-hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}
+
+.map-card{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:24px}
+.map-card-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.map-card-lbl{font-size:12px;color:var(--muted);font-weight:600}
+.map-card-live{font-size:11px;font-weight:700;color:#2f9e6e;background:rgba(47,158,110,.1);padding:4px 9px;border-radius:6px}
+.map-img-wrap{aspect-ratio:1536/1024;border-radius:14px;background:var(--bg);display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px solid var(--line)}
+.district-card{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+.district-cell{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px}
+.district-cell-lbl{font-size:10.5px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.district-cell-val{font-size:22px;font-weight:800;margin-top:4px;color:var(--ink);transition:opacity .18s}
+
+.stats-bar{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));border:1px solid var(--line);border-radius:16px;background:var(--surface);overflow:hidden}
+.stats-bar>div{padding:26px 24px;border-right:1px solid var(--line)}
+.stats-bar>div:last-child{border-right:none}
+.stats-bar .val{font-size:28px;font-weight:800;color:var(--ink)}
+.stats-bar .lbl{font-size:13px;color:var(--muted);font-weight:500;margin-top:5px;line-height:1.4}
+.stats-fn{font-size:11px;color:var(--muted);font-weight:500;margin-top:10px;text-align:center}
+
+.city-grid,.pillar-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+.city-card,.pillar-card{text-decoration:none;background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:block;transition:border-color .2s,transform .2s}
+.city-card:hover,.pillar-card:hover{border-color:var(--accent);transform:translateY(-3px)}
+.city-photo,.pillar-photo{position:relative;aspect-ratio:4/3;background:var(--bg);display:flex;align-items:flex-end;padding:14px}
+.city-photo-name,.pillar-photo-name{font-size:11px;color:var(--muted);font-weight:700;background:var(--surface);padding:4px 9px;border-radius:6px;border:1px solid var(--line)}
+.pillar-num{position:absolute;top:14px;left:14px;font-size:12px;font-weight:800;color:var(--accent);background:var(--surface);padding:4px 9px;border-radius:6px;border:1px solid var(--line)}
+.city-body,.pillar-body{padding:20px}
+.city-icon,.pillar-icon{font-size:20px}
+.city-name{font-size:17px;font-weight:800;margin:10px 0 6px;color:var(--ink)}
+.city-sub{font-size:13.5px;color:var(--muted);line-height:1.6;font-weight:500}
+.pillar-title-row{display:flex;align-items:center;gap:9px;margin-top:8px}
+.pillar-title{font-size:17px;font-weight:800;color:var(--ink)}
+.pillar-tag{display:flex;align-items:center;gap:6px;margin-top:8px;font-size:12px;font-weight:700;color:var(--accent)}
+.pillar-desc{font-size:13.5px;color:var(--muted);line-height:1.6;font-weight:500;margin-top:10px}
+
+.growth-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px;align-items:center}
+.growth-points{display:flex;flex-direction:column;gap:14px;margin-top:24px}
+.gpoint{display:flex;gap:14px;align-items:flex-start}
+.gpoint-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex:none;margin-top:6px}
+.gpoint-title{font-weight:700;font-size:15px;color:var(--ink)}
+.gpoint-sub{font-size:13.5px;color:var(--muted);font-weight:500;margin-top:2px}
+.growth-card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px}
+.chart-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
+.chart-name{font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.04em}
+.chart-val{font-size:11px;font-weight:700;color:#2f9e6e}
+.chart-bars{display:flex;align-items:flex-end;gap:10px;height:110px}
+.chart-bars>div{flex:1;border-radius:5px}
+.chart-labels{display:flex;justify-content:space-between;margin-top:10px;font-size:11px;color:var(--muted);font-weight:600}
+
+.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:180px;gap:12px}
+.photo-cell{position:relative;border-radius:14px;overflow:hidden;background:var(--surface);border:1px solid var(--line)}
+.photo-cell.wide{grid-column:span 2;grid-row:span 2}
+.photo-cell img{width:100%;height:100%;object-fit:cover}
+.photo-cell:not(.has-img){display:flex;align-items:center;justify-content:center}
+.photo-cell:not(.has-img)::before{content:'[ photo ]';font-size:11px;color:var(--muted);font-weight:600}
+.photo-cell-label{position:absolute;bottom:0;left:0;right:0;padding:14px;font-size:13px;font-weight:700;color:#fff;background:linear-gradient(0deg,rgba(22,20,35,.7),transparent)}
+.photo-cell:not(.has-img) .photo-cell-label{display:none}
+
+.districts-count-row{display:flex;gap:40px;flex-wrap:wrap;justify-content:center;margin-top:24px;margin-bottom:34px}
+.districts-count-row .n{font-size:28px;font-weight:800;color:var(--ink)}
+.districts-count-row .n.accent{color:var(--accent)}
+.districts-count-row .l{font-size:12.5px;color:var(--muted);font-weight:600}
+.chips-box{border:1px solid var(--line);border-radius:18px;background:var(--surface);padding:26px}
+.chips-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.chips-badge{font-size:12px;font-weight:800;color:#fff;background:var(--accent);padding:5px 10px;border-radius:7px}
+.chips-count{font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.04em}
+.chips-list{display:flex;flex-wrap:wrap;gap:8px}
+
+</style>
+</head>
+<body>
+<header class="k-header">
+  <div class="wrap k-nav">
+    <a href="../index.html" class="k-logo">
+      <div class="k-logo-tile">
+        <svg width="22" height="22" viewBox="0 0 30 30" fill="none">
+          <rect x="9" y="5" width="6" height="20" rx="1.5" fill="#3B1C6C"/>
+          <path d="M15 12.5 L26 4 L20.5 14.5 Z" fill="#7046B6"/>
+          <path d="M15 17.5 L26 26 L20.5 14.5 Z" fill="#A272F5"/>
+        </svg>
+      </div>
+      <div class="k-logo-word">
+        <b>KRYVEX<span> MEDIA</span></b>
+        <small>GLOBAL DIGITAL MARKETING</small>
+      </div>
+    </a>
+    <div class="k-navlinks">
+      <a href="../index.html">Home</a>
+      <div class="k-dd" id="dd-industries">
+        <button class="k-dd-btn" aria-expanded="false" aria-controls="panel-industries">Industries <span class="k-caret"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="k-panel wide" id="panel-industries" role="menu">
+          <div class="k-panel-label">Industries We Serve</div>
+          <div class="k-panel-grid">
+            <a href="../industries/healthcare.html" class="k-item"><span class="k-item-icon">🏥</span><span><span class="k-item-title">Healthcare</span><span class="k-item-sub">Clinics, dental, wellness</span></span></a>
+            <a href="../industries/real-estate.html" class="k-item"><span class="k-item-icon">🏠</span><span><span class="k-item-title">Real Estate</span><span class="k-item-sub">Agents, brokers, developers</span></span></a>
+            <a href="../industries/ecommerce.html" class="k-item"><span class="k-item-icon">🛍️</span><span><span class="k-item-title">E-commerce &amp; Retail</span><span class="k-item-sub">Online &amp; omnichannel</span></span></a>
+            <a href="../industries/restaurants.html" class="k-item"><span class="k-item-icon">🍽️</span><span><span class="k-item-title">Restaurants</span><span class="k-item-sub">Cafes, dining, franchises</span></span></a>
+            <a href="../industries/legal.html" class="k-item"><span class="k-item-icon">⚖️</span><span><span class="k-item-title">Legal &amp; Professional</span><span class="k-item-sub">Law, finance, consulting</span></span></a>
+            <a href="../industries/home-services.html" class="k-item"><span class="k-item-icon">🔧</span><span><span class="k-item-title">Home Services</span><span class="k-item-sub">Trades, repair, contractors</span></span></a>
+            <a href="../industries/education.html" class="k-item"><span class="k-item-icon">🎓</span><span><span class="k-item-title">Education</span><span class="k-item-sub">Schools, courses, edtech</span></span></a>
+            <a href="../industries/fitness.html" class="k-item"><span class="k-item-icon">💪</span><span><span class="k-item-title">Fitness &amp; Wellness</span><span class="k-item-sub">Gyms, studios, coaches</span></span></a>
+          </div>
+        </div>
+      </div>
+      <div class="k-dd" id="dd-services">
+        <button class="k-dd-btn" aria-expanded="false" aria-controls="panel-services">Services <span class="k-caret"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="k-panel wide" id="panel-services" role="menu">
+          <div class="k-panel-label">What We Do</div>
+          <div class="k-panel-grid">
+            <a href="../services/seo.html" class="k-item"><span class="k-item-icon">🔍</span><span><span class="k-item-title">Search Engine Optimization</span><span class="k-item-sub">Organic growth</span></span></a>
+            <a href="../services/local-seo.html" class="k-item"><span class="k-item-icon">📍</span><span><span class="k-item-title">Local SEO</span><span class="k-item-sub">Map &amp; near-me</span></span></a>
+            <a href="../services/ppc.html" class="k-item"><span class="k-item-icon">🎯</span><span><span class="k-item-title">Paid Advertising (PPC)</span><span class="k-item-sub">Google ads</span></span></a>
+            <a href="../services/social-media.html" class="k-item"><span class="k-item-icon">📱</span><span><span class="k-item-title">Social Media Marketing</span><span class="k-item-sub">Build audience</span></span></a>
+            <a href="../services/meta-ads.html" class="k-item"><span class="k-item-icon">⚡</span><span><span class="k-item-title">Meta Ads Services</span><span class="k-item-sub">FB &amp; Instagram</span></span></a>
+            <a href="../services/content-marketing.html" class="k-item"><span class="k-item-icon">✍️</span><span><span class="k-item-title">Content Marketing</span><span class="k-item-sub">Blogs &amp; assets</span></span></a>
+            <a href="../services/email-marketing.html" class="k-item"><span class="k-item-icon">✉️</span><span><span class="k-item-title">Email Marketing</span><span class="k-item-sub">Flows &amp; campaigns</span></span></a>
+            <a href="../services/web-design.html" class="k-item"><span class="k-item-icon">🖥️</span><span><span class="k-item-title">Web Design &amp; Development</span><span class="k-item-sub">Design &amp; build</span></span></a>
+            <a href="../services/graphics-design.html" class="k-item"><span class="k-item-icon">🎨</span><span><span class="k-item-title">Graphics Designing</span><span class="k-item-sub">Brand visuals</span></span></a>
+          </div>
+          <a href="../services/index.html" class="k-panel-all">VIEW ALL SERVICES →</a>
+        </div>
+      </div>
+      <div class="k-dd" id="dd-countries">
+        <button class="k-dd-btn" aria-expanded="false" aria-controls="panel-countries">Countries <span class="k-caret"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="k-panel" id="panel-countries" role="menu">
+          <div class="k-panel-label">Countries</div>
+          <div class="k-panel-col">
+            <a href="../locations/india.html" class="k-item"><span class="k-item-icon">🇮🇳</span><span><span class="k-item-title">India</span><span class="k-item-sub">Live · all states</span></span></a>
+            <a href="../locations/usa.html" class="k-item"><span class="k-item-icon">🇺🇸</span><span><span class="k-item-title">USA</span><span class="k-item-sub">Launching soon</span></span></a>
+            <a href="../locations/uk.html" class="k-item"><span class="k-item-icon">🇬🇧</span><span><span class="k-item-title">UK</span><span class="k-item-sub">Launching soon</span></span></a>
+            <a href="../locations/singapore.html" class="k-item"><span class="k-item-icon">🇸🇬</span><span><span class="k-item-title">Singapore</span><span class="k-item-sub">Launching soon</span></span></a>
+          </div>
+        </div>
+      </div>
+      <div class="k-dd" id="dd-resources">
+        <button class="k-dd-btn" aria-expanded="false" aria-controls="panel-resources">Resources <span class="k-caret"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="k-panel" id="panel-resources" role="menu">
+          <div class="k-panel-label">Resources</div>
+          <div class="k-panel-col">
+            <a href="../resources/blog.html" class="k-item"><span class="k-item-icon">📝</span><span><span class="k-item-title">Blog</span><span class="k-item-sub">Insights &amp; guides</span></span></a>
+            <a href="../resources/press-release.html" class="k-item"><span class="k-item-icon">📰</span><span><span class="k-item-title">Press Release</span><span class="k-item-sub">News &amp; announcements</span></span></a>
+            <a href="../resources/case-studies.html" class="k-item"><span class="k-item-icon">📊</span><span><span class="k-item-title">Case Studies</span><span class="k-item-sub">Real client results</span></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="../contact-us.html" class="k-nav-cta">Book Free Consultation</a>
+    <button class="k-burger" id="mnb" aria-label="Open menu"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+  </div>
+</header>
+<div class="wrap" style="padding:14px 32px 0;font-size:12.5px;color:var(--muted);font-weight:600">
+  <a href="../index.html">Home</a> <span style="margin:0 6px;color:var(--line)">/</span> <span style="color:var(--ink);font-weight:700">Uttarakhand</span>
+</div>
+<main>
+  <header class="wrap st-hero">
+    <div>
+      <div class="k-badge"><i></i>INDIA · UTTARAKHAND</div>
+      <h1>Uttarakhand is <span style="color:var(--accent)">going digital.</span></h1>
+      <p class="sub">From the ghats of Haridwar and Rishikesh to the hill towns of the Garhwal and Kumaon divisions, Uttarakhand's tourism, education, and pharma economies are moving online — reshaping how local businesses are discovered, trusted, and grown.</p>
+      <p class="fn">A snapshot of technology &amp; digital momentum across the state.</p>
+      <div class="st-hero-btns">
+        <a href="../contact-us.html" class="btn-primary">Start in Uttarakhand →</a>
+        <a href="../resources/case-studies.html" class="btn-ghost">View Results</a>
+      </div>
+    </div>
+    <div class="map-card">
+      <div class="map-card-head">
+        <span class="map-card-lbl">digital_uttarakhand.map</span>
+        <span class="map-card-live">● Growing</span>
+      </div>
+      <div class="map-img-wrap">
+        <div style="text-align:center">
+          <div style="font-size:24px;font-weight:800;color:var(--accent)">Dehradun</div>
+          <div style="font-size:12px;color:var(--muted);font-weight:600;margin-top:4px">interim capital · hill hub</div>
+        </div>
+      </div>
+      <div class="district-card">
+        <div class="district-cell">
+          <div class="district-cell-lbl">District</div>
+          <div class="district-cell-val" id="district-name">Dehradun</div>
+        </div>
+        <div class="district-cell">
+          <div class="district-cell-lbl">Active Clients</div>
+          <div class="district-cell-val"><span style="color:var(--accent)" id="district-num">9</span> <span style="font-size:12px;color:var(--muted);font-weight:600">active ▲</span></div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="wrap" style="margin-top:40px">
+    <div class="stats-bar">
+<div><div class="val">1.1<span>Cr</span></div><div class="lbl">A fast-growing Himalayan state economy</div></div>
+<div><div class="val">~28<span>yrs</span></div><div class="lbl">A young, increasingly mobile population</div></div>
+<div><div class="val">13<span>dist</span></div><div class="lbl">Districts across Garhwal and Kumaon</div></div>
+<div><div class="val">4G<span>/</span>5G+</div><div class="lbl">Mobile-first connectivity reaching hill and plain towns</div></div>
+    </div>
+    <p class="stats-fn">Figures indicative of regional trends.</p>
+  </section>
+
+  <section class="wrap k-section">
+    <div class="eyebrow">Our Coverage</div>
+    <h2 style="font-size:clamp(28px,5vw,40px);margin-top:14px">Major cities <span style="color:var(--accent)">we serve</span></h2>
+    <p style="font-size:15px;color:var(--muted);line-height:1.65;margin-top:14px;max-width:600px;font-weight:500">Digital marketing expertise across Uttarakhand's key towns — with local insight and data-driven strategy.</p>
+    <div class="city-grid" style="margin-top:30px">
+<a href="dehradun.html" class="city-card">
+      <div class="city-photo"><span class="city-photo-name">Dehradun</span></div>
+      <div class="city-body"><div class="city-icon">🏫</div><div class="city-name">Dehradun</div><p class="city-sub">The capital and education hub — home to top schools, a growing IT sector, and the state's densest online audience.</p></div>
+    </a>
+<a href="#" class="city-card">
+      <div class="city-photo"><span class="city-photo-name">Rishikesh</span></div>
+      <div class="city-body"><div class="city-icon">🧘</div><div class="city-name">Rishikesh</div><p class="city-sub">The world's yoga capital, where wellness retreats and adventure-tourism brands compete for search visibility.</p></div>
+    </a>
+<a href="#" class="city-card">
+      <div class="city-photo"><span class="city-photo-name">Mussoorie</span></div>
+      <div class="city-body"><div class="city-icon">⛰️</div><div class="city-name">Mussoorie</div><p class="city-sub">The Queen of Hills, where homestays and travel businesses are learning to win the booking-season rush online.</p></div>
+    </a>
+<a href="#" class="city-card">
+      <div class="city-photo"><span class="city-photo-name">Haldwani</span></div>
+      <div class="city-body"><div class="city-icon">🏔️</div><div class="city-name">Haldwani</div><p class="city-sub">Kumaon's commercial gateway, rapidly digitizing as trade and retail move online.</p></div>
+    </a>
+<a href="haridwar.html" class="city-card">
+      <div class="city-photo"><span class="city-photo-name">Haridwar</span></div>
+      <div class="city-body"><div class="city-icon">🛕</div><div class="city-name">Haridwar</div><p class="city-sub">A pilgrimage and industrial powerhouse where SIDCUL manufacturers and local businesses alike are building an online presence.</p></div>
+    </a>
+    </div>
+  </section>
+
+  <section class="wrap k-section" style="padding-top:0">
+    <div class="eyebrow">What Powers The State</div>
+    <h2 style="font-size:clamp(28px,5vw,40px);margin-top:14px">The five pillars of <span style="color:var(--accent)">Uttarakhand's rise</span></h2>
+    <p style="font-size:15px;color:var(--muted);line-height:1.65;margin-top:14px;max-width:600px;font-weight:500">From sacred rivers to summit trails — the foundations shaping Uttarakhand's growth story.</p>
+    <div class="pillar-grid" style="margin-top:30px">
+<div class="pillar-card">
+      <div class="pillar-photo"><span class="pillar-num">01</span><span class="pillar-photo-name">Char Dham</span></div>
+      <div class="pillar-body">
+        <div class="pillar-title-row"><span class="pillar-icon">🛕</span><span class="pillar-title">Char Dham</span></div>
+        <div class="pillar-tag">→ Spiritual Economy</div>
+        <p class="pillar-desc">Kedarnath, Badrinath, Gangotri and Yamunotri draw millions of pilgrims each year, powering the state's largest and oldest industry.</p>
+      </div>
+    </div>
+<div class="pillar-card">
+      <div class="pillar-photo"><span class="pillar-num">02</span><span class="pillar-photo-name">Ganga</span></div>
+      <div class="pillar-body">
+        <div class="pillar-title-row"><span class="pillar-icon">🌊</span><span class="pillar-title">Ganga</span></div>
+        <div class="pillar-tag">→ Yoga &amp; Wellness</div>
+        <p class="pillar-desc">Rishikesh and Haridwar sit on the Ganga's banks, anchoring a booming wellness, adventure-sport and retreat-tourism economy.</p>
+      </div>
+    </div>
+<div class="pillar-card">
+      <div class="pillar-photo"><span class="pillar-num">03</span><span class="pillar-photo-name">SIDCUL</span></div>
+      <div class="pillar-body">
+        <div class="pillar-title-row"><span class="pillar-icon">🏭</span><span class="pillar-title">SIDCUL</span></div>
+        <div class="pillar-tag">→ Industrial Belt</div>
+        <p class="pillar-desc">Pharma, FMCG and auto-component manufacturers across Haridwar and Pantnagar make Uttarakhand one of India's fastest-growing industrial states.</p>
+      </div>
+    </div>
+<div class="pillar-card">
+      <div class="pillar-photo"><span class="pillar-num">04</span><span class="pillar-photo-name">Himalayan Orchards</span></div>
+      <div class="pillar-body">
+        <div class="pillar-title-row"><span class="pillar-icon">🍎</span><span class="pillar-title">Himalayan Orchards</span></div>
+        <div class="pillar-tag">→ Herbal State</div>
+        <p class="pillar-desc">Apple belts and medicinal-herb cultivation across the hill districts are reshaping the state's agricultural economy.</p>
+      </div>
+    </div>
+<div class="pillar-card">
+      <div class="pillar-photo"><span class="pillar-num">05</span><span class="pillar-photo-name">Doon Schools</span></div>
+      <div class="pillar-body">
+        <div class="pillar-title-row"><span class="pillar-icon">🎓</span><span class="pillar-title">Doon Schools</span></div>
+        <div class="pillar-tag">→ Education Capital</div>
+        <p class="pillar-desc">Dehradun's century-old boarding schools and expanding university sector draw students and families from across India.</p>
+      </div>
+    </div>
+    </div>
+  </section>
+
+  <section class="wrap k-section" style="padding-top:0">
+    <div class="growth-grid">
+      <div>
+        <div class="eyebrow">Business Growth &amp; Marketing</div>
+        <h2 style="font-size:clamp(26px,4vw,32px);margin-top:14px">The next booking starts on a phone screen.</h2>
+        <p style="font-size:15px;color:var(--muted);line-height:1.68;margin-top:16px;font-weight:500">As Uttarakhand's travellers, students and shoppers search, book, and pay from their phones, the businesses that show up online are the ones that grow. Discovery now starts on Google and Instagram, trust is built through reviews and content, and a single well-run campaign can reach an entire valley.</p>
+        <div class="growth-points">
+<div class="gpoint"><span class="gpoint-dot"></span><div><div class="gpoint-title">Tourism rebounding fast</div><div class="gpoint-sub">Post-pandemic travel demand is pushing hospitality and adventure-tourism businesses online faster than ever.</div></div></div>
+<div class="gpoint"><span class="gpoint-dot"></span><div><div class="gpoint-title">Industrial belt digitizing</div><div class="gpoint-sub">SIDCUL manufacturers and exporters are building serious B2B digital presence for the first time.</div></div></div>
+<div class="gpoint"><span class="gpoint-dot"></span><div><div class="gpoint-title">Hill-town local search</div><div class="gpoint-sub">Homestays, cafés and local services in Nainital, Mussoorie and beyond are going mobile-first.</div></div></div>
+        </div>
+      </div>
+      <div class="growth-card">
+        <div class="chart-head"><span class="chart-name">DIGITAL ADOPTION · UTTARAKHAND</span><span class="chart-val">▲ trending up</span></div>
+        <div class="chart-bars">
+<div style="height:36%;background:var(--line)"></div>
+<div style="height:50%;background:var(--line)"></div>
+<div style="height:62%;background:var(--accent-light)"></div>
+<div style="height:80%;background:var(--accent)"></div>
+<div style="height:100%;background:var(--accent-dark)"></div>
+        </div>
+        <div class="chart-labels"><span>2021</span><span>2022</span><span>2023</span><span>2024</span><span>now</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap k-section" style="padding-top:0">
+    <div class="eyebrow">GLIMPSES OF UTTARAKHAND</div>
+    <h2 style="font-size:clamp(28px,5vw,40px);margin-top:14px">Postcards from <span style="color:var(--accent)">the hills.</span></h2>
+    <p style="font-size:15px;color:var(--muted);line-height:1.65;margin-top:14px;max-width:400px;font-weight:500">A state of snow peaks, sacred rivers and growing digital ambition.</p>
+    <div class="photo-grid" style="margin-top:26px">
+<div class="photo-cell wide"><div class="photo-cell-label">Kedarnath Temple at dawn</div></div>
+<div class="photo-cell"><div class="photo-cell-label">Rishikesh Ganga ghats</div></div>
+<div class="photo-cell"><div class="photo-cell-label">Nainital lake</div></div>
+<div class="photo-cell"><div class="photo-cell-label">Valley of Flowers</div></div>
+<div class="photo-cell"><div class="photo-cell-label">Corbett National Park</div></div>
+    </div>
+  </section>
+
+  <section class="wrap k-section" style="padding-top:0">
+    <div style="text-align:center">
+      <h2 style="font-size:clamp(28px,5vw,40px)">Serving businesses across <span style="color:var(--accent)">every district</span></h2>
+      <div class="districts-count-row">
+        <div><div class="n">13</div><div class="l">Districts covered</div></div>
+        <div><div class="n">2</div><div class="l">Divisions</div></div>
+        <div><div class="n accent">1</div><div class="l">State, fully local</div></div>
+      </div>
+    </div>
+    <div class="chips-box">
+      <div class="chips-header">
+        <div style="display:flex;align-items:center;gap:12px"><span class="chips-badge">UK</span><span style="font-size:18px;font-weight:800">Uttarakhand</span></div>
+        <span class="chips-count">13 DISTRICTS</span>
+      </div>
+      <div class="chips-list"><a href="almora.html" class="k-chip">Almora</a> <a href="bageshwar.html" class="k-chip">Bageshwar</a> <a href="chamoli.html" class="k-chip">Chamoli</a> <a href="champawat.html" class="k-chip">Champawat</a> <a href="dehradun.html" class="k-chip">Dehradun</a> <a href="haridwar.html" class="k-chip">Haridwar</a> <a href="nainital.html" class="k-chip">Nainital</a> <a href="pauri-garhwal.html" class="k-chip">Pauri Garhwal</a> <a href="pithoragarh.html" class="k-chip">Pithoragarh</a> <a href="rudraprayag.html" class="k-chip">Rudraprayag</a> <a href="tehri-garhwal.html" class="k-chip">Tehri Garhwal</a> <a href="udham-singh-nagar.html" class="k-chip">Udham Singh Nagar</a> <a href="uttarkashi.html" class="k-chip">Uttarkashi</a></div>
+    </div>
+  </section>
+
+  <section class="wrap k-section" style="padding-top:0">
+    <div class="k-cta-band">
+      <h2>Uttarakhand's digital growth story<br>is <span style="color:var(--accent)">just beginning.</span></h2>
+      <p>We're proud to be part of it — telling local stories with technology, creativity, and craft.</p>
+      <a href="../contact-us.html" class="btn-primary">Book a free strategy call →</a>
+    </div>
+  </section>
+</main>
+<footer class="k-footer">
+  <div class="wrap">
+    <div class="k-foot-grid">
+      <div>
+        <a href="../index.html" class="k-logo">
+          <div class="k-logo-tile">
+            <svg width="20" height="20" viewBox="0 0 30 30" fill="none">
+              <rect x="9" y="5" width="6" height="20" rx="1.5" fill="#3B1C6C"/>
+              <path d="M15 12.5 L26 4 L20.5 14.5 Z" fill="#7046B6"/>
+              <path d="M15 17.5 L26 26 L20.5 14.5 Z" fill="#A272F5"/>
+            </svg>
+          </div>
+          <div class="k-logo-word"><b>KRYVEX<span> MEDIA</span></b></div>
+        </a>
+        <p class="k-foot-desc">The complete digital marketing partner for small businesses ready to grow — SEO, ads, social, web, and content under one roof.</p>
+        <div class="k-foot-social">
+          <a href="#" class="k-fsoc" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M14 8 h2 V5 h-2.5 C12 5 11 6 11 7.5 V9 H9 v3 h2 v7 h3 v-7 h2.2 l.5-3 H14 V8 Z" fill="#63626E"/></svg></a>
+          <a href="#" class="k-fsoc" aria-label="X / Twitter"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 5 l6 7 -6 7 h2 l5-5.8 L16 19 h4 l-6.4-7.6 L19.5 5 h-2 l-4.6 5.4 L8 5 Z" fill="#63626E"/></svg></a>
+          <a href="#" class="k-fsoc" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="4.5" stroke="#63626E" stroke-width="1.6"/><circle cx="12" cy="12" r="3.6" stroke="#63626E" stroke-width="1.6"/><circle cx="16.5" cy="7.5" r="1" fill="#63626E"/></svg></a>
+          <a href="#" class="k-fsoc" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="3.5" stroke="#63626E" stroke-width="1.6"/><line x1="8" y1="10.5" x2="8" y2="17" stroke="#63626E" stroke-width="1.6" stroke-linecap="round"/><circle cx="8" cy="7.5" r="1.1" fill="#63626E"/><path d="M11.5 17 v-4 a2.5 2.5 0 0 1 5 0 v4 M11.5 13 v4" stroke="#63626E" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <div class="k-foot-col-label">Services</div>
+        <div class="k-foot-links">
+          <a href="../services/seo.html">Search Engine Optimization</a>
+          <a href="../services/ppc.html">Paid Advertising</a>
+          <a href="../services/social-media.html">Social Media</a>
+          <a href="../services/web-design.html">Web Design</a>
+          <a href="../services/index.html">View all services →</a>
+        </div>
+      </div>
+      <div>
+        <div class="k-foot-col-label">Industries</div>
+        <div class="k-foot-links">
+          <a href="../industries/healthcare.html">Healthcare</a>
+          <a href="../industries/real-estate.html">Real Estate</a>
+          <a href="../industries/ecommerce.html">E-commerce</a>
+          <a href="../industries/restaurants.html">Restaurants</a>
+          <a href="../industries/home-services.html">Home Services</a>
+        </div>
+      </div>
+      <div>
+        <div class="k-foot-col-label">Company</div>
+        <div class="k-foot-links">
+          <a href="../about.html">About Us</a>
+          <a href="../resources/case-studies.html">Case Studies</a>
+          <a href="../resources/blog.html">Blog</a>
+          <a href="../resources/press-release.html">Press</a>
+          <a href="../contact-us.html">Contact</a>
+          <a href="../sitemap.html">Sitemap</a>
+        </div>
+      </div>
+    </div>
+    <div class="k-foot-bottom">
+      <div>
+        <span>© 2026 Kryvex Media. All rights reserved.</span>
+        <a href="../privacy-policy.html">Privacy Policy</a>
+        <a href="../terms-and-conditions.html">Terms &amp; Conditions</a>
+      </div>
+      <div>
+        <span>info@kryvexmedia.com</span>
+        <a href="tel:+919110170824" style="margin-left:18px">+91 9110170824</a>
+      </div>
+    </div>
+  </div>
+</footer><script>
+(function(){
+  var ids=['industries','services','countries','resources'];
+  var activeMenu=null;
+  function closeAll(){
+    document.querySelectorAll('.k-panel').forEach(function(p){p.classList.remove('open');});
+    document.querySelectorAll('.k-dd-btn').forEach(function(b){b.classList.remove('active');b.setAttribute('aria-expanded','false');});
+    document.querySelectorAll('.k-caret').forEach(function(c){c.classList.remove('open');});
+    activeMenu=null;
+  }
+  function openMenu(id){
+    closeAll();
+    var panel=document.getElementById('panel-'+id);
+    var dd=document.getElementById('dd-'+id);
+    if(!panel||!dd)return;
+    var btn=dd.querySelector('.k-dd-btn');
+    var caret=btn.querySelector('.k-caret');
+    panel.classList.add('open');
+    btn.classList.add('active');
+    btn.setAttribute('aria-expanded','true');
+    caret.classList.add('open');
+    activeMenu=id;
+  }
+  ids.forEach(function(id){
+    var dd=document.getElementById('dd-'+id);
+    if(!dd)return;
+    var btn=dd.querySelector('.k-dd-btn');
+    btn.addEventListener('click',function(e){e.stopPropagation();activeMenu===id?closeAll():openMenu(id);});
+  });
+  document.addEventListener('click',function(e){if(!e.target.closest('.k-dd'))closeAll();});
+
+  var burger=document.getElementById('mnb');
+  if(burger){
+    burger.addEventListener('click',function(){
+      var links=document.querySelector('.k-navlinks');
+      var open=links.style.display==='flex';
+      links.style.cssText=open?'':'display:flex;flex-direction:column;align-items:flex-start;gap:14px;position:absolute;top:100%;left:0;right:0;background:var(--surface);padding:20px 32px;border-bottom:1px solid var(--line);box-shadow:0 18px 40px -18px rgba(22,20,35,.18);max-height:80vh;overflow-y:auto';
+    });
+  }
+})();
+</script><script>
+(function(){
+  var districts=[["Dehradun", 9], ["Haridwar", 7], ["Nainital", 6], ["Udham Singh Nagar", 5], ["Tehri Garhwal", 4], ["Pauri Garhwal", 4], ["Uttarkashi", 3], ["Chamoli", 3], ["Rudraprayag", 3], ["Almora", 3], ["Pithoragarh", 2], ["Bageshwar", 2], ["Champawat", 2]];
+  var idx=0;
+  var nameEl=document.getElementById('district-name');
+  var numEl=document.getElementById('district-num');
+  if(!nameEl||!numEl||districts.length<2)return;
+  setInterval(function(){
+    idx=(idx+1)%districts.length;
+    nameEl.style.opacity='0';numEl.style.opacity='0';
+    setTimeout(function(){nameEl.textContent=districts[idx][0];numEl.textContent=districts[idx][1];nameEl.style.opacity='1';numEl.style.opacity='1';},180);
+  },2200);
+})();
+</script>
+</body>
+</html>
