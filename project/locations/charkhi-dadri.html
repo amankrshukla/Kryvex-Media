@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Digital Marketing in Charkhi Dadri | Kryvex Media</title>
+<meta name="description" content="Digital marketing agency for Charkhi Dadri businesses — SEO, PPC, social &amp; web design that gets you found and grows your customer base.">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="icon" href="../favicon.ico" sizes="any">
+<link rel="icon" href="../favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="../favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="../apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles/theme.css">
+<style>
+
+.loc-hero{padding:30px 0 8px}
+.loc-hero-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:clamp(28px,4vw,52px);align-items:center}
+.loc-hero h1{font-size:clamp(34px,6vw,54px);margin-top:22px;text-wrap:balance}
+.loc-hero p.desc{font-size:16.5px;line-height:1.62;color:var(--muted);font-weight:500;margin-top:20px;max-width:500px}
+.loc-hero-btns{display:flex;flex-wrap:wrap;gap:14px;margin-top:28px}
+.loc-hero-note{font-size:12px;color:var(--muted);font-weight:600;margin-top:18px}
+
+.snap-card{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:24px}
+.snap-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+.snap-lbl{font-size:12px;color:var(--muted);font-weight:600}
+.snap-badge{font-size:11px;font-weight:700;color:#2f9e6e;background:rgba(47,158,110,.1);padding:4px 9px;border-radius:6px}
+.snap-mini{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
+.snap-mini-box{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px}
+.snap-mini-lbl{font-size:10.5px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em}
+.snap-mini-val{font-size:22px;font-weight:800;margin-top:4px;color:var(--ink)}
+.snap-chart{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:16px 14px 12px}
+.snap-chart-hdr{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.snap-chart-lbl{font-size:10.5px;color:var(--muted);font-weight:600}
+.snap-chart-val{font-size:11px;color:var(--accent);font-weight:700}
+.snap-bars{display:flex;align-items:flex-end;gap:7px;height:64px}
+.snap-bars>div{flex:1;border-radius:4px}
+
+.stats-bar{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));border:1px solid var(--line);border-radius:16px;background:var(--surface);overflow:hidden}
+.stats-bar>div{padding:26px 24px;border-right:1px solid var(--line)}
+.stats-bar>div:last-child{border-right:none}
+.stats-bar .val{font-size:28px;font-weight:800;color:var(--ink)}
+.stats-bar .val.accent{color:var(--accent)}
+.stats-bar .lbl{font-size:13px;color:var(--muted);font-weight:500;margin-top:5px;line-height:1.4}
+
+.loc-svc-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:30px}
+.loc-svc-card{text-decoration:none;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:26px;display:block;transition:border-color .2s,transform .2s}
+.loc-svc-card:hover{border-color:var(--accent);transform:translateY(-3px)}
+.loc-svc-card .emoji{font-size:22px}
+.loc-svc-card h3{font-size:18px;font-weight:800;margin:14px 0 8px;color:var(--ink)}
+.loc-svc-card p{font-size:13.5px;color:var(--muted);line-height:1.6;font-weight:500}
+.loc-svc-card .cta{font-size:11px;color:var(--accent);font-weight:700;margin-top:14px}
+
+.why-split{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:48px;align-items:center;border:1px solid var(--line);border-radius:24px;background:var(--surface);padding:clamp(28px,4vw,44px)}
+.why-split h2{font-size:clamp(26px,4.5vw,34px);margin-top:14px;text-wrap:balance}
+.why-split p{font-size:15px;color:var(--muted);line-height:1.65;margin-top:16px;font-weight:500}
+.why-checks{display:flex;flex-direction:column;gap:14px}
+.why-check{display:flex;gap:14px;align-items:flex-start}
+.why-check .mark{color:var(--accent);font-size:18px}
+.why-check .t{font-weight:700;font-size:15px;color:var(--ink)}
+.why-check .d{font-size:13.5px;color:var(--muted);line-height:1.55;font-weight:500}
+
+.proc-grid4{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px}
+.proc-box{padding:26px 22px;border:1px solid var(--line);border-radius:16px;background:var(--surface)}
+.proc-box.active{border-color:var(--accent);background:rgba(112,70,182,.05)}
+.proc-box .num{font-size:13px;font-weight:800;color:var(--accent)}
+.proc-box h3{font-size:18px;font-weight:800;margin:14px 0 8px}
+.proc-box p{font-size:13.5px;color:var(--muted);line-height:1.6;font-weight:500}
+
+.wcu-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.wcu-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:24px}
+.wcu-card .emoji{font-size:22px}
+.wcu-card h3{font-size:17px;font-weight:800;margin:12px 0 7px}
+.wcu-card p{font-size:13.5px;color:var(--muted);line-height:1.6;font-weight:500}
+
+.rev-hdr{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:30px}
+.rev-score{display:flex;align-items:center;gap:14px;border:1px solid var(--line);border-radius:14px;background:var(--surface);padding:14px 20px}
+.rev-score-num{font-size:32px;font-weight:800;color:var(--ink)}
+.rev-stars{display:flex;gap:2px;color:#e0a83c;font-size:15px}
+.rev-score-sub{font-size:12px;color:var(--muted);font-weight:600;margin-top:3px}
+.rev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:16px}
+.rev-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:26px;display:flex;flex-direction:column}
+.rev-card p{font-size:14.5px;color:var(--ink);line-height:1.6;flex:1;font-weight:500}
+.rev-person{display:flex;align-items:center;gap:12px;margin-top:20px}
+.rev-avatar{width:42px;height:42px;border-radius:50%;background:var(--accent);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;color:#fff}
+.rev-name{font-weight:700;font-size:14.5px;color:var(--ink)}
+.rev-role{font-size:12.5px;color:var(--muted);font-weight:500}
+
+.mid-cta{position:relative;overflow:hidden;border-radius:28px;background:var(--accent-dark);padding:clamp(32px,5vw,52px);display:flex;align-items:center;justify-content:space-between;gap:32px;flex-wrap:wrap}
+.mid-cta-left{flex:1;min-width:300px}
+.mid-cta-top{display:flex;align-items:center;gap:22px}
+.mid-cta-icon{position:relative;flex:none;width:64px;height:64px;border-radius:18px;background:#fff;display:flex;align-items:center;justify-content:center}
+.mid-cta h2{font-size:clamp(22px,3.5vw,30px);color:#fff;text-wrap:balance}
+.mid-cta-top p{font-size:14.5px;color:rgba(255,255,255,.72);margin-top:8px;font-weight:500}
+.mid-cta-btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:24px}
+.mid-cta-btns .btn-call{display:inline-flex;align-items:center;gap:10px;background:#fff;color:var(--accent-dark);text-decoration:none;font-weight:700;font-size:15.5px;padding:16px 26px;border-radius:12px;transition:background .15s}
+.mid-cta-btns .btn-call:hover{background:var(--accent-light);color:#fff}
+.mid-cta-btns .btn-outline{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.28);color:#fff;text-decoration:none;font-weight:600;font-size:15.5px;padding:16px 24px;border-radius:12px;transition:background .15s}
+.mid-cta-btns .btn-outline:hover{background:rgba(255,255,255,.18)}
+.mid-cta-support{position:absolute;bottom:12px;right:24px;white-space:nowrap;font-size:10px;letter-spacing:.06em;color:rgba(255,255,255,.7);background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);padding:4px 10px;border-radius:100px}
+
+.faq-wrap{max-width:880px;margin:0 auto}
+.faq-list{display:flex;flex-direction:column;gap:12px}
+.faq-item{border:1px solid var(--line);border-radius:14px;background:var(--surface);padding:18px 22px}
+.faq-item summary{cursor:pointer;font-size:16px;font-weight:700;color:var(--ink);list-style:none;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary .plus{color:var(--accent);font-size:20px;font-weight:400;flex:none}
+.faq-item p{font-size:14px;color:var(--muted);line-height:1.65;margin-top:14px;font-weight:500}
+.svc-links-sec .k-chip{margin:0 8px 8px 0}
+
+</style>
+</head>
+<body>
+<header class="k-header">
+  <div class="wrap k-nav">
+    <a href="../index.html" class="k-logo">
+      <div class="k-logo-tile">
+        <svg width="22" height="22" viewBox="0 0 30 30" fill="none">
+          <rect x="9" y="5" width="6" height="20" rx="1.5" fill="#3B1C6C"/>
+          <path d="M15 12.5 L26 4 L20.5 14.5 Z" fill="#7046B6"/>
+          <path d="M15 17.5 L26 26 L20.5 14.5 Z" fill="#A272F5"/>
+        </svg>
+      </div>
+      <div class="k-logo-word">
+        <b>KRYVEX<span> MEDIA</span></b>
+        <small>GLOBAL DIGITAL MARKETING</small>
+      </div>
+    </a>
+    <div class="k-navlinks">
+      <a href="../index.html">Home</a>
+      <div class="k-dd" id="dd-industries">
+        <button class="k-dd-btn" aria-expanded="false" aria-controls="panel-industries">Industries <span class="k-caret"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="k-panel wide" id="panel-industries" role="menu">
+          <div class="k-panel-label">Industries We Serve</div>
+          <div class="k-panel-grid">
+            <a href="../industries/healthcare.html" class="k-item"><span class="k-item-icon">🏥</span><span><span class="k-item-title">Healthcare</span><span class="k-item-sub">Clinics, dental, wellness</span></span></a>
+            <a href="../industries/real-estate.html" class="k-item"><span class="k-item-icon">🏠</span><span><span class="k-item-title">Real Estate</span><span class="k-item-sub">Agents, brokers, developers</span></span></a>
+            <a href="../industries/ecommerce.html" class="k-item"><span class="k-item-icon">🛍️</span><span><span class="k-item-title">E-commerce &amp; Retail</span><span class="k-item-sub">Online &amp; omnichannel</span></span></a>
+            <a href="../industries/restaurants.html" class="k-item"><span class="k-item-icon">🍽️</span><span><span class="k-item-title">Restaurants</span><span class="k-item-sub">Cafes, dining, franchises</span></span></a>
+            <a href="../industries/legal.html" class="k-item"><span class="k-item-icon">⚖️</span><span><span class="k-item-title">Legal &amp; Professional</span><span class="k-item-sub">Law, finance, consulting</span></span></a>
+            <a href="../industries/home-services.html" class="k-item"><span class="k-item-icon">🔧</span><span><span class="k-item-title">Home Services</span><span class="k-item-sub">Trades, repair, contractors</span></span></a>
+            <a href="../industries/education.html" class="k-item"><span class="k-item-icon">🎓</span><span><span class="k-item-title">Education</span><span class="k-item-sub">Schools, courses, edtech</span></span></a>
+            <a href="../industries/fitness.html" class="k-item"><span class="k-item-icon">💪</span><span><span class="k-item-title">Fitness &amp; Wellness</span><span class="k-item-sub">Gyms, studios, coaches</span></span></a>
+          </div>
+        </div>
+      </div>
+      <div class="k-dd" id="dd-services">
+        <button class="k-dd-btn" aria-expanded="false" aria-controls="panel-services">Services <span class="k-caret"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="k-panel wide" id="panel-services" role="menu">
+          <div class="k-panel-label">What We Do</div>
+          <div class="k-panel-grid">
+            <a href="../services/seo.html" class="k-item"><span class="k-item-icon">🔍</span><span><span class="k-item-title">Search Engine Optimization</span><span class="k-item-sub">Organic growth</span></span></a>
+            <a href="../services/local-seo.html" class="k-item"><span class="k-item-icon">📍</span><span><span class="k-item-title">Local SEO</span><span class="k-item-sub">Map &amp; near-me</span></span></a>
+            <a href="../services/ppc.html" class="k-item"><span class="k-item-icon">🎯</span><span><span class="k-item-title">Paid Advertising (PPC)</span><span class="k-item-sub">Google ads</span></span></a>
+            <a href="../services/social-media.html" class="k-item"><span class="k-item-icon">📱</span><span><span class="k-item-title">Social Media Marketing</span><span class="k-item-sub">Build audience</span></span></a>
+            <a href="../services/meta-ads.html" class="k-item"><span class="k-item-icon">⚡</span><span><span class="k-item-title">Meta Ads Services</span><span class="k-item-sub">FB &amp; Instagram</span></span></a>
+            <a href="../services/content-marketing.html" class="k-item"><span class="k-item-icon">✍️</span><span><span class="k-item-title">Content Marketing</span><span class="k-item-sub">Blogs &amp; assets</span></span></a>
+            <a href="../services/email-marketing.html" class="k-item"><span class="k-item-icon">✉️</span><span><span class="k-item-title">Email Marketing</span><span class="k-item-sub">Flows &amp; campaigns</span></span></a>
+            <a href="../services/web-design.html" class="k-item"><span class="k-item-icon">🖥️</span><span><span class="k-item-title">Web Design &amp; Development</span><span class="k-item-sub">Design &amp; build</span></span></a>
+            <a href="../services/graphics-design.html" class="k-item"><span class="k-item-icon">🎨</span><span><span class="k-item-title">Graphics Designing</span><span class="k-item-sub">Brand visuals</span></span></a>
+          </div>
+          <a href="../services/index.html" class="k-panel-all">VIEW ALL SERVICES →</a>
+        </div>
+      </div>
+      <div class="k-dd" id="dd-countries">
+        <button class="k-dd-btn" aria-expanded="false" aria-controls="panel-countries">Countries <span class="k-caret"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="k-panel" id="panel-countries" role="menu">
+          <div class="k-panel-label">Countries</div>
+          <div class="k-panel-col">
+            <a href="../locations/india.html" class="k-item"><span class="k-item-icon">🇮🇳</span><span><span class="k-item-title">India</span><span class="k-item-sub">Live · all states</span></span></a>
+            <a href="../locations/usa.html" class="k-item"><span class="k-item-icon">🇺🇸</span><span><span class="k-item-title">USA</span><span class="k-item-sub">Launching soon</span></span></a>
+            <a href="../locations/uk.html" class="k-item"><span class="k-item-icon">🇬🇧</span><span><span class="k-item-title">UK</span><span class="k-item-sub">Launching soon</span></span></a>
+            <a href="../locations/singapore.html" class="k-item"><span class="k-item-icon">🇸🇬</span><span><span class="k-item-title">Singapore</span><span class="k-item-sub">Launching soon</span></span></a>
+          </div>
+        </div>
+      </div>
+      <div class="k-dd" id="dd-resources">
+        <button class="k-dd-btn" aria-expanded="false" aria-controls="panel-resources">Resources <span class="k-caret"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="k-panel" id="panel-resources" role="menu">
+          <div class="k-panel-label">Resources</div>
+          <div class="k-panel-col">
+            <a href="../resources/blog.html" class="k-item"><span class="k-item-icon">📝</span><span><span class="k-item-title">Blog</span><span class="k-item-sub">Insights &amp; guides</span></span></a>
+            <a href="../resources/press-release.html" class="k-item"><span class="k-item-icon">📰</span><span><span class="k-item-title">Press Release</span><span class="k-item-sub">News &amp; announcements</span></span></a>
+            <a href="../resources/case-studies.html" class="k-item"><span class="k-item-icon">📊</span><span><span class="k-item-title">Case Studies</span><span class="k-item-sub">Real client results</span></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="../contact-us.html" class="k-nav-cta">Book Free Consultation</a>
+    <button class="k-burger" id="mnb" aria-label="Open menu"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+  </div>
+</header>
+<div class="wrap" style="padding:14px 32px 0;font-size:12.5px;color:var(--muted);font-weight:600">
+  <a href="../index.html">Home</a> <span style="margin:0 6px;color:var(--line)">/</span> <span style="color:var(--ink);font-weight:700">India</span> <span style="margin:0 6px;color:var(--line)">/</span> <a href="haryana.html">Haryana</a> <span style="margin:0 6px;color:var(--line)">/</span> <span style="color:var(--ink);font-weight:700">Charkhi Dadri</span>
+</div>
+<main>
+  <header class="wrap loc-hero">
+    <div class="loc-hero-grid">
+      <div>
+        <div class="k-badge"><i></i>Digital Marketing · Charkhi Dadri</div>
+        <h1>Digital marketing that grows <span style="color:var(--accent)">Charkhi Dadri businesses.</span></h1>
+        <p class="desc">One of Haryana's newest districts, carved from Bhiwani, Charkhi Dadri's agri-trade and local businesses are largely undiscovered online. We help change that.</p>
+        <div class="loc-hero-btns">
+          <a href="../contact-us.html" class="btn-primary">Book Free Consultation</a>
+          <a href="../contact-us.html" class="btn-ghost">Get Free Audit Report →</a>
+        </div>
+        <p class="loc-hero-note">From Charkhi Dadri town to the grain mandis, we help local businesses get found, get leads, and grow.</p>
+      </div>
+      <div class="snap-card">
+        <div class="snap-hdr">
+          <span class="snap-lbl">Charkhi Dadri Growth Snapshot</span>
+          <span class="snap-badge">● Local</span>
+        </div>
+        <div class="snap-mini">
+<div class="snap-mini-box"><div class="snap-mini-lbl">Newest District In Haryana</div><div class="snap-mini-val">2016</div></div>
+<div class="snap-mini-box"><div class="snap-mini-lbl">Return On Ad Spend</div><div class="snap-mini-val">4.2x</div></div>
+        </div>
+        <div class="snap-chart">
+          <div class="snap-chart-hdr"><span class="snap-chart-lbl">Local Leads</span><span class="snap-chart-val">+148%</span></div>
+          <div class="snap-bars">
+            <div style="height:34%;background:var(--line)"></div>
+            <div style="height:48%;background:var(--line)"></div>
+            <div style="height:42%;background:var(--line)"></div>
+            <div style="height:64%;background:var(--accent-light)"></div>
+            <div style="height:80%;background:var(--accent)"></div>
+            <div style="height:100%;background:var(--accent-dark)"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <section class="wrap" style="margin-top:40px">
+    <div class="stats-bar">
+<div><div class="val">1</div><div class="lbl">One of Haryana's newest and fastest-growing districts</div></div>
+<div><div class="val">4.2x</div><div class="lbl">Average return on ad spend</div></div>
+<div><div class="val">48h</div><div class="lbl">Free audit turnaround</div></div>
+<div><div class="val accent">1</div><div class="lbl">Dedicated local team</div></div>
+    </div>
+  </section>
+
+  <section class="wrap k-section">
+    <div class="eyebrow">What We Do In Charkhi Dadri</div>
+    <h2 style="font-size:clamp(28px,5vw,40px);margin-top:14px;max-width:620px;text-wrap:balance">Full-service digital marketing for Charkhi Dadri</h2>
+    <p style="font-size:15px;color:var(--muted);line-height:1.65;margin-top:14px;max-width:600px;font-weight:500">One local team running every channel that brings you customers — no juggling freelancers.</p>
+    <div class="loc-svc-grid">
+<a href="../services/seo.html" class="loc-svc-card"><div class="emoji">🔍</div><h3>Search Engine Optimization</h3><p>Rank on Google for what your Charkhi Dadri customers are searching, with technical and content SEO.</p><div class="cta">Learn more →</div></a>
+<a href="../services/local-seo.html" class="loc-svc-card"><div class="emoji">📍</div><h3>Local SEO</h3><p>Show up in Google Maps and local search so nearby customers find you first.</p><div class="cta">Learn more →</div></a>
+<a href="../services/ppc.html" class="loc-svc-card"><div class="emoji">🎯</div><h3>Paid Advertising (PPC)</h3><p>Profitable Google &amp; Meta ad campaigns engineered for return, not just clicks.</p><div class="cta">Learn more →</div></a>
+<a href="../services/social-media.html" class="loc-svc-card"><div class="emoji">📱</div><h3>Social Media Marketing</h3><p>Content and community management that builds a brand people follow and buy from.</p><div class="cta">Learn more →</div></a>
+<a href="../services/web-design.html" class="loc-svc-card"><div class="emoji">💻</div><h3>Web Design &amp; Development</h3><p>Fast, conversion-focused websites that turn Charkhi Dadri traffic into booked calls.</p><div class="cta">Learn more →</div></a>
+<a href="../services/content-marketing.html" class="loc-svc-card"><div class="emoji">✍️</div><h3>Content Marketing</h3><p>Content and email that keep you top-of-mind and turn buyers into regulars.</p><div class="cta">Learn more →</div></a>
+    </div>
+  </section>
+
+  <section class="wrap k-section" style="padding-top:0">
+    <div class="why-split">
+      <div>
+        <div class="eyebrow">Why Charkhi Dadri</div>
+        <h2>We know Charkhi Dadri, because we work here.</h2>
+        <p>Charkhi Dadri's economy runs on agriculture trade and a growing local retail market. We build simple, affordable marketing that helps local traders and shops get discovered by nearby customers.</p>
+      </div>
+      <div class="why-checks">
+<div class="why-check"><span class="mark">✓</span><div><div class="t">Local-first strategy</div><div class="d">Campaigns tuned to Charkhi Dadri audiences, not generic templates.</div></div></div>
+<div class="why-check"><span class="mark">✓</span><div><div class="t">Transparent reporting</div><div class="d">Real numbers every month — leads and revenue, not vanity metrics.</div></div></div>
+<div class="why-check"><span class="mark">✓</span><div><div class="t">No long contracts</div><div class="d">Stay because it works, not because you're locked in.</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap k-section" style="padding-top:0">
+    <div class="sec-head center">
+      <div class="eyebrow">How We Work</div>
+      <h2>A clear path from audit to growth</h2>
+    </div>
+    <div class="proc-grid4">
+<div class="proc-box"><div class="num">01</div><h3>Free Audit</h3><p>We analyse your site, ads and Charkhi Dadri competitors — report in 48 hours.</p></div>
+<div class="proc-box"><div class="num">02</div><h3>Strategy</h3><p>A custom 90-day roadmap with clear channels, budgets and targets.</p></div>
+<div class="proc-box"><div class="num">03</div><h3>Execute</h3><p>We launch campaigns and build assets — you focus on your business.</p></div>
+<div class="proc-box active"><div class="num">04</div><h3>Scale</h3><p>We double down on what works and report real numbers every month.</p></div>
+    </div>
+  </section>
+
+  <section class="wrap k-section" style="padding-top:0">
+    <div class="sec-head center">
+      <div class="eyebrow">Why Choose Us</div>
+      <h2>Why Charkhi Dadri businesses choose Kryvex Media</h2>
+    </div>
+    <div class="wcu-grid">
+<div class="wcu-card"><div class="emoji">📍</div><h3>Local Expertise</h3><p>We understand Charkhi Dadri markets and customers — campaigns built for your area, not generic templates.</p></div>
+<div class="wcu-card"><div class="emoji">⚡</div><h3>Fast Execution</h3><p>Strategy to launch in days, not months. We move quickly so you start seeing results sooner.</p></div>
+<div class="wcu-card"><div class="emoji">📊</div><h3>Transparent Reporting</h3><p>Clear monthly reports on real leads and revenue — never vanity metrics.</p></div>
+<div class="wcu-card"><div class="emoji">🎯</div><h3>Proven ROI</h3><p>A strong average return on ad spend across the businesses we manage.</p></div>
+<div class="wcu-card"><div class="emoji">🤝</div><h3>One Team, Every Channel</h3><p>SEO, ads, social, web and content under one roof — no juggling freelancers.</p></div>
+<div class="wcu-card"><div class="emoji">🏆</div><h3>No Lock-In</h3><p>Flexible, month-to-month engagements. You stay because it works.</p></div>
+    </div>
+  </section>
+
+  <section class="wrap k-section" style="padding-top:0">
+    <div class="rev-hdr">
+      <div>
+        <div class="eyebrow">Reviews</div>
+        <h2 style="font-size:clamp(28px,5vw,40px);margin-top:14px;text-wrap:balance">Loved by Charkhi Dadri businesses</h2>
+      </div>
+      <div class="rev-score">
+        <div class="rev-score-num">4.6</div>
+        <div><div class="rev-stars">★★★★★</div><div class="rev-score-sub">from 10+ reviews</div></div>
+      </div>
+    </div>
+    <div class="rev-grid">
+<div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <p>&ldquo;Our trading shop finally has a real online presence.&rdquo;</p>
+        <div class="rev-person"><div class="rev-avatar">R</div><div><div class="rev-name">Ramesh Kumar</div><div class="rev-role">Trade, Charkhi Dadri</div></div></div>
+      </div>
+<div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <p>&ldquo;They kept things simple and explained everything in plain language.&rdquo;</p>
+        <div class="rev-person"><div class="rev-avatar">S</div><div><div class="rev-name">Sunita Rani</div><div class="rev-role">Retail, Charkhi Dadri</div></div></div>
+      </div>
+<div class="rev-card">
+        <div class="rev-stars">★★★★★</div>
+        <p>&ldquo;Simple, honest, and quick to respond.&rdquo;</p>
+        <div class="rev-person"><div class="rev-avatar">A</div><div><div class="rev-name">Amit Kumar</div><div class="rev-role">Services, Charkhi Dadri</div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap k-section" style="padding-top:0">
+    <div class="mid-cta">
+      <div class="mid-cta-left">
+        <div class="mid-cta-top">
+          <div class="mid-cta-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" style="transform-origin:center"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.3 21 3 13.7 3 4.5c0-.6.4-1 1-1H7.4c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1.1l-2.1 2.1z" fill="#7046B6"/></svg></div>
+          <div>
+            <h2>Ready to grow your Charkhi Dadri business?</h2>
+            <p>Talk to a strategist today — your first call and audit are free.</p>
+          </div>
+        </div>
+        <div class="mid-cta-btns">
+          <a href="tel:+919110170824" class="btn-call">Call +91 91101 70824</a>
+          <a href="../contact-us.html" class="btn-outline">Book Free Consultation</a>
+        </div>
+      </div>
+      <span class="mid-cta-support">● support online</span>
+    </div>
+  </section>
+
+  <section class="wrap k-section faq-wrap" style="padding-top:0">
+    <div class="sec-head center">
+      <div class="eyebrow">FAQ</div>
+      <h2>Frequently asked questions</h2>
+    </div>
+    <div class="faq-list">
+      <details class="faq-item"><summary><span>How soon will I see results?</span><span class="plus">+</span></summary><p>SEO typically builds over 3–6 months, while paid ads can drive leads within the first few weeks. In your free audit we give you a realistic, honest timeline for your goals.</p></details>
+      <details class="faq-item"><summary><span>Do you work with small and local businesses in Charkhi Dadri?</span><span class="plus">+</span></summary><p>Absolutely — local Charkhi Dadri businesses and startups are exactly who we serve. We tailor every campaign to your area, audience, and budget.</p></details>
+      <details class="faq-item"><summary><span>How much does it cost?</span><span class="plus">+</span></summary><p>There's no one-size-fits-all price. We build a plan around your goals and budget and quote transparently — no hidden fees, ever.</p></details>
+      <details class="faq-item"><summary><span>Is there a long-term contract?</span><span class="plus">+</span></summary><p>No long lock-ins. We offer flexible, month-to-month engagements — we'd rather earn your business with results than tie you down.</p></details>
+      <details class="faq-item"><summary><span>What's included in the free audit?</span><span class="plus">+</span></summary><p>A review of your website, ads, SEO, and competitors, delivered as a clear report within 48 hours — with no obligation to continue.</p></details>
+      <details class="faq-item"><summary><span>Which services do I actually need?</span><span class="plus">+</span></summary><p>After the audit we recommend only the channels that will move the needle for you — never services you don't need.</p></details>
+      <details class="faq-item"><summary><span>Will I get regular reports?</span><span class="plus">+</span></summary><p>Yes. You'll get a clear monthly report focused on leads and revenue — the numbers that matter, not vanity metrics.</p></details>
+      <details class="faq-item"><summary><span>Do you handle content and creatives too?</span><span class="plus">+</span></summary><p>Yes — copywriting, graphic design, and video are all in-house, so your campaigns ship fast and stay on-brand.</p></details>
+      <details class="faq-item"><summary><span>Can you manage my Google Business Profile and local SEO?</span><span class="plus">+</span></summary><p>Definitely. Local SEO and Google Business optimization are core to how we help you get found by nearby customers.</p></details>
+      <details class="faq-item"><summary><span>How do we get started?</span><span class="plus">+</span></summary><p>Book a free consultation. We'll run your audit, walk you through the findings, and propose a 90-day growth plan — then it's your call.</p></details>
+    </div>
+  </section>
+
+  <section class="wrap k-section svc-links-sec" style="padding-top:0">
+    <div class="eyebrow">Services In Charkhi Dadri</div>
+    <h2 style="font-size:clamp(24px,4vw,34px);margin-top:14px">Our services for Charkhi Dadri businesses</h2>
+    <div style="margin-top:20px"><a href="charkhi-dadri-seo.html" class="k-chip">SEO in Charkhi Dadri in Charkhi Dadri</a> <a href="charkhi-dadri-web-development.html" class="k-chip">Web Development in Charkhi Dadri in Charkhi Dadri</a> <a href="charkhi-dadri-google-ads.html" class="k-chip">Google Ads in Charkhi Dadri in Charkhi Dadri</a> <a href="charkhi-dadri-social-media.html" class="k-chip">Social Media in Charkhi Dadri in Charkhi Dadri</a> <a href="charkhi-dadri-graphics-design.html" class="k-chip">Graphics Design in Charkhi Dadri in Charkhi Dadri</a></div>
+  </section>
+
+  <section class="wrap k-section" style="padding-top:0">
+    <div class="k-cta-band">
+      <h2>Haryana's digital growth story<br>is <span style="color:var(--accent)">just beginning.</span></h2>
+      <p>We're proud to be part of it — telling local stories with technology, creativity, and craft.</p>
+      <a href="../contact-us.html" class="btn-primary">Say hello →</a>
+    </div>
+  </section>
+</main>
+<footer class="k-footer">
+  <div class="wrap">
+    <div class="k-foot-grid">
+      <div>
+        <a href="../index.html" class="k-logo">
+          <div class="k-logo-tile">
+            <svg width="20" height="20" viewBox="0 0 30 30" fill="none">
+              <rect x="9" y="5" width="6" height="20" rx="1.5" fill="#3B1C6C"/>
+              <path d="M15 12.5 L26 4 L20.5 14.5 Z" fill="#7046B6"/>
+              <path d="M15 17.5 L26 26 L20.5 14.5 Z" fill="#A272F5"/>
+            </svg>
+          </div>
+          <div class="k-logo-word"><b>KRYVEX<span> MEDIA</span></b></div>
+        </a>
+        <p class="k-foot-desc">The complete digital marketing partner for small businesses ready to grow — SEO, ads, social, web, and content under one roof.</p>
+      </div>
+      <div>
+        <div class="k-foot-col-label">Services</div>
+        <div class="k-foot-links">
+          <a href="../services/seo.html">Search Engine Optimization</a>
+          <a href="../services/ppc.html">Paid Advertising</a>
+          <a href="../services/social-media.html">Social Media</a>
+          <a href="../services/web-design.html">Web Design</a>
+          <a href="../services/index.html">View all services →</a>
+        </div>
+      </div>
+      <div>
+        <div class="k-foot-col-label">Locations</div>
+        <div class="k-foot-links">
+          <a href="ambala.html">Ambala</a>
+          <a href="bhiwani.html">Bhiwani</a>
+          <a href="charkhi-dadri.html" style="color:var(--accent)">Charkhi Dadri</a>
+          <a href="faridabad.html">Faridabad</a>
+          <a href="fatehabad.html">Fatehabad</a>
+          <a href="gurugram.html">Gurugram</a>
+          <a href="hisar.html">Hisar</a>
+          <a href="jhajjar.html">Jhajjar</a>
+          <a href="jind.html">Jind</a>
+          <a href="kaithal.html">Kaithal</a>
+          <a href="karnal.html">Karnal</a>
+          <a href="kurukshetra.html">Kurukshetra</a>
+          <a href="mahendragarh.html">Mahendragarh</a>
+          <a href="nuh.html">Nuh</a>
+          <a href="palwal.html">Palwal</a>
+          <a href="panchkula.html">Panchkula</a>
+          <a href="panipat.html">Panipat</a>
+          <a href="rewari.html">Rewari</a>
+          <a href="rohtak.html">Rohtak</a>
+          <a href="sirsa.html">Sirsa</a>
+          <a href="sonipat.html">Sonipat</a>
+          <a href="yamunanagar.html">Yamunanagar</a>
+          
+        </div>
+      </div>
+      <div>
+        <div class="k-foot-col-label">Company</div>
+        <div class="k-foot-links">
+          <a href="../about.html">About Us</a>
+          <a href="../resources/case-studies.html">Case Studies</a>
+          <a href="../resources/blog.html">Blog</a>
+          <a href="../resources/press-release.html">Press</a>
+          <a href="../contact-us.html">Contact</a>
+          <a href="../sitemap.html">Sitemap</a>
+        </div>
+      </div>
+    </div>
+    <div class="k-foot-bottom">
+      <div>
+        <span>© 2026 Kryvex Media. All rights reserved.</span>
+        <a href="../privacy-policy.html">Privacy Policy</a>
+        <a href="../terms-and-conditions.html">Terms &amp; Conditions</a>
+      </div>
+      <div>
+        <span>info@kryvexmedia.com</span>
+        <a href="tel:+919110170824" style="margin-left:18px">+91 9110170824</a>
+      </div>
+    </div>
+  </div>
+</footer><script>
+(function(){
+  var ids=['industries','services','countries','resources'];
+  var activeMenu=null;
+  function closeAll(){
+    document.querySelectorAll('.k-panel').forEach(function(p){p.classList.remove('open');});
+    document.querySelectorAll('.k-dd-btn').forEach(function(b){b.classList.remove('active');b.setAttribute('aria-expanded','false');});
+    document.querySelectorAll('.k-caret').forEach(function(c){c.classList.remove('open');});
+    activeMenu=null;
+  }
+  function openMenu(id){
+    closeAll();
+    var panel=document.getElementById('panel-'+id);
+    var dd=document.getElementById('dd-'+id);
+    if(!panel||!dd)return;
+    var btn=dd.querySelector('.k-dd-btn');
+    var caret=btn.querySelector('.k-caret');
+    panel.classList.add('open');
+    btn.classList.add('active');
+    btn.setAttribute('aria-expanded','true');
+    caret.classList.add('open');
+    activeMenu=id;
+  }
+  ids.forEach(function(id){
+    var dd=document.getElementById('dd-'+id);
+    if(!dd)return;
+    var btn=dd.querySelector('.k-dd-btn');
+    btn.addEventListener('click',function(e){e.stopPropagation();activeMenu===id?closeAll():openMenu(id);});
+  });
+  document.addEventListener('click',function(e){if(!e.target.closest('.k-dd'))closeAll();});
+
+  var burger=document.getElementById('mnb');
+  if(burger){
+    burger.addEventListener('click',function(){
+      var links=document.querySelector('.k-navlinks');
+      var open=links.style.display==='flex';
+      links.style.cssText=open?'':'display:flex;flex-direction:column;align-items:flex-start;gap:14px;position:absolute;top:100%;left:0;right:0;background:var(--surface);padding:20px 32px;border-bottom:1px solid var(--line);box-shadow:0 18px 40px -18px rgba(22,20,35,.18);max-height:80vh;overflow-y:auto';
+    });
+  }
+})();
+</script>
+</body>
+</html>
