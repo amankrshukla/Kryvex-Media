@@ -741,5 +741,95 @@ form{display:flex;flex-direction:column;gap:20px}
     <svg viewBox="0 0 24 24" width="30" height="30" fill="#fff" xmlns="http://www.w3.org/2000/svg"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.9 11.9L4 20l4.2-1.1a7.9 7.9 0 0 0 3.8.97h.01a7.94 7.94 0 0 0 5.59-13.55ZM12.05 18.5h-.01a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.65.67-2.43-.16-.25a6.59 6.59 0 1 1 5.6 3.09Zm3.62-4.94c-.2-.1-1.17-.58-1.35-.64-.18-.07-.32-.1-.45.1-.13.2-.5.64-.62.77-.11.13-.23.15-.43.05-.2-.1-.84-.31-1.6-.99-.59-.53-.99-1.18-1.11-1.38-.12-.2-.01-.31.09-.41.09-.09.2-.23.3-.35.1-.12.13-.2.2-.34.07-.13.03-.25-.02-.35-.05-.1-.45-1.08-.62-1.48-.16-.39-.33-.34-.45-.34l-.38-.01c-.13 0-.35.05-.53.25-.18.2-.7.68-.7 1.66 0 .98.72 1.93.82 2.06.1.13 1.4 2.14 3.4 3 .48.2.85.33 1.14.42.48.15.91.13 1.25.08.38-.06 1.17-.48 1.34-.94.16-.46.16-.86.11-.94-.05-.08-.18-.13-.38-.23Z"/></svg>
   </span>
 </a>
+<style>
+.kxe-overlay{position:fixed;inset:0;z-index:2000;background:rgba(22,20,35,.6);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .28s;font-family:'Manrope','Segoe UI',system-ui,sans-serif}
+.kxe-overlay.show{opacity:1;pointer-events:auto}
+.kxe-card{display:flex;max-width:700px;width:100%;background:var(--surface,#fff);border-radius:20px;overflow:hidden;box-shadow:0 44px 100px -34px rgba(22,20,35,.6);position:relative;transform:translateY(16px) scale(.97);transition:transform .28s}
+.kxe-overlay.show .kxe-card{transform:none}
+.kxe-visual{position:relative;flex:0 0 43%;background:linear-gradient(150deg,var(--accent,#7046B6),var(--accent-dark,#3B1C6C));color:#fff;padding:32px 28px;display:flex;align-items:center;overflow:hidden}
+.kxe-blob{position:absolute;border-radius:50%;pointer-events:none}
+.kxe-blob1{width:170px;height:170px;background:var(--accent-light,#A272F5);opacity:.4;top:-46px;right:-42px;filter:blur(4px)}
+.kxe-blob2{width:130px;height:130px;background:#fff;opacity:.1;bottom:-46px;left:-36px}
+.kxe-vi{position:relative;z-index:2}
+.kxe-badge{display:inline-block;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);padding:6px 12px;border-radius:100px;font-size:11px;font-weight:800;letter-spacing:.06em}
+.kxe-vh{font-size:25px;font-weight:800;line-height:1.14;margin:16px 0 10px}
+.kxe-vp{font-size:13.5px;line-height:1.55;opacity:.92;margin:0}
+.kxe-vstats{font-size:11.5px;margin-top:18px;opacity:.9;line-height:1.7}
+.kxe-vstats b{color:#fff;font-weight:800}
+.kxe-content{flex:1;padding:30px 28px;min-width:0}
+.kxe-close{position:absolute;top:14px;right:14px;z-index:3;width:30px;height:30px;border:none;border-radius:8px;background:rgba(22,20,35,.06);color:#63626E;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:15px;line-height:1}
+.kxe-close:hover{background:rgba(22,20,35,.13)}
+.kxe-eyebrow{font-size:11.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent,#7046B6)}
+.kxe-h{font-size:20px;font-weight:800;color:var(--ink,#161423);margin:8px 0 6px;line-height:1.25}
+.kxe-sub{font-size:13.5px;color:#63626E;line-height:1.5;margin:0 0 16px}
+.kxe-opts{display:flex;flex-direction:column;gap:8px}
+.kxe-opt{text-align:left;border:1px solid rgba(22,20,35,.14);background:#fff;border-radius:11px;padding:12px 14px;font-size:13.5px;font-weight:600;color:var(--ink,#161423);cursor:pointer;font-family:inherit;transition:.15s}
+.kxe-opt:hover{border-color:var(--accent,#7046B6);background:rgba(112,70,182,.06);color:var(--accent,#7046B6);transform:translateX(3px)}
+.kxe-form{display:flex;flex-direction:column;gap:10px;margin-top:2px}
+.kxe-input{border:1px solid rgba(22,20,35,.15);border-radius:11px;padding:12px 14px;font-size:14px;font-family:inherit;color:var(--ink,#161423)}
+.kxe-input:focus{outline:2px solid var(--accent-light,#A272F5);outline-offset:1px}
+.kxe-btn{border:none;border-radius:11px;padding:13px;background:var(--accent,#7046B6);color:#fff;font-size:14.5px;font-weight:700;cursor:pointer;font-family:inherit}
+.kxe-btn:hover{background:var(--accent-dark,#3B1C6C)}
+.kxe-small{font-size:12px;color:#63626E;text-align:center;margin-top:11px}
+.kxe-small a{color:var(--accent,#7046B6)}
+.kxe-skip{background:none;border:none;color:#63626E;font-size:12px;cursor:pointer;text-decoration:underline;font-family:inherit;margin-top:8px}
+body.kxe-open .kx-chat,body.kxe-open .kx-wa{opacity:0!important;pointer-events:none!important;transition:opacity .2s}
+@media(max-width:600px){.kxe-card{flex-direction:column;max-width:410px}.kxe-visual{flex:none;padding:24px 26px}.kxe-vh{font-size:21px;margin:12px 0 8px}.kxe-vstats{display:none}.kxe-content{padding:24px 26px}}
+@media(prefers-reduced-motion:reduce){.kxe-overlay,.kxe-card,.kxe-opt{transition:none}}
+</style>
+<div class="kxe-overlay" id="kxe" role="dialog" aria-modal="true" aria-label="Before you go">
+  <div class="kxe-card">
+    <button class="kxe-close" id="kxe-x" aria-label="Close">&#10005;</button>
+    <div class="kxe-visual">
+      <span class="kxe-blob kxe-blob1"></span><span class="kxe-blob kxe-blob2"></span>
+      <div class="kxe-vi">
+        <span class="kxe-badge">✨ FREE AUDIT</span>
+        <div class="kxe-vh">Don't leave empty-handed.</div>
+        <p class="kxe-vp">Get a free 48-hour audit of your website, ads &amp; SEO — no strings attached.</p>
+        <div class="kxe-vstats"><b>4.2x</b> avg return on ad spend<br><b>20</b> states · <b>250+</b> businesses grown</div>
+      </div>
+    </div>
+    <div class="kxe-content"><div id="kxe-body"></div></div>
+  </div>
+</div>
+<script>
+(function(){
+  var LOG='https://script.google.com/macros/s/AKfycby0rfIUuYnIZxJz-rY912EW3hv3f-W9BQaBL4nIFIxQG8W226a1nICbJnhQnT3Ag4Poyg/exec';
+  var overlay=document.getElementById('kxe'),body=document.getElementById('kxe-body'),xbtn=document.getElementById('kxe-x');
+  var shown=false,reason='';
+  function sid(){try{var s=sessionStorage.getItem('kx_sid');if(!s){s='kx-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,8);sessionStorage.setItem('kx_sid',s);}return s;}catch(e){return 'kx-'+Date.now().toString(36);}}
+  function log(role,msg){if(!LOG)return;try{fetch(LOG,{method:'POST',mode:'no-cors',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({sid:sid(),role:role,message:msg,page:location.pathname,url:location.href,ref:document.referrer,ts:new Date().toISOString()})}).catch(function(){});}catch(e){}}
+  function canShow(){try{return !sessionStorage.getItem('kx_exit_shown');}catch(e){return true;}}
+  function mark(){try{sessionStorage.setItem('kx_exit_shown','1');}catch(e){}}
+  var CTA={
+    'Too expensive':'Totally fair — that\'s why we work month-to-month with no lock-in, and the first audit is free. See exactly what we\'d do for you:',
+    'Not sure you cover my area':'We cover 20 states and hundreds of districts. Leave your number and we\'ll confirm coverage for your city and send a free audit:',
+    'Just browsing':'No pressure at all! While you\'re here, grab a free 48-hour audit of your website — no strings attached:',
+    'Something else':'Thanks for the honesty! If we can help with anything, grab a free audit or reach us directly:'
+  };
+  function step1(){
+    body.innerHTML='<div class="kxe-eyebrow">Before you go</div><h2 class="kxe-h">What almost made you leave? 👋</h2><p class="kxe-sub">One tap helps us improve — and we might just have the answer for you.</p><div class="kxe-opts" id="kxe-opts"></div>';
+    var opts=['Too expensive','Not sure you cover my area','Just browsing','Something else'],w=document.getElementById('kxe-opts');
+    opts.forEach(function(o){var b=document.createElement('button');b.className='kxe-opt';b.textContent=o;b.addEventListener('click',function(){reason=o;log('feedback',o);step2(o);});w.appendChild(b);});
+  }
+  function step2(o){
+    body.innerHTML='<div class="kxe-eyebrow">One last thing</div><h2 class="kxe-h">Claim your free audit</h2><p class="kxe-sub">'+CTA[o]+'</p><form class="kxe-form" id="kxe-form"><input class="kxe-input" id="kxe-c" type="text" placeholder="Your phone or email" autocomplete="tel"><button class="kxe-btn" type="submit">Get my free audit</button></form><div class="kxe-small">or email <a href="mailto:info@kryvexmedia.com">info@kryvexmedia.com</a> · <a href="tel:+919110170824">+91 9110170824</a></div><div style="text-align:center"><button class="kxe-skip" id="kxe-skip">No thanks</button></div>';
+    document.getElementById('kxe-form').addEventListener('submit',function(e){e.preventDefault();var v=document.getElementById('kxe-c').value.trim();if(!v){document.getElementById('kxe-c').focus();return;}log('lead','Reason: '+reason+' | Contact: '+v);thankyou();});
+    document.getElementById('kxe-skip').addEventListener('click',close);
+  }
+  function thankyou(){
+    body.innerHTML='<div style="text-align:center;padding:8px 0"><div style="font-size:42px;line-height:1">🎉</div><h2 class="kxe-h" style="margin-top:10px">Thank you!</h2><p class="kxe-sub" style="margin-bottom:16px">We\'ve got it — our team will reach out within one business day with your free audit.</p><button class="kxe-btn" id="kxe-done" style="width:100%">Close</button></div>';
+    document.getElementById('kxe-done').addEventListener('click',close);
+  }
+  function open(){if(shown||!canShow())return;shown=true;mark();step1();overlay.classList.add('show');document.body.classList.add('kxe-open');}
+  function close(){overlay.classList.remove('show');document.body.classList.remove('kxe-open');}
+  xbtn.addEventListener('click',close);
+  overlay.addEventListener('click',function(e){if(e.target===overlay)close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')close();});
+  document.addEventListener('mouseout',function(e){if(e.clientY<=0&&!e.relatedTarget)open();});
+  var touch=('ontouchstart' in window)||navigator.maxTouchPoints>0;
+  if(touch)setTimeout(open,35000);
+})();
+</script>
 </body>
 </html>
