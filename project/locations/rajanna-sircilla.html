@@ -801,5 +801,24 @@
   }
 })();
 </script>
+<style>
+.kx-wa{position:fixed;right:24px;bottom:98px;z-index:998;display:flex;align-items:center;text-decoration:none;transition:opacity .2s,transform .2s}
+.kx-wa:hover{transform:translateY(-2px)}
+.kx-wa-btn{position:relative;width:58px;height:58px;border-radius:50%;background:#25D366;display:flex;align-items:center;justify-content:center;box-shadow:0 12px 26px -8px rgba(37,211,102,.6)}
+.kx-wa-label{white-space:nowrap;background:#fff;color:#111827;font-family:'Manrope','Segoe UI',system-ui,sans-serif;font-size:13px;font-weight:700;padding:8px 13px;margin-right:12px;border-radius:9px;box-shadow:0 10px 26px -12px rgba(0,0,0,.35);opacity:0;transform:translateX(8px);pointer-events:none;transition:opacity .18s,transform .18s}
+.kx-wa:hover .kx-wa-label{opacity:1;transform:translateX(0)}
+.kx-wa-pulse{position:absolute;inset:0;border-radius:50%;background:#25D366;z-index:-1;animation:kxWaPulse 2.4s ease-out infinite}
+@keyframes kxWaPulse{0%{transform:scale(1);opacity:.5}70%{transform:scale(1.7);opacity:0}100%{opacity:0}}
+.kx-chat.open ~ .kx-wa{opacity:0;transform:scale(.7);pointer-events:none}
+@media(max-width:480px){.kx-wa{right:14px;bottom:84px}.kx-wa-btn{width:52px;height:52px}.kx-wa-label{display:none}}
+@media(prefers-reduced-motion:reduce){.kx-wa,.kx-wa-btn,.kx-wa-pulse{transition:none;animation:none}}
+</style>
+<a class="kx-wa" href="https://wa.me/919110170824?text=Hi%20Kryvex%20Media!%20I%20want%20to%20know%20more%20about%20your%20digital%20marketing%20services." target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp">
+  <span class="kx-wa-label">Chat on WhatsApp</span>
+  <span class="kx-wa-btn">
+    <span class="kx-wa-pulse"></span>
+    <svg viewBox="0 0 24 24" width="30" height="30" fill="#fff" xmlns="http://www.w3.org/2000/svg"><path d="M17.6 6.32A7.85 7.85 0 0 0 12.05 4a7.94 7.94 0 0 0-6.9 11.9L4 20l4.2-1.1a7.9 7.9 0 0 0 3.8.97h.01a7.94 7.94 0 0 0 5.59-13.55ZM12.05 18.5h-.01a6.6 6.6 0 0 1-3.36-.92l-.24-.14-2.5.65.67-2.43-.16-.25a6.59 6.59 0 1 1 5.6 3.09Zm3.62-4.94c-.2-.1-1.17-.58-1.35-.64-.18-.07-.32-.1-.45.1-.13.2-.5.64-.62.77-.11.13-.23.15-.43.05-.2-.1-.84-.31-1.6-.99-.59-.53-.99-1.18-1.11-1.38-.12-.2-.01-.31.09-.41.09-.09.2-.23.3-.35.1-.12.13-.2.2-.34.07-.13.03-.25-.02-.35-.05-.1-.45-1.08-.62-1.48-.16-.39-.33-.34-.45-.34l-.38-.01c-.13 0-.35.05-.53.25-.18.2-.7.68-.7 1.66 0 .98.72 1.93.82 2.06.1.13 1.4 2.14 3.4 3 .48.2.85.33 1.14.42.48.15.91.13 1.25.08.38-.06 1.17-.48 1.34-.94.16-.46.16-.86.11-.94-.05-.08-.18-.13-.38-.23Z"/></svg>
+  </span>
+</a>
 </body>
 </html>
