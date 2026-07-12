@@ -317,5 +317,215 @@
 })();
 </script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home"},{"@type":"ListItem","position":2,"name":"India"},{"@type":"ListItem","position":3,"name":"Rajasthan"},{"@type":"ListItem","position":4,"name":"Khairthal-Tijara"},{"@type":"ListItem","position":5,"name":"Social Media Marketing in Khairthal-Tijara"}]},{"@type":"Service","serviceType":"MarketingService","name":"Social Media Marketing in Khairthal-Tijara","areaServed":{"@type":"City","name":"Khairthal-Tijara"},"provider":{"@type":"ProfessionalService","name":"Kryvex Media","telephone":"+91-9110170824","email":"info@kryvexmedia.com","areaServed":"Khairthal-Tijara, Rajasthan, India"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Which platforms do you manage?","acceptedAnswer":{"@type":"Answer","text":"Primarily Instagram and Facebook for Khairthal-Tijara businesses, plus YouTube, LinkedIn or Google Business Profile where they fit your audience."}},{"@type":"Question","name":"How many posts per month?","acceptedAnswer":{"@type":"Answer","text":"We agree a content volume (posts, reels, stories) that keeps you consistent without overloading your audience — quality and consistency beat sheer volume."}},{"@type":"Question","name":"Do you make reels and video?","acceptedAnswer":{"@type":"Answer","text":"Yes — short-form video performs strongly, so reels are core to what we produce."}},{"@type":"Question","name":"Do you run paid social ads too?","acceptedAnswer":{"@type":"Answer","text":"Yes — organic content plus targeted Instagram/Facebook ads, combined for the best reach and lead flow."}},{"@type":"Question","name":"How do you measure ROI?","acceptedAnswer":{"@type":"Answer","text":"We report reach, engagement, follower growth and — most importantly — the enquiries and leads from social, not just likes."}}]}]}</script>
+<style>
+.kx-chat{position:fixed;right:24px;bottom:24px;z-index:999;font-family:'Manrope','Segoe UI',system-ui,sans-serif}
+.kx-chat-toggle{position:relative;width:60px;height:60px;border-radius:50%;border:none;cursor:pointer;background:linear-gradient(135deg,var(--accent),var(--accent-dark));box-shadow:0 14px 30px -10px rgba(59,28,108,.55);display:flex;align-items:center;justify-content:center;transition:transform .15s}
+.kx-chat-toggle:hover{transform:translateY(-2px)}
+.kx-chat-toggle-icon{position:absolute;display:flex;align-items:center;justify-content:center;transition:opacity .15s,transform .15s}
+.kx-icon-close{opacity:0;transform:scale(.6) rotate(-45deg)}
+.kx-chat.open .kx-icon-chat{opacity:0;transform:scale(.6) rotate(45deg)}
+.kx-chat.open .kx-icon-close{opacity:1;transform:scale(1) rotate(0)}
+.kx-chat-dot{position:absolute;top:2px;right:2px;width:14px;height:14px;border-radius:50%;background:#33C481;border:2px solid #fff}
+.kx-chat.open .kx-chat-dot{display:none}
+.kx-chat-panel{position:absolute;right:0;bottom:76px;width:min(380px,92vw);height:min(560px,72vh);background:var(--surface);border:1px solid var(--line);border-radius:18px;box-shadow:0 30px 70px -25px rgba(22,20,35,.35);display:flex;flex-direction:column;overflow:hidden;opacity:0;transform:translateY(16px) scale(.98);pointer-events:none;transition:opacity .18s ease,transform .18s ease}
+.kx-chat.open .kx-chat-panel{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}
+.kx-chat-head{display:flex;align-items:center;gap:12px;padding:16px 18px;background:var(--accent-dark);color:#fff;flex:none}
+.kx-chat-avatar{width:38px;height:38px;border-radius:11px;background:rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;flex:none}
+.kx-chat-head-text{flex:1;min-width:0}
+.kx-chat-name{font-weight:800;font-size:14.5px}
+.kx-chat-status{font-size:11.5px;opacity:.78;display:flex;align-items:center;gap:6px;margin-top:2px}
+.kx-chat-online{width:7px;height:7px;border-radius:50%;background:#33C481;flex:none}
+.kx-chat-close{background:rgba(255,255,255,.12);border:none;color:#fff;width:28px;height:28px;border-radius:8px;display:flex;align-items:center;justify-content:center;cursor:pointer;flex:none}
+.kx-chat-close:hover{background:rgba(255,255,255,.22)}
+.kx-chat-body{flex:1;overflow-y:auto;padding:16px;display:flex;flex-direction:column;gap:10px;background:var(--bg)}
+.kx-msg{max-width:82%;padding:10px 13px;border-radius:14px;font-size:13.5px;line-height:1.5;font-weight:500}
+.kx-msg-bot{align-self:flex-start;background:var(--surface);border:1px solid var(--line);color:var(--ink);border-bottom-left-radius:4px}
+.kx-msg-user{align-self:flex-end;background:var(--accent);color:#fff;border-bottom-right-radius:4px}
+.kx-msg a{color:inherit;text-decoration:underline}
+.kx-typing{align-self:flex-start;display:flex;gap:4px;padding:12px 14px;background:var(--surface);border:1px solid var(--line);border-radius:14px;border-bottom-left-radius:4px}
+.kx-typing span{width:6px;height:6px;border-radius:50%;background:var(--muted);opacity:.5;animation:kxTyping 1.1s infinite}
+.kx-typing span:nth-child(2){animation-delay:.15s}
+.kx-typing span:nth-child(3){animation-delay:.3s}
+@keyframes kxTyping{0%,60%,100%{transform:translateY(0);opacity:.4}30%{transform:translateY(-4px);opacity:1}}
+.kx-chat-quick{display:flex;flex-wrap:wrap;gap:7px;padding:0 16px 12px;flex:none}
+.kx-chip{border:1px solid var(--line);background:var(--surface);color:var(--ink);font-size:12px;font-weight:700;padding:7px 12px;border-radius:100px;cursor:pointer;transition:.15s;font-family:inherit}
+.kx-chip:hover{border-color:var(--accent);color:var(--accent)}
+.kx-chat-form{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line);flex:none;background:var(--surface)}
+.kx-chat-input{flex:1;border:1px solid var(--line);background:var(--bg);border-radius:11px;padding:10px 13px;font-size:13.5px;font-family:inherit;color:var(--ink)}
+.kx-chat-input:focus{outline:2px solid var(--accent-light);outline-offset:1px}
+.kx-chat-send{width:38px;height:38px;border-radius:10px;border:none;background:var(--accent);cursor:pointer;display:flex;align-items:center;justify-content:center;flex:none}
+.kx-chat-send:hover{background:var(--accent-dark)}
+@media(max-width:480px){.kx-chat{right:14px;bottom:14px}.kx-chat-panel{width:calc(100vw - 28px);height:min(70vh,520px);bottom:74px}}
+@media(prefers-reduced-motion:reduce){.kx-chat-toggle,.kx-chat-panel,.kx-chat-toggle-icon{transition:none}.kx-typing span{animation:none}}
+</style>
+
+<div id="kx-chat" class="kx-chat">
+  <button id="kx-chat-toggle" class="kx-chat-toggle" aria-label="Open chat with Kryvex Assistant" aria-expanded="false">
+    <span class="kx-chat-toggle-icon kx-icon-chat"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 12a8 8 0 1 1 3.2 6.4L4 20l1.1-3.5A7.96 7.96 0 0 1 4 12Z" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    <span class="kx-chat-toggle-icon kx-icon-close"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6l12 12M18 6L6 18" stroke="#fff" stroke-width="2" stroke-linecap="round"/></svg></span>
+    <span class="kx-chat-dot"></span>
+  </button>
+  <div id="kx-chat-panel" class="kx-chat-panel" role="dialog" aria-label="Kryvex Assistant chat" aria-hidden="true">
+    <div class="kx-chat-head">
+      <div class="kx-chat-avatar">K</div>
+      <div class="kx-chat-head-text">
+        <div class="kx-chat-name">Kryvex Assistant</div>
+        <div class="kx-chat-status"><span class="kx-chat-online"></span>Typically replies instantly</div>
+      </div>
+      <button id="kx-chat-close" class="kx-chat-close" aria-label="Close chat"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button>
+    </div>
+    <div id="kx-chat-body" class="kx-chat-body"></div>
+    <div id="kx-chat-quick" class="kx-chat-quick"></div>
+    <form id="kx-chat-form" class="kx-chat-form">
+      <input id="kx-chat-input" class="kx-chat-input" type="text" placeholder="Type your question…" autocomplete="off">
+      <button type="submit" class="kx-chat-send" aria-label="Send message"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4 20-7Z" stroke="#fff" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </form>
+  </div>
+</div>
+
+<script>
+(function(){
+  var root=document.getElementById('kx-chat');
+  var toggle=document.getElementById('kx-chat-toggle');
+  var panel=document.getElementById('kx-chat-panel');
+  var closeBtn=document.getElementById('kx-chat-close');
+  var body=document.getElementById('kx-chat-body');
+  var quick=document.getElementById('kx-chat-quick');
+  var form=document.getElementById('kx-chat-form');
+  var input=document.getElementById('kx-chat-input');
+  var opened=false,greeted=false;
+
+  /* ── Save chats to Google Sheet ─────────────────────────────────
+     Paste your Apps Script Web App URL between the quotes below.
+     Leave empty to disable saving (the chat still works either way). */
+  var KX_LOG_URL='https://script.google.com/macros/s/AKfycby0rfIUuYnIZxJz-rY912EW3hv3f-W9BQaBL4nIFIxQG8W226a1nICbJnhQnT3Ag4Poyg/exec';
+
+  var KX_SID=(function(){
+    try{
+      var s=sessionStorage.getItem('kx_sid');
+      if(!s){s='kx-'+Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,8);sessionStorage.setItem('kx_sid',s);}
+      return s;
+    }catch(e){return 'kx-'+Date.now().toString(36);}
+  })();
+
+  function stripHtml(h){var d=document.createElement('div');d.innerHTML=h;return (d.textContent||d.innerText||'').trim();}
+
+  function logChat(role,message){
+    if(!KX_LOG_URL)return;
+    try{
+      fetch(KX_LOG_URL,{
+        method:'POST',
+        mode:'no-cors',
+        headers:{'Content-Type':'text/plain;charset=utf-8'},
+        body:JSON.stringify({sid:KX_SID,role:role,message:message,page:location.pathname,url:location.href,ref:document.referrer,ts:new Date().toISOString()})
+      }).catch(function(){});
+    }catch(e){}
+  }
+
+  function setOpen(v){
+    opened=v;
+    root.classList.toggle('open',v);
+    toggle.setAttribute('aria-expanded',String(v));
+    panel.setAttribute('aria-hidden',String(!v));
+    if(v){
+      input.focus();
+      if(!greeted){
+        greeted=true;
+        showTyping(function(){
+          var g='Hi! 👋 I\'m the Kryvex Assistant. Ask me about our services, pricing, or where we work — or tap a quick question below.';
+          addMsg(g,'bot');
+          logChat('bot',stripHtml(g));
+          renderQuick();
+        });
+      }
+    }
+  }
+  toggle.addEventListener('click',function(){setOpen(!opened);});
+  closeBtn.addEventListener('click',function(){setOpen(false);});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')setOpen(false);});
+
+  function scrollBottom(){body.scrollTop=body.scrollHeight;}
+
+  function addMsg(text,who){
+    var el=document.createElement('div');
+    el.className='kx-msg kx-msg-'+who;
+    el.innerHTML=text;
+    body.appendChild(el);
+    scrollBottom();
+  }
+
+  function showTyping(cb){
+    var t=document.createElement('div');
+    t.className='kx-typing';
+    t.innerHTML='<span></span><span></span><span></span>';
+    body.appendChild(t);
+    scrollBottom();
+    setTimeout(function(){
+      t.remove();
+      cb();
+    },550+Math.random()*500);
+  }
+
+  var CONTACT='Reach us anytime at <a href="mailto:info@kryvexmedia.com">info@kryvexmedia.com</a> or <a href="tel:+919110170824">+91 9110170824</a> — or use the form on this page.';
+
+  var KB=[
+    {k:['service','offer','what do you do','what can you do'],a:'We run five core services: <b>SEO</b>, <b>Google Ads</b>, <b>Social Media Marketing</b>, <b>Graphics Design</b>, and <b>Web Development</b> — all under one team, so you\'re not juggling freelancers.'},
+    {k:['price','cost','pricing','how much','budget'],a:'There\'s no fixed price list — we build a plan around your goals and budget after a free audit, and quote transparently with no hidden fees. Want a real number for your business? '+CONTACT},
+    {k:['location','city','cities','state','states','where','area','serve'],a:'We work across 20 Indian states and hundreds of districts — from Bihar and UP to Kerala, Chhattisgarh and Himachal Pradesh. Check the <a href="../sitemap.html">full coverage map</a> to see if we\'re in your area.'},
+    {k:['seo'],a:'Our SEO service covers technical fixes, content, and local SEO so you rank for what your customers are actually searching — with a free 48-hour audit to start.'},
+    {k:['ads','ppc','google ads','advertising'],a:'We run Google &amp; Meta ad campaigns engineered for return, not just clicks — with an average 4.2x return on ad spend across the businesses we manage.'},
+    {k:['social','instagram','facebook'],a:'Our social media team handles content, community management and paid social — building a brand people actually follow and buy from.'},
+    {k:['web','website','design','graphics'],a:'We design and build fast, conversion-focused websites and brand visuals — from logos to full site builds — all in-house.'},
+    {k:['contract','lock','commitment'],a:'No long lock-ins — we offer flexible, month-to-month engagements. You stay because it\'s working, not because you\'re tied down.'},
+    {k:['audit','free'],a:'Yes — the first audit is completely free. We review your site, ads, SEO and competitors and hand you a clear report within 48 hours, no obligation.'},
+    {k:['human','talk','call','agent','person','representative'],a:'Happy to connect you directly. '+CONTACT},
+    {k:['hi','hello','hey'],a:'Hey there! 👋 Ask me about our services, pricing, or where we work — or tap a question below.'},
+    {k:['thank'],a:'Anytime! Let me know if there\'s anything else I can help with.'}
+  ];
+
+  function respond(text){
+    var q=text.toLowerCase();
+    for(var i=0;i<KB.length;i++){
+      for(var j=0;j<KB[i].k.length;j++){
+        if(q.indexOf(KB[i].k[j])!==-1)return KB[i].a;
+      }
+    }
+    return 'Good question — let me connect you with the team for a precise answer. '+CONTACT;
+  }
+
+  function handle(text){
+    text=text.trim();
+    if(!text)return;
+    addMsg(text,'user');
+    logChat('user',text);
+    quick.innerHTML='';
+    showTyping(function(){
+      var ans=respond(text);
+      addMsg(ans,'bot');
+      logChat('bot',stripHtml(ans));
+    });
+  }
+
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var v=input.value;
+    input.value='';
+    handle(v);
+  });
+
+  var QUICK=['What services do you offer?','Which states do you serve?','How much does it cost?','Talk to a human'];
+  function renderQuick(){
+    quick.innerHTML='';
+    QUICK.forEach(function(q){
+      var b=document.createElement('button');
+      b.type='button';
+      b.className='kx-chip';
+      b.textContent=q;
+      b.addEventListener('click',function(){handle(q);});
+      quick.appendChild(b);
+    });
+  }
+})();
+</script>
 </body>
 </html>
