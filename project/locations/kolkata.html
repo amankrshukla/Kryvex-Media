@@ -630,28 +630,109 @@
   var CONTACT='Reach us anytime at <a href="mailto:info@kryvexmedia.com">info@kryvexmedia.com</a> or <a href="tel:+919110170824">+91 9110170824</a> — or use the form on this page.';
 
   var KB=[
-    {k:['service','offer','what do you do','what can you do'],a:'We run five core services: <b>SEO</b>, <b>Google Ads</b>, <b>Social Media Marketing</b>, <b>Graphics Design</b>, and <b>Web Development</b> — all under one team, so you\'re not juggling freelancers.'},
-    {k:['price','cost','pricing','how much','budget'],a:'There\'s no fixed price list — we build a plan around your goals and budget after a free audit, and quote transparently with no hidden fees. Want a real number for your business? '+CONTACT},
-    {k:['location','city','cities','state','states','where','area','serve'],a:'We work across 20 Indian states and hundreds of districts — from Bihar and UP to Kerala, Chhattisgarh and Himachal Pradesh. Check the <a href="../sitemap.html">full coverage map</a> to see if we\'re in your area.'},
-    {k:['seo'],a:'Our SEO service covers technical fixes, content, and local SEO so you rank for what your customers are actually searching — with a free 48-hour audit to start.'},
-    {k:['ads','ppc','google ads','advertising'],a:'We run Google &amp; Meta ad campaigns engineered for return, not just clicks — with an average 4.2x return on ad spend across the businesses we manage.'},
-    {k:['social','instagram','facebook'],a:'Our social media team handles content, community management and paid social — building a brand people actually follow and buy from.'},
-    {k:['web','website','design','graphics'],a:'We design and build fast, conversion-focused websites and brand visuals — from logos to full site builds — all in-house.'},
-    {k:['contract','lock','commitment'],a:'No long lock-ins — we offer flexible, month-to-month engagements. You stay because it\'s working, not because you\'re tied down.'},
-    {k:['audit','free'],a:'Yes — the first audit is completely free. We review your site, ads, SEO and competitors and hand you a clear report within 48 hours, no obligation.'},
-    {k:['human','talk','call','agent','person','representative'],a:'Happy to connect you directly. '+CONTACT},
-    {k:['hi','hello','hey'],a:'Hey there! 👋 Ask me about our services, pricing, or where we work — or tap a question below.'},
-    {k:['thank'],a:'Anytime! Let me know if there\'s anything else I can help with.'}
+    {id:'services',k:['service','services','offer','provide','do you do','what do you do','what can you do','help with'],a:[
+      'We run five core services, all under one roof: <b>SEO</b>, <b>Google Ads</b>, <b>Social Media Marketing</b>, <b>Graphics Design</b> and <b>Web Development</b> — so you never juggle multiple freelancers.',
+      'Everything to grow you online: <b>SEO</b> &amp; local search, <b>Google &amp; Meta ads</b>, <b>social media</b>, <b>graphic design</b>, and <b>website design &amp; development</b>. Which one interests you most?'
+    ]},
+    {id:'seo',k:['seo','rank','ranking','organic','search engine'],a:[
+      'Our SEO covers technical fixes, on-page content and local SEO so you rank for what your customers actually search — starting with a free 48-hour audit.',
+      'SEO with us means real rankings, not promises: site audit, keyword strategy, content and Google Business optimisation. Most clients see momentum in 3–6 months.'
+    ]},
+    {id:'local',k:['local seo','google business','gmb','google maps','maps','near me'],a:[
+      'Local SEO is core to what we do — we optimise your Google Business Profile and local listings so nearby customers find you first on Maps and "near me" searches.'
+    ]},
+    {id:'ads',k:['ads','ppc','google ads','meta ads','facebook ads','advertising','paid ad'],a:[
+      'We run Google &amp; Meta ad campaigns engineered for return, not just clicks — averaging 4.2x return on ad spend across the businesses we manage.',
+      'Paid ads done right: setup, targeting, creatives and daily optimisation on Google and Meta, reported on real leads — not vanity clicks.'
+    ]},
+    {id:'social',k:['social','social media','instagram','facebook','reels'],a:[
+      'Our social team handles content, community management and paid social — building a brand people follow and buy from, not a page that sits idle.'
+    ]},
+    {id:'web',k:['web','website','web development','web design','landing page','develop'],a:[
+      'We build fast, conversion-focused websites — from single landing pages to full multi-page sites — designed to turn visitors into booked calls.'
+    ]},
+    {id:'graphics',k:['graphic','graphics','logo','branding','creative','poster'],a:[
+      'Our in-house design team does logos, brand kits, social creatives and print — so everything you put out looks consistent and professional.'
+    ]},
+    {id:'content',k:['content','blog','copywriting','email','newsletter'],a:[
+      'We handle content and email too — blogs, website copy and email campaigns that keep you top-of-mind and turn buyers into regulars.'
+    ]},
+    {id:'pricing',k:['price','pricing','cost','how much','charge','fees','budget','rate','package'],a:[
+      'There\'s no fixed price list — we build a plan around your goals and budget after a free audit, and quote transparently with no hidden fees. Want a real number? '+CONTACT,
+      'Pricing depends on which services you need and your goals, so we quote after a quick free audit — always transparent, no lock-in. Tell us your budget and we\'ll shape a plan around it. '+CONTACT
+    ]},
+    {id:'coverage',k:['location','locations','city','cities','state','states','where','area','serve','cover','coverage'],a:[
+      'We work across 20 Indian states and hundreds of districts — from Bihar and UP to Kerala, Chhattisgarh and Himachal Pradesh. See the <a href="../sitemap.html">full coverage map</a> to find your area.',
+      'From metros to smaller districts, we cover 20 states across India. Check the <a href="../sitemap.html">coverage map</a> — and if your city isn\'t listed yet, we can still help remotely.'
+    ]},
+    {id:'timeline',k:['how soon','how long','results','timeline','when will','fast','quick'],a:[
+      'Honest answer: SEO typically builds over 3–6 months, while paid ads can bring leads within the first few weeks. In your free audit we give a realistic timeline for your goals.',
+      'It depends on the channel — ads can drive enquiries in weeks, SEO compounds over a few months. We map out what to expect and when in your free audit.'
+    ]},
+    {id:'audit',k:['audit','free audit','review','analysis'],a:[
+      'The first audit is completely free — we review your website, ads, SEO and competitors and send a clear report within 48 hours, no obligation.'
+    ]},
+    {id:'contract',k:['contract','lock','commitment','cancel','month to month','long term'],a:[
+      'No long lock-ins — we work month-to-month. You stay because it\'s working, not because you\'re tied into a contract.'
+    ]},
+    {id:'reporting',k:['report','reporting','track','dashboard','metrics','roi'],a:[
+      'You get a clear monthly report focused on leads and revenue — the numbers that matter, not vanity metrics — plus a real person to walk you through it.'
+    ]},
+    {id:'why',k:['why','different','better','trust','experience','portfolio','case study'],a:[
+      'What sets us apart: one team for every channel, local market knowledge, transparent monthly reporting, an average 4.2x return on ad spend, and no lock-in contracts.'
+    ]},
+    {id:'start',k:['start','get started','begin','sign up','onboard','next step'],a:[
+      'Easy — book a free consultation. We run your audit, walk you through the findings, and propose a 90-day growth plan. Then it\'s your call. '+CONTACT
+    ]},
+    {id:'smallbiz',k:['small business','startup','new business','local business','shop','store'],a:[
+      'Local businesses and startups are exactly who we serve — we tailor every campaign to your area, audience and budget, however small the starting point.'
+    ]},
+    {id:'ecommerce',k:['ecommerce','e-commerce','online store','shopify','sell online'],a:[
+      'Yes, we help e-commerce brands — product SEO, shopping ads, and conversion-focused store design to turn browsers into buyers.'
+    ]},
+    {id:'industries',k:['industry','industries','sector','niche'],a:[
+      'We work across many sectors — retail, hospitality, healthcare, real estate, education, manufacturing and more. Tell us your business and we\'ll tailor the approach.'
+    ]},
+    {id:'contact',k:['contact','human','talk','call','phone','email','agent','person','representative','speak'],a:[
+      'Happy to connect you directly. '+CONTACT
+    ]},
+    {id:'greet',k:['hi','hello','hey','namaste'],a:[
+      'Hey there! 👋 I can help with our services, pricing, timelines or coverage — what would you like to know?',
+      'Hi! 😊 Ask me anything about SEO, ads, social, web, pricing or where we work.'
+    ]},
+    {id:'thanks',k:['thank','thanks','thx','appreciate'],a:[
+      'Anytime! 🙌 Anything else I can help you with?',
+      'You\'re welcome! Happy to help with anything else.'
+    ]},
+    {id:'bye',k:['bye','goodbye','see you'],a:[
+      'Thanks for stopping by! 👋 Whenever you\'re ready, reach us at info@kryvexmedia.com or +91 9110170824.'
+    ]}
   ];
 
+  var _last={};
+  var FALLBACK={id:'fallback',a:[
+    'I\'m not totally sure on that one — but I can help with our <b>services</b>, <b>pricing</b>, <b>timelines</b> or <b>coverage areas</b>. Or reach the team directly: '+CONTACT,
+    'Good question — that\'s one for the team. '+CONTACT+' Meanwhile, ask me about services, pricing, or where we work.'
+  ]};
+  function pick(it){
+    var a=it.a;
+    if(a.length<2)return a[0];
+    var i=(_last[it.id]==null?-1:_last[it.id]);
+    i=(i+1)%a.length;_last[it.id]=i;return a[i];
+  }
   function respond(text){
-    var q=text.toLowerCase();
+    var q=' '+text.toLowerCase().replace(/[^a-z0-9\s]/g,' ').replace(/\s+/g,' ')+' ';
+    var best=null,score=0;
     for(var i=0;i<KB.length;i++){
+      var s=0;
       for(var j=0;j<KB[i].k.length;j++){
-        if(q.indexOf(KB[i].k[j])!==-1)return KB[i].a;
+        var kw=KB[i].k[j];
+        if(q.indexOf(' '+kw+' ')!==-1)s+=3;
+        else if(q.indexOf(kw)!==-1)s+=(kw.length>4?2:1);
       }
+      if(s>score){score=s;best=KB[i];}
     }
-    return 'Good question — let me connect you with the team for a precise answer. '+CONTACT;
+    return (best&&score>0)?pick(best):pick(FALLBACK);
   }
 
   function handle(text){
@@ -674,7 +755,7 @@
     handle(v);
   });
 
-  var QUICK=['What services do you offer?','Which states do you serve?','How much does it cost?','Talk to a human'];
+  var QUICK=['What services do you offer?','How much does it cost?','Which areas do you cover?','How soon will I see results?','Talk to a human'];
   function renderQuick(){
     quick.innerHTML='';
     QUICK.forEach(function(q){
