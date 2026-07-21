@@ -1,5 +1,2 @@
 User-agent: *
-Allow: /
-
-Sitemap: https://kryvexmedia.com/sitemap.xml
-Sitemap: https://kryvexmedia.com/blog/sitemap_index.xml
+Disallow: /
