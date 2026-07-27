@@ -260,6 +260,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="field-error" id="err-req">Tell us what you need.</div>
           </div>
 
+          <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">
           <button type="submit" class="submit-btn">Send Message &amp; Get Free Audit →</button>
           <p class="form-privacy">We respect your privacy. No spam, ever.</p>
         </form>
@@ -422,6 +423,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     let attempted = false;
 
+    // FormSubmit delivers every submission straight to this inbox (no server needed).
+    const KX_FORM_ENDPOINT = 'https://formsubmit.co/ajax/info@kryvexmedia.com';
+    const submitBtn = form.querySelector('.submit-btn');
+    const submitLabel = submitBtn ? submitBtn.textContent : '';
+
+    function showSuccess() {
+      const firstName = fields.name.value.trim().split(' ')[0] || 'there';
+      successName.textContent = firstName;
+      form.style.display = 'none';
+      successEl.classList.add('visible');
+    }
+
     form.addEventListener('submit', function (e) {
       e.preventDefault();
       attempted = true;
@@ -429,10 +442,42 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       showErrors(errs);
       if (Object.keys(errs).length > 0) return;
 
-      const firstName = fields.name.value.trim().split(' ')[0] || 'there';
-      successName.textContent = firstName;
-      form.style.display = 'none';
-      successEl.classList.add('visible');
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = 'Sending…'; }
+
+      const payload = {
+        name:        fields.name.value.trim(),
+        email:       fields.email.value.trim(),
+        mobile:      fields.mobile.value.trim(),
+        requirement: fields.requirement.value.trim(),
+        _honey:      (form.querySelector('[name="_honey"]') || {}).value || '',
+        _subject:    'New lead from kryvexmedia.com contact form',
+        _template:   'table',
+        _captcha:    'false',
+        page:        location.href
+      };
+
+      fetch(KX_FORM_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(payload)
+      })
+      .then(function (r) { return r.json().catch(function () { return {}; }); })
+      .then(function () {
+        // Any 2xx from FormSubmit means the lead was accepted / queued.
+        showSuccess();
+      })
+      .catch(function () {
+        // Network failure — don't lose the lead: fall back to the user's mail client.
+        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = submitLabel; }
+        const body =
+          'Name: ' + fields.name.value.trim() + '%0D%0A' +
+          'Email: ' + fields.email.value.trim() + '%0D%0A' +
+          'Mobile: ' + fields.mobile.value.trim() + '%0D%0A' +
+          'Requirement: ' + fields.requirement.value.trim();
+        window.location.href =
+          'mailto:info@kryvexmedia.com?subject=' +
+          encodeURIComponent('New enquiry from kryvexmedia.com') + '&body=' + body;
+      });
     });
 
     for (const key of Object.keys(fields)) {
