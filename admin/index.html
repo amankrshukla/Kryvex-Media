@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Kryvex CRM</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="top">
+  <div class="brand">
+    <div class="brand-tile">
+      <svg width="18" height="18" viewBox="0 0 30 30" fill="none">
+        <rect x="9" y="5" width="6" height="20" rx="1.5" fill="#fff" opacity=".55"/>
+        <path d="M15 12.5 L26 4 L20.5 14.5 Z" fill="#fff"/>
+        <path d="M15 17.5 L26 26 L20.5 14.5 Z" fill="#fff" opacity=".8"/>
+      </svg>
+    </div>
+    <div>KRYVEX CRM<small>INTERNAL — CLIENTS &amp; PAYMENTS</small></div>
+  </div>
+
+  <nav class="tabs" id="tabs">
+    <button data-view="dashboard" class="on">Dashboard</button>
+    <button data-view="leads">Leads</button>
+    <button data-view="projects">Projects</button>
+    <button data-view="payments">Payments</button>
+  </nav>
+
+  <div class="top-right">
+    <button class="icon-btn" id="btn-theme" title="Toggle light / dark">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+        <circle cx="12" cy="12" r="4.5"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.4 1.4M17.6 17.6L19 19M19 5l-1.4 1.4M6.4 17.6L5 19" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <button class="btn btn-sm" id="btn-export">Backup</button>
+    <button class="btn btn-sm" id="btn-import">Restore</button>
+    <input type="file" id="file-import" accept="application/json" hidden>
+  </div>
+</header>
+
+<main class="wrap" id="app"></main>
+
+<!-- modal -->
+<div class="modal-bg" id="modal-bg" hidden>
+  <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-head">
+      <h3 id="modal-title">—</h3>
+      <button class="icon-btn" id="modal-x" aria-label="Close">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M6 6l12 12M18 6L6 18" stroke-linecap="round"/>
+        </svg>
+      </button>
+    </div>
+    <form id="modal-form">
+      <div class="modal-body" id="modal-body"></div>
+      <div class="modal-foot">
+        <button type="button" class="btn btn-danger" id="modal-delete" hidden>Delete</button>
+        <span class="spacer"></span>
+        <button type="button" class="btn" id="modal-cancel">Cancel</button>
+        <button type="submit" class="btn btn-primary" id="modal-save">Save</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script src="app.js"></script>
+</body>
+</html>
