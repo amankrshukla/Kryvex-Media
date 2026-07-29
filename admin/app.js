@@ -22,9 +22,14 @@ const SOURCES = ['Website form', 'Chat widget', 'Referral', 'WhatsApp', 'Call',
                  'Instagram', 'LinkedIn', 'Walk-in', 'Other'];
 
 /* ---------- state ---------- */
-let db = { leads: [], projects: [], payments: [] };
+let db = { leads: [], projects: [], payments: [], invoices: [] };
 let view = 'dashboard';
-let filters = { leads: { q: '', status: '' }, projects: { q: '', status: '' }, payments: { q: '', status: '' } };
+let filters = {
+  leads:    { q: '', status: '' },
+  projects: { q: '', status: '' },
+  payments: { q: '', status: '' },
+  invoices: { q: '', status: '' }
+};
 
 const $  = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
@@ -35,7 +40,8 @@ function load() {
     const raw = localStorage.getItem(KEY);
     if (raw) {
       const p = JSON.parse(raw);
-      db = { leads: p.leads || [], projects: p.projects || [], payments: p.payments || [] };
+      db = { leads: p.leads || [], projects: p.projects || [],
+             payments: p.payments || [], invoices: p.invoices || [] };
     }
   } catch (e) { console.warn('load failed', e); }
 }
@@ -446,7 +452,8 @@ function render() {
   $('#app').innerHTML =
     view === 'leads'    ? viewLeads() :
     view === 'projects' ? viewProjects() :
-    view === 'payments' ? viewPayments() : viewDashboard();
+    view === 'payments' ? viewPayments() :
+    view === 'invoices' ? viewInvoices() : viewDashboard();
   wireFilters();
 }
 
@@ -468,6 +475,8 @@ function wireFilters() {
   bind('#f-proj-status', filters.projects, 'status', 'change');
   bind('#f-pay-q', filters.payments, 'q');
   bind('#f-pay-status', filters.payments, 'status', 'change');
+  bind('#f-inv-q', filters.invoices, 'q');
+  bind('#f-inv-status', filters.invoices, 'status', 'change');
 }
 
 /* ---------- modal ---------- */
@@ -479,6 +488,8 @@ function openModal(title, bodyHTML, onSubmit, onDelete) {
   modalSubmit = onSubmit;
   modalDelete = onDelete || null;
   $('#modal-delete').hidden = !onDelete;
+  const extra = $('#modal-foot-extra');
+  if (extra) extra.innerHTML = '';
   $('#modal-bg').hidden = false;
   const first = $('#modal-body input, #modal-body select, #modal-body textarea');
   if (first) first.focus();
@@ -618,9 +629,11 @@ function doImport(file) {
     try {
       const p = JSON.parse(r.result);
       if (!p || typeof p !== 'object') throw new Error('bad file');
-      const n = (p.leads || []).length + (p.projects || []).length + (p.payments || []).length;
+      const n = (p.leads || []).length + (p.projects || []).length +
+                (p.payments || []).length + (p.invoices || []).length;
       if (!confirm(`Restore ${n} record(s)? This replaces everything currently in the CRM.`)) return;
-      db = { leads: p.leads || [], projects: p.projects || [], payments: p.payments || [] };
+      db = { leads: p.leads || [], projects: p.projects || [],
+             payments: p.payments || [], invoices: p.invoices || [] };
       save(); render(); toast('Backup restored');
     } catch (e) { toast('That file could not be read'); }
   };
@@ -659,13 +672,16 @@ $('#tabs').addEventListener('click', e => {
 });
 
 $('#app').addEventListener('click', e => {
-  const t = e.target.closest('[data-new],[data-goto],[data-paid],[data-edit-lead],[data-edit-project],[data-edit-payment],[data-addpay],[data-convert],#btn-seed');
+  const t = e.target.closest('[data-new],[data-goto],[data-paid],[data-edit-lead],[data-edit-project],[data-edit-payment],[data-edit-inv],[data-print-inv],[data-addpay],[data-convert],#btn-seed');
   if (!t) return;
   const d = t.dataset;
   if (t.id === 'btn-seed') return seed();
   if (d.new === 'lead')     return newLead();
   if (d.new === 'project')  return newProject();
   if (d.new === 'payment')  return newPayment();
+  if (d.new === 'invoice')  return newInvoice();
+  if (d.editInv)            return editInvoice(d.editInv);
+  if (d.printInv)           return printInvoice(d.printInv);
   if (d.goto)               { view = d.goto; return render(); }
   if (d.addpay)             return newPayment(d.addpay);
   if (d.convert)            return convertLead(d.convert);

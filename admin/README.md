@@ -84,6 +84,79 @@ can be added — the app is structured so the storage layer swaps out cleanly.
 
 ---
 
+## Website enquiries → CRM leads (setup required)
+
+Contact-form submissions can't reach the CRM on their own — the visitor is on
+their browser, your CRM data is in yours. A shared inbox in the middle fixes
+this: a Google Sheet, written to by the website and read by the CRM.
+
+**One-time setup, about 10 minutes:**
+
+1. Create a new Google Sheet (any name — this becomes your enquiry log).
+2. In it: **Extensions → Apps Script**. Delete the placeholder code.
+3. Paste in the contents of `admin/apps-script/Code.gs`.
+4. Near the top, change `TOKEN` to any random string of your own, e.g.
+   `kx-8f3d-inbox-2026`. Save.
+5. **Deploy → New deployment → Web app**
+   - Execute as: **Me**
+   - Who has access: **Anyone**  ← required, the public form must be able to post
+   - Deploy, authorise when prompted, and **copy the `/exec` URL**.
+6. Paste that URL into **two** files:
+   - `contact/index.html` → `const KX_CRM_ENDPOINT = '…'`
+   - `admin/invoices.js` → `const INBOX_URL = '…'`
+7. In `admin/invoices.js`, set `INBOX_TOKEN` to the same random string from step 4.
+8. Commit and push.
+
+**Then:** every contact-form submission lands as a row in the Sheet *and* still
+emails you as before. In the CRM, **Sync enquiries** pulls new ones in as leads
+with status New and a follow-up date of today. It also runs automatically once
+per session.
+
+Imported enquiries are marked `handled` in the Sheet so they never import twice.
+Nothing is deleted — the Sheet stays as a full audit trail.
+
+**On the token:** it's stored in `admin/invoices.js`, which is publicly
+downloadable in principle — but Cloudflare Access protects everything under
+`/admin`, so unauthenticated requests never receive that file. The token only
+guards *reading* enquiries; posting has to stay open for the form to work, and
+is spam-filtered by the honeypot field.
+
+---
+
+## Invoices
+
+**New invoice** auto-numbers as `KM-YYYY-NNN` (continuing from the highest
+existing number that year). Add as many line items as you need — qty × rate,
+with a running subtotal, optional GST, and total updating live as you type.
+
+**Print / PDF** opens your browser's print dialog with a clean A4 invoice.
+Choose "Save as PDF" to get a file to email. Everything else on the page is
+hidden in print, so what you see is what you send.
+
+**Linking to a project** is optional but useful: a linked invoice gets a
+**Record as payment** button that creates a matching Pending payment on that
+project, dated to the invoice due date, and marks the invoice Sent. That's the
+one action that connects a document to your actual money tracking — invoices
+alone never touch the payment figures, so nothing gets double-counted.
+
+**Before sending your first real invoice**, edit the `BIZ` block at the top of
+`admin/invoices.js`:
+
+```js
+const BIZ = {
+  name: 'Kryvex Media',
+  address: '…your address…',
+  gstin: '',        // your GSTIN, or leave blank
+  bank:  '…account name / number / IFSC / UPI…',
+  terms: '…your payment terms…'
+};
+```
+
+Those details print on every invoice. The bank block ships with placeholder
+dashes — fill it in or clients won't know where to pay.
+
+---
+
 ## Using it
 
 **Dashboard** — outstanding money, received this month, overdue payment count,

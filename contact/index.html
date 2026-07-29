@@ -425,6 +425,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     // FormSubmit delivers every submission straight to this inbox (no server needed).
     const KX_FORM_ENDPOINT = 'https://formsubmit.co/ajax/info@kryvexmedia.com';
+    // Apps Script endpoint that also files the enquiry into the CRM at /admin.
+    // Paste your deployed /exec URL here — see admin/README.md.
+    const KX_CRM_ENDPOINT = '';
     const submitBtn = form.querySelector('.submit-btn');
     const submitLabel = submitBtn ? submitBtn.textContent : '';
 
@@ -455,6 +458,23 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         _captcha:    'false',
         page:        location.href
       };
+
+      // File the same enquiry into the CRM. Fire-and-forget: if this fails the
+      // email above still goes through, so a lead is never lost to it.
+      if (KX_CRM_ENDPOINT) {
+        try {
+          fetch(KX_CRM_ENDPOINT, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify({
+              name: payload.name, email: payload.email, mobile: payload.mobile,
+              requirement: payload.requirement, page: payload.page,
+              source: 'Website form', _honey: payload._honey
+            })
+          }).catch(function () {});
+        } catch (err) {}
+      }
 
       fetch(KX_FORM_ENDPOINT, {
         method: 'POST',
