@@ -25,6 +25,11 @@ const BIZ = {
 
 const INV_STATUS = ['Draft', 'Sent', 'Paid', 'Cancelled'];
 
+/* Wordmark is two-tone, matching the site logo: "KRYVEX" solid, " MEDIA" lighter. */
+const brandFirst = () => BIZ.name.split(' ')[0];
+const brandRest  = () => BIZ.name.split(' ').slice(1).join(' ')
+                            ? ' ' + BIZ.name.split(' ').slice(1).join(' ') : '';
+
 /* ---------- helpers ---------- */
 function invTotals(inv) {
   const items = inv.items || [];
@@ -278,8 +283,17 @@ function printInvoice(id) {
     <div class="inv-head">
       <div>
         <div class="inv-brand">
-          <span class="inv-mark">K</span>
-          <span><b>${esc(BIZ.name)}</b><small>${esc(BIZ.tagline)}</small></span>
+          <span class="inv-mark">
+            <svg width="30" height="30" viewBox="0 0 30 30" fill="none" aria-hidden="true">
+              <rect x="9" y="5" width="6" height="20" rx="1.5" fill="#3B1C6C"/>
+              <path d="M15 12.5 L26 4 L20.5 14.5 Z" fill="#7046B6"/>
+              <path d="M15 17.5 L26 26 L20.5 14.5 Z" fill="#A272F5"/>
+            </svg>
+          </span>
+          <span class="inv-word">
+            <b>${esc(brandFirst())}<span>${esc(brandRest())}</span></b>
+            <small>${esc(BIZ.tagline)}</small>
+          </span>
         </div>
         <div class="inv-from">${nl(BIZ.address)}</div>
         <div class="inv-from">${esc(BIZ.email)} · ${esc(BIZ.phone)}<br>${esc(BIZ.web)}
