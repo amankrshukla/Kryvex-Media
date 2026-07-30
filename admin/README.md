@@ -101,16 +101,34 @@ this: a Google Sheet, written to by the website and read by the CRM.
    - Execute as: **Me**
    - Who has access: **Anyone**  ← required, the public form must be able to post
    - Deploy, authorise when prompted, and **copy the `/exec` URL**.
-6. Paste that URL into **two** files:
+6. Paste that URL into **three** files:
    - `contact/index.html` → `const KX_CRM_ENDPOINT = '…'`
+   - `free-audit/index.html` → `var KX_CRM_ENDPOINT = '…'` (inside the `<script>` at the bottom)
    - `admin/invoices.js` → `const INBOX_URL = '…'`
 7. In `admin/invoices.js`, set `INBOX_TOKEN` to the same random string from step 4.
 8. Commit and push.
 
-**Then:** every contact-form submission lands as a row in the Sheet *and* still
-emails you as before. In the CRM, **Sync enquiries** pulls new ones in as leads
-with status New and a follow-up date of today. It also runs automatically once
-per session.
+**Then:** every contact-form submission — and every lead captured on the free
+instant-audit page — lands as a row in the Sheet *and* still emails you as
+before. In the CRM, **Sync enquiries** pulls new ones in as leads with status
+New and a follow-up date of today. It also runs automatically once per
+session.
+
+## Free instant audit (`/free-audit/`)
+
+Public lead-magnet page. A visitor enters their URL, and the page calls
+Google's own PageSpeed Insights API directly from their browser — real,
+Google-verified Performance/SEO/Accessibility/Best-Practices scores, no
+backend, no fabricated numbers. It only surfaces checks that are actually
+failing (score < 0.9), translated into plain-English consequences. Below the
+results, a short lead form funnels into the same enquiry pipeline as the
+contact form (see above) plus the same FormSubmit email fallback.
+
+Optional: get a free PageSpeed Insights API key from
+[Google Cloud Console](https://console.cloud.google.com/apis/credentials)
+(enable "PageSpeed Insights API", restrict it to `kryvexmedia.com`) and paste
+it into `var PSI_KEY = '…'` near the top of the page's script. Works without
+a key at low volume; a key raises the rate limit for real traffic spikes.
 
 Imported enquiries are marked `handled` in the Sheet so they never import twice.
 Nothing is deleted — the Sheet stays as a full audit trail.
