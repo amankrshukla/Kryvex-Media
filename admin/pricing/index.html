@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Rate Card — Kryvex Media (Internal)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../docs.css">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+<header class="top">
+  <div class="brand">
+    <div class="brand-tile">
+      <svg width="18" height="18" viewBox="0 0 30 30" fill="none">
+        <rect x="9" y="5" width="6" height="20" rx="1.5" fill="#fff" opacity=".55"/>
+        <path d="M15 12.5 L26 4 L20.5 14.5 Z" fill="#fff"/>
+        <path d="M15 17.5 L26 26 L20.5 14.5 Z" fill="#fff" opacity=".8"/>
+      </svg>
+    </div>
+    <div>RATE CARD<small>INTERNAL — DO NOT SEND TO CLIENTS</small></div>
+  </div>
+  <nav class="tabs">
+    <button onclick="location.href='../'">← CRM</button>
+    <button onclick="location.href='../audit/'">Audit template</button>
+  </nav>
+  <div class="top-right">
+    <button class="btn btn-sm" onclick="window.print()">Print</button>
+  </div>
+</header>
+
+<main class="wrap doc">
+
+<div class="doc-warn">
+  <b>These numbers are a starting framework, not researched market data.</b>
+  Validate them against what agencies in your target cities actually charge, and
+  against your own delivery hours, before you quote anyone. Adjust and re-commit
+  this file as you learn what closes.
+</div>
+
+<h1>Pricing framework</h1>
+
+<!-- ===================== FLOOR ===================== -->
+<section class="doc-sec">
+  <h2>1. Your floor — the number you never go below</h2>
+  <p>Price from your own capacity, not from what competitors charge. Fill this in
+  honestly once, and it tells you when to walk away from a deal.</p>
+
+  <table class="doc-table">
+    <tbody>
+      <tr><td>Income you need per month</td><td class="right num">₹<input class="calc" id="need" value="100000"></td></tr>
+      <tr><td>Billable hours you can actually deliver per month</td><td class="right num"><input class="calc" id="hours" value="80"></td></tr>
+      <tr class="doc-total"><td>→ Your hourly floor</td><td class="right num" id="floor">—</td></tr>
+    </tbody>
+  </table>
+
+  <p>Now the same for a typical retainer client:</p>
+  <table class="doc-table">
+    <tbody>
+      <tr><td>Hours a small local client really consumes per month<br>
+          <small>audit, on-page, GBP, content, ads checks, reporting, calls</small></td>
+          <td class="right num"><input class="calc" id="chours" value="15"></td></tr>
+      <tr class="doc-total"><td>→ Minimum viable price for that client</td><td class="right num" id="minprice">—</td></tr>
+    </tbody>
+  </table>
+
+  <div class="doc-note">
+    <b>Capacity ceiling.</b> Solo, you can hold roughly
+    <input class="calc inline" id="cap" value="6"> retainer clients before delivery
+    slips. At your minimum price that caps you at <b id="ceiling">—</b> per month.
+    If that's below what you need, you don't have a pricing problem — you have a
+    <i>client size</i> problem, and you should target bigger businesses rather than
+    more of them.
+  </div>
+</section>
+
+<!-- ===================== RANGES ===================== -->
+<section class="doc-sec">
+  <h2>2. Directional ranges — Indian SMB market</h2>
+  <p>Use these to sanity-check that you're in the right ballpark, not to set price.
+  Where your floor is higher than the low end here, your floor wins.</p>
+
+  <table class="doc-table">
+    <thead><tr><th>Service</th><th class="right">Typical monthly</th><th>Notes</th></tr></thead>
+    <tbody>
+      <tr><td><b>Local SEO</b> — single location</td><td class="right num">₹15k – 35k</td>
+          <td>Easiest entry offer. GBP, citations, local pages, reviews.</td></tr>
+      <tr><td><b>SEO</b> — competitive / multi-page</td><td class="right num">₹35k – 75k</td>
+          <td>Scope by pages and keyword difficulty, never "SEO" as a blob.</td></tr>
+      <tr><td><b>Google / Meta Ads</b> — management</td><td class="right num">₹15k – 30k<br><small>or 15–20% of spend</small></td>
+          <td><b>Whichever is higher.</b> Fee is always separate from ad budget.</td></tr>
+      <tr><td><b>Social media</b> — content + posting</td><td class="right num">₹18k – 40k</td>
+          <td>Price per posts/month and whether you shoot original creative.</td></tr>
+      <tr><td><b>Graphics</b> — retainer</td><td class="right num">₹10k – 20k</td>
+          <td>Cap deliverables per month or it becomes unlimited work.</td></tr>
+      <tr><td><b>Content</b> — blogs / pages</td><td class="right num">₹1.5k – 5k<br><small>per piece</small></td>
+          <td>Per-piece pricing is clearer than a word count.</td></tr>
+      <tr><td><b>Email marketing</b></td><td class="right num">₹12k – 25k</td>
+          <td>Flow setup is a project; ongoing campaigns are the retainer.</td></tr>
+      <tr><td><b>Website</b> — one-off project</td><td class="right num">₹30k – 1.5L</td>
+          <td>Project, not retainer. Charge 50% upfront, always.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="doc-note doc-note-warn">
+    <b>The ad-spend trap.</b> A client spending ₹20,000/month at 15% pays you ₹3,000
+    — nowhere near your cost to run it properly. That's exactly why the flat minimum
+    exists. Never agree to percentage-only on small budgets.
+  </div>
+</section>
+
+<!-- ===================== TIERS ===================== -->
+<section class="doc-sec">
+  <h2>3. Three tiers, not a menu</h2>
+  <p>A menu makes every conversation a custom quote. Three tiers make the middle one
+  the obvious choice and let you close faster. Publicly you still say
+  "we quote after a free audit" — this is how you quote <i>consistently</i>.</p>
+
+  <div class="tier-grid">
+    <div class="tier">
+      <div class="tier-name">Starter</div>
+      <div class="tier-price">₹20,000<span>/mo</span></div>
+      <div class="tier-for">One channel. Proving it works.</div>
+      <ul>
+        <li>One service (Local SEO or Ads)</li>
+        <li>Monthly report</li>
+        <li>Email support</li>
+      </ul>
+      <div class="tier-foot">Ad spend billed separately</div>
+    </div>
+
+    <div class="tier tier-best">
+      <div class="tier-badge">Point most clients here</div>
+      <div class="tier-name">Growth</div>
+      <div class="tier-price">₹45,000<span>/mo</span></div>
+      <div class="tier-for">Two channels working together.</div>
+      <ul>
+        <li>Two services (e.g. SEO + Ads)</li>
+        <li>Landing page optimisation</li>
+        <li>Monthly report + review call</li>
+        <li>WhatsApp support</li>
+      </ul>
+      <div class="tier-foot">Ad spend billed separately</div>
+    </div>
+
+    <div class="tier">
+      <div class="tier-name">Full</div>
+      <div class="tier-price">₹85,000<span>/mo</span></div>
+      <div class="tier-for">Everything, one team.</div>
+      <ul>
+        <li>SEO + Ads + Social</li>
+        <li>Content &amp; creative included</li>
+        <li>Fortnightly review calls</li>
+        <li>Priority turnaround</li>
+      </ul>
+      <div class="tier-foot">Ad spend billed separately</div>
+    </div>
+  </div>
+
+  <p><small><b>Why these three numbers:</b> Starter sits just above a realistic
+  15-hour floor. Growth is roughly 2× Starter but delivers more than 2× the value,
+  which is what makes it the rational pick. Full is priced so that if a client takes
+  it, you can afford to give it the attention it needs. Move all three together as
+  your capacity and confidence grow.</small></p>
+</section>
+
+<!-- ===================== RULES ===================== -->
+<section class="doc-sec">
+  <h2>4. Quoting rules — decide now, not mid-call</h2>
+  <table class="doc-table">
+    <tbody>
+      <tr><td><b>Minimum engagement</b></td><td>3 months. Under that, SEO can't show anything and you'll be blamed for it.</td></tr>
+      <tr><td><b>Maximum discount</b></td><td>10%, and only for 6 months paid upfront. Never discount to win a hesitant client — they churn hardest.</td></tr>
+      <tr><td><b>First client / case-study deal</b></td><td>Up to 25% off <i>in exchange for</i> a written testimonial and permission to publish results. Put it in writing.</td></tr>
+      <tr><td><b>Payment terms</b></td><td>Retainers: in advance, on the 1st. Projects: 50% upfront, 50% on delivery.</td></tr>
+      <tr><td><b>Scope boundary</b></td><td>Name what's <i>not</i> included in the proposal. Most scope creep starts with an unwritten assumption.</td></tr>
+      <tr><td><b>Ad budget</b></td><td>Client pays the platform directly wherever possible. Don't front ad spend from your own account.</td></tr>
+      <tr><td><b>Walk away when</b></td><td>Budget is below your floor, the client wants guaranteed rankings, or they won't give you account access.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ===================== WHAT NOT TO PROMISE ===================== -->
+<section class="doc-sec">
+  <h2>5. What you cannot promise</h2>
+  <p>You have no client results yet, so every claim you make has to be about
+  process, not outcomes. This protects you legally and reputationally.</p>
+  <div class="say-grid">
+    <div class="say-bad">
+      <div class="say-lbl">Don't say</div>
+      <ul>
+        <li>"We'll get you to #1 on Google"</li>
+        <li>"We average 4.2x ROAS"</li>
+        <li>"Guaranteed leads in 30 days"</li>
+        <li>"We've grown 30+ businesses"</li>
+      </ul>
+    </div>
+    <div class="say-good">
+      <div class="say-lbl">Say instead</div>
+      <ul>
+        <li>"Here's exactly what we'll do in the first 90 days"</li>
+        <li>"Every rupee tracked to a real lead — you'll see it monthly"</li>
+        <li>"Ads can bring enquiries in weeks; SEO compounds over months"</li>
+        <li>"You'd be an early client, which is why the pricing reflects that"</li>
+      </ul>
+    </div>
+  </div>
+  <div class="doc-note">
+    <b>Being new is not a weakness — hiding it is.</b> "You'd be one of our first
+    clients, so you get more of my attention than you would at a big agency, and
+    the price reflects that" is a genuinely strong pitch. It's also true.
+  </div>
+</section>
+
+</main>
+
+<script>
+(function () {
+  var f = function (id) { return Number((document.getElementById(id) || {}).value || 0); };
+  var inr = function (n) {
+    return '₹' + Math.round(n).toLocaleString('en-IN');
+  };
+  function recalc() {
+    var hourly = f('hours') ? f('need') / f('hours') : 0;
+    var minp = hourly * f('chours');
+    document.getElementById('floor').textContent = hourly ? inr(hourly) + '/hr' : '—';
+    document.getElementById('minprice').textContent = minp ? inr(minp) + '/mo' : '—';
+    document.getElementById('ceiling').textContent = minp ? inr(minp * f('cap')) : '—';
+  }
+  document.addEventListener('input', function (e) {
+    if (e.target.classList.contains('calc')) recalc();
+  });
+  recalc();
+})();
+</script>
+</body>
+</html>
