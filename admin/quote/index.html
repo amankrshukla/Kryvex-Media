@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Quote Calculator — Kryvex Media (Internal)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../docs.css">
+<link rel="stylesheet" href="quote.css">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+<header class="top">
+  <div class="brand">
+    <div class="brand-tile">
+      <svg width="18" height="18" viewBox="0 0 30 30" fill="none">
+        <rect x="9" y="5" width="6" height="20" rx="1.5" fill="#fff" opacity=".55"/>
+        <path d="M15 12.5 L26 4 L20.5 14.5 Z" fill="#fff"/>
+        <path d="M15 17.5 L26 26 L20.5 14.5 Z" fill="#fff" opacity=".8"/>
+      </svg>
+    </div>
+    <div>QUOTE CALCULATOR<small>INTERNAL — DO NOT SEND TO CLIENTS</small></div>
+  </div>
+  <nav class="tabs">
+    <button onclick="location.href='../'">← CRM</button>
+    <button onclick="location.href='../pricing/'">Rate card</button>
+  </nav>
+  <div class="top-right">
+    <button class="btn btn-sm" id="btn-reset">Reset</button>
+    <button class="btn btn-sm" onclick="window.print()">Print</button>
+  </div>
+</header>
+
+<main class="wrap q-wrap">
+
+  <!-- ============ LEFT: inputs ============ -->
+  <div class="q-left">
+
+    <h1>Quote calculator</h1>
+    <p class="q-lede">Enter what the client actually needs. This works out the hours,
+    then the price — so a small budget shows up as <i>too much scope</i> rather than
+    a discount you can't afford.</p>
+
+    <!-- YOUR NUMBERS -->
+    <section class="q-sec">
+      <h2>Your numbers</h2>
+      <div class="q-row">
+        <label>Your hourly floor
+          <small>From the rate card — income needed ÷ deliverable hours</small>
+        </label>
+        <div class="q-in">₹<input class="q" id="rate" type="number" min="0" step="50" value="1250"></div>
+      </div>
+      <div class="q-row">
+        <label>Target margin multiple
+          <small>1.6 means you charge 1.6× your cost. Below 1.3 leaves nothing for slow months.</small>
+        </label>
+        <div class="q-in"><input class="q" id="margin" type="number" min="1" step="0.1" value="1.6">×</div>
+      </div>
+      <div class="q-row">
+        <label>Client's stated budget
+          <small>Optional. Leave 0 if they haven't said.</small>
+        </label>
+        <div class="q-in">₹<input class="q" id="budget" type="number" min="0" step="1000" value="0"></div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="q-sec">
+      <h2>What they need</h2>
+      <div id="svc-list"></div>
+    </section>
+
+    <!-- ASSUMPTIONS -->
+    <section class="q-sec">
+      <h2>Hour assumptions <button class="q-toggle" id="assump-toggle">show</button></h2>
+      <div id="assump" hidden>
+        <p><small>These drive every number on this page. They're guesses until you've
+        tracked real delivery time — after your first two clients, come back and correct
+        them. That's what turns this from a rule of thumb into <i>your</i> pricing model.</small></p>
+        <table class="doc-table" id="assump-table"></table>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ============ RIGHT: result ============ -->
+  <div class="q-right">
+    <div class="q-card" id="result"></div>
+  </div>
+
+</main>
+
+<script>
+/* ============================================================
+   Service model. hours = base + per-unit × qty, then a
+   competitiveness/complexity multiplier where it applies.
+   All editable in the Assumptions panel.
+   ============================================================ */
+const SERVICES = [
+  { id:'localseo', name:'Local SEO', unit:'locations', qty:1, base:6, per:2.5,
+    hint:'GBP optimisation, citations, review engine, local landing pages' },
+
+  { id:'seo', name:'SEO (organic)', unit:'content pages / month', qty:2, base:5, per:1.5,
+    comp:true, hint:'Technical fixes, on-page, internal linking, content briefs' },
+
+  { id:'gads', name:'Google Ads', unit:'₹ monthly ad spend', qty:30000, base:6, per:1, perUnit:25000,
+    spend:true, hint:'Campaign build, search terms, negatives, bid management' },
+
+  { id:'meta', name:'Meta Ads', unit:'₹ monthly ad spend', qty:20000, base:5, per:1, perUnit:25000,
+    spend:true, hint:'Audiences, creative testing, retargeting' },
+
+  { id:'social', name:'Social media', unit:'static posts / month', qty:12, base:3, per:0.6,
+    extra:{ id:'reels', label:'reels or videos / month', qty:4, per:1.5 },
+    hint:'Planning, captions, scheduling, community replies' },
+
+  { id:'graphics', name:'Graphics design', unit:'creatives / month', qty:8, base:1, per:0.8,
+    hint:'Social creatives, banners, print collateral' },
+
+  { id:'content', name:'Content writing', unit:'articles / month', qty:4, base:1, per:2,
+    hint:'Research, drafting, editing, on-page optimisation' },
+
+  { id:'email', name:'Email marketing', unit:'campaigns / month', qty:2, base:3, per:2,
+    hint:'List hygiene, copy, build, send, report' },
+
+  { id:'website', name:'Website build', unit:'pages', qty:5, base:6, per:1.8,
+    oneOff:true, hint:'One-off project — quoted separately from the retainer' }
+];
+
+const OVERHEAD = 0.15;   // reporting, calls, admin — applies to retainer work
+const state = {};
+
+/* ---------- restore ---------- */
+const SAVED = 'kryvex_quote_v1';
+function persist() {
+  const o = { rate:v('rate'), margin:v('margin'), budget:v('budget'), svc:{} };
+  SERVICES.forEach(s => {
+    o.svc[s.id] = { on: state[s.id].on, qty: state[s.id].qty,
+                    comp: state[s.id].comp, extraQty: state[s.id].extraQty };
+  });
+  try { localStorage.setItem(SAVED, JSON.stringify(o)); } catch (e) {}
+}
+function restore() {
+  let o = null;
+  try { o = JSON.parse(localStorage.getItem(SAVED) || 'null'); } catch (e) {}
+  SERVICES.forEach(s => {
+    const sv = (o && o.svc && o.svc[s.id]) || {};
+    state[s.id] = {
+      on: sv.on != null ? sv.on : (s.id === 'localseo'),
+      qty: sv.qty != null ? sv.qty : s.qty,
+      comp: sv.comp != null ? sv.comp : 1,
+      extraQty: sv.extraQty != null ? sv.extraQty : (s.extra ? s.extra.qty : 0)
+    };
+  });
+  if (o) {
+    if (o.rate)   document.getElementById('rate').value = o.rate;
+    if (o.margin) document.getElementById('margin').value = o.margin;
+    if (o.budget != null) document.getElementById('budget').value = o.budget;
+  }
+}
+
+const v  = id => Number((document.getElementById(id) || {}).value || 0);
+const inr = n => '₹' + Math.round(n).toLocaleString('en-IN');
+
+/* ---------- hours ---------- */
+function svcHours(s) {
+  const st = state[s.id];
+  if (!st.on) return 0;
+  let h;
+  if (s.spend) {
+    h = s.base + (st.qty / s.perUnit) * s.per;
+  } else {
+    h = s.base + st.qty * s.per;
+  }
+  if (s.extra) h += st.extraQty * s.extra.per;
+  if (s.comp)  h *= st.comp;
+  return h;
+}
+
+function compute() {
+  let retainerH = 0, projectH = 0, adSpend = 0;
+  const lines = [];
+
+  SERVICES.forEach(s => {
+    const h = svcHours(s);
+    if (!h) return;
+    if (s.oneOff) projectH += h; else retainerH += h;
+    if (s.spend) adSpend += state[s.id].qty;
+    lines.push({ name:s.name, hours:h, oneOff:!!s.oneOff });
+  });
+
+  const oh = retainerH * OVERHEAD;
+  const totalRetainerH = retainerH + oh;
+  const rate = v('rate'), margin = v('margin') || 1;
+
+  const costRetainer = totalRetainerH * rate;
+  const recRetainer  = costRetainer * margin;
+
+  // Ads: management fee must clear a percentage of spend too, whichever is higher.
+  const pctFee = adSpend * 0.15;
+  const feeFloorApplied = adSpend > 0 && pctFee > recRetainer;
+
+  const retainer = Math.max(recRetainer, feeFloorApplied ? pctFee : 0);
+  const project  = projectH * rate * margin;
+
+  return { lines, retainerH, oh, totalRetainerH, projectH, adSpend,
+           costRetainer, retainer, project, feeFloorApplied, rate, margin };
+}
+
+/* ---------- render inputs ---------- */
+function renderServices() {
+  document.getElementById('svc-list').innerHTML = SERVICES.map(s => {
+    const st = state[s.id];
+    return `
+    <div class="svc ${st.on ? 'on' : ''}" data-svc="${s.id}">
+      <label class="svc-head">
+        <input type="checkbox" class="svc-on" ${st.on ? 'checked' : ''}>
+        <span class="svc-name">${s.name}${s.oneOff ? ' <em>one-off</em>' : ''}</span>
+        <span class="svc-hrs" id="hrs-${s.id}"></span>
+      </label>
+      <div class="svc-body" ${st.on ? '' : 'hidden'}>
+        <div class="svc-hint">${s.hint}</div>
+        <div class="svc-ctl">
+          <span>${s.unit}</span>
+          <input type="number" class="svc-qty" min="0"
+                 step="${s.spend ? 5000 : 1}" value="${st.qty}">
+        </div>
+        ${s.extra ? `<div class="svc-ctl">
+          <span>${s.extra.label}</span>
+          <input type="number" class="svc-extra" min="0" step="1" value="${st.extraQty}">
+        </div>` : ''}
+        ${s.comp ? `<div class="svc-ctl">
+          <span>competition</span>
+          <select class="svc-comp">
+            <option value="1"   ${st.comp==1   ? 'selected':''}>Low — small town, few rivals</option>
+            <option value="1.3" ${st.comp==1.3 ? 'selected':''}>Medium — city, some rivals</option>
+            <option value="1.6" ${st.comp==1.6 ? 'selected':''}>High — metro, agencies competing</option>
+          </select>
+        </div>` : ''}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function renderAssumptions() {
+  document.getElementById('assump-table').innerHTML =
+    '<tbody>' + SERVICES.map(s => `<tr>
+      <td><b>${s.name}</b><br><small>${s.hint}</small></td>
+      <td class="right num">${s.base}h base<br>
+        <small>+ ${s.per}h per ${s.spend ? '₹' + (s.perUnit/1000) + 'k spend' : s.unit.replace(/ ?\/ ?month/,'')}</small>
+        ${s.extra ? `<br><small>+ ${s.extra.per}h per ${s.extra.label.replace(/ ?\/ ?month/,'')}</small>` : ''}
+      </td></tr>`).join('') +
+    `<tr class="doc-total"><td>Overhead on retainer work<br><small>monthly report, review call, account admin</small></td>
+     <td class="right num">+${Math.round(OVERHEAD*100)}%</td></tr></tbody>`;
+}
+
+/* ---------- render result ---------- */
+function renderResult() {
+  const r = compute();
+  const budget = v('budget');
+  const el = document.getElementById('result');
+
+  SERVICES.forEach(s => {
+    const h = svcHours(s);
+    const t = document.getElementById('hrs-' + s.id);
+    if (t) t.textContent = h ? (Math.round(h * 10) / 10) + 'h' : '';
+  });
+
+  if (!r.lines.length) {
+    el.innerHTML = `<div class="q-empty"><b>Pick at least one service</b>
+      Tick what the client needs and the quote builds itself.</div>`;
+    return;
+  }
+
+  const walkAway = r.costRetainer;              // your cost — never go below
+  const stretch  = r.retainer * 1.25;
+
+  let verdict = '';
+  if (budget > 0) {
+    if (budget < walkAway) {
+      const gap = walkAway - budget;
+      verdict = `<div class="q-verdict bad">
+        <div class="q-vh">Below your cost — don't take this scope</div>
+        <p>Their budget is ${inr(gap)} short of what this work <i>costs</i> you, before any
+        profit. Don't discount. Cut scope until the hours fit, and tell them plainly:
+        “That budget covers X, not Y — here's what I'd prioritise.”</p>
+        ${cutSuggestion(r, budget)}
+      </div>`;
+    } else if (budget < r.retainer) {
+      verdict = `<div class="q-verdict warn">
+        <div class="q-vh">Workable but thin</div>
+        <p>Above your cost, below your target. Margin is
+        <b>${((budget / r.costRetainer - 1) * 100).toFixed(0)}%</b> instead of
+        ${((r.margin - 1) * 100).toFixed(0)}%. Fine as a first or case-study client
+        if you get a testimonial and permission to publish results — otherwise trim a
+        deliverable to bring it back up.</p>
+      </div>`;
+    } else {
+      verdict = `<div class="q-verdict good">
+        <div class="q-vh">Comfortably fits</div>
+        <p>Their budget clears your target price with ${inr(budget - r.retainer)} of
+        headroom. Quote ${inr(r.retainer)} — or propose the extra scope they'd get at
+        ${inr(budget)}, which is an easier yes than handing back the difference.</p>
+      </div>`;
+    }
+  }
+
+  el.innerHTML = `
+    <div class="q-price-lbl">Quote this monthly retainer</div>
+    <div class="q-price num">${inr(r.retainer)}</div>
+    ${r.feeFloorApplied ? `<div class="q-flag">Raised to 15% of ad spend — the hours alone
+      would have under-charged for managing ${inr(r.adSpend)}/month.</div>` : ''}
+
+    <div class="q-band">
+      <div><span>Walk away below</span><b class="num">${inr(walkAway)}</b></div>
+      <div class="mid"><span>Target</span><b class="num">${inr(r.retainer)}</b></div>
+      <div><span>Stretch / high competition</span><b class="num">${inr(stretch)}</b></div>
+    </div>
+
+    ${r.project ? `<div class="q-project">
+      <span>Website build (one-off)</span>
+      <b class="num">${inr(r.project)}</b>
+      <small>50% upfront, 50% on delivery. Quoted separately from the retainer.</small>
+    </div>` : ''}
+
+    ${verdict}
+
+    <div class="q-break">
+      <div class="q-break-h">Where the hours go</div>
+      <table>
+        ${r.lines.filter(l => !l.oneOff).map(l => `<tr>
+          <td>${l.name}</td><td class="right num">${(Math.round(l.hours*10)/10)}h</td></tr>`).join('')}
+        <tr><td>Reporting &amp; admin (+${Math.round(OVERHEAD*100)}%)</td>
+            <td class="right num">${(Math.round(r.oh*10)/10)}h</td></tr>
+        <tr class="tot"><td>Retainer hours / month</td>
+            <td class="right num">${(Math.round(r.totalRetainerH*10)/10)}h</td></tr>
+        ${r.projectH ? `<tr><td>Website build (one-off)</td>
+            <td class="right num">${(Math.round(r.projectH*10)/10)}h</td></tr>` : ''}
+      </table>
+      <div class="q-cost">
+        Your cost at ${inr(r.rate)}/hr: <b>${inr(r.costRetainer)}</b> ·
+        effective rate if they pay ${inr(r.retainer)}:
+        <b>${inr(r.retainer / r.totalRetainerH)}/hr</b>
+      </div>
+    </div>
+
+    ${r.adSpend ? `<div class="q-note-small">
+      Ad spend of <b>${inr(r.adSpend)}/month</b> is the client's, paid to the platform
+      directly — it is not part of your fee and must be stated separately on the proposal.
+    </div>` : ''}
+
+    <div class="q-capacity">
+      At ${(Math.round(r.totalRetainerH*10)/10)}h/month, you could hold
+      <b>${Math.floor(80 / r.totalRetainerH)}</b> clients like this in an 80-hour month
+      → <b class="num">${inr(Math.floor(80 / r.totalRetainerH) * r.retainer)}</b> monthly revenue.
+    </div>`;
+}
+
+/* suggest what to cut when the budget can't cover the scope */
+function cutSuggestion(r, budget) {
+  const ranked = r.lines.filter(l => !l.oneOff).sort((a, b) => b.hours - a.hours);
+  if (!ranked.length) return '';
+  const target = budget / (r.rate * (1 + OVERHEAD));
+  let running = r.retainerH, cuts = [];
+  for (const l of ranked) {
+    if (running <= target) break;
+    cuts.push(l.name);
+    running -= l.hours;
+  }
+  if (!cuts.length) return '';
+  return `<div class="q-cut"><b>To fit ${inr(budget)}:</b> drop
+    ${cuts.map(c => `<span>${c}</span>`).join(' + ')} — or reduce its volume until the
+    hours come down. Keep whatever channel gets them a lead fastest.</div>`;
+}
+
+/* ---------- events ---------- */
+document.addEventListener('input', e => {
+  const card = e.target.closest('[data-svc]');
+  if (card) {
+    const id = card.dataset.svc;
+    if (e.target.classList.contains('svc-on')) {
+      state[id].on = e.target.checked;
+      card.classList.toggle('on', state[id].on);
+      card.querySelector('.svc-body').hidden = !state[id].on;
+    }
+    if (e.target.classList.contains('svc-qty'))   state[id].qty = Number(e.target.value || 0);
+    if (e.target.classList.contains('svc-extra')) state[id].extraQty = Number(e.target.value || 0);
+    if (e.target.classList.contains('svc-comp'))  state[id].comp = Number(e.target.value);
+  }
+  if (e.target.classList.contains('q') || card) { renderResult(); persist(); }
+});
+document.addEventListener('change', e => {
+  if (e.target.classList.contains('svc-comp')) { renderResult(); persist(); }
+});
+
+document.getElementById('assump-toggle').addEventListener('click', function () {
+  const a = document.getElementById('assump');
+  a.hidden = !a.hidden;
+  this.textContent = a.hidden ? 'show' : 'hide';
+});
+
+document.getElementById('btn-reset').addEventListener('click', () => {
+  if (!confirm('Reset the calculator to defaults?')) return;
+  try { localStorage.removeItem(SAVED); } catch (e) {}
+  location.reload();
+});
+
+/* ---------- boot ---------- */
+restore();
+renderServices();
+renderAssumptions();
+renderResult();
+</script>
+</body>
+</html>
