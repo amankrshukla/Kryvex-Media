@@ -177,8 +177,8 @@ table.pd-t tr.pd-tot td{border-top:1.5px solid #191725;font-weight:800;font-size
 body.previewing .top,
 body.previewing .cd-bar{display:none}
 body.previewing #print-root{
-  background:#fff;border:1px solid var(--line);border-radius:14px;
-  margin:0 auto 40px;box-shadow:var(--shadow);
+  display:block;background:#fff;border:1px solid var(--line);border-radius:14px;
+  margin:20px auto 40px;box-shadow:var(--shadow);max-width:900px;overflow:hidden;
 }
 body.previewing .cd-wrap{display:none}
 .cd-preview-bar{
