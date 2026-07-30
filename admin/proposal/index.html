@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Proposal — Kryvex Media</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../styles.css">
+<link rel="stylesheet" href="../docs.css">
+<link rel="stylesheet" href="../clientdoc.css">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+</head>
+<body>
+
+<div class="cd-preview-bar">
+  <span>Proposal preview — this is what the client sees</span>
+  <button class="btn btn-sm" id="btn-back">← Keep editing</button>
+  <button class="btn btn-primary btn-sm" id="btn-print2">Print / Save PDF</button>
+</div>
+
+<header class="top">
+  <div class="brand">
+    <div class="brand-tile">
+      <svg width="18" height="18" viewBox="0 0 30 30" fill="none">
+        <rect x="9" y="5" width="6" height="20" rx="1.5" fill="#fff" opacity=".55"/>
+        <path d="M15 12.5 L26 4 L20.5 14.5 Z" fill="#fff"/>
+        <path d="M15 17.5 L26 26 L20.5 14.5 Z" fill="#fff" opacity=".8"/>
+      </svg>
+    </div>
+    <div>PROPOSAL<small>FILL IN, THEN PRINT FOR THE CLIENT</small></div>
+  </div>
+  <nav class="tabs">
+    <button onclick="location.href='../'">← CRM</button>
+    <button onclick="location.href='../audit/'">Audit</button>
+    <button onclick="location.href='../quote/'">Quote</button>
+  </nav>
+  <div class="top-right">
+    <button class="btn btn-sm" id="btn-clear">New proposal</button>
+  </div>
+</header>
+
+<main class="wrap cd-wrap">
+
+  <h1>Proposal</h1>
+  <p class="cd-lede">Send this after the audit conversation, not before. Everything here
+  is about what you'll <i>do</i> — the section for what's <b>not</b> included is the one
+  that saves you from scope creep later, so don't skip it.</p>
+
+  <!-- CLIENT -->
+  <section class="cd-sec">
+    <h2>Client</h2>
+    <div class="cd-grid">
+      <div class="cd-f"><label>Business name</label><input id="m-biz" placeholder="Sharma Motors"></div>
+      <div class="cd-f"><label>Contact person</label><input id="m-who" placeholder="Anand Sharma"></div>
+      <div class="cd-f"><label>City</label><input id="m-city" placeholder="Nagpur"></div>
+      <div class="cd-f"><label>Proposal date</label><input id="m-date" type="date"></div>
+      <div class="cd-f"><label>Valid until</label><input id="m-valid" type="date"></div>
+      <div class="cd-f"><label>Prepared by</label><input id="m-by" value="Aman Shukla, Kryvex Media"></div>
+    </div>
+  </section>
+
+  <!-- THE PROBLEM -->
+  <section class="cd-sec">
+    <h2>Where they are now</h2>
+    <div class="cd-f">
+      <label>The problem, in their words — carried over from the audit</label>
+      <textarea id="m-problem" placeholder="You're getting almost no enquiries from Google. People searching 'car service in Nagpur' find three competitors before they find you, and your Google profile is incomplete so you don't appear on Maps at all."></textarea>
+    </div>
+    <div class="cd-f" style="margin-top:10px">
+      <label>What success looks like in 90 days</label>
+      <textarea id="m-goal" placeholder="Appearing in the top 3 map results for service searches in Nagpur, with a steady flow of call and WhatsApp enquiries you can track."></textarea>
+    </div>
+  </section>
+
+  <!-- SCOPE -->
+  <section class="cd-sec">
+    <h2>What we'll do <span class="cd-count">add a line per deliverable</span></h2>
+    <div id="scope"></div>
+    <div class="cd-add">
+      <input id="add-scope" placeholder="e.g. Optimise Google Business Profile — categories, services, hours, photos">
+      <button class="btn btn-sm" id="btn-add-scope">Add</button>
+    </div>
+  </section>
+
+  <!-- PHASES -->
+  <section class="cd-sec">
+    <h2>Timeline</h2>
+    <div class="cd-f"><label>First 30 days</label>
+      <textarea id="m-p1" placeholder="Foundations — profile claimed and completed, tracking installed, quick technical fixes, first location pages live."></textarea></div>
+    <div class="cd-f" style="margin-top:10px"><label>Days 31–60</label>
+      <textarea id="m-p2" placeholder="Content and reviews — service pages published, review requests going out after every job, ads live on the two highest-intent searches."></textarea></div>
+    <div class="cd-f" style="margin-top:10px"><label>Days 61–90</label>
+      <textarea id="m-p3" placeholder="Optimise on real data — double down on what's converting, cut what isn't, expand to nearby areas."></textarea></div>
+  </section>
+
+  <!-- MONEY -->
+  <section class="cd-sec">
+    <h2>Investment</h2>
+    <div class="cd-grid">
+      <div class="cd-f"><label>Plan name</label><input id="m-plan" placeholder="Growth"></div>
+      <div class="cd-f"><label>Monthly retainer (₹)</label><input id="m-fee" type="number" min="0" step="1000" placeholder="45000"></div>
+      <div class="cd-f"><label>One-off project, if any (₹)</label><input id="m-oneoff" type="number" min="0" step="1000" placeholder="0"></div>
+      <div class="cd-f"><label>What the one-off covers</label><input id="m-oneoff-lbl" placeholder="Website rebuild — 8 pages"></div>
+      <div class="cd-f"><label>Suggested ad budget (₹/month)</label><input id="m-adspend" type="number" min="0" step="1000" placeholder="25000"></div>
+      <div class="cd-f"><label>Minimum term (months)</label><input id="m-term" type="number" min="1" step="1" value="3"></div>
+    </div>
+    <div class="cd-f" style="margin-top:10px">
+      <label>Ad budget note <small style="font-weight:500;text-transform:none;letter-spacing:0">— shown to the client so the fee isn't confused with spend</small></label>
+      <input id="m-adnote" value="Paid by you directly to Google/Meta. This is not part of our fee.">
+    </div>
+  </section>
+
+  <!-- NOT INCLUDED -->
+  <section class="cd-sec">
+    <h2>Not included <span class="cd-count">the section that prevents arguments</span></h2>
+    <div id="excl"></div>
+    <div class="cd-add">
+      <input id="add-excl" placeholder="e.g. Website hosting and domain renewal fees">
+      <button class="btn btn-sm" id="btn-add-excl">Add</button>
+    </div>
+  </section>
+
+  <!-- TERMS -->
+  <section class="cd-sec">
+    <h2>Terms</h2>
+    <div class="cd-f">
+      <label>Terms shown on the proposal</label>
+      <textarea id="m-terms" style="min-height:110px"></textarea>
+      <span class="hint" style="font-size:11.5px;color:var(--muted);font-weight:600">Plain-English summary of how you work. Have a lawyer review your actual contract before relying on it — this is a commercial summary, not legal advice.</span>
+    </div>
+  </section>
+
+  <div class="cd-bar wrap">
+    <span class="cd-bar-stat" id="stat">—</span>
+    <span class="spacer"></span>
+    <button class="btn btn-sm" id="btn-preview">Preview client copy</button>
+    <button class="btn btn-primary btn-sm" id="btn-print">Print / Save PDF</button>
+  </div>
+</main>
+
+<div id="print-root" aria-hidden="true"></div>
+<div class="toast" id="toast"></div>
+
+<script>
+const KEY='kryvex_proposal_v1';
+const DEFAULT_TERMS =
+`Month to month — no lock-in beyond the minimum term.
+Retainer is payable in advance, on the 1st of each month.
+One-off projects: 50% to begin, 50% on delivery.
+Either side can end the arrangement with 30 days' written notice.
+You own your accounts, data and content — we work inside your accounts, not ours.
+Reporting: a written report each month plus a review call.`;
+
+const DEFAULT_EXCL = [
+  'Ad budget — paid by you directly to the platform',
+  'Website hosting, domain and third-party tool subscriptions',
+  'Paid stock photography or video shoots',
+  'Printing or offline advertising costs',
+  'Work on channels not listed above'
+];
+
+let st={ meta:{}, scope:[], excl:DEFAULT_EXCL.slice() };
+
+const $=s=>document.querySelector(s);
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const nl=s=>esc(s).replace(/\n/g,'<br>');
+const inr=n=>'₹'+Number(n||0).toLocaleString('en-IN',{maximumFractionDigits:0});
+const MFIELDS=['biz','who','city','date','valid','by','problem','goal','p1','p2','p3',
+               'plan','fee','oneoff','oneoff-lbl','adspend','term','adnote','terms'];
+
+function toast(m){const t=$('#toast');t.textContent=m;t.classList.add('show');
+  clearTimeout(toast._t);toast._t=setTimeout(()=>t.classList.remove('show'),2200);}
+
+function save(){
+  st.meta={};
+  MFIELDS.forEach(f=>{ const el=$('#m-'+f); if(el) st.meta[f]=el.value; });
+  try{localStorage.setItem(KEY,JSON.stringify(st));}catch(e){}
+  renderStat();
+}
+function load(){
+  try{const p=JSON.parse(localStorage.getItem(KEY)||'null'); if(p) st=Object.assign(st,p);}catch(e){}
+  const m=st.meta||{};
+  MFIELDS.forEach(f=>{ const el=$('#m-'+f); if(el&&m[f]!=null) el.value=m[f]; });
+  if(!$('#m-date').value) $('#m-date').value=new Date().toISOString().slice(0,10);
+  if(!$('#m-valid').value){
+    const d=new Date(); d.setDate(d.getDate()+14);
+    $('#m-valid').value=d.toISOString().slice(0,10);
+  }
+  if(!$('#m-terms').value) $('#m-terms').value=DEFAULT_TERMS;
+  if(!st.excl||!st.excl.length) st.excl=DEFAULT_EXCL.slice();
+}
+
+function listRows(arr,kind){
+  if(!arr.length) return `<div class="cd-item" style="opacity:.6"><div class="cd-item-main">
+    <div class="cd-item-lbl" style="font-weight:600">Nothing added yet.</div></div></div>`;
+  return arr.map((t,i)=>`<div class="cd-item" data-${kind}="${i}">
+    <div class="cd-item-main"><div class="cd-item-lbl" style="font-weight:600">${esc(t)}</div></div>
+    <button class="cd-del" title="Remove">×</button>
+  </div>`).join('');
+}
+function renderLists(){
+  $('#scope').innerHTML=listRows(st.scope,'sc');
+  $('#excl').innerHTML=listRows(st.excl,'ex');
+}
+function renderStat(){
+  const m=st.meta||{};
+  const total=Number(m.fee||0)*Number(m.term||1)+Number(m.oneoff||0);
+  $('#stat').innerHTML=`<b>${st.scope.length}</b> deliverables · `+
+    (m.fee?`${inr(m.fee)}/mo · first ${m.term||1} months = <b>${inr(total)}</b>`:'no price set');
+}
+
+function build(){
+  const m=st.meta||{};
+  const fd=s=>s?new Date(s+'T00:00:00').toLocaleDateString('en-IN',{day:'2-digit',month:'long',year:'numeric'}):'';
+  const fee=Number(m.fee||0), one=Number(m.oneoff||0), term=Number(m.term||1);
+
+  return `<div class="pd">
+    <div class="pd-head">
+      <div class="pd-brand">
+        <span class="pd-mark"><svg width="30" height="30" viewBox="0 0 30 30" fill="none">
+          <rect x="9" y="5" width="6" height="20" rx="1.5" fill="#3B1C6C"/>
+          <path d="M15 12.5 L26 4 L20.5 14.5 Z" fill="#7046B6"/>
+          <path d="M15 17.5 L26 26 L20.5 14.5 Z" fill="#A272F5"/></svg></span>
+        <span class="pd-word"><b>KRYVEX<span> MEDIA</span></b><small>Global Digital Marketing</small></span>
+      </div>
+      <div class="pd-kind"><h1>Proposal</h1><div>${esc(fd(m.date))}</div></div>
+    </div>
+
+    <div class="pd-for">
+      <div><div class="pd-for-l">Prepared for</div>
+        <b>${esc(m.biz||'—')}</b>
+        <small>${esc(m.who||'')}${m.city?' · '+esc(m.city):''}</small></div>
+      <div style="text-align:right"><div class="pd-for-l">Valid until</div>
+        <b style="font-size:13px">${esc(fd(m.valid))||'—'}</b>
+        <small>${esc(m.by||'')}</small></div>
+    </div>
+
+    ${m.problem?`<h2>Where you are now</h2><p>${nl(m.problem)}</p>`:''}
+    ${m.goal?`<div class="pd-box"><div class="pd-box-l">What success looks like in 90 days</div>
+      <p>${nl(m.goal)}</p></div>`:''}
+
+    ${st.scope.length?`<h2>What we'll do</h2>
+      <ul>${st.scope.map(s=>`<li>${esc(s)}</li>`).join('')}</ul>`:''}
+
+    ${(m.p1||m.p2||m.p3)?`<h2>How it runs</h2>
+      <ol class="pd-num">
+        ${m.p1?`<li><b>First 30 days</b><small>${nl(m.p1)}</small></li>`:''}
+        ${m.p2?`<li><b>Days 31–60</b><small>${nl(m.p2)}</small></li>`:''}
+        ${m.p3?`<li><b>Days 61–90</b><small>${nl(m.p3)}</small></li>`:''}
+      </ol>`:''}
+
+    <h2>Investment</h2>
+    <table class="pd-t">
+      <tbody>
+        ${fee?`<tr><td><b>${esc(m.plan||'Monthly retainer')}</b><br>
+          <small style="color:#63626E">Minimum term ${term} month${term===1?'':'s'}, then month to month</small></td>
+          <td class="right"><b>${inr(fee)}</b><br><small style="color:#63626E">per month</small></td></tr>`:''}
+        ${one?`<tr><td><b>${esc(m['oneoff-lbl']||'One-off project')}</b><br>
+          <small style="color:#63626E">50% to begin, 50% on delivery</small></td>
+          <td class="right"><b>${inr(one)}</b><br><small style="color:#63626E">one-off</small></td></tr>`:''}
+        ${Number(m.adspend)?`<tr><td>Suggested ad budget<br>
+          <small style="color:#63626E">${esc(m.adnote||'')}</small></td>
+          <td class="right"><b>${inr(m.adspend)}</b><br><small style="color:#63626E">per month</small></td></tr>`:''}
+        ${fee?`<tr class="pd-tot"><td>Our fees, first ${term} month${term===1?'':'s'}</td>
+          <td class="right">${inr(fee*term+one)}</td></tr>`:''}
+      </tbody>
+    </table>
+    ${Number(m.adspend)?`<p style="font-size:12px;color:#63626E">Ad budget is not included in the
+    total above — it goes straight to the advertising platform from your own account, so you keep
+    full control and visibility of it.</p>`:''}
+
+    ${st.excl.length?`<div class="pd-box"><div class="pd-box-l">Not included</div>
+      <ul style="margin-bottom:0">${st.excl.map(e=>`<li>${esc(e)}</li>`).join('')}</ul></div>`:''}
+
+    ${m.terms?`<h2>How we work</h2><p>${nl(m.terms)}</p>`:''}
+
+    <div class="pd-cta">
+      <h3>Ready when you are</h3>
+      <p>Reply to confirm and we'll start within two working days. If anything here needs
+      changing — scope, budget, priorities — say so and we'll adjust it. <b>No lock-in beyond
+      the minimum term.</b></p>
+    </div>
+
+    <div class="pd-sign">
+      <div>Signed, for ${esc(m.biz||'the client')} — name &amp; date</div>
+      <div>Signed, for Kryvex Media — name &amp; date</div>
+    </div>
+
+    <div class="pd-foot">
+      <span>Kryvex Media · info@kryvexmedia.com · +91 9110170824</span>
+      <span>kryvexmedia.com</span>
+    </div>
+  </div>`;
+}
+
+/* ---------- events ---------- */
+function addTo(arr,inputId){
+  const el=$(inputId), v=el.value.trim();
+  if(!v) return;
+  arr.push(v); el.value=''; renderLists(); save();
+}
+$('#btn-add-scope').addEventListener('click',()=>addTo(st.scope,'#add-scope'));
+$('#btn-add-excl').addEventListener('click',()=>addTo(st.excl,'#add-excl'));
+$('#add-scope').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();addTo(st.scope,'#add-scope');}});
+$('#add-excl').addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();addTo(st.excl,'#add-excl');}});
+
+document.addEventListener('click',e=>{
+  if(!e.target.classList.contains('cd-del')) return;
+  const sc=e.target.closest('[data-sc]'), ex=e.target.closest('[data-ex]');
+  if(sc) st.scope.splice(+sc.dataset.sc,1);
+  if(ex) st.excl.splice(+ex.dataset.ex,1);
+  renderLists(); save();
+});
+
+document.addEventListener('input',e=>{
+  if(e.target.id&&e.target.id.startsWith('m-')) save();
+});
+
+$('#btn-print').addEventListener('click',()=>{
+  if(!(st.meta||{}).biz){ toast('Add the business name first'); return; }
+  if(!Number((st.meta||{}).fee) && !Number((st.meta||{}).oneoff)){ toast('Add a price first'); return; }
+  $('#print-root').innerHTML=build();
+  document.body.classList.add('printing');
+  window.print();
+  setTimeout(()=>document.body.classList.remove('printing'),400);
+});
+
+$('#btn-preview').addEventListener('click',()=>{
+  $('#print-root').innerHTML=build();
+  document.body.classList.add('previewing');
+  window.scrollTo(0,0);
+});
+$('#btn-back').addEventListener('click',()=>{
+  document.body.classList.remove('previewing');
+  $('#print-root').innerHTML='';
+});
+$('#btn-print2').addEventListener('click',()=>$('#btn-print').click());
+
+$('#btn-clear').addEventListener('click',()=>{
+  if(!confirm('Clear this proposal and start a new one? Print or save the PDF first if you need it.')) return;
+  try{localStorage.removeItem(KEY);}catch(e){}
+  location.reload();
+});
+
+/* ---------- boot ---------- */
+load();
+renderLists();
+renderStat();
+</script>
+</body>
+</html>
