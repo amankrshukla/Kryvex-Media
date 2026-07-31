@@ -11,7 +11,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Digital Marketing Agency in California | Kryvex Media</title>
-<meta name="description" content="Digital marketing agency serving California businesses — SEO, PPC, social media &amp; web design that turn searches into paying customers. Free 48-hour audit.">
+<meta name="description" content="Digital marketing agency serving California businesses — SEO, PPC, social media &amp; web design that turn searches into paying customers. Free 48-hour audit, no lock-in contracts.">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png">
@@ -22,68 +22,113 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/styles/theme.css">
 <style>
+.rail{position:fixed;left:22px;top:50%;transform:translateY(-50%);z-index:50;display:flex;flex-direction:column;gap:20px}
+.rail-item{display:flex;align-items:center;gap:9px;opacity:.4;transition:opacity .25s}
+.rail-item.active{opacity:1}
+.rail-dot{width:8px;height:8px;border-radius:50%;background:var(--line);transition:.25s}
+.rail-item.active .rail-dot{background:var(--accent);box-shadow:0 0 0 4px rgba(112,70,182,.18)}
+.rail-lbl{font-size:10px;font-weight:800;letter-spacing:.07em;color:var(--muted)}
+.rail-item.active .rail-lbl{color:var(--accent)}
+@media(max-width:1499px){.rail{display:none}}
 
-.st-hero{padding:22px 0 8px;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,360px),1fr));gap:clamp(28px,4vw,52px);align-items:center}
-.st-hero h1{font-size:clamp(34px,6vw,52px);line-height:1.08;margin:20px 0 0;text-wrap:balance}
-.st-hero .sub{font-size:16.5px;line-height:1.6;color:var(--muted);font-weight:500;margin-top:20px;max-width:520px}
-.st-hero .fn{font-size:12.5px;color:var(--muted);font-weight:600;margin-top:14px}
+.stage-eyebrow{display:inline-flex;align-items:center;gap:8px;font-size:11px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;padding:7px 13px;border-radius:100px;margin-bottom:16px}
+.stage-eyebrow.on-light{background:rgba(112,70,182,.1);color:var(--accent)}
+.stage-eyebrow.on-dark{background:rgba(255,255,255,.12);color:#fff}
+
+.tofu-zone{padding:8px 0 70px}
+.st-hero{padding:20px 0 0;display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center}
+@media(max-width:900px){.st-hero{grid-template-columns:1fr}}
+.st-hero h1{font-size:clamp(30px,4.2vw,46px);line-height:1.1;text-wrap:balance}
+.st-hero h1 em{font-style:normal;color:var(--accent)}
+.st-hero .sub{font-size:16px;line-height:1.6;color:var(--muted);font-weight:500;margin-top:18px;max-width:520px}
 .st-hero-btns{display:flex;gap:14px;flex-wrap:wrap;margin-top:26px}
+.trust-strip{display:flex;gap:9px;flex-wrap:wrap;margin-top:24px}
+.trust-chip{font-size:11.5px;font-weight:700;color:var(--muted);background:var(--surface);border:1px solid var(--line);padding:7px 12px;border-radius:100px;display:flex;align-items:center;gap:6px}
+.trust-chip b{color:#1F8B5C}
 
-.snap-card{position:relative;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:24px}
-.snap-hdr{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
-.snap-lbl{font-size:12px;color:var(--muted);font-weight:600}
-.snap-badge{font-size:11px;font-weight:700;color:#2f9e6e;background:rgba(47,158,110,.1);padding:4px 9px;border-radius:6px}
-.snap-mini{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px}
-.snap-mini-box{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:14px}
-.snap-mini-lbl{font-size:10.5px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.04em}
-.snap-mini-val{font-size:22px;font-weight:800;margin-top:4px;color:var(--ink)}
-.snap-note{font-size:11.5px;color:var(--muted);font-weight:600;margin-top:14px;line-height:1.5}
+.hero-card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:24px;box-shadow:var(--shadow)}
+.hero-card-hd{display:flex;justify-content:space-between;align-items:center;font-size:12px;font-weight:700;color:var(--muted);margin-bottom:14px}
+.hero-card-hd b{color:#1F8B5C}
+.stat-row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.stat-box{background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:13px}
+.stat-lbl{font-size:10px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.04em}
+.stat-val{font-size:19px;font-weight:800;margin-top:3px;color:var(--ink)}
+.hero-card-fn{font-size:11px;color:var(--muted);font-weight:600;margin-top:14px;line-height:1.5}
 
-.stats-bar{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));border:1px solid var(--line);border-radius:16px;background:var(--surface);overflow:hidden}
-.stats-bar>div{padding:26px 24px;border-right:1px solid var(--line)}
-.stats-bar>div:last-child{border-right:none}
-.stats-bar .val{font-size:28px;font-weight:800;color:var(--ink)}
-.stats-bar .lbl{font-size:13px;color:var(--muted);font-weight:500;margin-top:5px;line-height:1.4}
-.stats-fn{font-size:11px;color:var(--muted);font-weight:500;margin-top:10px;text-align:center}
+.problem-head{text-align:center;max-width:620px;margin:76px auto 0}
+.problem-head h2{font-size:clamp(23px,3.2vw,30px)}
+.problem-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:32px}
+@media(max-width:800px){.problem-grid{grid-template-columns:1fr}}
+.problem-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px}
+.problem-card .ic{font-size:19px}
+.problem-card h3{font-size:14.5px;margin:10px 0 6px}
+.problem-card p{font-size:13px;color:var(--muted);line-height:1.58;font-weight:500}
 
-.city-grid,.pillar-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
-.city-card,.pillar-card{text-decoration:none;background:var(--surface);border:1px solid var(--line);border-radius:16px;overflow:hidden;display:block;transition:border-color .2s,transform .2s}
-.city-card:hover,.pillar-card:hover{border-color:var(--accent);transform:translateY(-3px)}
-.city-photo,.pillar-photo{position:relative;aspect-ratio:4/3;background:var(--bg);display:flex;align-items:center;justify-content:center}
-.city-photo::before,.pillar-photo::before{content:'[ photo ]';font-size:11px;color:var(--muted);font-weight:600}
-.pillar-num{position:absolute;top:14px;left:14px;font-size:12px;font-weight:800;color:var(--accent);background:var(--surface);padding:4px 9px;border-radius:6px;border:1px solid var(--line)}
-.city-body,.pillar-body{padding:20px}
-.city-icon,.pillar-icon{font-size:20px}
-.city-name{font-size:17px;font-weight:800;margin:10px 0 6px;color:var(--ink)}
-.city-sub{font-size:13.5px;color:var(--muted);line-height:1.6;font-weight:500}
-.pillar-title-row{display:flex;align-items:center;gap:9px;margin-top:8px}
-.pillar-title{font-size:17px;font-weight:800;color:var(--ink)}
-.pillar-tag{display:flex;align-items:center;gap:6px;margin-top:8px;font-size:12px;font-weight:700;color:var(--accent)}
-.pillar-desc{font-size:13.5px;color:var(--muted);line-height:1.6;font-weight:500;margin-top:10px}
+.tofu-cta{margin-top:40px;text-align:center;background:var(--surface);border:1px dashed var(--line);border-radius:16px;padding:26px}
+.tofu-cta p{font-size:13px;color:var(--muted);font-weight:600;margin-top:8px}
 
-.growth-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px;align-items:center}
-.growth-points{display:flex;flex-direction:column;gap:14px;margin-top:24px}
-.gpoint{display:flex;gap:14px;align-items:flex-start}
-.gpoint-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);flex:none;margin-top:6px}
-.gpoint-title{font-weight:700;font-size:15px;color:var(--ink)}
-.gpoint-sub{font-size:13.5px;color:var(--muted);font-weight:500;margin-top:2px}
-.growth-card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:24px}
-.chart-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}
-.chart-name{font-size:11px;font-weight:700;color:var(--muted);letter-spacing:.04em}
-.chart-val{font-size:11px;font-weight:700;color:#2f9e6e}
-.chart-bars{display:flex;align-items:flex-end;gap:10px;height:110px}
-.chart-bars>div{flex:1;border-radius:5px}
-.chart-labels{display:flex;justify-content:space-between;margin-top:10px;font-size:11px;color:var(--muted);font-weight:600}
-.chart-fn{font-size:10.5px;color:var(--muted);font-weight:600;margin-top:12px;text-align:center}
+.mofu-zone{background:var(--surface-2,var(--bg));padding:76px 0}
+.mofu-head h2{font-size:clamp(24px,3.2vw,32px);margin-top:12px;max-width:600px}
+.mofu-head p{font-size:14.5px;color:var(--muted);line-height:1.6;margin-top:12px;max-width:600px;font-weight:500}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:30px}
+@media(max-width:800px){.svc-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:520px){.svc-grid{grid-template-columns:1fr}}
+.svc-card{background:var(--surface);border:1px solid var(--line);border-radius:13px;padding:18px}
+.svc-card .ic{font-size:17px}
+.svc-card h4{font-size:13.5px;font-weight:800;margin-top:9px}
+.svc-card .solves{font-size:10px;color:var(--accent);font-weight:800;margin-top:7px;text-transform:uppercase;letter-spacing:.03em}
+.svc-card p{font-size:12px;color:var(--muted);line-height:1.5;margin-top:5px;font-weight:500}
 
-.photo-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:150px;gap:12px}
-.photo-cell{position:relative;border-radius:14px;overflow:hidden;background:var(--surface);border:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}
-.photo-cell.wide{grid-column:span 2;grid-row:span 2}
-.photo-cell::before{content:'[ photo ]';font-size:11px;color:var(--muted);font-weight:600}
-.photo-cell-label{font-size:12px;font-weight:700;color:var(--ink);padding:0 14px;text-align:center}
+.pillar-row{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:56px}
+@media(max-width:800px){.pillar-row{grid-template-columns:1fr}}
+.pillar{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px}
+.pillar .ic{font-size:20px}
+.pillar h4{font-size:15px;font-weight:800;margin-top:10px}
+.pillar p{font-size:12.5px;color:var(--muted);line-height:1.55;margin-top:6px;font-weight:500}
 
-.mockup-flag{display:flex;align-items:center;gap:10px;background:rgba(112,70,182,.08);border:1px solid rgba(112,70,182,.28);border-radius:12px;padding:12px 16px;font-size:12.5px;font-weight:700;color:var(--accent);margin:18px 0}
+.process-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:56px}
+@media(max-width:800px){.process-row{grid-template-columns:1fr 1fr}}
+.proc{background:var(--surface);border:1px solid var(--line);border-radius:13px;padding:20px 16px}
+.proc .num{font-size:11px;font-weight:800;color:var(--accent)}
+.proc h4{font-size:14px;margin-top:8px}
+.proc p{font-size:12px;color:var(--muted);line-height:1.5;margin-top:5px;font-weight:500}
 
+.diff-row{display:flex;gap:30px;margin-top:56px;align-items:center;flex-wrap:wrap}
+.diff-list{flex:1;min-width:270px;display:flex;flex-direction:column;gap:14px}
+.diff-item{display:flex;gap:11px}
+.diff-item .chk{width:20px;height:20px;border-radius:50%;background:#E7F6EE;color:#1F8B5C;flex:none;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800}
+.diff-item b{font-size:13.5px;display:block}
+.diff-item span{font-size:12px;color:var(--muted);font-weight:500}
+.mid-cta{flex:none;background:var(--accent);border-radius:16px;padding:24px;color:#fff;min-width:250px}
+.mid-cta h4{font-size:16px;color:#fff}
+.mid-cta p{font-size:12.5px;opacity:.85;margin-top:7px}
+.mid-cta a{display:inline-flex;margin-top:14px;background:#fff;color:var(--accent-dark);text-decoration:none;font-weight:800;font-size:13px;padding:11px 17px;border-radius:9px}
+
+.bofu-zone{background:linear-gradient(160deg,#1B0E33,var(--accent-dark));padding:76px 0 64px;color:#fff}
+.guarantee{display:grid;grid-template-columns:.8fr 1.2fr;gap:36px;align-items:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:30px;margin-top:18px}
+@media(max-width:800px){.guarantee{grid-template-columns:1fr}}
+.seal{width:92px;height:92px;border-radius:50%;background:rgba(255,255,255,.1);border:1.5px dashed rgba(255,255,255,.35);display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;flex:none;margin:0 auto}
+.seal b{font-size:18px}
+.seal span{font-size:8.5px;letter-spacing:.05em;opacity:.75;margin-top:2px}
+.guarantee h3{color:#fff;font-size:19px}
+.guarantee p{color:rgba(255,255,255,.75);font-size:13px;line-height:1.6;margin-top:9px;font-weight:500}
+
+.faq-head{margin-top:56px;text-align:center}
+.faq-head h2{color:#fff;font-size:clamp(22px,3vw,28px)}
+.faq-list{max-width:740px;margin:26px auto 0;display:flex;flex-direction:column;gap:9px}
+.faq-item{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:11px;padding:15px 18px}
+.faq-item summary{cursor:pointer;font-weight:700;font-size:13.5px;list-style:none;display:flex;justify-content:space-between;gap:12px;color:#fff}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary .plus{color:#C4A6EE;font-size:17px}
+.faq-item p{font-size:12.5px;color:rgba(255,255,255,.7);line-height:1.6;margin-top:11px;font-weight:500}
+
+.final-cta{margin-top:56px;text-align:center}
+.final-cta h2{color:#fff;font-size:clamp(24px,3.4vw,34px)}
+.final-cta p{color:rgba(255,255,255,.7);font-size:13.5px;margin-top:10px}
+.final-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:22px}
+.btn-white{background:#fff;color:var(--accent-dark);text-decoration:none;font-weight:800;font-size:14.5px;padding:15px 26px;border-radius:11px}
+.btn-outline-w{background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.28);color:#fff;text-decoration:none;font-weight:700;font-size:14.5px;padding:14px 22px;border-radius:11px}
+.final-fn{font-size:11px;color:rgba(255,255,255,.5);margin-top:16px;font-weight:600}
 </style>
 <link rel="canonical" href="https://kryvexmedia.com/california/">
 <meta property="og:url" content="https://kryvexmedia.com/california/">
@@ -162,7 +207,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="k-panel-label">Countries</div>
           <div class="k-panel-col">
             <a href="/india/performance-marketing-agency/" class="k-item"><span class="k-item-icon">🇮🇳</span><span><span class="k-item-title">India</span><span class="k-item-sub">Live · all states</span></span></a>
-            <a href="/usa/" class="k-item"><span class="k-item-icon">🇺🇸</span><span><span class="k-item-title">USA</span><span class="k-item-sub">Launching soon</span></span></a>
+            <a href="/usa/" class="k-item"><span class="k-item-icon">🇺🇸</span><span><span class="k-item-title">USA</span><span class="k-item-sub">Live · all states</span></span></a>
             <a href="/uk/" class="k-item"><span class="k-item-icon">🇬🇧</span><span><span class="k-item-title">UK</span><span class="k-item-sub">Launching soon</span></span></a>
             <a href="/singapore/" class="k-item"><span class="k-item-icon">🇸🇬</span><span><span class="k-item-title">Singapore</span><span class="k-item-sub">Launching soon</span></span></a>
           </div>
@@ -188,174 +233,138 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="wrap" style="padding:14px 32px 0;font-size:12.5px;color:var(--muted);font-weight:600">
   <a href="/">Home</a> <span style="margin:0 6px;color:var(--line)">/</span> <a href="/usa/">USA</a> <span style="margin:0 6px;color:var(--line)">/</span> <span style="color:var(--ink);font-weight:700">California</span>
 </div>
+
+<div class="rail" id="rail">
+  <div class="rail-item" data-t="tofu"><span class="rail-dot"></span><span class="rail-lbl">AWARENESS</span></div>
+  <div class="rail-item" data-t="mofu"><span class="rail-dot"></span><span class="rail-lbl">CONSIDERATION</span></div>
+  <div class="rail-item" data-t="bofu"><span class="rail-dot"></span><span class="rail-lbl">DECISION</span></div>
+</div>
+
 <main>
-  <div class="wrap">
-    <div class="mockup-flag">🎨 Design pilot — not yet linked from navigation or sitemap. Photo sections show placeholders pending real photography. Review before we scale to more states.</div>
+
+<section class="tofu-zone wrap" id="tofu">
+  <div class="st-hero">
+    <div>
+      <div class="stage-eyebrow on-light">1 · AWARENESS</div>
+      <h1>Your California customers are searching right now. <em>Are they finding you, or your competitor?</em></h1>
+      <p class="sub">Most local searches never make it past the first page of Google. If you're not there, you're not losing to a better business — you're losing to a more visible one. That's fixable, and it starts with knowing exactly where you stand.</p>
+      <div class="st-hero-btns">
+        <a href="/free-audit/" class="btn-primary">Get My Free Website Score →</a>
+        <a href="#mofu" class="btn-ghost">See how it works ↓</a>
+      </div>
+      <div class="trust-strip">
+        <span class="trust-chip"><b>0</b> lock-in contracts</span>
+        <span class="trust-chip"><b>48h</b> free audit turnaround</span>
+        <span class="trust-chip"><b>5</b> services, 1 team</span>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-hd"><span>California Snapshot</span><b>● Now serving</b></div>
+      <div class="stat-row">
+        <div class="stat-box"><div class="stat-lbl">Population</div><div class="stat-val">39.0M</div></div>
+        <div class="stat-box"><div class="stat-lbl">Services In-House</div><div class="stat-val">5</div></div>
+      </div>
+      <div class="stat-row" style="margin-top:10px">
+        <div class="stat-box"><div class="stat-lbl">Known For</div><div class="stat-val" style="font-size:13px;line-height:1.4">Technology, entertainment and the largest state economy in the US</div></div>
+        <div class="stat-box"><div class="stat-lbl">Lock-In Contracts</div><div class="stat-val">0</div></div>
+      </div>
+      <p class="hero-card-fn">Population figure is well-established public data. No fabricated client counts or local-office claims here.</p>
+    </div>
   </div>
 
-  <header class="wrap st-hero">
-    <div>
-      <div class="k-badge"><i></i>USA · CALIFORNIA</div>
-      <h1>Digital marketing agency in California, <span style="color:var(--accent)">built to grow your business.</span></h1>
-      <p class="sub">California is one market you can't afford to get generic marketing in — from Bay Area tech to LA retail to Central Valley trades. We run SEO, ads, social and web as one connected system, built around what actually gets a California customer to call.</p>
-      <p class="fn">Remote-first team serving California businesses across every industry and city.</p>
-      <div class="st-hero-btns">
-        <a href="/contact/" class="btn-primary">Book Free Consultation</a>
-        <a href="/free-audit/" class="btn-ghost">Get Free Audit Report →</a>
-      </div>
-    </div>
-    <div class="snap-card">
-      <div class="snap-hdr">
-        <span class="snap-lbl">California Snapshot</span>
-        <span class="snap-badge">● Now serving</span>
-      </div>
-      <div class="snap-mini">
-        <div class="snap-mini-box"><div class="snap-mini-lbl">Services In-House</div><div class="snap-mini-val">5</div></div>
-        <div class="snap-mini-box"><div class="snap-mini-lbl">Free Audit</div><div class="snap-mini-val">48h</div></div>
-      </div>
-      <div class="snap-mini">
-        <div class="snap-mini-box"><div class="snap-mini-lbl">Lock-In Contracts</div><div class="snap-mini-val">0</div></div>
-        <div class="snap-mini-box"><div class="snap-mini-lbl">State</div><div class="snap-mini-val">California</div></div>
-      </div>
-      <p class="snap-note">No fabricated client counts or local office claims here — this is an honest snapshot of what we can actually deliver on day one.</p>
-    </div>
-  </header>
+  <div class="problem-head">
+    <h2>The cost of being the invisible option</h2>
+  </div>
+  <div class="problem-grid">
+    <div class="problem-card"><div class="ic">📉</div><h3>You rank on page 2 or later</h3><p>If a competitor's site loads faster or answers the search better, Google shows them first — and most people never scroll past the first page.</p></div>
+    <div class="problem-card"><div class="ic">💸</div><h3>Ad spend with no floor</h3><p>Running ads without a conversion-ready site or clear tracking means paying for clicks that were never going to become customers.</p></div>
+    <div class="problem-card"><div class="ic">🧩</div><h3>Channels that don't talk to each other</h3><p>A freelancer for SEO, another for ads, another for social — nobody owns the whole customer journey, so nothing compounds.</p></div>
+  </div>
 
-  <section class="wrap" style="margin-top:40px">
-    <div class="stats-bar">
-      <div><div class="val">39M+</div><div class="lbl">People call California home — the most populous US state</div></div>
-      <div><div class="val">58</div><div class="lbl">Counties across the state</div></div>
-      <div><div class="val">1st</div><div class="lbl">Largest state economy in the US</div></div>
-      <div><div class="val">5</div><div class="lbl">Services under one roof</div></div>
-    </div>
-    <p class="stats-fn">Population and economic-rank figures are well-established public data, not agency-tracked metrics.</p>
-  </section>
+  <div class="tofu-cta">
+    <div class="stage-eyebrow on-light" style="margin-bottom:8px">START HERE</div>
+    <h3 style="font-size:18px;margin:0">Run the same test Google uses to rank sites — free, in 30 seconds</h3>
+    <p>No email required to see your scores.</p>
+    <a href="/free-audit/" class="btn-primary" style="margin-top:16px">Check My Website →</a>
+  </div>
+</section>
 
-  <section class="wrap k-section">
-    <div class="eyebrow">Our Coverage</div>
-    <h2 style="font-size:clamp(28px,5vw,40px);margin-top:14px">Major cities <span style="color:var(--accent)">we serve</span></h2>
-    <p style="font-size:15px;color:var(--muted);line-height:1.65;margin-top:14px;max-width:600px;font-weight:500">Digital marketing built around how each California city actually does business — not a one-size-fits-all campaign.</p>
-    <div class="city-grid" style="margin-top:30px">
-      <a href="/california/los-angeles/performance-marketing-agency/" class="city-card">
-        <div class="city-photo"></div>
-        <div class="city-body"><div class="city-icon">🎬</div><div class="city-name">Los Angeles</div><p class="city-sub">The country's entertainment and media capital, with one of the most competitive local-service markets in the US.</p></div>
-      </a>
-      <a href="/california/san-francisco/performance-marketing-agency/" class="city-card">
-        <div class="city-photo"></div>
-        <div class="city-body"><div class="city-icon">💻</div><div class="city-name">San Francisco</div><p class="city-sub">Home to the Bay Area tech economy — high-intent, high-competition search demand.</p></div>
-      </a>
-      <a href="/california/san-diego/performance-marketing-agency/" class="city-card">
-        <div class="city-photo"></div>
-        <div class="city-body"><div class="city-icon">🧬</div><div class="city-name">San Diego</div><p class="city-sub">A biotech, tourism and military-economy hub along the Pacific coast.</p></div>
-      </a>
-      <a href="/california/sacramento/performance-marketing-agency/" class="city-card">
-        <div class="city-photo"></div>
-        <div class="city-body"><div class="city-icon">🏛️</div><div class="city-name">Sacramento</div><p class="city-sub">California's state capital, with a fast-growing small business and government-services economy.</p></div>
-      </a>
-      <a href="/california/san-jose/performance-marketing-agency/" class="city-card">
-        <div class="city-photo"></div>
-        <div class="city-body"><div class="city-icon">⚡</div><div class="city-name">San Jose</div><p class="city-sub">The heart of Silicon Valley — dense with tech-savvy consumers and B2B buyers.</p></div>
-      </a>
+<section class="mofu-zone" id="mofu">
+  <div class="wrap">
+    <div class="stage-eyebrow on-light">2 · CONSIDERATION</div>
+    <div class="mofu-head">
+      <h2>One team, every channel that brings California businesses customers.</h2>
+      <p>Not a features list — here's exactly what each service solves, so you can see what you actually need before you talk to us.</p>
     </div>
-    <p class="stats-fn" style="text-align:left;margin-top:14px">City pages linked above are planned next, pending approval of this design — they are not live yet.</p>
-  </section>
+    <div class="svc-grid">
+      <div class="svc-card"><div class="ic">🔍</div><h4>SEO</h4><div class="solves">Solves: invisible on Google</div><p>Technical, on-page and content SEO that gets you found for what customers actually search.</p></div>
+      <div class="svc-card"><div class="ic">🎯</div><h4>Paid Ads (PPC)</h4><div class="solves">Solves: wasted ad spend</div><p>Google &amp; Meta campaigns built for return, with every dollar tracked to a lead or sale.</p></div>
+      <div class="svc-card"><div class="ic">📱</div><h4>Social Media</h4><div class="solves">Solves: no brand presence</div><p>Content and community management that builds a following people actually buy from.</p></div>
+      <div class="svc-card"><div class="ic">💻</div><h4>Web Design</h4><div class="solves">Solves: slow, unconvincing site</div><p>Fast, conversion-focused websites that turn traffic into booked calls.</p></div>
+      <div class="svc-card"><div class="ic">✍️</div><h4>Content</h4><div class="solves">Solves: nothing to rank or share</div><p>Content and email that keep you top-of-mind and feed both SEO and social.</p></div>
+      <div class="svc-card"><div class="ic">📍</div><h4>Local SEO</h4><div class="solves">Solves: losing the map pack</div><p>Google Business Profile, reviews and local landing pages built for "near me" search.</p></div>
+    </div>
 
-  <section class="wrap k-section" style="padding-top:0">
-    <div class="eyebrow">What Powers The State</div>
-    <h2 style="font-size:clamp(28px,5vw,40px);margin-top:14px">The five pillars of <span style="color:var(--accent)">California's economy</span></h2>
-    <p style="font-size:15px;color:var(--muted);line-height:1.65;margin-top:14px;max-width:600px;font-weight:500">From Silicon Valley to the Central Valley — the industries shaping who's searching, and what they're searching for.</p>
-    <div class="pillar-grid" style="margin-top:30px">
-      <div class="pillar-card">
-        <div class="pillar-photo"><span class="pillar-num">01</span></div>
-        <div class="pillar-body">
-          <div class="pillar-title-row"><span class="pillar-icon">💻</span><span class="pillar-title">Silicon Valley</span></div>
-          <div class="pillar-tag">→ Global Tech &amp; Software Hub</div>
-          <p class="pillar-desc">The world's best-known technology corridor, anchoring California's software, hardware and venture-capital economy.</p>
-        </div>
+    <div class="pillar-row">
+      <div class="pillar"><div class="ic">💻</div><h4>Silicon Valley</h4><p>The world's best-known technology corridor, anchoring software, hardware and venture capital.</p></div>
+      <div class="pillar"><div class="ic">🎬</div><h4>Hollywood & Entertainment</h4><p>Los Angeles anchors the world's largest film, TV and media production economy.</p></div>
+      <div class="pillar"><div class="ic">🌾</div><h4>Central Valley Agriculture</h4><p>One of the most productive agricultural regions in the world.</p></div>
+    </div>
+
+    <div class="process-row">
+      <div class="proc"><div class="num">01</div><h4>Free Audit</h4><p>We analyse your site, ads and California competitors — report in 48 hours.</p></div>
+      <div class="proc"><div class="num">02</div><h4>Strategy</h4><p>A 90-day roadmap with clear channels, budgets and targets.</p></div>
+      <div class="proc"><div class="num">03</div><h4>Execute</h4><p>We launch campaigns and build assets — you focus on your business.</p></div>
+      <div class="proc"><div class="num">04</div><h4>Scale</h4><p>We double down on what works, reported in plain numbers monthly.</p></div>
+    </div>
+
+    <div class="diff-row">
+      <div class="diff-list">
+        <div class="diff-item"><span class="chk">✓</span><div><b>Everything in-house</b><span>SEO, ads, social, web and content — one strategy, no hand-offs between freelancers.</span></div></div>
+        <div class="diff-item"><span class="chk">✓</span><div><b>Free 48-hour audit before you commit</b><span>You see exactly what we'd fix before spending a dollar.</span></div></div>
+        <div class="diff-item"><span class="chk">✓</span><div><b>Every dollar tracked to a lead or sale</b><span>Monthly reporting on real numbers, not vanity metrics.</span></div></div>
       </div>
-      <div class="pillar-card">
-        <div class="pillar-photo"><span class="pillar-num">02</span></div>
-        <div class="pillar-body">
-          <div class="pillar-title-row"><span class="pillar-icon">🎬</span><span class="pillar-title">Hollywood &amp; Entertainment</span></div>
-          <div class="pillar-tag">→ Film, TV &amp; Media Capital</div>
-          <p class="pillar-desc">Los Angeles anchors the world's largest entertainment and media production economy.</p>
-        </div>
-      </div>
-      <div class="pillar-card">
-        <div class="pillar-photo"><span class="pillar-num">03</span></div>
-        <div class="pillar-body">
-          <div class="pillar-title-row"><span class="pillar-icon">🌾</span><span class="pillar-title">Central Valley Agriculture</span></div>
-          <div class="pillar-tag">→ America's Farm Belt</div>
-          <p class="pillar-desc">One of the most productive agricultural regions in the world, supplying much of the country's fruit and vegetables.</p>
-        </div>
-      </div>
-      <div class="pillar-card">
-        <div class="pillar-photo"><span class="pillar-num">04</span></div>
-        <div class="pillar-body">
-          <div class="pillar-title-row"><span class="pillar-icon">🚢</span><span class="pillar-title">Ports of LA &amp; Long Beach</span></div>
-          <div class="pillar-tag">→ Largest US Trade Gateway</div>
-          <p class="pillar-desc">The busiest container port complex in the country, anchoring West Coast trade and logistics.</p>
-        </div>
-      </div>
-      <div class="pillar-card">
-        <div class="pillar-photo"><span class="pillar-num">05</span></div>
-        <div class="pillar-body">
-          <div class="pillar-title-row"><span class="pillar-icon">🌱</span><span class="pillar-title">Clean Energy &amp; Climate Tech</span></div>
-          <div class="pillar-tag">→ Leading US Clean-Tech Market</div>
-          <p class="pillar-desc">A national leader in renewable energy, EVs and climate-focused startups, driving new local-service demand.</p>
-        </div>
+      <div class="mid-cta">
+        <h4>Ready to see where you stand?</h4>
+        <p>Get a full, honest breakdown of your site, ads and competitors — free, no obligation.</p>
+        <a href="/free-audit/">Get Your Free Audit →</a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <section class="wrap k-section" style="padding-top:0">
-    <div class="growth-grid">
+<section class="bofu-zone" id="bofu">
+  <div class="wrap">
+    <div class="stage-eyebrow on-dark">3 · DECISION</div>
+    <div class="guarantee">
+      <div class="seal"><b>0</b><span>LOCK-IN<br>CONTRACTS</span></div>
       <div>
-        <div class="eyebrow">Business Growth &amp; Marketing</div>
-        <h2 style="font-size:clamp(26px,4vw,32px);margin-top:14px">Going online is the new going to market.</h2>
-        <p style="font-size:15px;color:var(--muted);line-height:1.68;margin-top:16px;font-weight:500">California customers research on their phones before they buy, whether that's a plumber in Fresno or a SaaS tool in San Francisco. Discovery starts on Google and Instagram, trust is built through reviews and content, and the businesses that show up consistently are the ones that win the customer.</p>
-        <div class="growth-points">
-          <div class="gpoint"><span class="gpoint-dot"></span><div><div class="gpoint-title">Online-first consumers</div><div class="gpoint-sub">A mobile, research-driven audience across every major metro.</div></div></div>
-          <div class="gpoint"><span class="gpoint-dot"></span><div><div class="gpoint-title">Highly competitive search</div><div class="gpoint-sub">California markets rank among the most contested in US search and paid media.</div></div></div>
-          <div class="gpoint"><span class="gpoint-dot"></span><div><div class="gpoint-title">Local trust still decides</div><div class="gpoint-sub">Reviews, local SEO and consistent presence outperform one-off ad spend.</div></div></div>
-        </div>
-      </div>
-      <div class="growth-card">
-        <div class="chart-head"><span class="chart-name">DIGITAL-FIRST BUYING BEHAVIOUR</span><span class="chart-val">▲ trending up</span></div>
-        <div class="chart-bars">
-          <div style="height:36%;background:var(--line)"></div>
-          <div style="height:50%;background:var(--line)"></div>
-          <div style="height:62%;background:var(--accent-light)"></div>
-          <div style="height:80%;background:var(--accent)"></div>
-          <div style="height:100%;background:var(--accent-dark)"></div>
-        </div>
-        <div class="chart-labels"><span>2021</span><span>2022</span><span>2023</span><span>2024</span><span>now</span></div>
-        <div class="chart-fn">Illustrative trend, not a tracked metric.</div>
+        <h3>No contracts. Cancel anytime. You only stay because it's working.</h3>
+        <p>Most agencies lock you into 6–12 months before you know if it's working. We don't. Every engagement is month-to-month — if the results stop, so can you, no penalty, no fine print.</p>
       </div>
     </div>
-  </section>
 
-  <section class="wrap k-section" style="padding-top:0">
-    <div class="eyebrow">GLIMPSES OF CALIFORNIA</div>
-    <h2 style="font-size:clamp(28px,5vw,40px);margin-top:14px">A state of innovation, culture <span style="color:var(--accent)">&amp; opportunity</span></h2>
-    <p style="font-size:15px;color:var(--muted);line-height:1.65;margin-top:14px;max-width:400px;font-weight:500">From the Golden Gate to Big Sur — real photography coming soon.</p>
-    <div class="photo-grid" style="margin-top:26px">
-      <div class="photo-cell wide"><div class="photo-cell-label">Golden Gate Bridge, San Francisco</div></div>
-      <div class="photo-cell"><div class="photo-cell-label">Hollywood Sign, Los Angeles</div></div>
-      <div class="photo-cell"><div class="photo-cell-label">Yosemite National Park</div></div>
-      <div class="photo-cell"><div class="photo-cell-label">Big Sur coastline</div></div>
-      <div class="photo-cell"><div class="photo-cell-label">Silicon Valley, San Jose</div></div>
+    <div class="faq-head">
+      <h2>Before you book a call</h2>
     </div>
-  </section>
+    <div class="faq-list">
+      <details class="faq-item" open><summary><span>How much does it cost?</span><span class="plus">+</span></summary><p>There's no one-size-fits-all price. We build a plan around your goals and budget and quote transparently after your free audit — no hidden fees.</p></details>
+      <details class="faq-item"><summary><span>How soon will I see results?</span><span class="plus">+</span></summary><p>Paid ads can drive leads within weeks; SEO typically builds over 3–6 months. Your free audit includes a realistic, honest timeline for your specific goals.</p></details>
+      <details class="faq-item"><summary><span>What if it doesn't work for my business?</span><span class="plus">+</span></summary><p>Because there's no lock-in, you're never stuck. We'd rather lose you than keep charging for something that isn't moving the needle.</p></details>
+      <details class="faq-item"><summary><span>Do you work with small California businesses, not just big companies?</span><span class="plus">+</span></summary><p>Yes — small and growing businesses are exactly who we serve. Every campaign is scoped to your actual budget, not a one-size template.</p></details>
+    </div>
 
-  <section class="wrap k-section" style="padding-top:0">
-    <div class="k-cta-band">
-      <h2>California's digital growth story<br>is <span class="grad">just beginning.</span></h2>
-      <p>We're proud to be part of it — telling local stories with technology, creativity, and craft.</p>
-      <a href="/contact/" class="btn-primary">Book a free strategy call →</a>
-      <a href="/free-audit/" class="k-cta-band-sub">Or run a free instant audit of your site →</a>
+    <div class="final-cta">
+      <h2>Talk to a strategist — your first call and audit are free.</h2>
+      <p>No pressure, no scripted sales pitch. Just a clear look at what's possible for your California business.</p>
+      <div class="final-btns">
+        <a href="/contact/" class="btn-white">Book Your Free Strategy Call →</a>
+        <a href="/free-audit/" class="btn-outline-w">Run My Free Audit First</a>
+      </div>
+      <div class="final-fn">No contracts · No hidden fees · Cancel anytime</div>
     </div>
-  </section>
+  </div>
+</section>
 </main>
 <footer class="k-footer">
   <div class="wrap">
@@ -461,6 +470,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       var open=links.style.display==='flex';
       links.style.cssText=open?'':'display:flex;flex-direction:column;align-items:flex-start;gap:14px;position:absolute;top:100%;left:0;right:0;background:var(--surface);padding:20px 32px;border-bottom:1px solid var(--line);box-shadow:0 18px 40px -18px rgba(22,20,35,.18);max-height:80vh;overflow-y:auto';
     });
+  }
+
+  var items = document.querySelectorAll('.rail-item');
+  var sections = ['tofu','mofu','bofu'].map(function(id){ return document.getElementById(id); });
+  function setActive(id){
+    items.forEach(function(it){ it.classList.toggle('active', it.dataset.t === id); });
+  }
+  if (sections[0] && 'IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting) setActive(e.target.id); });
+    }, { rootMargin: '-40% 0px -40% 0px', threshold: 0 });
+    sections.forEach(function(s){ if(s) io.observe(s); });
+    setActive('tofu');
   }
 })();
 </script>
