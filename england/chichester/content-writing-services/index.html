@@ -30,6 +30,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .trust-strip{display:flex;gap:9px;flex-wrap:wrap;margin-top:22px}
 .trust-chip{font-size:11.5px;font-weight:700;color:var(--muted);background:var(--surface);border:1px solid var(--line);padding:7px 12px;border-radius:100px;display:flex;align-items:center;gap:6px}
 .trust-chip b{color:#1F8B5C}
+.facts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:14px;margin-top:26px}
+.fact-item{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;font-size:13.5px;color:var(--muted);line-height:1.62;font-weight:500}
 .incl-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px}
 @media(max-width:700px){.incl-grid{grid-template-columns:1fr}}
 .incl-item{display:flex;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
@@ -161,7 +163,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="loc-hero-grid">
       <div>
         <div class="k-badge"><i></i>Content Writing · Chichester</div>
-        <h1>Content writing for Chichester businesses that ranks and reads well.</h1>
+        <h1>Chichester website and blog copy, written to rank and convert.</h1>
         <p class="desc">Website copy, blog content and email that keep your Chichester business top-of-mind and feed both SEO and social — written by people, not spun from a template.</p>
         <div class="loc-hero-btns">
           <a href="/contact/" class="btn-primary">Book Free Consultation</a>
@@ -183,7 +185,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </header>
 
-  <section class="wrap k-section">
+  <section class="wrap k-section" style="padding-top:0">
+    <div class="eyebrow">About Chichester</div>
+    <h2 style="font-size:clamp(24px,4vw,32px);margin-top:12px">What makes Chichester different</h2>
+    <div class="facts-grid">
+      <div class="fact-item">Chichester Cathedral traces its origins to 1075 and stands on the site of the Roman town of Noviomagus Reginorum, whose street plan still underlies the modern city centre.</div>
+      <div class="fact-item">The Chichester Festival Theatre, opened in 1962, has an internationally regarded reputation and has launched many major stage productions.</div>
+      <div class="fact-item">Chichester Harbour, a large natural harbour and nature reserve, borders the city and is a noted centre for sailing.</div>
+    </div>
+  </section>
+
+  <section class="wrap k-section" style="padding-top:0">
     <div class="eyebrow">What's Included</div>
     <h2 style="font-size:clamp(24px,4vw,32px);margin-top:12px">Content Writing for Chichester businesses</h2>
     <div class="incl-grid">
@@ -197,7 +209,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="wrap k-section" style="padding-top:0">
     <div class="why-box">
       <div class="eyebrow" style="margin-bottom:10px">Why It Matters In Chichester</div>
-      <p>Thin or generic content doesn't rank and doesn't convert. We write specifically for Chichester businesses and the customers actually searching for what you offer.</p>
+      <p>Generic, templated copy is easy to spot and easy to skip past. We write content grounded in what Chichester customers are actually searching for and asking.</p>
     </div>
   </section>
 
@@ -216,10 +228,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="eyebrow">FAQ</div>
     <h2 style="font-size:clamp(24px,4vw,32px);margin-top:12px">Common questions</h2>
     <div class="faq-list">
-      <details class="faq-item"><summary><span>How much does it cost?</span><span class="plus">+</span></summary><p>There's no one-size-fits-all price. We build a plan around your goals and budget and quote transparently after your free audit — no hidden fees.</p></details>
-      <details class="faq-item"><summary><span>How soon will I see results?</span><span class="plus">+</span></summary><p>Paid channels can drive enquiries within weeks; SEO and content typically build over 3–6 months. Your free audit includes a realistic, honest timeline.</p></details>
-      <details class="faq-item"><summary><span>Is there a long-term contract?</span><span class="plus">+</span></summary><p>No. We work month-to-month — you stay because it's working, not because you're locked in.</p></details>
-      <details class="faq-item"><summary><span>Do you work with small businesses in Chichester?</span><span class="plus">+</span></summary><p>Yes — small and growing businesses across Chichester and the wider England area are exactly who we serve. Every campaign is scoped to your actual budget.</p></details>
+      <details class="faq-item"><summary><span>What will this actually cost me?</span><span class="plus">+</span></summary><p>It depends entirely on your goals and starting point, so we don't quote blind. You'll get a transparent, itemised quote after your free audit — no hidden add-ons.</p></details>
+      <details class="faq-item"><summary><span>When will I actually see a difference?</span><span class="plus">+</span></summary><p>Paid ads tend to bring enquiries within the first few weeks; SEO and content are a slower build, usually 3–6 months. We'll give you a specific, honest timeline in your free audit rather than a generic promise.</p></details>
+      <details class="faq-item"><summary><span>Am I locked into a long contract?</span><span class="plus">+</span></summary><p>No — everything runs month-to-month. If it stops working for you, you can stop. Simple as that.</p></details>
+      <details class="faq-item"><summary><span>Do you only work with big companies, or small Chichester businesses too?</span><span class="plus">+</span></summary><p>Small and independently owned Chichester businesses are most of who we work with, not the exception. Every plan is scoped to what you can actually spend, not a package built for a bigger budget.</p></details>
     </div>
   </section>
 
@@ -346,6 +358,6 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   }
 })();
 </script>
-<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://kryvexmedia.com/"},{"@type":"ListItem","position":2,"name":"UK","item":"https://kryvexmedia.com/uk/"},{"@type":"ListItem","position":3,"name":"England","item":"https://kryvexmedia.com/england/"},{"@type":"ListItem","position":4,"name":"Chichester","item":"https://kryvexmedia.com/england/chichester/content-writing-services/"}]},{"@type":"Service","serviceType":"Content Writing","name":"Content Writing Services in Chichester, England","areaServed":{"@type":"City","name":"Chichester"},"provider":{"@type":"Organization","name":"Kryvex Media","email":"info@kryvexmedia.com","areaServed":"Chichester, England, UK"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does it cost?","acceptedAnswer":{"@type":"Answer","text":"There's no one-size-fits-all price. We build a plan around your goals and budget and quote transparently after your free audit — no hidden fees."}},{"@type":"Question","name":"How soon will I see results?","acceptedAnswer":{"@type":"Answer","text":"Paid channels can drive enquiries within weeks; SEO and content typically build over 3–6 months. Your free audit includes a realistic, honest timeline."}},{"@type":"Question","name":"Is there a long-term contract?","acceptedAnswer":{"@type":"Answer","text":"No. We work month-to-month — you stay because it's working, not because you're locked in."}},{"@type":"Question","name":"Do you work with small businesses in Chichester?","acceptedAnswer":{"@type":"Answer","text":"Yes — small and growing businesses across Chichester and the wider England area are exactly who we serve. Every campaign is scoped to your actual budget."}}]}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://kryvexmedia.com/"},{"@type":"ListItem","position":2,"name":"UK","item":"https://kryvexmedia.com/uk/"},{"@type":"ListItem","position":3,"name":"England","item":"https://kryvexmedia.com/england/"},{"@type":"ListItem","position":4,"name":"Chichester","item":"https://kryvexmedia.com/england/chichester/content-writing-services/"}]},{"@type":"Service","serviceType":"Content Writing","name":"Content Writing Services in Chichester, England","areaServed":{"@type":"City","name":"Chichester"},"provider":{"@type":"Organization","name":"Kryvex Media","email":"info@kryvexmedia.com","areaServed":"Chichester, England, UK"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What will this actually cost me?","acceptedAnswer":{"@type":"Answer","text":"It depends entirely on your goals and starting point, so we don't quote blind. You'll get a transparent, itemised quote after your free audit — no hidden add-ons."}},{"@type":"Question","name":"When will I actually see a difference?","acceptedAnswer":{"@type":"Answer","text":"Paid ads tend to bring enquiries within the first few weeks; SEO and content are a slower build, usually 3–6 months. We'll give you a specific, honest timeline in your free audit rather than a generic promise."}},{"@type":"Question","name":"Am I locked into a long contract?","acceptedAnswer":{"@type":"Answer","text":"No — everything runs month-to-month. If it stops working for you, you can stop. Simple as that."}},{"@type":"Question","name":"Do you only work with big companies, or small Chichester businesses too?","acceptedAnswer":{"@type":"Answer","text":"Small and independently owned Chichester businesses are most of who we work with, not the exception. Every plan is scoped to what you can actually spend, not a package built for a bigger budget."}}]}]}</script>
 </body>
 </html>

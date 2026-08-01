@@ -30,6 +30,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .trust-strip{display:flex;gap:9px;flex-wrap:wrap;margin-top:22px}
 .trust-chip{font-size:11.5px;font-weight:700;color:var(--muted);background:var(--surface);border:1px solid var(--line);padding:7px 12px;border-radius:100px;display:flex;align-items:center;gap:6px}
 .trust-chip b{color:#1F8B5C}
+.facts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:14px;margin-top:26px}
+.fact-item{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;font-size:13.5px;color:var(--muted);line-height:1.62;font-weight:500}
 .incl-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px}
 @media(max-width:700px){.incl-grid{grid-template-columns:1fr}}
 .incl-item{display:flex;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
@@ -183,7 +185,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </header>
 
-  <section class="wrap k-section">
+  <section class="wrap k-section" style="padding-top:0">
+    <div class="eyebrow">About Liverpool</div>
+    <h2 style="font-size:clamp(24px,4vw,32px);margin-top:12px">What makes Liverpool different</h2>
+    <div class="facts-grid">
+      <div class="fact-item">Liverpool is the birthplace of The Beatles, and sites linked to the band, including The Cavern Club, remain major visitor attractions.</div>
+      <div class="fact-item">Liverpool's historic waterfront was inscribed as a UNESCO World Heritage Site in 2004, a status the city held until it was controversially delisted in 2021.</div>
+      <div class="fact-item">Liverpool Cathedral, completed in 1978, is the largest cathedral in Britain and one of the largest Anglican cathedrals in the world.</div>
+    </div>
+  </section>
+
+  <section class="wrap k-section" style="padding-top:0">
     <div class="eyebrow">What's Included</div>
     <h2 style="font-size:clamp(24px,4vw,32px);margin-top:12px">Google Ads (PPC) for Liverpool businesses</h2>
     <div class="incl-grid">
@@ -197,7 +209,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="wrap k-section" style="padding-top:0">
     <div class="why-box">
       <div class="eyebrow" style="margin-bottom:10px">Why It Matters In Liverpool</div>
-      <p>Running ads without a conversion-ready site or proper tracking means paying for clicks that were never going to become customers. We fix the whole funnel, not just the ad account.</p>
+      <p>Most wasted ad spend in Liverpool doesn't come from bad targeting — it comes from sending clicks to a site or landing page that was never going to convert them.</p>
     </div>
   </section>
 

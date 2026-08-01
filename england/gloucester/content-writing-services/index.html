@@ -30,6 +30,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .trust-strip{display:flex;gap:9px;flex-wrap:wrap;margin-top:22px}
 .trust-chip{font-size:11.5px;font-weight:700;color:var(--muted);background:var(--surface);border:1px solid var(--line);padding:7px 12px;border-radius:100px;display:flex;align-items:center;gap:6px}
 .trust-chip b{color:#1F8B5C}
+.facts-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,280px),1fr));gap:14px;margin-top:26px}
+.fact-item{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px 20px;font-size:13.5px;color:var(--muted);line-height:1.62;font-weight:500}
 .incl-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px}
 @media(max-width:700px){.incl-grid{grid-template-columns:1fr}}
 .incl-item{display:flex;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:18px}
@@ -183,7 +185,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </header>
 
-  <section class="wrap k-section">
+  <section class="wrap k-section" style="padding-top:0">
+    <div class="eyebrow">About Gloucester</div>
+    <h2 style="font-size:clamp(24px,4vw,32px);margin-top:12px">What makes Gloucester different</h2>
+    <div class="facts-grid">
+      <div class="fact-item">Gloucester Cathedral's cloisters, with their fan-vaulted ceiling, were used as a filming location for the Hogwarts scenes in the Harry Potter films.</div>
+      <div class="fact-item">Gloucester Docks, an inland port linked to the Severn Estuary by canal, preserve one of the country's best collections of Victorian warehouses.</div>
+      <div class="fact-item">Gloucester Cathedral holds the tomb of King Edward II, whose burial there in 1327 made the city an important medieval pilgrimage site.</div>
+    </div>
+  </section>
+
+  <section class="wrap k-section" style="padding-top:0">
     <div class="eyebrow">What's Included</div>
     <h2 style="font-size:clamp(24px,4vw,32px);margin-top:12px">Content Writing for Gloucester businesses</h2>
     <div class="incl-grid">
@@ -197,7 +209,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <section class="wrap k-section" style="padding-top:0">
     <div class="why-box">
       <div class="eyebrow" style="margin-bottom:10px">Why It Matters In Gloucester</div>
-      <p>Thin or generic content doesn't rank and doesn't convert. We write specifically for Gloucester businesses and the customers actually searching for what you offer.</p>
+      <p>Search engines and readers both notice thin content. We write in enough depth that Gloucester customers get a real answer, and Google has a real reason to rank it.</p>
     </div>
   </section>
 
