@@ -129,6 +129,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .btn-white{background:#fff;color:var(--accent-dark);text-decoration:none;font-weight:800;font-size:14.5px;padding:15px 26px;border-radius:11px}
 .btn-outline-w{background:rgba(255,255,255,.08);border:1.5px solid rgba(255,255,255,.28);color:#fff;text-decoration:none;font-weight:700;font-size:14.5px;padding:14px 22px;border-radius:11px}
 .final-fn{font-size:11px;color:rgba(255,255,255,.5);margin-top:16px;font-weight:600}
+
+.cities-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,180px),1fr));gap:12px;margin-top:34px}
+.city-chip{display:flex;align-items:center;gap:10px;padding:14px 16px;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--ink);font-weight:700;font-size:14.5px;text-decoration:none;transition:.15s;position:relative}
+.city-chip::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);flex:none;opacity:.55;transition:.15s}
+.city-chip:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);box-shadow:0 6px 18px rgba(112,70,182,.10)}
+.city-chip:hover::before{opacity:1;transform:scale(1.25)}
 </style>
 <link rel="canonical" href="https://kryvexmedia.com/northern-ireland/">
 <meta property="og:url" content="https://kryvexmedia.com/northern-ireland/">
@@ -330,6 +336,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <a href="/free-audit/">Get Your Free Audit →</a>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="wrap k-section" id="cities" style="padding-top:0">
+  <div class="eyebrow">Cities We Serve</div>
+  <h2 style="font-size:clamp(24px,4vw,32px);margin-top:12px">Every Northern Ireland city we work in</h2>
+  <p style="font-size:14.5px;color:var(--muted);line-height:1.6;margin-top:10px;max-width:600px;font-weight:500">Pick your city for a dedicated page covering SEO, PPC, social, web design, content writing, local SEO and more.</p>
+  <div class="cities-grid">
+      <a href="/northern-ireland/belfast/performance-marketing-agency/" class="city-chip">Belfast</a>
+      <a href="/northern-ireland/derry/performance-marketing-agency/" class="city-chip">Derry</a>
+      <a href="/northern-ireland/armagh/performance-marketing-agency/" class="city-chip">Armagh</a>
+      <a href="/northern-ireland/lisburn/performance-marketing-agency/" class="city-chip">Lisburn</a>
+      <a href="/northern-ireland/newry/performance-marketing-agency/" class="city-chip">Newry</a>
+      <a href="/northern-ireland/bangor-ni/performance-marketing-agency/" class="city-chip">Bangor</a>
   </div>
 </section>
 
