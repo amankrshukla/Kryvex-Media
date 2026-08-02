@@ -73,7 +73,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:30px}
 @media(max-width:800px){.svc-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:520px){.svc-grid{grid-template-columns:1fr}}
-.svc-card{background:var(--surface);border:1px solid var(--line);border-radius:13px;padding:18px}
+.svc-card{display:block;text-decoration:none;color:inherit;background:var(--surface);border:1px solid var(--line);border-radius:13px;padding:18px;transition:border-color .2s,transform .2s}
+.svc-card:hover{border-color:var(--accent);transform:translateY(-2px)}
 .svc-card .ic{font-size:17px}
 .svc-card h4{font-size:13.5px;font-weight:800;margin-top:9px}
 .svc-card .solves{font-size:10px;color:var(--accent);font-weight:800;margin-top:7px;text-transform:uppercase;letter-spacing:.03em}
@@ -300,12 +301,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p>Not a features list — here's exactly what each service solves, so you can see what you actually need before you talk to us.</p>
     </div>
     <div class="svc-grid">
-      <div class="svc-card"><div class="ic">🔍</div><h4>SEO</h4><div class="solves">Solves: invisible on Google</div><p>Technical, on-page and content SEO that gets you found for what customers actually search.</p></div>
-      <div class="svc-card"><div class="ic">🎯</div><h4>Paid Ads (PPC)</h4><div class="solves">Solves: wasted ad spend</div><p>Google &amp; Meta campaigns built for return, with every dollar tracked to a lead or sale.</p></div>
-      <div class="svc-card"><div class="ic">📱</div><h4>Social Media</h4><div class="solves">Solves: no brand presence</div><p>Content and community management that builds a following people actually buy from.</p></div>
-      <div class="svc-card"><div class="ic">💻</div><h4>Web Design</h4><div class="solves">Solves: slow, unconvincing site</div><p>Fast, conversion-focused websites that turn traffic into booked calls.</p></div>
-      <div class="svc-card"><div class="ic">✍️</div><h4>Content</h4><div class="solves">Solves: nothing to rank or share</div><p>Content and email that keep you top-of-mind and feed both SEO and social.</p></div>
-      <div class="svc-card"><div class="ic">📍</div><h4>Local SEO</h4><div class="solves">Solves: losing the map pack</div><p>Google Business Profile, reviews and local landing pages built for "near me" search.</p></div>
+      <a href="/services/seo/" class="svc-card"><div class="ic">🔍</div><h4>SEO</h4><div class="solves">Solves: invisible on Google</div><p>Technical, on-page and content SEO that gets you found for what customers actually search.</p></a>
+      <a href="/services/ppc/" class="svc-card"><div class="ic">🎯</div><h4>Paid Ads (PPC)</h4><div class="solves">Solves: wasted ad spend</div><p>Google &amp; Meta campaigns built for return, with every dollar tracked to a lead or sale.</p></a>
+      <a href="/services/social-media/" class="svc-card"><div class="ic">📱</div><h4>Social Media</h4><div class="solves">Solves: no brand presence</div><p>Content and community management that builds a following people actually buy from.</p></a>
+      <a href="/services/web-design/" class="svc-card"><div class="ic">💻</div><h4>Web Design</h4><div class="solves">Solves: slow, unconvincing site</div><p>Fast, conversion-focused websites that turn traffic into booked calls.</p></a>
+      <a href="/services/content-marketing/" class="svc-card"><div class="ic">✍️</div><h4>Content</h4><div class="solves">Solves: nothing to rank or share</div><p>Content and email that keep you top-of-mind and feed both SEO and social.</p></a>
+      <a href="/services/local-seo/" class="svc-card"><div class="ic">📍</div><h4>Local SEO</h4><div class="solves">Solves: losing the map pack</div><p>Google Business Profile, reviews and local landing pages built for "near me" search.</p></a>
     </div>
 
     <div class="pillar-row">
