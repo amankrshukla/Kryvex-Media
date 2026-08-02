@@ -116,6 +116,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .region-chip::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--accent);flex:none;opacity:.55;transition:.15s}
 .region-chip:hover{border-color:var(--accent);color:var(--accent);transform:translateY(-2px);box-shadow:0 6px 18px rgba(112,70,182,.10)}
 .region-chip:hover::before{opacity:1;transform:scale(1.25)}
+.sg-badge-icon{flex:none;animation:sgFloat 3.4s ease-in-out infinite}
+@keyframes sgFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease,transform .6s ease}
+.reveal.in{opacity:1;transform:translateY(0)}
+@media(prefers-reduced-motion:reduce){.sg-badge-icon{animation:none}.reveal{transition:none;opacity:1;transform:none}}
 
 </style>
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
@@ -224,7 +229,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
     </div>
-    <a href="/contact/" class="k-nav-cta">Book Free Consultation</a>
+    <a href="/contact/" class="k-nav-cta">Schedule an Appointment</a>
     <button class="k-burger" id="mnb" aria-label="Open menu"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
   </div>
 </header>
@@ -239,8 +244,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h1>Digital marketing that grows <span style="color:var(--accent)">Singapore businesses.</span></h1>
         <p class="desc">We help Singapore small businesses and startups win customers online — with conversion-focused websites and Google &amp; Meta campaigns engineered for ROI.</p>
         <div class="loc-hero-btns">
-          <a href="/contact/" class="btn-primary">Book Free Consultation</a>
-          <a href="/free-audit/" class="btn-ghost">Get Free Audit Report →</a>
+          <a href="/contact/" class="btn-primary">Schedule an Appointment →</a>
+          <a href="#regions" class="btn-ghost">See Our Regions ↓</a>
         </div>
         <p class="loc-hero-note">Across the island, we put Singapore businesses on the digital map — pick your region below.</p>
       </div>
@@ -272,7 +277,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="stats-bar">
       <div><div class="val">100%</div><div class="lbl">Local-first strategy</div></div>
       <div><div class="val">5</div><div class="lbl">Services under one roof</div></div>
-      <div><div class="val">48h</div><div class="lbl">Free audit turnaround</div></div>
+      <div><div class="val">Free</div><div class="lbl">First consultation</div></div>
       <div><div class="val accent">0</div><div class="lbl">Lock-in contracts</div></div>
     </div>
   </section>
@@ -292,7 +297,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </section>
 
   <section class="wrap k-section" id="regions" style="padding-top:0">
-    <div class="eyebrow">Regions We Serve</div>
+    <div class="eyebrow" style="display:flex;align-items:center;gap:7px"><svg class="sg-badge-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="11" fill="#EF3340"/><path d="M10 6a6 6 0 1 0 6.8 7.6A5 5 0 1 1 10 6Z" fill="#fff"/><g fill="#fff"><rect x="14.3" y="6.6" width="2" height="2" transform="rotate(45 15.3 7.6)"/><rect x="17.2" y="9.4" width="2" height="2" transform="rotate(45 18.2 10.4)"/><rect x="17.8" y="13" width="2" height="2" transform="rotate(45 18.8 14)"/><rect x="15.4" y="16" width="2" height="2" transform="rotate(45 16.4 17)"/><rect x="12.2" y="15.4" width="2" height="2" transform="rotate(45 13.2 16.4)"/></g></svg>Regions We Serve</div>
     <h2 style="font-size:clamp(24px,4vw,32px);margin-top:12px">Every Singapore region we work in</h2>
     <p style="font-size:14.5px;color:var(--muted);line-height:1.6;margin-top:10px;max-width:600px;font-weight:500">Singapore is one city, so we organise by the 5 official URA regions — pick yours for local businesses and services near you.</p>
     <div class="regions-grid">
@@ -302,6 +307,34 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <a href="/singapore/north-east/" class="region-chip">North-East</a>
       <a href="/singapore/west/" class="region-chip">West</a>
     </div>
+  </section>
+
+  <section class="wrap k-section reveal" style="padding-top:0">
+    <div class="sec-head center">
+      <div class="eyebrow">Singapore Digital Snapshot</div>
+      <h2>Why digital marketing matters in Singapore</h2>
+      <p style="font-size:14.5px;color:var(--muted);line-height:1.6;margin-top:10px;max-width:600px;font-weight:500;margin-left:auto;margin-right:auto">Singapore has one of the highest rates of internet and mobile adoption in the world — the businesses that show up well online capture a disproportionate share of local demand.</p>
+    </div>
+    <div class="stats-bar" style="margin-top:30px">
+      <div><div class="val">98.4%</div><div class="lbl">Internet penetration</div></div>
+      <div><div class="val">90.6%</div><div class="lbl">Social media penetration</div></div>
+      <div><div class="val">92%+</div><div class="lbl">Use a smartphone daily</div></div>
+      <div><div class="val accent">70.1%</div><div class="lbl">Of e-commerce spend is mobile</div></div>
+    </div>
+    <p style="font-size:11px;color:var(--muted);font-weight:600;margin-top:14px;text-align:center">Source: DataReportal "Digital 2026: Singapore" and IMDA. National averages, not company-specific results.</p>
+  </section>
+
+  <section class="wrap k-section reveal" style="padding-top:0">
+    <div class="sec-head center">
+      <div class="eyebrow">For Singapore SMEs</div>
+      <h2>Grants &amp; digital support available to your business</h2>
+    </div>
+    <div class="wcu-grid">
+      <div class="wcu-card"><div class="emoji">🏛️</div><h3>Productivity Solutions Grant (PSG)</h3><p>Supports up to 50% of costs (enhanced to up to 70% for SMEs from 1 April 2026) for pre-approved digital solutions, including digital marketing, e-commerce and CRM tools, capped at S$30,000 per company per year.</p></div>
+      <div class="wcu-card"><div class="emoji">📈</div><h3>Enterprise Development Grant (EDG)</h3><p>Supports up to 50% (up to 70% for sustainability projects) of costs for larger business transformation projects, including digital and marketing capability upgrades.</p></div>
+      <div class="wcu-card"><div class="emoji">🔄</div><h3>EDGE (from 2H 2026)</h3><p>A new unified scheme streamlining MRA, PSG and EDG into a single application. Existing grants stay accessible until it launches.</p></div>
+    </div>
+    <p style="font-size:11.5px;color:var(--muted);font-weight:500;margin-top:18px;max-width:680px;line-height:1.6">We're a marketing agency, not a grants consultant — this is general information, not advice, and eligibility changes over time. Check current criteria directly with <a href="https://www.enterprisesg.gov.sg/" target="_blank" rel="noopener noreferrer" style="color:var(--accent);text-decoration:underline">Enterprise Singapore</a> before applying. Many digital marketing and web design costs fall under grant-eligible categories, which is worth factoring into your budget conversation with us.</p>
   </section>
 
   <section class="wrap k-section" style="padding-top:0">
@@ -325,7 +358,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h2>A clear path from audit to growth</h2>
     </div>
     <div class="proc-grid4">
-      <div class="proc-box"><div class="num">01</div><h3>Free Audit</h3><p>We analyse your site, ads and Singapore competitors — report in 48 hours.</p></div>
+      <div class="proc-box"><div class="num">01</div><h3>Discovery Call</h3><p>We learn about your business, goals and Singapore competitors on a short call.</p></div>
       <div class="proc-box"><div class="num">02</div><h3>Strategy</h3><p>A custom 90-day roadmap with clear channels, budgets and targets.</p></div>
       <div class="proc-box"><div class="num">03</div><h3>Execute</h3><p>We launch campaigns and build assets — you focus on your business.</p></div>
       <div class="proc-box active"><div class="num">04</div><h3>Scale</h3><p>We double down on what works and report real numbers every month.</p></div>
@@ -357,7 +390,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="rev-grid">
       <div class="rev-card"><div style="font-size:34px;font-weight:800;color:var(--accent);line-height:1">5</div><p style="margin-top:10px">Core services under one roof — SEO, ads, social, web and design run by one team, so nothing falls through the gaps between freelancers.</p></div>
       <div class="rev-card"><div style="font-size:34px;font-weight:800;color:var(--accent);line-height:1">0</div><p style="margin-top:10px">Lock-in contracts. We work month to month — you stay because the work is paying for itself, and you can stop whenever it isn\'t.</p></div>
-      <div class="rev-card"><div style="font-size:34px;font-weight:800;color:var(--accent);line-height:1">48h</div><p style="margin-top:10px">Free audit turnaround. You get a clear, honest report on exactly where your Singapore business can win — with no obligation.</p></div>
+      <div class="rev-card"><div style="font-size:34px;font-weight:800;color:var(--accent);line-height:1">Free</div><p style="margin-top:10px">First consultation. You get a clear, honest read on exactly where your Singapore business can win — with no obligation.</p></div>
     </div>
   </section>
 
@@ -368,12 +401,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="mid-cta-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" style="transform-origin:center"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.3 21 3 13.7 3 4.5c0-.6.4-1 1-1H7.4c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1.1l-2.1 2.1z" fill="{ACCENT}"/></svg></div>
           <div>
             <h2>Ready to grow your Singapore business?</h2>
-            <p>Talk to a strategist today — your first call and audit are free.</p>
+            <p>Talk to a strategist today — your first call is free.</p>
           </div>
         </div>
         <div class="mid-cta-btns">
           <a href="tel:+919110170824" class="btn-call">Call +91 91101 70824</a>
-          <a href="/contact/" class="btn-outline">Book Free Consultation</a>
+          <a href="/contact/" class="btn-outline">Schedule an Appointment</a>
         </div>
       </div>
       <span class="mid-cta-support">● support online</span>
@@ -386,15 +419,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <h2>Frequently asked questions</h2>
     </div>
     <div class="faq-list">
-      <details class="faq-item"><summary><span>How soon will I see results?</span><span class="plus">+</span></summary><p>SEO typically builds over 3–6 months, while paid ads can drive leads within the first few weeks. In your free audit we give you a realistic, honest timeline for your goals.</p></details>
+      <details class="faq-item"><summary><span>How soon will I see results?</span><span class="plus">+</span></summary><p>SEO typically builds over 3–6 months, while paid ads can drive leads within the first few weeks. In your appointment we give you a realistic, honest timeline for your goals.</p></details>
       <details class="faq-item"><summary><span>Do you work with small and local businesses in Singapore?</span><span class="plus">+</span></summary><p>Absolutely — local Singapore businesses and startups are exactly who we serve. We tailor every campaign to your area, audience, and budget.</p></details>
       <details class="faq-item"><summary><span>How much does it cost?</span><span class="plus">+</span></summary><p>There's no one-size-fits-all price. We build a plan around your goals and budget and quote transparently — no hidden fees, ever.</p></details>
       <details class="faq-item"><summary><span>Is there a long-term contract?</span><span class="plus">+</span></summary><p>No long lock-ins. We offer flexible, month-to-month engagements — we'd rather earn your business with results than tie you down.</p></details>
-      <details class="faq-item"><summary><span>What's included in the free audit?</span><span class="plus">+</span></summary><p>A review of your website, ads, SEO, and competitors, delivered as a clear report within 48 hours — with no obligation to continue.</p></details>
+      <details class="faq-item"><summary><span>What's included in the free consultation?</span><span class="plus">+</span></summary><p>A review of your website, ads, SEO, and competitors, discussed on a clear, honest call — with no obligation to continue.</p></details>
       <details class="faq-item"><summary><span>Which services do I actually need?</span><span class="plus">+</span></summary><p>After the audit we recommend only the channels that will move the needle for you — never services you don't need.</p></details>
       <details class="faq-item"><summary><span>Will I get regular reports?</span><span class="plus">+</span></summary><p>Yes. You'll get a clear monthly report focused on leads and revenue — the numbers that matter, not vanity metrics.</p></details>
       <details class="faq-item"><summary><span>Do you handle content and creatives too?</span><span class="plus">+</span></summary><p>Yes — copywriting, graphic design, and video are all in-house, so your campaigns ship fast and stay on-brand.</p></details>
-      <details class="faq-item"><summary><span>How do we get started?</span><span class="plus">+</span></summary><p>Book a free consultation. We'll run your audit, walk you through the findings, and propose a 90-day growth plan — then it's your call.</p></details>
+      <details class="faq-item"><summary><span>How do we get started?</span><span class="plus">+</span></summary><p>Schedule an appointment. We'll walk you through a review of your current marketing, and propose a 90-day growth plan — then it's your call.</p></details>
     </div>
   </section>
 
@@ -402,8 +435,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="k-cta-band">
       <h2>Singapore's digital growth story is just beginning.</h2>
       <p>We're proud to be part of it — telling local stories with technology, creativity, and craft.</p>
-      <a href="/contact/" class="btn-primary">Say hello →</a>
-      <a href="/free-audit/" class="k-cta-band-sub">Or run a free instant audit of your site →</a>
+      <a href="/contact/" class="btn-primary">Schedule an Appointment →</a>
+      <a href="mailto:info@kryvexmedia.com" class="k-cta-band-sub">Or email us anytime →</a>
     </div>
   </section>
 </main>
@@ -511,6 +544,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       var open=links.style.display==='flex';
       links.style.cssText=open?'':'display:flex;flex-direction:column;align-items:flex-start;gap:14px;position:absolute;top:100%;left:0;right:0;background:var(--surface);padding:20px 32px;border-bottom:1px solid var(--line);box-shadow:0 18px 40px -18px rgba(22,20,35,.18);max-height:80vh;overflow-y:auto';
     });
+  }
+
+  if ('IntersectionObserver' in window){
+    var revealIo = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); revealIo.unobserve(e.target); } });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(function(el){ revealIo.observe(el); });
+  } else {
+    document.querySelectorAll('.reveal').forEach(function(el){ el.classList.add('in'); });
   }
 })();
 </script>
