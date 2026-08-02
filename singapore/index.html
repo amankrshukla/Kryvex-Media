@@ -102,6 +102,11 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 .mid-cta-btns .btn-outline{display:inline-flex;align-items:center;gap:9px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.28);color:#fff;text-decoration:none;font-weight:600;font-size:15.5px;padding:16px 24px;border-radius:12px;transition:background .15s}
 .mid-cta-btns .btn-outline:hover{background:rgba(255,255,255,.18)}
 .mid-cta-support{position:absolute;bottom:12px;right:24px;white-space:nowrap;font-size:10px;letter-spacing:.06em;color:rgba(255,255,255,.7);background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);padding:4px 10px;border-radius:100px}
+.mid-cta-mascot{position:absolute;right:34px;top:42%;transform:translateY(-50%);animation:sgMascotFloat 3.6s ease-in-out infinite}
+.mid-cta-mascot svg{width:clamp(72px,9vw,116px);height:auto;display:block;filter:drop-shadow(0 12px 24px rgba(0,0,0,.25))}
+@keyframes sgMascotFloat{0%,100%{transform:translateY(-50%)}50%{transform:translateY(calc(-50% - 8px))}}
+@media(max-width:820px){.mid-cta-mascot{display:none}}
+@media(prefers-reduced-motion:reduce){.mid-cta-mascot{animation:none}}
 
 .faq-wrap{max-width:880px;margin:0 auto}
 .faq-list{display:flex;flex-direction:column;gap:12px}
@@ -398,7 +403,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="mid-cta">
       <div class="mid-cta-left">
         <div class="mid-cta-top">
-          <div class="mid-cta-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" style="transform-origin:center"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.3 21 3 13.7 3 4.5c0-.6.4-1 1-1H7.4c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1.1l-2.1 2.1z" fill="{ACCENT}"/></svg></div>
+          <div class="mid-cta-icon"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" style="transform-origin:center"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.3 21 3 13.7 3 4.5c0-.6.4-1 1-1H7.4c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1.1l-2.1 2.1z" fill="var(--accent)"/></svg></div>
           <div>
             <h2>Ready to grow your Singapore business?</h2>
             <p>Talk to a strategist today — your first call is free.</p>
@@ -410,6 +415,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
       </div>
       <span class="mid-cta-support">● support online</span>
+      <div class="mid-cta-mascot" aria-hidden="true">
+        <svg width="116" height="116" viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="11" fill="#EF3340"/>
+          <path d="M10 6a6 6 0 1 0 6.8 7.6A5 5 0 1 1 10 6Z" fill="#fff"/>
+          <g fill="#fff">
+            <rect x="14.3" y="6.6" width="2" height="2" transform="rotate(45 15.3 7.6)"/>
+            <rect x="17.2" y="9.4" width="2" height="2" transform="rotate(45 18.2 10.4)"/>
+            <rect x="17.8" y="13" width="2" height="2" transform="rotate(45 18.8 14)"/>
+            <rect x="15.4" y="16" width="2" height="2" transform="rotate(45 16.4 17)"/>
+            <rect x="12.2" y="15.4" width="2" height="2" transform="rotate(45 13.2 16.4)"/>
+          </g>
+        </svg>
+      </div>
     </div>
   </section>
 
