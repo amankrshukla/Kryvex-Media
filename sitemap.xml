@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <sitemap><loc>https://kryvexmedia.com/sitemap-core.xml</loc><lastmod>2026-07-21</lastmod></sitemap>
-  <sitemap><loc>https://kryvexmedia.com/sitemap-services.xml</loc><lastmod>2026-07-21</lastmod></sitemap>
-  <sitemap><loc>https://kryvexmedia.com/sitemap-industries.xml</loc><lastmod>2026-07-21</lastmod></sitemap>
-  <sitemap><loc>https://kryvexmedia.com/sitemap-resources.xml</loc><lastmod>2026-07-21</lastmod></sitemap>
-  <sitemap><loc>https://kryvexmedia.com/sitemap-states.xml</loc><lastmod>2026-07-21</lastmod></sitemap>
-  <sitemap><loc>https://kryvexmedia.com/sitemap-cities.xml</loc><lastmod>2026-07-21</lastmod></sitemap>
-  <sitemap><loc>https://kryvexmedia.com/sitemap-seo.xml</loc><lastmod>2026-07-21</lastmod></sitemap>
-  <sitemap><loc>https://kryvexmedia.com/sitemap-ppc.xml</loc><lastmod>2026-07-21</lastmod></sitemap>
-  <sitemap><loc>https://kryvexmedia.com/sitemap-social-media.xml</loc><lastmod>2026-07-21</lastmod></sitemap>
-  <sitemap><loc>https://kryvexmedia.com/sitemap-graphics-design.xml</loc><lastmod>2026-07-21</lastmod></sitemap>
-  <sitemap><loc>https://kryvexmedia.com/sitemap-web-development.xml</loc><lastmod>2026-07-21</lastmod></sitemap>
+  <sitemap><loc>https://kryvexmedia.com/sitemap-core.xml</loc><lastmod>2026-08-15</lastmod></sitemap>
+  <sitemap><loc>https://kryvexmedia.com/sitemap-services.xml</loc><lastmod>2026-08-15</lastmod></sitemap>
+  <sitemap><loc>https://kryvexmedia.com/sitemap-industries.xml</loc><lastmod>2026-08-15</lastmod></sitemap>
+  <sitemap><loc>https://kryvexmedia.com/sitemap-resources.xml</loc><lastmod>2026-08-15</lastmod></sitemap>
+  <sitemap><loc>https://kryvexmedia.com/sitemap-states.xml</loc><lastmod>2026-08-15</lastmod></sitemap>
+  <sitemap><loc>https://kryvexmedia.com/sitemap-cities.xml</loc><lastmod>2026-08-15</lastmod></sitemap>
+  <sitemap><loc>https://kryvexmedia.com/sitemap-seo.xml</loc><lastmod>2026-08-15</lastmod></sitemap>
+  <sitemap><loc>https://kryvexmedia.com/sitemap-ppc.xml</loc><lastmod>2026-08-15</lastmod></sitemap>
+  <sitemap><loc>https://kryvexmedia.com/sitemap-social-media.xml</loc><lastmod>2026-08-15</lastmod></sitemap>
+  <sitemap><loc>https://kryvexmedia.com/sitemap-graphics-design.xml</loc><lastmod>2026-08-15</lastmod></sitemap>
+  <sitemap><loc>https://kryvexmedia.com/sitemap-web-development.xml</loc><lastmod>2026-08-15</lastmod></sitemap>
+  <sitemap><loc>https://kryvexmedia.com/sitemap-usa.xml</loc><lastmod>2026-08-15</lastmod></sitemap>
+  <sitemap><loc>https://kryvexmedia.com/sitemap-uk.xml</loc><lastmod>2026-08-15</lastmod></sitemap>
+  <sitemap><loc>https://kryvexmedia.com/sitemap-international.xml</loc><lastmod>2026-08-15</lastmod></sitemap>
 </sitemapindex>
