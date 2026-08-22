@@ -756,10 +756,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   function showSuccess() {
     const firstName = fields.name.value.trim().split(' ')[0] || 'there';
-    successName.textContent = firstName;
-    form.style.display = 'none';
-    successEl.classList.add('visible');
     if (typeof fbq === 'function') { fbq('track', 'Lead'); }
+    window.location.href = '/thank-you/?name=' + encodeURIComponent(firstName);
   }
 
   form.addEventListener('submit', function (e) {
