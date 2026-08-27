@@ -14,7 +14,7 @@ const INBOX_TOKEN = '';
 const BIZ = {
   name:    'Kryvex Media',
   tagline: 'Global Digital Marketing',
-  address: 'Kryvex Media\nIndia',
+  address: 'House No. 01, Women\'s College Road\nMadhubani, Bihar - 847211\nIndia',
   email:   'info@kryvexmedia.com',
   phone:   '+91 9110170824',
   web:     'kryvexmedia.com',
