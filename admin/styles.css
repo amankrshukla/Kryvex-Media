@@ -296,6 +296,10 @@ table.inv-lines .right{text-align:right}
   margin-top:26px;text-align:center;font-size:11px;color:#63626E;
   font-weight:700;letter-spacing:.03em;
 }
+.inv-privacy{
+  margin-top:6px;text-align:center;font-size:9.5px;color:#8B8996;
+  font-weight:600;letter-spacing:.01em;
+}
 
 @media print{
   @page{margin:0;size:A4}

@@ -347,6 +347,7 @@ function printInvoice(id) {
       <div><div class="inv-label">Terms</div>${nl(BIZ.terms)}</div>
     </div>
     <div class="inv-thanks">Thank you for your business.</div>
+    <div class="inv-privacy">Your data and account credentials are kept strictly confidential and are never shared with third parties.</div>
   </div>`;
 
   document.body.classList.add('printing');
