@@ -19,7 +19,7 @@ const BIZ = {
   phone:   '+91 9110170824',
   web:     'kryvexmedia.com',
   gstin:   '',                       // leave blank if not registered
-  bank:    'Account name: Kryvex Media\nAccount no.: —\nIFSC: —\nUPI: —',
+  bank:    'Account name: Aman Kumar Shukla\nAccount no.: 68013501576\nIFSC: MAHB0001712\nUPI: 8292779933@ybl',
   terms:   'Payment due within 7 days. Late payments may pause active work.'
 };
 
