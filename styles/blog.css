@@ -81,17 +81,17 @@
 .b-hero-art-inner svg{position:absolute;inset:0}
 
 .b-article{max-width:720px;margin:0 auto;padding:46px 0 0}
-.b-article p{font-family:'Literata',Georgia,serif;font-size:17.5px;line-height:1.75;color:var(--ink);margin:0 0 20px;font-weight:420}
+.b-article p{font-size:17px;line-height:1.75;color:var(--ink);margin:0 0 20px;font-weight:450}
 .b-article h2{font-family:'Fraunces',serif;font-weight:700;font-size:25px;margin:42px 0 15px;line-height:1.25}
 .b-article h3{font-family:'Fraunces',serif;font-weight:700;font-size:19px;margin:30px 0 11px}
-.b-article ul,.b-article ol{font-family:'Literata',Georgia,serif;font-size:17px;line-height:1.75;color:var(--ink);padding-left:22px;margin:0 0 20px}
+.b-article ul,.b-article ol{font-size:16.5px;line-height:1.75;color:var(--ink);padding-left:22px;margin:0 0 20px}
 .b-article li{margin-bottom:8px}
-.b-article strong{font-weight:700}
-.b-article a{color:var(--cat-1,var(--accent));text-decoration:none;font-weight:700}
-.b-article a:hover{opacity:.8}
+.b-article strong{font-weight:800}
+.b-article a{color:var(--ink);text-decoration:none;font-weight:700}
+.b-article a:hover{opacity:.7}
 .b-pullquote{border-left:3px solid var(--cat-1,var(--accent));padding:2px 0 2px 22px;margin:30px 0;font-family:'Fraunces',serif;font-style:italic;font-size:20px;line-height:1.5;color:var(--ink)}
-.b-callout{background:color-mix(in srgb,var(--cat-1,var(--accent)) 8%,var(--surface));border:1px solid color-mix(in srgb,var(--cat-1,var(--accent)) 22%,var(--line));border-radius:15px;padding:20px 22px;margin:30px 0;display:flex;gap:13px}
-.b-callout-icon{flex:none;width:34px;height:34px;border-radius:9px;background:color-mix(in srgb,var(--cat-1,var(--accent)) 16%,transparent);color:var(--cat-1,var(--accent));display:flex;align-items:center;justify-content:center}
+.b-callout{background:#EFEBFB;border:1px solid #DCD4F4;border-radius:15px;padding:20px 22px;margin:30px 0;display:flex;gap:13px}
+.b-callout-icon{flex:none;width:34px;height:34px;border-radius:9px;background:#DED4F7;color:var(--accent);display:flex;align-items:center;justify-content:center}
 .b-callout p{margin:0;font-size:14.5px;font-weight:600;font-family:'Manrope',sans-serif}
 
 .b-divider{max-width:720px;margin:44px auto 0;padding:0 32px}
