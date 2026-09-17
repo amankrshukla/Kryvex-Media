@@ -83,6 +83,25 @@ src="https://www.facebook.com/tr?id=3203948136462091&ev=PageView&noscript=1"
 .cty-related{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
 @media(max-width:700px){.cty-related{grid-template-columns:1fr}}
 .cty-related a{display:block;text-decoration:none;color:var(--ink);background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;font-size:13px;font-weight:700}
+
+.cty-stats{background:var(--accent-dark);border-radius:0;padding:36px 0}
+.cty-stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+@media(max-width:800px){.cty-stats-grid{grid-template-columns:repeat(2,1fr);gap:28px 20px}}
+.cty-stat b{display:block;font-size:clamp(24px,3vw,32px);color:#fff;font-weight:800}
+.cty-stat span{display:block;font-size:12px;color:rgba(255,255,255,.68);font-weight:600;margin-top:6px;letter-spacing:.02em}
+.cty-diff-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:900px){.cty-diff-grid{grid-template-columns:1fr}}
+.cty-diff-card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:26px}
+.cty-diff-ic{width:42px;height:42px;border-radius:11px;background:rgba(112,70,182,.1);color:var(--accent);display:flex;align-items:center;justify-content:center;font-size:18px;margin-bottom:16px}
+.cty-diff-card h3{font-size:15.5px}
+.cty-diff-card p{font-size:13px;color:var(--muted);margin-top:8px;line-height:1.6}
+.cty-process{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:900px){.cty-process{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.cty-process{grid-template-columns:1fr}}
+.cty-process-step{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
+.cty-process-num{width:28px;height:28px;border-radius:8px;background:var(--accent);color:#fff;font-size:12.5px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-bottom:12px}
+.cty-process-step h3{font-size:14.5px}
+.cty-process-step p{font-size:12.5px;color:var(--muted);margin-top:7px;line-height:1.55}
 .cty-related a:hover{border-color:var(--accent)}
 </style>
 <link rel="canonical" href="https://kryvexmedia.com/idaho/clearwater/">
@@ -404,6 +423,42 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 </section>
 
+
+<section class="cty-stats">
+  <div class="wrap cty-stats-grid">
+    <div class="cty-stat"><b>3,142</b><span>US counties served</span></div>
+    <div class="cty-stat"><b>6</b><span>Core marketing channels</span></div>
+    <div class="cty-stat"><b>48h</b><span>Free audit turnaround</span></div>
+    <div class="cty-stat"><b>0</b><span>Lock-in contracts</span></div>
+  </div>
+</section>
+
+<section class="cty-sec" style="padding-bottom:0">
+  <div class="wrap">
+    <div class="cty-sec-head">
+      <h2>Why Clearwater businesses work with us</h2>
+      <p>Not a generic Idaho-wide package — built around this specific market.</p>
+    </div>
+    <div class="cty-diff-grid">
+      <div class="cty-diff-card">
+        <div class="cty-diff-ic">🏙️</div>
+        <h3>Scaled to match the market</h3>
+        <p>Clearwater spans 6+ communities with their own competition and customer base. We plan for that spread, not around it.</p>
+      </div>
+      <div class="cty-diff-card">
+        <div class="cty-diff-ic">📍</div>
+        <h3>Town-by-town, not county-wide</h3>
+        <p>Businesses in Orofino, Pierce, and Ahsahka face different local competition. Campaigns get built around each one, not a single blended target.</p>
+      </div>
+      <div class="cty-diff-card">
+        <div class="cty-diff-ic">🤝</div>
+        <h3>One team, no handoffs</h3>
+        <p>SEO, ads, social, web, and content run under one roof — one strategist who knows your account, not five vendors passing you around.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="cty-sec">
   <div class="wrap">
     <div class="cty-sec-head">
@@ -411,6 +466,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <p>Built for Clearwater County, not a copy-pasted national template.</p>
     </div>
     <div class="cty-svc-grid"><a href="/idaho/clearwater/local-seo/" class="cty-svc-card"><div class="cty-svc-ic">🔍</div><h3>Local SEO & Map Pack</h3><p>Google Business Profile optimization and organic rankings built around how this county actually searches, not a copy-pasted state-wide template.</p></a><a href="/idaho/clearwater/ppc/" class="cty-svc-card"><div class="cty-svc-ic">🎯</div><h3>Google & Meta Ads</h3><p>Geo-targeted campaigns focused on the towns and neighborhoods your business actually serves, so you're not paying for clicks outside your real service area.</p></a><a href="/idaho/clearwater/social-media/" class="cty-svc-card"><div class="cty-svc-ic">📱</div><h3>Social Media Marketing</h3><p>Content and paid social calibrated to the local audience, not a generic national playbook.</p></a><a href="/idaho/clearwater/web-design/" class="cty-svc-card"><div class="cty-svc-ic">🖥️</div><h3>Web Design & Development</h3><p>Fast, mobile-first sites built to convert local search traffic into calls and bookings.</p></a><a href="/idaho/clearwater/content-marketing/" class="cty-svc-card"><div class="cty-svc-ic">✍️</div><h3>Content & Reputation</h3><p>Review generation and content that builds trust in a market where local word of mouth still drives decisions.</p></a><a href="/idaho/clearwater/email-marketing/" class="cty-svc-card"><div class="cty-svc-ic">📧</div><h3>Email Marketing</h3><p>Automated flows that turn a one-time local customer into a repeat one.</p></a></div>
+  </div>
+</section>
+
+<section class="cty-sec" style="padding-top:0">
+  <div class="wrap">
+    <div class="cty-sec-head">
+      <h2>How we work, step by step</h2>
+      <p>Four steps, no black box.</p>
+    </div>
+    <div class="cty-process">
+      <div class="cty-process-step"><div class="cty-process-num">1</div><h3>Free Audit</h3><p>We analyse your site, ads, and Clearwater competitors — report back in 48 hours.</p></div>
+      <div class="cty-process-step"><div class="cty-process-num">2</div><h3>Strategy</h3><p>A 90-day plan with clear channels, budgets, and targets specific to this market.</p></div>
+      <div class="cty-process-step"><div class="cty-process-num">3</div><h3>Execute</h3><p>We launch campaigns and build assets — you focus on running your business.</p></div>
+      <div class="cty-process-step"><div class="cty-process-num">4</div><h3>Scale</h3><p>We double down on what's working, reported in plain numbers every month.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cty-sec" style="padding-top:0">
+  <div class="wrap" style="max-width:640px;text-align:center">
+    <h2 style="font-size:19px">We don't publish fake reviews.</h2>
+    <p style="color:var(--muted);font-size:13.5px;margin-top:10px;line-height:1.65">You won't find a wall of five-star quotes with stock photos on this page. Ask us for real client references during your free Clearwater audit — we'd rather earn your trust than manufacture it.</p>
   </div>
 </section>
 
