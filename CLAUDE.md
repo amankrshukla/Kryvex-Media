@@ -33,10 +33,18 @@ rather than filling the gap with something plausible-sounding.
 
 - Site audit completed: baseline was ~500-630 words `<main>` content per
   programmatic page, with 65-82% text similarity between sibling pages.
-- Florida's 67 county pages got a first real-content pass (real population +
-  one sourced distinguishing fact per county) — brought `<main>` word count
-  to ~650 words average. This is a first step, not the 1,500-word target.
-- Next: expand Florida county pages to 1,500 words each with real,
-  county-specific content (local economy/demographics, business landscape,
-  locally-relevant FAQ), then scale the same approach to the remaining
-  3,075 US counties, county × service pages, and international tiers.
+- **All 67 Florida county pages now meet the 1,500-word standard.**
+  Each page carries a real local-economy section, a marketing-relevance
+  section, and a locally grounded FAQ (avg 1,896 words, min 1,506, max
+  2,038), built from real per-county research (named employers, industry
+  employment figures, population/growth data). No fabricated facts.
+- Working method (repeat for each new state/tier): split the county list
+  into ~16-county batches, spawn one background research agent per batch
+  to gather real facts via WebSearch and write `economy_html` /
+  `relevance_html` / `faq` fields to a JSON file (see
+  `inject_deep_content_v2.py` pattern in the working scratchpad), then run
+  the injection script, verify word counts + HTML integrity, and top up
+  any page still under 1,500 words before committing.
+- Next: apply the same approach to the remaining 3,075 US counties
+  (state by state), then county × service pages, then the UK/Canada/
+  Russia/world-country tiers.
