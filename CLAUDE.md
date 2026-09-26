@@ -130,26 +130,51 @@ Process each run follows:
    selection, explicitly disclosed as not volume-verified in the log, with
    an action item to revisit once units refresh. The anti-fabrication rule
    applies here without exception: never invent a volume/CPC/KD number.
-3. Conservative on-page optimization: `<title>`, meta description,
-   og:title/description, twitter:title/description, relevant JSON-LD
-   description fields. H1/body copy left alone unless there's a clear,
-   non-disruptive case.
+3. **Full on-page keyword placement — not metadata-only.** Place the primary
+   keyword (or a natural close variant) in ALL of: `<title>`/meta/OG/Twitter
+   tags and relevant JSON-LD description fields, **the H1 or the eyebrow/
+   badge label directly above it**, and **the opening paragraph of visible
+   body copy**. Don't force the exact phrase into every H2 — one natural fit
+   is enough; stuffing subheadings for a marginal signal gain degrades copy
+   quality. Weave secondary keywords into body copy only where they read
+   naturally. After editing, verify placement with `grep -c -i "<keyword>"
+   <file>` and confirm matches land outside `<head>` — do not assume
+   placement worked, check it.
 4. `seo-keyword-optimization-log.md` is the durable tracking file — priority
    queue + a dated log entry per page (keywords, data source, rationale,
-   exact changes) every run.
+   exact changes, and the grep-verified placement locations/counts) every
+   run. Never log a claim ("keyword already present in body", "placement
+   verified") without having actually run the check that turn.
 5. Same bundling + deploy-verification rules as below: both pages' edits +
    the log update go in **one commit**, one push, then poll GitHub Actions
    for that commit's deploy to reach `conclusion: success` before reporting
    anything live.
 6. End-of-day chat report: which 2 pages, which keywords (flagging any
-   WebSearch fallback), what changed, live-verified URLs.
+   WebSearch fallback), what changed and where the keyword was placed, live-
+   verified URLs.
+
+**Verify-don't-assume rule (added 2026-09-26, same day):** the first live run
+below shipped metadata-only optimization — title/meta/OG/Twitter carried the
+keyword, but a `grep` afterward found **zero occurrences in visible `<main>`
+content** on either page (no H1, no H2, no body match). A logged claim that
+secondary keywords for `/services/seo/` were "already naturally present in
+the existing page copy" was also checked retroactively and was **wrong** —
+they weren't there. Both were fixed same-day: keyword worked into the badge/
+H1 and opening paragraph on both pages, verified by `grep` before logging
+anything, log entries corrected. This Routine's standing rule from here on:
+run the verification command, don't narrate an assumed result — applies to
+keyword placement, "already present" claims, and any other checkable fact
+in this Routine's output.
 
 First live run (2026-09-26, done manually ahead of the Routine's first
-scheduled fire): homepage → `small business marketing agency` (Semrush-
-verified, Vol 3,600/mo, KD 22); `/services/seo/` → `SEO agency for small
-businesses` (WebSearch fallback, Semrush units exhausted mid-run — flagged
-for revisit). Both deployed and verified live (run #164,
-conclusion: success). Full detail in `seo-keyword-optimization-log.md`.
+scheduled fire, same-day corrected per above): homepage → `small business
+marketing agency` (Semrush-verified, Vol 3,600/mo, KD 22), placed in badge +
+H1 + title/meta; `/services/seo/` → `SEO agency for small businesses`
+(WebSearch fallback, Semrush units exhausted mid-run — flagged for revisit),
+placed in badge + H1 + opening paragraph + title/meta, secondary keywords
+`SEO company`/`SEO services` worked into the same paragraph. Both deployed
+and verified live (run #164, conclusion: success). Full detail in
+`seo-keyword-optimization-log.md`.
 
 ### Fixed 2026-09-26: credential durability + real indexing submission
 
