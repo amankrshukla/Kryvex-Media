@@ -109,6 +109,48 @@ Fix, applies to every publish from here on, not just the blog automation:
   deploy-success check above is the real, available verification, and it
   must be used every time, not only when something looks wrong.
 
+## Daily keyword-optimization automation (set 2026-09-26, standing, no approval gate)
+
+A recurring Routine (`trig_018kXGKGYidUcjnAJpLAmLWR`, daily 02:30 UTC,
+self-bound to the main working session) optimizes 2 pages/day for target
+keywords, fully autonomously — same no-approval-gate model as the blog
+Routine above. Goal: improve Google ranking and organic traffic across the
+whole site, page by page.
+
+Process each run follows:
+1. Read `seo-keyword-optimization-log.md`'s priority queue and take the next
+   2 not-yet-done pages (extend the queue with the next-highest-value pages
+   — top US states, major metro counties, remaining country hubs — once it
+   runs out).
+2. Real keyword research per page via the direct Semrush MCP
+   (`keyword_research` → `get_report_schema` → `execute_report`,
+   `phrase_these`-style lookup) for a primary + 2-3 secondary keywords, with
+   real volume/CPC/KD numbers. Semrush API units are a real, finite,
+   sometimes-zero resource — when exhausted, fall back to WebSearch-informed
+   selection, explicitly disclosed as not volume-verified in the log, with
+   an action item to revisit once units refresh. The anti-fabrication rule
+   applies here without exception: never invent a volume/CPC/KD number.
+3. Conservative on-page optimization: `<title>`, meta description,
+   og:title/description, twitter:title/description, relevant JSON-LD
+   description fields. H1/body copy left alone unless there's a clear,
+   non-disruptive case.
+4. `seo-keyword-optimization-log.md` is the durable tracking file — priority
+   queue + a dated log entry per page (keywords, data source, rationale,
+   exact changes) every run.
+5. Same bundling + deploy-verification rules as below: both pages' edits +
+   the log update go in **one commit**, one push, then poll GitHub Actions
+   for that commit's deploy to reach `conclusion: success` before reporting
+   anything live.
+6. End-of-day chat report: which 2 pages, which keywords (flagging any
+   WebSearch fallback), what changed, live-verified URLs.
+
+First live run (2026-09-26, done manually ahead of the Routine's first
+scheduled fire): homepage → `small business marketing agency` (Semrush-
+verified, Vol 3,600/mo, KD 22); `/services/seo/` → `SEO agency for small
+businesses` (WebSearch fallback, Semrush units exhausted mid-run — flagged
+for revisit). Both deployed and verified live (run #164,
+conclusion: success). Full detail in `seo-keyword-optimization-log.md`.
+
 ### Fixed 2026-09-26: credential durability + real indexing submission
 
 The original setup stored GSC OAuth credentials as a file in the session's
