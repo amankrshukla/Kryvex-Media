@@ -48,3 +48,33 @@ rather than filling the gap with something plausible-sounding.
 - Next: apply the same approach to the remaining 3,075 US counties
   (state by state), then county × service pages, then the UK/Canada/
   Russia/world-country tiers.
+
+## Daily blog automation (set 2026-09-26, standing, no approval gate)
+
+A recurring Routine publishes one new blog post per day, fully autonomously
+(the owner explicitly opted out of an approval step for this one — unlike
+the Instagram posting Routines, which stay approval-first). The
+anti-fabrication and 1,500-word rules above still apply in full; removing
+the approval step removes the human review checkpoint, not the content
+integrity bar.
+
+Process each run follows:
+1. Refresh the GSC OAuth token from `google_tokens.json` in the working
+   scratchpad, pull real query data via `searchAnalytics.query`
+   (`sc-domain:kryvexmedia.com`), and pick one real, unused, relevant query
+   as the day's topic. Never invent a topic ungrounded in real data or the
+   site's actual service scope.
+2. Write a genuine 1,500+ word post at `blog/<slug>/index.html`, matching
+   the existing post template/design, linking out to 3-5 real existing
+   pages on the site (verify each URL exists before linking).
+3. Commit (citing the real query used), push to
+   `claude/webtech-core-current-work-rsmbri`, fast-forward `main` to deploy.
+4. Add the new URL to `sitemap-resources.xml` with today's `lastmod`.
+5. **Known limitation**: the saved GSC token is `webmasters.readonly` —
+   it cannot call the sitemap-submit/indexing API (confirmed 2026-09-25,
+   HTTP 403 insufficient scope). Do not claim to have "submitted for
+   indexing" — only the sitemap `lastmod` refresh is real right now. Actual
+   indexing submission needs the owner to re-authorize GSC with write
+   scope.
+6. Post a short status report in chat afterward (topic, URL, word count) —
+   informational, not a request for approval.
