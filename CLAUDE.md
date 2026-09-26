@@ -84,6 +84,31 @@ Process each run follows:
    sitemap resubmission confirmation) — informational, not a request for
    approval.
 
+## Publish verification rule (standing, set 2026-09-26)
+
+**Never report a page as "live" without confirming the exact GitHub Actions
+deploy for that commit actually succeeded.** On 2026-09-26 two rapid-fire
+pushes (post file, then a separate sitemap-only push, then a separate
+CLAUDE.md push) each cancelled GitHub Pages' in-progress build from the
+previous push before it finished — the middle two deploys silently show
+`conclusion: cancelled`, not `success`, and the new page briefly 404'd
+while being reported as live.
+
+Fix, applies to every publish from here on, not just the blog automation:
+- Bundle related file changes (new page + sitemap update) into **one commit
+  and one push**, not several in quick succession.
+- After pushing, look up the `pages-build-deployment` run whose `head_sha`
+  matches the commit (`mcp__github__actions_list`,
+  method `list_workflow_runs`), then poll
+  `mcp__github__actions_get` (`get_workflow_run`) on that exact run until
+  `status: completed`. Only report something live once `conclusion` reads
+  `success` — if it reads `cancelled` or `failure`, say so and re-deploy
+  before claiming anything is live.
+- `kryvexmedia.com` is blocked by this environment's network egress proxy,
+  so WebFetch can't double-check live content directly — the GitHub Actions
+  deploy-success check above is the real, available verification, and it
+  must be used every time, not only when something looks wrong.
+
 ### Fixed 2026-09-26: credential durability + real indexing submission
 
 The original setup stored GSC OAuth credentials as a file in the session's
