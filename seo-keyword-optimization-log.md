@@ -9,14 +9,14 @@ volume, difficulty, or CPC numbers.
 
 1. ~~Homepage (`/`)~~ — done 2026-09-26
 2. ~~`/services/seo/`~~ — done 2026-09-26
-3. `/services/local-seo/`
-4. `/services/ppc/`
-5. `/services/social-media/`
-6. `/services/meta-ads/`
-7. `/services/content-marketing/`
-8. `/services/email-marketing/`
-9. `/services/web-design/`
-10. `/services/graphics-design/`
+3. ~~`/services/local-seo/`~~ — done 2026-09-26
+4. ~~`/services/ppc/`~~ — done 2026-09-26
+5. ~~`/services/social-media/`~~ — done 2026-09-26
+6. ~~`/services/meta-ads/`~~ — done 2026-09-26
+7. ~~`/services/content-marketing/`~~ — done 2026-09-26
+8. ~~`/services/email-marketing/`~~ — done 2026-09-26
+9. ~~`/services/web-design/`~~ — done 2026-09-26
+10. ~~`/services/graphics-design/`~~ — done 2026-09-26
 11. `/about/`
 12. `/contact/`
 13. `/free-audit/`
@@ -95,3 +95,78 @@ after):
   stuffing it would have degraded quality for a marginal signal gain.
   On-page SEO is satisfied by title + meta + H1 + first-paragraph placement;
   it does not require every heading to repeat the exact phrase.
+
+### 2026-09-26 (same day) — remaining 8 service pages, at owner's request
+
+Owner asked to optimize all remaining `/services/` pages same-day instead of
+sticking to the 2/day cadence. Ran the full corrected process (established in
+the correction above) on all 8 in one pass:
+
+**Semrush units check**: called `phrase_these` again before starting —
+still `403 ERROR 132 :: API UNITS BALANCE IS ZERO` (non-retryable). All 8
+picks below are **WebSearch-informed, not Semrush-volume-verified**. No
+volume/CPC/KD number is claimed for any of them.
+
+**Pattern used for all 8** (grounded in real WebSearch research, not
+assumption): each page's existing title was a bare category label ("Content
+Marketing", "Email Marketing", etc.) with no positioning and no keyword a
+buyer would actually type. Research for each category confirmed "[service]
+agency for small businesses" is a real, commonly-used phrase in the small
+business segment (see sources per page below), and it matches the exact
+positioning already established sitewide on the homepage and `/services/seo/`
+today — so every service page now carries the same consistent "agency for
+small businesses" framing instead of 8 inconsistent generic titles.
+
+For every page: `<title>` + meta description + og:title/description +
+twitter:title/description rewritten around the keyword, eyebrow badge
+rewritten to the keyword, and the opening hero paragraph rewritten to
+naturally include "As a/an [keyword], we...". Grep-verified after editing:
+every page shows **8 total occurrences, 6 in `<head>`, 2 in visible `<main>`**
+(badge + opening paragraph) — confirmed via `grep -c` before logging, not
+assumed. HTML integrity re-verified: all 8 pages show equal open/close `<div>`
+counts (102/102 each), and each page's JSON-LD blocks (0 on these pages) were
+checked to parse — none present, none broken.
+
+1. **`/services/local-seo/`** → `local SEO agency for small businesses`.
+   Source: WebSearch confirmed "agency" framing fits small businesses needing
+   coordinated Google Business Profile + local-intent work, distinct from
+   broader enterprise SEO packages.
+2. **`/services/ppc/`** → `PPC agency for small businesses`. Source: WebSearch
+   found real small-business PPC ad groups using phrasing like "affordable
+   PPC management" and "small business Google Ads," and agencies (vs. bare
+   "management") were described as the more comprehensive, small-business-
+   fit model.
+3. **`/services/social-media/`** → `social media marketing agency for small
+   businesses`. Source: WebSearch directly confirmed this as a common real
+   search category, citing "over 735 social media marketing agencies
+   globally that specifically cater to small business needs."
+4. **`/services/meta-ads/`** → `Meta ads agency for small businesses`.
+   Source: WebSearch found "Meta ads agency" and "Facebook ads agency" used
+   interchangeably industry-wide; picked "Meta" as Meta's current official
+   branding, kept "Facebook ads agency" as a natural secondary (page already
+   covers Facebook & Instagram).
+5. **`/services/content-marketing/`** → `content marketing agency for small
+   businesses`. Source: WebSearch confirmed this as a standard, widely-used
+   category term (Clutch.co, Semrush agency directories, etc. all list
+   agencies under this exact category).
+6. **`/services/email-marketing/`** → `email marketing agency for small
+   businesses`. Source: WebSearch distinguished "email marketing agency"
+   (hands-on, full-service — matches Kryvex's actual model) from "email
+   marketing services" (often refers to SaaS platforms like Mailchimp) —
+   "agency" is the accurate term for what Kryvex actually offers.
+7. **`/services/web-design/`** → `web design agency for small businesses`.
+   Source: WebSearch found both "agency" and "company" used interchangeably,
+   with "agency" implying the broader strategy+design+dev scope Kryvex
+   actually provides (vs. a narrower product-only "company").
+8. **`/services/graphics-design/`** → `graphic design agency for small
+   businesses`. Source: WebSearch confirmed "graphic design" (not "graphics
+   design/designing") is the real industry term — fixed a genuine
+   grammar/terminology error on this page in the process, not just added a
+   keyword. WebSearch also confirmed "agency" signals a coordinated,
+   team-based service, matching Kryvex's actual multi-format offering.
+
+**Action item**: none of these 8 have a Semrush-verified volume/CPC/KD
+number yet. Once Semrush API units refresh, run `phrase_these` for all 8
+primary keywords (plus the still-outstanding `/services/seo/` pick from the
+first correction) and update this log with real numbers — correct any pick
+the real data doesn't support.
