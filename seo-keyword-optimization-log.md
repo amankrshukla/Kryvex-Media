@@ -170,3 +170,60 @@ number yet. Once Semrush API units refresh, run `phrase_these` for all 8
 primary keywords (plus the still-outstanding `/services/seo/` pick from the
 first correction) and update this log with real numbers — correct any pick
 the real data doesn't support.
+
+### Correction — 2026-09-26 (same day, second follow-up): H1 + secondary keywords were missing
+
+Owner asked directly whether H1, body and secondary keywords were actually
+covered. Checked with `grep`, not assumption, and found two real gaps in the
+batch above:
+
+- **H1 tags were untouched on all 8 pages.** Only the eyebrow badge and
+  opening paragraph carried the primary keyword; every H1 still read the
+  original tagline with no keyword at all (e.g. `<h1>Own your local
+  market.</h1>`). This technically satisfied the Routine's own written rule
+  at the time ("H1 **or** the badge"), but was inconsistent with the fuller
+  treatment already given to the homepage and `/services/seo/` earlier today
+  (badge **and** H1 both). Inconsistent execution, not a deliberate choice.
+- **Secondary keywords were not systematically placed.** Only 2 of 8 pages
+  (`local-seo`, `ppc`) had a real secondary keyword in body copy; the other
+  6 had none — `grep` for the secondary keyword named in each page's
+  rationale above returned zero matches on `meta-ads`, `social-media`,
+  `content-marketing`, `email-marketing`, `web-design`, `graphics-design`.
+
+**Fixed, grep-verified after editing** (all 8 pages now show: primary
+keyword present in the H1 text itself, one real secondary keyword present in
+`<main>` body copy, div-tag balance 102/102 intact):
+
+- `local-seo`: H1 → "Local SEO agency for small businesses: own your local
+  market." Secondary `local SEO services` already present (1 match).
+- `ppc`: H1 → "PPC agency for small businesses: profitable ads, not just
+  clicks." Secondary `PPC management` already present (1 match).
+- `social-media`: H1 → "Social media marketing agency for small businesses:
+  build a brand people follow." Secondary `social media management` added
+  to the opening paragraph (1 match).
+- `meta-ads`: H1 → "Meta ads agency for small businesses: scale with
+  Facebook & Instagram." Secondary `Facebook ads agency` added — phrased as
+  "also known as a Facebook ads agency," grounded in the WebSearch finding
+  that the two terms are used interchangeably/synonymously industry-wide,
+  not an invented claim (1 match).
+- `content-marketing`: H1 → "Content marketing agency for small businesses:
+  work that earns trust & ranks." (changed "Content that" to "Work that" to
+  avoid repeating "content" twice in one line.) Secondary `content marketing
+  services` added (1 match).
+- `email-marketing`: H1 → "Email marketing agency for small businesses: turn
+  subscribers into revenue." Secondary `email marketing services` added
+  (1 match).
+- `web-design`: H1 → "Web design agency for small businesses: websites that
+  convert visitors." Secondary `website development` added (1 match).
+- `graphics-design`: H1 → "Graphic design agency for small businesses:
+  visuals that make you look pro." Secondary `graphic design services`
+  added (1 match).
+
+**Standing checklist from here on (added to CLAUDE.md and the Routine's
+prompt as a hard requirement, not "H1 or badge"):** every page optimization
+must place the **primary** keyword in `<title>` + meta description +
+og/twitter tags + the **H1 tag itself** + the opening body paragraph, AND
+place at least one **secondary** keyword naturally in body copy (not
+stuffed into meta tags — that reads as spam). Verify all of it with `grep`
+before logging anything as done, the same discipline already established
+for the metadata-only gap earlier today.

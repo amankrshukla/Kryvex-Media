@@ -130,16 +130,29 @@ Process each run follows:
    selection, explicitly disclosed as not volume-verified in the log, with
    an action item to revisit once units refresh. The anti-fabrication rule
    applies here without exception: never invent a volume/CPC/KD number.
-3. **Full on-page keyword placement — not metadata-only.** Place the primary
-   keyword (or a natural close variant) in ALL of: `<title>`/meta/OG/Twitter
-   tags and relevant JSON-LD description fields, **the H1 or the eyebrow/
-   badge label directly above it**, and **the opening paragraph of visible
-   body copy**. Don't force the exact phrase into every H2 — one natural fit
-   is enough; stuffing subheadings for a marginal signal gain degrades copy
-   quality. Weave secondary keywords into body copy only where they read
-   naturally. After editing, verify placement with `grep -c -i "<keyword>"
-   <file>` and confirm matches land outside `<head>` — do not assume
-   placement worked, check it.
+3. **Mandatory placement checklist — both primary AND secondary keyword,
+   H1 required (not "H1 or badge").** This was tightened twice on 2026-09-26
+   after two real gaps: a first pass that placed the keyword only in
+   `<head>` tags with zero body/H1 matches, then a batch of 8 pages where
+   the H1 itself was skipped in favor of just the badge, and secondary
+   keywords were only added to 2 of 8 pages. The checklist now:
+   - **Primary keyword** goes in ALL of: `<title>`, meta description,
+     og:title/description, twitter:title/description, relevant JSON-LD
+     description fields, the eyebrow/badge label, **the `<h1>` tag's own
+     text** (not just the badge next to it), and the opening paragraph of
+     visible body copy.
+   - **Secondary keyword**: at least one real secondary keyword naturally
+     present somewhere in visible body copy. Keep it out of meta tags —
+     stuffing both primary and secondary into a meta description reads as
+     spam; body copy is the right place for secondary/semantic keywords.
+   - Don't force either keyword into every H2 — one natural fit for the
+     primary is enough; stuffing subheadings for a marginal signal gain
+     degrades copy quality.
+   - After editing, verify EVERY item above with `grep -c -i "<keyword>"
+     <file>` — confirm the primary sits inside the actual `<h1>...</h1>`
+     text (not just nearby), and the secondary has at least 1 match in
+     `<main>`. Never assume placement worked or that a keyword was "already
+     present" — check it every time, every page, before logging anything.
 4. `seo-keyword-optimization-log.md` is the durable tracking file — priority
    queue + a dated log entry per page (keywords, data source, rationale,
    exact changes, and the grep-verified placement locations/counts) every
