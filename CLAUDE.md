@@ -59,22 +59,40 @@ the approval step removes the human review checkpoint, not the content
 integrity bar.
 
 Process each run follows:
-1. Refresh the GSC OAuth token from `google_tokens.json` in the working
-   scratchpad, pull real query data via `searchAnalytics.query`
-   (`sc-domain:kryvexmedia.com`), and pick one real, unused, relevant query
-   as the day's topic. Never invent a topic ungrounded in real data or the
-   site's actual service scope.
+1. Pull real query data via the Composio `google_search_console` connection
+   (`GOOGLE_SEARCH_CONSOLE_SEARCH_ANALYTICS_QUERY`, site
+   `sc-domain:kryvexmedia.com`) and pick one real, unused, relevant query as
+   the day's topic. Never invent a topic ungrounded in real data or the
+   site's actual service scope. If query data doesn't cleanly map to a new
+   blog topic (as of 2026-09-26, most volume is hyper-local "agency in
+   [city]" queries already served by the programmatic geo pages), fall back
+   to a real, unaddressed topic within Kryvex's actual service scope and say
+   so in the commit message.
 2. Write a genuine 1,500+ word post at `blog/<slug>/index.html`, matching
    the existing post template/design, linking out to 3-5 real existing
    pages on the site (verify each URL exists before linking).
-3. Commit (citing the real query used), push to
+3. Commit (citing the real query or fallback method used), push to
    `claude/webtech-core-current-work-rsmbri`, fast-forward `main` to deploy.
-4. Add the new URL to `sitemap-resources.xml` with today's `lastmod`.
-5. **Known limitation**: the saved GSC token is `webmasters.readonly` —
-   it cannot call the sitemap-submit/indexing API (confirmed 2026-09-25,
-   HTTP 403 insufficient scope). Do not claim to have "submitted for
-   indexing" — only the sitemap `lastmod` refresh is real right now. Actual
-   indexing submission needs the owner to re-authorize GSC with write
-   scope.
-6. Post a short status report in chat afterward (topic, URL, word count) —
-   informational, not a request for approval.
+4. Add the new URL to `sitemap-resources.xml` with today's `lastmod`, then
+   actually resubmit the sitemap via Composio's `google_search_console`
+   connection (`GOOGLE_SEARCH_CONSOLE_SUBMIT_SITEMAP`, site
+   `sc-domain:kryvexmedia.com`, feedpath `https://kryvexmedia.com/sitemap.xml`).
+   **This is real and confirmed working** (2026-09-26: "Sitemap
+   'https://kryvexmedia.com/sitemap.xml' successfully submitted for site
+   'sc-domain:kryvexmedia.com'") — do not fall back to a lastmod-only claim.
+5. Post a short status report in chat afterward (topic, URL, word count,
+   sitemap resubmission confirmation) — informational, not a request for
+   approval.
+
+### Fixed 2026-09-26: credential durability + real indexing submission
+
+The original setup stored GSC OAuth credentials as a file in the session's
+ephemeral scratchpad (`google_tokens.json`), which does not survive a
+container reset — it was lost partway through 2026-09-26 and the first
+test-run post had to fall back to a non-GSC topic as a result. **Fixed**:
+use the Composio-managed `google_search_console` connection instead —
+Composio stores it server-side, so it survives container resets. That
+connection also turned out to have `siteOwner` permission (unlike the old
+manually-scoped token, which was `webmasters.readonly`), so real sitemap
+resubmission via `GOOGLE_SEARCH_CONSOLE_SUBMIT_SITEMAP` actually works now
+— confirmed live, not just theoretically available.
