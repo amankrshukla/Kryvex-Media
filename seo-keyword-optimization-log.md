@@ -24,7 +24,7 @@ volume, difficulty, or CPC numbers.
 15. `/uk/` (country hub)
 16. `/india/performance-marketing-agency/` (country hub)
 17. ~~`/industries/ecommerce/`~~ — done 2026-09-27 (out of order, per owner request)
-18. `/industries/healthcare/`
+18. ~~`/industries/healthcare/`~~ — done 2026-09-27 (out of order, per owner request)
 19. `/industries/real-estate/`
 20. `/industries/restaurants/`
 21. `/industries/legal/`
@@ -32,7 +32,7 @@ volume, difficulty, or CPC numbers.
 23. `/industries/education/`
 24. `/industries/fitness/`
 25. `/industries/tours-travel/`
-17. *(after core + hub pages: revisit and extend this list with the
+26. *(after core + hub pages: revisit and extend this list with the
     next-highest-value pages — top-population US states, then major
     metro county pages, then remaining country hubs)*
 
@@ -296,6 +296,19 @@ fallback used.
   Kryvex actually offers on this page.
 - Secondary: `ecommerce digital marketing` — the broader variant, added
   naturally in the opening paragraph.
+- Changes: title, meta, OG/Twitter, badge, H1, opening paragraph.
+- Grep-verified: primary 9 occurrences (incl. inside `<h1>`), secondary 1
+  occurrence in body. Div balance 133/133.
+- Action item: not volume-verified, revisit once Semrush units refresh.
+
+### 2026-09-27 (continued) — `/industries/healthcare/`, at owner's request
+
+Semrush units still zero (checked live). WebSearch fallback used.
+
+- Primary: `healthcare marketing agency` — broader umbrella term, matches
+  the page's actual scope (clinics, dental, wellness), per WebSearch.
+- Secondary: `medical marketing agency` — the more specialized term for
+  clinics/dental specifically, added naturally in the opening paragraph.
 - Changes: title, meta, OG/Twitter, badge, H1, opening paragraph.
 - Grep-verified: primary 9 occurrences (incl. inside `<h1>`), secondary 1
   occurrence in body. Div balance 133/133.
