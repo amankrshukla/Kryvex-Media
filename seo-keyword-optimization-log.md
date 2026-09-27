@@ -17,8 +17,8 @@ volume, difficulty, or CPC numbers.
 8. ~~`/services/email-marketing/`~~ — done 2026-09-26
 9. ~~`/services/web-design/`~~ — done 2026-09-26
 10. ~~`/services/graphics-design/`~~ — done 2026-09-26
-11. `/about/`
-12. `/contact/`
+11. ~~`/about/`~~ — done 2026-09-27
+12. ~~`/contact/`~~ — done 2026-09-27
 13. `/free-audit/`
 14. `/usa/` (country hub)
 15. `/uk/` (country hub)
@@ -227,3 +227,52 @@ place at least one **secondary** keyword naturally in body copy (not
 stuffed into meta tags — that reads as spam). Verify all of it with `grep`
 before logging anything as done, the same discipline already established
 for the metadata-only gap earlier today.
+
+### 2026-09-27
+
+Semrush API units had refreshed overnight — checked live before starting
+(not assumed): `phrase_these` call succeeded, real volume/CPC/KD data for
+both pages below.
+
+**Page 1: `/about/`**
+- Primary keyword: `digital marketing agency team` — Volume 90/mo, CPC $0,
+  Keyword Difficulty 36 (US, Semrush `phrase_these`, verified live).
+- Secondary keyword: `trusted digital marketing agency` — Volume 40/mo,
+  CPC $0, KD 37 (same live call).
+- Rationale: `digital marketing agency reviews` (Vol 140, KD 37) was
+  considered first as it scored highest, but rejected — it's a
+  reviews/testimonials search intent, and the About page has no genuine
+  reviews content to show. Ranking for it would mean disappointing
+  intent-matched visitors, and manufacturing review-style content to match
+  would violate the standing anti-fabrication rule. `digital marketing
+  agency team` genuinely matches what the page is about (team/company
+  story) and `trusted digital marketing agency` is a positioning descriptor
+  the page's real content (transparent pricing, no bloated retainers)
+  actually supports, not an invented trust claim.
+- Changes: `<title>`, meta description, og:title/description,
+  twitter:title/description, eyebrow badge, H1, opening paragraph.
+- Grep-verified: primary `digital marketing agency team` — 8 total
+  occurrences, confirmed present inside the actual `<h1>` text. Secondary
+  `trusted digital marketing agency` — 2 occurrences (meta description +
+  opening body paragraph, i.e. present in `<main>`, not meta-only).
+  Div balance 129/129 intact. No JSON-LD blocks on this page.
+
+**Page 2: `/contact/`**
+- Primary keyword: `free marketing consultation` — Volume 170/mo, CPC $0,
+  Keyword Difficulty 0 (essentially uncontested) (US, Semrush
+  `phrase_these`, verified live).
+- Secondary keyword: `digital marketing agency contact` — Volume 30/mo,
+  CPC $0, competitive density 0.33 (same live call).
+- Rationale: KD 0 at Vol 170 is a genuinely easy, real-intent target that
+  matches exactly what this page already offers (a free consultation/audit
+  booking flow) — no intent mismatch, no fabricated claim needed.
+- Changes: `<title>`, meta description, og:title/description,
+  twitter:title/description, eyebrow badge, H1, opening paragraph.
+- Grep-verified: primary `free marketing consultation` — 8 total
+  occurrences, confirmed present inside the actual `<h1>` text. Secondary
+  `digital marketing agency contact` — 2 occurrences (meta description +
+  opening body paragraph, present in `<main>`). Div balance 94/94 intact.
+  No JSON-LD blocks on this page.
+
+Next up in the queue: `/free-audit/`, then the `/usa/`, `/uk/`, and
+`/india/performance-marketing-agency/` country hubs.
