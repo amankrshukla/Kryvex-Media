@@ -1,9 +1,11 @@
 # Kryvex Media — Daily Keyword Optimization Log
 
-Tracks the daily on-page SEO optimization Routine (2 pages/day). Real
-keyword data only — Semrush when available, WebSearch-informed fallback
-when Semrush API units are exhausted (marked below). Never invent search
-volume, difficulty, or CPC numbers.
+Tracks the daily on-page SEO optimization Routine (10 pages/day, raised
+from 2 on 2026-09-28). Real keyword data only — Semrush when available,
+WebSearch-informed fallback when Semrush API units are exhausted (marked
+below). Never invent search volume, difficulty, or CPC numbers. Every page
+gets an intent-match check against its real content before a keyword is
+picked (see the 2026-09-28 entry below for why this matters).
 
 ## Priority queue (order to work through)
 
@@ -21,16 +23,16 @@ volume, difficulty, or CPC numbers.
 12. ~~`/contact/`~~ — done 2026-09-27
 13. ~~`/free-audit/`~~ — done 2026-09-28
 14. ~~`/usa/`~~ — done 2026-09-28 (country hub)
-15. `/uk/` (country hub)
-16. `/india/performance-marketing-agency/` (country hub)
+15. ~~`/uk/`~~ — done 2026-09-28 (country hub)
+16. ~~`/india/performance-marketing-agency/`~~ — done 2026-09-28 (country hub)
 17. ~~`/industries/ecommerce/`~~ — done 2026-09-27 (out of order, per owner request)
 18. ~~`/industries/healthcare/`~~ — done 2026-09-27 (out of order, per owner request)
-19. `/industries/real-estate/`
-20. `/industries/restaurants/`
-21. `/industries/legal/`
-22. `/industries/home-services/`
-23. `/industries/education/`
-24. `/industries/fitness/`
+19. ~~`/industries/real-estate/`~~ — done 2026-09-28
+20. ~~`/industries/restaurants/`~~ — done 2026-09-28
+21. ~~`/industries/legal/`~~ — done 2026-09-28
+22. ~~`/industries/home-services/`~~ — done 2026-09-28
+23. ~~`/industries/education/`~~ — done 2026-09-28
+24. ~~`/industries/fitness/`~~ — done 2026-09-28
 25. `/industries/tours-travel/`
 26. *(after core + hub pages: revisit and extend this list with the
     next-highest-value pages — top-population US states, then major
@@ -344,3 +346,102 @@ Semrush units zero again (checked live). WebSearch fallback used for both pages.
   occurrence in body. Div balance 177/177. JSON-LD still valid.
 - Action item: neither page volume-verified this run, revisit once
   Semrush units refresh.
+
+### 2026-09-28 (continued) — cadence raised to 10 pages/day per owner instruction
+
+Owner instruction: "increase the frequency in a day total 10 pages try to
+optimize with proper guidelines." Standing Routine (`trig_018kXGKGYidUcjnAJpLAmLWR`)
+updated to target 10 pages/day going forward (was 2/day); CLAUDE.md updated
+to match. Same per-page rigor as always — full checklist, intent-match
+check, grep-verification — just more pages per run. Semrush units zero
+again (checked live) for all 6 pages below; WebSearch fallback used
+throughout, explicitly disclosed. Intent-match check run against each
+page's real title/badge/H1/desc before picking a keyword — no mismatches
+found; all 6 genuinely support an "[industry] marketing agency" /
+"[country] digital marketing agency" positioning.
+
+**Page 3: `/uk/`**
+- Primary: `digital marketing agency UK` — WebSearch confirmed standard
+  query pattern, matches page's real positioning (UK businesses).
+- Secondary: `digital marketing company UK` — interchangeable variant,
+  added naturally in the opening paragraph.
+- Changes: title, meta, OG/Twitter, badge, H1, opening paragraph.
+- Grep-verified: primary 8 occurrences (incl. inside `<h1>`), secondary 1
+  occurrence confirmed in `<main>` (line 446). Div balance 177/177.
+
+**Page 4: `/india/performance-marketing-agency/`**
+- Page was already well-optimized from earlier site work (primary
+  "performance marketing agency in India" already had 8 occurrences incl.
+  H1). Only edit needed: worked secondary keyword into the existing hero
+  paragraph.
+- Primary: `performance marketing agency in India` (pre-existing, 11
+  occurrences total this run).
+- Secondary: `digital marketing agency india` — added naturally into the
+  existing hero paragraph.
+- Changes: opening paragraph only (title/meta/OG/Twitter/badge/H1 already
+  correct from prior work).
+- Grep-verified: primary 11 occurrences, secondary 1 occurrence confirmed
+  in `<main>` (line 446). Div balance 176/176. JSON-LD valid (1 block).
+
+**Page 5: `/industries/real-estate/`**
+- Primary: `real estate marketing agency` — WebSearch confirmed standard
+  term, matches page's real positioning (listings/closings).
+- Secondary: `real estate digital marketing` — broader variant, added
+  naturally in body copy.
+- Changes: title, meta, OG/Twitter, badge, H1, opening paragraph.
+- Grep-verified: primary 8 occurrences (incl. inside `<h1>`), secondary 4
+  occurrences in `<main>`. Div balance 133/133.
+
+**Page 6: `/industries/restaurants/`**
+- Primary: `restaurant marketing agency` — WebSearch confirmed standard
+  term, matches page's real positioning (covers/table turnover).
+- Secondary: `restaurant digital marketing` — broader variant, added
+  naturally in body copy.
+- Changes: title, meta, OG/Twitter, badge, H1, opening paragraph.
+- Grep-verified: primary 8 occurrences (incl. inside `<h1>`), secondary 4
+  occurrences in `<main>`. Div balance 133/133.
+
+**Page 7: `/industries/legal/`**
+- Primary: `legal marketing agency` — WebSearch confirmed standard term.
+- Secondary: `law firm marketing agency` — more specific variant (firms
+  specifically), added naturally in body copy.
+- Changes: title, meta, OG/Twitter, badge, H1, opening paragraph.
+- Grep-verified: primary 8 occurrences (incl. inside `<h1>`), secondary 2
+  occurrences in `<main>`. Div balance 133/133.
+
+**Page 8: `/industries/home-services/`**
+- Primary: `home services marketing agency` — WebSearch confirmed standard
+  umbrella term (plumbers/HVAC/electricians/contractors).
+- Secondary: `contractor marketing agency` — narrower variant, added
+  naturally in body copy.
+- Changes: meta, OG/Twitter, badge, H1, opening paragraph.
+- Grep-verified: primary 7 occurrences (incl. inside `<h1>`), secondary 2
+  occurrences in `<main>`. Div balance 133/133.
+
+**Page 9: `/industries/education/`**
+- Primary: `education marketing agency` — WebSearch confirmed standard
+  term, matches page's real positioning (schools/course creators/edtech).
+- Secondary: `school marketing agency` — WebSearch confirmed the two terms
+  are used interchangeably, "school" emphasizes K-12; added naturally in
+  the opening paragraph.
+- Changes: title, meta, OG/Twitter, badge, H1, opening paragraph.
+- Grep-verified: primary 8 occurrences (incl. inside `<h1>`), secondary 1
+  occurrence confirmed in `<main>` (line 396). Div balance 133/133.
+
+**Page 10: `/industries/fitness/`**
+- Primary: `fitness marketing agency` — WebSearch confirmed standard term,
+  matches page's real positioning (gyms/studios/coaches).
+- Secondary: `gym marketing agency` — WebSearch confirmed interchangeable,
+  "gym" is more facility-specific; added naturally in the opening
+  paragraph.
+- Changes: title, meta, OG/Twitter, badge, H1, opening paragraph.
+- Grep-verified: primary 8 occurrences (incl. inside `<h1>`), secondary 1
+  occurrence confirmed in `<main>` (line 396). Div balance 133/133.
+
+- Action item: none of today's 8 new pages volume-verified (Semrush units
+  exhausted all day) — revisit once units refresh.
+- Total done today: 10 pages (`/free-audit/`, `/usa/`, `/uk/`,
+  `/india/performance-marketing-agency/`, `/industries/real-estate/`,
+  `/industries/restaurants/`, `/industries/legal/`,
+  `/industries/home-services/`, `/industries/education/`,
+  `/industries/fitness/`) — first day at the new 10-page/day cadence.

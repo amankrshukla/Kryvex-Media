@@ -112,16 +112,24 @@ Fix, applies to every publish from here on, not just the blog automation:
 ## Daily keyword-optimization automation (set 2026-09-26, standing, no approval gate)
 
 A recurring Routine (`trig_018kXGKGYidUcjnAJpLAmLWR`, daily 02:30 UTC,
-self-bound to the main working session) optimizes 2 pages/day for target
-keywords, fully autonomously — same no-approval-gate model as the blog
-Routine above. Goal: improve Google ranking and organic traffic across the
-whole site, page by page.
+self-bound to the main working session) optimizes **10 pages/day** (raised
+from 2 on 2026-09-28, per owner instruction — same per-page rigor, just more
+pages) for target keywords, fully autonomously — same no-approval-gate model
+as the blog Routine above. Goal: improve Google ranking and organic traffic
+across the whole site, page by page.
 
 Process each run follows:
 1. Read `seo-keyword-optimization-log.md`'s priority queue and take the next
-   2 not-yet-done pages (extend the queue with the next-highest-value pages
+   10 not-yet-done pages (extend the queue with the next-highest-value pages
    — top US states, major metro counties, remaining country hubs — once it
    runs out).
+1a. **Intent-match check, every page, before picking a keyword.** Read the
+    page's actual current title/H1/hero copy first and confirm what it
+    genuinely offers. A real gap was caught on 2026-09-28: `/free-audit/`
+    was almost targeted with "free marketing audit" when the page is
+    actually a Lighthouse website-scan tool — caught by checking real
+    content first, retargeted to "free website audit" instead. Do this for
+    every page, not just ones that look ambiguous.
 2. Real keyword research per page via the direct Semrush MCP
    (`keyword_research` → `get_report_schema` → `execute_report`,
    `phrase_these`-style lookup) for a primary + 2-3 secondary keywords, with
