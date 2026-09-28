@@ -19,8 +19,8 @@ volume, difficulty, or CPC numbers.
 10. ~~`/services/graphics-design/`~~ — done 2026-09-26
 11. ~~`/about/`~~ — done 2026-09-27
 12. ~~`/contact/`~~ — done 2026-09-27
-13. `/free-audit/`
-14. `/usa/` (country hub)
+13. ~~`/free-audit/`~~ — done 2026-09-28
+14. ~~`/usa/`~~ — done 2026-09-28 (country hub)
 15. `/uk/` (country hub)
 16. `/india/performance-marketing-agency/` (country hub)
 17. ~~`/industries/ecommerce/`~~ — done 2026-09-27 (out of order, per owner request)
@@ -313,3 +313,34 @@ Semrush units still zero (checked live). WebSearch fallback used.
 - Grep-verified: primary 9 occurrences (incl. inside `<h1>`), secondary 1
   occurrence in body. Div balance 133/133.
 - Action item: not volume-verified, revisit once Semrush units refresh.
+
+### 2026-09-28
+
+Semrush units zero again (checked live). WebSearch fallback used for both pages.
+
+**Page 1: `/free-audit/`**
+- Note: original keyword idea ("free marketing audit") was checked against
+  the page's actual content and rejected — this page is a real-time
+  Lighthouse-based website audit tool (performance/SEO/mobile scores in
+  30 seconds), not a marketing-strategy audit form. Picked keywords that
+  match what the page actually does instead.
+- Primary: `free website audit` — WebSearch confirmed this is a real,
+  commonly-used lead-magnet term and matches the page's actual function.
+- Secondary: `free SEO audit` — the page's Lighthouse test includes an SEO
+  score, so this is a genuine secondary match, not a stretch.
+- Changes: title, meta, OG/Twitter, badge, H1, opening paragraph.
+- Grep-verified: primary 9 occurrences (incl. inside `<h1>`), secondary 4
+  occurrences with at least one confirmed inside `<main>` (opening
+  paragraph, line 442). Div balance 93/93. JSON-LD still valid.
+
+**Page 2: `/usa/`**
+- Primary: `digital marketing agency USA` — WebSearch-informed; matches
+  the page's real positioning (all 50 states).
+- Secondary: `digital marketing company USA` — WebSearch confirmed
+  "agency" and "company" are used interchangeably for this query, added
+  naturally in the opening paragraph.
+- Changes: title, meta, OG/Twitter, badge, H1, opening paragraph.
+- Grep-verified: primary 8 occurrences (incl. inside `<h1>`), secondary 1
+  occurrence in body. Div balance 177/177. JSON-LD still valid.
+- Action item: neither page volume-verified this run, revisit once
+  Semrush units refresh.
