@@ -84,6 +84,46 @@ Process each run follows:
    sitemap resubmission confirmation) — informational, not a request for
    approval.
 
+## Blog indexing & performance tracking (set 2026-09-29, standing, per owner instruction)
+
+In addition to publishing, keep tracking whether posts actually get indexed
+and how they actually perform, and use real findings to improve future
+posts. Full process, baseline, and dated log entries live in
+`blog-performance-log.md` — read that file for the method in detail. Summary:
+
+- **Indexing**: `GOOGLE_SEARCH_CONSOLE_INSPECT_URL` per post. Check posts
+  published in the last ~14 days until they resolve to "Submitted and
+  indexed," plus any post previously flagged stuck. Don't re-check
+  long-indexed posts every day — no new signal, wasted quota.
+- **Performance**: `GOOGLE_SEARCH_CONSOLE_SEARCH_ANALYTICS_QUERY`,
+  dimension `page` filtered to `/blog/`, ~90-day window, compared against
+  the last logged pull for real trend direction.
+- **"A/B testing" on a static site**: there's no traffic-splitting
+  infrastructure here, so this means comparing real outcomes across
+  already-published posts (topic, title pattern, structure, length,
+  internal links) and applying what's actually working to new posts —
+  never a claim of "this performed better" without a real GSC number
+  behind it.
+- Anti-fabrication rule applies in full: log real numbers only, including
+  when the real number is zero. The 2026-09-29 baseline is honest about
+  this — 9 of 16 posts indexed, 3 posts genuinely stuck (one Google
+  crawled and declined to index, two still uncrawled after 19-38 days),
+  and zero recorded clicks across every blog post so far. See the log
+  file for the full baseline and action items.
+
+## Instagram posting paused (set 2026-09-29, standing, per owner instruction)
+
+The owner said to stop creating social media posts. All three daily
+Instagram posting Routines (`Kryvex IG Post #1/#2/#3` — morning/afternoon/
+evening) are disabled (`enabled: false`), not deleted. **Do not draft,
+generate, or publish Instagram content from here on** unless the owner
+explicitly re-enables this or asks for a specific post. This was also the
+right call independent of the request: image generation had been blocked
+all session across every path tried (Gamma unreachable, direct OpenAI
+image gen blocked, Canva needs re-auth, Porter `creative.generate` returns
+`action_blocked`/`NOT_IN_CATALOG`), so no post had actually been
+publishable anyway.
+
 ## Publish verification rule (standing, set 2026-09-26)
 
 **Never report a page as "live" without confirming the exact GitHub Actions
