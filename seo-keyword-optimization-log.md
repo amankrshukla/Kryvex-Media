@@ -33,10 +33,19 @@ picked (see the 2026-09-28 entry below for why this matters).
 22. ~~`/industries/home-services/`~~ — done 2026-09-28
 23. ~~`/industries/education/`~~ — done 2026-09-28
 24. ~~`/industries/fitness/`~~ — done 2026-09-28
-25. `/industries/tours-travel/`
-26. *(after core + hub pages: revisit and extend this list with the
-    next-highest-value pages — top-population US states, then major
-    metro county pages, then remaining country hubs)*
+25. ~~`/industries/tours-travel/`~~ — done 2026-09-29
+26. ~~`/california/`~~ — done 2026-09-29 (US state hub)
+27. ~~`/texas/`~~ — done 2026-09-29 (US state hub)
+28. ~~`/florida/`~~ — done 2026-09-29 (US state hub)
+29. ~~`/new-york/`~~ — done 2026-09-29 (US state hub)
+30. ~~`/pennsylvania/`~~ — done 2026-09-29 (US state hub)
+31. ~~`/illinois/`~~ — done 2026-09-29 (US state hub)
+32. ~~`/ohio/`~~ — done 2026-09-29 (US state hub)
+33. ~~`/georgia/`~~ — done 2026-09-29 (US state hub)
+34. ~~`/north-carolina/`~~ — done 2026-09-29 (US state hub)
+35. *(after these: continue with the next-highest-population US states —
+    Michigan, New Jersey, Virginia, Washington, Arizona, Massachusetts —
+    then major metro county pages, then remaining country hubs)*
 
 ## Log
 
@@ -445,3 +454,76 @@ found; all 6 genuinely support an "[industry] marketing agency" /
   `/industries/restaurants/`, `/industries/legal/`,
   `/industries/home-services/`, `/industries/education/`,
   `/industries/fitness/`) — first day at the new 10-page/day cadence.
+
+### 2026-09-29
+
+Semrush units zero again (checked live, `phrase_these`, batch call for all
+20 candidate keywords across today's 10 pages returned `403 ERROR 132 ::
+API UNITS BALANCE IS ZERO`, non-retryable). WebSearch fallback used for
+all 10 pages, explicitly disclosed below. Intent-match check run against
+each page's real title/H1/hero copy before picking a keyword — the
+`/industries/tours-travel/` page genuinely covers both tour operators and
+travel agencies, and all 9 US state hubs already carried "Digital
+Marketing Agency in [State]" in title/meta/OG/Twitter from earlier site
+work, confirming the primary keyword choice was already the intended
+positioning, not a new guess.
+
+The `/industries/` queue ran out after today (`tours-travel` was the last
+unoptimized industries page), so the priority queue was extended with the
+next-highest-value pages per the standing instruction: the 9 next
+top-population US state hubs (California, Texas, Florida, New York,
+Pennsylvania, Illinois, Ohio, Georgia, North Carolina — real US Census
+population ranking, not invented), added as items 26-34 above, with items
+35+ (Michigan, New Jersey, Virginia, Washington, Arizona, Massachusetts)
+queued next.
+
+**Page 1: `/industries/tours-travel/`**
+- Primary: `travel marketing agency` — WebSearch confirmed this is a
+  real, commonly used term (e.g. Bird Marketing's "Travel Digital
+  Marketing Agency", Digital Agency Network's "Travel & Tourism Marketing
+  Agencies" category) that covers both tour operators and travel
+  agencies, matching the page's actual scope.
+- Secondary: `tour operator marketing` — narrower variant specific to
+  tour operators, also WebSearch-confirmed as a real term (TOMIS,
+  AAMP, Tour Marketing Suite all use this framing); added naturally in
+  the opening paragraph.
+- Changes: title, meta, OG/Twitter, badge, H1, opening paragraph.
+- Grep-verified: primary 8 occurrences (incl. inside `<h1>`), secondary 1
+  occurrence confirmed in `<main>`. Div balance 141/141. JSON-LD valid (3
+  blocks).
+
+**Pages 2-10: US state hubs (`/california/`, `/texas/`, `/florida/`,
+`/new-york/`, `/pennsylvania/`, `/illinois/`, `/ohio/`, `/georgia/`,
+`/north-carolina/`)**
+- These use a shared template (funnel-stage layout, not the industries
+  badge/H1 pattern) and each already carried the primary keyword
+  `digital marketing agency in [state]` in title, meta description,
+  og:title/description, twitter:title/description, and the page's
+  Service JSON-LD `name` field from earlier site work — confirmed by
+  reading each page's actual head block before editing, not assumed.
+  The only checklist gap on all 9 was the H1 (generic "Your [State]
+  customers are searching right now") and no secondary keyword in body.
+- Primary (all 9): `digital marketing agency in [state]` — already the
+  site's established positioning for this page type, reused rather than
+  reselected, consistent with `/usa/`'s earlier optimization.
+- Secondary (all 9): `digital marketing company in [state]` — the same
+  agency/company interchangeable-term pattern already WebSearch-confirmed
+  and used for `/usa/`, `/uk/`, and `/india/performance-marketing-agency/`
+  earlier this week; added naturally into the opening `sub` paragraph
+  beneath the H1.
+- Changes per page: H1 rewritten to include the primary keyword directly
+  (was generic, now `Digital marketing agency in [State]: your customers
+  are searching right now...`); opening paragraph rewritten to open with
+  the secondary keyword (`As a digital marketing company in [State],
+  we know...`). Title/meta/OG/Twitter/JSON-LD were already correct and
+  left unchanged.
+- Grep-verified per page: primary 5 total occurrences (incl. inside
+  `<h1>`), secondary 1 occurrence confirmed in `<main>` (the `sub`
+  paragraph immediately under the H1). Div balance 127/127 on all 9.
+  JSON-LD valid (1 block each).
+
+- Action item: none of today's 10 pages volume-verified (Semrush units
+  exhausted) — revisit once units refresh.
+- Total done today: 10 pages (`/industries/tours-travel/`, `/california/`,
+  `/texas/`, `/florida/`, `/new-york/`, `/pennsylvania/`, `/illinois/`,
+  `/ohio/`, `/georgia/`, `/north-carolina/`).
