@@ -55,6 +55,7 @@ src="https://www.facebook.com/tr?id=3203948136462091&ev=PageView&noscript=1"
 <meta name="twitter:image" content="https://kryvexmedia.com/assets/og-image.png">
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://kryvexmedia.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://kryvexmedia.com/resources/"},{"@type":"ListItem","position":3,"name":"Blog","item":"https://kryvexmedia.com/blog/"},{"@type":"ListItem","position":4,"name":"How to Cut Wasted Ad Spend in 30 Days","item":"https://kryvexmedia.com/blog/how-to-cut-wasted-ad-spend-in-30-days/"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"How to Cut Wasted Ad Spend in 30 Days","description":"A 30-day plan to cut wasted Google Ads spend — search terms audits, negative keywords, dayparting and smarter bidding, from Kryvex Media.","image":"https://kryvexmedia.com/assets/og-image.png","datePublished":"2026-06-05","author":{"@type":"Organization","name":"Kryvex Media"},"publisher":{"@type":"Organization","name":"Kryvex Media","logo":{"@type":"ImageObject","url":"https://kryvexmedia.com/favicon.svg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://kryvexmedia.com/blog/how-to-cut-wasted-ad-spend-in-30-days/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much of a typical Google Ads budget actually gets wasted?","acceptedAnswer":{"@type":"Answer","text":"WordStream's 2025 review of more than 15,000 accounts found the average account wastes roughly $1,127 a month, and 29% of accounts recorded zero conversions in the review period. The exact share varies a lot by account hygiene — accounts with a real negative keyword list, working conversion tracking, and matched landing pages waste far less than accounts missing all three."}},{"@type":"Question","name":"What's the single fastest way to cut wasted ad spend?","acceptedAnswer":{"@type":"Answer","text":"Sort the Search Terms report by cost, descending. The top 10-15 rows by spend usually reveal most of the obviously wasted budget — irrelevant queries a broad match keyword picked up — in under five minutes, and every one of them becomes a negative keyword."}},{"@type":"Question","name":"Should I fix bidding strategy or conversion tracking first?","acceptedAnswer":{"@type":"Answer","text":"Conversion tracking first, always. Automated bidding strategies like Target CPA and Maximize Conversions optimize toward whatever conversion data they're given — if that data is missing, duplicated, or tracking the wrong action, the bidding strategy will confidently optimize toward the wrong outcome. Fix tracking, let a few weeks of clean data accumulate, then revisit bidding."}},{"@type":"Question","name":"Does Kryvex Media audit existing Google Ads accounts?","acceptedAnswer":{"@type":"Answer","text":"Yes. Our PPC management includes a full account audit — search terms, negative keywords, conversion tracking, Quality Score, and landing page match — before we propose any changes to bids or budget. You can also start with our free website audit to see how your landing pages score before a click ever reaches them."}}]}</script>
 </head>
 <body>
 <!-- Google Tag Manager (noscript) -->
@@ -340,7 +341,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <p class="b-dek">A week-by-week plan to find and fix the leaks in your Google Ads account — without cutting your budget.</p>
     <div class="b-byline">
       <div class="b-avatar">K</div>
-      <div class="b-byline-text"><b>Kryvex Media Team</b><br>Jun 5, 2026 · 5 min read</div>
+      <div class="b-byline-text"><b>Kryvex Media Team</b><br>Jun 5, 2026 · 8 min read</div>
     </div>
   </section>
 
@@ -360,7 +361,19 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   </div>
 
   <article class="b-article" style="--cat-1:var(--c-ppc-1);--cat-2:var(--c-ppc-2)">
-    <p>Most small businesses running Google Ads are losing money in the same handful of places — not because the platform is broken, but because nobody's cleaned house in months. Here's the 30-day fix, in the order it actually pays off.</p>
+    <p>Most small businesses running Google Ads are losing money in the same handful of places — not because the platform is broken, but because nobody's cleaned house in months. The scale of it is well documented: <a href="https://www.wordstream.com/blog/google-ads-account-study" target="_blank" rel="noopener">WordStream's 2025 review</a> of more than 15,000 accounts run through its free Performance Grader found the average Google Ads account wastes roughly $1,127 a month, and 29% of accounts logged zero conversions over the review period. Here's the 30-day fix, in the order it actually pays off — starting with exactly where that money leaks out.</p>
+
+    <h2>Where the money actually goes: six real causes of wasted spend</h2>
+    <p>Before any single tactic, it helps to know which mistakes account for most of the waste. Auditing accounts, the same six causes show up over and over:</p>
+    <ul>
+      <li><strong>Broad match with no negative keyword list.</strong> Broad match tells Google to interpret a keyword loosely, so a bid meant for "emergency plumber near me" can trigger on "plumbing apprenticeship jobs" or "how to fix a leaky faucet." A quarter of businesses in WordStream's dataset had added zero negative keywords to their account.</li>
+      <li><strong>No conversion tracking, or tracking that's quietly broken.</strong> Without it, there's no way to tell Google's bidding algorithm — or yourself — which keywords are producing leads versus just clicks. Automated bidding strategies like Target CPA and Maximize Conversions are only as good as the conversion data feeding them.</li>
+      <li><strong>The wrong campaign type for the goal.</strong> Performance Max spreads budget across Search, Display, YouTube, Gmail and Maps automatically, which can perform well once an account has conversion history, but gives almost no visibility into which placement actually drove a result — a costly blind spot for an account that's still learning what works.</li>
+      <li><strong>Landing pages that don't match the ad's promise.</strong> A generic homepage forces the visitor to do the work the ad copy already promised to do, which drags down both conversion rate and the landing-page-experience component of Quality Score.</li>
+      <li><strong>No audience exclusions.</strong> Google Ads lets advertisers exclude people who already converted, or other segments unlikely to buy, from a campaign's targeting. Skipping this means paying full price to re-pitch an offer to someone who already took it.</li>
+      <li><strong>Ignoring device and location performance splits.</strong> Conversion rate and cost per click often vary sharply by device and by city or ZIP code within the same campaign, yet many accounts run one flat bid everywhere regardless.</li>
+    </ul>
+    <p>The rest of this guide fixes each one, roughly in the order that pays off fastest across a 30-day window.</p>
 
     <h2>Week 1: Audit your search terms report first</h2>
     <p>Before you touch bids or budgets, open the Search Terms report and read every single query that triggered your ads over the last 30 days. This is the single most revealing document in your account — it shows you exactly what Google decided was "close enough" to your keywords, and it's usually full of surprises.</p>
@@ -368,26 +381,52 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="b-pullquote">"Most wasted ad spend isn't a targeting problem — it's a hygiene problem."</div>
 
     <h2>Fix your negative keyword list</h2>
-    <p>Every irrelevant query from that report becomes a negative keyword. "Free," "jobs," "DIY," "how to" — these show up constantly in service-business accounts and burn budget on people who were never going to buy. A thorough negative list, reviewed weekly for the first month, is the fastest lever you have.</p>
+    <p>Every irrelevant query from that report becomes a negative keyword. "Free," "jobs," "DIY," "how to" — these show up constantly in service-business accounts and burn budget on people who were never going to buy. WordStream's <a href="https://www.wordstream.com/blog/ws/2018/06/06/negative-keyword-guide" target="_blank" rel="noopener">negative keyword research</a> found accounts that built out a real negative list saw conversion rates roughly triple compared to accounts running without one. Reviewed weekly for the first month, a negative list is the single fastest lever you have.</p>
 
-    <h2>Match types are quietly burning budget</h2>
-    <p>Broad match without smart bidding discipline is where accounts bleed the most. If you're running broad match, make sure Target CPA or Target ROAS is actually doing its job — check the "optimization score" suggestions critically, since not all of them serve your goals, only Google's.</p>
+    <h2>Match types and Quality Score are quietly burning budget together</h2>
+    <p>Broad match without bidding discipline is where accounts bleed the most, but the mechanic underneath it is Quality Score — Google's own 1-10 <a href="https://support.google.com/google-ads/answer/6167118" target="_blank" rel="noopener">diagnostic for each keyword</a>, built from expected click-through rate, ad relevance, and landing page experience. It matters because it feeds directly into Ad Rank, which sets both your position and your real cost per click — the average Quality Score across accounts sits around 5-6, meaning most advertisers are quietly paying a premium they don't need to. If you're running broad match, make sure Target CPA or Target ROAS is actually doing its job, and check the "optimization score" suggestions critically — not all of them serve your goals, only Google's spend targets.</p>
 
     <div class="b-callout">
       <div class="b-callout-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 8v4l3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
       <p>Quick win: sort your search terms report by cost, descending. The top 10-15 rows usually reveal most of your wasted spend in under five minutes.</p>
     </div>
 
-    <h2>Week 2: Landing pages are half the battle</h2>
-    <p>A great ad sending traffic to a slow, generic homepage is money burned on the way to a bounce. Every campaign should land on a page that matches the ad's promise exactly — same offer, same language, one clear next step.</p>
+    <h2>Week 2: Fix conversion tracking before you touch anything else</h2>
+    <p>None of the fixes above mean much if the account can't see which clicks actually turn into customers. If Target CPA, Maximize Conversions, or any automated bidding strategy is running without accurate conversion data, it's optimizing toward noise instead of results. Before rewriting ad copy or shifting budget, confirm inside Google Ads that the primary conversion action is the one that actually matters commercially — a completed purchase, a booked call, a submitted quote request — and not a soft signal like a page view or a click-to-call button that gets tapped and abandoned. Duplicate conversion actions left switched on will also inflate what the algorithm thinks is working, which sends more budget toward keywords that were never really converting.</p>
 
-    <h2>Week 3: Dayparting — stop paying for hours that never convert</h2>
-    <p>Pull up your conversion data by hour of day. Most local service businesses see a sharp drop-off overnight and on certain days — yet many accounts run 24/7 by default. Scheduling ads to your actual buying hours can cut wasted spend without touching a single bid.</p>
+    <h2>Landing pages are half the battle</h2>
+    <p>A great ad sending traffic to a slow, generic homepage is money burned on the way to a bounce. Every campaign should land on a page that matches the ad's promise exactly — same offer, same language, one clear next step. This isn't just a conversion-rate issue: a mismatched landing page also drags down the landing-page-experience portion of Quality Score, which raises the cost of every click in that ad group, converting or not. A/B testing two landing page variants against the same ad group, rather than guessing, is the fastest way to find out which version Google — and your visitors — actually prefer.</p>
 
-    <h2>Week 4: Put a hard stop on "Maximize Clicks"</h2>
-    <p>This bidding strategy is designed to spend your budget, not to get you customers. If your account is still on it after the first month, switch to Maximize Conversions or Target CPA once you have enough conversion data — usually 15-30 conversions in the lookback window.</p>
+    <h2>Week 3: Audience exclusions and where performance actually splits</h2>
+    <p>Two related fixes belong in the same week, because both are about not paying full price for traffic you don't need. First, <a href="https://support.google.com/google-ads/answer/2549058" target="_blank" rel="noopener">audience exclusions</a>: build a segment of people who already converted — visitors who reached a "thank you" or purchase-confirmation page — and exclude them from prospecting and remarketing campaigns that are meant to find new customers. Without this, a campaign can spend real budget re-marketing an offer to someone who already bought it. Second, pull up the Devices and Locations tabs in Google Ads and look at conversion rate and cost per conversion side by side, not just cost. It's common to find a campaign converting well on desktop and burning budget on mobile, or performing strongly in one city and barely at all twenty miles away within the same geo-targeted radius. Bid adjustments by device and by location let you keep spend where it's actually working instead of averaging performance across places and devices that behave nothing alike.</p>
 
-    <p>None of this requires a bigger budget — it requires cleaning up the same budget you already have. Most accounts we audit find 20-40% of spend going somewhere it shouldn't. Thirty days of discipline usually finds it.</p>
+    <h2>Week 4: Dayparting — stop paying for hours that never convert</h2>
+    <p>Pull up your conversion data by hour of day. Most local service businesses see a sharp drop-off overnight and on certain days — yet many accounts run 24/7 by default. Google's own <a href="https://support.google.com/google-ads/answer/2404244" target="_blank" rel="noopener">ad scheduling feature</a> lets you set bid adjustments, or turn ads off entirely, for the hours and days that historically don't convert. Scheduling ads to your actual buying hours can cut wasted spend without touching a single keyword bid.</p>
+
+    <h2>Put a hard stop on "Maximize Clicks"</h2>
+    <p>This bidding strategy is designed to spend your budget, not to get you customers — it optimizes purely for click volume with no regard for whether any of those clicks convert. If your account is still on it after the first month, switch to Maximize Conversions or Target CPA once you have enough conversion data flowing in, usually 15-30 conversions in the lookback window, so the algorithm has something real to optimize against.</p>
+
+    <h2>Which fix to do first: a priority framework</h2>
+    <p>Thirty days isn't enough time to do everything at once well, so sequence matters. In rough order of impact per hour invested: start with the search terms report and negative keywords in week one, since this is the cheapest fix and usually surfaces the most obviously wasted spend within minutes. Fix conversion tracking next — every subsequent optimization, including anything an automated bidding strategy does on its own, depends on accurate data underneath it. Landing page matching comes third, because it compounds with everything downstream: a better-matched page lifts conversion rate and Quality Score at the same time. Audience exclusions and device/location bid adjustments are fourth, since they require enough traffic history to read reliably. Bidding strategy changes go last, after the account has clean tracking and a full month of real conversion data to optimize against — changing bidding strategy on dirty data usually just repeats the same mistakes faster.</p>
+
+    <h2>How Kryvex Media approaches wasted spend</h2>
+    <p>Our <a href="/services/ppc/">PPC management</a> starts every new engagement with exactly this kind of audit — search terms, negative keywords, conversion tracking, landing page match, and device/location splits — before touching a single bid, because changing bids on top of broken tracking just wastes budget faster. If you're newer to paid search altogether, our <a href="/blog/google-ads-for-small-businesses/">guide to Google Ads for small businesses</a> covers how to structure a first campaign against real cost-per-click benchmarks. And if ads aren't the only channel eating budget without a clear return, pairing PPC with <a href="/services/seo/">SEO</a> is often how businesses reduce their long-term reliance on paid clicks altogether.</p>
+
+    <h2>Frequently asked questions</h2>
+
+    <h3>How much of a typical Google Ads budget actually gets wasted?</h3>
+    <p>WordStream's 2025 review of more than 15,000 accounts found the average account wastes roughly $1,127 a month, and 29% of accounts recorded zero conversions in the review period. The exact share varies a lot by account hygiene — accounts with a real negative keyword list, working conversion tracking, and matched landing pages waste far less than accounts missing all three.</p>
+
+    <h3>What's the single fastest way to cut wasted ad spend?</h3>
+    <p>Sort the Search Terms report by cost, descending. The top 10-15 rows by spend usually reveal most of the obviously wasted budget — irrelevant queries a broad match keyword picked up — in under five minutes, and every one of them becomes a negative keyword.</p>
+
+    <h3>Should I fix bidding strategy or conversion tracking first?</h3>
+    <p>Conversion tracking first, always. Automated bidding strategies like Target CPA and Maximize Conversions optimize toward whatever conversion data they're given — if that data is missing, duplicated, or tracking the wrong action, the bidding strategy will confidently optimize toward the wrong outcome. Fix tracking, let a few weeks of clean data accumulate, then revisit bidding.</p>
+
+    <h3>Does Kryvex Media audit existing Google Ads accounts?</h3>
+    <p>Yes. Our <a href="/services/ppc/">PPC management</a> includes a full account audit — search terms, negative keywords, conversion tracking, Quality Score, and landing page match — before we propose any changes to bids or budget. You can also start with our <a href="/free-audit/">free website audit</a> to see how your landing pages score before a click ever reaches them.</p>
+
+    <p>None of this requires a bigger budget — it requires cleaning up the same budget already being spent. Thirty days of discipline, worked in the order above, usually finds it. Kryvex Media is a remote-first digital marketing team running <a href="/services/ppc/">PPC</a>, SEO, social and web development for small businesses. <a href="/">See what we do</a>.</p>
 
   </article>
 
