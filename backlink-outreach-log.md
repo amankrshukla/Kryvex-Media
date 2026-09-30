@@ -299,3 +299,29 @@ on the first try.
 
 Replies and any opt-out requests to these 3 (from either sending
 address) will be checked and logged on the next run.
+
+### 2026-09-30 — second finding: native Gmail tool wraps links in a Google redirect
+
+Owner spotted (from the raw sent email) that the website link in the
+original mistaken `amankrshuklaa@gmail.com` send rendered as
+`https://www.google.com/url?q=https://kryvexmedia.com&source=gmail&ust=...&sa=E`
+instead of a clean `https://kryvexmedia.com`. Verified via
+`mcp__Gmail__get_message` (PLAIN_TEXT) that this wrapped URL is literally
+stored in that message's body — not a display artifact. The plain text I
+supplied to the tool was just `https://kryvexmedia.com`; the native
+`mcp__Gmail__send_message` tool itself rewrote it into a Google
+click-tracking redirect before sending.
+
+Checked the Composio-sent resend (`GMAIL_SEND_EMAIL`, message id
+`1a0f457738cb71a2`) via `GMAIL_FETCH_MESSAGE_BY_MESSAGE_ID` — its stored
+body has the clean `https://kryvexmedia.com`, no wrapping. Sent a live
+test to the owner's own address (`amansukla306@gmail.com`, message id
+`1a0f45b15ac0e022`) and re-verified its raw stored body — also clean.
+
+**Conclusion**: this was specific to the native `mcp__Gmail__*` tools,
+already excluded from this Routine's instructions per the account
+correction above. Composio's `GMAIL_SEND_EMAIL` does not wrap links.
+No further action needed — the 3 real outreach contacts' final,
+corrected copies (sent via Composio) all have clean links. Only the
+superseded `amankrshuklaa@gmail.com` copies have the ugly wrapped link,
+and that account/tool is no longer used by this Routine.
