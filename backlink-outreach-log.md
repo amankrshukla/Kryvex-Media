@@ -12,8 +12,26 @@ address; every "sent" log entry must be a checked send confirmation.
 
 Real, high-quality guest-post/resource-page/roundup-list opportunities
 don't appear daily. A forced daily quota is what turns this into the
-spam pattern the owner was explicitly warned about. Weekly, small-volume
-(aim: 2-5 real opportunities/week), quality over quantity.
+spam pattern the owner was explicitly warned about. Weekly, target up to
+**10 real opportunities/week** (raised from 2-5 on 2026-09-30, per owner
+instruction — Kryvex's real global footprint supports more real
+opportunities existing per week, see below) — quality still governs
+volume: if fewer than 10 genuinely real, in-scope, non-paid
+opportunities exist this week, send fewer. Never pad with weak,
+off-scope, or reused opportunities just to hit 10.
+
+## Global scope (set 2026-09-30, owner instruction)
+
+Kryvex's real site covers a genuinely global footprint — country hub
+pages for most of the world (not just the US) and 9 real industry
+verticals (`ecommerce`, `education`, `fitness`, `healthcare`,
+`home-services`, `legal`, `real-estate`, `restaurants`, `tours-travel`).
+Outreach is **not** limited to US-only targets — search for real
+opportunities across any country/region where Kryvex has a real service
+page, and across marketing resources specific to the 9 real industries
+above where a genuine fit exists (e.g. a restaurant-marketing roundup,
+a real-estate-marketing resource page). Still governed by the scope and
+no-paid-links rules below regardless of country.
 
 ## Legal requirement — CAN-SPAM compliance (non-negotiable, every email)
 
@@ -44,7 +62,10 @@ entrepreneurship resource where marketing-agency guidance is a genuine,
 on-topic fit. Off-topic niches (anything unrelated to marketing, web
 services, or the small-business audience Kryvex actually serves) are
 out of scope even if the site would technically accept a pitch — reach
-should track real relevance, not just reachability.
+should track real relevance, not just reachability. Scope is about
+topic/industry fit, not geography — see "Global scope" above: any
+country/region is fair game as long as the target itself is real,
+in-topic, and not paid-only.
 
 ## No paid links, ever (set 2026-09-30, owner instruction, non-negotiable)
 
@@ -68,11 +89,15 @@ and **quality-content-for-quality-placement** framing instead:
 ## Finding real opportunities (every week)
 
 1. Live WebSearch for real, current opportunities **within the scope
-   above**: resource pages, "best digital marketing agency in
-   [state/city]" roundups, guest-post-accepting marketing/SEO/web-design
-   blogs, "write for us" pages in the relevant niche. Every opportunity
-   must be a real, currently-live page found via live search — never
-   invented.
+   above, globally** (not US-only — see "Global scope" above): resource
+   pages, "best digital marketing agency in [country/state/city]"
+   roundups for any real region Kryvex serves, guest-post-accepting
+   marketing/SEO/web-design blogs worldwide, "write for us" pages in the
+   relevant niche, and industry-specific marketing resources matching
+   Kryvex's 9 real industry pages (ecommerce, education, fitness,
+   healthcare, home services, legal, real estate, restaurants,
+   tours/travel). Every opportunity must be a real, currently-live page
+   found via live search — never invented.
 2. Verify the opportunity is real, current, in-scope, and does not
    charge for placements: fetch the actual page, confirm it's live,
    confirm it's genuinely relevant to Kryvex's real services, and check

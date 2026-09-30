@@ -172,13 +172,20 @@ the real method and history.
 volume-driven "create a backlink every day" automation.** That pattern
 is what Google's spam policies name directly as a link-manipulation
 violation, and it was flagged to the owner before building anything —
-this Routine is the legitimate version: weekly, small-volume (2-5 real
-opportunities), real-opportunity-only, never padded to hit a quota.
+this Routine is the legitimate version: weekly, target up to **10 real
+opportunities/week** (raised from 2-5 on 2026-09-30, per owner
+instruction — reflects Kryvex's real global footprint), real-
+opportunity-only, never padded to hit a quota.
 
 Non-negotiable every run: every target must be in Kryvex's real
 industry/service scope (SEO, local SEO, PPC, social, Meta ads, content
-marketing, email marketing, web design, graphics design — off-topic
-niches are out of scope even if reachable); **no paid links, ever** —
+marketing, email marketing, web design, graphics design, or one of
+Kryvex's 9 real industry pages — ecommerce, education, fitness,
+healthcare, home services, legal, real estate, restaurants,
+tours/travel — off-topic niches are out of scope even if reachable);
+**global, not US-only** — Kryvex has real country hub pages for most of
+the world, so opportunities are sourced from any real country/region,
+scope is about topic fit, not geography; **no paid links, ever** —
 Kryvex never pays for a backlink or guest post and never offers payment
 in an outreach email, every pitch leads with genuine collaboration and
 quality-content-for-quality-placement framing instead of a link request,
