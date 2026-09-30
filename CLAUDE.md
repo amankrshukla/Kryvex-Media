@@ -192,11 +192,12 @@ informational, not a request for approval.
 A recurring Routine (`trig_014Z1XWCVXosm6TAVS9f5ZoX`, weekly Mondays
 ~09:47 IST, self-bound to the main working session) finds real guest-
 post/resource-page/"best of" list opportunities and sends proposal
-emails via Outlook (`amankrshuklaa@gmail.com`) — fully autonomous, no
-per-email review, per explicit owner instruction given after being shown
-the real risks (CAN-SPAM legal requirements, Outlook sender-reputation
-risk, and that this is the one channel where a human directly reads what
-gets sent, unlike a website edit). Full method, CAN-SPAM requirements,
+emails via Gmail (`amansukla307@gmail.com`, display name "Kryvex Media"
+— switched from Outlook 2026-09-30, per owner instruction) — fully
+autonomous, no per-email review, per explicit owner instruction given
+after being shown the real risks (CAN-SPAM legal requirements, sender-
+reputation risk, and that this is the one channel where a human directly
+reads what gets sent, unlike a website edit). Full method, CAN-SPAM requirements,
 the real physical address, the permanent opt-out list, and the dated
 send history live in `backlink-outreach-log.md` — read that file for
 the real method and history.

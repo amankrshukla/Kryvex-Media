@@ -131,7 +131,9 @@ and **quality-content-for-quality-placement** framing instead:
 
 ## Sending and logging (every week)
 
-- Send via Outlook (`amankrshuklaa@gmail.com`, connected account).
+- Send via Gmail (`amansukla307@gmail.com`, display name "Kryvex Media",
+  connected account — switched from Outlook 2026-09-30, per owner
+  instruction).
 - Append a dated entry to this log per opportunity: site name + URL,
   real contact used and how it was found, subject line, one-line summary
   of the pitch, send confirmation (or why it wasn't sent), any reply
@@ -150,3 +152,12 @@ and **quality-content-for-quality-placement** framing instead:
 Routine created, this log created, real physical address and CAN-SPAM
 requirements documented. No outreach sent yet — first real run happens
 on the Routine's first scheduled fire.
+
+### 2026-09-30 — sender switched to Gmail
+
+Per owner instruction, switched the send channel from Outlook
+(`amankrshuklaa@gmail.com`) to Gmail (`amansukla307@gmail.com`, display
+name "Kryvex Media", Composio-connected, confirmed active). Routine
+prompt and this log updated accordingly. No functional/scope/compliance
+rules changed — same CAN-SPAM requirements, same real address, same
+opt-out list, same 10/week cap, same no-paid-links rule.
