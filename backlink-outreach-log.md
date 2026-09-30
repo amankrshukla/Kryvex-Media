@@ -195,3 +195,63 @@ options: (1) connect a Composio scraper toolkit (Firecrawl has a free
 tier) so future runs have a working fetch path, or (2) some other
 verification method. Not yet fixed as of this entry — flagged to the
 owner in chat.
+
+**Fixed same day**: owner connected the Scrapingbee toolkit via Composio
+(1,000 free API credits, confirmed active). `SCRAPINGBEE_HTML_FETCH`
+successfully fetches external pages where WebFetch is blocked — this is
+now the Routine's real verification/contact-discovery path going forward.
+Noted for future runs.
+
+### 2026-09-30 — live test run completed: 3 real opportunities, 3 real sends
+
+Continuation of the same ad-hoc live test (owner-requested, full-send
+mode), resumed after the Scrapingbee fix above. Real results, this run:
+
+**Candidates checked (5, via WebSearch → SCRAPINGBEE_HTML_FETCH):**
+1. `logicinbound.com/write-for-us/` — **skipped**: page returned HTTP 410
+   (gone/not found) when fetched. No longer a real opportunity.
+2. `lilachbullock.com/write-for-us-digital-marketing/` — **skipped, no
+   verifiable contact**: guest-post page and its `/contact-us/` page both
+   checked; only a contact form and placeholder text (`your@email.com`,
+   `name@gmail.com`) were found, no real published email address. Per
+   the no-guessing rule, not contacted.
+3. `embarque.io/guest-posts` — **qualified and sent**. Real guest-post
+   guidelines page (SEO/digital marketing/growth marketing topics,
+   1,000-word minimum, explicit content-quality rules), no paid-placement
+   language found. Real contact: `michaelkent@embarque.io`.
+4. `blog.linkody.com/write-for-us/` — **qualified and sent**. Real "Guest
+   Post Agreement" page, explicitly states "We seek no payments for
+   guest post submissions" (confirms no-paid-placement). Real contact:
+   `blog@linkody.com`.
+5. `hunchads.com/guest-post-guidelines` — **qualified and sent**. Real
+   guidelines page (paid-social/Meta ads audience, 800-word max, no
+   payment mentioned); no email on the guidelines page itself, but a
+   real one was found on the site's own `/contact` page:
+   `hello@hunchads.com`.
+
+Checked the opt-out list above before sending — empty, nothing to
+exclude.
+
+**Sends (3, via Gmail `amansukla307@gmail.com`, each confirmed by a real
+message ID in the tool response — not assumed):**
+
+| Site | Contact | Subject | Pitch | Send status |
+|---|---|---|---|---|
+| embarque.io | michaelkent@embarque.io | "Guest post idea for Embarque's blog — local SEO citation building" | Local SEO citation-building guide for small businesses, targeting Embarque's SEO topic list, no payment offered | Confirmed sent (id `1a0f452749f7e236`) |
+| blog.linkody.com | blog@linkody.com | "Guest post pitch for Linkody's blog — evaluating backlink opportunities without link schemes" | Guide to evaluating backlink opportunities vs. Google's link-scheme guidance, referencing their explicit no-payment policy | Confirmed sent (id `1a0f4527752869ba`) |
+| hunchads.com | hello@hunchads.com | "Guest post idea for the Hunch blog — briefing creative for Meta ads on a small budget" | How-to on briefing Meta ads creative without a dedicated creative team, under their 800-word cap | Confirmed sent (id `1a0f45278301d670`) |
+
+Every email: accurate sender (Aman Shukla / Kryvex Media), non-deceptive
+subject matching actual content, real physical address in the footer,
+opt-out language included, no payment offered or mentioned, no
+fabricated claims — each pitch specific to that site's own stated
+guidelines, not templated copy.
+
+Replies and any opt-out requests to these 3 will be checked and logged
+on the next run (`mcp__Gmail__search_threads`).
+
+This satisfies the owner's request for a live demo of the real workflow;
+it is separate from (and ahead of) the Routine's own scheduled Monday
+2026-10-05 fire, which will pick up where this leaves off — up to 7 more
+opportunities remain available this week under the 10/week cap if the
+Monday run finds them.

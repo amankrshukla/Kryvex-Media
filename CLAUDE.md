@@ -202,6 +202,14 @@ the real physical address, the permanent opt-out list, and the dated
 send history live in `backlink-outreach-log.md` — read that file for
 the real method and history.
 
+**Verification path (fixed 2026-09-30)**: WebFetch is blocked by this
+environment's network egress proxy for external domains generally (not
+just kryvexmedia.com), which blocks this Routine's required page
+verification and contact-discovery steps. Fixed by connecting the
+Scrapingbee toolkit via Composio (`SCRAPINGBEE_HTML_FETCH`) — that's the
+working fetch path for target-page verification and contact-email
+discovery from here on.
+
 **Explicitly rejected as a first version of this request: a daily,
 volume-driven "create a backlink every day" automation.** That pattern
 is what Google's spam policies name directly as a link-manipulation
