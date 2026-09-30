@@ -365,3 +365,48 @@ bare. The real physical address and opt-out text stay as visible plain
 text in the body (not relying on the signature image alone) since
 CAN-SPAM requires a readable postal address and some mail clients block
 images by default.
+
+### 2026-09-30 — fourth and fifth findings: signature size, and no em-dashes in pitch copy
+
+Two more real style requirements from the owner, applied and tested
+before any further real sends:
+
+1. **Signature oversized.** The real signature image
+   (`Full signature@2x.png`) is genuinely large at its native size:
+   confirmed via `SCRAPINGBEE_HTML_FETCH` (binary fetch, since the image
+   host is also blocked by WebFetch) and a PNG `IHDR` parse of the real
+   bytes — **1280×319px**, a "@2x" retina asset meant to be displayed
+   around half that width. Fixed by adding
+   `style="max-width:320px;width:100%;height:auto;"` to the signature
+   `<img>` tag. Tested via a send to `amansukla306@gmail.com` (message id
+   `1a0f461d7b21c523`) — confirmed reasonable size, approved by owner.
+2. **No em-dashes/hyphens as sentence punctuation in pitch copy.**
+   Previous pitch drafts used "—" as a clause separator (e.g. "I'm Aman
+   — I work on..."). Owner asked this removed. Rewrote pitch copy to use
+   plain sentences (periods, commas) instead — e.g. "I'm Aman. I work
+   on...". Tested via a full, non-placeholder pitch sent to
+   `amansukla306@gmail.com` (message id `1a0f4633eaaac9ad`), approved by
+   owner.
+
+**Live test, finalized format, real recipient (owner-directed)**: owner
+asked to see one live send with the finalized format (correct sender,
+resized signature, no-dash copy) rather than another test to the
+owner's own inbox. Per explicit instruction, sent to
+`michaelkent@embarque.io` — the same real contact from the earlier
+embarque.io pitch. **This is a real, disclosed cost worth stating
+plainly: this is the third email to this same contact today** (personal
+account, then `amansukla307@gmail.com`, now `info@kryvexmedia.com`).
+Added one honest sentence to this send acknowledging the repeat emails
+while the sending setup was being corrected, rather than silently
+resending as if nothing happened. Confirmed sent (message id
+`1a0f464edf1b7a9f`), from `info@kryvexmedia.com`. Owner confirmed this
+is the correct, final format ("this is perfect test run").
+
+**Standing template from here on** (subject to future review): sender
+`info@kryvexmedia.com` (display name "Kryvex Media"), `is_html: true`,
+body as HTML paragraphs, no em-dashes or hyphens used as sentence
+punctuation (write plain sentences instead), signature image
+constrained to `max-width:320px`, real physical address and opt-out
+line as visible plain text below the signature. This Routine's stored
+prompt has been updated to require all of the above on every future
+send, including Monday's scheduled run.
