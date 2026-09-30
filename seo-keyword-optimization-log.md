@@ -43,8 +43,18 @@ picked (see the 2026-09-28 entry below for why this matters).
 32. ~~`/ohio/`~~ — done 2026-09-29 (US state hub)
 33. ~~`/georgia/`~~ — done 2026-09-29 (US state hub)
 34. ~~`/north-carolina/`~~ — done 2026-09-29 (US state hub)
-35. *(after these: continue with the next-highest-population US states —
-    Michigan, New Jersey, Virginia, Washington, Arizona, Massachusetts —
+35. ~~`/michigan/`~~ — done 2026-09-30 (US state hub)
+36. ~~`/new-jersey/`~~ — done 2026-09-30 (US state hub)
+37. ~~`/virginia/`~~ — done 2026-09-30 (US state hub)
+38. ~~`/washington/`~~ — done 2026-09-30 (US state hub)
+39. ~~`/arizona/`~~ — done 2026-09-30 (US state hub)
+40. ~~`/massachusetts/`~~ — done 2026-09-30 (US state hub)
+41. ~~`/tennessee/`~~ — done 2026-09-30 (US state hub)
+42. ~~`/indiana/`~~ — done 2026-09-30 (US state hub)
+43. ~~`/missouri/`~~ — done 2026-09-30 (US state hub)
+44. ~~`/maryland/`~~ — done 2026-09-30 (US state hub)
+45. *(after these: continue with the next-highest-population US states —
+    Wisconsin, Colorado, Minnesota, South Carolina, Alabama, Louisiana —
     then major metro county pages, then remaining country hubs)*
 
 ## Log
@@ -527,3 +537,46 @@ queued next.
 - Total done today: 10 pages (`/industries/tours-travel/`, `/california/`,
   `/texas/`, `/florida/`, `/new-york/`, `/pennsylvania/`, `/illinois/`,
   `/ohio/`, `/georgia/`, `/north-carolina/`).
+
+### 2026-09-30
+
+Semrush units zero again (checked live, `phrase_these` batch call for all
+20 candidate keywords across today's 10 state hubs returned `403 ERROR
+132 :: API UNITS BALANCE IS ZERO`, non-retryable). WebSearch fallback
+used — same `digital marketing agency in [state]` / `digital marketing
+company in [state]` pattern already established and WebSearch-confirmed
+for the prior 9 state hubs, reused for consistency rather than
+reselected from scratch.
+
+The queue was extended with the next 10 top-population US states (real
+Census ranking): Michigan, New Jersey, Virginia, Washington, Arizona,
+Massachusetts, Tennessee, Indiana, Missouri, Maryland — items 35-44
+above, with Wisconsin/Colorado/Minnesota/South Carolina/Alabama/
+Louisiana queued next.
+
+**Pages 1-10: US state hubs (`/michigan/`, `/new-jersey/`, `/virginia/`,
+`/washington/`, `/arizona/`, `/massachusetts/`, `/tennessee/`,
+`/indiana/`, `/missouri/`, `/maryland/`)**
+- Intent-match check: confirmed on all 10 by reading each page's actual
+  title before editing — all already carried "Digital Marketing Agency
+  in [State]" in title/meta/OG/Twitter/JSON-LD from earlier site work,
+  same gap as the prior 9 states (generic H1, no secondary keyword in
+  body).
+- Primary (all 10): `digital marketing agency in [state]` — reused the
+  site's established positioning for this page type.
+- Secondary (all 10): `digital marketing company in [state]` — same
+  agency/company interchangeable pattern used for all prior state hubs
+  and `/usa/`, `/uk/`, `/india/performance-marketing-agency/`.
+- Changes per page: H1 rewritten to include the primary keyword directly
+  (was generic "Your [State] customers are searching..."); opening `sub`
+  paragraph rewritten to open with the secondary keyword. Title/meta/
+  OG/Twitter/JSON-LD already correct, left unchanged.
+- Grep-verified per page: primary 5 total occurrences (incl. inside
+  `<h1>`), secondary 1 occurrence confirmed in `<main>`. Div balance
+  127/127 on all 10. JSON-LD valid (1 block each).
+
+- Action item: none of today's 10 pages volume-verified (Semrush units
+  exhausted) — revisit once units refresh.
+- Total done today: 10 pages (`/michigan/`, `/new-jersey/`, `/virginia/`,
+  `/washington/`, `/arizona/`, `/massachusetts/`, `/tennessee/`,
+  `/indiana/`, `/missouri/`, `/maryland/`).
