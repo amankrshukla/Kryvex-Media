@@ -175,11 +175,19 @@ violation, and it was flagged to the owner before building anything —
 this Routine is the legitimate version: weekly, small-volume (2-5 real
 opportunities), real-opportunity-only, never padded to hit a quota.
 
-Non-negotiable every run: every opportunity is a real, currently-live
-page found via WebSearch that run (never invented or reused unverified);
-every contact email is a real address actually published on the target
-site (never a guessed/pattern-matched address — skip and log if no real
-contact exists); every email is CAN-SPAM compliant (accurate sender,
+Non-negotiable every run: every target must be in Kryvex's real
+industry/service scope (SEO, local SEO, PPC, social, Meta ads, content
+marketing, email marketing, web design, graphics design — off-topic
+niches are out of scope even if reachable); **no paid links, ever** —
+Kryvex never pays for a backlink or guest post and never offers payment
+in an outreach email, every pitch leads with genuine collaboration and
+quality-content-for-quality-placement framing instead of a link request,
+and any target that states it charges for placements is disqualified
+and skipped; every opportunity is a real, currently-live page found via
+WebSearch that run (never invented or reused unverified); every contact
+email is a real address actually published on the target site (never a
+guessed/pattern-matched address — skip and log if no real contact
+exists); every email is CAN-SPAM compliant (accurate sender,
 non-deceptive subject, the real physical address `Kryvex Media, Women's
 College Road, Madhubani, India` in every footer, clear opt-out
 language); the permanent opt-out list in the log is checked before every

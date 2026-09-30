@@ -32,16 +32,51 @@ email under the US CAN-SPAM Act and must include:
   keep an opt-out list in this log).
 - No harvested/guessed email addresses — see "Finding contacts" below.
 
+## Scope — industry/service relevance only (set 2026-09-30, owner instruction)
+
+**Every target must sit within Kryvex's actual industry and service
+scope.** Kryvex offers SEO, local SEO, PPC, social media marketing, Meta
+ads, content marketing, email marketing, web design & development, and
+graphics design, for small/mid-size businesses. A target is in-scope
+when it's a real digital-marketing/SEO/PPC/web-design/content-marketing
+resource, publication, directory, or roundup — or a real small-business/
+entrepreneurship resource where marketing-agency guidance is a genuine,
+on-topic fit. Off-topic niches (anything unrelated to marketing, web
+services, or the small-business audience Kryvex actually serves) are
+out of scope even if the site would technically accept a pitch — reach
+should track real relevance, not just reachability.
+
+## No paid links, ever (set 2026-09-30, owner instruction, non-negotiable)
+
+**Kryvex does not pay for backlinks or paid guest posts, and never offers
+payment in any outreach email.** Paying for a link that passes ranking
+credit is a direct violation of Google's link-scheme policy — this rule
+exists for the same underlying reason the daily-volume version of this
+automation was rejected. Every pitch leads with **genuine collaboration**
+and **quality-content-for-quality-placement** framing instead:
+- Offer to contribute a real, substantive piece of content (a genuine
+  guest post, a data point, a quote, an expert contribution) in exchange
+  for consideration — value exchange, not a transaction.
+- If a target site's own page states it charges for guest posts or paid
+  placements, that target is disqualified — skip it and log why, don't
+  negotiate a paid angle.
+- Never use the words "pay," "fee," "sponsored," or similar in a way
+  that frames this as a purchase. The email should read as one
+  practitioner proposing real collaboration to another, not a vendor
+  pitching a placement product.
+
 ## Finding real opportunities (every week)
 
-1. Live WebSearch for real, current opportunities: resource pages,
-   "best digital marketing agency in [state/city]" roundups, guest-post-
-   accepting marketing/SEO/web-design blogs, "write for us" pages in the
-   relevant niche. Every opportunity must be a real, currently-live page
-   found via live search — never invented.
-2. Verify the opportunity is real and current: fetch the actual page,
-   confirm it's live, confirm it's genuinely relevant to Kryvex's real
-   services (SEO, PPC, social, web design, content, email marketing).
+1. Live WebSearch for real, current opportunities **within the scope
+   above**: resource pages, "best digital marketing agency in
+   [state/city]" roundups, guest-post-accepting marketing/SEO/web-design
+   blogs, "write for us" pages in the relevant niche. Every opportunity
+   must be a real, currently-live page found via live search — never
+   invented.
+2. Verify the opportunity is real, current, in-scope, and does not
+   charge for placements: fetch the actual page, confirm it's live,
+   confirm it's genuinely relevant to Kryvex's real services, and check
+   for any stated paid-guest-post policy (disqualifying if found).
 3. Find a **real, published contact** — an email address actually listed
    on the site's contact/about/write-for-us page, or a submission form.
    **Never guess an email address by pattern-matching a domain** (e.g.
@@ -54,6 +89,10 @@ email under the US CAN-SPAM Act and must include:
 
 ## Drafting the proposal (every email)
 
+- **Leads with collaboration, not a link request.** The opening framing
+  is "here's a real piece of value I can contribute" (quality content, a
+  genuine expert contribution, a data point), not "can I have a link."
+  Never offer or mention payment — see the no-paid-links rule above.
 - Specific to the actual opportunity — reference the real page/post/
   roundup by name and explain specifically why Kryvex fits it. No
   generic templated pitch copy.
