@@ -214,15 +214,30 @@ discovery from here on.
 live test run below was first sent using the native `mcp__Gmail__*`
 tools, which turned out to be a completely different Gmail connection
 (the owner's own personal login, `amankrshuklaa@gmail.com`) — not the
-Composio-connected `amansukla307@gmail.com` ("Kryvex Media") the owner
-had explicitly asked this Routine to use. Caught only because the owner
-asked why the sent mail wasn't where expected. Fixed: this Routine must
-use `GMAIL_SEND_EMAIL` via **Composio** (`mcp__compos_io__COMPOSIO_MULTI_EXECUTE_TOOL`,
-account `gmail_scap-lee`, `from_email: "amansukla307@gmail.com"`
-explicit on every call) — never the native `mcp__Gmail__*` tools, which
-are a different account entirely. Full incident detail, including the
-net effect (3 real contacts got 2 emails each) and the corrected resend,
-is in `backlink-outreach-log.md`'s 2026-09-30 "CORRECTION" entry.
+Composio-connected `amansukla307@gmail.com` account the owner had
+explicitly asked this Routine to use. Caught only because the owner
+asked why the sent mail wasn't where expected. Full incident detail,
+including the net effect (3 real contacts got 2 emails each) and the
+corrected resend, is in `backlink-outreach-log.md`'s 2026-09-30
+"CORRECTION" entry.
+
+**Final sending identity (set 2026-09-30)**: outreach sends from
+`info@kryvexmedia.com` (display name "Kryvex Media") — a verified Gmail
+"Send As" alias on the `amansukla307@gmail.com` account (confirmed via
+`GMAIL_LIST_SEND_AS`, `verificationStatus: accepted`), not the bare
+`amansukla307@gmail.com` address. Always via `GMAIL_SEND_EMAIL`
+(Composio, `mcp__compos_io__COMPOSIO_MULTI_EXECUTE_TOOL`, account
+`gmail_scap-lee`), with `from_email: "info@kryvexmedia.com"` and
+`is_html: true` set explicitly on every call — never the native
+`mcp__Gmail__*` tools (different account) and never the bare
+`amansukla307@gmail.com` address. A Gmail-configured signature does
+**not** auto-apply via the API — the real signature HTML (pulled from
+`GMAIL_LIST_SEND_AS`, not retyped) must be appended to the HTML body of
+every send, with the real physical address and opt-out text kept as
+visible plain text in the body (not relying on the signature image
+alone, since CAN-SPAM requires a readable postal address and some mail
+clients block images). Full detail in `backlink-outreach-log.md`'s
+2026-09-30 "third finding" entry.
 
 **Explicitly rejected as a first version of this request: a daily,
 volume-driven "create a backlink every day" automation.** That pattern

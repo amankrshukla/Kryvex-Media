@@ -325,3 +325,43 @@ No further action needed — the 3 real outreach contacts' final,
 corrected copies (sent via Composio) all have clean links. Only the
 superseded `amankrshuklaa@gmail.com` copies have the ugly wrapped link,
 and that account/tool is no longer used by this Routine.
+
+### 2026-09-30 — third finding: sender must be info@kryvexmedia.com, not amansukla307@gmail.com
+
+Owner clarified the intended sending identity: `amansukla307@gmail.com`
+is routed through a verified Gmail "Send As" alias,
+**`info@kryvexmedia.com`** (display name "Kryvex Media", `smtp2go.com`
+relay, `verificationStatus: accepted`), with a real signature already
+configured in Gmail settings (an image signature). Checked via
+`GMAIL_LIST_SEND_AS` — confirmed real and verified, not assumed.
+
+**Real limitation found**: a signature configured in Gmail's web
+settings is only auto-inserted by Gmail's own compose UI — it is NOT
+automatically applied when sending via the Gmail API (which is what
+`GMAIL_SEND_EMAIL` does). To actually show the signature, it has to be
+included explicitly in the HTML body of every send.
+
+**Tested and confirmed working**: sent a test to the owner's own address
+(`amansukla306@gmail.com`, message id `1a0f45ee6eda4eda`) with
+`from_email: "info@kryvexmedia.com"` and the real signature HTML
+(pulled directly from `GMAIL_LIST_SEND_AS`'s `signature` field, not
+retyped) appended after the body. Verified via
+`GMAIL_FETCH_MESSAGE_BY_MESSAGE_ID` that the real `From` header reads
+`"Kryvex Media" <info@kryvexmedia.com>` — confirmed, not assumed.
+
+**Decision on the 3 already-contacted sites (embarque.io, linkody,
+hunchads)**: owner had no preference; Claude's own call, applied — do
+**not** send a third email to the same 3 real contacts in one day. Two
+honest emails from a tooling mistake is already a real cost to pay;
+three would start to look like the spam pattern this whole Routine
+exists to avoid. Those 3 are left as already-contacted. This applies
+**only going forward, to new opportunities** (Monday's scheduled run and
+beyond).
+
+**Fixed going forward**: this Routine's stored prompt now specifies
+`from_email: "info@kryvexmedia.com"` with the real signature HTML
+appended to every send (`is_html: true`), not `amansukla307@gmail.com`
+bare. The real physical address and opt-out text stay as visible plain
+text in the body (not relying on the signature image alone) since
+CAN-SPAM requires a readable postal address and some mail clients block
+images by default.
