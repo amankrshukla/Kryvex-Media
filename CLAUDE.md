@@ -210,6 +210,20 @@ Scrapingbee toolkit via Composio (`SCRAPINGBEE_HTML_FETCH`) — that's the
 working fetch path for target-page verification and contact-email
 discovery from here on.
 
+**Sending account — real mistake, fixed same day (2026-09-30)**: the
+live test run below was first sent using the native `mcp__Gmail__*`
+tools, which turned out to be a completely different Gmail connection
+(the owner's own personal login, `amankrshuklaa@gmail.com`) — not the
+Composio-connected `amansukla307@gmail.com` ("Kryvex Media") the owner
+had explicitly asked this Routine to use. Caught only because the owner
+asked why the sent mail wasn't where expected. Fixed: this Routine must
+use `GMAIL_SEND_EMAIL` via **Composio** (`mcp__compos_io__COMPOSIO_MULTI_EXECUTE_TOOL`,
+account `gmail_scap-lee`, `from_email: "amansukla307@gmail.com"`
+explicit on every call) — never the native `mcp__Gmail__*` tools, which
+are a different account entirely. Full incident detail, including the
+net effect (3 real contacts got 2 emails each) and the corrected resend,
+is in `backlink-outreach-log.md`'s 2026-09-30 "CORRECTION" entry.
+
 **Explicitly rejected as a first version of this request: a daily,
 volume-driven "create a backlink every day" automation.** That pattern
 is what Google's spam policies name directly as a link-manipulation

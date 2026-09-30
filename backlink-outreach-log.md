@@ -232,8 +232,10 @@ mode), resumed after the Scrapingbee fix above. Real results, this run:
 Checked the opt-out list above before sending — empty, nothing to
 exclude.
 
-**Sends (3, via Gmail `amansukla307@gmail.com`, each confirmed by a real
-message ID in the tool response — not assumed):**
+**Sends (3, each confirmed by a real message ID in the tool response —
+not assumed) — CORRECTION, see entry below: these first 3 actually went
+from `amankrshuklaa@gmail.com`, not `amansukla307@gmail.com` as
+originally logged here:**
 
 | Site | Contact | Subject | Pitch | Send status |
 |---|---|---|---|---|
@@ -247,11 +249,53 @@ opt-out language included, no payment offered or mentioned, no
 fabricated claims — each pitch specific to that site's own stated
 guidelines, not templated copy.
 
-Replies and any opt-out requests to these 3 will be checked and logged
-on the next run (`mcp__Gmail__search_threads`).
-
 This satisfies the owner's request for a live demo of the real workflow;
 it is separate from (and ahead of) the Routine's own scheduled Monday
 2026-10-05 fire, which will pick up where this leaves off — up to 7 more
 opportunities remain available this week under the 10/week cap if the
 Monday run finds them.
+
+### 2026-09-30 — CORRECTION: wrong sending account used, then fixed
+
+The 3 sends logged immediately above were claimed to be from
+`amansukla307@gmail.com` — **that was wrong.** `mcp__Gmail__send_message`
+(the tool actually used) is a separate, native Gmail connector tied to
+the owner's own claude.ai login (`amankrshuklaa@gmail.com`), not the
+Composio-managed `amansukla307@gmail.com` ("Kryvex Media") connection
+verified earlier the same session. Real verification via
+`mcp__Gmail__get_message` on all 3 message IDs confirmed
+`"sender":"amankrshuklaa@gmail.com"` on each — caught only because the
+owner asked why the sent mail wasn't visible in the expected inbox.
+
+Content/compliance were never at issue (each email was still genuine,
+accurately signed "Aman Shukla, Kryvex Media," CAN-SPAM-compliant, no
+duplicate sends at that point) — only the sending account was wrong.
+
+**Fix applied**: found the correct tool for the intended account —
+`GMAIL_SEND_EMAIL` (Composio, `gmail` toolkit, account `gmail_scap-lee`
+= `amansukla307@gmail.com`) — as opposed to the native `mcp__Gmail__*`
+tools, which are a different, unrelated Gmail connection. Per owner
+instruction, resent the identical 3 messages from the correct account:
+
+| Site | Contact | Send status (via amansukla307@gmail.com) |
+|---|---|---|
+| embarque.io | michaelkent@embarque.io | Confirmed sent (id `1a0f457730408d24`) |
+| blog.linkody.com | blog@linkody.com | Confirmed sent (id `1a0f45779827e0d7`) |
+| hunchads.com | hello@hunchads.com | Confirmed sent (id `1a0f457738cb71a2`) |
+
+**Net real-world effect, stated plainly**: each of these 3 contacts
+received two emails with identical content, minutes apart, from two
+different real addresses (`amankrshuklaa@gmail.com` then
+`amansukla307@gmail.com`). Not ideal, but both emails were genuine,
+non-spam, CAN-SPAM-compliant outreach — not a repeat/volume pattern, a
+one-time correction of a tooling mistake. If either contact replies to
+either address, check both inboxes for responses before the next run.
+
+**Fixed going forward**: this Routine's stored prompt (and this log's
+own future instructions) now name `GMAIL_SEND_EMAIL` via Composio
+(account `amansukla307@gmail.com`) explicitly, not the native
+`mcp__Gmail__*` tools, so future scheduled runs use the correct account
+on the first try.
+
+Replies and any opt-out requests to these 3 (from either sending
+address) will be checked and logged on the next run.
