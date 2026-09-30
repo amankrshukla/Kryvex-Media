@@ -161,3 +161,36 @@ guarantee immediate index inclusion. The next indexing-check pass
 "stuck" URLs plus spot-check a couple of the newly-expanded ones to see
 whether the fix actually moved the needle, and log the real result
 either way.
+
+## 2026-09-30 — first re-check after the thin-content fix
+
+Published today: `how-to-choose-a-web-design-company` (1,565 words).
+
+**Indexing re-check (live URL Inspection):**
+- The 3 previously-stuck posts are **unchanged** — `local-seo-vs-national-seo`
+  still shows "Crawled - currently not indexed" with the same
+  `lastCrawlTime` (2026-09-17) as the original baseline, meaning Google
+  has not yet recrawled it since Monday's expansion. `signs-seo-agency-
+  not-working` and `website-designing-services-in-madhubani-bihar` are
+  both still "Discovered - currently not indexed." This is expected, not
+  a failure: recrawl on Google's own schedule typically takes longer
+  than 1-2 days, and no re-crawl means no new signal yet either way.
+- 5 posts published in the last ~14 days (`google-ads-for-small-
+  businesses`, `graphic-design-for-small-businesses`, `social-media-
+  marketing-for-small-businesses`, `google-business-profile-optimization-
+  guide`, `how-to-choose-a-web-design-company`) all still show "URL is
+  unknown to Google" — also expected at this age.
+
+**Performance re-pull (90-day window, page dimension, `/blog/`):**
+Numbers are **identical** to the 2026-09-29 baseline pull, same 8 pages
+with impressions, same impression counts, same positions, still zero
+clicks everywhere. No real movement to report — genuinely too early
+(1 day) for the content fixes to show up in either indexing or
+performance data. Re-checking daily is still correct per the standing
+process, but the next entry likely to show real movement is probably
+several days out, once Google's next crawl pass actually reaches the
+fixed URLs.
+
+**Action item:** keep the 3 stuck URLs and the 5 new URLs on the daily
+check list until they resolve one way or the other; no new action
+needed today beyond today's publish.
