@@ -154,6 +154,42 @@ numbers (never a claim without having actually checked it that run),
 commit, push, fast-forward main. Reports status in chat daily —
 informational, not a request for approval.
 
+## Weekly backlink/guest-post outreach Routine (set 2026-09-30, standing, no approval gate)
+
+A recurring Routine (`trig_014Z1XWCVXosm6TAVS9f5ZoX`, weekly Mondays
+~09:47 IST, self-bound to the main working session) finds real guest-
+post/resource-page/"best of" list opportunities and sends proposal
+emails via Outlook (`amankrshuklaa@gmail.com`) — fully autonomous, no
+per-email review, per explicit owner instruction given after being shown
+the real risks (CAN-SPAM legal requirements, Outlook sender-reputation
+risk, and that this is the one channel where a human directly reads what
+gets sent, unlike a website edit). Full method, CAN-SPAM requirements,
+the real physical address, the permanent opt-out list, and the dated
+send history live in `backlink-outreach-log.md` — read that file for
+the real method and history.
+
+**Explicitly rejected as a first version of this request: a daily,
+volume-driven "create a backlink every day" automation.** That pattern
+is what Google's spam policies name directly as a link-manipulation
+violation, and it was flagged to the owner before building anything —
+this Routine is the legitimate version: weekly, small-volume (2-5 real
+opportunities), real-opportunity-only, never padded to hit a quota.
+
+Non-negotiable every run: every opportunity is a real, currently-live
+page found via WebSearch that run (never invented or reused unverified);
+every contact email is a real address actually published on the target
+site (never a guessed/pattern-matched address — skip and log if no real
+contact exists); every email is CAN-SPAM compliant (accurate sender,
+non-deceptive subject, the real physical address `Kryvex Media, Women's
+College Road, Madhubani, India` in every footer, clear opt-out
+language); the permanent opt-out list in the log is checked before every
+send and never violated; no fabricated claims (client counts, case
+studies, "as featured in") in any email; every pitch is specific to the
+real opportunity found, never generic templated copy blasted to
+multiple targets. Same log-then-commit-then-verify pattern as the other
+routines, with sends confirmed via the actual tool response before
+logging "sent."
+
 ## Publish verification rule (standing, set 2026-09-26)
 
 **Never report a page as "live" without confirming the exact GitHub Actions
