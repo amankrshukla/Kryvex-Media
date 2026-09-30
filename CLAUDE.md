@@ -49,6 +49,39 @@ rather than filling the gap with something plausible-sounding.
   (state by state), then county × service pages, then the UK/Canada/
   Russia/world-country tiers.
 
+## Automation scheduling: all IST, one combined daily report (set 2026-09-30, per owner instruction)
+
+All standing Routines now fire clustered around 1pm IST (staggered by a
+few minutes each so they don't collide, since they're all self-bound to
+this same session and need to run in sequence, not simultaneously), and
+none of them post an individual chat report anymore — they log to their
+own durable `.md` file instead. A separate **Daily Combined Status
+Report** Routine (`trig_01AvrxMDA8DeDGJvS8DmWUAt`, daily ~13:25 IST,
+read-only/reporting-only) fires last, reads each log file's entry for
+today, cross-checks against git log / GitHub Actions where relevant, and
+posts ONE consolidated report — this is the "keep me posted every day,
+one place" the owner asked for, replacing the four separate messages
+that used to fire at different times.
+
+Current schedule (all `CRON_TZ=Asia/Kolkata`):
+- Blog auto-publish: daily ~12:55 IST → logs to `blog-publish-log.md`
+  (new 2026-09-30) and `blog-performance-log.md`.
+- SEO keyword optimization: daily ~13:03 IST → logs to
+  `seo-keyword-optimization-log.md`.
+- Reddit growth: daily ~13:08 IST → logs to `reddit-growth-log.md`.
+- Backlink outreach: weekly Mondays ~13:13 IST → logs to
+  `backlink-outreach-log.md`.
+- **Daily Combined Status Report**: daily ~13:25 IST → reads all of the
+  above and posts the one consolidated chat report.
+- Instagram posting Routines remain disabled (paused 2026-09-29) — not
+  part of this schedule change since they aren't running.
+
+Each routine still has an exception: if something is badly broken (a
+tool unreachable, a deploy that won't succeed, etc.) it can still post a
+brief chat note directly, rather than letting a real failure sit silent
+until the combined report — but routine successful runs log only, they
+don't chat.
+
 ## Daily blog automation (set 2026-09-26, standing, no approval gate)
 
 A recurring Routine publishes one new blog post per day, fully autonomously
