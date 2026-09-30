@@ -124,6 +124,36 @@ image gen blocked, Canva needs re-auth, Porter `creative.generate` returns
 `action_blocked`/`NOT_IN_CATALOG`), so no post had actually been
 publishable anyway.
 
+## Daily Reddit growth Routine (set 2026-09-30, standing, no approval gate)
+
+A recurring Routine (`trig_01LgfZynFwWGnByFdwVptLwB`, daily ~16:57 IST,
+self-bound to the main working session) grows Kryvex's real Reddit
+presence (`u/amankrshuklaa`) toward brand visibility and AI-search
+citation (Perplexity/Google AI Overviews cite Reddit heavily; ChatGPT's
+Reddit citation share dropped sharply in August 2026 per reporting, so
+that's not a channel to rely on). Full strategy, standing rules, target
+subreddit list, and the dated activity log live in
+`reddit-growth-log.md` at the repo root — read that file for the real
+method and history.
+
+Non-negotiable every single day: no spam (no link-only comments, no
+posting the same content across multiple subreddits, one account only,
+no vote manipulation, no unsolicited promotional DMs), check each
+subreddit's own rules before posting in it, read the actual post before
+replying so every comment is a real specific answer, no fabricated
+results/case studies/client claims, honor any Reddit rate-limit cooldown
+rather than retrying through it. The 4-week plan front-loads pure
+non-promotional participation (Week 1) before any brand mention appears
+at all (Week 3+), because the account started at 1 total karma and a
+low-karma account posting links gets auto-filtered as spam by most
+subreddits regardless of intent.
+
+Same log-then-commit pattern as the other daily routines: append a dated
+entry to `reddit-growth-log.md` with real permalinks and real karma
+numbers (never a claim without having actually checked it that run),
+commit, push, fast-forward main. Reports status in chat daily —
+informational, not a request for approval.
+
 ## Publish verification rule (standing, set 2026-09-26)
 
 **Never report a page as "live" without confirming the exact GitHub Actions
