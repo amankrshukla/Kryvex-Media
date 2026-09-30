@@ -161,3 +161,37 @@ name "Kryvex Media", Composio-connected, confirmed active). Routine
 prompt and this log updated accordingly. No functional/scope/compliance
 rules changed — same CAN-SPAM requirements, same real address, same
 opt-out list, same 10/week cap, same no-paid-links rule.
+
+### 2026-09-30 — live test run: blocked at verification, zero sends
+
+Owner requested an ad-hoc live test run (outside the normal Monday
+cadence) to watch the real workflow execute, explicitly choosing "full
+live run — actually send" over a dry run. Ran Steps 1-2 for real:
+
+- **Step 1 (WebSearch, real)**: found 5 real, currently-indexed guest-
+  post-accepting digital marketing/SEO blogs — lilachbullock.com,
+  hunchads.com, logicinbound.com, embarque.io, blog.linkody.com — all
+  genuinely in-scope (digital marketing/SEO content, guest post programs).
+- **Step 2 (page verification, required before any send) — BLOCKED**:
+  WebFetch returned `EGRESS_BLOCKED` on all 4 domains tried
+  (logicinbound.com, embarque.io, blog.linkody.com, lilachbullock.com).
+  This is not limited to kryvexmedia.com (the only domain CLAUDE.md's
+  "Publish verification rule" previously documented as blocked) — it's
+  the environment's network egress proxy blocking WebFetch to external
+  domains generally. Checked Composio for an alternate scraper
+  (Firecrawl/Scrapfly/ScrapingBee via `COMPOSIO_SEARCH_TOOLS`) — none are
+  connected in this account.
+- **Result: zero emails sent.** Could not verify any target page is
+  still live, is not a paid-placement site, or find a real published
+  contact email without page access — and this Routine's non-negotiable
+  rules forbid guessing a contact address or skipping the paid-placement
+  check. Rather than guess, the run stopped here and logged the blocker
+  honestly.
+
+**Action item**: this same blocker will hit every future scheduled
+Monday run, not just this test — the Routine as built depends on
+WebFetch/page-scraping for verification and contact discovery. Fix
+options: (1) connect a Composio scraper toolkit (Firecrawl has a free
+tier) so future runs have a working fetch path, or (2) some other
+verification method. Not yet fixed as of this entry — flagged to the
+owner in chat.
