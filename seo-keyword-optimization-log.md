@@ -632,9 +632,8 @@ Mexico, Nebraska, Idaho, West Virginia.
   all 10; JSON-LD — valid (1 block each) on all 10.
 - Action item: none of today's 10 pages volume-verified (Semrush units
   exhausted) — revisit once units refresh.
-- Deploy: commit bundled with this log update, pushed to
-  `claude/webtech-core-current-work-rsmbri`, fast-forwarded to `main`;
-  GitHub Actions run conclusion recorded below once confirmed.
+- Deploy: run #194, head_sha `99ebdde99`, conclusion: **success**
+  (confirmed via GitHub Actions polling).
 - Total done today: 10 pages (`/wisconsin/`, `/colorado/`,
   `/minnesota/`, `/south-carolina/`, `/alabama/`, `/louisiana/`,
   `/kentucky/`, `/oregon/`, `/oklahoma/`, `/connecticut/`).
