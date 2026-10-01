@@ -30,3 +30,24 @@ forward, every run appends a dated entry here in this format:
 - Deploy: run #<N>, conclusion: <success|cancelled|failure>
 - Sitemap resubmission: <confirmed message | not confirmed>
 ```
+
+### 2026-10-01
+- Topic/query: GSC 90-day query pull checked first — near-total volume
+  is hyper-local "agency/company in [city]" queries already served by
+  the programmatic geo pages (consistent with the standing note).
+  Fallback method used: a real, unaddressed topic within Kryvex's
+  actual service scope — "Google Ads vs Meta Ads: where should a small
+  business spend first," tying to the real `/services/ppc/` and
+  `/services/meta-ads/` pages. Existing posts on each platform
+  individually (`google-ads-for-small-businesses`,
+  `small-business-guide-to-meta-ads`) are single-platform guides, not a
+  comparison, so no topic overlap.
+- URL: https://kryvexmedia.com/blog/google-ads-vs-meta-ads-small-business/
+- Word count: 1,743 (verified via isolated `<main>` word count script)
+- Deploy: run #193, head_sha `6e3cc8bd1`, conclusion: pending at time of
+  this entry — still `in_progress` after several poll cycles; will
+  confirm and correct this line once it completes rather than assume
+  success.
+- Sitemap resubmission: confirmed — "Sitemap
+  'https://kryvexmedia.com/sitemap.xml' successfully submitted for site
+  'sc-domain:kryvexmedia.com'"

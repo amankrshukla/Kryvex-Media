@@ -194,3 +194,47 @@ fixed URLs.
 **Action item:** keep the 3 stuck URLs and the 5 new URLs on the daily
 check list until they resolve one way or the other; no new action
 needed today beyond today's publish.
+
+## 2026-10-01 — second re-check
+
+Published today: `google-ads-vs-meta-ads-small-business` (1,743 words).
+
+**Indexing re-check (live URL Inspection):**
+- `local-seo-vs-national-seo`: still **"Crawled - currently not
+  indexed,"** `lastCrawlTime` still 2026-09-17 — unchanged since the
+  thin-content fix, meaning Google has not yet recrawled this URL at
+  all. No new signal either way.
+- `signs-seo-agency-not-working`: still **"Discovered - currently not
+  indexed."** Unchanged.
+- `website-designing-services-in-madhubani-bihar`: now shows **"URL is
+  unknown to Google"** — this is a change from the 2026-09-30 entry,
+  which logged it as "Discovered - currently not indexed." Flagging
+  this honestly rather than smoothing over it: this isn't an
+  improvement, it reads as GSC's discovery record for this URL
+  resetting or lapsing, not progress toward indexing. Keeping it on
+  the watch list; if this state persists, it may need a fresh sitemap
+  ping specifically for this URL or a manual indexing request.
+- `google-ads-for-small-businesses` and `how-to-choose-a-web-design-
+  company`: both still **"URL is unknown to Google"** — expected at
+  their age (2 and 1 days old respectively).
+
+**Performance re-pull (90-day window, page dimension, `/blog/`):**
+8 pages now show impressions (vs. the same count in prior pulls), still
+**zero clicks on every single one.** Real numbers this pull:
+`how-to-cut-wasted-ad-spend-in-30-days` 33 impressions (position
+~66.5, i.e. page 7+ of results — too low to expect clicks), `email-
+flows-every-business-needs` 4 impressions (position 20.5), `what-is-
+digital-marketing` 4 impressions (position 3 — worth watching, a top-3
+position with zero clicks so far may just mean low query volume
+rather than a problem), `/blog/` index 1, `10-local-seo-tactics-that-
+fill-your-calendar` 2, `how-to-choose-an-seo-company-in-patna` 2,
+`seo-company-hiring-guide` 2, `website-mistakes-costing-you-customers`
+1. No fabricated trend claimed — real movement (if any) between this
+pull and the 2026-09-30 baseline isn't something this entry can assert
+precisely without the exact prior numbers side by side; stating today's
+real pull plainly instead.
+
+**Action item:** the `website-designing-services-in-madhubani-bihar`
+discovery-state regression is the one real anomaly worth tracking
+specifically — re-check it on the next pass and consider a direct
+indexing request if it's still "unknown to Google" then.
