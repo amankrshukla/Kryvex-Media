@@ -44,10 +44,10 @@ forward, every run appends a dated entry here in this format:
   comparison, so no topic overlap.
 - URL: https://kryvexmedia.com/blog/google-ads-vs-meta-ads-small-business/
 - Word count: 1,743 (verified via isolated `<main>` word count script)
-- Deploy: run #193, head_sha `6e3cc8bd1`, conclusion: pending at time of
-  this entry — still `in_progress` after several poll cycles; will
-  confirm and correct this line once it completes rather than assume
-  success.
+- Deploy: run #193, head_sha `6e3cc8bd1`, conclusion: **success**
+  (confirmed via polling after it initially took longer than usual to
+  leave `in_progress` — correcting the "pending" note logged earlier
+  the same run).
 - Sitemap resubmission: confirmed — "Sitemap
   'https://kryvexmedia.com/sitemap.xml' successfully submitted for site
   'sc-domain:kryvexmedia.com'"

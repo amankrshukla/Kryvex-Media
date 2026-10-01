@@ -53,9 +53,20 @@ picked (see the 2026-09-28 entry below for why this matters).
 42. ~~`/indiana/`~~ — done 2026-09-30 (US state hub)
 43. ~~`/missouri/`~~ — done 2026-09-30 (US state hub)
 44. ~~`/maryland/`~~ — done 2026-09-30 (US state hub)
-45. *(after these: continue with the next-highest-population US states —
-    Wisconsin, Colorado, Minnesota, South Carolina, Alabama, Louisiana —
-    then major metro county pages, then remaining country hubs)*
+45. ~~`/wisconsin/`~~ — done 2026-10-01 (US state hub)
+46. ~~`/colorado/`~~ — done 2026-10-01 (US state hub)
+47. ~~`/minnesota/`~~ — done 2026-10-01 (US state hub)
+48. ~~`/south-carolina/`~~ — done 2026-10-01 (US state hub)
+49. ~~`/alabama/`~~ — done 2026-10-01 (US state hub)
+50. ~~`/louisiana/`~~ — done 2026-10-01 (US state hub)
+51. ~~`/kentucky/`~~ — done 2026-10-01 (US state hub)
+52. ~~`/oregon/`~~ — done 2026-10-01 (US state hub)
+53. ~~`/oklahoma/`~~ — done 2026-10-01 (US state hub)
+54. ~~`/connecticut/`~~ — done 2026-10-01 (US state hub)
+55. *(after these: continue with the next-highest-population US states —
+    Utah, Iowa, Nevada, Arkansas, Mississippi, Kansas, New Mexico,
+    Nebraska, Idaho, West Virginia — then major metro county pages, then
+    remaining country hubs)*
 
 ## Log
 
@@ -580,3 +591,50 @@ Louisiana queued next.
 - Total done today: 10 pages (`/michigan/`, `/new-jersey/`, `/virginia/`,
   `/washington/`, `/arizona/`, `/massachusetts/`, `/tennessee/`,
   `/indiana/`, `/missouri/`, `/maryland/`).
+
+### 2026-10-01
+
+Semrush checked live first (`mcp__Semrush__keyword_research` with no
+params, to surface available toolkits) — returned `no_api_units`
+(`403`-equivalent, non-retryable), same as every prior check this
+project. WebSearch fallback used — reused the same `digital marketing
+agency in [state]` / `digital marketing company in [state]` pattern
+already established and WebSearch-confirmed for the prior 19 state
+hubs, for consistency.
+
+Queue extended with the next 10 top-population US states (real Census
+ranking) — items 45-54 above: Wisconsin, Colorado, Minnesota, South
+Carolina, Alabama, Louisiana, Kentucky, Oregon, Oklahoma, Connecticut.
+Next queued: Utah, Iowa, Nevada, Arkansas, Mississippi, Kansas, New
+Mexico, Nebraska, Idaho, West Virginia.
+
+**Pages 1-10: US state hubs (`/wisconsin/`, `/colorado/`, `/minnesota/`,
+`/south-carolina/`, `/alabama/`, `/louisiana/`, `/kentucky/`,
+`/oregon/`, `/oklahoma/`, `/connecticut/`)**
+- Intent-match check: read each page's actual `<title>` and H1 before
+  editing — all 10 already carried "Digital Marketing Agency in
+  [State]" in title/meta/OG/Twitter/JSON-LD from earlier site
+  generation, same real gap as every prior state hub: generic H1
+  ("Your [State] customers are searching right now...") and zero
+  occurrences of any secondary keyword phrase anywhere in the page
+  (confirmed via grep before editing, not assumed).
+- Primary (all 10): `digital marketing agency in [state]`.
+- Secondary (all 10): `digital marketing company in [state]`.
+- Changes per page: H1 rewritten to open with the primary keyword
+  directly; opening `sub` paragraph rewritten to open with the
+  secondary keyword. Title/meta/OG/Twitter/JSON-LD were already correct
+  from earlier work, left unchanged.
+- Grep-verified per page, after editing, every page: primary keyword
+  confirmed inside the actual `<h1>...</h1>` text (not just nearby) —
+  1/1 on all 10; primary keyword total occurrences (title/meta/OG/
+  Twitter/JSON-LD/H1) — 5/5 on all 10; secondary keyword confirmed
+  present inside `<main>` — 1/1 on all 10; div-tag balance — 127/127 on
+  all 10; JSON-LD — valid (1 block each) on all 10.
+- Action item: none of today's 10 pages volume-verified (Semrush units
+  exhausted) — revisit once units refresh.
+- Deploy: commit bundled with this log update, pushed to
+  `claude/webtech-core-current-work-rsmbri`, fast-forwarded to `main`;
+  GitHub Actions run conclusion recorded below once confirmed.
+- Total done today: 10 pages (`/wisconsin/`, `/colorado/`,
+  `/minnesota/`, `/south-carolina/`, `/alabama/`, `/louisiana/`,
+  `/kentucky/`, `/oregon/`, `/oklahoma/`, `/connecticut/`).
