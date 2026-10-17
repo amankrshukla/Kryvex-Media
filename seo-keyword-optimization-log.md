@@ -63,10 +63,19 @@ picked (see the 2026-09-28 entry below for why this matters).
 52. ~~`/oregon/`~~ — done 2026-10-01 (US state hub)
 53. ~~`/oklahoma/`~~ — done 2026-10-01 (US state hub)
 54. ~~`/connecticut/`~~ — done 2026-10-01 (US state hub)
-55. *(after these: continue with the next-highest-population US states —
-    Utah, Iowa, Nevada, Arkansas, Mississippi, Kansas, New Mexico,
-    Nebraska, Idaho, West Virginia — then major metro county pages, then
-    remaining country hubs)*
+55. ~~`/utah/`~~ — done 2026-10-17 (US state hub)
+56. ~~`/iowa/`~~ — done 2026-10-17 (US state hub)
+57. ~~`/nevada/`~~ — done 2026-10-17 (US state hub)
+58. ~~`/arkansas/`~~ — done 2026-10-17 (US state hub)
+59. ~~`/mississippi/`~~ — done 2026-10-17 (US state hub)
+60. ~~`/kansas/`~~ — done 2026-10-17 (US state hub)
+61. ~~`/new-mexico/`~~ — done 2026-10-17 (US state hub)
+62. ~~`/nebraska/`~~ — done 2026-10-17 (US state hub)
+63. ~~`/idaho/`~~ — done 2026-10-17 (US state hub)
+64. ~~`/west-virginia/`~~ — done 2026-10-17 (US state hub)
+65. *(after these: continue with major metro county pages, then
+    remaining country hubs — the top-population US state hubs are now
+    fully optimized, 34 states done)*
 
 ## Log
 
@@ -637,3 +646,50 @@ Mexico, Nebraska, Idaho, West Virginia.
 - Total done today: 10 pages (`/wisconsin/`, `/colorado/`,
   `/minnesota/`, `/south-carolina/`, `/alabama/`, `/louisiana/`,
   `/kentucky/`, `/oregon/`, `/oklahoma/`, `/connecticut/`).
+
+### 2026-10-17
+
+**Note: this run follows a 16-day session gap (2026-10-01 to
+2026-10-17).** 62 duplicate scheduled-trigger notifications queued
+during that gap (daily blog/SEO/Reddit + combined-report firings, plus
+two Monday backlink firings) and were drained without individual
+execution — replaying them as 15 fake historical days would have
+misrepresented this log's dates. This is one honest catch-up run for
+today's real date.
+
+Semrush checked live first (`mcp__Semrush__keyword_research`, no
+params) — returned `no_api_units`, same as every single check across
+this entire project to date. WebSearch fallback used — reused the same
+`digital marketing agency in [state]` / `digital marketing company in
+[state]` pattern already established and WebSearch-confirmed for the
+prior 20 state hubs, for consistency (not reselected from scratch).
+
+**Pages 1-10: US state hubs (`/utah/`, `/iowa/`, `/nevada/`,
+`/arkansas/`, `/mississippi/`, `/kansas/`, `/new-mexico/`,
+`/nebraska/`, `/idaho/`, `/west-virginia/`)**
+- Intent-match check: read each page's actual `<title>` and H1 before
+  editing — all 10 already carried "Digital Marketing Agency in
+  [State]" in title/meta/OG/Twitter/JSON-LD from earlier site
+  generation, same real gap as every prior state hub: generic H1 and
+  zero occurrences of any secondary keyword phrase anywhere in the page
+  (confirmed via grep before editing, not assumed).
+- Primary (all 10): `digital marketing agency in [state]`.
+- Secondary (all 10): `digital marketing company in [state]`.
+- Changes per page: H1 rewritten to open with the primary keyword
+  directly; opening `sub` paragraph rewritten to open with the
+  secondary keyword. Title/meta/OG/Twitter/JSON-LD already correct,
+  left unchanged.
+- Grep-verified per page, after editing: primary keyword confirmed
+  inside the actual `<h1>...</h1>` text — 1/1 on all 10; primary
+  keyword total occurrences — 5/5 on all 10; secondary keyword
+  confirmed present inside `<main>` — 1/1 on all 10; div-tag balance —
+  127/127 on all 10; JSON-LD — valid (1 block each) on all 10.
+- Action item: none of today's 10 pages volume-verified (Semrush units
+  still exhausted) — revisit once units refresh.
+- This completes the top-34-population US state hubs. Next in queue:
+  major metro county pages, then remaining country hubs.
+- Total done today: 10 pages (`/utah/`, `/iowa/`, `/nevada/`,
+  `/arkansas/`, `/mississippi/`, `/kansas/`, `/new-mexico/`,
+  `/nebraska/`, `/idaho/`, `/west-virginia/`).
+- Deploy: see note below (confirmed separately after this commit's own
+  push).
