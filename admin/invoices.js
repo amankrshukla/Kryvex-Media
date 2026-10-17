@@ -17,10 +17,10 @@ const BIZ = {
   address: 'House No. 01, Women\'s College Road\nMadhubani, Bihar - 847211\nIndia',
   email:   'info@kryvexmedia.com',
   phone:   '+91 7079109497',
-  web:     'kryvexmedia.com',
+  web:     'https://kryvexmedia.com',
   gstin:   '10HPPPS3117R1Z8',        // registered to Aman Kumar Shukla / trade name "Ecolife Products" — confirm this is the GSTIN you want on Kryvex invoices
   regNo:   'UDYAM-BR-20-0029882',    // Udyam (MSME) registration — registered to enterprise name "Webtech Core", same Madhubani address — leave blank to hide
-  regLabel: 'Udyam Reg. No.',        // label printed before regNo
+  regLabel: 'Reg. No.',              // label printed before regNo
   bank:    'Bank name: Axis Bank\nAccount name: KRYVEX MEDIA\nAccount no.: 926020034223276\nIFSC: UTIB0001486',
   terms:   'Payment due within 7 days. Late payments may pause active work.',
   signatory: 'Proprietor',           // printed under the signature — leave blank for "Authorized Signatory"
