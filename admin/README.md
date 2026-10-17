@@ -165,7 +165,7 @@ const BIZ = {
   name: 'Kryvex Media',
   address: '…your address…',
   gstin: '',        // your GSTIN, or leave blank
-  sac: '998314',    // SAC code for advertising/digital-marketing services, or leave blank to hide
+  regNo: '',        // business registration number, or leave blank to hide
   bank:  '…account name / number / IFSC / UPI…',
   terms: '…your payment terms…',
   signatory: ''     // e.g. "Aman Shukla, Founder" — printed under the signature line, or leave blank
