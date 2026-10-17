@@ -134,3 +134,36 @@ reporting a stale read as final.
 No RATELIMIT errors hit. No subreddit blocked participation today.
 Nothing posted to r/marketing or r/DigitalMarketing/r/Entrepreneur/etc.
 today — stayed within the 4 Week-1 target subreddits per the plan.
+
+### 2026-10-17 — Reddit API rate-limited all run; no activity possible
+
+**Note: this run follows a 16-day session gap (2026-10-01 to
+2026-10-17).** By calendar date, today falls in Week 3
+(2026-10-14 to 2026-10-20 — selective contextual Kryvex mentions
+allowed), but the account has had **zero real activity since
+2026-10-01** (the 4 comments logged above), so its actual standing is
+still effectively where Week 1 left it, not where a Week 3 account
+with two weeks of real participation would be. Noting this honestly:
+even if Reddit had been reachable today, the plan here would have been
+to continue genuine non-promotional participation (no Kryvex mention)
+rather than mechanically start self-promotion just because the
+calendar advanced past a 16-day blind gap — a dormant, still-1-karma
+account suddenly posting promotional content is exactly the pattern
+the standing no-spam rule warns against.
+
+That question is moot this run regardless: every Reddit call attempted
+(`REDDIT_GET_REDDIT_USER_ABOUT`, `REDDIT_RETRIEVE_REDDIT_POST` against
+r/AskMarketing, r/localseo, r/SEO) returned **HTTP 429 Too Many
+Requests** from Reddit's own API. Retried the lightest call
+(`REDDIT_GET_REDDIT_USER_ABOUT`) once more after a ~90s wait per the
+standing "honor rate limits, don't retry through them" rule — still
+429. Did not keep retrying beyond that, consistent with the same rule.
+
+**No Reddit activity today.** No comments posted, no karma check
+possible, nothing fabricated in place of a real result. This is a
+real tool/connection block, not a skipped day — logging it plainly per
+the standing instruction, rather than guessing at current karma or
+inventing engagement. Next run should recheck the Composio Reddit
+connection status in addition to retrying the rate-limited calls, in
+case this is a connection-level issue rather than a transient
+sitewide limit.
