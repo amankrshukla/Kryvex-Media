@@ -20,7 +20,7 @@ const BIZ = {
   web:     'kryvexmedia.com',
   gstin:   '',                       // leave blank if not registered
   sac:     '998314',                 // SAC code for advertising/digital marketing services — leave blank to hide
-  bank:    'Bank name: Bank Of Maharashtra\nAccount name: Aman Kumar Shukla\nAccount no.: 68013501576\nIFSC: MAHB0001712\nUPI: 8292779933@ybl',
+  bank:    'Bank name: Axis Bank\nAccount name: KRYVEX MEDIA\nAccount no.: 926020034223276\nIFSC: UTIB0001486',
   terms:   'Payment due within 7 days. Late payments may pause active work.',
   signatory: ''                      // optional, e.g. "Aman Shukla, Founder" — leave blank for a plain signature line
 };
