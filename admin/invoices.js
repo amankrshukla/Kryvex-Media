@@ -18,7 +18,7 @@ const BIZ = {
   email:   'info@kryvexmedia.com',
   phone:   '+91 9110170824',
   web:     'kryvexmedia.com',
-  gstin:   '',                       // leave blank if not registered
+  gstin:   '10HPPPS3117R1Z8',        // registered to Aman Kumar Shukla / trade name "Ecolife Products" — confirm this is the GSTIN you want on Kryvex invoices
   sac:     '998314',                 // SAC code for advertising/digital marketing services — leave blank to hide
   bank:    'Bank name: Axis Bank\nAccount name: KRYVEX MEDIA\nAccount no.: 926020034223276\nIFSC: UTIB0001486',
   terms:   'Payment due within 7 days. Late payments may pause active work.',
