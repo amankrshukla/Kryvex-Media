@@ -23,8 +23,8 @@ const BIZ = {
   regLabel: 'Reg. No.',              // label printed before regNo
   bank:    'Bank name: Axis Bank\nAccount name: KRYVEX MEDIA\nAccount no.: 926020034223276\nIFSC: UTIB0001486',
   terms:   'Payment due within 7 days. Late payments may pause active work.',
-  signatory: 'Proprietor',           // printed under the signature — leave blank for "Authorized Signatory"
-  signatureImg: 'assets/signature.png' // path to a signature/stamp image, or '' to leave a blank line instead
+  signatory: '',                     // printed under the signature — leave blank for "Authorized Signatory"
+  signatureImg: ''                   // path to a signature/stamp image, or '' to leave a blank line instead
 };
 
 const INV_STATUS = ['Draft', 'Sent', 'Paid', 'Cancelled'];
