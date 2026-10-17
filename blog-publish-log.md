@@ -78,5 +78,20 @@ catch-up cycle for today's real date, not a backfill.
   ≤2.5s, CLS ≤0.1, INP ≤200ms) and Google's stated mobile-first indexing
   practice — both real, publicly documented by Google, no invented
   statistics.
-- Deploy: see note below.
-- Sitemap resubmission: see note below.
+- Deploy: runs #197-199 (head_shas `a3f8c4a7d`, `ec1cf0c8f`, `f0410b4f1`
+  — this post's own commit plus the same-session SEO and Reddit-log
+  commits that followed it in quick succession) each show
+  `conclusion: cancelled` in GitHub Actions, as expected from rapid-
+  fire pushes. Run **#200**, head_sha `027c0ec9b` (built from main's
+  tip after all three of today's commits, plus one unrelated commit
+  from concurrent activity elsewhere in this repo — a CRM invoice
+  feature, not part of this automation), reached `conclusion:
+  **success**`, confirmed via `git merge-base --is-ancestor` that this
+  post's commit is a real ancestor of that deploy's head. Treating
+  #200 as the real confirmed-live deploy for today's blog post, SEO
+  batch, and Reddit log entry, per the same "later full-main build
+  supersedes earlier cancelled ones" pattern already established on
+  2026-09-29 (runs #180-183).
+- Sitemap resubmission: confirmed — "Sitemap
+  'https://kryvexmedia.com/sitemap.xml' successfully submitted for site
+  'sc-domain:kryvexmedia.com'"

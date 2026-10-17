@@ -691,5 +691,11 @@ prior 20 state hubs, for consistency (not reselected from scratch).
 - Total done today: 10 pages (`/utah/`, `/iowa/`, `/nevada/`,
   `/arkansas/`, `/mississippi/`, `/kansas/`, `/new-mexico/`,
   `/nebraska/`, `/idaho/`, `/west-virginia/`).
-- Deploy: see note below (confirmed separately after this commit's own
-  push).
+- Deploy: run #198 (this commit's own build) shows `conclusion:
+  cancelled` from a rapid-fire follow-up push (the Reddit log commit).
+  Run #200, head_sha `027c0ec9b`, confirmed `conclusion: **success**`
+  — verified this commit is a real ancestor of that deploy's head via
+  `git merge-base --is-ancestor`. See blog-publish-log.md's 2026-10-17
+  entry for the full deploy-chain detail (runs #197-199 cancelled by
+  rapid pushes, #200 is the real confirmed-live one, same pattern as
+  the 2026-09-29 run #180-183 precedent).
