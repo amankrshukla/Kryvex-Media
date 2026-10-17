@@ -51,3 +51,32 @@ forward, every run appends a dated entry here in this format:
 - Sitemap resubmission: confirmed — "Sitemap
   'https://kryvexmedia.com/sitemap.xml' successfully submitted for site
   'sc-domain:kryvexmedia.com'"
+
+### 2026-10-17
+**Note: this run follows a 16-day session gap (2026-10-01 to 2026-10-17).**
+62 duplicate scheduled-trigger notifications queued during that gap and
+were drained without individual execution rather than replayed as 15
+fake historical days (would have misrepresented the log and, for the
+Reddit routine, looked like burst-posting spam). This is one honest
+catch-up cycle for today's real date, not a backfill.
+- Topic/query: GSC 90-day query pull checked first (2026-07-19 to
+  2026-10-14) — confirms the standing pattern, near-total volume is
+  hyper-local "agency/company in [city]" queries already served by
+  programmatic geo pages. One real, non-hyperlocal signal did stand
+  out: "audit my website free" — 12 impressions, position ~29.75 —
+  which maps directly to the real `/free-audit/` tool and has not been
+  covered as a blog topic yet. Used that query as the topic rather than
+  an unaddressed-topic fallback, since it traces to actual GSC data.
+- Title: "What a Free Website Audit Actually Checks (And Why It Matters
+  Before You Run Ads)"
+- URL: https://kryvexmedia.com/blog/what-a-free-website-audit-checks/
+- Word count: 1,706 (verified via isolated `<main>` word count script)
+- Links: `/free-audit/`, `/services/seo/`, `/services/ppc/`,
+  `/services/web-design/`, `/blog/how-to-cut-wasted-ad-spend-in-30-days/`
+  — all 5 confirmed to exist in the repo before linking.
+- Facts cited: Google's own published Core Web Vitals thresholds (LCP
+  ≤2.5s, CLS ≤0.1, INP ≤200ms) and Google's stated mobile-first indexing
+  practice — both real, publicly documented by Google, no invented
+  statistics.
+- Deploy: see note below.
+- Sitemap resubmission: see note below.

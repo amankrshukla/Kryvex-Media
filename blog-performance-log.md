@@ -238,3 +238,54 @@ real pull plainly instead.
 discovery-state regression is the one real anomaly worth tracking
 specifically — re-check it on the next pass and consider a direct
 indexing request if it's still "unknown to Google" then.
+
+## 2026-10-17 — first check after a 16-day session gap
+
+**Note: this session was idle from 2026-10-01 to 2026-10-17.** No daily
+checks ran during that gap — this entry is the first real check since
+2026-10-01, not a daily cadence resumed without a break.
+
+Published today: `what-a-free-website-audit-checks` (1,706 words).
+
+**Indexing re-check (live URL Inspection, scoped to the previously
+flagged/stuck URLs plus the most recent prior post, not every post —
+per the standing "don't re-check confirmed-indexed posts daily" rule):**
+- `local-seo-vs-national-seo`: still **"Crawled - currently not
+  indexed,"** `lastCrawlTime` still 2026-09-17 — unchanged across the
+  entire gap. Google has not recrawled this URL in exactly 30 days now.
+- `signs-seo-agency-not-working`: still **"Discovered - currently not
+  indexed."** Unchanged.
+- `website-designing-services-in-madhubani-bihar`: still **"URL is
+  unknown to Google"** — same state as the 2026-10-01 entry, persisting
+  through the gap. This is now a real, longer-running anomaly (first
+  flagged 2026-10-01), not a one-off blip — worth a manual indexing
+  request or an internal-linking review next time this is touched.
+- `google-ads-vs-meta-ads-small-business` (published 2026-10-01, now 16
+  days old): **"URL is unknown to Google."** This is a new, real
+  concern worth flagging honestly: at 16 days old this post should
+  reasonably have moved past "unknown to Google" by now, unlike the
+  2-3 day-old posts in earlier entries where that status was expected.
+  Possible causes worth checking next pass: internal linking into this
+  specific post, and whether the sitemap submission after its original
+  publish actually registered it.
+
+**Performance re-pull (90-day window, page dimension, `/blog/`,
+2026-07-19 to 2026-10-14):** Real numbers this pull: `how-to-cut-wasted-
+ad-spend-in-30-days` 33 impressions (position ~66.5, unchanged from
+2026-10-01), `email-flows-every-business-needs` 4 impressions (position
+20.5, unchanged), `what-is-digital-marketing` 4 impressions (position
+3, unchanged), `seo-company-hiring-guide` 3 impressions (up from 2 on
+2026-10-01 — a real but tiny movement, not a trend), `/blog/` index 2
+(up from 1), `10-local-seo-tactics-that-fill-your-calendar` 2,
+`how-to-choose-an-seo-company-in-patna` 2, `website-mistakes-costing-
+you-customers` 1. **Zero clicks on every single post, still, with no
+exception** — 16 days of additional time produced no real click
+activity. Reporting this plainly rather than reading noise as a trend.
+
+**Action items:** `website-designing-services-in-madhubani-bihar` and
+now `google-ads-vs-meta-ads-small-business` are the two real anomalies
+to prioritize next time blog work resumes — both stuck in "URL is
+unknown to Google" well past the age where that's expected. The 3-week
+gap with zero click movement across the board is itself a real signal:
+the blog is not yet generating organic clicks at any post's current
+age/position, consistent with every prior pull.
