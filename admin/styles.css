@@ -303,7 +303,9 @@ table.inv-lines .right{text-align:right}
   padding-top:18px;border-top:1px solid #E6E3F0;font-size:11.5px;color:#3A3846;white-space:pre-line;
 }
 .inv-sign{margin-top:40px;margin-left:auto;width:220px;text-align:center;font-size:12px;font-weight:700;color:#3A3846}
+.inv-sign-img{display:block;max-width:170px;max-height:68px;width:auto;height:auto;margin:6px auto 0}
 .inv-sign-line{border-top:1px solid #B9B6C8;margin:38px 0 6px}
+.inv-sign-img + .inv-sign-line{margin-top:4px}
 .inv-sign-label{font-size:11px;color:#63626E;font-weight:600}
 .inv-thanks{
   margin-top:26px;text-align:center;font-size:11px;color:#63626E;

@@ -22,7 +22,8 @@ const BIZ = {
   sac:     '998314',                 // SAC code for advertising/digital marketing services — leave blank to hide
   bank:    'Bank name: Axis Bank\nAccount name: KRYVEX MEDIA\nAccount no.: 926020034223276\nIFSC: UTIB0001486',
   terms:   'Payment due within 7 days. Late payments may pause active work.',
-  signatory: ''                      // optional, e.g. "Aman Shukla, Founder" — leave blank for a plain signature line
+  signatory: 'Proprietor',           // printed under the signature — leave blank for "Authorized Signatory"
+  signatureImg: 'assets/signature.png' // path to a signature/stamp image, or '' to leave a blank line instead
 };
 
 const INV_STATUS = ['Draft', 'Sent', 'Paid', 'Cancelled'];
@@ -409,6 +410,7 @@ function printInvoice(id) {
 
     <div class="inv-sign">
       <div>For ${esc(BIZ.name)}</div>
+      ${BIZ.signatureImg ? `<img class="inv-sign-img" src="${esc(BIZ.signatureImg)}" alt="Signature">` : ''}
       <div class="inv-sign-line"></div>
       <div class="inv-sign-label">${esc(BIZ.signatory || 'Authorized Signatory')}</div>
     </div>
