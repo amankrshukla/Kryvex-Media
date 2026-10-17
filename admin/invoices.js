@@ -23,7 +23,8 @@ const BIZ = {
   regLabel: 'Reg. No.',              // label printed before regNo
   bank:    'Bank name: Axis Bank\nAccount name: KRYVEX MEDIA\nAccount no.: 926020034223276\nIFSC: UTIB0001486',
   terms:   'Payment due within 7 days. Late payments may pause active work.',
-  signatory: '',                     // printed under the signature — leave blank for "Authorized Signatory"
+  signatoryName: 'Aman Shukla',       // printed name above the designation line — leave blank to omit
+  signatory: '',                     // designation — leave blank for "Authorized Signatory"
   signatureImg: ''                   // path to a signature/stamp image, or '' to leave a blank line instead
 };
 
@@ -410,9 +411,9 @@ function printInvoice(id) {
     </div>
 
     <div class="inv-sign">
-      <div>For ${esc(BIZ.name)}</div>
       ${BIZ.signatureImg ? `<img class="inv-sign-img" src="${esc(BIZ.signatureImg)}" alt="Signature">` : ''}
       <div class="inv-sign-line"></div>
+      ${BIZ.signatoryName ? `<div class="inv-sign-name">${esc(BIZ.signatoryName)}</div>` : ''}
       <div class="inv-sign-label">${esc(BIZ.signatory || 'Authorized Signatory')}</div>
     </div>
 

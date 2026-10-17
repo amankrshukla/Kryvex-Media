@@ -306,7 +306,8 @@ table.inv-lines .right{text-align:right}
 .inv-sign-img{display:block;max-width:170px;max-height:68px;width:auto;height:auto;margin:6px auto 0}
 .inv-sign-line{border-top:1px solid #B9B6C8;margin:38px 0 6px}
 .inv-sign-img + .inv-sign-line{margin-top:4px}
-.inv-sign-label{font-size:11px;color:#63626E;font-weight:600}
+.inv-sign-name{font-size:13px;font-weight:800;color:#191725}
+.inv-sign-label{font-size:11px;color:#63626E;font-weight:600;margin-top:2px}
 .inv-thanks{
   margin-top:26px;text-align:center;font-size:11px;color:#63626E;
   font-weight:700;letter-spacing:.03em;
