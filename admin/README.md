@@ -165,13 +165,21 @@ const BIZ = {
   name: 'Kryvex Media',
   address: '…your address…',
   gstin: '',        // your GSTIN, or leave blank
+  sac: '998314',    // SAC code for advertising/digital-marketing services, or leave blank to hide
   bank:  '…account name / number / IFSC / UPI…',
-  terms: '…your payment terms…'
+  terms: '…your payment terms…',
+  signatory: ''     // e.g. "Aman Shukla, Founder" — printed under the signature line, or leave blank
 };
 ```
 
 Those details print on every invoice. The bank block ships with placeholder
 dashes — fill it in or clients won't know where to pay.
+
+**Per-invoice extras** (all optional, each shown on the printed invoice only
+when filled in): PO/reference number, service period (from–due dates — useful
+for retainer work), client GSTIN, place of supply, and a flat ₹ discount
+applied before GST. The printed invoice also shows a color-coded status stamp
+(Paid/Overdue/Cancelled) and an "amount in words" line under the total.
 
 ---
 

@@ -19,8 +19,10 @@ const BIZ = {
   phone:   '+91 9110170824',
   web:     'kryvexmedia.com',
   gstin:   '',                       // leave blank if not registered
+  sac:     '998314',                 // SAC code for advertising/digital marketing services — leave blank to hide
   bank:    'Bank name: Bank Of Maharashtra\nAccount name: Aman Kumar Shukla\nAccount no.: 68013501576\nIFSC: MAHB0001712\nUPI: 8292779933@ybl',
-  terms:   'Payment due within 7 days. Late payments may pause active work.'
+  terms:   'Payment due within 7 days. Late payments may pause active work.',
+  signatory: ''                      // optional, e.g. "Aman Shukla, Founder" — leave blank for a plain signature line
 };
 
 const INV_STATUS = ['Draft', 'Sent', 'Paid', 'Cancelled'];
@@ -34,8 +36,30 @@ const brandRest  = () => BIZ.name.split(' ').slice(1).join(' ')
 function invTotals(inv) {
   const items = inv.items || [];
   const sub = items.reduce((s, it) => s + (Number(it.qty || 0) * Number(it.rate || 0)), 0);
-  const gst = sub * (Number(inv.gstRate || 0) / 100);
-  return { sub: sub, gst: gst, total: sub + gst };
+  const discount = Math.min(sub, Number(inv.discount || 0));
+  const taxable = sub - discount;
+  const gst = taxable * (Number(inv.gstRate || 0) / 100);
+  return { sub: sub, discount: discount, taxable: taxable, gst: gst, total: taxable + gst };
+}
+
+/* Indian numbering (crore/lakh/thousand) for the "amount in words" line. */
+function numToWordsINR(n) {
+  n = Math.round(Number(n) || 0);
+  if (n === 0) return 'Zero';
+  const ones = ['', 'One', 'Two', 'Three', 'Four', 'Five', 'Six', 'Seven', 'Eight', 'Nine', 'Ten',
+    'Eleven', 'Twelve', 'Thirteen', 'Fourteen', 'Fifteen', 'Sixteen', 'Seventeen', 'Eighteen', 'Nineteen'];
+  const tens = ['', '', 'Twenty', 'Thirty', 'Forty', 'Fifty', 'Sixty', 'Seventy', 'Eighty', 'Ninety'];
+  const two = x => x < 20 ? ones[x] : tens[Math.floor(x / 10)] + (x % 10 ? ' ' + ones[x % 10] : '');
+  const three = x => x < 100 ? two(x) : ones[Math.floor(x / 100)] + ' Hundred' + (x % 100 ? ' ' + two(x % 100) : '');
+  let crore = Math.floor(n / 1e7); n %= 1e7;
+  let lakh = Math.floor(n / 1e5); n %= 1e5;
+  let thousand = Math.floor(n / 1e3); n %= 1e3;
+  const parts = [];
+  if (crore) parts.push(three(crore) + ' Crore');
+  if (lakh) parts.push(three(lakh) + ' Lakh');
+  if (thousand) parts.push(three(thousand) + ' Thousand');
+  if (n) parts.push(three(n));
+  return parts.join(' ') || 'Zero';
 }
 
 function nextInvNo() {
@@ -137,6 +161,14 @@ function fInvoice(inv = {}) {
     <div class="field"><label>Business</label><input name="business" value="${esc(inv.business || '')}"></div>
     <div class="field"><label>Invoice date</label><input name="date" type="date" value="${esc(inv.date || today())}"></div>
     <div class="field"><label>Due date</label><input name="due" type="date" value="${esc(inv.due || '')}"></div>
+    <div class="field"><label>PO / Reference no. <span style="font-weight:600;text-transform:none;letter-spacing:0">(optional)</span></label>
+      <input name="poNumber" placeholder="Client's PO or ref." value="${esc(inv.poNumber || '')}"></div>
+    <div class="field"><label>Service period <span style="font-weight:600;text-transform:none;letter-spacing:0">(optional)</span></label>
+      <div style="display:flex;gap:8px">
+        <input name="periodFrom" type="date" value="${esc(inv.periodFrom || '')}" style="flex:1">
+        <input name="periodTo" type="date" value="${esc(inv.periodTo || '')}" style="flex:1">
+      </div>
+    </div>
   </div>
 
   <div class="field">
@@ -145,9 +177,16 @@ function fInvoice(inv = {}) {
     <span class="hint">Linking lets you record the payment against that project in one click.</span>
   </div>
 
+  <div class="grid2">
+    <div class="field"><label>Client GSTIN <span style="font-weight:600;text-transform:none;letter-spacing:0">(optional)</span></label>
+      <input name="clientGstin" value="${esc(inv.clientGstin || '')}"></div>
+    <div class="field"><label>Place of supply <span style="font-weight:600;text-transform:none;letter-spacing:0">(optional)</span></label>
+      <input name="placeOfSupply" placeholder="State / country" value="${esc(inv.placeOfSupply || '')}"></div>
+  </div>
+
   <div class="field">
     <label>Bill to (address)</label>
-    <textarea name="billTo" placeholder="Client address, GSTIN…">${esc(inv.billTo || '')}</textarea>
+    <textarea name="billTo" placeholder="Client address…">${esc(inv.billTo || '')}</textarea>
   </div>
 
   <label style="font-size:11.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase;color:var(--muted)">Line items</label>
@@ -160,13 +199,16 @@ function fInvoice(inv = {}) {
   <button type="button" class="btn btn-sm" id="inv-add-item">+ Add line</button>
 
   <div class="grid2" style="margin-top:18px">
+    <div class="field"><label>Discount (₹) <span style="font-weight:600;text-transform:none;letter-spacing:0">(optional)</span></label>
+      <input name="discount" id="inv-discount" type="number" min="0" step="100" value="${esc(inv.discount != null ? inv.discount : '')}">
+    </div>
     <div class="field"><label>GST %</label>
       <input name="gstRate" id="inv-gst" type="number" min="0" step="0.5" value="${esc(inv.gstRate != null ? inv.gstRate : '')}">
       <span class="hint">Leave blank or 0 if not applicable.</span>
     </div>
-    <div class="field"><label>Totals</label>
-      <div id="inv-totals" class="inv-totals num">—</div>
-    </div>
+  </div>
+  <div class="field"><label>Totals</label>
+    <div id="inv-totals" class="inv-totals num">—</div>
   </div>
 
   <div class="field"><label>Notes on invoice</label><textarea name="notes">${esc(inv.notes || '')}</textarea></div>`;
@@ -186,16 +228,19 @@ function wireInvoiceForm() {
       sub += line;
       tr.querySelector('.i-line').textContent = inr(line);
     });
+    const discount = Math.min(sub, Number(($('#inv-discount') || {}).value || 0));
+    const taxable = sub - discount;
     const rate = Number(($('#inv-gst') || {}).value || 0);
-    const gst = sub * rate / 100;
+    const gst = taxable * rate / 100;
     $('#inv-totals').innerHTML =
       `<div>Subtotal <b>${inr(sub)}</b></div>` +
+      (discount ? `<div>Discount <b>&minus;${inr(discount)}</b></div>` : '') +
       (rate ? `<div>GST ${rate}% <b>${inr(gst)}</b></div>` : '') +
-      `<div class="inv-total-big">Total <b>${inr(sub + gst)}</b></div>`;
+      `<div class="inv-total-big">Total <b>${inr(taxable + gst)}</b></div>`;
   }
 
   body.addEventListener('input', e => {
-    if (e.target.matches('.i-qty,.i-rate,#inv-gst')) recalc();
+    if (e.target.matches('.i-qty,.i-rate,#inv-gst,#inv-discount')) recalc();
   });
   body.addEventListener('click', e => {
     if (e.target.id === 'inv-add-item') {
@@ -278,8 +323,15 @@ function printInvoice(id) {
   const t = invTotals(inv);
   const nl = s => esc(s).replace(/\n/g, '<br>');
 
+  const overdue = inv.status === 'Sent' && inv.due && daysFrom(inv.due) < 0;
+  const stamp = inv.status === 'Paid' ? { text: 'Paid', cls: 'inv-stamp-paid' }
+    : overdue ? { text: 'Overdue', cls: 'inv-stamp-overdue' }
+    : inv.status === 'Cancelled' ? { text: 'Cancelled', cls: 'inv-stamp-cancel' }
+    : null;
+
   $('#print-root').innerHTML = `
   <div class="inv-sheet">
+    <div class="inv-topbar"></div>
     <div class="inv-head">
       <div>
         <div class="inv-brand">
@@ -297,14 +349,18 @@ function printInvoice(id) {
         </div>
         <div class="inv-from">${nl(BIZ.address)}</div>
         <div class="inv-from">${esc(BIZ.email)} · ${esc(BIZ.phone)}<br>${esc(BIZ.web)}
-        ${BIZ.gstin ? '<br>GSTIN: ' + esc(BIZ.gstin) : ''}</div>
+        ${BIZ.gstin ? '<br>GSTIN: ' + esc(BIZ.gstin) : ''}
+        ${BIZ.sac ? '<br>SAC: ' + esc(BIZ.sac) + ' (Advertising services)' : ''}</div>
       </div>
       <div class="inv-meta">
         <h1>Invoice</h1>
+        ${stamp ? `<div class="inv-stamp ${stamp.cls}">${stamp.text}</div>` : ''}
         <table>
           <tr><td>Invoice no.</td><th class="num">${esc(inv.number || '—')}</th></tr>
           <tr><td>Date</td><th>${fmtDate(inv.date)}</th></tr>
           ${inv.due ? `<tr><td>Due</td><th>${fmtDate(inv.due)}</th></tr>` : ''}
+          ${inv.poNumber ? `<tr><td>PO / Ref.</td><th>${esc(inv.poNumber)}</th></tr>` : ''}
+          ${(inv.periodFrom || inv.periodTo) ? `<tr><td>Service period</td><th>${fmtDate(inv.periodFrom)} &ndash; ${fmtDate(inv.periodTo)}</th></tr>` : ''}
           <tr><td>Status</td><th>${esc(inv.status || 'Draft')}</th></tr>
         </table>
       </div>
@@ -315,6 +371,8 @@ function printInvoice(id) {
       <div class="inv-client">${esc(inv.client)}</div>
       ${inv.business ? `<div>${esc(inv.business)}</div>` : ''}
       ${inv.billTo ? `<div class="inv-addr">${nl(inv.billTo)}</div>` : ''}
+      ${inv.clientGstin ? `<div class="inv-addr">GSTIN: ${esc(inv.clientGstin)}</div>` : ''}
+      ${inv.placeOfSupply ? `<div class="inv-addr">Place of supply: ${esc(inv.placeOfSupply)}</div>` : ''}
     </div>
 
     <table class="inv-lines">
@@ -335,10 +393,12 @@ function printInvoice(id) {
     <div class="inv-sum">
       <table>
         <tr><td>Subtotal</td><td class="right num">${inr(t.sub)}</td></tr>
+        ${t.discount ? `<tr><td>Discount</td><td class="right num">&minus;${inr(t.discount)}</td></tr>` : ''}
         ${Number(inv.gstRate) ? `<tr><td>GST ${esc(inv.gstRate)}%</td><td class="right num">${inr(t.gst)}</td></tr>` : ''}
         <tr class="inv-grand"><td>Total due</td><td class="right num">${inr(t.total)}</td></tr>
       </table>
     </div>
+    <div class="inv-words">Amount in words: <b>Rupees ${numToWordsINR(t.total)} Only</b></div>
 
     ${inv.notes ? `<div class="inv-note"><div class="inv-label">Notes</div>${nl(inv.notes)}</div>` : ''}
 
@@ -346,6 +406,13 @@ function printInvoice(id) {
       <div><div class="inv-label">Payment details</div>${nl(BIZ.bank)}</div>
       <div><div class="inv-label">Terms</div>${nl(BIZ.terms)}</div>
     </div>
+
+    <div class="inv-sign">
+      <div>For ${esc(BIZ.name)}</div>
+      <div class="inv-sign-line"></div>
+      <div class="inv-sign-label">${esc(BIZ.signatory || 'Authorized Signatory')}</div>
+    </div>
+
     <div class="inv-thanks">Thank you for your business.</div>
     <div class="inv-privacy">Your data and account credentials are kept strictly confidential and are never shared with third parties.</div>
   </div>`;
