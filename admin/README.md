@@ -166,6 +166,7 @@ const BIZ = {
   address: '…your address…',
   gstin: '',        // your GSTIN, or leave blank
   regNo: '',        // business registration number, or leave blank to hide
+  regLabel: 'Reg. No.', // label printed before it, e.g. "Udyam Reg. No." or "CIN"
   bank:  '…account name / number / IFSC / UPI…',
   terms: '…your payment terms…',
   signatory: ''     // e.g. "Aman Shukla, Founder" — printed under the signature line, or leave blank

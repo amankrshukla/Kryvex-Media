@@ -19,7 +19,8 @@ const BIZ = {
   phone:   '+91 9110170824',
   web:     'kryvexmedia.com',
   gstin:   '10HPPPS3117R1Z8',        // registered to Aman Kumar Shukla / trade name "Ecolife Products" — confirm this is the GSTIN you want on Kryvex invoices
-  regNo:   '',                       // business registration number — leave blank to hide
+  regNo:   'UDYAM-BR-20-0029882',    // Udyam (MSME) registration — registered to enterprise name "Webtech Core", same Madhubani address — leave blank to hide
+  regLabel: 'Udyam Reg. No.',        // label printed before regNo
   bank:    'Bank name: Axis Bank\nAccount name: KRYVEX MEDIA\nAccount no.: 926020034223276\nIFSC: UTIB0001486',
   terms:   'Payment due within 7 days. Late payments may pause active work.',
   signatory: 'Proprietor',           // printed under the signature — leave blank for "Authorized Signatory"
@@ -351,7 +352,7 @@ function printInvoice(id) {
         <div class="inv-from">${nl(BIZ.address)}</div>
         <div class="inv-from">${esc(BIZ.email)} · ${esc(BIZ.phone)}<br>${esc(BIZ.web)}
         ${BIZ.gstin ? '<br>GSTIN: ' + esc(BIZ.gstin) : ''}
-        ${BIZ.regNo ? '<br>Reg. No.: ' + esc(BIZ.regNo) : ''}</div>
+        ${BIZ.regNo ? '<br>' + esc(BIZ.regLabel || 'Reg. No.') + ': ' + esc(BIZ.regNo) : ''}</div>
       </div>
       <div class="inv-meta">
         <h1>Invoice</h1>
