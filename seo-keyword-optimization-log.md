@@ -782,5 +782,8 @@ placement assumed — every check above was actually run this turn.
   `/california/san-diego/`, `/california/orange/`,
   `/florida/miami-dade/`, `/texas/dallas/`, `/new-york/kings/`,
   `/california/riverside/`).
-- Deploy: pending at time of this entry — will confirm and correct
-  this line once the commit's GitHub Actions run completes.
+- Deploy: run #214 (this commit's own build) shows `conclusion:
+  cancelled` from the rapid-fire follow-up push (the Reddit log
+  commit). Run #215, head_sha `ae1389af0` (built from main's tip after
+  both this SEO commit and the Reddit log commit), confirmed
+  `conclusion: **success**` — the real confirmed-live deploy.
