@@ -95,3 +95,39 @@ catch-up cycle for today's real date, not a backfill.
 - Sitemap resubmission: confirmed — "Sitemap
   'https://kryvexmedia.com/sitemap.xml' successfully submitted for site
   'sc-domain:kryvexmedia.com'"
+
+### 2026-10-18
+
+- Topic/query: GSC 90-day query pull checked first (2026-07-18 to
+  2026-10-15) — same pattern as every prior run, near-total volume is
+  hyper-local "agency/company in [city]" queries already served by
+  programmatic geo pages, nothing new maps to a blog topic. Fell back to
+  a real, unaddressed gap instead: no post existed about YouTube
+  management, and the `/services/youtube-management/` service page
+  added yesterday (2026-10-17) had no supporting blog content linking
+  to it.
+- Title: "YouTube Management for Small Businesses: What It Actually
+  Involves"
+- URL: https://kryvexmedia.com/blog/youtube-management-for-small-businesses/
+- Word count: 1,937 (verified via isolated `<main>` word count script)
+- Links: `/services/youtube-management/`, `/services/content-marketing/`,
+  `/services/seo/`, `/blog/social-media-marketing-for-small-businesses/`,
+  `/free-audit/` (via the service page's own CTA) — all 5 confirmed to
+  exist in the repo before linking.
+- Facts cited: YouTube's own Creator resources on watch time/audience
+  retention as central ranking/recommendation signals, and Google
+  Search Central's documentation that video content can surface
+  directly in Google Search results — both real, publicly documented,
+  no invented statistics or numbers.
+- Also fixed in the same commit: `what-a-free-website-audit-checks`
+  (published 2026-10-17) was already in sitemap-resources.xml but had
+  never been added to the blog index grid (`blog/index.html`) — a real
+  gap found while adding today's post's own card. Added both posts'
+  cards to the grid in this commit.
+- Deploy: commit `d92b8dd30`, run #212 — still `in_progress` at the time
+  of this entry (per the verify-don't-assume rule, not claiming
+  `success` before it's confirmed). Will correct this line in a
+  follow-up small commit once the run completes.
+- Sitemap resubmission: confirmed — "Sitemap
+  'https://kryvexmedia.com/sitemap.xml' successfully submitted for site
+  'sc-domain:kryvexmedia.com'"

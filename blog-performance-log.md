@@ -289,3 +289,47 @@ unknown to Google" well past the age where that's expected. The 3-week
 gap with zero click movement across the board is itself a real signal:
 the blog is not yet generating organic clicks at any post's current
 age/position, consistent with every prior pull.
+
+## 2026-10-18 — daily blog Routine run
+
+Published today: `youtube-management-for-small-businesses` (1,937
+words). Topic fallback again (GSC query data still almost entirely
+hyper-local city queries) — real gap filled instead: no YouTube-related
+post existed, and yesterday's new `/services/youtube-management/` page
+had no supporting content linking to it. Also fixed, while updating the
+blog index: `what-a-free-website-audit-checks` (2026-10-17) was in
+sitemap-resources.xml but had never been added to the blog index grid
+— no on-site discovery path for it until today.
+
+**Indexing re-check (live URL Inspection, scoped to the two previously
+flagged anomalies plus the most recent prior post, per the standing
+rule):**
+- `what-a-free-website-audit-checks` (1 day old): **"URL is unknown to
+  Google."** Expected at this age — not a concern yet.
+- `local-seo-vs-national-seo`: still **"Crawled - currently not
+  indexed,"** `lastCrawlTime` still 2026-09-17 — unchanged.
+- `signs-seo-agency-not-working`: still **"Discovered - currently not
+  indexed."** Unchanged.
+- `website-designing-services-in-madhubani-bihar`: **real movement** —
+  now **"Discovered - currently not indexed"** (sitemap-listed), up
+  from "URL is unknown to Google" on every check since 2026-10-01.
+  First forward progress on this anomaly since it was first flagged.
+- `google-ads-vs-meta-ads-small-business`: **real movement** — now
+  also **"Discovered - currently not indexed,"** up from "URL is
+  unknown to Google" on 2026-10-17. Same genuine progress.
+
+**Performance re-pull (90-day window, page dimension, `/blog/`,
+2026-07-20 to 2026-10-15):** `how-to-cut-wasted-ad-spend-in-30-days` 33
+impressions (position ~66.5, unchanged), `email-flows-every-business-
+needs` 4 (position 20.5, unchanged), `what-is-digital-marketing` 4
+(position 3, unchanged), `seo-company-hiring-guide` 3 (unchanged from
+the prior pull), `/blog/` index 2 (unchanged), `10-local-seo-tactics-
+that-fill-your-calendar` 2, `how-to-choose-an-seo-company-in-patna` 2,
+`website-mistakes-costing-you-customers` 1 — all unchanged from
+2026-10-17. **Zero clicks on every post, still, with no exception.**
+No new trend to report beyond the indexing-state movement above.
+
+**Action items:** the two previously-stuck posts both moved forward a
+stage (unknown → discovered) — worth a follow-up check in a few days to
+see if either reaches "indexed." Zero-click pattern continues unchanged;
+nothing new to act on there beyond what's already logged.
