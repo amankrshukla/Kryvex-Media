@@ -124,10 +124,11 @@ catch-up cycle for today's real date, not a backfill.
   never been added to the blog index grid (`blog/index.html`) — a real
   gap found while adding today's post's own card. Added both posts'
   cards to the grid in this commit.
-- Deploy: commit `d92b8dd30`, run #212 — still `in_progress` at the time
-  of this entry (per the verify-don't-assume rule, not claiming
-  `success` before it's confirmed). Will correct this line in a
-  follow-up small commit once the run completes.
+- Deploy: run #212 (this commit's own build) shows `conclusion:
+  cancelled` from the rapid-fire follow-up push (the log-entry commit
+  that followed it). Run #213, head_sha `a9756068d` (built from main's
+  tip after both this post's commit and the log commit), confirmed
+  `conclusion: **success**` — this is the real confirmed-live deploy.
 - Sitemap resubmission: confirmed — "Sitemap
   'https://kryvexmedia.com/sitemap.xml' successfully submitted for site
   'sc-domain:kryvexmedia.com'"

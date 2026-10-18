@@ -73,9 +73,18 @@ picked (see the 2026-09-28 entry below for why this matters).
 62. ~~`/nebraska/`~~ — done 2026-10-17 (US state hub)
 63. ~~`/idaho/`~~ — done 2026-10-17 (US state hub)
 64. ~~`/west-virginia/`~~ — done 2026-10-17 (US state hub)
-65. *(after these: continue with major metro county pages, then
-    remaining country hubs — the top-population US state hubs are now
-    fully optimized, 34 states done)*
+65. ~~`/california/los-angeles/`~~ — done 2026-10-18 (major metro county)
+66. ~~`/illinois/cook/`~~ — done 2026-10-18 (major metro county)
+67. ~~`/texas/harris/`~~ — done 2026-10-18 (major metro county)
+68. ~~`/arizona/maricopa/`~~ — done 2026-10-18 (major metro county)
+69. ~~`/california/san-diego/`~~ — done 2026-10-18 (major metro county)
+70. ~~`/california/orange/`~~ — done 2026-10-18 (major metro county)
+71. ~~`/florida/miami-dade/`~~ — done 2026-10-18 (major metro county)
+72. ~~`/texas/dallas/`~~ — done 2026-10-18 (major metro county)
+73. ~~`/new-york/kings/`~~ — done 2026-10-18 (major metro county)
+74. ~~`/california/riverside/`~~ — done 2026-10-18 (major metro county)
+75. *(after these: continue with the next tier of major metro counties,
+    then remaining country hubs)*
 
 ## Log
 
@@ -699,3 +708,79 @@ prior 20 state hubs, for consistency (not reselected from scratch).
   entry for the full deploy-chain detail (runs #197-199 cancelled by
   rapid pushes, #200 is the real confirmed-live one, same pattern as
   the 2026-09-29 run #180-183 precedent).
+
+### 2026-10-18
+
+First batch of **major metro county pages** (top-34-population US
+state hubs completed yesterday). Picked by real, well-established
+Census population ranking (Los Angeles, Cook, Harris, Maricopa, San
+Diego, Orange, Miami-Dade, Dallas, Kings, Riverside counties — among
+the most populous US counties) — extended into the priority queue
+before starting.
+
+**Intent-match check:** read each page's actual title/H1/hero first.
+All 10 are the same established county-hub template
+("Digital Marketing Agency in [County], [State]" in title/meta/OG/
+JSON-LD from original site generation, but H1 read "Digital Marketing
+for [short name] Businesses That Actually Converts" — the primary
+keyword was not yet in the H1 or body copy, same gap pattern as the
+state hubs before their own fix).
+
+**Keyword source:** Semrush `keyword_research` still returns
+`no_api_units` (checked live this run, same as every prior check this
+entire project) — WebSearch fallback used, disclosed. One real check
+run: searched `"digital marketing agency" "Los Angeles County"` —
+finding: real competing agencies (Single Grain, Digital Authority
+Partners, Sunlight Media, and directory listings) almost universally
+use city-level phrasing ("Digital Marketing Agency Los Angeles"), not
+county-level, in their own titles. **Action item, not acted on this
+run:** this site's own county-hub pages use county-level naming
+throughout (title, URL structure, JSON-LD) from original site
+generation — that's a structural/URL decision out of scope for a
+keyword-placement pass, not something to change unilaterally here, but
+worth flagging for a future review of whether city-level pages would
+match real search behavior better than county-level ones.
+
+Primary keyword per page: "digital marketing agency in [County Name],
+[State]" (matching each page's own pre-existing title exactly).
+Secondary: "digital marketing company in [County Name], [State]".
+
+**Real gap found and fixed (not just the usual H1/body gap):** on
+inspection, the meta description, og:description, twitter:description
+and JSON-LD `description` field all used "digital marketing agency
+**serving** [County]..." — a paraphrase, not the exact primary-keyword
+phrase "digital marketing agency **in** [County]" the checklist
+requires. Fixed by replacing "agency serving" → "agency in" (verified
+exactly 3 occurrences per page — meta/og/twitter — before replacing,
+on all 10) and rewriting the JSON-LD description to lead with the
+exact phrase. `<title>`, `og:title`, `twitter:title` and the JSON-LD
+`name` field already carried the primary keyword correctly from
+original site generation and were left untouched.
+
+**What changed per page:** H1 rewritten to include the primary keyword
+("Digital Marketing Agency in [County], [State]: Marketing That
+Actually Converts", replacing "Digital Marketing for [short] Businesses
+That Actually Converts"); hero sub-paragraph rewritten to open with
+"As a digital marketing company in [County], [State], we build SEO,
+Google Ads, and social media strategy specifically for [short]
+businesses..." (adds the secondary keyword); meta description, OG
+description, Twitter description and JSON-LD description corrected
+from "agency serving" to "agency in" per above.
+
+**Grep-verified on all 10 pages** (scripted check, not assumed):
+primary keyword present and exact in `<title>`, meta description,
+`og:title`, `og:description`, `twitter:title`, `twitter:description`,
+JSON-LD `description`, and inside the actual `<h1>...</h1>` text;
+secondary keyword present at least once inside `<main>`; all 10 tag
+types balanced; JSON-LD block parses as valid JSON on all 10. No
+placement assumed — every check above was actually run this turn.
+- Action item: none of today's 10 pages volume-verified (Semrush units
+  still exhausted) — revisit once units refresh. Also revisit the
+  city-vs-county naming question flagged above in a future pass.
+- Total done today: 10 pages (`/california/los-angeles/`,
+  `/illinois/cook/`, `/texas/harris/`, `/arizona/maricopa/`,
+  `/california/san-diego/`, `/california/orange/`,
+  `/florida/miami-dade/`, `/texas/dallas/`, `/new-york/kings/`,
+  `/california/riverside/`).
+- Deploy: pending at time of this entry — will confirm and correct
+  this line once the commit's GitHub Actions run completes.
