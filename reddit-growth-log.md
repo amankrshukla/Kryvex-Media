@@ -167,3 +167,58 @@ inventing engagement. Next run should recheck the Composio Reddit
 connection status in addition to retrying the rate-limited calls, in
 case this is a connection-level issue rather than a transient
 sitewide limit.
+
+### 2026-10-18 — rate limit cleared; 3 real comments posted
+
+By calendar date today still falls in Week 3 (2026-10-14 to
+2026-10-20), but — same reasoning as yesterday's entry — the account's
+real standing is still effectively Week 1 (last real activity was
+2026-10-01). Continued genuine non-promotional participation, no
+Kryvex mention, no links, same as every prior real posting day.
+
+Confirmed the Composio Reddit connection first: `REDDIT_GET_REDDIT_USER_ABOUT`
+succeeded cleanly this run (no 429) — yesterday's block was a
+transient rate limit, not a connection-level issue.
+
+Checked rules fresh this week before posting: r/SEO confirms links are
+auto-removed in posts and comments (unchanged). r/localseo's current
+rules require posts/comments stay on-topic for SEO and civil — no
+explicit link ban found, but stayed link-free anyway per the Week-1-
+equivalent standing. r/DigitalMarketing's rules explicitly prohibit
+posting of services/seminars — self-promotion stayed off the table
+there too, consistent with every other subreddit today.
+
+**3 real comments posted, each confirmed via the tool's own response
+(not assumed) — real permalinks:**
+
+1. r/SEO — ["My website has been up for years... may 1 or 2 impressions per month max"](https://reddit.com/r/SEO/comments/1x8d1zn/my_website_has_been_up_for_years_tried_several/phgg4sz/) —
+   existing comments focused on backlinks/authority/crawl budget; added
+   the distinct point that "indexed" and "eligible to rank" aren't the
+   same thing, and pointed at Search Console Performance (Queries tab)
+   as the real diagnostic instead of another link-building push.
+2. r/localseo — ["Google AI Overviews Are Recommending My Local SEO Client"](https://reddit.com/r/localseo/comments/1x8pewk/google_ai_overviews_are_recommending_my_local_seo/phgg4tv/) —
+   existing comments said "just trust from reviews, give it 6 weeks";
+   added a distinct angle (AI Overviews/AI Mode ground answers in
+   specific verifiable claims, which geotagged completed-job videos
+   supply unusually well) as a plausible mechanism, with a concrete
+   test to tell the two explanations apart going forward.
+3. r/DigitalMarketing — ["Any Performance marketer (Meta ads)... luxury real estate... lead quality"](https://reddit.com/r/DigitalMarketing/comments/1x8ut4a/any_performance_marketermeta_ads_here_who_has/phgg4sr/) —
+   existing comment addressed the lead form itself; added the
+   complementary offline-conversions/Conversions API feedback-loop
+   tactic (tagging qualified vs. junk leads back to Meta) as the other
+   real lever, not covered by the existing reply.
+
+**Karma check:** `REDDIT_GET_REDDIT_USER_ABOUT` (username "me") run
+immediately after posting all 3 still shows 1 total karma (1 link, 0
+comment) — same aggregation-lag pattern as 2026-10-01: each comment's
+own post-response showed `score: 1` (default self-upvote) at posting
+time, but the aggregate endpoint hadn't caught up seconds later.
+Logging honestly as unchanged rather than guessing a real increase.
+
+No RATELIMIT errors hit this run. No subreddit blocked participation.
+Nothing posted to r/marketing, r/smallbusiness, r/Entrepreneur,
+r/EntrepreneurRideAlong, r/web_design, r/webdev, or
+r/DigitalMarketingIndia today — 3 genuine opportunities found and used
+across r/SEO, r/localseo and r/DigitalMarketing (a new subreddit for
+this log, rules-checked before posting), consistent with "3-5 real
+opportunities, never padded."
