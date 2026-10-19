@@ -132,3 +132,50 @@ catch-up cycle for today's real date, not a backfill.
 - Sitemap resubmission: confirmed — "Sitemap
   'https://kryvexmedia.com/sitemap.xml' successfully submitted for site
   'sc-domain:kryvexmedia.com'"
+
+### 2026-10-19
+
+- Topic/query: GSC 90-day query pull checked first (2026-07-17 to
+  2026-10-16, dimension `query`, 100 rows) — same standing pattern,
+  near-total volume is hyper-local "agency/company in [city]" queries
+  already served by the programmatic geo pages, nothing new maps to a
+  blog topic. Fell back to a real, unaddressed gap instead: none of
+  Kryvex's 9 real industry pages (`/industries/*` — ecommerce,
+  education, fitness, healthcare, home-services, legal, real-estate,
+  restaurants, tours-travel) had any supporting blog content linking to
+  them. Picked Home Services (plumbers, HVAC, electricians,
+  contractors) as a real, well-documented vertical with genuine,
+  citable mechanics and a real existing service page
+  (`/industries/home-services/`) to support.
+- Title: "Digital Marketing for Home Services Businesses: What
+  Actually Wins the Call"
+- URL: https://kryvexmedia.com/blog/digital-marketing-for-home-services-businesses/
+- Word count: 2,148 (verified via isolated `<main>` word count script)
+- Links: `/industries/home-services/`, `/services/local-seo/`,
+  `/services/ppc/`, `/services/email-marketing/`, `/free-audit/`,
+  `/blog/google-business-profile-optimization-guide/`,
+  `/blog/10-local-seo-tactics-that-fill-your-calendar/` — all 7
+  confirmed to exist in the repo before linking.
+- Facts cited: Google's own Business Profile Help documentation naming
+  relevance/distance/prominence as the three local-ranking factors;
+  Google's Local Service Ads program ("Google Guaranteed"/"Google
+  Screened") and its background-check requirement and per-lead
+  billing; Google's published Core Web Vitals thresholds (LCP ≤2.5s,
+  CLS ≤0.1, INP ≤200ms); HomeAdvisor/Angi as real third-party trade
+  directories (same ones already named on the site's own
+  `/industries/home-services/` page) — all real, publicly documented,
+  no invented statistics.
+- Also checked (per the 2026-10-18 recurring-gap note): every published
+  post's card is present in `blog/index.html`'s grid — no missing-card
+  gap found this run. Added this post's own card and today's URL to
+  `sitemap-resources.xml` in the same commit.
+- Deploy: run #218, head_sha `ed5783853`, took unusually long to leave
+  the "Deploy to GitHub Pages" step (~43 minutes `in_progress` before
+  resolving — the build and report-build-status jobs both completed
+  within ~2 minutes as normal, only the deploy job itself was slow),
+  polled repeatedly rather than assumed, confirmed `conclusion:
+  **success**`. No cancelled intermediate runs this time — single
+  commit, single push, as the bundling rule requires.
+- Sitemap resubmission: confirmed — "Sitemap
+  'https://kryvexmedia.com/sitemap.xml' successfully submitted for site
+  'sc-domain:kryvexmedia.com'"

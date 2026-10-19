@@ -333,3 +333,53 @@ No new trend to report beyond the indexing-state movement above.
 stage (unknown → discovered) — worth a follow-up check in a few days to
 see if either reaches "indexed." Zero-click pattern continues unchanged;
 nothing new to act on there beyond what's already logged.
+
+## 2026-10-19 — daily blog Routine run
+
+Published today: `digital-marketing-for-home-services-businesses`
+(2,148 words).
+
+**Indexing re-check (live URL Inspection, scoped to the two most recent
+prior posts plus the long-standing flagged-stuck URLs, per the standing
+rule):**
+- `youtube-management-for-small-businesses` (1 day old): **"URL is
+  unknown to Google."** Expected at this age.
+- `what-a-free-website-audit-checks` (2 days old): **"URL is unknown
+  to Google."** Still expected at this age.
+- `google-ads-vs-meta-ads-small-business`: **real regression** — back
+  to **"URL is unknown to Google,"** down from "Discovered - currently
+  not indexed" logged on 2026-10-18. Flagging this honestly rather than
+  smoothing over it: this is a real step backward in GSC's own
+  discovery record for this URL, not progress. This is the same
+  pattern already seen once before with
+  `website-designing-services-in-madhubani-bihar` (2026-10-01 entry) —
+  GSC's discovery state for a URL can apparently lapse or reset rather
+  than moving monotonically forward.
+- `website-designing-services-in-madhubani-bihar`: still **"Discovered
+  - currently not indexed."** Unchanged from 2026-10-18 — no further
+  regression this time.
+- `local-seo-vs-national-seo`: still **"Crawled - currently not
+  indexed,"** `lastCrawlTime` still 2026-09-17 — now unchanged for
+  over a month (32 days) without any recrawl.
+- `signs-seo-agency-not-working`: still **"Discovered - currently not
+  indexed."** Unchanged.
+
+**Performance re-pull (90-day window, page dimension, `/blog/`,
+2026-07-21 to 2026-10-18):** `how-to-cut-wasted-ad-spend-in-30-days` 33
+impressions (position ~66.5, unchanged), `email-flows-every-business-
+needs` 4 (position 20.5, unchanged), `what-is-digital-marketing` 4
+(position 3, unchanged), `seo-company-hiring-guide` 3 (unchanged from
+2026-10-18), `/blog/` index 2 (unchanged), `10-local-seo-tactics-that-
+fill-your-calendar` 2, `how-to-choose-an-seo-company-in-patna` 2,
+`website-mistakes-costing-you-customers` 1 — every number identical to
+the 2026-10-18 pull. **Zero clicks on every post, still, with no
+exception.** No new trend to report; the only real movement this
+period is the indexing-state regression noted above.
+
+**Action items:** keep watching `google-ads-vs-meta-ads-small-business`
+specifically — if it oscillates between "unknown" and "discovered"
+again on the next check, that's a real pattern (not noise) worth
+treating as a signal in itself (e.g. internal-linking strength to that
+specific URL) rather than just re-logging it each time. Everything
+else is unchanged; the zero-click baseline across the whole blog
+continues with no exception after 3 weeks of additional data.
