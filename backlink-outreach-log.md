@@ -410,3 +410,127 @@ constrained to `max-width:320px`, real physical address and opt-out
 line as visible plain text below the signature. This Routine's stored
 prompt has been updated to require all of the above on every future
 send, including Monday's scheduled run.
+
+### 2026-10-19 — first full scheduled weekly run: 5 real opportunities, 5 real sends
+
+First normal scheduled fire of the weekly Routine (trigger
+`trig_014Z1XWCVXosm6TAVS9f5ZoX`, ~07:43 UTC). Confirmed the Gmail
+connection before anything else (`COMPOSIO_MANAGE_CONNECTIONS`,
+toolkit `gmail`): `gmail_scap-lee` / `amansukla307@gmail.com` active.
+Pulled the current signature fresh via `GMAIL_LIST_SEND_AS` (not
+hardcoded) — `info@kryvexmedia.com` still the verified default alias,
+`verificationStatus: accepted`. Checked the opt-out list (still empty)
+and the prior-contact list (embarque.io, blog.linkody.com,
+hunchads.com) before searching, and excluded all three from this run.
+
+**Candidates found via live WebSearch and checked via
+`SCRAPINGBEE_HTML_FETCH` (16 checked, 5 qualified, 11 skipped):**
+
+Qualified and sent:
+1. **elogic.co/write-for-us/** (ecommerce dev/marketing blog) — live
+   (200). States 1,500+ word minimum, one nofollow self-promotional
+   link allowed, explicitly "we will not pay for your articles" (no
+   paid-placement issue, they don't pay contributors, which is fine).
+   Real contact found in the page's own JSON-LD/footer and guidelines
+   text: `write@elogic.co`. Subject: "Guest post idea for Elogic's blog:
+   SEO and paid search workflow for small ecommerce teams." Pitch:
+   a lean SEO + paid search workflow for small ecommerce teams with no
+   dedicated marketer. **Sent**, confirmed message id `1a153244487e3b72`,
+   verified via `GMAIL_FETCH_MESSAGE_BY_MESSAGE_ID` that the real `From`
+   header reads `Kryvex Media <info@kryvexmedia.com>`.
+2. **targetbay.com/guest-post-guidelines/** (ecommerce blog) — live
+   (200). Explicit guest-post callout: "Get featured on TargetBay's
+   Ecommerce Blog Guest Post. Send your requests to
+   marketing@targetbay.com." No paid-placement language found. Subject:
+   "Guest post idea for TargetBay's ecommerce blog: turning repeat
+   customers into a marketing channel." **Sent**, confirmed message id
+   `1a153244f376db2f`.
+3. **blog.contactpigeon.com/write-for-us/** (ecommerce marketing
+   automation blog) — live (200). Topics include marketing automation,
+   email/SMS/chatbot marketing, ecommerce case studies. Guidelines
+   require originality and `[GUEST POST]` in the subject line, which
+   this send included. Real contact found in the page's own submission
+   text: "send it via email to marketing(at)contactpigeon.com" →
+   `marketing@contactpigeon.com`. No paid-placement language found.
+   Subject: "[GUEST POST] Combining SEO and lifecycle email for small
+   ecommerce brands." **Sent**, confirmed message id `1a153244f05d7f8a`.
+4. **lawfuel.com/write-for-us/** (legal/law-firm-marketing publication)
+   — live (200). Topics include law firm marketing, SEO, content
+   marketing, legal tech. Guidelines specify the pitch subject format
+   "Guest Blog Pitch: [working title]," which this send used exactly.
+   Real contact found on the page itself: `lawfuel@gmail.com` (the
+   publication's own stated editorial address, not a guess). No
+   paid-placement language found on the guest-post guidelines (the
+   site's separate "Advertise / Sponsored Content" nav item is its own
+   ad product for advertisers, unrelated to editorial guest posts, so
+   not treated as disqualifying). Subject: "Guest Blog Pitch: How Small
+   Law Firms Can Win Local Search Without a Marketing Team." **Sent**,
+   confirmed message id `1a1532445f2fcf96`.
+5. **sendpulse.com/blog/publication-in-sendpulse-blog** (email/content
+   marketing SaaS blog, small/medium business audience) — live (200).
+   States explicitly "we only publish posts for free; there are no
+   sponsored articles on our blog" (confirms no-paid-placement), 1,500
+   word minimum. Real named contact found on the page:
+   `n.roshinska@sendpulse.com`. Subject: "Guest post idea for
+   SendPulse's blog: pairing email marketing with an SEO content
+   calendar." **Sent**, confirmed message id `1a1532452181b86e`.
+
+Skipped (checked live, not sent, with reason):
+- **ruttl.com/blog/write-for-us** — page resolves (200) but its actual
+  rendered content reads "Blog not found": the guest-post page itself
+  is gone even though search engines still show old cached snippets
+  mentioning `marketing@ruttl.com`. Not a currently-live opportunity —
+  skipped rather than trusting a stale search snippet.
+- **buildertrend.com/write-for-buildertrend/** — 301-redirects to the
+  generic `/blog/` page; the write-for-us page no longer exists. Skipped.
+- **ptpioneer.com/write-for-us/** — 301-redirects to the site homepage;
+  the write-for-us page no longer exists. Skipped.
+- **repugen.com/write-for-us** — live (200), but submission is a
+  Name/Email/Phone web form only, no published email address anywhere
+  on the page. No verifiable contact — skipped per the no-guessing rule.
+- **restaurant.eatapp.co/write-for-eat-restaurant-management-blog** —
+  live (200), but submission is a HubSpot form only, no published email
+  address. No verifiable contact — skipped.
+- **adcore.com/write-for-adcores-blog-guest-post-guidelines/** — live
+  (200), but submission is a form only, no published email address. No
+  verifiable contact — skipped.
+- **maestrolabs.com/write-for-us** (MailMaestro) — live (200), but
+  submission is "submit your blog post here" via a form link, no
+  published email address. No verifiable contact — skipped.
+- **ppchero.com/now-accepting-ppc-hero-guest-bloggers/** — live (200),
+  but the only contact shown is Cloudflare-obscured ("[email protected]",
+  undecodable from static page text) and the post itself is dated June
+  2014. No verifiable current contact — skipped.
+- **realtormarket.wpengine.com/resources/call-for-contributors/**
+  (realtor.com resource hub) — live (200), real estate marketing fit,
+  but no published email anywhere on the page, only "contact us"
+  navigation with no address shown. No verifiable contact — skipped.
+- **biggerpockets.com/blog/write-for-us** — live (200), but asks for a
+  1-post-per-week ongoing commitment (not a one-off collaboration) and
+  gives no email address, only "send us links to your blog" with no
+  stated recipient. No verifiable contact — skipped.
+- **gopaschal.com/?p=11806** (Paschal home-services blog contributor
+  page) — confirmed gone, HTTP 404. Skipped.
+- **hunchads.com/guest-post-guidelines** — real, live, in-scope, but
+  already contacted 2026-09-30 with no reply since. Not re-contacted
+  per the prior-contact rule (checked inbox this run via
+  `GMAIL_FETCH_EMAILS`, query covering embarque.io/linkody.com/
+  hunchads.com senders — zero results, no reply from any of the 3 prior
+  contacts, nothing to log as a reply or opt-out).
+- lilachbullock.com's various topic-specific write-for-us pages
+  (marketing, legal, home, fitness, healthcare, travel, ecommerce,
+  education, etc.) were not re-checked individually this run — the
+  2026-09-30 entry already established site-wide that only a contact
+  form and placeholder email text exist, no real published address, and
+  that finding is treated as still applicable (same site, same contact
+  flow) rather than re-spending Scrapingbee calls to re-confirm it.
+
+**Totals this run**: 16 real candidates checked, 5 qualified and sent
+(all distinct message IDs confirmed), 11 skipped with reasons above.
+Stayed under the 10/week cap without padding. No opt-outs found, no
+replies found on the 3 prior contacts. Every send used
+`from_email: info@kryvexmedia.com`, `is_html: true`,
+`account: gmail_scap-lee`, the real signature pulled fresh via
+`GMAIL_LIST_SEND_AS` (image constrained to `max-width:320px`), the real
+physical address, and opt-out language as visible plain text, with no
+em-dashes/hyphens used as sentence punctuation in the pitch copy.
