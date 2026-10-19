@@ -157,6 +157,19 @@ image gen blocked, Canva needs re-auth, Porter `creative.generate` returns
 `action_blocked`/`NOT_IN_CATALOG`), so no post had actually been
 publishable anyway.
 
+**Scope note (added 2026-10-19):** this pause is specifically about
+**Kryvex Media's own** `kryvexmedia` Instagram account/content — the
+automations above. It does not extend to `@maun_sabad`, a separate
+personal/devotional Instagram page unrelated to the Kryvex Media
+business, which the owner asked to resume posting on 2026-10-19 using
+ready-made images from their own Google Drive folder. That page's
+posting is tracked in `maun-sabad-posting-log.md` (a daily Routine,
+`trig_01T3qzUgPdiVomaT2wiumbTt`, posts the next queued item) — see that
+file for the real method/history. None of this site's content standards
+(word counts, etc.) apply to it; it's tracked in this repo only because
+this is the durable cross-session storage available in this
+environment.
+
 ## Daily Reddit growth Routine (set 2026-09-30, standing, no approval gate)
 
 A recurring Routine (`trig_01LgfZynFwWGnByFdwVptLwB`, daily ~16:57 IST,
