@@ -19,7 +19,7 @@ const BIZ = {
   phone:   '+91 7079109497',
   web:     'https://kryvexmedia.com',
   gstin:   '10HPPPS3117R2Z7',        // registered directly to trade name "Kryvex Media", same Madhubani address as above
-  regNo:   'UDYAM-BR-20-0029882',    // Udyam (MSME) registration — registered to enterprise name "Webtech Core", same Madhubani address — leave blank to hide
+  regNo:   'UDYAM-BR-20-0080081',    // Udyam (MSME) registration — leave blank to hide
   regLabel: 'Reg. No.',              // label printed before regNo
   bank:    'Bank name: Axis Bank\nAccount name: KRYVEX MEDIA\nAccount no.: 926020034223276\nIFSC: UTIB0001486',
   terms:   'Payment due within 7 days. Late payments may pause active work.',
