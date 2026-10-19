@@ -83,7 +83,19 @@ picked (see the 2026-09-28 entry below for why this matters).
 72. ~~`/texas/dallas/`~~ — done 2026-10-18 (major metro county)
 73. ~~`/new-york/kings/`~~ — done 2026-10-18 (major metro county)
 74. ~~`/california/riverside/`~~ — done 2026-10-18 (major metro county)
-75. *(after these: continue with the next tier of major metro counties,
+75. ~~`/california/san-bernardino/`~~ — done 2026-10-19 (major metro county)
+76. ~~`/nevada/clark/`~~ — done 2026-10-19 (major metro county)
+77. ~~`/washington/king/`~~ — done 2026-10-19 (major metro county)
+78. ~~`/texas/tarrant/`~~ — done 2026-10-19 (major metro county)
+79. ~~`/california/santa-clara/`~~ — done 2026-10-19 (major metro county)
+80. ~~`/florida/broward/`~~ — done 2026-10-19 (major metro county)
+81. ~~`/new-york/queens/`~~ — done 2026-10-19 (major metro county)
+82. ~~`/texas/bexar/`~~ — done 2026-10-19 (major metro county)
+83. ~~`/michigan/wayne/`~~ — done 2026-10-19 (major metro county)
+84. ~~`/massachusetts/middlesex/`~~ — done 2026-10-19 (major metro county)
+85. *(after these: continue with the next tier of major metro counties —
+    e.g. San Francisco CA, Fulton GA, Travis TX, Hillsborough FL, Hennepin
+    MN, Suffolk MA, Montgomery MD, Oakland MI, Fairfax VA, Allegheny PA —
     then remaining country hubs)*
 
 ## Log
@@ -787,3 +799,116 @@ placement assumed — every check above was actually run this turn.
   commit). Run #215, head_sha `ae1389af0` (built from main's tip after
   both this SEO commit and the Reddit log commit), confirmed
   `conclusion: **success**` — the real confirmed-live deploy.
+
+### 2026-10-19
+
+Second batch of **major metro county pages**, continuing the real
+Census-population ordering from 2026-10-18 (top-10 counties already
+done). Picked the next 10 well-established high-population US counties
+not yet in the queue — San Bernardino (CA), Clark (NV, Las Vegas), King
+(WA, Seattle), Tarrant (TX, Fort Worth), Santa Clara (CA, San Jose),
+Broward (FL, Fort Lauderdale), Queens (NY), Bexar (TX, San Antonio),
+Wayne (MI, Detroit), Middlesex (MA) — extended into the priority queue
+(items 75-84) before starting. Confirmed all 10 directories/pages exist
+in the repo before editing.
+
+**Semrush checked live first** (`mcp__Semrush__keyword_research`, no
+params) — returned `no_api_units` (non-retryable), same result as every
+prior check across this entire project. WebSearch fallback used,
+disclosed below.
+
+**Intent-match check:** read each page's actual title/eyebrow/H1/sub
+paragraph before picking anything. All 10 are the same established
+county-hub template as the 2026-10-18 batch: `<title>`/meta/OG/Twitter
+already carried "Digital Marketing Agency in [County] County, [State]"
+from original site generation, but (a) the meta/OG/Twitter descriptions
+and JSON-LD description still used the "agency **serving**" paraphrase
+rather than the exact primary-keyword phrase "agency **in**" (the same
+gap fixed on 2026-10-18's first 10 counties), (b) the H1 read the
+generic "Digital Marketing for [short] Businesses That Actually
+Converts" with no primary keyword at all, (c) the eyebrow/badge was a
+bare location pin ("📍 [County], [State]") with no primary keyword
+either — a real gap that existed in the 2026-10-18 batch too but wasn't
+caught by that run's own grep check (which verified title/meta/OG/
+Twitter/JSON-LD/H1 but not the eyebrow specifically) — closed this run
+per today's explicit instruction that the badge is a mandatory
+placement location, and (d) no secondary keyword appeared anywhere in
+body copy.
+
+**One real WebSearch check run** (not assumed): searched for
+`"digital marketing agency" "Clark County" Nevada OR "digital marketing
+agency" "Broward County" Florida` — finding: real competing agencies
+(V Digital Services, 5 Star Visibility) explicitly market themselves as
+serving "Broward and Palm Beach Counties" at the county level, and
+BrightLocal's own directory structure organizes Florida agencies by
+city within county. This confirms county-level framing is a real,
+competitor-used pattern (not an invented one), supporting continuing
+this site's existing county-level keyword structure rather than
+unilaterally changing to city-level naming — consistent with the
+2026-10-18 batch's own finding and action item on this same question.
+
+Primary keyword per page: `digital marketing agency in [County County],
+[State]` (matching each page's own pre-existing `<title>` exactly —
+note Broward's established title uses the abbreviation "FL", not
+"Florida"; the primary keyword for that page was normalized to match
+the title's own "FL" exactly, including in the meta/OG/Twitter
+descriptions, which previously spelled out "Florida").
+Secondary keyword per page: `digital marketing company in [County
+County], [State]`.
+
+**What changed per page:**
+- Eyebrow/badge: `📍 [County], [State]` → `📍 Digital Marketing Agency in
+  [County], [State]`.
+- `<h1>`: `Digital Marketing for [short] Businesses That Actually
+  Converts` → `Digital Marketing Agency in [County], [State]: Marketing
+  That Actually Converts`.
+- Hero sub paragraph: rewritten to open with `As a digital marketing
+  company in [County], [State], we build SEO, Google Ads, and social
+  media strategy specifically for [short] businesses — not a generic
+  statewide template. Free audit, no lock-in contract.` (adds the
+  secondary keyword; Broward's sub paragraph keeps "South Florida
+  businesses" as the local-color short form, matching its own existing
+  H1/branding).
+- Meta description, `og:description`, `twitter:description`: "agency
+  serving" → "agency in" (Broward also: "Florida" → "FL" to match its
+  title exactly).
+- JSON-LD `description` field: rewritten from "Full-service digital
+  marketing agency running SEO, PPC, social media and web design for
+  businesses in [County], [State]." to "Full-service digital marketing
+  agency in [County], [State], running SEO, PPC, social media and web
+  design for local businesses." (same phrasing pattern used for the Los
+  Angeles County page on 2026-10-18).
+- `<title>`, `og:title`, `twitter:title`, and the JSON-LD `name` field
+  already carried the primary keyword correctly from original site
+  generation and were left untouched.
+
+**Grep-verified on all 10 pages** (scripted check actually run this
+turn, not assumed): primary keyword phrase — 9 total occurrences per
+page; confirmed present inside the actual `<h1>...</h1>` line (1/1); and
+confirmed present inside the `cty-eyebrow` badge line (1/1). Secondary
+keyword — confirmed present at least once inside `<main>` (1/1) via a
+Python script extracting the `<main>...</main>` block and searching it
+directly, not a whole-file grep. `<div>` open/close tag balance equal
+on all 10 (94/94 on 9 of them; 113/113 on Broward, whose page carries
+extra markup). Every `<script type="application/ld+json">` block parses
+with `json.loads` on all 10. No leftover "agency serving" phrasing
+anywhere in any of the 10 files (confirmed via `grep -rn`, zero
+matches).
+
+- Action item: none of today's 10 pages volume-verified (Semrush units
+  still exhausted) — revisit once units refresh. The city-vs-county
+  naming question (flagged 2026-10-18) remains open for a future
+  structural review, now with one additional real data point (county-
+  level framing is genuinely used by real competitors in at least the
+  Broward/Palm Beach market) — still not something to change
+  unilaterally in a keyword-placement pass.
+- Total done today: 10 pages (`/california/san-bernardino/`,
+  `/nevada/clark/`, `/washington/king/`, `/texas/tarrant/`,
+  `/california/santa-clara/`, `/florida/broward/`, `/new-york/queens/`,
+  `/texas/bexar/`, `/michigan/wayne/`, `/massachusetts/middlesex/`).
+- Scope note: a concurrent blog-publish routine committed
+  `blog-publish-log.md`/`blog-performance-log.md` changes to this same
+  branch while this run was in progress (commit `94e8677f3`); this run
+  did not touch, stage, or include those files — confirmed via `git
+  status` immediately before committing.
+- Deploy: see this run's own entry below once confirmed.
