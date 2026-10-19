@@ -222,3 +222,79 @@ r/DigitalMarketingIndia today — 3 genuine opportunities found and used
 across r/SEO, r/localseo and r/DigitalMarketing (a new subreddit for
 this log, rules-checked before posting), consistent with "3-5 real
 opportunities, never padded."
+
+### 2026-10-19 — Week 3 by calendar; 1 comment posted, then rate-limited
+
+**Week determination:** today (2026-10-19) falls in Week 3 (2026-10-14
+to 2026-10-20) by the calendar date-ranges in this log. Per the plan,
+Week 3 allows mentioning Kryvex only when directly asked or where a
+subreddit's own current rules explicitly carve out self-promotion —
+it's conditional, not a blanket green light. No post found today met
+either condition, and the account's real standing is still early (1
+total karma after 3 real posting days since 2026-09-25), so — same
+reasoning as the 2026-10-17/2026-10-18 entries — stayed fully
+non-promotional today too: no Kryvex mention, no links, in the comment
+actually posted.
+
+Rules for today's subreddits (r/SEO, r/localseo, r/DigitalMarketing)
+were already confirmed earlier this week (2026-10-18 entry, within the
+same Week-3 window) — not re-checked today per the "once per week"
+standing rule, since nothing suggested those reads were stale.
+
+**Real finding worth flagging:** while reading existing comments on
+r/SEO threads today, found multiple other users' comments removed by
+`AutoModerator` with the message "Your post/comment has been removed
+because your account has a low CQS Score. Please contribute more
+positively on Reddit overall before posting." — i.e. r/SEO silently
+removes comments from accounts it scores as low-quality/low-karma,
+independent of the comment's own content. Given this account's low
+karma, checked whether today's own comment survived that filter rather
+than assuming a successful post call meant it was actually visible
+(`REDDIT_RETRIEVE_POST_COMMENTS` re-pulled on the thread after
+posting) — **confirmed visible, not removed**, author `amankrshuklaa`,
+body intact. Worth re-checking this on future r/SEO posts rather than
+assuming — a successful `REDDIT_POST_REDDIT_COMMENT` response does not
+guarantee the comment stays up.
+
+**3 real opportunities identified** (read full post + existing top
+comments before drafting each), **1 posted, 2 not posted (rate-limited
+before the 2nd attempt went through):**
+
+1. r/SEO — ["Beginner asking: how to structure internal links, keyword mapping, and a content workflow for a brand-new site?"](https://reddit.com/r/SEO/comments/1x9gtid/beginner_asking_how_to_structure_internal_links/phnj2p6/) —
+   **posted, confirmed live.** Existing visible reply gave only a basic
+   keyword-sheet template; added sequencing advice (map before writing,
+   but only a skeleton), a search-intent column the existing answer
+   omitted, and a concrete answer to the "publish consistently vs.
+   build depth first" question specific to a new B2B export site with
+   zero authority — distinct from what was already there.
+2. r/localseo — ["Are agency people here still checking client Google profiles one by one?"](https://reddit.com/r/localseo/comments/1x904q1/are_agency_people_here_still_checking_client/) —
+   **not posted.** Drafted a DIY angle (polling the Google Business
+   Profile API on a schedule instead of buying BrightLocal/Yext/etc.)
+   distinct from the 4 existing SaaS-tool recommendations, but
+   `REDDIT_POST_REDDIT_COMMENT` returned a real `RATELIMIT`
+   ("doing that a lot... take a break for 9 minutes... wait
+   approximately 7 minutes 38 seconds") on this attempt. Honored it per
+   the standing rule — did not retry through it, did not post this
+   comment today.
+3. r/DigitalMarketing — ["How can I improve my brand's viability across ChatGPT, Gemini, Perplexity and Google AI Overviews?"](https://www.reddit.com/r/DigitalMarketing/comments/1x9paz9/how_can_i_improve_my_brands_viability_across/) —
+   **not posted** (stopped after the rate limit hit on #2 rather than
+   attempting a 3rd call into the same cooldown window). Genuinely good
+   fit — GEO/AEO is explicitly in this account's own bio and Kryvex's
+   real service scope — revisit this specific thread tomorrow if it's
+   still open and the existing single thin reply still hasn't covered
+   entity consistency / structured data / answer-first content
+   structure.
+
+**Karma check:** `REDDIT_GET_REDDIT_USER_ABOUT` (username "me") run
+after the rate limit hit still shows 1 total karma (1 link, 0 comment)
+— same aggregation-lag pattern as every prior real-posting day; logging
+honestly as unchanged rather than guessing an increase.
+
+No subreddit blocked participation outright today (no rules changes
+found). Nothing posted to r/marketing, r/AskMarketing, r/smallbusiness,
+r/Entrepreneur, r/EntrepreneurRideAlong, r/web_design, r/webdev, or
+r/DigitalMarketingIndia today. **Action item for tomorrow's run:** try
+the r/localseo and r/DigitalMarketing comments drafted above first
+(after confirming the threads are still open and the draft angles are
+still non-duplicate), before searching for new opportunities, since
+they were genuine finds that just didn't get through the rate limit.
