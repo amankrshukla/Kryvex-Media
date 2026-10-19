@@ -911,4 +911,10 @@ matches).
   branch while this run was in progress (commit `94e8677f3`); this run
   did not touch, stage, or include those files — confirmed via `git
   status` immediately before committing.
-- Deploy: see this run's own entry below once confirmed.
+- Deploy: commit `5beb86a45` pushed to `claude/webtech-core-current-work-rsmbri`
+  and fast-forwarded to `main`. Triggered run #220 (id `39217294191`,
+  head_sha `5beb86a45`) on `pages-build-deployment`. Polled repeatedly
+  (`mcp__github__actions_get`, `get_workflow_run`) — ran longer than
+  usual on the "Upload artifact" job step, but confirmed
+  `status: completed`, `conclusion: **success**`. Today's 10 pages are
+  real, confirmed live.
