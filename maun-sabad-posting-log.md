@@ -77,13 +77,34 @@ of this file / the original draft; Day 3 + Day 4 captions: see status column)
 | 38 | Day 4 Post 8 | 1Li917dJTYZiBP1SWLKR2MqT8K4IX9Oyi | drafted | **2026-10-19** | https://www.instagram.com/p/DesFfaEidsi/ |
 | 39 | Day 4 Post 9 | 1pcWv7AGGKXbuAeXU4hJV2iyrWHdwCcoi | drafted | **2026-10-19** | https://www.instagram.com/p/DesFgJunR4z/ |
 | 40 | Day 4 Post 10 | 1gJ2njb2j0GyMIL-gUqhEa30cJ6OnsYZL | drafted | **2026-10-19** | https://www.instagram.com/p/DesFgLbCaqb/ |
+| 41 | Day 5 Post 1 | 1GcDsxwdyd1S4_2TZmjWvZBBvZozrvGXV | drafted | **2026-10-20** | https://www.instagram.com/p/DetUpuclYak/ |
+| 42 | Day 5 Post 2 | 1HJSWwfDfgOGJRrJjylQv418PMGNBoozk | drafted | **2026-10-20** | https://www.instagram.com/p/DetUpu5FcB-/ |
+| 43 | Day 5 Post 3 | 1cuKdIzpQXT0RWKDShiF16KdyFmb2jMyK | drafted | **2026-10-20** | https://www.instagram.com/p/DetUpvNlUuP/ |
+| 44 | Day 5 Post 4 | 1-7PwQB913PEroKqcry8AeUBD9pGGU4Be | drafted | **2026-10-20** | https://www.instagram.com/p/DetUptcFcZj/ |
+| 45 | Day 5 Post 5 | 1jPTywTo-uiD3NAYUjaEqpwZw9YXKq3sS | drafted (Diwali-themed rangoli/diya imagery) | **2026-10-20** | https://www.instagram.com/p/DetUqR2FYSW/ |
+| 46 | Day 5 Post 6 | 1xLaRyzTj46bekmcKGMJusN0HWywNfZTC | drafted | **2026-10-20** | https://www.instagram.com/p/DetUqRFFSni/ |
+| 47 | Day 5 Post 7 | 1D2xkMhspqyePVPWEY85bwMkvqkU39N8T | drafted | **2026-10-20** | https://www.instagram.com/p/DetUqQ4FQXJ/ |
+| 48 | Day 5 Post 8 | 1E3OmT3L2KekoSJD5c_6gQ380x0LE7Fpe | drafted | **2026-10-20** | https://www.instagram.com/p/DetUqSLlaoB/ |
+| 49 | Day 5 Post 9 | 1C0LzsL4fhk-PiGkB7sO6gRNwcFAnXIoM | drafted | **2026-10-20** | https://www.instagram.com/p/DetUq6lFcqa/ |
+| 50 | Day 5 Post 10 | 1fLUpLtH9B6BEVxVZ6PGeIeTGFkpIPsW5 | drafted | **2026-10-20** | https://www.instagram.com/p/DetUq3vlZG9/ |
 
-**Queue status: exhausted.** All 40 Drive items (Day 1-4) have now either been
+**Hashtag strategy changed 2026-10-20 (user instruction):** from here on, every
+post uses ONE fixed, common hashtag set instead of varying hashtags per image
+theme — `#maun_sabad #hindiquotes #hindishayari #quotestagram #motivation
+#lifequotes #quoteoftheday`. Chosen from tags already demonstrably used in this
+exact niche (including several the user's own manually-posted captions already
+used — `#hindishayari`, `#quotestagram`, `#quotestoinspire`). Not verified
+against live Instagram hashtag-volume data (no tool available for that here) —
+presented as broad/common tags, not claimed as "verified trending." Applied to
+all 10 Day 5 posts (rows 41-50).
+
+**Queue status: exhausted.** All 50 Drive items (Day 1-5) have now either been
 posted via this automation or are believed posted by the user directly — see
-the "2026-10-19 verification" log entry below for exactly which rows are
-*confirmed* live vs. still unconfirmed. Nothing new in the Drive folder as of
-2026-10-19. The daily auto-post Routine will log "queue empty" until either
-new Drive content appears or the unconfirmed rows below are resolved.
+the "2026-10-19 verification" log entry below for exactly which Day 1-3 rows
+are *confirmed* live vs. still unconfirmed (Day 4 and Day 5 are fully
+automation-posted and confirmed). Nothing new in the Drive folder beyond Day 5
+as of 2026-10-20. The daily auto-post Routine will log "queue empty" until
+either new Drive content appears or the unconfirmed Day 1-3 rows are resolved.
 
 ## Note on Day 2 Post 8/9
 Ravan Dahan / Dussehra-themed (effigy burning imagery) — seasonal content.
