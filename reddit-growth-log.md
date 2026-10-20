@@ -298,3 +298,109 @@ the r/localseo and r/DigitalMarketing comments drafted above first
 (after confirming the threads are still open and the draft angles are
 still non-duplicate), before searching for new opportunities, since
 they were genuine finds that just didn't get through the rate limit.
+
+### 2026-10-20 — last day of Week 3 by calendar; 1 comment posted, then rate-limited again
+
+**Week determination:** today (2026-10-20) is the last day of Week 3
+(2026-10-14 to 2026-10-20) by the calendar date-ranges in this log;
+Week 4 begins tomorrow (2026-10-21). Per the plan, Week 3 only allows
+mentioning Kryvex when directly asked or where a subreddit's own
+current rules explicitly carve out self-promotion — still conditional,
+not a green light. No post found today met either condition, and
+`comment_karma` is still 0 after 6 real posting days since 2026-09-25,
+so — same reasoning as every entry since 2026-10-17 — stayed fully
+non-promotional: no Kryvex mention, no links.
+
+Followed up on the action item from 2026-10-19 first: re-checked the
+two carried-over threads before searching for anything new.
+- r/localseo — ["Are agency people here still checking client Google profiles one by one?"](https://reddit.com/r/localseo/comments/1x904q1/) —
+  **dropped.** Re-pulled the thread and the post's own selftext now
+  reads `[removed]` (title and existing comments still visible, but
+  the submission body itself is gone). Didn't comment on a post whose
+  content has been pulled by the sub — too likely the thread itself is
+  no longer a live, legitimate target.
+- r/DigitalMarketing — ["How can I improve my brand's viability across ChatGPT, Gemini, Perplexity and Google AI Overviews?"](https://www.reddit.com/r/DigitalMarketing/comments/1x9paz9/) —
+  **dropped as the target, but the real gap it was flagged for is now
+  closed.** The thread grew from 1 thin reply to 20 comments overnight,
+  several of them (baseline-prompt testing, buyer-question reverse
+  engineering, AI-referral tracking in GA4) already covering the
+  entity-consistency/structured-data ground this was being held for.
+  Revisiting it today would have meant restating what's already there,
+  so didn't comment on it — found a fresher, less-crowded thread on the
+  same exact topic instead (see below).
+
+Rules for today's subreddits (r/SEO, r/localseo, r/DigitalMarketing)
+were already confirmed this week (2026-10-18 entry) — not re-checked
+today, consistent with the "first time this week" standing rule.
+
+Scanned r/SEO, r/localseo, r/AskMarketing, r/DigitalMarketing and
+r/marketing (new posts) for fresh opportunities. Read each full post +
+existing comments before drafting. **4 real candidates found and read
+in full; 1 skipped as a forced/suspect fit, 1 skipped as already
+saturated with near-duplicate answers, 1 posted, 1 not posted
+(rate-limited before the attempt went through):**
+
+1. r/SEO — ["SEO folks - what actually moves the needle for a Google Business profile?"](https://www.reddit.com/r/SEO/comments/1xa83xz/) —
+   **skipped.** Read the full post and comments; two other commenters
+   independently flagged this as a likely AI-training/content-farming
+   post or a plug for the OP's own in-development product
+   ("Scale Quest"). Didn't want to add a genuine, detailed answer to a
+   thread that may not be what it looks like — consistent with
+   "skip anything where the fit would be forced," extended here to
+   "where the thread's own legitimacy looks shaky."
+2. r/SEO — ["Does a third party booking page destroy SEO?"](https://www.reddit.com/r/SEO/comments/1x9tzhu/) —
+   **skipped.** Read in full; the OP's actual follow-up question
+   (would switching to an integrated booking system meaningfully boost
+   SEO) was already answered clearly and correctly by an existing
+   reply ("shouldn't matter as long as it works"), and every other
+   angle (reviews living on the third-party domain, GA4 tracking gaps,
+   subdomain authority) was already covered by 3-4 separate commenters.
+   Nothing left to add without just restating what's there.
+3. r/localseo — ["GBP linking to a location page or home page"](https://www.reddit.com/r/localseo/comments/1xabzen/) —
+   **posted, confirmed live and still visible on re-check**
+   ([permalink](https://reddit.com/r/localseo/comments/1xabzen/gbp_linking_to_a_location_page_or_home_page/phuo2ly/)).
+   4 existing replies all converged on the same answer (route each
+   profile to its own location page, track clicks/calls per location).
+   Added the distinct point none of them raised: four near-identical
+   templated location pages is a real "doorway page" quality risk per
+   Google's own local-page guidance, not just a missed opportunity —
+   with the concrete fix (location-specific manager/photos/service
+   notes/reviews, plus LocalBusiness schema per page).
+4. r/SEO — ["How To Fix Spam Auto Backlinks? Submitted Disavow Still hasn't resolved"](https://www.reddit.com/r/SEO/comments/1x9taji/) —
+   **drafted, not posted.** Read the full thread (disavow-doesn't-remove-links
+   debate was already well covered by WebLinkr and others). Drafted a
+   distinct addition — check Search Console's Manual Actions report
+   specifically to confirm there's no real penalty, rather than
+   assuming harm from the raw spam-domain count, plus normalizing
+   monthly disavow re-submission as ongoing maintenance rather than a
+   one-time fix — but `REDDIT_POST_REDDIT_COMMENT` returned a real
+   `RATELIMIT` ("doing that a lot... take a break for 9 minutes...
+   wait approximately 7 minutes 34 seconds") on this attempt,
+   immediately after the one successful post above. Honored it per the
+   standing rule — did not retry through it, did not post this comment
+   today.
+
+**Karma check:** `REDDIT_GET_REDDIT_USER_ABOUT` (username "me") run
+after the rate limit hit still shows 1 total karma (1 link, 0 comment)
+— same aggregation-lag pattern as every prior real-posting day; logging
+honestly as unchanged. Verified the one comment that did post is
+actually visible and not auto-removed (`REDDIT_RETRIEVE_SPECIFIC_COMMENT`
+on `t1_phuo2ly`): author `amankrshuklaa`, body intact, score 1.
+
+No subreddit blocked participation outright today (no new rules
+changes found). Nothing posted to r/marketing, r/AskMarketing,
+r/smallbusiness, r/Entrepreneur, r/EntrepreneurRideAlong, r/web_design,
+r/webdev, or r/DigitalMarketingIndia today — scanned r/AskMarketing and
+r/marketing's new posts too, but found no genuine expertise-fit
+question there today (mostly career-path/job-title threads, not a fit
+for Kryvex's actual service scope) rather than forcing a reply.
+
+**Observation for the Week 4 review (2026-10-21 onward):** this is now
+the third run in a row (2026-10-18, 2026-10-19, 2026-10-20) where
+Reddit's rate limit caps real posting activity at roughly 1 comment
+per run regardless of how many genuine opportunities are found and
+read in full — the constraint on this account right now is Reddit's
+own per-account comment-frequency limit, not a shortage of real
+opportunities. Worth factoring into the Week 4 scale-up decision: more
+target subreddits won't increase daily throughput past this limit; a
+longer per-run window (spaced-out posting attempts) might.
