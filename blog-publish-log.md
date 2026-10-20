@@ -13,6 +13,74 @@ selection method, real word count, real deploy run number/conclusion,
 real sitemap resubmission confirmation. Never log a claim without having
 actually checked it that run.
 
+### 2026-10-20
+
+- Topic/query: GSC 90-day query pull checked first (2026-07-19 to
+  2026-10-17, dimension `query`, 100 rows) — same standing pattern as
+  every prior run, near-total volume is hyper-local "agency/company/
+  services in [city]" queries already served by the programmatic geo
+  pages, nothing new maps to a blog topic. Fell back to a real,
+  unaddressed gap instead: of Kryvex's 9 real industry pages
+  (`/industries/*`), only Home Services (added 2026-10-19) had any
+  supporting blog content. Picked Restaurants — a real existing
+  industry page (`/industries/restaurants/`) with genuine, well-
+  documented, citable marketing mechanics (Google Business Profile
+  restaurant tools, third-party delivery-app economics, reservation
+  platforms) and no post of its own yet.
+- Title: "Restaurant Marketing That Actually Fills Tables"
+- URL: https://kryvexmedia.com/blog/digital-marketing-for-restaurants/
+- Word count: 2,051 (verified via isolated `<main>` word count script)
+- Links: `/industries/restaurants/`, `/services/local-seo/`,
+  `/services/graphics-design/`, `/blog/google-business-profile-
+  optimization-guide/`, `/free-audit/` (via nav) — all confirmed to
+  exist in the repo before linking.
+- Facts cited: Google's own Business Profile help documentation naming
+  relevance/distance/prominence as the three local-ranking factors
+  (same documented fact used in the 2026-10-19 home-services post, real
+  and reused accurately, not re-verified from scratch since unchanged);
+  Google's restaurant-specific Business Profile tools (menu editing via
+  Info > Menu, service attributes, choosing/disabling an online-
+  ordering partner), confirmed via WebSearch against Google's own
+  business.google.com restaurant pages; third-party delivery-app
+  commission economics (base commissions typically 15-30%, all-in cost
+  often 25-35% once marketing/processing fees are added), confirmed via
+  WebSearch against a widely cited consumer-watchdog investigation
+  (Washington Consumers' Checkbook) and corroborated by a current
+  (2026) vendor cost guide — both cited honestly as real third-party
+  findings, not official platform-published rates, since DoorDash/Uber
+  Eats/Grubhub don't publish exact commission numbers themselves. No
+  invented statistics.
+- Also fixed in the same commit: added this post's own card to
+  `blog/index.html`'s grid (`#post-grid`) — no other missing-card gap
+  found this run (checked every existing post against the grid).
+- QA before commit: all HTML tag types balanced (div/section/article/
+  script/head/body/html/ul/header/footer/main open counts == close
+  counts); all 3 `application/ld+json` blocks parse as valid JSON — a
+  real bug was caught and fixed here: the first draft of the FAQPage
+  JSON-LD was missing a closing `}` for `acceptedAnswer` on 3 of the 4
+  Q&A entries (each `"acceptedAnswer":{...}` wasn't actually closed
+  before the next `"@type":"Question"` began), caught by running
+  `json.loads()` on the extracted block rather than assuming it was
+  valid, then fixed and re-verified before committing.
+- Deploy: pushed as commit `84826e2f6` to
+  `claude/webtech-core-current-work-rsmbri`, fast-forwarded to `main`.
+  The shared checkout saw heavy concurrent push activity from other
+  routines running in parallel this run (SEO keyword optimization,
+  Reddit growth), which cancelled three consecutive `pages build and
+  deployment` runs in a row (#229 head_sha `84826e2f6` itself, #230
+  head_sha `cad9d1a16`, #231 head_sha `0354ebfa6`) before each could
+  finish, exactly the rapid-fire-push pattern the standing publish-
+  verification rule anticipates. Per that rule, checked whether a later
+  run from the same lineage succeeded instead: run **#232**, head_sha
+  `89149e2b3` (a later commit from the concurrent Reddit routine),
+  confirmed `conclusion: **success**` — and `git merge-base
+  --is-ancestor 84826e2f6 89149e2b3` confirms this post's commit is a
+  real ancestor of that successfully-deployed commit, so today's post
+  is genuinely live.
+- Sitemap resubmission: confirmed — "Sitemap
+  'https://kryvexmedia.com/sitemap.xml' successfully submitted for site
+  'sc-domain:kryvexmedia.com'"
+
 ## Log
 
 ### 2026-09-30 — log created

@@ -383,3 +383,57 @@ treating as a signal in itself (e.g. internal-linking strength to that
 specific URL) rather than just re-logging it each time. Everything
 else is unchanged; the zero-click baseline across the whole blog
 continues with no exception after 3 weeks of additional data.
+
+## 2026-10-20 — daily blog Routine run
+
+Published today: `digital-marketing-for-restaurants` (2,051 words).
+
+**Indexing re-check (live URL Inspection, scoped to the two most recent
+prior posts plus the long-standing flagged-stuck URLs, per the standing
+rule — too new for the brand-new restaurants post to have a signal
+yet, so it wasn't checked this run):**
+- `digital-marketing-for-home-services-businesses` (1 day old):
+  **"Discovered - currently not indexed."** Real forward movement —
+  faster than the "URL is unknown to Google" this site's posts
+  typically show at 1 day old.
+- `youtube-management-for-small-businesses` (2 days old): **"URL is
+  unknown to Google."** Expected at this age.
+- `what-a-free-website-audit-checks` (3 days old): **"URL is unknown
+  to Google."** Unchanged from 2026-10-19.
+- `google-ads-vs-meta-ads-small-business`: **"Discovered - currently
+  not indexed."** Real forward movement from the "URL is unknown to
+  Google" regression logged 2026-10-19 — this specific URL has now
+  oscillated unknown → discovered → unknown → discovered across the
+  last several checks, so the oscillation itself (not just this one
+  data point) is the real signal worth tracking, as flagged
+  2026-10-19.
+- `website-designing-services-in-madhubani-bihar`: still **"Discovered
+  - currently not indexed."** Unchanged.
+- `local-seo-vs-national-seo`: still **"Crawled - currently not
+  indexed,"** `lastCrawlTime` still 2026-09-17 — now unchanged for 33
+  days without any recrawl.
+- `signs-seo-agency-not-working`: still **"Discovered - currently not
+  indexed."** Unchanged.
+
+**Performance re-pull (90-day window, page dimension, `/blog/`,
+2026-07-22 to 2026-10-20):** `how-to-cut-wasted-ad-spend-in-30-days` 33
+impressions (position ~66.5, unchanged), `email-flows-every-business-
+needs` 4 (position 20.5, unchanged), `what-is-digital-marketing` 4
+(position 3, unchanged), `seo-company-hiring-guide` 3 (position 1,
+unchanged from 2026-10-19), `/blog/` index 2 (position 4, unchanged),
+`10-local-seo-tactics-that-fill-your-calendar` 2 (position 1),
+`how-to-choose-an-seo-company-in-patna` 2 (position 1),
+`website-mistakes-costing-you-customers` 1 (position 14) — every
+number identical to the 2026-10-19 pull, down to the position values
+now visible in this pull's raw rows. **Zero clicks on every post,
+still, with no exception.** None of the three most recent posts
+(home-services, youtube-management, restaurants) show any impressions
+yet, consistent with their not-yet-indexed status above.
+
+**Action items:** `google-ads-vs-meta-ads-small-business`'s unknown/
+discovered oscillation has now repeated enough times to treat as a
+real pattern rather than noise — worth investigating whether it
+correlates with internal-linking strength or crawl-budget allocation
+rather than just re-logging it each check. Everything else is
+unchanged; the zero-click baseline across the whole blog continues
+with no exception after roughly a month of data.
