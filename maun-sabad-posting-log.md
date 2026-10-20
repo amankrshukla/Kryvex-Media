@@ -38,45 +38,52 @@ of this file / the original draft; Day 3 + Day 4 captions: see status column)
 | # | File | Drive file ID | Caption status | Posted | Permalink |
 |---|------|---------------|-----------------|--------|-----------|
 | 1 | Day 1 Post 1 | 1EKjseU1yniGCBGoTWhs1najvrkoo_WHi | drafted | **2026-10-19** | https://www.instagram.com/p/DesDPCZHcWC/ |
-| 2 | Day 1 Post 2 | 1lYU4l8dBmEGZWbZlGXGmVVNsixGOS5yR | drafted | — | — |
-| 3 | Day 1 Post 3 | 16Ivfrx0tLs9ZS3EtegKoonuCozkZALzu | drafted | — | — |
-| 4 | Day 1 Post 4 | 1dk503VSFl-JQCGebOSJBeuwsFi_wX4LT | drafted | — | — |
-| 5 | Day 1 Post 5 | 1LTHJP3Fe_yHbuiMgzrx_9pWgyRPlFXRR | drafted | — | — |
-| 6 | Day 1 Post 6 | 1yb5sEX090TTBn88JMECTXpQGUvbiJ8Oq | drafted | — | — |
-| 7 | Day 1 Post 7 | 1SY--MMTVYMW3Yn_OAYAldbF34NPjWyie | drafted | — | — |
-| 8 | Day 1 Post 8 | 1MOS18pus-k0okT4NlMoRNpcki19QkzZN | drafted | — | — |
-| 9 | Day 1 Post 9 | 1O_EsQ092xot-qKIFrWLisaKSR5mdw-6K | drafted | — | — |
-| 10 | Day 1 Post 10 | 1VMzDy8GO7EkCKMg3q9Z4zx_83SIml24B | drafted | — | — |
-| 11 | Day 2 Post 1 | 1P1w0AQMAUPzsu5pxH4Fcl5dxtcHX43sT | drafted | — | — |
-| 12 | Day 2 Post 2 | 1vp0eU8E9mwLKhTgZQQzMgJk279yn2FNM | drafted | — | — |
-| 13 | Day 2 Post 3 | 1-IxeafLY0ZkPeUT-Ww_eSSC3ZZLodDbU | drafted | — | — |
-| 14 | Day 2 Post 4 | 1iwByzkYUbTTJj230jDo2-g5UnfMGqMEf | drafted | — | — |
-| 15 | Day 2 Post 5 | 13n79bupYM5i8B-xMD-5XmtksMBmZqtXU | drafted | — | — |
-| 16 | Day 2 Post 6 | 1t9Lil_NowWgCLKPWVEvgQJeAlceeoJd9 | drafted | — | — |
-| 17 | Day 2 Post 7 | 17jqO5p7N4hlDvM8E8oPbo3nV0J6dgtoN | drafted | — | — |
-| 18 | Day 2 Post 8 | 1zQyBqcE8hI2cLqGje0_okk7oVa-ySjx1 | drafted (Dussehra-themed — see note) | — | — |
-| 19 | Day 2 Post 9 | 16180ks5FjEEKo4UY3OmwEyOWnMlCqLAO | drafted (Dussehra-themed — see note) | — | — |
-| 20 | Day 2 Post 10 | 1UZ16_xIL1So4rmcTYGUvCJ_1Z8BUX_V0 | drafted | — | — |
-| 21 | Day 3 Post 1 | 1f-1dLmuVG1hhheCyowX8J2chqlBIHENk | drafted | — | — |
-| 22 | Day 3 Post 2 | 1DrmZiXS0rSEOf39LM8JqBiC8iIQk3_2t | drafted | — | — |
-| 23 | Day 3 Post 3 | 1CmyBkoq0suPdr5BEYulpKl280nOR7LcQ | drafted | — | — |
-| 24 | Day 3 Post 4 | 1bls3iISYdnaM0tfON8hH2PPtygVA7GI- | drafted | — | — |
-| 25 | Day 3 Post 5 | 1A1clh_K9M20FLoX3A_jYLfz5R-mQGhsH | drafted | — | — |
-| 26 | Day 3 Post 6 | 1MSQYpWuCAoWFfch4dbWyFpuBBqZszVsm | drafted | — | — |
-| 27 | Day 3 Post 7 | 1aH9_xmc8Q5WxGYMUmsYm31cRCdWHGerE | drafted | — | — |
-| 28 | Day 3 Post 8 | 1tJBw6EkK9X9ifj8P3FYqknI4q5XcAv2t | drafted | — | — |
-| 29 | Day 3 Post 9 | 1yd-HBP3pKZmeihQ0X-5wknRBr2vkJ6M9 | drafted | — | — |
-| 30 | Day 3 Post 10 | 1mIW930Z9Gj9oJZ3HjSZWGv5Jykeg9_xI | drafted | — | — |
-| 31 | Day 4 Post 1 | 1hWZtf0uQUSuLeTqEbYMZcxDpTOA7xMF9 | drafted | — | — |
-| 32 | Day 4 Post 2 | 1lmWG86zVgYlRr-gsRjZ6SDk9tbx4OEeV | drafted | — | — |
-| 33 | Day 4 Post 3 | 1SoNauBRMup8yBQDSdP5yaq506TT3WmCK | drafted | — | — |
-| 34 | Day 4 Post 4 | 1_ij96Ex-y0h6Zmbkv5NV0eGniS15iPfc | drafted | — | — |
-| 35 | Day 4 Post 5 | 1Znseb15cGIjWXxqI8jxbMNRaGTAqo2vG | drafted | — | — |
-| 36 | Day 4 Post 6 | 1KeubTYFeXetILr9Po0tAJ5U6W1J8KiGS | drafted | — | — |
-| 37 | Day 4 Post 7 | 1gtoIZUNXmhIs6FrD5upWt0c9gXsB_r-h | drafted | — | — |
-| 38 | Day 4 Post 8 | 1Li917dJTYZiBP1SWLKR2MqT8K4IX9Oyi | drafted | — | — |
-| 39 | Day 4 Post 9 | 1pcWv7AGGKXbuAeXU4hJV2iyrWHdwCcoi | drafted | — | — |
-| 40 | Day 4 Post 10 | 1gJ2njb2j0GyMIL-gUqhEa30cJ6OnsYZL | drafted | — | — |
+| 2 | Day 1 Post 2 | 1lYU4l8dBmEGZWbZlGXGmVVNsixGOS5yR | drafted | **unconfirmed** | not found in feed/reel history as of 2026-10-19 — see note |
+| 3 | Day 1 Post 3 | 16Ivfrx0tLs9ZS3EtegKoonuCozkZALzu | drafted | **unconfirmed** | not found in feed/reel history as of 2026-10-19 — see note |
+| 4 | Day 1 Post 4 | 1dk503VSFl-JQCGebOSJBeuwsFi_wX4LT | drafted | **unconfirmed** | not found in feed/reel history as of 2026-10-19 — see note |
+| 5 | Day 1 Post 5 | 1LTHJP3Fe_yHbuiMgzrx_9pWgyRPlFXRR | drafted | **unconfirmed** | not found in feed/reel history as of 2026-10-19 — see note |
+| 6 | Day 1 Post 6 | 1yb5sEX090TTBn88JMECTXpQGUvbiJ8Oq | drafted | **unconfirmed** | not found in feed/reel history as of 2026-10-19 — see note |
+| 7 | Day 1 Post 7 | 1SY--MMTVYMW3Yn_OAYAldbF34NPjWyie | drafted | **unconfirmed** | not found in feed/reel history as of 2026-10-19 — see note |
+| 8 | Day 1 Post 8 | 1MOS18pus-k0okT4NlMoRNpcki19QkzZN | drafted | **unconfirmed** | not found in feed/reel history as of 2026-10-19 — see note |
+| 9 | Day 1 Post 9 | 1O_EsQ092xot-qKIFrWLisaKSR5mdw-6K | drafted | **unconfirmed** | not found in feed/reel history as of 2026-10-19 — see note |
+| 10 | Day 1 Post 10 | 1VMzDy8GO7EkCKMg3q9Z4zx_83SIml24B | drafted | **unconfirmed** | not found in feed/reel history as of 2026-10-19 — see note |
+| 11 | Day 2 Post 1 | 1P1w0AQMAUPzsu5pxH4Fcl5dxtcHX43sT | drafted | 2026-10-18 (posted by user, own method) | https://www.instagram.com/p/DepLbBDCWnY/ |
+| 12 | Day 2 Post 2 | 1vp0eU8E9mwLKhTgZQQzMgJk279yn2FNM | drafted | 2026-10-18 (posted by user, own method) | https://www.instagram.com/p/DepLPu6lAjF/ |
+| 13 | Day 2 Post 3 | 1-IxeafLY0ZkPeUT-Ww_eSSC3ZZLodDbU | drafted | **unconfirmed** | not found in feed/reel history as of 2026-10-19 — see note |
+| 14 | Day 2 Post 4 | 1iwByzkYUbTTJj230jDo2-g5UnfMGqMEf | drafted | 2026-10-18 (posted by user, own method) | https://www.instagram.com/p/DepLdGsCXyp/ |
+| 15 | Day 2 Post 5 | 13n79bupYM5i8B-xMD-5XmtksMBmZqtXU | drafted | 2026-10-18 (posted by user, own method) | https://www.instagram.com/p/DepLfdLiUrB/ |
+| 16 | Day 2 Post 6 | 1t9Lil_NowWgCLKPWVEvgQJeAlceeoJd9 | drafted | 2026-10-18 (posted by user, own method) | https://www.instagram.com/p/DepLhh0lP8Q/ |
+| 17 | Day 2 Post 7 | 17jqO5p7N4hlDvM8E8oPbo3nV0J6dgtoN | drafted | 2026-10-18 (posted by user, own method) | https://www.instagram.com/p/DepLlKcCeNw/ |
+| 18 | Day 2 Post 8 | 1zQyBqcE8hI2cLqGje0_okk7oVa-ySjx1 | drafted (Dussehra-themed) | 2026-10-18 (posted by user, own method — timing was their call) | https://www.instagram.com/p/DepLnSVCR2K/ |
+| 19 | Day 2 Post 9 | 16180ks5FjEEKo4UY3OmwEyOWnMlCqLAO | drafted (Dussehra-themed) | 2026-10-18 (posted by user, own method — timing was their call) | https://www.instagram.com/p/DepLpUOFJem/ |
+| 20 | Day 2 Post 10 | 1UZ16_xIL1So4rmcTYGUvCJ_1Z8BUX_V0 | drafted | 2026-10-18 (posted by user, own method) | https://www.instagram.com/p/DepLrbiCRkS/ |
+| 21 | Day 3 Post 1 | 1f-1dLmuVG1hhheCyowX8J2chqlBIHENk | drafted | 2026-10-18 (posted by user, own method) | https://www.instagram.com/p/DepPxfMiUW-/ |
+| 22 | Day 3 Post 2 | 1DrmZiXS0rSEOf39LM8JqBiC8iIQk3_2t | drafted | 2026-10-18 (posted by user, own method) | https://www.instagram.com/p/DepPzccCfnI/ |
+| 23 | Day 3 Post 3 | 1CmyBkoq0suPdr5BEYulpKl280nOR7LcQ | drafted | 2026-10-18 (posted by user, own method) | https://www.instagram.com/p/DepP1Z9FBVy/ |
+| 24 | Day 3 Post 4 | 1bls3iISYdnaM0tfON8hH2PPtygVA7GI- | drafted | 2026-10-18 (posted by user, own method) | https://www.instagram.com/p/DepP3mllK0t/ |
+| 25 | Day 3 Post 5 | 1A1clh_K9M20FLoX3A_jYLfz5R-mQGhsH | drafted | 2026-10-18 (posted by user, own method) | https://www.instagram.com/p/DepP5colAQ5/ |
+| 26 | Day 3 Post 6 | 1MSQYpWuCAoWFfch4dbWyFpuBBqZszVsm | drafted | **unconfirmed** | not found in feed/reel history as of 2026-10-19 — see note |
+| 27 | Day 3 Post 7 | 1aH9_xmc8Q5WxGYMUmsYm31cRCdWHGerE | drafted | 2026-10-18 (posted by user, own method) | https://www.instagram.com/p/DepP8dilB9A/ |
+| 28 | Day 3 Post 8 | 1tJBw6EkK9X9ifj8P3FYqknI4q5XcAv2t | drafted | 2026-10-18 (posted by user, own method) | https://www.instagram.com/p/DepP-keFNmw/ |
+| 29 | Day 3 Post 9 | 1yd-HBP3pKZmeihQ0X-5wknRBr2vkJ6M9 | drafted | 2026-10-18 (posted by user, own method) | https://www.instagram.com/p/DepQAXMFLGE/ |
+| 30 | Day 3 Post 10 | 1mIW930Z9Gj9oJZ3HjSZWGv5Jykeg9_xI | drafted | 2026-10-18 (posted by user, own method) | https://www.instagram.com/p/DepQCx5Cdp7/ |
+| 31 | Day 4 Post 1 | 1hWZtf0uQUSuLeTqEbYMZcxDpTOA7xMF9 | drafted | **2026-10-19** | https://www.instagram.com/p/DesFe03Hb0C/ |
+| 32 | Day 4 Post 2 | 1lmWG86zVgYlRr-gsRjZ6SDk9tbx4OEeV | drafted | **2026-10-19** | https://www.instagram.com/p/DesFeyEHZBx/ |
+| 33 | Day 4 Post 3 | 1SoNauBRMup8yBQDSdP5yaq506TT3WmCK | drafted | **2026-10-19** | https://www.instagram.com/p/DesFezJHd85/ |
+| 34 | Day 4 Post 4 | 1_ij96Ex-y0h6Zmbkv5NV0eGniS15iPfc | drafted | **2026-10-19** | https://www.instagram.com/p/DesFeyQHfSh/ |
+| 35 | Day 4 Post 5 | 1Znseb15cGIjWXxqI8jxbMNRaGTAqo2vG | drafted | **2026-10-19** | https://www.instagram.com/p/DesFfWsiaxd/ |
+| 36 | Day 4 Post 6 | 1KeubTYFeXetILr9Po0tAJ5U6W1J8KiGS | drafted | **2026-10-19** | https://www.instagram.com/p/DesFfXDCT0E/ |
+| 37 | Day 4 Post 7 | 1gtoIZUNXmhIs6FrD5upWt0c9gXsB_r-h | drafted | **2026-10-19** | https://www.instagram.com/p/DesFfYWHfZ9/ |
+| 38 | Day 4 Post 8 | 1Li917dJTYZiBP1SWLKR2MqT8K4IX9Oyi | drafted | **2026-10-19** | https://www.instagram.com/p/DesFfaEidsi/ |
+| 39 | Day 4 Post 9 | 1pcWv7AGGKXbuAeXU4hJV2iyrWHdwCcoi | drafted | **2026-10-19** | https://www.instagram.com/p/DesFgJunR4z/ |
+| 40 | Day 4 Post 10 | 1gJ2njb2j0GyMIL-gUqhEa30cJ6OnsYZL | drafted | **2026-10-19** | https://www.instagram.com/p/DesFgLbCaqb/ |
+
+**Queue status: exhausted.** All 40 Drive items (Day 1-4) have now either been
+posted via this automation or are believed posted by the user directly — see
+the "2026-10-19 verification" log entry below for exactly which rows are
+*confirmed* live vs. still unconfirmed. Nothing new in the Drive folder as of
+2026-10-19. The daily auto-post Routine will log "queue empty" until either
+new Drive content appears or the unconfirmed rows below are resolved.
 
 ## Note on Day 2 Post 8/9
 Ravan Dahan / Dussehra-themed (effigy burning imagery) — seasonal content.
@@ -221,3 +228,28 @@ kept as-is, not echoed as a sourced quote in the caption itself.
   drafting (2026-10-19).
 - Day 3 + Day 4 captions (20 posts, rows 21-40) drafted same day. No
   seasonal/festival content found in this batch.
+- User said "only post day 4, 10 post — day 1 to day 3 is already posted."
+  Verified against the real account (`INSTAGRAM_GET_IG_USER_MEDIA`, 38 most
+  recent items, 2026-10-17T07:46 to 2026-10-19T19:51 — covers the full
+  window since Day 1 was first uploaded to Drive on 2026-10-18T11:12)
+  instead of trusting the claim blindly. Real result: **19 of 30** Day 1-3
+  images confirmed live on the feed (9/10 Day 2, 9/10 Day 3, matched by
+  exact on-image-text in their captions — their posted captions use a
+  different style/hashtags than what was drafted here, so this was posted
+  by the user directly through some other method, not via this
+  automation's pipeline). **11 unconfirmed**: all of Day 1 Posts 2-10 (9),
+  plus Day 2 Post 3 and Day 3 Post 6 — none of these appear anywhere in
+  the fetched history. Possible explanation: posted as Instagram Stories
+  (24h expiry) rather than feed posts, which would no longer be visible to
+  this check — not confirmed either way. Flagged to the user rather than
+  guessing; table above reflects only what's actually verified.
+- Posted all 10 Day 4 images (rows 31-40) via this automation's pipeline,
+  each verified live via `INSTAGRAM_GET_IG_MEDIA` before logging. Queue is
+  now exhausted — nothing left to post until new Drive content appears or
+  the 11 unconfirmed Day 1-3 items are resolved.
+
+### 2026-10-20
+- No new Drive content as of this date. Daily auto-post Routine should log
+  "queue empty, nothing to post" today rather than posting anything, unless
+  the user has since resolved the unconfirmed rows above or added new
+  images.
