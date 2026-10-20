@@ -534,3 +534,162 @@ replies found on the 3 prior contacts. Every send used
 `GMAIL_LIST_SEND_AS` (image constrained to `max-width:320px`), the real
 physical address, and opt-out language as visible plain text, with no
 em-dashes/hyphens used as sentence punctuation in the pitch copy.
+
+### 2026-10-20 — mid-week extension per owner request: 5 more real opportunities, 5 real sends
+
+Owner asked in chat (2026-10-20) for more real contribution opportunities
+this week, on top of Monday's 5, still under the standing 10/week cap
+(5 + 5 = 10). One-off extension of this week's batch, not a policy
+change; same rules applied in full. Confirmed the Gmail connection first
+(`COMPOSIO_MANAGE_CONNECTIONS`, toolkit `gmail`): `gmail_scap-lee` /
+`amansukla307@gmail.com` active. Pulled the current signature fresh via
+`GMAIL_LIST_SEND_AS` — `info@kryvexmedia.com` still the verified default
+alias, `verificationStatus: accepted`. Checked the opt-out list (still
+empty) and the full prior-contact history (elogic.co, targetbay.com,
+blog.contactpigeon.com, lawfuel.com, sendpulse.com, embarque.io,
+blog.linkody.com, hunchads.com) before searching, and excluded all of
+them from this run.
+
+**Candidates checked via live WebSearch and `SCRAPINGBEE_HTML_FETCH`
+(roughly 20 checked across real estate, fitness, healthcare, legal,
+ecommerce, web design, travel and general marketing niches; 5 qualified
+and sent, the rest skipped with reasons below):**
+
+Qualified and sent:
+1. **deonde.co/write-for-us.shtml** (restaurant/delivery operations
+   blog, matches Kryvex's restaurants industry page) — live (200).
+   Guidelines ask for a 2-3 sentence pitch first, original content only,
+   plagiarism-checked. No paid-placement language found. Real contact:
+   the page's own Cloudflare-obfuscated mailto, decoded to
+   `deondehelp@gmail.com` (this is the real address rendered to human
+   visitors, only bot-obfuscated, not a guess). Subject: "Guest post
+   idea for Deonde's blog: cutting delivery app dependency with owned
+   marketing channels." Pitch: using owned channels (email/SMS, local
+   SEO) to reduce dependence on third-party delivery-app commissions,
+   tying into Deonde's own "stop paying massive commissions" messaging.
+   **Sent**, confirmed message id `1a1588c600f03b6a`, verified via
+   `GMAIL_FETCH_MESSAGE_BY_MESSAGE_ID` that the real `From` header reads
+   `Kryvex Media <info@kryvexmedia.com>`.
+2. **ranktracker.com/guest-post-agreement/** (SEO tool blog) — live
+   (200). Guidelines explicitly list "previously published or sponsored
+   content" under what they don't want (confirms no paid placements),
+   require "GUEST PITCH" in the subject line (used exactly). Real
+   contact: Cloudflare-obfuscated mailto decoded to
+   `felix@ranktracker.com` (Felix Rose-Collins, the site's own named
+   contact). Subject: "GUEST PITCH: helping small agencies prioritize
+   SEO fixes without a dedicated analyst." Pitch: a practical guide to
+   prioritizing SEO fixes with no dedicated analyst on staff, offering
+   to include screenshots of Ranktracker's own tools per their
+   guidelines. **Sent**, confirmed message id `1a1588c60e268dbf`.
+3. **yanrefitness.com/write-for-us/** (YR Fitness, gym equipment
+   manufacturer's blog, "Gym Marketing" and "Fitness Business Strategy"
+   categories under its Gym Owner's Hub — the business side of fitness,
+   matching Kryvex's fitness industry page; RitFit's write-for-us page
+   was checked first and rejected as a fit, see below) — live (200).
+   800-1200 word guideline, no fee language, no paid-placement issue.
+   Real contact: Cloudflare-obfuscated mailto decoded to
+   `submit@yanrefitness.com`. Subject: "Guest post idea for YR Fitness:
+   a gym marketing plan for owners who cannot afford a marketing hire."
+   Pitch: a step-by-step gym marketing plan (local SEO, referral
+   systems, what to track) for an owner with no dedicated marketer.
+   **Sent**, confirmed message id `1a1588c617c4d125`.
+4. **ecommerceceo.com/write-for-us/** (ecommerce marketing blog,
+   matches Kryvex's ecommerce industry page) — live (200). States it
+   wants "ecommerce consultants, marketers" and explicitly does not want
+   "SEO agencies looking to build links for clients" or "random Gmail
+   folks" (a joke dummy address was Cloudflare-obfuscated right there as
+   the punchline, decoded to confirm it's a joke, not a real contact).
+   The real contact is a second, separately Cloudflare-obfuscated
+   address elsewhere on the same page (a prominent contact widget),
+   decoded to `hello@ecommerceCEO.com`. No paid-placement language
+   found. Subject: "Guest post idea for Ecommerce CEO: a lean SEO and
+   paid search workflow for small online stores." Pitch: splitting a
+   limited SEO/paid-search budget in a small store's first 90 days, with
+   a short list of metrics worth checking weekly. **Sent**, confirmed
+   message id `1a1588c60fee608c`.
+5. **jane.app/blog/guest-writer-guidelines-for-front-desk-digital**
+   (Jane App's "Front Desk Digital" clinic-business blog, "Clinic
+   Marketing" coverage, matches Kryvex's healthcare industry page) —
+   live (200). 1500-2000 word target, discipline-agnostic, pitch-first
+   process (concept approved before a draft is written), no fee/paid-
+   placement language found. Real contact: the page's own Cloudflare-
+   obfuscated footer mailto, decoded to `seejanerun@janeapp.com`.
+   Subject: "Guest post idea for Front Desk Digital: local search for
+   small clinics without a marketing team." Pitch: local search basics,
+   reviews, and simple measurement for a solo or small multi-discipline
+   clinic with no marketing team. **Sent**, confirmed message id
+   `1a1588c656722aa3`.
+
+All 5 "From" headers verified via `GMAIL_FETCH_MESSAGE_BY_MESSAGE_ID` to
+read `Kryvex Media <info@kryvexmedia.com>`, confirming the correct
+sending account was used on every send.
+
+Skipped (checked live, not sent, with reason):
+- **ritfitsports.com/pages/write-for-us** — live (200), real submission
+  email found (`affiliate@ritfitsports.com`), but its "Guest Post
+  Contributing Writer" track wants actual fitness/training content
+  (strength training, home gym setup, injury prevention, nutrition
+  plans), not marketing-for-fitness-businesses content. Kryvex's real
+  expertise is marketing, not fitness training, so contributing here
+  would mean claiming expertise Kryvex doesn't have. Skipped for
+  topic/expertise mismatch, not for any contact or paid-placement
+  issue — replaced with yanrefitness.com above, whose "Gym Marketing"
+  / "Fitness Business Strategy" categories are a genuine fit.
+- **go.carrot.com/guest-post-guidelines/** (real estate lead-gen
+  software blog) — live (200), real contact found (`brendan@carrot.com`,
+  no paid-placement issue), but its guidelines explicitly state "We
+  don't accept outline or idea pitches. Pitch us your full, written
+  article." That is a different deliverable than the short, specific
+  pitch this Routine sends, and rushing a full 1,000+ word article to
+  meet a quota would risk quality. Skipped rather than ignore their own
+  stated process; a real option to revisit in a future run if there is
+  time to prepare a full draft first.
+- **butterflymx.com/blog/guest-blogging-guidelines/** — resolves (200)
+  but the URL itself redirects to the site homepage; the guest-blogging
+  guidelines page no longer exists. Skipped.
+- **accuranker.com/guest-post-agreement/** — resolves (200) but
+  redirects to the generic `/blog/` homepage; the guest-post-agreement
+  page no longer exists. Skipped.
+- **casefox.com/blog/write-for-us/** — confirmed HTTP 404 (page not
+  found). Skipped.
+- **webalive.com.au/write-for-us/** and **diffy.website/write-for-us**
+  — both resolve (200) but redirect to their generic `/blog/`
+  homepages; neither write-for-us page exists anymore. Skipped.
+- **clio.com/uk/about/brand-assets/contributor-guidelines/** — fetch
+  returned HTTP 500 from the fetch service itself (not a confirmed live
+  page). Not treated as verified live, so not contacted.
+- **storychief.io/write-for-us** — live (200), real guidelines, but
+  submission is via an on-page form only ("Submit your article" links
+  to an in-page form section), no published email address anywhere on
+  the page. No verifiable contact — skipped per the no-guessing rule.
+- **lilachbullock.com**'s various topic-specific write-for-us pages
+  (real estate, home services, healthcare, fitness, education, legal,
+  marketing, etc.) were not re-checked individually this run — already
+  established site-wide (2026-09-30, reconfirmed 2026-10-19) as having
+  only a contact form and placeholder email text, no real published
+  address.
+- **biggerpockets.com** real estate contributor page, **weareglobal
+  travellers.com/write-for-us**, **travindy.com/get-involved/write-for-us**,
+  **singlegrain.com/write-for-single-grain** — all checked; either a
+  form-only submission with no published email (Single Grain,
+  Travindy's actual next step), an unreachable contact page during this
+  run (Travindy's own `/contact/` fetch repeatedly timed out), or no
+  page found matching the exact URL searched (Global Travellers). None
+  contacted.
+
+**Totals this run**: roughly 20 real candidates checked, 5 qualified and
+sent (all distinct message IDs confirmed, all 5 "From" headers verified),
+the rest skipped with reasons above (dead/redirected pages, form-only
+submissions with no published email, a full-article-only process not
+matching this Routine's pitch format, and one topic/expertise mismatch).
+Combined with Monday's 5, this brings the week to 10 real sends total,
+exactly at the standing 10/week cap, without padding. No opt-outs found.
+Every send used `from_email: info@kryvexmedia.com`, `is_html: true`,
+`account: gmail_scap-lee`, the real signature pulled fresh via
+`GMAIL_LIST_SEND_AS` this run (image constrained to `max-width:320px`),
+the real physical address, and opt-out language as visible plain text,
+with no em-dashes or hyphens used as sentence punctuation in the pitch
+copy. All 5 pitches were written in Kryvex Media's agency voice (an
+agency representative pitching on the agency's behalf), not as a
+personal/founder byline piece, per the owner's explicit confirmation
+today.
