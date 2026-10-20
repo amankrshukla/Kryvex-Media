@@ -1046,3 +1046,34 @@ parses with `json.loads` on all 10 (1 block each, all valid).
   include those files — confirmed via `git diff --stat` immediately
   before committing (only this run's 10 page files + this log file
   staged).
+- **Git workflow note:** the shared checkout's current branch had been
+  switched to `main` by the concurrent blog routine partway through
+  this run (checked `git branch --show-current` after the commit and
+  found it was `main`, not `claude/webtech-core-current-work-rsmbri`,
+  which is where the commit actually landed, `cad9d1a16`). Fixed by
+  fast-forwarding `claude/webtech-core-current-work-rsmbri` to include
+  it and pushing both branches explicitly — both `origin/main` and
+  `origin/claude/webtech-core-current-work-rsmbri` confirmed at
+  `cad9d1a16` afterward. Also noted: the repo has moved to
+  `amankrshukla/Kryvex-Media` (git push showed a "repository moved"
+  notice but completed against the old remote URL via redirect) — a
+  real change for a future run to account for if pushes ever stop
+  working against the old URL.
+- Deploy: commit `cad9d1a16` pushed to both branches. Triggered run
+  #230 (id `39387762294`, head_sha `cad9d1a16`) on
+  `pages-build-deployment`, which is genuinely the final tip of `main`
+  (run #229, the blog routine's own build, was correctly superseded/
+  cancelled by this push, consistent with the documented rapid-push
+  pattern). Polled repeatedly (`mcp__github__actions_get`,
+  `get_workflow_run`, ~2-4 min apart) for over 35 minutes. Unlike the
+  2026-10-18/19 precedent (slow but eventually `success`), this run's
+  "Upload artifact" step completed quickly (68s) but the job then sat
+  `in_progress` on "Complete job" (the post-job cleanup step) with no
+  further API-visible progress for the rest of the polling window —
+  a genuinely new, longer stall than any prior documented case.
+  **Status as of this log entry: still `in_progress`, not yet
+  `success` or `cancelled` — reporting this honestly rather than
+  claiming anything is live.** Action item: a later session/run should
+  re-check run #230's final conclusion (and the live pages) before
+  treating today's 10 pages as confirmed deployed; if it never
+  resolves, re-push to trigger a fresh build.
