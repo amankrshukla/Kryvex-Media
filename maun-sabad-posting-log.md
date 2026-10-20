@@ -274,3 +274,11 @@ kept as-is, not echoed as a sourced quote in the caption itself.
   "queue empty, nothing to post" today rather than posting anything, unless
   the user has since resolved the unconfirmed rows above or added new
   images.
+- Daily Routine fire (14:07:56 UTC): re-read the full queue table top to
+  bottom. Confirmed all 50 rows have something in the Posted column — a
+  real date, or the literal "unconfirmed" flag (11 rows: Day 1 Posts 2-10,
+  Day 2 Post 3, Day 3 Post 6). No row is literally empty/"—", so none is
+  eligible to post under the standing rule (an unconfirmed row is not an
+  open slot). Queue checked, no new items to post — all 50 rows have
+  either a confirmed post date or are flagged unconfirmed pending owner
+  resolution. Nothing posted today.
