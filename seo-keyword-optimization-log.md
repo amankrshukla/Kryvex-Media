@@ -93,10 +93,22 @@ picked (see the 2026-09-28 entry below for why this matters).
 82. ~~`/texas/bexar/`~~ — done 2026-10-19 (major metro county)
 83. ~~`/michigan/wayne/`~~ — done 2026-10-19 (major metro county)
 84. ~~`/massachusetts/middlesex/`~~ — done 2026-10-19 (major metro county)
-85. *(after these: continue with the next tier of major metro counties —
-    e.g. San Francisco CA, Fulton GA, Travis TX, Hillsborough FL, Hennepin
-    MN, Suffolk MA, Montgomery MD, Oakland MI, Fairfax VA, Allegheny PA —
-    then remaining country hubs)*
+85. ~~`/california/san-francisco/`~~ — done 2026-10-20 (major metro county)
+86. ~~`/georgia/fulton/`~~ — done 2026-10-20 (major metro county)
+87. ~~`/texas/travis/`~~ — done 2026-10-20 (major metro county)
+88. ~~`/florida/hillsborough/`~~ — done 2026-10-20 (major metro county)
+89. ~~`/minnesota/hennepin/`~~ — done 2026-10-20 (major metro county)
+90. ~~`/massachusetts/suffolk/`~~ — done 2026-10-20 (major metro county)
+91. ~~`/maryland/montgomery/`~~ — done 2026-10-20 (major metro county)
+92. ~~`/michigan/oakland/`~~ — done 2026-10-20 (major metro county)
+93. ~~`/virginia/fairfax/`~~ — done 2026-10-20 (major metro county)
+94. ~~`/pennsylvania/allegheny/`~~ — done 2026-10-20 (major metro county)
+95. *(after these: continue with the next tier of major metro counties —
+    e.g. Hillsborough tier siblings already done; next candidates by real
+    Census population: Franklin OH (Columbus), Cuyahoga OH (Cleveland),
+    Salt Lake UT, Hamilton OH (Cincinnati), Davidson TN (Nashville),
+    Shelby TN (Memphis), Honolulu HI, Palm Beach FL, Erie NY (Buffalo),
+    Milwaukee WI — then remaining country hubs)*
 
 ## Log
 
@@ -918,3 +930,119 @@ matches).
   usual on the "Upload artifact" job step, but confirmed
   `status: completed`, `conclusion: **success**`. Today's 10 pages are
   real, confirmed live.
+
+### 2026-10-20
+
+Third batch of **major metro county pages**, continuing the real
+Census-population ordering from 2026-10-18/19. Picked the next 10
+well-established high-population US counties not yet in the queue —
+San Francisco (CA), Fulton (GA, Atlanta), Travis (TX, Austin),
+Hillsborough (FL, Tampa), Hennepin (MN, Minneapolis), Suffolk (MA,
+Boston), Montgomery (MD), Oakland (MI, Detroit metro), Fairfax (VA,
+DC metro), Allegheny (PA, Pittsburgh) — extended into the priority
+queue (items 85-94) before starting. Confirmed all 10 directories/pages
+exist in the repo before editing (`for ... if [ -f ... ]`, all FOUND).
+
+**Semrush checked live first** (`mcp__Semrush__keyword_research`, no
+params) — returned `no_api_units` (non-retryable), same result as every
+prior check across this entire project. WebSearch fallback used,
+disclosed below.
+
+**Intent-match check:** read each page's actual title/eyebrow/H1/sub
+paragraph before picking anything (grep across all 10 files in one
+batch). All 10 are the same established county-hub template as the
+2026-10-18/19 batches: `<title>`/meta/OG/Twitter already carried
+"Digital Marketing Agency in [County] County, [State]" from original
+site generation, but the same three real gaps from the prior two
+batches were present on all 10: (a) meta/OG/Twitter descriptions and
+JSON-LD description used the "agency **serving**" paraphrase rather
+than the exact primary-keyword phrase "agency **in**", (b) the H1 read
+the generic "Digital Marketing for [short] Businesses That Actually
+Converts" with no primary keyword, (c) the eyebrow/badge was a bare
+location pin with no primary keyword, and (d) no secondary keyword
+appeared anywhere in body copy. No intent mismatch found on any of the
+10 — all genuinely support the site's existing "digital marketing
+agency in [county]" positioning.
+
+**One real WebSearch check run** (not assumed): searched
+`"digital marketing agency" "San Francisco County" OR "Fulton County"
+OR "Fairfax County" small business` — finding: real agencies target
+San Francisco heavily at the city level (Emulent, Single Grain, Spur's
+directory listing 17 SF agencies, BrightLocal), and Simple Cortex
+explicitly markets a "Fairfax County" service-area page covering the
+whole county from Herndon to Reston — confirming (same as the
+2026-10-18/19 findings) that county-level framing is a real pattern
+some competitors use even though city-level is more common, supporting
+continuing this site's existing county-level keyword structure rather
+than unilaterally changing it. No usable result came back for Fulton
+County specifically. The city-vs-county naming question (flagged
+2026-10-18, additional data point 2026-10-19) remains open for a future
+structural review, not something to change unilaterally in a
+keyword-placement pass.
+
+Primary keyword per page: `digital marketing agency in [County County],
+[State]` (matching each page's own pre-existing `<title>` exactly — note
+Hillsborough's established title uses the abbreviation "FL", not
+"Florida", same pattern as Broward on 2026-10-19; the primary keyword
+for that page was normalized to match the title's own "FL" exactly,
+including in the meta/OG/Twitter descriptions, which previously spelled
+out "Florida").
+Secondary keyword per page: `digital marketing company in [County
+County], [State]`.
+
+**What changed per page** (scripted edit, run once across all 10 with
+assertions on exact match counts before each replacement — no blind
+find/replace):
+- Eyebrow/badge: `📍 [County], [State]` → `📍 Digital Marketing Agency in
+  [County], [State]`.
+- `<h1>`: `Digital Marketing for [short] Businesses That Actually
+  Converts` → `Digital Marketing Agency in [County], [State]: Marketing
+  That Actually Converts`.
+- Hero sub paragraph: rewritten to open with `As a digital marketing
+  company in [County], [State], we build SEO, Google Ads, and social
+  media strategy specifically for [local] businesses — not a generic
+  statewide template. Free audit, no lock-in contract.` (adds the
+  secondary keyword). Hillsborough's sub keeps "Tampa Bay Area
+  businesses" as the local-color short form, matching its own
+  pre-existing branding — same approach as Broward's "South Florida
+  businesses" on 2026-10-19.
+- Meta description, `og:description`, `twitter:description`: "agency
+  serving" → "agency in" on all 10 (Hillsborough also: "County, Florida"
+  → "County, FL" to match its title exactly).
+- JSON-LD `description` field: rewritten from "Full-service digital
+  marketing agency running SEO, PPC, social media and web design for
+  businesses in [County], [State]." to "Full-service digital marketing
+  agency in [County], [State], running SEO, PPC, social media and web
+  design for local businesses." (same phrasing pattern used for all
+  prior county batches).
+- `<title>`, `og:title`, `twitter:title`, and the JSON-LD `name` field
+  already carried the primary keyword correctly from original site
+  generation and were left untouched.
+
+**Grep/script-verified on all 10 pages** (Python script run this turn —
+not assumed): primary keyword phrase — 9 total occurrences per page;
+confirmed present inside the actual `<h1>...</h1>` text (True/True on
+all 10); confirmed present inside the `cty-eyebrow` badge line
+(True/True on all 10). Secondary keyword — confirmed present at least
+once inside the extracted `<main>...</main>` block on all 10
+(True/True). No leftover "agency serving" phrasing anywhere in any of
+the 10 files (checked directly, `False` on all 10 — zero matches).
+`<div>` open/close tag balance equal on all 10 (94/94 on 9 of them;
+115/115 on Hillsborough, whose page carries extra markup for the Tampa
+Bay Area callout). Every `<script type="application/ld+json">` block
+parses with `json.loads` on all 10 (1 block each, all valid).
+
+- Action item: none of today's 10 pages volume-verified (Semrush units
+  still exhausted) — revisit once units refresh. City-vs-county naming
+  question remains open per above.
+- Total done today: 10 pages (`/california/san-francisco/`,
+  `/georgia/fulton/`, `/texas/travis/`, `/florida/hillsborough/`,
+  `/minnesota/hennepin/`, `/massachusetts/suffolk/`,
+  `/maryland/montgomery/`, `/michigan/oakland/`, `/virginia/fairfax/`,
+  `/pennsylvania/allegheny/`).
+- Scope note: a concurrent blog-publish routine has modified
+  `blog/index.html` and `sitemap-resources.xml` on this same branch
+  while this run was in progress; this run did not touch, stage, or
+  include those files — confirmed via `git diff --stat` immediately
+  before committing (only this run's 10 page files + this log file
+  staged).
