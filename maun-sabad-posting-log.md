@@ -282,3 +282,15 @@ kept as-is, not echoed as a sourced quote in the caption itself.
   open slot). Queue checked, no new items to post — all 50 rows have
   either a confirmed post date or are flagged unconfirmed pending owner
   resolution. Nothing posted today.
+
+### 2026-10-21
+- Daily Routine fire (14:19:09 UTC). Re-read the full queue table top to
+  bottom before acting. Confirmed: still only Day 1-5 in the Drive source
+  (no Day 6 or later batch added since 2026-10-20). All 50 rows have
+  something in the Posted column — a real confirmed date (39 rows,
+  including all of Day 4 and Day 5, which this automation posted and
+  verified itself), or the literal "unconfirmed" flag (11 rows: Day 1
+  Posts 2-10, Day 2 Post 3, Day 3 Post 6 — still unresolved as of this
+  run). No row has a literally empty/"—" Posted column, so under the
+  standing rule (an "unconfirmed" row is not an open slot) nothing was
+  eligible to post today. Nothing posted.
