@@ -97,6 +97,16 @@ actually checked it that run.
 - Sitemap resubmission: confirmed — "Sitemap
   'https://kryvexmedia.com/sitemap.xml' successfully submitted for site
   'sc-domain:kryvexmedia.com'"
+- **Deploy confirmation (follow-up, polled separately after all three
+  routines finished pushing):** run #243 (id `39564219933`, head_sha
+  `b593f1755b2212c085838e8c7d03afc339a9e254` — the final tip of `main`
+  after runs #237-242 were all superseded/cancelled in the rapid-push
+  chain described above) polled every ~100-110s via
+  `mcp__github__actions_get` (`get_workflow_run`) until `status:
+  completed`. **Result: `conclusion: success`.** This is a confirmed
+  real descendant of this post's commit `f4794f1c2` (via the ancestry
+  chain documented above through run #242's `d4947478`), so today's
+  post is now confirmed live.
 
 ### 2026-10-20
 

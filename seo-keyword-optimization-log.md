@@ -1240,3 +1240,13 @@ signal for the owner's eventual broader decision only.
   (and, if it never resolves, confirm a later successful run's head_sha
   includes `de9fd1a8b` as an ancestor, same as was confirmed for run
   #230 above) before treating today's 10 pages as confirmed deployed.
+- **Deploy confirmation (follow-up, polled separately after all three
+  routines finished pushing):** run #239 (`de9fd1a8b`) was itself
+  superseded by further same-day pushes from the Reddit-growth routine
+  and the blog log-correction commit. The final tip of `main`,
+  `b593f1755b2212c085838e8c7d03afc339a9e254`, confirmed via
+  `git merge-base --is-ancestor de9fd1a8b b593f1755` as a real
+  descendant of this run's commit, triggered run #243 (id
+  `39564219933`). Polled every ~100-110s via `mcp__github__actions_get`
+  (`get_workflow_run`) until `status: completed`. **Result: `conclusion:
+  success`.** Today's 10 county pages are now confirmed deployed/live.
