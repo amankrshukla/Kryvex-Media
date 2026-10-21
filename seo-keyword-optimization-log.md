@@ -1221,3 +1221,22 @@ signal for the owner's eventual broader decision only.
   `sitemap-resources.xml` — confirmed via `git status`/`git diff --stat`
   immediately before committing (only this run's 10 page files + this
   log file staged).
+- Deploy: commit `de9fd1a8b` pushed to both branches (fast-forwarded
+  `main` cleanly over the blog routine's own intervening commit
+  `a80199d65`, confirmed as a real ancestor). Two earlier same-day runs
+  (#237 `f4794f1c2`, #238 `a80199d65`) were correctly superseded/
+  cancelled by this push, consistent with the documented rapid-push
+  pattern — run #239 (id `39563428983`, head_sha `de9fd1a8b`) is
+  genuinely the final tip of `main`. Polled repeatedly
+  (`mcp__github__actions_get`, `get_workflow_run`) over roughly 40
+  minutes (~2.5–5 min apart). **Status as of this log entry: still
+  `in_progress`, not yet resolved to `success` or `cancelled`** — the
+  run's `updated_at` stopped advancing after the first ~30 seconds,
+  which is the same stall signature already documented for run #230 on
+  2026-10-20 (which also sat `in_progress` for 35+ minutes before later
+  resolving `cancelled`, superseded by a subsequent successful deploy).
+  Reporting this honestly rather than claiming anything is live. Action
+  item: a later session/run should re-check run #239's final conclusion
+  (and, if it never resolves, confirm a later successful run's head_sha
+  includes `de9fd1a8b` as an ancestor, same as was confirmed for run
+  #230 above) before treating today's 10 pages as confirmed deployed.
