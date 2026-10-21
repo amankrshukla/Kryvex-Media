@@ -404,3 +404,128 @@ own per-account comment-frequency limit, not a shortage of real
 opportunities. Worth factoring into the Week 4 scale-up decision: more
 target subreddits won't increase daily throughput past this limit; a
 longer per-run window (spaced-out posting attempts) might.
+
+### 2026-10-21 — Week 4, day 1: promotion posture stays conservative (karma unimproved); 1 comment posted, then rate-limited again
+
+**Week determination:** today (2026-10-21) is the first day of Week 4
+(2026-10-21 to 2026-10-27) by the calendar date-ranges in this log —
+clean mapping, no ambiguity.
+
+**Promotion-posture check (per Week 4's conditional rule, not a
+calendar-automatic unlock):** pulled real current standing via
+`REDDIT_GET_REDDIT_USER_ABOUT` (username "me") before deciding anything
+— `total_karma: 1`, `link_karma: 1`, `comment_karma: 0`, unchanged from
+the 2026-09-30 baseline despite 8 real comments posted across 4 real
+posting days since (2026-10-01, 2026-10-18, 2026-10-19, 2026-10-20).
+Comment karma specifically has never moved off 0. Conclusion: the
+account's real standing has **not** improved enough to justify moving
+past the fully-conservative "no Kryvex mention, no links" posture used
+since 2026-10-17 — stayed fully non-promotional today too, consistent
+with the standing rule that this is karma-gated, not calendar-gated.
+Noted as a real pattern worth flagging going forward rather than
+re-litigating daily: either comment karma is lagging far longer than
+the "aggregation lag" explanation accounts for, or these comments
+genuinely aren't being upvoted. Action item: if comment_karma is still
+0 after another week of real posting, treat that as the actual
+finding (low organic upvote rate on these comments) rather than
+continuing to assume a lag.
+
+**Week 4 subreddit-expansion decision:** did not add any new
+subreddits today. The log's own 2026-10-20 observation — Reddit's
+per-account rate limit, not a shortage of opportunities, is the real
+cap on throughput (~1 comment/run for 3 runs straight) — still holds
+and was confirmed again today (see below). Adding more subreddits
+would not increase daily throughput past that limit, so expansion is
+deferred until there's a real signal (e.g. a longer per-run window, or
+rate limit easing) that more targets would actually convert to more
+real comments. No engagement-signal data exists yet in this log to
+pick a specific new subreddit by anyway (karma/engagement on individual
+past comments isn't separately tracked here).
+
+Rules re-checked fresh for the new week (`REDDIT_GET_SUBREDDIT_RULES`)
+for the three subreddits engaged today: r/SEO unchanged (links
+auto-removed in posts and comments, no self-promotion, Q&A-only, no
+blogs/guides). r/AskMarketing — read in full for the first time in
+this log: posts must be genuine marketing questions (not relevant to
+commenting), low-quality/shill-attempt posts and AI-generated posts
+banned (no explicit no-links rule found, but stayed link-free anyway
+per standing posture). r/DigitalMarketing unchanged (explicit no
+self-promotion, no posting of services, no AI-generated posts).
+
+Scanned r/SEO, r/localseo, r/DigitalMarketing, r/AskMarketing, r/marketing
+(new posts, 15 each) for fresh opportunities. Read full posts + existing
+top comments for 5 real candidates before drafting. **2 skipped as
+already saturated with near-duplicate answers, 3 drafted, 1 posted, 2
+not posted (rate-limited before the 2nd attempt went through):**
+
+1. r/localseo — ["Which keyword should I use for geo-grid rank tracking"](https://www.reddit.com/r/localseo/comments/1xb3hza/) —
+   **skipped.** 4 existing replies already converged on the same
+   answer (plain service keyword for the grid, skip "near me", add the
+   city modifier only for the wide-service-area business) — nothing
+   left to add without restating.
+2. r/localseo — ["Changing GBP category - will it trigger verification process again?"](https://www.reddit.com/r/localseo/comments/1xarfxo/) —
+   **skipped.** 7 existing replies already covered every real angle
+   (screenshot baseline first, keep old category as secondary, video
+   verification can take up to 5 business days, don't bundle with
+   other profile edits) — saturated.
+3. r/SEO — ["Sudden drop of impressions almost to zero"](https://reddit.com/r/SEO/comments/1xavaua/sudden_drop_of_impressions_almost_to_zero/) —
+   **posted, confirmed live and still visible on re-check**
+   ([permalink](https://reddit.com/r/SEO/comments/1xavaua/sudden_drop_of_impressions_almost_to_zero/phznfvp/)).
+   OP's stack: new site on a .app domain behind Cloudflare, 11
+   languages, impressions went from 200-300/day to near-zero overnight
+   with no site changes. Existing replies covered clicks-vs-impressions,
+   thin AI content, and generic "check Bing/Matomo" advice — none
+   addressed the specific Cloudflare angle. Added the distinct,
+   checkable diagnosis: a sudden cliff (not gradual decay) on a
+   Cloudflare-fronted site is the classic signature of Googlebot being
+   silently blocked by Bot Fight Mode/a WAF rule rather than a ranking
+   issue, with two concrete checks (GSC Crawl Stats response-code
+   breakdown for the exact date, and Cloudflare's own Security Events
+   log filtered to verified-bot traffic) to confirm it — plus a
+   reminder to rule out a manual action in GSC, since that can also
+   look like a cliff.
+4. r/AskMarketing — ["Does Structured Data Help AI Systems Understand a Website More Accurately?"](https://www.reddit.com/r/AskMarketing/comments/1xbdm1f/) —
+   **drafted, not posted.** Only one real existing reply (schema helps
+   clarity but doesn't guarantee AI citation). Drafted a distinct
+   addition — schema as a disambiguation signal rather than a
+   visibility one, entity consistency across the open web mattering
+   more for AI citation than markup itself, and a concrete gap (GA4/GSC
+   don't yet separate AI-citation traffic; the real check is server
+   logs for AI crawler user-agents) — but `REDDIT_POST_REDDIT_COMMENT`
+   returned a real `RATELIMIT` ("doing that a lot... take a break for 9
+   minutes... wait approximately 8 minutes 21 seconds") on this
+   attempt, immediately after the one successful post above. Honored
+   it per the standing rule — did not retry through it, did not post
+   this comment today.
+5. r/DigitalMarketing — ["Google's AI Mode and AI Overviews are putting links higher, and testing a top section for official pages"](https://www.reddit.com/r/DigitalMarketing/comments/1xbfj5m/) —
+   **drafted, not posted** (stopped after the rate limit hit on #4
+   rather than attempting a 3rd call into the same cooldown window).
+   Only cynical one-line existing reply. Genuinely good fit (practical
+   implication for marketers: audit whether your highest-intent pages
+   are single clear destinations per task, since that's what the new
+   "top official page" test has to arbitrate between) — revisit this
+   specific thread tomorrow if it's still open and under-covered.
+
+**Karma check (post-activity):** `REDDIT_GET_REDDIT_USER_ABOUT`
+(username "me") run after the rate limit hit still shows 1 total karma
+(1 link, 0 comment) — same as the pre-activity check this run and
+unchanged from every prior real-posting day. Verified the one comment
+that did post is actually visible and not auto-removed
+(`REDDIT_RETRIEVE_SPECIFIC_COMMENT` on `t1_phznfvp`): author
+`amankrshuklaa`, body intact, score 1.
+
+No subreddit blocked participation outright today (no new rules
+changes found). Nothing posted to r/smallbusiness, r/Entrepreneur,
+r/EntrepreneurRideAlong, r/web_design, r/webdev, or
+r/DigitalMarketingIndia today — scanned r/marketing's new posts too but
+found no genuine expertise-fit question there (mostly career-path/job-
+title/AI-anxiety threads, same pattern as prior days), so didn't force
+a reply there.
+
+**Action item for tomorrow's run:** try the r/AskMarketing and
+r/DigitalMarketing comments drafted above first (after confirming the
+threads are still open and the draft angles are still non-duplicate),
+before searching for new opportunities — same carry-over pattern as
+2026-10-19→2026-10-20. Also: if `comment_karma` is still 0 after
+tomorrow's run, log that as a real finding (low upvote rate), not just
+another "aggregation lag" assumption.
