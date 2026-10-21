@@ -103,12 +103,22 @@ picked (see the 2026-09-28 entry below for why this matters).
 92. ~~`/michigan/oakland/`~~ — done 2026-10-20 (major metro county)
 93. ~~`/virginia/fairfax/`~~ — done 2026-10-20 (major metro county)
 94. ~~`/pennsylvania/allegheny/`~~ — done 2026-10-20 (major metro county)
-95. *(after these: continue with the next tier of major metro counties —
-    e.g. Hillsborough tier siblings already done; next candidates by real
-    Census population: Franklin OH (Columbus), Cuyahoga OH (Cleveland),
-    Salt Lake UT, Hamilton OH (Cincinnati), Davidson TN (Nashville),
-    Shelby TN (Memphis), Honolulu HI, Palm Beach FL, Erie NY (Buffalo),
-    Milwaukee WI — then remaining country hubs)*
+95. ~~`/ohio/franklin/`~~ — done 2026-10-21 (major metro county)
+96. ~~`/ohio/cuyahoga/`~~ — done 2026-10-21 (major metro county)
+97. ~~`/utah/salt-lake/`~~ — done 2026-10-21 (major metro county)
+98. ~~`/ohio/hamilton/`~~ — done 2026-10-21 (major metro county)
+99. ~~`/tennessee/davidson/`~~ — done 2026-10-21 (major metro county)
+100. ~~`/tennessee/shelby/`~~ — done 2026-10-21 (major metro county)
+101. ~~`/hawaii/honolulu/`~~ — done 2026-10-21 (major metro county)
+102. ~~`/florida/palm-beach/`~~ — done 2026-10-21 (major metro county)
+103. ~~`/new-york/erie/`~~ — done 2026-10-21 (major metro county)
+104. ~~`/wisconsin/milwaukee/`~~ — done 2026-10-21 (major metro county)
+105. *(after these: continue with the next tier of major metro counties —
+     next candidates by real Census population not yet done: Pima AZ
+     (Tucson), Wake NC (Raleigh), Mecklenburg NC (Charlotte), Sacramento
+     CA, Orange FL (Orlando), Bernalillo NM (Albuquerque), Denver CO,
+     Alameda CA (Oakland), Fresno CA, Contra Costa CA — then remaining
+     country hubs)*
 
 ## Log
 
@@ -1077,3 +1087,137 @@ parses with `json.loads` on all 10 (1 block each, all valid).
   re-check run #230's final conclusion (and the live pages) before
   treating today's 10 pages as confirmed deployed; if it never
   resolves, re-push to trigger a fresh build.
+
+**Follow-up (checked 2026-10-21, this run, before starting today's own
+work):** run #230 (`cad9d1a16`) itself resolved to `conclusion:
+cancelled` — but it was superseded by later same-day pushes from other
+routines sharing this checkout, and those resolved `success` (run #233,
+head_sha `a6ca94d70`, which is a real git ancestor of everything pushed
+since). Since `a6ca94d70` includes `cad9d1a16`'s full tree, the
+2026-10-20 10-county batch is confirmed live via that later successful
+deploy — no re-push was needed.
+
+### 2026-10-21
+
+**Page count: 10 (major metro counties, continuing the Franklin/
+Cuyahoga/Salt Lake/... tier named as "next candidates" in the priority
+queue note above).**
+
+**Semrush check (this run):** `mcp__Semrush__keyword_research` called
+with no params returned `no_api_units` (same error as every prior run
+this week) — units still exhausted. Fell back to WebSearch-informed
+selection for all 10 pages, same as every batch since 2026-10-18.
+
+**Intent-match check:** read each page's actual title/eyebrow/H1/sub
+paragraph before picking anything (grep across all 10 files in one
+batch, before editing). All 10 are the same established county-hub
+template as the 2026-10-18/19/20 batches: `<title>`/meta/OG/Twitter
+already carried "Digital Marketing Agency in [County] County, [State]"
+from original site generation (for Palm Beach, the state abbreviation
+"FL" — same pattern as Hillsborough/Broward), but the same real gaps
+were present on all 10: (a) meta/OG/Twitter descriptions and the
+JSON-LD `description` field used "agency **serving**" rather than the
+exact primary-keyword phrase "agency **in**" (Palm Beach's also still
+spelled out "Florida" in these three tags despite its title already
+using "FL"), (b) the H1 read the generic "Digital Marketing for [short]
+Businesses That Actually Converts" with no primary keyword, (c) the
+eyebrow/badge was a bare location pin with no primary keyword, and (d)
+no secondary keyword appeared anywhere in body copy. No intent mismatch
+found on any of the 10 — all genuinely support the site's existing
+"digital marketing agency in [county]" positioning.
+
+**One real WebSearch check run** (not assumed, two queries): searched
+`"digital marketing agency" "Franklin County" OR "Cuyahoga County" OR
+"Salt Lake County" small business` and `"digital marketing agency"
+"Davidson County" OR "Shelby County" OR "Honolulu County" OR "Palm
+Beach County" OR "Erie County" OR "Milwaukee County" small business`.
+Findings: real agencies explicitly use county-level framing for Palm
+Beach specifically — Jupiter Compass markets itself as a "Palm Beach
+County" ad agency, V Digital Services covers "Palm Beach and Broward
+Counties," and 5 Star Visibility serves "Broward, Miami-Dade, and Palm
+Beach Counties" (consistent with the Broward/Hillsborough precedent
+already on this site). Salt Lake and Honolulu returned mostly
+city-level agency results (Salt Lake City, Honolulu) rather than
+county-level framing. No usable results came back for Franklin,
+Cuyahoga, Hamilton, Davidson, Shelby, Erie, or Milwaukee counties
+specifically — a follow-up search using the county's largest city name
+would likely surface more. Net: supports continuing this site's
+existing county-level keyword structure (as every prior batch found)
+rather than unilaterally restructuring to city-level; the
+city-vs-county naming question remains open for a future structural
+review, not something to change in a keyword-placement pass.
+
+Primary keyword per page: `digital marketing agency in [County County],
+[State]` (matching each page's own pre-existing `<title>` exactly — Palm
+Beach uses "FL", matching its title, same as Hillsborough/Broward).
+Secondary keyword per page: `digital marketing company in [County
+County], [State]`.
+
+**What changed per page** (scripted edit, run once across all 10 with
+assertions on exact match counts before each replacement — no blind
+find/replace; script preserved at
+`/tmp/claude-0/-home-user-webtechcore-website/5f15b17b-0606-5213-999c-cb178350a082/scratchpad/seo_batch_2026-10-21.py`):
+- Eyebrow/badge: `📍 [County], [State]` → `📍 Digital Marketing Agency in
+  [County], [State]`.
+- `<h1>`: `Digital Marketing for [short] Businesses That Actually
+  Converts` → `Digital Marketing Agency in [County], [State]: Marketing
+  That Actually Converts`.
+- Hero sub paragraph: rewritten to open with `As a digital marketing
+  company in [County], [State], we build SEO, Google Ads, and social
+  media strategy specifically for [local] businesses — not a generic
+  statewide template. Free audit, no lock-in contract.` (adds the
+  secondary keyword). Palm Beach's sub keeps "South Florida businesses"
+  as the local-color short form, matching its own pre-existing branding
+  — same approach as Broward's/Hillsborough's regional short forms.
+- Meta description, `og:description`, `twitter:description`: "agency
+  serving" → "agency in" on all 10 (Palm Beach also: "County, Florida"
+  → "County, FL" to match its title exactly).
+- JSON-LD `description` field: rewritten from "Full-service digital
+  marketing agency running SEO, PPC, social media and web design for
+  businesses in [County], [State]." to "Full-service digital marketing
+  agency in [County], [State], running SEO, PPC, social media and web
+  design for local businesses." (Palm Beach's JSON-LD description uses
+  "FL" too, matching its title; its `areaServed.name` field was left as
+  "Palm Beach County, Florida" — untouched, same as Broward's precedent,
+  since the checklist only requires title/meta/eyebrow/H1/body
+  placement, not every schema field).
+- `<title>`, `og:title`, `twitter:title`, and the JSON-LD `name` field
+  already carried the primary keyword correctly from original site
+  generation and were left untouched.
+
+**Grep/script-verified on all 10 pages** (Python script run this turn —
+not assumed): primary keyword phrase — 9 total occurrences per page;
+confirmed present inside the actual `<h1>...</h1>` text (True on all
+10); confirmed present inside the `cty-eyebrow` badge line (True on all
+10). Secondary keyword — confirmed present at least once inside the
+extracted `<main>...</main>` block on all 10 (1 occurrence each, True on
+all 10). No leftover "agency serving" phrasing anywhere in any of the
+10 files (checked directly — zero matches on all 10). HTML tag balance
+(div/section/article/script/head/body/html/ul/header/footer/main)
+equal on all 10. Every `<script type="application/ld+json">` block
+parses with `json.loads` on all 10 (1 block each, all valid).
+
+**Noindex check (observational only, per 2026-10-20 audit finding —
+not acted on):** `grep -i 'name="robots"'` run on all 10 pages — **all
+10 still carry `<meta name="robots" content="noindex,follow">`.** None
+of these county pages were part of yesterday's 166-page country-hub
+noindex removal; this is consistent with CLAUDE.md's note that the
+larger county/county-service tier (~45,000+ pages, including every
+major-metro county page this routine has optimized to date) still
+carries noindex in most cases. No tag was touched — logged as real
+signal for the owner's eventual broader decision only.
+
+- Action item: none of today's 10 pages volume-verified (Semrush units
+  still exhausted) — revisit once units refresh.
+- Total done today: 10 pages (`/ohio/franklin/`, `/ohio/cuyahoga/`,
+  `/utah/salt-lake/`, `/ohio/hamilton/`, `/tennessee/davidson/`,
+  `/tennessee/shelby/`, `/hawaii/honolulu/`, `/florida/palm-beach/`,
+  `/new-york/erie/`, `/wisconsin/milwaukee/`).
+- Scope note: a concurrent blog-publish routine pushed a new post
+  (`f4794f1c2`, "Ecommerce Marketing That Actually Converts Browsers
+  Into Buyers") to this same shared checkout while this run was in
+  progress; this run did not touch, stage, or include `blog/`,
+  `blog-publish-log.md`, `blog-performance-log.md`, or
+  `sitemap-resources.xml` — confirmed via `git status`/`git diff --stat`
+  immediately before committing (only this run's 10 page files + this
+  log file staged).
