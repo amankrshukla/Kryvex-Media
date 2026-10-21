@@ -64,14 +64,22 @@ actually checked it that run.
   2026-10-20 site-wide noindex finding — confirmed none present.
 - Deploy: pushed as commit `f4794f1c2` to
   `claude/webtech-core-current-work-rsmbri`, fast-forwarded to `main`.
-  Run **#237**, head_sha `f4794f1c23240e9ffc2d828d5be5d8c98c54b3b1`
-  (this commit's own build, no concurrent pushes racing it this run) —
-  `build` and `report-build-status` jobs both completed `success`
-  within ~2 minutes as normal; the `deploy` job itself ran long this
-  time (still `in_progress` after 10+ minutes of polling, consistent
-  with the slow-deploy pattern already logged on 2026-10-19 for a
-  52,000+-page site) — polled until it actually resolved rather than
-  assuming; final conclusion recorded below once it completed.
+  Run #237 (head_sha `f4794f1c2`) was cancelled a few minutes later by
+  the follow-up log-commit push (`a80199d65`), the expected rapid-
+  fire-push pattern — not a failure, just superseded. Run **#238**,
+  head_sha `a80199d6567225f38f539432ba2ca24c4375a0e7` (built from
+  main's tip after both of today's commits), is the real lineage to
+  verify. `build` and `report-build-status` both completed `success`
+  quickly (by 07:37:42Z); the `deploy` job itself ran far longer than
+  any previously logged case — still `in_progress` after 70+ minutes
+  of active polling at the time of this entry, well past the ~43-minute
+  case logged 2026-10-19. Per the standing publish-verification rule
+  (log the real state, never assume success), this is recorded
+  honestly as **not yet verified live** — flagged for a follow-up
+  check (next routine run or the Daily Combined Status Report) rather
+  than claimed as deployed. The content itself (post, sitemap entry,
+  blog/index.html card, both log files) is correctly committed and
+  pushed to both branches regardless of this deploy's outcome.
 - Sitemap resubmission: confirmed — "Sitemap
   'https://kryvexmedia.com/sitemap.xml' successfully submitted for site
   'sc-domain:kryvexmedia.com'"
