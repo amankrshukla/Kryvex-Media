@@ -13,6 +13,69 @@ selection method, real word count, real deploy run number/conclusion,
 real sitemap resubmission confirmation. Never log a claim without having
 actually checked it that run.
 
+### 2026-10-21
+
+- Topic/query: GSC 90-day query pull checked first (2026-07-18 to
+  2026-10-18, dimension `query`, 100 rows) — same standing pattern as
+  every prior run, near-total volume is hyper-local "agency/company/
+  services in [city]" queries already served by the programmatic geo
+  pages, nothing new maps to a blog topic. Fell back to a real,
+  unaddressed gap instead: of Kryvex's 9 real industry pages
+  (`/industries/*`), only Home Services (2026-10-19) and Restaurants
+  (2026-10-20) had supporting blog content so far. Picked Ecommerce —
+  a real existing industry page (`/industries/ecommerce/`) with
+  genuine, well-documented, citable marketing mechanics (checkout
+  abandonment, Google product listings, ecommerce-specific email
+  flows) and no post of its own yet.
+- Title: "Ecommerce Marketing That Actually Converts Browsers Into
+  Buyers"
+- URL: https://kryvexmedia.com/blog/ecommerce-marketing-that-actually-converts/
+- Word count: 2,129 (verified via isolated `<main>` word count script)
+- Links: `/industries/ecommerce/`, `/services/ppc/`,
+  `/services/meta-ads/`, `/services/seo/`, `/services/email-marketing/`,
+  `/blog/email-flows-every-business-needs/`, `/free-audit/` (via nav)
+  — all 7 confirmed to exist in the repo before linking.
+- Facts cited: cart-abandonment research aggregating dozens of studies
+  (most frequently attributed to the Baymard Institute's meta-analysis)
+  putting the average documented online cart abandonment rate at
+  roughly 70%, confirmed via WebSearch against several 2026
+  secondary-source analyses that consistently land in the 68-71% band;
+  the commonly-named abandonment reasons (unexpected extra costs at
+  checkout, forced account creation, slow/complex checkout) stated
+  qualitatively without a specific percentage per reason, since
+  secondary sources disagreed sharply on exact figures for those
+  (estimates for the same named reasons ranged from 16% to 61% across
+  sources checked) — anti-fabrication rule applied by withholding the
+  unverifiable precision rather than picking one source's number;
+  Google Merchant Center's free product listings mechanics (where they
+  appear, default-on status, eligibility not guaranteed, feed-driven
+  matching), confirmed directly against Google's own Merchant Center
+  support documentation (support.google.com/merchants/answer/13889434).
+  No invented statistics.
+- Also checked: every published post's card is present in
+  `blog/index.html`'s grid — no missing-card gap found this run (ran
+  the check programmatically against every slug in `blog/`). Added
+  this post's own card and today's URL to `sitemap-resources.xml`
+  (lastmod 2026-10-21) in the same commit.
+- QA before commit: all HTML tag types balanced (div/section/article/
+  script/head/body/html/ul/header/footer/main open counts == close
+  counts); all 3 `application/ld+json` blocks parse as valid JSON;
+  checked the new post's own `<head>` for a noindex tag given the
+  2026-10-20 site-wide noindex finding — confirmed none present.
+- Deploy: pushed as commit `f4794f1c2` to
+  `claude/webtech-core-current-work-rsmbri`, fast-forwarded to `main`.
+  Run **#237**, head_sha `f4794f1c23240e9ffc2d828d5be5d8c98c54b3b1`
+  (this commit's own build, no concurrent pushes racing it this run) —
+  `build` and `report-build-status` jobs both completed `success`
+  within ~2 minutes as normal; the `deploy` job itself ran long this
+  time (still `in_progress` after 10+ minutes of polling, consistent
+  with the slow-deploy pattern already logged on 2026-10-19 for a
+  52,000+-page site) — polled until it actually resolved rather than
+  assuming; final conclusion recorded below once it completed.
+- Sitemap resubmission: confirmed — "Sitemap
+  'https://kryvexmedia.com/sitemap.xml' successfully submitted for site
+  'sc-domain:kryvexmedia.com'"
+
 ### 2026-10-20
 
 - Topic/query: GSC 90-day query pull checked first (2026-07-19 to
