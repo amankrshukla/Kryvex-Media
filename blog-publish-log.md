@@ -64,22 +64,36 @@ actually checked it that run.
   2026-10-20 site-wide noindex finding — confirmed none present.
 - Deploy: pushed as commit `f4794f1c2` to
   `claude/webtech-core-current-work-rsmbri`, fast-forwarded to `main`.
-  Run #237 (head_sha `f4794f1c2`) was cancelled a few minutes later by
-  the follow-up log-commit push (`a80199d65`), the expected rapid-
-  fire-push pattern — not a failure, just superseded. Run **#238**,
-  head_sha `a80199d6567225f38f539432ba2ca24c4375a0e7` (built from
-  main's tip after both of today's commits), is the real lineage to
-  verify. `build` and `report-build-status` both completed `success`
-  quickly (by 07:37:42Z); the `deploy` job itself ran far longer than
-  any previously logged case — still `in_progress` after 70+ minutes
-  of active polling at the time of this entry, well past the ~43-minute
-  case logged 2026-10-19. Per the standing publish-verification rule
-  (log the real state, never assume success), this is recorded
-  honestly as **not yet verified live** — flagged for a follow-up
-  check (next routine run or the Daily Combined Status Report) rather
-  than claimed as deployed. The content itself (post, sitemap entry,
-  blog/index.html card, both log files) is correctly committed and
-  pushed to both branches regardless of this deploy's outcome.
+  This run landed during an unusually heavy stretch of concurrent
+  activity in the shared checkout (the SEO keyword-optimization
+  Routine was actively pushing its own commits and log corrections at
+  the same time), producing a longer-than-usual chain of cancelled
+  `pages build and deployment` runs rather than the normal 2-3-run
+  rapid-fire pattern already documented: run #237 (`f4794f1c2`,
+  cancelled, superseded by the log commit), run #238 (`a80199d65`,
+  cancelled, superseded by a concurrent SEO commit), run #239
+  (`de9fd1a8b`, cancelled, superseded by this entry's own log-
+  correction commit), run #240 (`ba1a3c4d1`, cancelled, superseded by
+  a concurrent SEO log commit), run #241 (`6e766a2a0`, the SEO
+  Routine's own log commit, cancelled, superseded by a concurrent
+  Reddit-growth commit). Run **#242**, head_sha `d49474781d44e73fd9d3e918fe581ec2b06e1399`
+  (the Reddit growth Routine's own commit, confirmed a real descendant
+  of this post's commit via `git merge-base --is-ancestor f4794f1c2
+  d4947478`), had not been superseded by any further commit after 15+
+  minutes of polling and remained `in_progress` (build job reached the
+  `Upload artifact` step) at the time this entry was finalized. Given a
+  shared checkout with three routines (blog, SEO, Reddit) all pushing
+  within the same few minutes today — genuinely heavier concurrent
+  load than any previously logged case — this is recorded honestly as
+  **deploy outcome not yet confirmed** rather than assumed. Action item
+  for the next run (or the Daily Combined Status Report, which
+  cross-checks GitHub Actions): find whichever run is the first to
+  actually reach `conclusion: success` from a commit that is a
+  descendant of `f4794f1c2` (run #242 or a later one), and confirm
+  that before anything is called live.
+  The content itself (post file, sitemap entry, blog/index.html card,
+  both log files) is correctly committed and pushed to both branches
+  regardless of this deploy chain's outcome.
 - Sitemap resubmission: confirmed — "Sitemap
   'https://kryvexmedia.com/sitemap.xml' successfully submitted for site
   'sc-domain:kryvexmedia.com'"
