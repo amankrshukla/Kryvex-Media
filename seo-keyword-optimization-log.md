@@ -1390,5 +1390,34 @@ broader decision only.
   `blog/` file, `blog-publish-log.md`, `blog-performance-log.md`, or
   `sitemap-resources.xml` — confirmed via `git status` immediately before
   committing (only this run's 10 page files + this log file staged).
-- Deploy: see commit/push details and GitHub Actions run number +
-  conclusion below this entry, added once the push completes.
+- Deploy: commit `c4a3f935e` pushed to `claude/webtech-core-current-work-rsmbri`
+  and fast-forwarded onto `main` cleanly (no concurrent-push conflict at
+  push time). Found the matching run via
+  `mcp__github__actions_list` (`list_workflow_runs`, workflow
+  `pages-build-deployment`, numeric id `299800882` — note: this repo now
+  shows a "This repository moved" redirect notice to
+  `amankrshukla/Kryvex-Media` on every push/fetch, noted here for the
+  record, not acted on): run #247 (id `39741964611`), head_sha
+  `c4a3f935e` — an exact match. Polled
+  `mcp__github__actions_get` (`get_workflow_run`) roughly every 5-10
+  minutes over ~45 minutes total. **Result: still `status: in_progress`
+  after ~45 minutes, never resolved to `completed`.** `updated_at` froze
+  at `07:39:09Z`, 5 seconds after `created_at` (`07:39:04Z`) — the same
+  stall signature already documented on runs #230 (2026-10-20) and
+  #237-241 (2026-10-21), both of which later resolved via a subsequent
+  run built from a later commit. A concurrent blog-automation routine
+  pushed its own commit (`45667c6e2`, "Log 2026-10-22 blog publish +
+  indexing/performance check") on top of this one during the polling
+  window — confirmed via `git merge-base --is-ancestor c4a3f935e
+  45667c6e2` that this SEO commit **is** a real ancestor of that later
+  commit, consistent with the clean fast-forward above. That commit's
+  own run (#248, id `39742091568`) was also still `in_progress` (frozen
+  at `07:40:31Z`) at the same ~45-minute mark. Reporting this honestly
+  per the standing publish-verification rule rather than claiming
+  anything live — **today's 10 county pages are pushed and merged to
+  `main` but not yet confirmed deployed.** Action item: a later
+  run/session should re-poll run #247 and/or #248 (or whichever later
+  run becomes the confirmed final tip of `main`) until one resolves to
+  `conclusion: success`, following the same `git merge-base
+  --is-ancestor` check used on 2026-10-20/21 before treating today's
+  pages as confirmed live.
