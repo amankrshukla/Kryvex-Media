@@ -1421,3 +1421,18 @@ broader decision only.
   `conclusion: success`, following the same `git merge-base
   --is-ancestor` check used on 2026-10-20/21 before treating today's
   pages as confirmed live.
+
+**CONFIRMED (follow-up, same day):** polled forward past the action item
+above. Run #249 (id `39742253085`, head_sha `9b7b110e2`, a log commit
+recording the stall above) resolved `completed` / `conclusion: cancelled`
+— superseded by yet another concurrent push. The real final tip turned
+out to be run #250 (id `39742557978`, head_sha `8b14d8b2`, a same-day
+Reddit-growth-log commit), which resolved **`completed` /
+`conclusion: success`** at `07:49:02Z`. Verified `c4a3f935e` (this SEO
+batch) is a real ancestor of `8b14d8b2` via `git merge-base
+--is-ancestor c4a3f935e 8b14d8b268ab521f597ab0ebce5802b9aac28ad3`
+(exit 0) before treating anything as live. Confirmed via
+`mcp__github__actions_list` immediately after that no further run has
+since superseded #250. **Today's 10-county SEO batch is now confirmed
+genuinely deployed live**, via run #250's success — same stall-then-
+resolve pattern as #230 (2026-10-20) and #237-241 (2026-10-21).
