@@ -113,12 +113,24 @@ picked (see the 2026-09-28 entry below for why this matters).
 102. ~~`/florida/palm-beach/`~~ — done 2026-10-21 (major metro county)
 103. ~~`/new-york/erie/`~~ — done 2026-10-21 (major metro county)
 104. ~~`/wisconsin/milwaukee/`~~ — done 2026-10-21 (major metro county)
-105. *(after these: continue with the next tier of major metro counties —
-     next candidates by real Census population not yet done: Pima AZ
-     (Tucson), Wake NC (Raleigh), Mecklenburg NC (Charlotte), Sacramento
-     CA, Orange FL (Orlando), Bernalillo NM (Albuquerque), Denver CO,
-     Alameda CA (Oakland), Fresno CA, Contra Costa CA — then remaining
-     country hubs)*
+105. ~~`/arizona/pima/`~~ — done 2026-10-22 (major metro county)
+106. ~~`/north-carolina/wake/`~~ — done 2026-10-22 (major metro county)
+107. ~~`/north-carolina/mecklenburg/`~~ — done 2026-10-22 (major metro county)
+108. ~~`/california/sacramento/`~~ — done 2026-10-22 (major metro county)
+109. ~~`/florida/orange/`~~ — done 2026-10-22 (major metro county)
+110. ~~`/new-mexico/bernalillo/`~~ — done 2026-10-22 (major metro county)
+111. ~~`/colorado/denver/`~~ — done 2026-10-22 (major metro county)
+112. ~~`/california/alameda/`~~ — done 2026-10-22 (major metro county)
+113. ~~`/california/fresno/`~~ — done 2026-10-22 (major metro county)
+114. ~~`/california/contra-costa/`~~ — done 2026-10-22 (major metro county)
+115. *(after these: continue with the next tier of major metro counties —
+     next candidates by real Census population not yet done: Bexar-
+     adjacent/other Texas counties (Travis already done; consider El
+     Paso TX), Salt Lake already done; consider Hillsborough FL already
+     done; consider Pinellas FL, Honolulu already done; consider
+     Jefferson AL (Birmingham), Montgomery OH (Dayton), Westchester NY,
+     Nassau NY, Suffolk NY (not MA), Essex NJ — verify each against real
+     Census ranking before picking — then remaining country hubs)*
 
 ## Log
 
@@ -1250,3 +1262,133 @@ signal for the owner's eventual broader decision only.
   `39564219933`). Polled every ~100-110s via `mcp__github__actions_get`
   (`get_workflow_run`) until `status: completed`. **Result: `conclusion:
   success`.** Today's 10 county pages are now confirmed deployed/live.
+
+### 2026-10-22
+
+Third batch of **major metro county pages**, continuing the real
+Census-population ordering from 2026-10-18/19/20/21 (top-104 counties
+already done). Picked the next 10 well-established high-population US
+counties not yet in the queue — Pima AZ (Tucson), Wake NC (Raleigh),
+Mecklenburg NC (Charlotte), Sacramento CA, Orange FL (Orlando),
+Bernalillo NM (Albuquerque), Denver CO, Alameda CA (Oakland), Fresno CA,
+Contra Costa CA — extended into the priority queue (items 105-114)
+before starting. Confirmed all 10 directories/pages exist in the repo
+before editing.
+
+**Semrush checked live first** (`mcp__Semrush__keyword_research`, no
+params) — returned `no_api_units` (non-retryable): "The user has an
+active Semrush subscription, but does not have enough API units to
+complete this request." Same result as every prior check across this
+entire project. WebSearch fallback used, disclosed below — no
+volume/CPC/KD number is claimed for any of today's 10 picks.
+
+**Intent-match check:** read each page's actual title/eyebrow/H1/sub
+paragraph before picking anything (confirmed via `grep`, not assumed).
+All 10 are the same established county-hub template as the
+2026-10-18/19/20/21 batches: `<title>`/meta/OG/Twitter already carried
+"Digital Marketing Agency in [County] County, [State]" from original
+site generation, but (a) the meta/OG/Twitter descriptions and the
+JSON-LD description field still used the "agency **serving**"
+paraphrase rather than the exact primary-keyword phrase "agency **in**"
+(the same recurring gap fixed in every prior county batch), (b) the H1
+read the generic "Digital Marketing for [short] Businesses That
+Actually Converts" with no primary keyword at all, (c) the eyebrow/badge
+was a bare location pin ("📍 [County], [State]") with no primary keyword,
+and (d) no secondary keyword appeared anywhere in body copy. One real
+gap found and fixed beyond the recurring pattern: `/florida/orange/`'s
+title uses the abbreviation "FL" ("Orange County, FL") but its meta
+description, og:description, twitter:description and JSON-LD
+description all spelled out "Florida" — the same title/body abbreviation
+mismatch previously found and fixed on Broward County (2026-10-19);
+normalized to "FL" everywhere to match the primary keyword exactly, same
+fix pattern.
+
+**One real WebSearch check run** (not assumed): searched `"digital
+marketing agency" "Mecklenburg County" OR "Wake County" North Carolina`
+— finding: real competing agencies and directories (a Charlotte-based
+SEO/web-design firm, BrightLocal's agency directory for Huntersville and
+Apex — both towns within Mecklenburg/Wake County respectively) almost
+universally market and are listed at the city/town level, not the
+county level — the same real pattern already found and logged as an
+action item (not acted on) on 2026-10-18 and 2026-10-19 for other
+counties. Consistent with those prior findings: this site's own
+county-level URL/title structure is a pre-existing structural decision
+out of scope for a keyword-placement pass, so county-level framing was
+kept and the "agency in [County]" pattern reused rather than
+reselected from scratch.
+
+Primary keyword per page: `digital marketing agency in [County] County,
+[State]` (matching each page's own pre-existing `<title>` exactly,
+including Orange's "FL" abbreviation). Secondary keyword per page:
+`digital marketing company in [County] County, [State]`.
+
+**What changed per page** (all 10, same pattern as 2026-10-19/20/21):
+- Eyebrow/badge: `📍 [County], [State]` → `📍 Digital Marketing Agency in
+  [County], [State]`.
+- `<h1>`: `Digital Marketing for [short] Businesses That Actually
+  Converts` → `Digital Marketing Agency in [County], [State]: Marketing
+  That Actually Converts`.
+- Hero sub paragraph: rewritten to open with `As a digital marketing
+  company in [County], [State], we build SEO, Google Ads, and social
+  media strategy specifically for [short] businesses — not a generic
+  statewide template. Free audit, no lock-in contract.` (adds the
+  secondary keyword; Orange County FL's sub paragraph keeps "Central
+  Florida businesses" as the existing local-color short form, matching
+  its own pre-existing branding, same approach used for Broward on
+  2026-10-19).
+- Meta description, `og:description`, `twitter:description`: "agency
+  serving" → "agency in" (Orange also: "Florida" → "FL" to match its
+  title exactly, per the gap found above).
+- JSON-LD `description` field: rewritten from "Full-service digital
+  marketing agency running SEO, PPC, social media and web design for
+  businesses in [County] County, [State]." to "Full-service digital
+  marketing agency in [County] County, [State], running SEO, PPC, social
+  media and web design for local businesses." (same phrasing pattern
+  used for every prior county batch).
+- `<title>`, `og:title`, `twitter:title` already carried the primary
+  keyword correctly from original site generation and were left
+  untouched.
+
+**Verified with a Python script run this turn** (extracts and checks
+each field directly, not assumed) on all 10 pages: primary keyword
+phrase — 9 total occurrences per page; confirmed present inside the
+actual `<title>`, meta description, `og:title`, `og:description`,
+`twitter:title`, `twitter:description`, the JSON-LD block, the
+`cty-eyebrow` badge line, and the actual `<h1>...</h1>` text (True on
+all 10 for every one of those 9 locations). Secondary keyword —
+confirmed present at least once inside the extracted `<main>...</main>`
+block on all 10 (1 occurrence each in the hero sub paragraph, True on
+all 10). Spot-checked two pages directly with `grep -c -i` as a second
+check (Pima: primary 9/secondary 1; Orange: primary 9/secondary 1 with
+the corrected "FL" phrasing) — matched the script's results exactly.
+`<div>` open/close tag balance equal on all 10 (94/94 on 9 of them;
+114/114 on Orange, whose page carries extra markup, same pattern as
+Broward's extra markup on 2026-10-19). Every `<script
+type="application/ld+json">` block parses with `json.loads` on all 10
+(1 block each, all valid).
+
+**Noindex check (observational only, per 2026-10-20 audit finding — not
+acted on):** `grep -i 'name="robots"'` run on all 10 pages before any
+edit — **all 10 carry `<meta name="robots" content="noindex,follow">`.**
+None of these county pages were part of the 2026-10-20 166-page
+country-hub noindex removal; consistent with CLAUDE.md's note that the
+larger county/county-service tier still carries noindex in most cases.
+No tag was touched — logged as real signal for the owner's eventual
+broader decision only.
+
+- Action item: none of today's 10 pages volume-verified (Semrush units
+  still exhausted) — revisit once units refresh.
+- Total done today: 10 pages (`/arizona/pima/`, `/north-carolina/wake/`,
+  `/north-carolina/mecklenburg/`, `/california/sacramento/`,
+  `/florida/orange/`, `/new-mexico/bernalillo/`, `/colorado/denver/`,
+  `/california/alameda/`, `/california/fresno/`,
+  `/california/contra-costa/`).
+- Scope note: this shared checkout also has a concurrent blog-automation
+  routine's in-progress changes (`blog/index.html` modified,
+  `blog/digital-marketing-for-real-estate-agents/` untracked) present at
+  the start of this run. This run did not touch, stage, or include any
+  `blog/` file, `blog-publish-log.md`, `blog-performance-log.md`, or
+  `sitemap-resources.xml` — confirmed via `git status` immediately before
+  committing (only this run's 10 page files + this log file staged).
+- Deploy: see commit/push details and GitHub Actions run number +
+  conclusion below this entry, added once the push completes.
