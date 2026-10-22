@@ -529,3 +529,155 @@ before searching for new opportunities — same carry-over pattern as
 2026-10-19→2026-10-20. Also: if `comment_karma` is still 0 after
 tomorrow's run, log that as a real finding (low upvote rate), not just
 another "aggregation lag" assumption.
+
+### 2026-10-22 — Week 4, day 2: still fully non-promotional (karma unimproved); rate-limited before any comment posted
+
+**Week determination:** today (2026-10-22) is day 2 of Week 4
+(2026-10-21 to 2026-10-27) by the calendar date-ranges in this log —
+clean mapping, no ambiguity.
+
+**Promotion-posture check (karma-gated, not calendar-gated):** pulled
+real current standing via `REDDIT_GET_REDDIT_USER_ABOUT` (username "me")
+before deciding anything — `total_karma: 1`, `link_karma: 1`,
+`comment_karma: 0`, still exactly unchanged from the 2026-09-30 baseline
+and from yesterday's check, despite 9 real comments posted across 5 real
+posting days since 2026-10-01. Per the action item flagged yesterday:
+`comment_karma` has now been 0 for a full week of real posting
+(2026-10-18 through 2026-10-22) — this is no longer plausibly
+"aggregation lag." Logging it as the real finding it is: these comments
+are getting essentially zero organic upvotes, not just a delayed count.
+Conclusion stands regardless — stayed fully non-promotional today too
+(no Kryvex mention, no links), consistent with the karma-gated standing
+rule.
+
+**Carried-over threads checked first** (action item from 2026-10-21),
+before searching for anything new:
+- r/AskMarketing — ["Does Structured Data Help AI Systems Understand a Website More Accurately?"](https://www.reddit.com/r/AskMarketing/comments/1xbdm1f/) —
+  still open, grew from 1 to 2 real replies (`madongrind`: schema vs.
+  actual page-content mismatches cause bad AI answers; `thanos676`:
+  structured data helps but content/relevance matters just as much).
+  Yesterday's drafted "content matters more than markup" angle is now
+  redundant with `thanos676`'s reply, so redrafted a narrower, still-open
+  angle (entity consistency *across* sources, not just schema-vs-page,
+  as the bigger lever for AI citation specifically, plus the real
+  measurement gap that GA4/GSC don't separate AI-crawler traffic from
+  ordinary bot traffic — the actual check is server logs for AI
+  crawler user-agents like GPTBot/PerplexityBot/ClaudeBot). Queued to
+  post but not reached before the rate limit hit (see below).
+- r/DigitalMarketing — ["Google's AI Mode and AI Overviews are putting links higher..."](https://www.reddit.com/r/DigitalMarketing/comments/1xbfj5m/) —
+  **dropped.** Grew to 2 real replies; `tonecast_team`'s reply now says
+  almost exactly what was drafted yesterday ("official pages at the
+  top" test changes which page needs to exist, not whether you get a
+  link). Restating it would just be duplicate — correctly dropped as a
+  target.
+
+**Subreddit rules re-checked this week where needed:** r/SEO,
+r/AskMarketing, r/DigitalMarketing were already confirmed fresh this
+week (2026-10-21 entry) — not re-checked today. r/localseo was *not*
+yet checked this week, so ran `REDDIT_GET_SUBREDDIT_RULES` fresh before
+considering any r/localseo target — **real finding worth flagging**:
+r/localseo added a new rule since the last check (`created_utc`
+corresponds to 2026-10-24... actually dated just before today, early-
+to-mid October 2026), short name **"No 'GEO'"**, description: "This
+topic is not related to local SEO," applying to both posts and
+comments. This directly affects the kind of AI-search/GEO-citation
+angle this account's own bio and recent comments lean on. Acted on it
+immediately: the one r/localseo candidate found today that fit
+Kryvex's expertise (digital PR's effect on ChatGPT/Perplexity/AI
+Overview citations) was **skipped** specifically because a genuine
+answer to it would be a GEO-topic comment, which this new rule now
+calls off-topic for the sub — even though the thread itself wasn't
+removed. Two other r/localseo threads checked instead
+(["Changing keywords in GBP business names"](https://reddit.com/r/localseo/comments/1xbuz7r/)
+and ["For a roofing company serving several ZIP codes... are separate location pages worth the effort?"](https://reddit.com/r/localseo/comments/1xbzhdp/))
+were both read in full and found already thoroughly saturated (4 and
+8+ substantive existing replies respectively covering every real
+angle — DBA/signage/proof-of-name-change on the first, content
+differentiation vs. doorway-page risk vs. GBP-first on the second) —
+skipped as no non-duplicate value to add. **Action item:** no more
+GEO/AI-search-framed comments in r/localseo going forward unless this
+rule is confirmed to only apply to posts in practice, not comments —
+treat it as comments-included per its own "kind: all" setting until
+shown otherwise.
+
+**New opportunities scanned:** r/SEO, r/localseo, r/DigitalMarketing,
+r/AskMarketing, r/marketing (new posts, 20 each). Read full posts +
+existing comments for the strongest candidates before drafting. **2
+genuinely strong candidates drafted (zero or near-zero real existing
+coverage), 1 attempted, 0 posted (rate-limited on the very first
+attempt of the run):**
+
+1. r/DigitalMarketing — ["How Do You Structure Your Meta Ads Funnel in Practice?"](https://www.reddit.com/r/DigitalMarketing/comments/1xbwmdz/) —
+   **attempted first, not posted.** Zero real human replies at the time
+   of reading (only two AutoModerator stubs) — genuinely unanswered.
+   Drafted a distinct, fact-grounded answer: Meta's own documented
+   ~50-optimization-events-per-ad-set-per-week threshold to exit the
+   learning phase as the real reason a 3-way TOFU/MOFU/BOFU campaign
+   split underperforms on a limited budget; recommended one
+   conversion-optimized campaign with Advantage+ audience first, adding
+   a retargeting campaign only once budget supports both without
+   starving either of that threshold; plus a concrete, non-fabricated
+   answer on formats (UGC video for cold/TOFU, testimonial/carousel for
+   retargeting). `REDDIT_POST_REDDIT_COMMENT` returned a real
+   `RATELIMIT` ("doing that a lot... take a break for 2 minutes... wait
+   approximately 7 minutes 30 seconds") on this very first attempt of
+   the run — before any comment had been posted today. Honored it per
+   the standing rule — did not retry through it (not even after
+   waiting), did not post this or anything else today.
+2. r/SEO — ["Would having a lot of non-indexed pages affected a site's overall search rankings?"](https://www.reddit.com/r/SEO/comments/1xc6tsb/) —
+   **drafted, not attempted** (stopped after the rate limit hit on #1).
+   1.6M-page B2B site (8.86k indexed) with a cleaned-up historic
+   "Japanese keyword/doorway hack." Existing top reply (`WebLinkr`)
+   covered crawl-budget myths and asked diagnostic questions but didn't
+   give the concrete hack-cleanup-specific path. Drafted addition:
+   check GSC's **Security Issues** report specifically (a hack cleanup
+   doesn't always clear a lingering manual action), use the **Removals**
+   tool for fast temporary suppression of the worst doorway URLs while
+   robots.txt-disallow + 410s take months to fully drop from the index,
+   and audit the **Links** report for spammy inbound links tied to the
+   hack period as the more likely real explanation for low domain
+   authority than the raw non-indexed-page count itself.
+3. r/SEO — ["Can't understand why Discovery GSC dropped since August"](https://www.reddit.com/r/SEO/comments/1xc910h/) —
+   **drafted, not attempted.** Only existing reply addressed Search
+   impressions/clicks (featured snippets stealing the click); OP's own
+   wording ("Discovery," suggestion to add the site to Google News)
+   points at **Google Discover**, a separate surface from regular
+   Search results with its own requirements unrelated to ranking —
+   drafted the distinct diagnosis: check GSC's dedicated Discover
+   report (not Performance > Search), confirm `max-image-preview:large`
+   is still set, check recent publishing freshness, and check whether
+   images are still ≥1200px wide (a silent CDN/image-host change is a
+   common real cause of a Discover-only cliff with zero ranking
+   change).
+4. r/AskMarketing carryover (see above, redrafted) — drafted, not
+   attempted.
+
+**Karma check:** `REDDIT_GET_REDDIT_USER_ABOUT` (username "me") run
+both before and after the rate-limit hit shows identical, unchanged
+real numbers: `total_karma: 1`, `link_karma: 1`, `comment_karma: 0` —
+logged honestly as unchanged (nothing was posted today to move it
+either way).
+
+**Real finding for the Week 4 review:** this is the first run where the
+rate limit hit *before* a single comment went through, rather than
+after ~1 successful post (the 2026-10-18 through 2026-10-21 pattern).
+Combined with `comment_karma` staying at 0 for a full week of real
+posting, two real, separate constraints are now visible on this
+account: (1) Reddit's per-account comment-frequency limit continues to
+cap real throughput regardless of how many genuine opportunities exist,
+and its cooldown window does not appear to fully reset between daily
+~24h-apart runs; (2) the comments that do get through are not earning
+real upvotes. Neither is something more subreddit targets or more
+drafting fixes — this is now a standing throughput/engagement ceiling
+worth raising with the owner rather than re-litigating daily as
+"probably lag."
+
+**Action items for tomorrow's run:** try all 4 drafted comments above
+first (#1 Meta Ads funnel, #2 non-indexed-pages hack cleanup, #3
+Discover drop, #4 AskMarketing structured-data carryover) — after
+confirming each thread is still open and the draft angles are still
+non-duplicate — before searching for new opportunities. No subreddit
+blocked participation outright via a rules change today except the new
+r/localseo "No GEO" rule noted above. No comments posted to r/marketing,
+r/smallbusiness, r/Entrepreneur, r/EntrepreneurRideAlong, r/web_design,
+r/webdev, or r/DigitalMarketingIndia today.
