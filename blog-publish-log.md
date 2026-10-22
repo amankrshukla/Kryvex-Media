@@ -13,6 +13,88 @@ selection method, real word count, real deploy run number/conclusion,
 real sitemap resubmission confirmation. Never log a claim without having
 actually checked it that run.
 
+### 2026-10-22
+
+- Topic/query: GSC 90-day query pull checked first (2026-07-20 to
+  2026-10-19, dimension `query`, 100 rows) — same standing pattern as
+  every prior run, near-total volume is hyper-local "agency/company/
+  services in [city]" queries already served by the programmatic geo
+  pages, nothing new maps to a blog topic. Fell back to a real,
+  unaddressed gap instead: of Kryvex's 9 real industry pages
+  (`/industries/*`), Home Services (2026-10-19), Restaurants
+  (2026-10-20) and Ecommerce (2026-10-21) already had supporting blog
+  content. Picked Real Estate — a real existing industry page
+  (`/industries/real-estate/`) with genuine, well-documented, citable
+  marketing mechanics (referral-driven agent selection, Google's local
+  ranking rules, IDX/MLS listing syndication, the Zillow/realtor.com
+  portal model) and no post of its own yet.
+- Title: "Digital Marketing for Real Estate Agents: What Actually
+  Generates Listings"
+- URL: https://kryvexmedia.com/blog/digital-marketing-for-real-estate-agents/
+- Word count: 2,375 (verified via isolated `<main>` word count script)
+- Links: `/industries/real-estate/`, `/services/local-seo/`,
+  `/services/web-design/`, `/services/content-marketing/`,
+  `/services/email-marketing/`,
+  `/blog/google-business-profile-optimization-guide/`,
+  `/blog/10-local-seo-tactics-that-fill-your-calendar/`, `/free-audit/`
+  (via nav) — all confirmed to exist in the repo before linking.
+- Facts cited: NAR's own product listing for the 2025 Profile of Home
+  Buyers and Sellers — 52% of buyers found the home they purchased
+  online, 70% used a mobile/tablet device during their search;
+  secondary summaries (nowbam.com, Virginia Realtors) of NAR's 2025
+  research — 88% of buyers purchased via an agent/broker, 91% of
+  sellers used an agent, 43% of buyers referred by a friend/neighbor/
+  relative (49% first-time, 41% repeat), 66% of sellers used a referral
+  or past agent (38%/28% split) — these secondary-source figures are
+  explicitly flagged as such in the post, not presented as NAR's own
+  primary document; Google's own Business Profile help documentation
+  (support.google.com/business/answer/7091) — relevance/distance/
+  prominence as the three local ranking factors, and Google's explicit
+  statement that no one can pay for a better local ranking; IDX/MLS
+  mechanics (MLS licenses data to approved IDX vendors under a broker-
+  reciprocity rule, VOW as the registration-walled alternative),
+  confirmed via multiple industry sources (Luxury Presence, iHomefinder,
+  Placester); Zillow Premier Agent's ZIP-code share-of-voice ad model
+  and its three lead types (direct contact/connection/nurture),
+  confirmed directly against Zillow's own product description page —
+  no specific pricing figures used, since the only numbers found in
+  research were unverified vendor-blog estimates, not an official
+  Zillow rate, so they were left out per the anti-fabrication rule. No
+  invented statistics; no client results or testimonials.
+- Also checked: every published post's card is present in
+  `blog/index.html`'s grid — no missing-card gap found this run. Added
+  this post's own card (`data-cat="content"`) and today's URL to
+  `sitemap-resources.xml` (lastmod 2026-10-22) in the same commit.
+- QA before commit: all HTML tag types balanced (div/section/article/
+  script/head/body/html/ul/header/footer/main open counts == close
+  counts); all 3 `application/ld+json` blocks parse as valid JSON;
+  confirmed no noindex tag in the new post's `<head>`.
+- Deploy: pushed as commit `208df93d2` to
+  `claude/webtech-core-current-work-rsmbri`, fast-forwarded to `main`.
+  Single commit, single push (no other routine pushed concurrently this
+  time). Run **#246**, id `39741535482`, head_sha `208df93d2` (exact
+  match to this commit), polled via `mcp__github__actions_get` —
+  `build` and `report-build-status` jobs completed quickly, `deploy`
+  job (the "Deploy to GitHub Pages" step) took a little under 3
+  minutes this run, well inside the normal range and nowhere near the
+  40-70+ minute stalls logged on recent heavy-concurrent-load days.
+  **Result: `conclusion: success`.** Confirmed via `git fetch origin
+  main` immediately after that this commit is still the exact tip of
+  `main` (no other commit landed in between), so no ancestry check was
+  needed this run — today's post is confirmed live.
+- Sitemap resubmission: confirmed — "Sitemap
+  'https://kryvexmedia.com/sitemap.xml' successfully submitted for site
+  'sc-domain:kryvexmedia.com'"
+- Note: GitHub's API now redirects `amankrshukla/webtechcore-website`
+  to its renamed location `amankrshukla/Kryvex-Media` (seen in every
+  `html_url` this run). The `mcp__github__actions_*` MCP tools handled
+  this transparently with the old owner/repo still passed in. The
+  session's own `gh api` proxy credential did not — it 403'd on the
+  renamed slug directly and also rejected the redirect's numeric-ID
+  path. Action item for future runs: keep using the MCP GitHub tools
+  (not `gh api`) for Actions polling until/unless the proxy credential
+  is updated for the new repo name.
+
 ### 2026-10-21
 
 - Topic/query: GSC 90-day query pull checked first (2026-07-18 to

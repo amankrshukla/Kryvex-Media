@@ -494,3 +494,65 @@ check (stayed at "discovered" rather than flipping back), so it may be
 settling rather than being a persistent instability — worth one more
 check before concluding either way. Zero-click baseline across the
 whole blog continues unchanged after roughly five weeks of data.
+
+## 2026-10-22 — daily blog Routine run
+
+Published today: `digital-marketing-for-real-estate-agents` (2,375
+words). Too new for a URL Inspection signal yet, so not checked this
+run, consistent with the standing pattern for brand-new posts.
+
+**Indexing re-check (live URL Inspection, scoped to posts published in
+the last ~14 days plus the long-standing flagged-stuck URLs) — a real,
+notable finding this run, reported honestly rather than smoothed over:**
+several posts that had previously advanced to "Discovered - currently
+not indexed" read back as **"URL is unknown to Google"** today —
+`digital-marketing-for-restaurants` (2 days old, was already "unknown"
+at day 1, so no change there), `youtube-management-for-small-businesses`
+(was "Discovered" as of 2026-10-21), `what-a-free-website-audit-checks`
+(was "Discovered" as of 2026-10-21), `ecommerce-marketing-that-actually-
+converts` (1 day old — expected "unknown" at this age), and
+`signs-seo-agency-not-working` (was "Discovered" and stable since the
+2026-09-29 baseline — this one is the real anomaly, a long-stable
+status reading backward). Two posts did NOT regress:
+`digital-marketing-for-home-services-businesses` still reads
+"Discovered - currently not indexed" (unchanged), and
+`website-designing-services-in-madhubani-bihar` still reads "Discovered
+- currently not indexed" (unchanged). `local-seo-vs-national-seo` is
+unchanged at "Crawled - currently not indexed," `lastCrawlTime` still
+2026-09-17T19:03:49Z — now 35 days without a recrawl.
+This reads more like a real inconsistency/lag in the URL Inspection
+API's own reporting than an actual drop from Google's index — Google's
+own documentation notes Inspection data can lag and isn't always fully
+in sync with live index state, and nothing else changed site-side that
+would explain `signs-seo-agency-not-working` reverting after being
+stable for three weeks. Logged as a genuine, unresolved finding per
+the verify-don't-assume rule, not spun as either "a real regression" or
+"nothing to worry about" — action item: re-check
+`signs-seo-agency-not-working`,
+`youtube-management-for-small-businesses` and
+`what-a-free-website-audit-checks` again in a few days; if they're
+still reading "unknown" at that point, it's a real regression worth
+investigating further (e.g. against the 2026-10-20 noindex-tag
+removal/sitemap resubmission activity on an unrelated page tier); if
+they're back to "Discovered," this was API-reporting noise.
+
+**Performance re-pull (90-day window, page dimension, `/blog/`,
+2026-07-24 to 2026-10-20):** `how-to-cut-wasted-ad-spend-in-30-days` 33
+impressions (position ~66.5, unchanged), `email-flows-every-business-
+needs` 4 (position 20.5, unchanged), `what-is-digital-marketing` 4
+(position 3, unchanged), `seo-company-hiring-guide` 3 (position 1,
+unchanged), `/blog/` index 2 (position 4, unchanged),
+`10-local-seo-tactics-that-fill-your-calendar` 2 (position 1,
+unchanged), `how-to-choose-an-seo-company-in-patna` 2 (position 1,
+unchanged), `website-mistakes-costing-you-customers` 1 (position 14,
+unchanged) — every number identical to the 2026-10-21 pull, no change
+in either direction. **Zero clicks on every post, still, with no
+exception**, now roughly six weeks of flat zero-click data across the
+whole blog. None of the four most recent posts (ecommerce, restaurants,
+home-services, real-estate) show any impressions yet.
+
+**Action items:** the indexing-status reversals above are the real
+story this run — flagged for a focused re-check rather than assumed
+away. Zero-click baseline continues unchanged; no new pattern to act on
+for post structure/topic/length this run since nothing in the real
+numbers moved.
