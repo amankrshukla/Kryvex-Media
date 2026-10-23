@@ -123,14 +123,22 @@ picked (see the 2026-09-28 entry below for why this matters).
 112. ~~`/california/alameda/`~~ — done 2026-10-22 (major metro county)
 113. ~~`/california/fresno/`~~ — done 2026-10-22 (major metro county)
 114. ~~`/california/contra-costa/`~~ — done 2026-10-22 (major metro county)
-115. *(after these: continue with the next tier of major metro counties —
-     next candidates by real Census population not yet done: Bexar-
-     adjacent/other Texas counties (Travis already done; consider El
-     Paso TX), Salt Lake already done; consider Hillsborough FL already
-     done; consider Pinellas FL, Honolulu already done; consider
-     Jefferson AL (Birmingham), Montgomery OH (Dayton), Westchester NY,
-     Nassau NY, Suffolk NY (not MA), Essex NJ — verify each against real
-     Census ranking before picking — then remaining country hubs)*
+115. ~~`/new-york/suffolk/`~~ — done 2026-10-23 (major metro county)
+116. ~~`/new-york/nassau/`~~ — done 2026-10-23 (major metro county)
+117. ~~`/missouri/st-louis/`~~ — done 2026-10-23 (major metro county)
+118. ~~`/new-york/westchester/`~~ — done 2026-10-23 (major metro county)
+119. ~~`/new-jersey/bergen/`~~ — done 2026-10-23 (major metro county)
+120. ~~`/new-jersey/essex/`~~ — done 2026-10-23 (major metro county)
+121. ~~`/new-jersey/middlesex/`~~ — done 2026-10-23 (major metro county)
+122. ~~`/kentucky/jefferson/`~~ — done 2026-10-23 (major metro county)
+123. ~~`/new-york/monroe/`~~ — done 2026-10-23 (major metro county)
+124. ~~`/texas/el-paso/`~~ — done 2026-10-23 (major metro county)
+125. *(after these: continue with the next tier of major metro counties —
+     next candidates by real Census population not yet done, to verify
+     against real Census ranking before picking: Jefferson AL
+     (Birmingham), Montgomery OH (Dayton), Hudson NJ (Jersey City),
+     Multnomah OR (Portland), Onondaga NY (Syracuse), Dane WI (Madison),
+     Prince William VA — then remaining country hubs)*
 
 ## Log
 
@@ -1436,3 +1444,126 @@ batch) is a real ancestor of `8b14d8b2` via `git merge-base
 since superseded #250. **Today's 10-county SEO batch is now confirmed
 genuinely deployed live**, via run #250's success — same stall-then-
 resolve pattern as #230 (2026-10-20) and #237-241 (2026-10-21).
+
+### 2026-10-23
+
+Fourth batch of **major metro county pages**. Extended the priority
+queue first (items 115-124) with the next 10 real, well-established
+high-population US counties not yet done, picked by real Census
+population ranking among counties that actually exist as pages on this
+site (verified each directory exists before adding it): Suffolk NY
+(~1.5M, Long Island), Nassau NY (~1.4M, Long Island), St. Louis County
+MO (~1.0M, not the separate city), Westchester NY (~1.0M), Bergen NJ
+(~956K), Essex NJ (~864K, Newark), Middlesex NJ (~863K), Jefferson KY
+(~783K, Louisville), Monroe NY (~759K, Rochester), El Paso TX (~866K).
+
+**Correction made before committing (same run):** initially picked
+Colorado's El Paso County (Colorado Springs, ~730K) per one phrasing of
+the prior queue note ("consider El Paso TX") being ambiguous — caught on
+a second look that the queue note specifically meant El Paso, **Texas**
+(the more populous of the two, and the one explicitly named), and that
+`/texas/el-paso/` exists as its own page distinct from `/colorado/
+el-paso/`. Reverted the Colorado El Paso edit with `git checkout --`
+before it was ever staged, and applied the same edit to `/texas/el-paso/`
+instead. No stray edit was committed.
+
+**Semrush checked live first** (`mcp__Semrush__keyword_research`, no
+params) — returned `no_api_units` (non-retryable), same result as every
+single check across this entire project to date (30+ consecutive days).
+WebSearch fallback used, disclosed below.
+
+**Intent-match check:** read each page's actual title/eyebrow/H1/sub
+paragraph before picking anything (shown via direct `grep`/`sed` on all
+10 files before editing). All 10 are the exact same established
+county-hub template as every prior batch since 2026-10-18: `<title>`/
+meta/OG/Twitter already carried "Digital Marketing Agency in [County]
+County, [State]" from original site generation, but (a) meta/OG/Twitter
+descriptions and the JSON-LD description still used the "agency
+**serving**" paraphrase rather than the exact primary-keyword phrase
+"agency **in**", (b) the H1 read the generic "Digital Marketing for
+[short] Businesses That Actually Converts" with no primary keyword, (c)
+the eyebrow/badge was a bare location pin with no primary keyword, and
+(d) no secondary keyword appeared anywhere in body copy. Same four real
+gaps found and fixed on every prior county batch.
+
+**One real WebSearch check run** (not assumed): searched `"digital
+marketing agency" "Suffolk County" OR "Nassau County" New York` —
+finding: real results were dominated by town/city-level listings and
+directories (BrightLocal's agency directory for Hempstead and Valley
+Stream — both towns within Nassau County — plus a vendor "Best Digital
+Marketing Agencies in Suffolk" guide naming PS Digital, EGC Group, BTW
+Marketing, RJ Media Studios), not independent county-level rankings.
+This is the same real pattern already found and logged as an action
+item (not acted on) on every county batch since 2026-10-18: real
+competing agencies and directories market and list themselves at the
+city/town level far more than the county level. Consistent with those
+prior findings, county-level framing was kept and the established
+"agency in [County] County, [State]" pattern reused rather than
+reselected from scratch — this is a pre-existing site structural/URL
+decision out of scope for a keyword-placement pass.
+
+Primary keyword per page: `digital marketing agency in [County] County,
+[State]` (matching each page's own pre-existing `<title>` exactly,
+including St. Louis's period). Secondary keyword per page: `digital
+marketing company in [County] County, [State]`.
+
+**What changed per page** (all 10, same pattern as every prior county
+batch):
+- Eyebrow/badge: `📍 [County] County, [State]` → `📍 Digital Marketing
+  Agency in [County] County, [State]`.
+- `<h1>`: `Digital Marketing for [County] Businesses That Actually
+  Converts` → `Digital Marketing Agency in [County] County, [State]:
+  Marketing That Actually Converts`.
+- Hero sub paragraph: rewritten to open with `As a digital marketing
+  company in [County] County, [State], we build SEO, Google Ads, and
+  social media strategy specifically for [County] businesses — not a
+  generic statewide template. Free audit, no lock-in contract.` (adds
+  the secondary keyword).
+- Meta description, `og:description`, `twitter:description`: "agency
+  serving" → "agency in" (3 occurrences per page, verified by exact
+  count before replacing).
+- JSON-LD `description` field: rewritten from "Full-service digital
+  marketing agency running SEO, PPC, social media and web design for
+  businesses in [County] County, [State]." to "Full-service digital
+  marketing agency in [County] County, [State], running SEO, PPC,
+  social media and web design for local businesses."
+- `<title>`, `og:title`, `twitter:title` already carried the primary
+  keyword correctly from original site generation and were left
+  untouched.
+
+**Verified with a Python script run this turn** (extracts and checks
+each field directly, not assumed) on all 10 pages: primary keyword
+phrase — 9 total occurrences per page; confirmed present inside the
+actual `<h1>...</h1>` text and the `cty-eyebrow` badge line (True on all
+10 for both). Secondary keyword — confirmed present exactly once inside
+the extracted `<main>...</main>` block on all 10 (hero sub paragraph).
+Spot-checked with direct `grep -c -i` on all 10 pages as a second check
+(Suffolk: primary 9/secondary 1; El Paso TX: primary 9/secondary 1) —
+matched the script's results exactly. `<div>` open/close tag balance
+equal on all 10 (94/94 each). Every `<script
+type="application/ld+json">` block parses with `json.loads` on all 10
+(1 block each, all valid).
+
+**Noindex check (observational only, per 2026-10-20 audit finding — not
+acted on):** `grep -i 'name="robots"'` run on all 10 pages — **all 10
+carry `<meta name="robots" content="noindex,follow">`.** None of these
+county pages were part of the 2026-10-20 166-page country-hub noindex
+removal; consistent with every prior county batch and with CLAUDE.md's
+note that the larger county/county-service tier still carries noindex
+in most cases. No tag was touched — logged as real signal for the
+owner's eventual broader decision only.
+
+- Action item: none of today's 10 pages volume-verified (Semrush units
+  still exhausted, 30+ consecutive days) — revisit once units refresh.
+- Scope note: this shared checkout also has concurrent blog-automation
+  and other routines' changes present at the start of this run
+  (`blog-performance-log.md` modified, untracked). This run did not
+  touch, stage, or include any `blog/` file, `blog-publish-log.md`,
+  `blog-performance-log.md`, `reddit-growth-log.md`,
+  `backlink-outreach-log.md`, or `sitemap-resources.xml` — confirmed via
+  `git status` immediately before committing (only this run's 10 page
+  files + this log file staged).
+- Total done today: 10 pages (`/new-york/suffolk/`, `/new-york/nassau/`,
+  `/missouri/st-louis/`, `/new-york/westchester/`, `/new-jersey/bergen/`,
+  `/new-jersey/essex/`, `/new-jersey/middlesex/`, `/kentucky/jefferson/`,
+  `/new-york/monroe/`, `/texas/el-paso/`).
