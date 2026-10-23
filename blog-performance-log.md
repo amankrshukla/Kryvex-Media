@@ -556,3 +556,51 @@ story this run — flagged for a focused re-check rather than assumed
 away. Zero-click baseline continues unchanged; no new pattern to act on
 for post structure/topic/length this run since nothing in the real
 numbers moved.
+
+## 2026-10-23 — daily blog Routine run
+
+Published today: `digital-marketing-for-healthcare-providers` (2,184
+words). Too new for a URL Inspection signal yet, so not checked this
+run, consistent with the standing pattern for brand-new posts.
+
+**Indexing re-check — follow-up on yesterday's flagged regression,
+real finding this run: it was API-reporting lag, not a real drop.**
+Per the 2026-10-22 action item, re-checked the three posts that had
+reverted from "Discovered - currently not indexed" to "URL is unknown
+to Google" on 2026-10-22: `signs-seo-agency-not-working`,
+`youtube-management-for-small-businesses`, and
+`what-a-free-website-audit-checks`. All three read back as
+**"Discovered - currently not indexed" today** — i.e. all three
+recovered to where they were before yesterday's dip. That supports the
+2026-10-22 hypothesis (Google's own documentation that URL Inspection
+data can lag live index state) over a real regression, and closes out
+that action item as resolved: it was a reporting-lag blip, not an
+actual drop. Also checked `digital-marketing-for-home-services-
+businesses` (unchanged, still "Discovered - currently not indexed") and
+three newer posts still too recent to have moved past "URL is unknown
+to Google": `digital-marketing-for-restaurants` (3 days old),
+`ecommerce-marketing-that-actually-converts` (2 days old), and
+`digital-marketing-for-real-estate-agents` (1 day old) — all three
+consistent with the normal several-day discovery timeline already
+established for this site, not a new concern.
+
+**Performance re-pull (90-day window, page dimension, `/blog/`,
+2026-07-25 to 2026-10-21):** `how-to-cut-wasted-ad-spend-in-30-days` 33
+impressions (position ~66.5, unchanged), `email-flows-every-business-
+needs` 4 (position 20.5, unchanged), `what-is-digital-marketing` 4
+(position 3, unchanged), `seo-company-hiring-guide` 3 (position 1,
+unchanged), `/blog/` index 2 (position 4, unchanged),
+`10-local-seo-tactics-that-fill-your-calendar` 2 (position 1,
+unchanged), `how-to-choose-an-seo-company-in-patna` 2 (position 1,
+unchanged), `website-mistakes-costing-you-customers` 1 (position 14,
+unchanged) — every number identical to the 2026-10-22 pull, no change
+in either direction. **Zero clicks on every post, still, with no
+exception**, now roughly seven weeks of flat zero-click data across
+the whole blog. None of the five most recent posts (ecommerce,
+restaurants, home-services, real-estate, healthcare) show any
+impressions yet.
+
+**Action items:** none outstanding — yesterday's flagged regression is
+resolved (reporting lag, recovered on its own). Zero-click baseline
+continues unchanged; no new pattern to act on for post structure/topic/
+length this run since nothing in the real numbers moved.

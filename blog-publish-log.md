@@ -424,3 +424,76 @@ catch-up cycle for today's real date, not a backfill.
 - Sitemap resubmission: confirmed — "Sitemap
   'https://kryvexmedia.com/sitemap.xml' successfully submitted for site
   'sc-domain:kryvexmedia.com'"
+
+### 2026-10-23
+
+- Topic/query: GSC 90-day query pull checked first (2026-07-22 to
+  2026-10-20, dimension `query`, 100 rows) — same standing pattern,
+  near-total volume is hyper-local "agency/company in [city]" queries
+  already served by the programmatic geo pages, nothing new maps to a
+  blog topic. Fell back to a real, unaddressed gap instead: of
+  Kryvex's 9 industry pages, Home Services, Restaurants, Ecommerce and
+  Real Estate already had supporting posts (2026-10-19/20/21/22) —
+  Healthcare (`/industries/healthcare/`) did not, and carries real,
+  well-documented, citable regulatory mechanics (HIPAA, FTC) that no
+  other post on the site covers.
+- Title: "Digital Marketing for Healthcare Providers: What HIPAA
+  Actually Allows"
+- URL: https://kryvexmedia.com/blog/digital-marketing-for-healthcare-providers/
+- Word count: 2,184 (verified via isolated `<main>` word count script)
+- Links: `/services/local-seo/`, `/services/ppc/`,
+  `/services/meta-ads/`, `/services/content-marketing/`,
+  `/services/web-design/`, `/industries/healthcare/`,
+  `/blog/google-business-profile-optimization-guide/` — all 7
+  confirmed to exist in the repo before linking.
+- Facts cited (every one verified via WebSearch against a primary or
+  clearly-attributed source before writing, anti-fabrication rule
+  applied in full):
+  - HHS OCR's resolution agreement with Manasa Health Center, a New
+    Jersey psychiatric practice (announced via HHS's own press
+    release, 2023-06-05): $30,000 payment plus a two-year corrective
+    action plan, for disclosing PHI in responses to four patients'
+    negative online reviews, following an April 2020 patient
+    complaint. Confirmed directly against hhs.gov's own announcement,
+    not just secondary commentary.
+  - HHS OCR's December 1, 2022 bulletin on online tracking
+    technologies (pixels/cookies on pages where health condition could
+    be inferred as a potential PHI disclosure to ad-tech vendors), and
+    the 2024 *American Hospital Association v. Becerra* ruling that
+    narrowed it for unauthenticated public pages — both sides of this
+    reported so the post doesn't overstate the bulletin's current
+    scope.
+  - FTC Health Breach Notification Rule amendments (finalized
+    2024-04-26, effective 2024-07-29) extending breach-notification
+    duty to health apps/trackers outside HIPAA; real FTC enforcement
+    examples — GoodRx's 2023 $1.5M penalty for sharing health data
+    with Facebook/Google, and the FTC's ad-data-sharing ban against
+    Easy Healthcare Corporation (Premom app).
+  - Google's own Business Profile help documentation
+    (relevance/distance/prominence as the three local-ranking factors,
+    no paid override) — same documented mechanic already cited
+    accurately on prior posts.
+  No invented statistics, client results, or testimonials.
+- Also added this post's own card (`data-cat="content"`) to
+  `blog/index.html`'s `#post-grid` and today's URL to
+  `sitemap-resources.xml` (lastmod 2026-10-23) in the same commit.
+  Checked the new post's `<head>` for a noindex tag before committing
+  — none present.
+- QA: all HTML tag types balanced (div/section/article/script/head/
+  body/html/ul/header/footer/main/h2/h3/p open counts == close
+  counts); all 3 `application/ld+json` blocks (BreadcrumbList/
+  BlogPosting/FAQPage) parse as valid JSON.
+- Deploy: commit `881820b4a`, pushed to
+  `claude/webtech-core-current-work-rsmbri` and fast-forwarded to
+  `main`. Note: the GitHub repo itself was renamed/moved to
+  `amankrshukla/Kryvex-Media` sometime before this run (git push
+  returned a "repository moved" notice but completed successfully via
+  redirect; the GitHub Actions API required looking up the numeric
+  workflow ID `299800882` for `pages-build-deployment` since the
+  file-name-based lookup under the old repo name 404'd). Run #253
+  (id `39918447406`), head_sha `881820b4a` — exact match to this
+  commit — polled until `status: completed`, confirmed `conclusion:
+  **success**` (resolved in ~3.5 minutes this run, no stall).
+- Sitemap resubmission: confirmed — "Sitemap
+  'https://kryvexmedia.com/sitemap.xml' successfully submitted for site
+  'sc-domain:kryvexmedia.com'"
