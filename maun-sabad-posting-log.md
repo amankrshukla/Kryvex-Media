@@ -306,3 +306,13 @@ kept as-is, not echoed as a sourced quote in the caption itself.
   run). No row has a literally empty/"—" Posted column, so under the
   standing rule (an "unconfirmed" row is not an open slot) nothing was
   eligible to post today. Nothing posted.
+
+### 2026-10-23
+- Daily Routine fire (14:10:59 UTC, run completed 14:2x UTC). Re-read the
+  full queue table top to bottom before acting — all 50 rows still have
+  either a confirmed date or the literal "unconfirmed" flag (11 rows: Day 1
+  Posts 2-10, Day 2 Post 3, Day 3 Post 6 — still unresolved). Checked the
+  Drive source directly rather than assuming: `parentId = '<folder id>' and
+  createdTime > '2026-10-20T00:00:00Z'` returned zero files — confirmed no
+  Day 6+ batch has been added since Day 5 (last upload 2026-10-19T21:18Z).
+  Nothing eligible to post today.
