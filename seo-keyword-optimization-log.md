@@ -1567,3 +1567,26 @@ owner's eventual broader decision only.
   `/missouri/st-louis/`, `/new-york/westchester/`, `/new-jersey/bergen/`,
   `/new-jersey/essex/`, `/new-jersey/middlesex/`, `/kentucky/jefferson/`,
   `/new-york/monroe/`, `/texas/el-paso/`).
+- Deploy: commit `8d163bc0c` pushed to `claude/webtech-core-current-work-rsmbri`
+  and fast-forwarded onto `main` cleanly (no concurrent-push conflict at
+  push time). Found the matching run via `mcp__github__actions_list`
+  (`list_workflow_runs`): run #254 (id `39919037781`), head_sha
+  `8d163bc0c` — an exact match. Polled `mcp__github__actions_get`
+  (`get_workflow_run`) at ~0, 8, 18, 33, and 48 minutes after the push
+  (07:37:47Z start). **Result: still `status: in_progress` after ~48
+  minutes, never resolved to `completed`.** `updated_at` froze at
+  `07:37:51Z`, 4 seconds after `created_at` — the same stall signature
+  already documented on runs #230 (2026-10-20), #237-241 (2026-10-21),
+  and #247/#248 (2026-10-22), all of which later resolved only once a
+  subsequent run (usually from a concurrent routine's later push) built
+  from a later commit. As of this check, no later run has superseded
+  #254 yet (`list_workflow_runs` still shows it as the newest run).
+  Reporting this honestly per the standing publish-verification rule
+  rather than claiming anything live — **today's 10-county SEO batch is
+  pushed and merged to `main` but not yet confirmed deployed.** Action
+  item: a later run/session should re-poll run #254 (or whichever later
+  run becomes the confirmed final tip of `main`, e.g. once tomorrow's
+  blog/SEO/Reddit routines push) until one resolves to `conclusion:
+  success`, following the same `git merge-base --is-ancestor` check
+  used on every prior stall day before treating today's pages as
+  confirmed live.
