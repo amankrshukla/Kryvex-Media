@@ -133,12 +133,24 @@ picked (see the 2026-09-28 entry below for why this matters).
 122. ~~`/kentucky/jefferson/`~~ — done 2026-10-23 (major metro county)
 123. ~~`/new-york/monroe/`~~ — done 2026-10-23 (major metro county)
 124. ~~`/texas/el-paso/`~~ — done 2026-10-23 (major metro county)
-125. *(after these: continue with the next tier of major metro counties —
-     next candidates by real Census population not yet done, to verify
-     against real Census ranking before picking: Jefferson AL
-     (Birmingham), Montgomery OH (Dayton), Hudson NJ (Jersey City),
-     Multnomah OR (Portland), Onondaga NY (Syracuse), Dane WI (Madison),
-     Prince William VA — then remaining country hubs)*
+125. ~~`/alabama/jefferson/`~~ — done 2026-10-24 (major metro county, Birmingham)
+126. ~~`/ohio/montgomery/`~~ — done 2026-10-24 (major metro county, Dayton)
+127. ~~`/new-jersey/hudson/`~~ — done 2026-10-24 (major metro county, Jersey City)
+128. ~~`/oregon/multnomah/`~~ — done 2026-10-24 (major metro county, Portland)
+129. ~~`/new-york/onondaga/`~~ — done 2026-10-24 (major metro county, Syracuse)
+130. ~~`/wisconsin/dane/`~~ — done 2026-10-24 (major metro county, Madison)
+131. ~~`/virginia/prince-william/`~~ — done 2026-10-24 (major metro county)
+132. ~~`/canada/`~~ — done 2026-10-24 (country hub)
+133. ~~`/australia/`~~ — done 2026-10-24 (country hub)
+134. ~~`/germany/`~~ — done 2026-10-24 (country hub)
+135. *(after these: the named major-metro-county tier from the prior action
+     item is now exhausted. Next up — verify real page existence and real
+     ranking before picking: a further tier of US counties by Census
+     population not yet in this queue, then the remaining real country
+     hub pages this site has — candidates to check next: `/france/`,
+     `/italy/`, `/spain/`, `/netherlands/`, `/mexico/`, `/brazil/`,
+     `/uae/`, `/singapore/` — confirm each directory exists and read its
+     real current title/H1 before assuming it needs the same treatment.)*
 
 ## Log
 
@@ -1590,3 +1602,121 @@ owner's eventual broader decision only.
   success`, following the same `git merge-base --is-ancestor` check
   used on every prior stall day before treating today's pages as
   confirmed live.
+
+### 2026-10-24
+
+Semrush checked live first (`mcp__Semrush__keyword_research`, no params)
+— returned `no_api_units` (non-retryable), same result as every prior
+check across this entire project. WebSearch fallback used, disclosed
+below.
+
+Queue extended before starting: the 7 remaining named candidates from
+the 2026-10-18 action item (Jefferson AL, Montgomery OH, Hudson NJ,
+Multnomah OR, Onondaga NY, Dane WI, Prince William VA — all 7
+directories confirmed to exist before editing) plus the next 3
+highest-value items once that named list ran out: the real country hub
+pages `/canada/`, `/australia/`, `/germany/` (large, well-established
+economies with real country hub pages already on this site — picked
+because the country-hub tier was next in the standing priority order
+after major-metro counties, not because of any invented ranking number).
+
+**Intent-match check (all 10):** read each page's actual title/H1/hero
+copy before picking anything.
+- The 7 county pages are the same established county-hub template as
+  every prior metro-county batch (`<title>`/meta/OG/Twitter already
+  carried "Digital Marketing Agency in [County] County, [State]" from
+  original site generation) and had the exact same two real gaps found
+  on 2026-10-18/19: meta/og/twitter description and JSON-LD description
+  used the "agency **serving**" paraphrase rather than the exact
+  primary-keyword phrase "agency **in**", and the eyebrow/badge was a
+  bare location pin with no keyword; H1 and secondary keyword were
+  entirely absent, same as every prior county batch.
+- The 3 country pages (`canada`, `australia`, `germany`) are a
+  genuinely different, not-yet-optimized template from `/usa/`/`/uk/`:
+  title read "Digital Marketing in [Country]" (missing "Agency"), badge
+  read "Digital Marketing · [Country]" (no keyword), H1 read "Digital
+  marketing that grows [Country] businesses." (no primary keyword), and
+  no secondary keyword anywhere — confirmed via `grep` before editing on
+  all 3, not assumed.
+
+**Keyword source — WebSearch, explicitly disclosed, not Semrush-volume-
+verified:**
+- 7 county pages: primary `digital marketing agency in [County] County,
+  [State]` / secondary `digital marketing company in [County] County,
+  [State]` — reused the exact pattern already established and
+  WebSearch-confirmed (real competitor county-level framing) across
+  every prior metro-county batch since 2026-10-18/19; not re-searched
+  this run since it is a direct continuation of an already-verified
+  pattern, consistent with how prior state-hub batches handled repeats
+  of an established pattern.
+- 3 country pages: ran a fresh WebSearch per country this run (not
+  reused) — `"digital marketing agency Canada" small business`,
+  `"digital marketing agency Australia" small business`, and
+  `"digital marketing agency Germany" OR "digital marketing agency in
+  Germany"`. All three confirmed "digital marketing agency [Country]" /
+  "digital marketing agency in [Country]" is real, commonly-used
+  phrasing among real competing agencies and directories (e.g. Konstruct
+  Digital, Let's Get Optimized for Canada; Grownomics, Red Search for
+  Australia; Clutch/DesignRush/Feedbax-listed agencies for Germany) —
+  picked "digital marketing agency **in** [Country]" (with "in") rather
+  than the no-"in" USA/UK pattern, since full country names read more
+  naturally with "in" and the WebSearch results themselves used that
+  form for Germany specifically. Primary: `digital marketing agency in
+  [Country]`. Secondary: `digital marketing company in [Country]`.
+
+**What changed per page:**
+- 7 county pages: meta description / og:description / twitter:
+  description changed "agency serving [County] County, [State]" →
+  "agency in [County] County, [State]" (exact primary phrase); JSON-LD
+  `description` rewritten to lead with "Full-service digital marketing
+  agency in [County] County, [State], running SEO, PPC, social media and
+  web design for local businesses."; eyebrow/badge "📍 [County] County,
+  [State]" → "📍 Digital Marketing Agency in [County] County, [State]";
+  `<h1>` "Digital Marketing for [short] Businesses That Actually
+  Converts" → "Digital Marketing Agency in [County] County, [State]:
+  Marketing That Actually Converts"; hero sub paragraph rewritten to
+  open with "As a digital marketing company in [County] County, [State],
+  we build SEO, Google Ads, and social media strategy specifically for
+  [short] businesses — not a generic statewide template." (adds the
+  secondary keyword). `<title>` on all 7 already carried the exact
+  primary phrase from original generation — left unchanged.
+- 3 country pages: `<title>`/og:title/twitter:title "Digital Marketing in
+  [Country]" → "Digital Marketing Agency in [Country]"; meta/og/twitter
+  description "...agency serving businesses across [Country] —..." →
+  "...agency in [Country] —..."; JSON-LD `description` rewritten to lead
+  with "Full-service digital marketing agency in [Country], running SEO,
+  PPC, social media and web design for businesses nationwide."; badge
+  "Digital Marketing · [Country]" → "DIGITAL MARKETING AGENCY IN
+  [COUNTRY]"; `<h1>` "Digital marketing that grows [Country] businesses."
+  → "Digital marketing agency in [Country] businesses trust to grow.";
+  hero `desc` paragraph rewritten to open with "As a digital marketing
+  company in [Country] that small businesses and startups rely on
+  across all [N] [provinces/states/states and territories], we help you
+  win customers online..." (adds the secondary keyword).
+
+**Grep-verified on all 10 pages this run** (scripted check, primary and
+secondary case-insensitive, not assumed): primary keyword total
+occurrences — 9/9 on all 10; primary confirmed present inside the actual
+`<h1>...</h1>` text — yes on all 10; primary confirmed present inside
+the eyebrow/badge line — yes on all 10; secondary keyword confirmed
+present at least once inside `<main>` — 1/1 on all 10; `<div>` tag
+balance — 94/94 on all 7 county pages, 177/177 on all 3 country pages;
+every page's `application/ld+json` block parsed successfully via Python
+`json.loads` — valid on all 10, 1 block each.
+
+**Noindex finding (observational only, not acted on, per standing
+instruction):** the 7 county pages each carry `<meta name="robots"
+content="noindex,follow">` in `<head>` — consistent with the 2026-10-20
+site-wide audit finding that the vast majority of programmatic pages
+still carry noindex. The 3 country hub pages (`canada`, `australia`,
+`germany`) carry **no** `robots` meta tag at all (checked via `grep`,
+confirmed absent, not assumed) — same indexable-by-default state as the
+already-optimized `usa`/`uk`/`india` country hubs. No noindex tags were
+removed or added on any of today's 10 pages.
+
+- Action item: none of today's 10 pages volume-verified (Semrush units
+  still exhausted) — revisit once units refresh.
+- Total done today: 10 pages (`/alabama/jefferson/`,
+  `/ohio/montgomery/`, `/new-jersey/hudson/`, `/oregon/multnomah/`,
+  `/new-york/onondaga/`, `/wisconsin/dane/`, `/virginia/prince-william/`,
+  `/canada/`, `/australia/`, `/germany/`).
