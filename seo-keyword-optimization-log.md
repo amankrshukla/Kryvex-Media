@@ -1720,3 +1720,25 @@ removed or added on any of today's 10 pages.
   `/ohio/montgomery/`, `/new-jersey/hudson/`, `/oregon/multnomah/`,
   `/new-york/onondaga/`, `/wisconsin/dane/`, `/virginia/prince-william/`,
   `/canada/`, `/australia/`, `/germany/`).
+
+**Deploy status (checked live, not guessed):** commit `54d64d932` was
+pushed to `claude/webtech-core-current-work-rsmbri` and fast-forwarded
+to `main`. Its own matching run (#262, id `40074991807`, head_sha
+`54d64d932` exact match) was cancelled at 07:41:20Z — superseded by a
+near-simultaneous push from the concurrent Reddit-growth routine
+(commit `6db9cf1f0`, run #263, id `40075114560`), the same rapid-push-
+cancels-prior-deploy pattern already documented repeatedly in this log.
+Confirmed via `git merge-base --is-ancestor 54d64d932 6db9cf1f0` that
+today's SEO commit **is** included in that later tip, so run #263 is
+the one that needs to resolve to `success` for today's 10 pages to be
+confirmed live. Polled run #263 repeatedly over ~22+ minutes (on top of
+the ~35 minutes already spent polling the superseded run #262) — it
+remained `status: in_progress` at every check, `updated_at` frozen at
+`07:41:23Z`, with no later run superseding it as of the last check.
+Per the standing ~45-minute threshold, logging this honestly as
+**unresolved**, not success. Action item: a later run/session should
+re-poll run #263 (id `40075114560`) — or whichever later run becomes
+the confirmed final tip of `main` once tomorrow's routines push —
+until one resolves to `conclusion: success`, using the same
+`git merge-base --is-ancestor` check before treating today's 10 pages
+as confirmed live.
