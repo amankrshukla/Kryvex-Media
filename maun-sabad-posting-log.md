@@ -316,3 +316,10 @@ kept as-is, not echoed as a sourced quote in the caption itself.
   createdTime > '2026-10-20T00:00:00Z'` returned zero files — confirmed no
   Day 6+ batch has been added since Day 5 (last upload 2026-10-19T21:18Z).
   Nothing eligible to post today.
+
+### 2026-10-24
+- Daily Routine fire (14:11:33 UTC). Re-read the full queue table top to
+  bottom — still all 50 rows with a confirmed date or the "unconfirmed"
+  flag (same 11 rows unresolved). Checked Drive directly again
+  (`createdTime > '2026-10-20T00:00:00Z'`) — zero files, confirming no
+  Day 6+ batch has been added. Nothing eligible to post today.
