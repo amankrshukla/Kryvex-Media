@@ -82,16 +82,18 @@ actually checked it that run.
 - Deploy: commit `036fb843c`, pushed to
   `claude/webtech-core-current-work-rsmbri` and fast-forwarded to
   `main`. Run #259 (id `40074490007`), head_sha `036fb843c` — exact
-  match to this commit. Polled repeatedly (~51 minutes total, at
-  growing intervals) and the run never left `status: in_progress` —
-  the same recurring large-site deploy stall already documented for
-  runs #254/#255 on 2026-10-23. No later commit landed on `main` during
-  that window (confirmed via `git merge-base --is-ancestor`), so there
-  was no newer run to check instead. Logging this honestly as
-  **unresolved** rather than guessing a conclusion — **action item:**
-  a later run today (the Daily Combined Status Report, or tomorrow's
-  blog Routine) should re-poll run #259 (id `40074490007`) and confirm
-  `conclusion: success` before reporting this post as live.
+  match to this commit. **Correction, same run:** the first ~51
+  minutes of polling kept returning `status: in_progress` at every
+  check (matching the recurring stall already documented for runs
+  #254/#255 on 2026-10-23), but a later `list_workflow_runs` call
+  showed the same run had actually already resolved — confirmed
+  `status: completed`, `conclusion: **success**` (the run's own
+  `updated_at` timestamp, `07:34:59Z`, shows it finished within ~3.5
+  minutes of starting; the long run of `in_progress` reads were a
+  real staleness/caching artifact of this environment's GitHub Actions
+  API access, not an actual stalled deploy this time). Logging the
+  corrected, confirmed result rather than leaving the earlier
+  unresolved note standing uncorrected.
 - Sitemap resubmission: confirmed — "Sitemap
   'https://kryvexmedia.com/sitemap.xml' successfully submitted for site
   'sc-domain:kryvexmedia.com'"
