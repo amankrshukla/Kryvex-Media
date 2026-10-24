@@ -13,6 +13,89 @@ selection method, real word count, real deploy run number/conclusion,
 real sitemap resubmission confirmation. Never log a claim without having
 actually checked it that run.
 
+### 2026-10-24
+
+- Topic/query: GSC 90-day query pull checked first (2026-07-22 to
+  2026-10-21, dimension `query`, 100 rows) — same standing pattern as
+  every prior run, near-total volume is hyper-local "agency/company in
+  [city]" queries already served by the programmatic geo pages,
+  nothing new maps to a blog topic. Fell back to a real, unaddressed
+  gap instead: of Kryvex's 9 industry pages, Home Services,
+  Restaurants, Ecommerce, Real Estate and Healthcare already had
+  supporting posts (2026-10-19 through 2026-10-23) — Legal
+  (`/industries/legal/`) did not, and carries real, well-documented,
+  citable regulatory mechanics (ABA Model Rules of Professional
+  Conduct, real state bar ethics opinions) comparable to the
+  healthcare post's HIPAA angle.
+- Title: "Digital Marketing for Law Firms: What Bar Advertising Rules
+  Actually Allow"
+- URL: https://kryvexmedia.com/blog/digital-marketing-for-law-firms/
+- Word count: 2,620 (verified via isolated `<main>` word count script)
+- Links: `/services/local-seo/`, `/services/ppc/`,
+  `/services/content-marketing/`, `/services/web-design/`,
+  `/industries/legal/`,
+  `/blog/digital-marketing-for-healthcare-providers/` — all 6
+  confirmed to exist in the repo before linking.
+- Facts cited (every one verified via WebSearch against a real,
+  identifiable source before writing, anti-fabrication rule applied in
+  full):
+  - ABA Model Rules of Professional Conduct 7.1 (false/misleading
+    communications standard — a literally true statement can still
+    mislead if it omits necessary context), 7.2 (advertising; general
+    bar on paying for a recommendation except the usual charges of a
+    not-for-profit or bar-qualified referral service; the ABA's 2018
+    overhaul eliminated the old standalone Rules 7.4/7.5, folding
+    their substance elsewhere), and 7.3 (solicitation — unsolicited
+    real-time contact for pecuniary gain is presumptively
+    impermissible).
+  - New York State Bar Association Ethics Opinion 834: an ad
+    containing a client testimonial must carry the Rule 7.1(e)(3)
+    results disclaimer. Virginia's rule requiring the case-results
+    disclaimer in bold uppercase type, placed before the results, in
+    written ads. Washington and Oklahoma ethics opinions requiring the
+    disclaimer to be at least as prominent as the results claim.
+    Florida Bar guidance restricting past-results references on
+    billboards and short broadcast spots. Reported as real,
+    state-specific variation, not a single national rule.
+  - New York State Bar Association Ethics Opinions 1131/1132 (2017) on
+    Avvo Legal Services: the per-referral marketing fee held an
+    improper payment for a recommendation under Rule 7.2(a); Avvo's
+    own ratings/quality language found to imply Avvo's own
+    endorsement. Noted D.C.'s own ethics opinion reading its version
+    of the rule more permissively for flat-fee referral arrangements,
+    so this isn't presented as universal.
+  - ABA Formal Opinion 496 (2021-01-13): a negative online review
+    alone does not create "implied authorization" to disclose client
+    confidential information under Model Rule 1.6(b)(5), even when
+    the reviewer is the client; even a general denial can itself imply
+    client involvement and become its own confidentiality problem.
+  No invented statistics, client results, or testimonials.
+- Also added this post's own card (`data-cat="content"`) to
+  `blog/index.html`'s `#post-grid` and today's URL to
+  `sitemap-resources.xml` (lastmod 2026-10-24) in the same commit.
+  Checked the new post's `<head>` for a noindex tag before committing
+  — none present.
+- QA: all HTML tag types balanced (div/section/article/script/head/
+  body/html/ul/li/header/footer/main/h1/h2/h3/p open counts == close
+  counts); all 3 `application/ld+json` blocks (BreadcrumbList/
+  BlogPosting/FAQPage) parse as valid JSON.
+- Deploy: commit `036fb843c`, pushed to
+  `claude/webtech-core-current-work-rsmbri` and fast-forwarded to
+  `main`. Run #259 (id `40074490007`), head_sha `036fb843c` — exact
+  match to this commit. Polled repeatedly (~51 minutes total, at
+  growing intervals) and the run never left `status: in_progress` —
+  the same recurring large-site deploy stall already documented for
+  runs #254/#255 on 2026-10-23. No later commit landed on `main` during
+  that window (confirmed via `git merge-base --is-ancestor`), so there
+  was no newer run to check instead. Logging this honestly as
+  **unresolved** rather than guessing a conclusion — **action item:**
+  a later run today (the Daily Combined Status Report, or tomorrow's
+  blog Routine) should re-poll run #259 (id `40074490007`) and confirm
+  `conclusion: success` before reporting this post as live.
+- Sitemap resubmission: confirmed — "Sitemap
+  'https://kryvexmedia.com/sitemap.xml' successfully submitted for site
+  'sc-domain:kryvexmedia.com'"
+
 ### 2026-10-22
 
 - Topic/query: GSC 90-day query pull checked first (2026-07-20 to
