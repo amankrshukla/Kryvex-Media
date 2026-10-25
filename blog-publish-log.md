@@ -88,6 +88,15 @@ actually checked it that run.
   script/head/body/html/ul/li/header/footer/main/h1/h2/h3/p open
   counts == close counts); all 3 `application/ld+json` blocks
   (BreadcrumbList/BlogPosting/FAQPage) parse as valid JSON.
+- Deploy: commit `d10335abe`, pushed to
+  `claude/webtech-core-current-work-rsmbri` and fast-forwarded to
+  `main`. Run #266 (id `40173220416`), head_sha `d10335abe` — exact
+  match to this commit. Polled `get_workflow_run` through
+  `in_progress`, confirmed `status: completed`, `conclusion:
+  **success**`.
+- Sitemap resubmission: confirmed — "Sitemap
+  'https://kryvexmedia.com/sitemap.xml' successfully submitted for site
+  'sc-domain:kryvexmedia.com'"
 
 ### 2026-10-24
 
