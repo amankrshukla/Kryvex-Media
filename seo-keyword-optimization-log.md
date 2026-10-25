@@ -143,14 +143,31 @@ picked (see the 2026-09-28 entry below for why this matters).
 132. ~~`/canada/`~~ — done 2026-10-24 (country hub)
 133. ~~`/australia/`~~ — done 2026-10-24 (country hub)
 134. ~~`/germany/`~~ — done 2026-10-24 (country hub)
-135. *(after these: the named major-metro-county tier from the prior action
-     item is now exhausted. Next up — verify real page existence and real
-     ranking before picking: a further tier of US counties by Census
-     population not yet in this queue, then the remaining real country
-     hub pages this site has — candidates to check next: `/france/`,
-     `/italy/`, `/spain/`, `/netherlands/`, `/mexico/`, `/brazil/`,
-     `/uae/`, `/singapore/` — confirm each directory exists and read its
-     real current title/H1 before assuming it needs the same treatment.)*
+135. ~~`/florida/duval/`~~ — done 2026-10-25 (major metro county, Jacksonville)
+136. ~~`/indiana/marion/`~~ — done 2026-10-25 (major metro county, Indianapolis;
+     first Indiana page in this queue)
+137. ~~`/france/`~~ — done 2026-10-25 (country hub)
+138. ~~`/italy/`~~ — done 2026-10-25 (country hub)
+139. ~~`/spain/`~~ — done 2026-10-25 (country hub)
+140. ~~`/netherlands/`~~ — done 2026-10-25 (country hub)
+141. ~~`/mexico/`~~ — done 2026-10-25 (country hub)
+142. ~~`/brazil/`~~ — done 2026-10-25 (country hub)
+143. ~~`/uae/`~~ — done 2026-10-25 (country hub)
+144. ~~`/singapore/`~~ — done 2026-10-25 (country hub)
+145. *(after these: the named "candidates to check next" country hub list
+     from the prior action item is now exhausted — every real country hub
+     this site has is done. Next up — verify real page existence and real
+     current title/H1/intent before picking: a further tier of US counties
+     by Census population not yet in this queue. Real candidates spotted
+     2026-10-25 while scanning the repo for the next batch (confirmed to
+     exist on disk via `ls`, population/notability not yet re-verified,
+     check before use) — `/florida/pinellas/` (St. Petersburg/Clearwater),
+     `/illinois/dupage/`, `/maryland/baltimore/` (Baltimore County, distinct
+     from Baltimore City), `/colorado/el-paso/` (Colorado Springs),
+     `/colorado/jefferson/`, `/kentucky/fayette/` (Lexington),
+     `/oregon/washington/` (Hillsboro/Beaverton). Note:
+     `/maryland/prince-georges/` was checked and does **not** exist on disk
+     — don't pick it without confirming a real directory first.)*
 
 ## Log
 
@@ -1742,3 +1759,130 @@ the confirmed final tip of `main` once tomorrow's routines push —
 until one resolves to `conclusion: success`, using the same
 `git merge-base --is-ancestor` check before treating today's 10 pages
 as confirmed live.
+
+### 2026-10-25
+
+10 pages: 2 major-metro county pages (continuing the established
+county tier) + the 8 remaining real country hub pages this site has
+(the full list named as the next action item in the 2026-10-24 entry).
+
+**Pages, keywords, intent-match check:**
+- `/florida/duval/` (Jacksonville) and `/indiana/marion/` (Indianapolis):
+  read each page's real current title/H1/hero first — both already
+  genuinely offer a "digital marketing agency serving [County] County"
+  for local businesses, matching real page intent. Primary `digital
+  marketing agency in [County] County, [State]` / secondary `digital
+  marketing company in [County] County, [State]` — the same pattern
+  already WebSearch-confirmed and reused across every county batch
+  since 2026-10-18/19; not re-searched this run, consistent with how
+  prior batches handled a direct continuation of an already-verified
+  pattern (same precedent as the 2026-10-24 entry).
+- `/france/`, `/italy/`, `/spain/`, `/netherlands/`, `/mexico/`,
+  `/brazil/`, `/uae/`, `/singapore/`: read each page's real current
+  title/H1/hero first — all 8 already genuinely offer a digital
+  marketing agency for businesses in that country, matching real page
+  intent (same template as the already-optimized `usa`/`uk`/`india`/
+  `canada`/`australia`/`germany` country hubs). Semrush checked live
+  this run — still `no_api_units` (`no_subscription`/units-exhausted
+  error, not assumed) — so fell back to WebSearch, one fresh search per
+  country this run: `"digital marketing agency in France" OR "...
+  France" small business`, and the equivalent for Italy, Spain, the
+  Netherlands, Mexico, Brazil, the UAE, and Singapore. Every search
+  confirmed "digital marketing agency in [Country]" is real, commonly
+  used phrasing — Semrush's own Agency Partners directory structures
+  its listings as "Digital Marketing Agencies for Small Business in
+  [Country]" for all 8 countries, and multiple real agencies' own
+  self-descriptions in the results used the same "digital marketing
+  agency in [Country]" phrasing (e.g. Netsleek "across the Netherlands",
+  Keycode Agencia Digital/Backdoor Marketing for Mexico, Agência Mestre/
+  Beeon for Brazil, United SEO/Fast Digital Marketing for the UAE,
+  Digitrio/Roots Digital for Singapore). Primary: `digital marketing
+  agency in [Country]` (`in the Netherlands` / `in the UAE` with the
+  article, matching real usage for those two). Secondary: `digital
+  marketing company in [Country]`. **Not volume-verified** — Semrush
+  units exhausted — action item: revisit once units refresh.
+
+**What changed per page:**
+- 2 county pages: meta/og/twitter description "agency serving [County]
+  County, [State]" → "agency in [County] County, [State]" (exact
+  primary phrase, article dropped); JSON-LD `description` rewritten to
+  lead with "Full-service digital marketing agency in [County] County,
+  [State], running SEO, PPC, social media and web design for local
+  businesses."; eyebrow/badge "📍 [County] County, [State]" → "📍
+  Digital Marketing Agency in [County] County, [State]"; `<h1>`
+  "Digital Marketing for [short] Businesses That Actually Converts" →
+  "Digital Marketing Agency in [County] County, [State]: Marketing That
+  Actually Converts"; hero sub paragraph rewritten to open with "As a
+  digital marketing company in [County] County, [State], we build SEO,
+  Google Ads, and social media strategy specifically for [area]
+  businesses — not a generic statewide template." (adds the secondary
+  keyword). `<title>` on both already carried the exact primary phrase
+  from original generation — left unchanged.
+- 8 country pages: `<title>`/og:title/twitter:title "Digital Marketing
+  in [Country]" → "Digital Marketing Agency in [Country]" (checked
+  `canada`/`australia`/`germany`'s `<title>` tags too, since this run's
+  editing script initially skipped the bare `<title>` element on its
+  first pass for these 8 before being caught and fixed — those 3 prior
+  pages' `<title>` tags were re-checked directly via `grep` and **are**
+  already correct, "Digital Marketing Agency in [Country]", confirming
+  the 2026-10-24 entry's claim was accurate; no fix needed there);
+  meta/og/twitter description
+  "...agency serving businesses across [Country] —..." → "...agency in
+  [Country] —..." (Singapore's description already read "...agency
+  serving Singapore businesses across all 5 URA regions..." → "...agency
+  in Singapore across all 5 URA regions..."); JSON-LD `description`
+  rewritten to lead with "Full-service digital marketing agency in
+  [Country], running SEO, PPC, social media and web design for
+  businesses nationwide." (Singapore's kept "...across all 5 URA
+  regions" instead of "nationwide" to stay accurate to its own real
+  sub-structure); badge "Digital Marketing · [Country]" → "DIGITAL
+  MARKETING AGENCY IN [COUNTRY]"; `<h1>` "Digital marketing that grows
+  [Country] businesses." → "Digital marketing agency in [Country]
+  businesses trust to grow."; hero `desc` paragraph rewritten to open
+  with "As a digital marketing company in [Country] that small
+  businesses and startups rely on across all N [regions/provinces/
+  states/emirates], we help you win customers online..." (adds the
+  secondary keyword). The "all N [division]" figure for each country is
+  a real, verifiable fact, not invented: counted directly from this
+  site's own real subdirectory structure for that country (`ls` on each
+  country folder) rather than quoted from an external source — France
+  18 regions, Italy 20 regions, Spain 19 autonomous communities,
+  Netherlands 12 provinces, Mexico 32 states, Brazil 27 states, UAE 7
+  emirates, Singapore 5 URA regions (unchanged, already on the page) —
+  each count matches the real, standard administrative-division count
+  for that country.
+
+**Grep-verified on all 10 pages this run** (scripted check, primary and
+secondary case-insensitive, not assumed): primary keyword total
+occurrences — Duval 9, Marion 9, France/Italy/Spain/Mexico/Brazil/
+Singapore 10 each, Netherlands 9, UAE 6 (shorter name, fewer
+coincidental substring hits) — all ≥1 as required; primary confirmed
+present inside the actual `<h1>...</h1>` text — yes on all 10
+(double-checked directly for the 2 county pages after the script's
+regex mis-grabbed unrelated markup for the badge check on those 2 —
+re-verified with a direct `grep -n "cty-eyebrow"` instead, confirmed
+correct both times); primary confirmed present inside the eyebrow/badge
+line — yes on all 10; secondary keyword confirmed present at least once
+inside `<main>` — 1/1 on all 10; `<div>` tag balance — 114/114
+(`florida/duval`), 94/94 (`indiana/marion`), 177/177 each on
+France/Italy/Spain/Netherlands/Mexico/Brazil/UAE, 201/201 (`singapore`,
+has extra nav markup); every page's `application/ld+json` block parsed
+successfully via Python `json.loads` — valid on all 10, 1 block each.
+
+**Noindex finding (observational only, not acted on, per standing
+instruction):** the 2 county pages (`florida/duval`, `indiana/marion`)
+each carry `<meta name="robots" content="noindex,follow">` in `<head>`
+— consistent with the 2026-10-20 site-wide audit finding. All 8 country
+hub pages (`france`, `italy`, `spain`, `netherlands`, `mexico`,
+`brazil`, `uae`, `singapore`) carry **no** `robots` meta tag at all
+(checked via script, confirmed absent, not assumed) — same
+indexable-by-default state as the already-optimized `usa`/`uk`/`india`/
+`canada`/`australia`/`germany` country hubs. No noindex tags were
+removed or added on any of today's 10 pages.
+
+- Action item: none of today's 10 pages volume-verified (Semrush units
+  still exhausted) — revisit once units refresh.
+- Total done today: 10 pages (`/florida/duval/`, `/indiana/marion/`,
+  `/france/`, `/italy/`, `/spain/`, `/netherlands/`, `/mexico/`,
+  `/brazil/`, `/uae/`, `/singapore/`).
+
