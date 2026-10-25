@@ -667,3 +667,66 @@ investigating delay rather than normal variance. `/blog/` index's
 small impressions uptick (2→3) is noted but not yet a trend — watch
 next pull. `local-seo-vs-national-seo` remains genuinely stuck at 37
 days uncrawled, no new information this run.
+
+## 2026-10-25 — daily blog Routine run
+
+Published today: `digital-marketing-for-education-businesses` (2,628
+words). Too new (0 days old) for a URL Inspection signal yet, so not
+checked this run.
+
+**Indexing check (posts published in the last ~14 days plus the
+long-standing flagged-stuck URL):**
+- `digital-marketing-for-law-firms` (1 day old): **"URL is unknown to
+  Google."** Expected at this age, consistent with every prior post's
+  day-1 reading.
+- `digital-marketing-for-healthcare-providers` (2 days old): **"URL is
+  unknown to Google."**
+- `digital-marketing-for-real-estate-agents` (3 days old): **"URL is
+  unknown to Google."**
+- `ecommerce-marketing-that-actually-converts` (4 days old): **"URL is
+  unknown to Google,"** unchanged from yesterday's check at 3 days
+  old — the action item flagged yesterday for this post.
+- `digital-marketing-for-restaurants` (5 days old): **"URL is unknown
+  to Google,"** unchanged for a 3rd consecutive check (flagged
+  yesterday as the real anomaly at 4 days). This is now 5 days with no
+  movement off "unknown" — genuinely slower than this site's
+  established pattern and the action item carries forward again.
+- `digital-marketing-for-home-services-businesses` (6 days old):
+  **"URL is unknown to Google."** Real finding, flagged rather than
+  assumed either way: this is a **regression** from yesterday's
+  reading of "Discovered - currently not indexed" for the same URL.
+  Google's own documentation already established on 2026-10-22 that
+  URL Inspection data can lag live index state and show a transient
+  dip that resolves on its own (confirmed that day for three other
+  posts) — this could be the same kind of reporting-lag blip, or it
+  could be a real re-drop. Logging it honestly as unresolved rather
+  than guessing either way; re-check tomorrow before concluding
+  anything.
+- `local-seo-vs-national-seo` (long-standing flagged-stuck post):
+  **"Crawled - currently not indexed,"** `lastCrawlTime` still
+  `2026-09-17T19:03:49Z` — now 38 days without a recrawl. Unchanged.
+
+**Performance re-pull (90-day window, page dimension, `/blog/`,
+2026-07-27 to 2026-10-23):** `how-to-cut-wasted-ad-spend-in-30-days` 33
+impressions (position ~66.5), `email-flows-every-business-needs` 4
+(position 20.5), `what-is-digital-marketing` 4 (position 3),
+`seo-company-hiring-guide` 3 (position 1), `/blog/` index 3 (position
+5.67), `10-local-seo-tactics-that-fill-your-calendar` 2 (position 1),
+`how-to-choose-an-seo-company-in-patna` 2 (position 1),
+`website-mistakes-costing-you-customers` 1 (position 14) — **every
+single number identical to the 2026-10-24 pull**, no change in either
+direction for any post. **Zero clicks on every post, still, with no
+exception.** None of the six most recent posts (ecommerce, restaurants,
+home-services, real-estate, healthcare, law-firms) show any
+impressions yet; the new education post is too new to appear.
+
+**Action items:** re-check `digital-marketing-for-home-services-
+businesses` tomorrow — did it recover to "Discovered" (lag, as the
+2026-10-22 precedent suggests) or stay at "unknown" (a real regression
+worth investigating)? Continue tracking `digital-marketing-for-
+restaurants` (now 5 days unmoved — the longest stall of any recent
+post so far) and `ecommerce-marketing-that-actually-converts` (4 days
+unmoved). `local-seo-vs-national-seo` remains genuinely stuck at 38
+days uncrawled. Performance stayed completely flat this run — no new
+pattern to act on for post structure/topic/length since nothing in
+the real numbers moved at all.

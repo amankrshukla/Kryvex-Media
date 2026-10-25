@@ -13,6 +13,82 @@ selection method, real word count, real deploy run number/conclusion,
 real sitemap resubmission confirmation. Never log a claim without having
 actually checked it that run.
 
+### 2026-10-25
+
+- Topic/query: GSC 90-day query pull checked first (2026-07-22 to
+  2026-10-22, dimension `query`, 100 rows) — same standing pattern as
+  every prior run, near-total volume is hyper-local "agency/company/
+  services in [city]" queries already served by the programmatic geo
+  pages, nothing new maps to a blog topic. Fell back to a real,
+  unaddressed gap instead: of Kryvex's 9 real industry pages, Home
+  Services, Restaurants, Ecommerce, Real Estate, Healthcare and Legal
+  already had supporting posts (2026-10-19 through 2026-10-24) —
+  Education (`/industries/education/`) did not, and (like the Legal
+  and Healthcare posts) carries real, well-documented, citable
+  regulatory mechanics (FERPA, COPPA, two real state student-privacy
+  laws) rather than invented ones.
+- Title: "Digital Marketing for Education Businesses: What FERPA and
+  COPPA Actually Restrict"
+- URL: https://kryvexmedia.com/blog/digital-marketing-for-education-businesses/
+- Word count: 2,628 (verified via isolated `<main>` word count script)
+- Links: `/services/local-seo/`, `/services/ppc/`,
+  `/services/content-marketing/`, `/services/email-marketing/`,
+  `/industries/education/`, `/blog/digital-marketing-for-law-firms/` —
+  all 6 confirmed to exist in the repo before linking.
+- Facts cited (every one verified via WebSearch against a real,
+  identifiable source before writing, anti-fabrication rule applied in
+  full):
+  - FERPA (20 U.S.C. § 1232g; 34 CFR Part 99), the directory-information
+    exception at 34 CFR 99.37 — disclosure without consent requires
+    prior public notice of designated categories plus a real opt-out
+    window; opt-outs must continue to be honored for former students;
+    99.37(d) lets a school narrow who it discloses directory
+    information to.
+  - FTC COPPA Rule amendments: published in the Federal Register April
+    22, 2025, effective June 23, 2025, compliance deadline April 22,
+    2026 — added a requirement for separate, specific opt-in parental
+    consent before using a child's data for targeted advertising (not
+    bundleable into general consent); confirmed via the Federal
+    Register text itself and corroborated by DWT, Venable and Mondaq
+    law-firm summaries. The amendments explicitly left out a proposed
+    edtech-specific school-authorization carve-out, with the FTC citing
+    a wish to avoid conflicting with the Dept. of Education's own
+    pending FERPA work.
+  - FTC Policy Statement on Education Technology, adopted unanimously
+    May 19, 2022 (ftc.gov, corroborated by Mondaq/Orrick/ZwillGen
+    summaries) — data minimization (no requiring more data than an
+    activity needs), no repurposing school-authorized student data for
+    the provider's own marketing/advertising, retention tied to
+    purpose, reasonable security required regardless of breach.
+  - California SOPIPA (Cal. Bus. & Prof. Code § 22584, effective
+    January 1, 2016) — bars a covered K-12-directed operator from
+    running targeted ads on its own service or using data obtained
+    through it to target ads elsewhere, including to parents; applies
+    without requiring a school contract (FPF analysis, Cooley summary).
+  - New York Education Law § 2-d and its regulations (via NYSED's own
+    June 2023 guidance PDF, a primary-source-adjacent official
+    document) — bars educational agencies and third-party contractors
+    from using student data for commercial/marketing purposes, with the
+    regulations defining that to include sale, remuneration-based
+    use/disclosure, advertising use, or using data to develop/market
+    products to students; narrow exception for a parent's own direct,
+    consented request.
+  No invented statistics, client results, or testimonials. (Note:
+  WebSearch also surfaced a 2025 FTC "click-to-cancel"/Negative Option
+  Rule status and a 2025 fitness-industry retention figure while
+  scoping candidate topics — both were single-sourced/secondhand on
+  verification and were dropped rather than used, per the
+  anti-fabrication rule, in favor of the better-corroborated
+  FERPA/COPPA angle.)
+- Also added this post's own card (`data-cat="content"`) to
+  `blog/index.html`'s `#post-grid` and today's URL to
+  `sitemap-resources.xml` (lastmod 2026-10-25) in the same commit.
+  Checked the new post's `<head>` for a noindex tag before committing
+  — none present. All HTML tag types balanced (div/section/article/
+  script/head/body/html/ul/li/header/footer/main/h1/h2/h3/p open
+  counts == close counts); all 3 `application/ld+json` blocks
+  (BreadcrumbList/BlogPosting/FAQPage) parse as valid JSON.
+
 ### 2026-10-24
 
 - Topic/query: GSC 90-day query pull checked first (2026-07-22 to
