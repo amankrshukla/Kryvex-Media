@@ -323,3 +323,10 @@ kept as-is, not echoed as a sourced quote in the caption itself.
   flag (same 11 rows unresolved). Checked Drive directly again
   (`createdTime > '2026-10-20T00:00:00Z'`) — zero files, confirming no
   Day 6+ batch has been added. Nothing eligible to post today.
+
+### 2026-10-25
+- Daily Routine fire (14:11:48 UTC). Re-read the full queue table — still
+  all 50 rows with a confirmed date or the "unconfirmed" flag (same 11
+  rows unresolved). Checked Drive directly again
+  (`createdTime > '2026-10-20T00:00:00Z'`) — zero files, confirming no
+  Day 6+ batch has been added. Nothing eligible to post today.
