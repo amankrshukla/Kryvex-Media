@@ -1760,6 +1760,15 @@ until one resolves to `conclusion: success`, using the same
 `git merge-base --is-ancestor` check before treating today's 10 pages
 as confirmed live.
 
+**Follow-up (2026-10-25, checked before today's run):** re-ran
+`list_workflow_runs` fresh. Run #263 (id `40075114560`) itself now
+shows `conclusion: cancelled` (resolved, no longer in_progress) — but
+run #264 (id `40075232054`, the very next run, head_sha `0338b69a9`)
+shows `conclusion: success`. Confirmed via `git merge-base
+--is-ancestor 54d64d932... 0338b69a9...` → **yes**, today's SEO commit
+is included in that successful run's tip. So 2026-10-24's 10 pages
+**are** confirmed live — the action item above is resolved.
+
 ### 2026-10-25
 
 10 pages: 2 major-metro county pages (continuing the established
@@ -1885,4 +1894,29 @@ removed or added on any of today's 10 pages.
 - Total done today: 10 pages (`/florida/duval/`, `/indiana/marion/`,
   `/france/`, `/italy/`, `/spain/`, `/netherlands/`, `/mexico/`,
   `/brazil/`, `/uae/`, `/singapore/`).
+
+**Deploy status (checked live, not guessed):** commit `0155f4912` was
+pushed to `claude/webtech-core-current-work-rsmbri` and fast-forwarded
+to `main` cleanly (no rebase needed). Its own matching run (#268, id
+`40173622731`, head_sha `0155f4912` exact match) resolved to
+`conclusion: cancelled` — superseded by a near-simultaneous push from
+the concurrent Reddit-growth routine (commit `210cb246f`, run #269, id
+`40173749975`). Confirmed via `git merge-base --is-ancestor 0155f4912
+210cb246f` that today's SEO commit **is** included in that later tip,
+so run #269 is the one that needs to resolve to `success`. Polled run
+#269 repeatedly with fresh `list_workflow_runs` calls (not just cached
+`get_workflow_run` reads, per the staleness lesson from 2026-10-24) over
+~39 minutes — it returned identical `status: in_progress`,
+`updated_at: 07:42:06Z` on every single check, with no later run
+(#270+) appearing to supersede it. Unlike the 2026-10-24 stale-read
+case (which resolved within ~3.5 minutes but was misread as stuck),
+this one shows no sign of having actually completed — the timestamp
+genuinely never advances and the run count never grows. Logging this
+honestly as **unresolved** per the standing ~45-minute threshold, not
+success. Action item: a later run/session should re-poll run #269 (id
+`40173749975`) — or whichever later run becomes the confirmed final
+tip of `main` by then — using a fresh `list_workflow_runs` call (not
+a cached single-run read) until one resolves to `conclusion: success`,
+with the same `git merge-base --is-ancestor` check before treating
+today's 10 pages as confirmed live.
 
