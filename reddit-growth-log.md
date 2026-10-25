@@ -894,3 +894,120 @@ made unilaterally here): trying the daily attempt at a different time
 of day than ~16:57 IST, in case the cooldown window aligns with this
 specific run time, or reducing attempted comments to the single
 highest-confidence draft per day rather than planning for up to 4-5.
+
+### 2026-10-25 — Week 4, day 5: rate-limited on the very first attempt a 5th consecutive day; zero comments posted
+
+**Week determination:** today (2026-10-25) is day 5 of Week 4
+(2026-10-21 to 2026-10-27) by the calendar date-ranges in this log —
+clean mapping, no ambiguity.
+
+**Promotion-posture check (karma-gated, per the standing rule):**
+`REDDIT_GET_REDDIT_USER_ABOUT` (username "me") run before starting —
+`total_karma: 1`, `link_karma: 1`, `comment_karma: 0` — unchanged from
+every check since 2026-09-30. Per the standing rule, posture stays
+fully non-promotional regardless of the Week 4 calendar allowance (no
+Kryvex mention, no links, in anything drafted today).
+
+**Carried-over threads checked first** (action item from 2026-10-24),
+all four re-read in full (`REDDIT_RETRIEVE_POST_COMMENTS`) before
+attempting anything, each re-verified as still open and non-duplicate
+against *new* replies that had landed since yesterday:
+
+1. r/DigitalMarketing — ["How Do You Structure Your Meta Ads Funnel in Practice?"](https://www.reddit.com/r/DigitalMarketing/comments/1xbwmdz/) —
+   still no new top-level replies since 2026-10-24 (still just
+   AutoModerator x2 + BenningtonBrookstone). Drafted angle (Meta's own
+   ~50-optimization-events/ad-set/week learning-phase threshold, plus
+   the UGC-video/testimonial-carousel/static-offer breakdown by funnel
+   stage) remained fully non-duplicate, and was finalized as a reply
+   that opens by agreeing with `BenningtonBrookstone`'s existing
+   "one campaign first" answer rather than ignoring it. **Attempted
+   first — not posted.** `REDDIT_POST_REDDIT_COMMENT` returned a real
+   `RATELIMIT` ("Looks like you've been doing that a lot. Take a break
+   for 3 minutes... wait approximately 9 minute(s) and 7 second(s)") on
+   this very first call of the run, before anything had been posted
+   today.
+2. r/SEO — ["Would having a lot of non-indexed pages affected a site's overall search rankings?"](https://www.reddit.com/r/SEO/comments/1xc6tsb/) —
+   re-read in full; comment count actually *dropped* from the 14 logged
+   yesterday to 7 visible today (two became `[deleted]`/`[removed]`,
+   consistent with normal Reddit moderation/self-deletion, not anything
+   this account did). New real replies present: `Illustrious_Log_9764`
+   (410s + Removals-tool + "don't block in robots.txt yet" — thorough,
+   covers the general indexation-cleanup mechanics already) and
+   `Kitchen_Bend5016` (a similar real hacked-site case study, redirect-
+   to-catch-all-page approach, ~3-month recovery). Neither mentions the
+   backlinks/Links-report angle this log drafted on 2026-10-22 (toxic
+   inbound links accrued during the hack period as a separate, likely
+   explanation for persistently low domain authority, independent of
+   the raw non-indexed-page count) — confirmed still non-duplicate.
+   Drafted, not attempted (stopped after #1's rate limit).
+3. r/SEO — ["Can't understand why Discovery GSC dropped since August"](https://www.reddit.com/r/SEO/comments/1xc910h/) —
+   re-read; now 4 comments (`Simple-Incident-8930`: impressions-up/
+   clicks-down → featured snippet/AI Overview; `mnudu`: Discover ≠
+   Search, freshness/engagement-driven; `WebLinkr` + `Brave-Scientist1921`:
+   a side exchange about automatic-inclusion/program eligibility, not
+   directly on-topic for this specific drop). None address the specific
+   technical check this log drafted (the `max-image-preview:large`
+   robots meta tag, or equivalent `X-Robots-Tag` header, being silently
+   stripped by a CMS/CDN/consent-script change without affecting regular
+   indexing/ranking) — confirmed still non-duplicate. Drafted, not
+   attempted (stopped after #1's rate limit).
+4. r/AskMarketing — ["Does Structured Data Help AI Systems Understand a Website More Accurately?"](https://www.reddit.com/r/AskMarketing/comments/1xbdm1f/) —
+   re-read; now has a third real reply (`carsstoon`: schema helps most
+   with discrete facts, less with rankings — Organization/LocalBusiness
+   markup, `sameAs` links to GBP/LinkedIn/Crunchbase/Wikidata, validate
+   against visible text). This is the closest any existing reply has
+   come to the cross-site angle this log planned, but it stops at
+   `sameAs` linking — it doesn't address *AI-citation-specific*
+   cross-site consistency (own site vs. GBP, directories, review sites
+   disagreeing on the same fact) as the bigger lever, and doesn't touch
+   the measurement-gap point (GA4/GSC don't currently separate
+   AI-referred traffic from ordinary referral/direct; the real signal
+   today is server/access-log checks for AI-crawler user agents —
+   GPTBot, PerplexityBot, ClaudeBot, Google-Extended). Confirmed still
+   non-duplicate, if narrower than before. Drafted, not attempted
+   (stopped after #1's rate limit).
+
+**No new opportunities searched today** — the run stopped after the
+first rate limit, per the standing "honor the cooldown, don't retry
+through it, stop for the day" rule, rather than waiting out the ~9m7s
+cooldown and attempting a 2nd call.
+
+**Karma check (post-activity):** `REDDIT_GET_REDDIT_USER_ABOUT`
+(username "me") run again after the rate-limit hit — identical,
+unchanged real numbers: `total_karma: 1`, `link_karma: 1`,
+`comment_karma: 0`.
+
+**Real finding — now a clear pattern over 5 consecutive real runs
+(2026-10-21, 10-22, 10-23, 10-24, 10-25):** the per-account comment
+rate-limit cooldown has hit on the *first* `REDDIT_POST_REDDIT_COMMENT`
+call of the day, every single day for a full working week, blocking
+all planned activity before anything could post. This extends the
+2026-10-24 finding to a 5th straight day and makes it a week-long,
+unbroken pattern rather than an occasional occurrence — genuinely
+non-duplicate, well-researched drafted answers have been ready every
+single one of these five days, so the constraint is conclusively on
+Reddit's own per-account side (a comment-frequency cooldown that is not
+fully resetting between daily runs spaced ~24h apart), not on
+drafting, targeting, or subreddit selection. Flagging this explicitly
+for the owner, same as the 2026-10-24 entry asked: five days of zero
+posted comments is a trend that now clearly needs a decision from the
+owner (e.g. trying a different time of day, spacing attempts further
+apart within a run, or accepting this as the account's real ceiling)
+rather than another day of running the same approach unchanged and
+re-logging the same result.
+
+**No subreddit blocked participation outright via a rules change
+today** — r/SEO, r/AskMarketing, r/DigitalMarketing rules were already
+confirmed fresh this week (2026-10-21 entry); none re-checked today
+since no new subreddit was targeted. Nothing posted to r/marketing,
+r/smallbusiness, r/Entrepreneur, r/EntrepreneurRideAlong, r/localseo,
+r/web_design, r/webdev, or r/DigitalMarketingIndia today.
+
+**Action item for tomorrow's run:** try all 4 drafted comments above
+first (#1 Meta Ads funnel, #2 non-indexed-pages backlink/Links-report
+angle, #3 Discover drop — max-image-preview:large tag, #4 AskMarketing
+— cross-site entity consistency + AI-crawler log measurement gap) —
+after confirming each thread is still open and the draft angles are
+still non-duplicate — before searching for new opportunities. This is
+now a 5-day unbroken pattern; escalate to the owner for an actual
+decision on approach rather than treating it as routine going forward.
