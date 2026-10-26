@@ -2067,7 +2067,35 @@ rushed, lower-quality content expansion.
   `/kentucky/fayette/`, `/oregon/washington/`, `/pennsylvania/philadelphia/`,
   `/texas/collin/`, `/georgia/gwinnett/`).
 
-**Deploy status:** pending — commit not yet pushed/polled as of writing
-this entry. See the follow-up note below once the GitHub Actions deploy
-for this commit resolves.
+**Deploy status (checked live, not guessed):** commit `08628c1e1` was
+pushed to `claude/webtech-core-current-work-rsmbri` and fast-forwarded
+to `main` cleanly (no rebase needed — `main` had not moved since the
+earlier fitness-blog commit `eb4dcab80`/log commit `9b358ea16`, both
+already confirmed deployed before this SEO commit was pushed). Its own
+matching run (#274, id `40287122120`, `head_sha` exact match to
+`08628c1e1`) was found via a fresh `list_workflow_runs` call
+immediately after the push, status `queued`/`in_progress`. Polled it
+repeatedly with fresh `list_workflow_runs` calls (not cached single-run
+reads, per the 2026-10-24/25 staleness lesson) across roughly 45
+minutes total — every single check returned the identical
+`status: in_progress`, `updated_at: 07:39:29Z`, with no later run
+(#275+) appearing to supersede it. This is the same signature as the
+2026-10-25 genuine stall (run #269, never resolved after ~39 minutes of
+identical fresh reads), not a stale-read artifact (which resolved
+within ~3.5 minutes in the 2026-10-24 case). Logging this honestly as
+**unresolved** per the standing ~45-minute threshold, not success.
+Action item: a later run/session should re-poll run #274 (id
+`40287122120`) — or whichever later run becomes the confirmed final tip
+of `main` by then — using a fresh `list_workflow_runs` call (not a
+cached single-run read) until one resolves to `conclusion: success`,
+checking `git merge-base --is-ancestor 08628c1e1 <that run's head_sha>`
+before treating today's 10 pages as confirmed live. Worth noting for
+whoever re-polls: this is now the second day in a row (2026-10-25,
+2026-10-26) this exact Pages workflow has shown a run stuck
+`in_progress` for 40+ minutes with zero job-status movement — if a
+third consecutive day shows the same pattern, it may be worth checking
+whether the Pages deployment workflow itself (not just push-timing
+collisions between concurrent routines) has a real underlying problem,
+since today's SEO push did not coincide with a near-simultaneous push
+from another routine the way 2026-10-24/25's cancelled-run cases did.
 
