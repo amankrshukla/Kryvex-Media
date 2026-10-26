@@ -154,20 +154,47 @@ picked (see the 2026-09-28 entry below for why this matters).
 142. ~~`/brazil/`~~ — done 2026-10-25 (country hub)
 143. ~~`/uae/`~~ — done 2026-10-25 (country hub)
 144. ~~`/singapore/`~~ — done 2026-10-25 (country hub)
-145. *(after these: the named "candidates to check next" country hub list
-     from the prior action item is now exhausted — every real country hub
-     this site has is done. Next up — verify real page existence and real
-     current title/H1/intent before picking: a further tier of US counties
-     by Census population not yet in this queue. Real candidates spotted
-     2026-10-25 while scanning the repo for the next batch (confirmed to
-     exist on disk via `ls`, population/notability not yet re-verified,
-     check before use) — `/florida/pinellas/` (St. Petersburg/Clearwater),
-     `/illinois/dupage/`, `/maryland/baltimore/` (Baltimore County, distinct
-     from Baltimore City), `/colorado/el-paso/` (Colorado Springs),
-     `/colorado/jefferson/`, `/kentucky/fayette/` (Lexington),
-     `/oregon/washington/` (Hillsboro/Beaverton). Note:
-     `/maryland/prince-georges/` was checked and does **not** exist on disk
-     — don't pick it without confirming a real directory first.)*
+145. ~~`/florida/pinellas/`~~ — done 2026-10-26 (major metro county,
+     St. Petersburg/Clearwater)
+146. ~~`/illinois/dupage/`~~ — done 2026-10-26 (major metro county)
+147. ~~`/maryland/baltimore/`~~ — done 2026-10-26 (major metro county,
+     Baltimore County, distinct from Baltimore City)
+148. ~~`/colorado/el-paso/`~~ — done 2026-10-26 (major metro county,
+     Colorado Springs)
+149. ~~`/colorado/jefferson/`~~ — done 2026-10-26 (major metro county)
+150. ~~`/kentucky/fayette/`~~ — done 2026-10-26 (major metro county,
+     Lexington)
+151. ~~`/oregon/washington/`~~ — done 2026-10-26 (major metro county,
+     Hillsboro/Beaverton)
+152. ~~`/pennsylvania/philadelphia/`~~ — done 2026-10-26 (major metro
+     county)
+153. ~~`/texas/collin/`~~ — done 2026-10-26 (major metro county, Plano/
+     Frisco)
+154. ~~`/georgia/gwinnett/`~~ — done 2026-10-26 (major metro county,
+     Atlanta metro)
+155. *(the 7 candidates named in the prior action item are now done,
+     plus 3 more major-metro counties spotted 2026-10-26 while extending
+     the queue — confirmed to exist on disk via `ls` before being added:
+     `/pennsylvania/philadelphia/`, `/texas/collin/`, `/georgia/gwinnett/`.
+     Note: `/maryland/prince-georges/` was checked previously and does
+     **not** exist on disk — don't pick it without confirming a real
+     directory first. Next up — verify real page existence and real
+     current title/H1/intent before picking: continue the US-county tier
+     by Census population. Untried candidates spotted 2026-10-26 while
+     scanning the repo (confirmed to exist on disk via `ls`, population/
+     notability not yet re-verified, check before use) —
+     `/ohio/summit/` (Akron), `/texas/denton/` (Denton/Flower Mound),
+     `/california/kern/` (Bakersfield), `/missouri/jackson/` (Kansas City
+     side), `/nevada/washoe/` (Reno), `/virginia/loudoun/` (DC suburbs).
+     Observation from today's run, not acted on and not this routine's
+     job to fix: 9 of today's 10 pages carry well under the site's
+     standing 1,500-word `<main>` content minimum (≈620-670 words each;
+     only `/florida/pinellas/` already had deep content, at 2,001 words)
+     — consistent with CLAUDE.md's existing status note that the
+     per-county deep-content expansion has only reached Florida's 67
+     counties so far and the remaining ~3,075 US counties are a separate,
+     not-yet-started workstream. Flagging for whoever picks that content
+     effort back up, not fixing it here.)*
 
 ## Log
 
@@ -1919,4 +1946,128 @@ tip of `main` by then — using a fresh `list_workflow_runs` call (not
 a cached single-run read) until one resolves to `conclusion: success`,
 with the same `git merge-base --is-ancestor` check before treating
 today's 10 pages as confirmed live.
+
+### 2026-10-26
+
+10 pages: all major-metro county pages, extending the same tier used
+since 2026-10-18. 7 of today's 10 (`/florida/pinellas/`,
+`/illinois/dupage/`, `/maryland/baltimore/`, `/colorado/el-paso/`,
+`/colorado/jefferson/`, `/kentucky/fayette/`, `/oregon/washington/`)
+were the candidates named in the prior action item; 3 more
+(`/pennsylvania/philadelphia/`, `/texas/collin/`, `/georgia/gwinnett/`)
+were added to the queue this run (confirmed to exist on disk via `ls`
+before being used) to reach the 10-page target.
+
+**Semrush check (done live this run, not assumed):** `keyword_research`
+returned `no_api_units` (active subscription, zero balance) before any
+report could run. **Not volume-verified** — fell back to WebSearch-
+informed selection using the same pattern already established and
+WebSearch-confirmed for this exact page template across every county
+batch since 2026-10-18/19 (most recently re-confirmed 2026-10-25 for
+Duval/Marion). Action item: revisit all un-volume-verified county pages
+once Semrush units refresh.
+
+**Intent-match check (done for all 10 before picking a keyword):** read
+each page's real current `<title>`/`<h1>`/hero paragraph first. All 10
+already genuinely offer "digital marketing agency serving [County]
+County, [State]" to local businesses — real match for the chosen
+keyword pattern, no retargeting needed.
+
+**Keywords chosen (same pattern all 10, `[County]`/`[State]` substituted
+per page):**
+- Primary: `digital marketing agency in [County] County, [State]`
+- Secondary: `digital marketing company in [County] County, [State]`
+
+Per-page county/state: Pinellas/Florida, DuPage/Illinois,
+Baltimore/Maryland, El Paso/Colorado, Jefferson/Colorado,
+Fayette/Kentucky, Washington/Oregon, Philadelphia/Pennsylvania,
+Collin/Texas, Gwinnett/Georgia.
+
+**What changed per page (scripted, applied identically to all 10):**
+- `/florida/pinellas/` only: `<title>`, `og:title`, `twitter:title`, and
+  the eyebrow badge originally used the state abbreviation ("FL") where
+  every other page already used the full state name — normalized to
+  "Florida" so the primary keyword phrase is identical everywhere on
+  the page (meta description/JSON-LD already said "Florida").
+- Meta description / `og:description` / `twitter:description`:
+  "Digital marketing agency serving [County] County, [State] —..." →
+  "Digital marketing agency in [County] County, [State] —...".
+- JSON-LD `Service.description`: "Full-service digital marketing agency
+  running SEO, PPC, social media and web design for businesses in
+  [County] County, [State]." → "Full-service digital marketing agency
+  in [County] County, [State], running SEO, PPC, social media and web
+  design for local businesses."
+- Eyebrow/badge: "📍 [County] County, [State]" → "📍 Digital Marketing
+  Agency in [County] County, [State]".
+- `<h1>`: "Digital Marketing for [County] Businesses That Actually
+  Converts" → "Digital Marketing Agency in [County] County, [State]:
+  Marketing That Actually Converts".
+- Hero opening paragraph (`<p class="sub">`, the first visible body
+  copy inside `<main>`): rewritten to two sentences — "As a digital
+  marketing agency in [County] County, [State], we build SEO, Google
+  Ads, and social media strategy specifically for [area] businesses —
+  not a generic statewide template. We're the digital marketing company
+  in [County] County, [State] that local businesses actually trust for
+  real results." — placing the primary keyword in the first sentence
+  and the secondary keyword in the second, both inside the real opening
+  paragraph (first draft of this edit put only the secondary phrase in
+  the opening paragraph and was corrected before logging, per the
+  verify-don't-assume rule — see grep results below, run against the
+  corrected text).
+- `<title>` text itself already carried the exact primary phrase from
+  original page generation (after the Pinellas FL→Florida fix) — left
+  otherwise unchanged.
+
+**Grep-verified on all 10 pages this run** (scripted regex check,
+case-insensitive, run against the final saved files, not assumed):
+primary keyword occurrences — 10 on all 10 pages; secondary keyword
+occurrences — 1 on all 10 pages (hero paragraph only, kept out of meta
+tags per the standing rule against stuffing both keywords into meta
+descriptions); primary confirmed present inside the literal
+`<h1>...</h1>` text — yes on all 10; primary confirmed present inside
+the eyebrow/badge `<span class="cty-eyebrow">` text — yes on all 10;
+primary confirmed present inside the opening paragraph (`<p
+class="sub">`) — yes on all 10 (this is the one placement location this
+routine's instructions call out explicitly that earlier batches since
+2026-10-18 did not actually satisfy — see action item below); secondary
+confirmed present at least once inside `<main>` — yes on all 10; primary
+confirmed present in `<title>`, meta description, `og:title`,
+`og:description`, `twitter:title`, `twitter:description`, and the
+JSON-LD `description` field — yes on all 10. `<div>` tag balance: 115/115
+(`florida/pinellas`, has extra markup), 94/94 on the other 9. Every
+page's single `application/ld+json` block parsed successfully via
+Python `json.loads`.
+
+**Noindex finding (observational only, not acted on, per standing
+instruction):** all 10 pages carry `<meta name="robots"
+content="noindex,follow">` in `<head>` — consistent with the 2026-10-20
+site-wide audit finding and with every other county-tier page checked
+in this log so far (the no-noindex pages found have all been country
+hubs, not counties). No noindex tags were removed or added on any of
+today's 10 pages.
+
+**Content-depth observation (out of scope for this routine, logged for
+whoever picks up the separate content-expansion workstream):** checked
+`<main>` word count on all 10 pages while verifying — 9 of the 10 run
+~620-670 words, well under the site's standing 1,500-word minimum;
+`/florida/pinellas/` is the exception at ~2,001 words (already received
+deep content). This matches CLAUDE.md's existing status note that the
+per-county deep-content expansion has so far only reached Florida's 67
+counties, with the remaining ~3,075 US counties (including today's
+other 9 pages) not yet started. Not fixed here — this routine's job is
+keyword placement, not content depth, and conflating the two risks
+rushed, lower-quality content expansion.
+
+- Action items: (1) none of today's 10 pages volume-verified — Semrush
+  units still exhausted, revisit when they refresh; (2) 9 of today's 10
+  pages are under the 1,500-word `<main>` standard — flagged for the
+  separate content-expansion effort, not this routine.
+- Total done today: 10 pages (`/florida/pinellas/`, `/illinois/dupage/`,
+  `/maryland/baltimore/`, `/colorado/el-paso/`, `/colorado/jefferson/`,
+  `/kentucky/fayette/`, `/oregon/washington/`, `/pennsylvania/philadelphia/`,
+  `/texas/collin/`, `/georgia/gwinnett/`).
+
+**Deploy status:** pending — commit not yet pushed/polled as of writing
+this entry. See the follow-up note below once the GitHub Actions deploy
+for this commit resolves.
 
