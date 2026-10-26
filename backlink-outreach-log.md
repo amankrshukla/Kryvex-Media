@@ -624,6 +624,211 @@ All 5 "From" headers verified via `GMAIL_FETCH_MESSAGE_BY_MESSAGE_ID` to
 read `Kryvex Media <info@kryvexmedia.com>`, confirming the correct
 sending account was used on every send.
 
+### 2026-10-26 — second scheduled weekly run: 7 real opportunities, 7 real sends, 1 real reply found (declined, not an opt-out)
+
+Second normal scheduled fire (`trig_014Z1XWCVXosm6TAVS9f5ZoX`, ~07:44
+UTC). Confirmed the Gmail connection first (`COMPOSIO_MANAGE_CONNECTIONS`,
+toolkit `gmail`): `gmail_scap-lee` / `amansukla307@gmail.com` active.
+Pulled the current signature fresh via `GMAIL_LIST_SEND_AS` —
+`info@kryvexmedia.com` still the verified default alias,
+`verificationStatus: accepted`. Checked the opt-out list (still empty)
+and the full prior-contact history (embarque.io, blog.linkody.com,
+hunchads.com, elogic.co, targetbay.com, blog.contactpigeon.com,
+lawfuel.com, sendpulse.com, deonde.co, ranktracker.com,
+yanrefitness.com, ecommerceceo.com, jane.app/Front Desk Digital) before
+searching, and excluded all of them from this run's candidate list.
+
+**Inbox check before sending**: searched for replies from all 13 prior
+contacts since the last run. Found one real reply: **Raul from
+EcommerceCEO** (`hello@ecommerceceo.com`, 2026-10-23) thanked us for the
+2026-10-20 pitch and offered a media kit / "sponsored content options."
+This is a paid-placement offer, which this Routine's no-paid-links rule
+means we do not pursue — no payment was discussed or offered in return,
+and no further action was taken on the sponsored-content option. Not an
+opt-out request, so nothing added to the opt-out list. Logged here per
+Step 7. No other genuine replies found (remaining inbox hits since
+2026-10-19 were unrelated: Calendly, Yelp for Business, Axis Bank
+alerts, DesignRush promo).
+
+**Candidates checked via live WebSearch and `SCRAPINGBEE_HTML_FETCH`
+(roughly 30 checked across PPC/analytics, web design, ecommerce, email
+marketing, small business, startup, affiliate marketing, dental,
+restaurant and real estate niches; 7 qualified and sent, the rest
+skipped with reasons below):**
+
+Qualified and sent:
+1. **measuremindsgroup.com/guest-post-guidelines** (PPC/GA4/GTM/SEO/CRO
+   agency blog, UK/US/Europe audience) — live (200). No paid-placement
+   language found. Real contact: Cloudflare-obfuscated mailto decoded to
+   `william@measuremindsgroup.com`. Subject: "Guest post idea for
+   MeasureMinds: a CRO checklist built from GA4 data." Pitch: a
+   practical GA4-based CRO checklist for marketing managers with no
+   dedicated analyst. **Sent**, confirmed message id `1a17734f05e637dc`,
+   verified via `GMAIL_FETCH_MESSAGE_BY_MESSAGE_ID` that the real `From`
+   header reads `Kryvex Media <info@kryvexmedia.com>`.
+2. **chromatix.com.au/write-for-us/** (Australian web design/development
+   agency blog; topics: web design, web development, ecommerce, digital
+   marketing, WordPress) — live (200). The page's only "sponsor" mentions
+   are about its own nofollow/no-follow link policy for author-bio links,
+   not a paid-placement requirement on us — not disqualifying. Real
+   contact found in its own "6. Submission Process" section:
+   `writeforus@chromatix.com.au`. Subject: "Guest post idea for
+   Chromatix: an SEO checklist for website redesigns." **Sent**,
+   confirmed message id `1a17734f035063bf`.
+3. **sprakdesign.com/write-for-us/** (web/graphic design agency blog,
+   India-based, serves US/Canada/Dubai/Australia/etc.) — live (200). No
+   paid-placement language found. Real contact found in its own "Get
+   Started" submission instructions: `ariel@sprakdesign.com` (a second
+   address, `design@sprakdesign.com`, appears only in the generic footer
+   and was not used). Subject: "Guest post idea for Sprak Design:
+   prioritizing web design and branding on a small budget." **Sent**,
+   confirmed message id `1a17734f1f98025b`.
+4. **buildd.co/write-for-us** (business/marketing/startups/SEO/remote-
+   work blog) — live (200). No paid-placement language found. Real
+   contact found in its own "How to submit your guest post pitch"
+   section (Cloudflare-obfuscated mailto, decoded): `community@buildd.co`,
+   with their required subject format "Guest Post: buildd" used in our
+   subject line. Subject: "Guest Post: buildd | An SEO starter checklist
+   for early-stage startups." **Sent**, confirmed message id
+   `1a17734f38a688fc`.
+5. **ecommercefastlane.com/write-for-us/** (Shopify/ecommerce marketing
+   blog, matches Kryvex's ecommerce industry page) — live (200). Site's
+   "sponsor"/"sponsorship" mentions are about a separate podcast/
+   newsletter ad product, unrelated to editorial guest posts — not
+   disqualifying. Real contact: `hello@ecommercefastlane.com`. Subject:
+   "Guest post idea for eCommerce Fastlane: AI search basics for small
+   Shopify stores," pitched specifically against the site's own stated
+   "AI Search Optimization (GEO/AEO)" topic category. **Sent**, confirmed
+   message id `1a17734f41af6448`.
+6. **techwyse.com/write-for-us** (Canadian internet marketing agency
+   blog) — live (200). No paid-placement language found. Real contact:
+   `guestblog@techwyse.com`. Subject: "Guest post idea for TechWyse's
+   blog: a local SEO checklist small business owners can run
+   themselves." **Sent**, confirmed message id `1a17734f4bbcf2da`.
+7. **postaffiliatepro.com/write-for-post-affiliate-pro/** (affiliate-
+   marketing software company blog; accepted topics explicitly include
+   digital marketing and marketing strategy, not just affiliate-specific
+   content) — live (200). Guidelines explicitly state "We do not accept
+   paid/sponsored collaborations at all" (confirms no-paid-placement).
+   Real contact, explicitly named as the draft-submission address:
+   `support@PostAffiliatePro.com`. Subject: "Guest post idea for Post
+   Affiliate Pro's blog: pairing an affiliate program with organic SEO."
+   **Sent**, confirmed message id `1a17734f534ffa30`, verified via
+   `GMAIL_FETCH_MESSAGE_BY_MESSAGE_ID` that the real `From` header reads
+   `Kryvex Media <info@kryvexmedia.com>`.
+
+Skipped (checked live, not sent, with reason):
+- **patriotsoftware.com** (`smallbusiness.patriotsoftware.com/guest-post-
+  blog-guidelines-rules/`) — live (200), explicitly states "we do not pay
+  for guest posts" (fine, not disqualifying), but no email address
+  anywhere on the guidelines page; its own `/about/contact/` page was
+  also checked and has no published email either, form-only. No
+  verifiable contact — skipped.
+- **appinstitute.com/submit-guest-post/** — live (200), no email on the
+  guest-post page; its `/contact-us/` page was also checked and has no
+  published email, form-only. No verifiable contact — skipped.
+- **sendx.io/write-for-us** — live (200), real guidelines, but the
+  actual submission flow is an on-page form ("Become a guest blogger...
+  hit us up below"). The only published email on the page
+  (`marketing@sendx.io`) is explicitly scoped by the page's own FAQ to
+  "partnership / comarketing query," not guest-post pitches. No
+  guest-post-specific verifiable contact — skipped rather than reach for
+  an address scoped to something else.
+- **savvy.co.il/en/write-for-us** — live (200), real guidelines, but the
+  actual submission flow is an on-page "Guest Post Form." The only email
+  on the page (`hello@savvy.co.il`) is a newsletter-subscribe-widget
+  address, not a guest-post contact. No verifiable contact — skipped.
+- **benchmarkemail.com/blog/marketing-professionals-write-guest-blogs-
+  for-benchmark-email** — live (200), a 2021 post with no stated
+  submission email anywhere in the actual guideline text. The one email
+  found on the page (`nydia.lopez@benchmarkemail.com`) is embedded in a
+  generic "share this article by email" icon widget, not a published
+  guest-post contact. No verifiable contact — skipped rather than treat
+  a share-widget artifact as a real address.
+- **getvero.com/resources/want-to-contribute...** — live (200), real
+  guidelines ("how to pitch us"), but no email address anywhere on the
+  page; pitches apparently go through a channel not stated in the text.
+  No verifiable contact — skipped.
+- **wireflow.co/blog/write-for-us/** — live (200), but the only email
+  text on the page is the placeholder `jamie@example.com`. No real
+  contact — skipped.
+- **localmarketinginstitute.com/write/** — live (200), good topic fit
+  (ethical local-business digital marketing), but submission is
+  "complete the form below" only, no published email anywhere on the
+  page. No verifiable contact — skipped.
+- **metrobi.com/write-for-us** — live (200), but its "guest post
+  opportunities" are organized by niche trades (bakery, florist, farm)
+  with a "contact us" prompt and no published email, form/button only
+  ("Start guest posting"). No verifiable contact — skipped.
+- **blog.hypeauditor.com/write-for-us-...** — live (200), explicitly "WE
+  DO NOT REQUIRE PAYMENTS for publications" (fine), but its own text says
+  "to submit your topic idea or article, fill in the form." The one
+  email on the page (`info@hypeauditor.com`) is a generic footer/"request
+  demo" contact, not the stated submission channel. No verifiable
+  guest-post-specific contact — skipped.
+- **thatcompany.com/write-for-us** — live (200), but the page is an
+  intentional parody of scammy "write for us" pages (a "$12,312.23
+  non-refundable deposit," a "$12.37 per post" fee that "doubles" on
+  certain days, a request for a "3,016-word teaser on why ants refuse to
+  ..."). Not a real submission process — skipped as non-genuine, not
+  treated as a real opportunity.
+- **dentaly.org/en/guest-posts/** — live (200), but disqualified on two
+  grounds: (1) its own page offers "sponsored content" and "link
+  insertion requests" alongside organic guest posts, reading as a paid-
+  placement economy rather than a pure editorial program; (2) topic
+  mismatch — it publishes dental health content for patients, not
+  dental-practice marketing, and Kryvex has no genuine dental-health
+  expertise to contribute. Skipped on both the no-paid-links rule and
+  the topic/expertise-fit rule.
+- **theinfluenceagency.com/become-a-contributor** — found via WebSearch
+  stating it "charges a fee for a guest post placement, listed at $325
+  USD." Disqualified on the stated price alone per the no-paid-links
+  rule — not fetched via Scrapingbee since the paid-placement policy was
+  already explicit in the search result text.
+- **pos.toasttab.com/blog/write-for-us** (restaurant management blog,
+  would have matched Kryvex's restaurants industry page) — Scrapingbee
+  fetch returned a Cloudflare "Just a moment..." bot-challenge page, not
+  the real content (confirmed via raw response, not just a status code).
+  Could not verify live/contact — skipped rather than guess.
+- **motocms.com/blog/en/write-for-us** — Scrapingbee fetch also returned
+  a Cloudflare challenge response, not real content. Could not verify —
+  skipped.
+- **lilachbullock.com**'s various topic-specific write-for-us pages were
+  not re-checked individually this run — already established site-wide
+  (2026-09-30, reconfirmed 2026-10-19 and 2026-10-20) as having only a
+  contact form and placeholder email text, no real published address.
+
+**Totals this run**: roughly 30 real candidates checked, 7 qualified and
+sent (all distinct message IDs confirmed, 2 "From" headers spot-checked
+and verified), 16 skipped with reasons above (form-only submissions,
+placeholder/unrelated-widget emails, bot-challenge pages, one parody
+page, one explicit paid-placement site, one topic/expertise mismatch).
+Under the 10/week cap, not padded. No opt-outs found. One real reply
+found and handled per the no-paid-links rule (declined the paid
+sponsored-content offer by taking no action on it; not an opt-out).
+Every send used `from_email: info@kryvexmedia.com`, `is_html: true`,
+`account: gmail_scap-lee`, the real signature pulled fresh via
+`GMAIL_LIST_SEND_AS` this run (image constrained to
+`max-width:320px`), the real physical address, and opt-out language as
+visible plain text, with no em-dashes or hyphens used as sentence
+punctuation in the pitch copy.
+
+**New finding — duplicate signature on send**: `GMAIL_FETCH_MESSAGE_BY_
+MESSAGE_ID` on this run's sends shows the signature image appearing
+*twice* in the raw body: once from the signature HTML this Routine
+appends manually (per the 2026-09-30 "third finding," since a Send-As
+signature previously did not auto-apply via the Gmail API), and a second
+time auto-appended by Gmail inside a `class="gmail_signature"` wrapper.
+`GMAIL_LIST_SEND_AS` this run shows `info@kryvexmedia.com` as
+`isDefault: true` on the account, which may be why the API now
+auto-applies it where it previously didn't. Not a compliance problem
+(no broken content, nothing misleading, the physical address/opt-out
+text still render correctly as plain text), just a cosmetic duplicate
+logo. **Action item for next run**: check `GMAIL_LIST_SEND_AS` for
+`isDefault`/auto-signature behavior before composing, and skip the
+manual signature append if the API is already attaching one, to avoid
+sending the logo twice.
+
 Skipped (checked live, not sent, with reason):
 - **ritfitsports.com/pages/write-for-us** — live (200), real submission
   email found (`affiliate@ritfitsports.com`), but its "Guest Post
