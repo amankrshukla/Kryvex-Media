@@ -13,6 +13,103 @@ selection method, real word count, real deploy run number/conclusion,
 real sitemap resubmission confirmation. Never log a claim without having
 actually checked it that run.
 
+### 2026-10-26
+
+- Topic/query: GSC 90-day query pull checked first (2026-07-24 to
+  2026-10-23, dimension `query`, 100 rows) — same standing pattern as
+  every prior run, near-total volume is hyper-local "agency/company/
+  services in [city]" queries already served by the programmatic geo
+  pages, nothing new maps to a blog topic. Fell back to a real,
+  unaddressed gap instead: of Kryvex's 9 real industry pages, only
+  Fitness and Tours/Travel still lacked a supporting post (Home
+  Services, Restaurants, Ecommerce, Real Estate, Healthcare, Legal and
+  Education all covered 2026-10-19 through 2026-10-25). Picked Fitness
+  — a real existing industry page (`/industries/fitness/`) with
+  genuine, well-documented, citable regulatory mechanics (FTC
+  membership-cancellation enforcement, endorsement-disclosure rules,
+  health-claim substantiation standards) comparable to the healthcare/
+  legal/education posts' regulatory angle.
+- Title: "Digital Marketing for Fitness Businesses: What the FTC
+  Actually Restricts"
+- URL: https://kryvexmedia.com/blog/digital-marketing-for-fitness-businesses/
+- Word count: 2,590 (verified via isolated `<main>` word count script)
+- Links: `/services/local-seo/`, `/services/ppc/`,
+  `/services/social-media/`, `/services/meta-ads/`,
+  `/services/content-marketing/`, `/services/email-marketing/`,
+  `/industries/fitness/`,
+  `/blog/digital-marketing-for-education-businesses/` — all confirmed
+  to exist in the repo before linking.
+- Facts cited (every one verified via WebSearch against a real,
+  identifiable source before writing, anti-fabrication rule applied in
+  full):
+  - FTC v. Fitness International LLC (the LA Fitness operators, also
+    operating Esporta Fitness, City Sports Club and Club Studio) —
+    federal complaint filed 2025-08-20 alleging cancellation was
+    limited in practice to in-person visits or a mailed form, while
+    recurring fees kept being charged; claims brought under FTC Act
+    Section 5 and ROSCA; 600+ locations, 3.7M+ members; relief sought
+    includes an order barring the practices and consumer refunds.
+  - Eighth Circuit vacated the FTC's 2024 click-to-cancel rule in
+    *Custom Communications, Inc. v. FTC* (No. 24-3137, decided
+    2025-07-08) over a procedural defect — the FTC skipped a required
+    regulatory-impact analysis once the rule's projected cost crossed
+    $100M/year. The rule is not in effect; FTC Act Section 5, ROSCA
+    and the FTC's 1973 negative-option rule (mail/telephone plans)
+    remain in force regardless, and California has its own
+    click-to-cancel statute independent of the federal rule.
+  - New York General Business Law §624(2), the state's health-club
+    cancellation law effective 2026-02-01 — online cancellation
+    option, a cooling-off window shortly after signing, and a set
+    business-day window to process cancellations/refunds.
+  - North Carolina enforcement example: the state alleged a gym sold
+    prepaid memberships without honoring the state's own 3-day
+    cancellation right.
+  - FTC Endorsement Guides, 16 CFR Part 255, revised by the FTC on
+    2023-06-29 (published in the Federal Register 2023-07-26, 88 FR
+    48102) — §255.5's material-connection disclosure requirement, and
+    the 2023 revision's position that a generic "results not typical"
+    disclaimer is likely insufficient; the fix is disclosing the
+    results a typical person can actually expect.
+  - FTC Health Products Compliance Guidance, issued December 2022
+    (replacing the FTC's 1998 dietary-supplement advertising guide),
+    broadened to cover all health-related claims, not just
+    supplements; requires "competent and reliable scientific
+    evidence," and states that substantiation for weight-loss/
+    fat-loss/metabolism claims specifically will generally need
+    randomized, controlled human clinical testing.
+  No invented statistics, client results, or testimonials.
+- Also added this post's own card (`data-cat="content"`) to
+  `blog/index.html`'s `#post-grid` and today's URL to
+  `sitemap-resources.xml` (lastmod 2026-10-26) in the same commit.
+  Checked the new post's `<head>` for a noindex tag before committing
+  — none present. All HTML tag types balanced (div/section/article/
+  script/head/body/html/ul/li/header/footer/main/h1/h2/h3/p open
+  counts == close counts); all 3 `application/ld+json` blocks
+  (BreadcrumbList/BlogPosting/FAQPage) parse as valid JSON;
+  `blog/index.html`'s div/a/svg/section tags remained balanced after
+  the card insert; `sitemap-resources.xml` parses as valid XML after
+  the new entry.
+- Deploy: commit `eb4dcab80`, pushed to
+  `claude/webtech-core-current-work-rsmbri` and fast-forwarded to
+  `main`. Run #272 (id `40286518288`), head_sha `eb4dcab80` — exact
+  match to this commit. No concurrent pushes landed during this run
+  (single commit, single push). Polled via `get_workflow_run` and
+  `list_workflow_jobs`: the `build` and `report-build-status` jobs
+  both completed within ~2 minutes; the `deploy` job's "Deploy to
+  GitHub Pages" step resolved within the normal range too (whole run
+  `created_at` 07:33:33Z to `updated_at` 07:36:37Z, ~3 minutes total),
+  confirmed via job-level step timestamps rather than assumed from a
+  single cached read. **Result: `conclusion: success`.** Confirmed
+  live.
+- Sitemap resubmission: confirmed — "Sitemap
+  'https://kryvexmedia.com/sitemap.xml' successfully submitted for site
+  'sc-domain:kryvexmedia.com'"
+- Note: today is a Monday, so the weekly backlink-outreach Routine may
+  also fire and commit in this same shared checkout — this run staged
+  and committed only its own three files (new post, `blog/index.html`,
+  `sitemap-resources.xml`), never `git add -A`, per the shared-checkout
+  rule.
+
 ### 2026-10-25
 
 - Topic/query: GSC 90-day query pull checked first (2026-07-22 to
