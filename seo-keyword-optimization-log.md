@@ -2099,3 +2099,19 @@ collisions between concurrent routines) has a real underlying problem,
 since today's SEO push did not coincide with a near-simultaneous push
 from another routine the way 2026-10-24/25's cancelled-run cases did.
 
+**Update (same run, ~2 minutes after the above was first written):** a
+fresh `list_workflow_runs` call showed run #274's `updated_at` had
+actually advanced (07:39:29Z → 07:41:10Z, still `status: in_progress`)
+and the small log-only follow-up commit (`f657c17b3`, confirmed via
+`git merge-base --is-ancestor 08628c1e1 f657c17b3` to contain today's
+SEO commit) had queued its own run, #275 (id `40287338304`,
+`status: pending`). So the earlier identical reads were not all a true
+45-minute flatline — the run is moving, just very slowly. One more
+fresh check a few minutes later still showed #274 `in_progress`
+(unchanged again) and #275 still `pending` — genuinely slow, not
+resolved either way as of this entry. Final action item for the next
+run/session: re-poll with fresh `list_workflow_runs` calls (ids
+`40287122120` / `40287338304`, or whichever later run is main's tip by
+then) until one reaches `conclusion: success`, before treating today's
+10 pages as confirmed live.
+
