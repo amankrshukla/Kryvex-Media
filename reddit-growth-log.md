@@ -1011,3 +1011,131 @@ after confirming each thread is still open and the draft angles are
 still non-duplicate — before searching for new opportunities. This is
 now a 5-day unbroken pattern; escalate to the owner for an actual
 decision on approach rather than treating it as routine going forward.
+
+### 2026-10-26 — Week 4, day 6: 5-day zero-post streak broken; 1 comment posted, then rate-limited on the 2nd attempt
+
+**Week determination:** today (2026-10-26) is day 6 of Week 4
+(2026-10-21 to 2026-10-27) by the calendar date-ranges in this log —
+clean mapping, no ambiguity.
+
+**Promotion-posture check (karma-gated, per the standing rule):** the
+very first call of the run — `REDDIT_GET_REDDIT_USER_ABOUT` (username
+"me") — itself returned a plain HTTP `429 Too Many Requests` before any
+comment attempt (a new, slightly different symptom from the structured
+`RATELIMIT` cooldown messages `REDDIT_POST_REDDIT_COMMENT` has been
+returning on prior days). Per the standing "honor the limit, retry the
+lightest call once after waiting, don't keep hammering" precedent set
+on 2026-10-17, waited ~95 seconds and retried once — succeeded cleanly
+on the retry: `total_karma: 1`, `link_karma: 1`, `comment_karma: 0`,
+unchanged from every check since 2026-09-30. Per the standing rule,
+posture stayed fully non-promotional today (no Kryvex mention, no
+links, in the comment actually posted).
+
+**Carried-over threads checked first** (action item from 2026-10-25),
+all four re-read in full (`REDDIT_RETRIEVE_POST_COMMENTS`) before
+attempting anything, each re-verified as still open and non-duplicate
+against *new* replies that had landed since yesterday:
+
+1. r/DigitalMarketing — ["How Do You Structure Your Meta Ads Funnel in Practice?"](https://www.reddit.com/r/DigitalMarketing/comments/1xbwmdz/) —
+   still no new top-level replies since 2026-10-25 (still just
+   AutoModerator x2 + BenningtonBrookstone). Drafted angle (Meta's own
+   ~50-optimization-events/ad-set/week learning-phase threshold, plus
+   the UGC-video/testimonial-carousel/static-offer breakdown by funnel
+   stage) remained fully non-duplicate, finalized to open by agreeing
+   with `BenningtonBrookstone`'s existing "one campaign first" answer.
+   **Attempted first — posted, confirmed live**
+   ([permalink](https://reddit.com/r/DigitalMarketing/comments/1xbwmdz/how_do_you_structure_your_meta_ads_funnel_in/19ro79r584lmp/)).
+   This is the first successful post in 5 days — breaks the
+   2026-10-22-through-2026-10-25 streak of hitting the rate limit
+   before anything could post.
+2. r/SEO — ["Would having a lot of non-indexed pages affected a site's overall search rankings?"](https://reddit.com/r/SEO/comments/1xc6tsb/) —
+   re-read in full; comment count back up to 7 visible (same authors as
+   2026-10-25: `PMDevSolutions`, `Illustrious_Log_9764`,
+   `Kitchen_Bend5016`, `therealtricklowe`, `WebLinkr`, plus 2
+   `[deleted]`/`[removed]`) — no new replies since yesterday. Confirmed
+   none of them address the backlinks/Links-report angle this log
+   drafted on 2026-10-22 (toxic inbound links accrued during the hack
+   period as a separate explanation for persistently low domain
+   authority, independent of the raw non-indexed-page count) — still
+   non-duplicate. **Attempted second — not posted.**
+   `REDDIT_POST_REDDIT_COMMENT` returned a real `RATELIMIT` ("doing
+   that a lot... take a break for 9 minutes... wait approximately 7
+   minute(s) and 17 second(s)") on this second call of the run,
+   immediately after the one successful post above. Honored it per the
+   standing rule — did not retry through it, did not post this or
+   anything else today.
+3. r/SEO — ["Can't understand why Discovery GSC dropped since August"](https://reddit.com/r/SEO/comments/1xc910h/) —
+   re-read; still the same 4 comments as 2026-10-25
+   (`Simple-Incident-8930`, `Brave-Scientist1921`, `mnudu`, `WebLinkr`)
+   — no new replies. Drafted angle (the `max-image-preview:large`
+   robots meta tag, or equivalent `X-Robots-Tag` header, being silently
+   stripped by a CMS/CDN/consent-script change without affecting
+   regular indexing/ranking) remained non-duplicate. Drafted, not
+   attempted (stopped after #2's rate limit).
+4. r/AskMarketing — ["Does Structured Data Help AI Systems Understand a Website More Accurately?"](https://reddit.com/r/AskMarketing/comments/1xbdm1f/) —
+   re-read; grew a new reply since yesterday (`Will_Wu_Metis`: schema
+   helps the index classify a page, but engines cite passages, not
+   schema — the real test is whether an LLM can summarize the page
+   correctly with no markup at all). Still a within-page-consistency
+   framing, not the *cross-site* entity-consistency angle (own site vs.
+   GBP, directories, review sites) or the AI-crawler server-log
+   measurement point (GA4/GSC don't separate AI-referred traffic; the
+   real signal is checking server/access logs for GPTBot/
+   PerplexityBot/ClaudeBot/Google-Extended user agents) this log
+   drafted — confirmed still non-duplicate. Drafted, not attempted
+   (stopped after #2's rate limit).
+
+**No new opportunities searched today** — the run stopped after the
+rate limit hit on the 2nd attempt, per the standing "honor the
+cooldown, don't retry through it, stop for the day" rule, rather than
+waiting out the ~7m17s cooldown and attempting a 3rd call.
+
+**Karma check (post-activity):** `REDDIT_GET_REDDIT_USER_ABOUT`
+(username "me") run again after the rate-limit hit — identical,
+unchanged real numbers: `total_karma: 1`, `link_karma: 1`,
+`comment_karma: 0`. Verified the one comment that did post is actually
+visible and not auto-removed (`REDDIT_RETRIEVE_SPECIFIC_COMMENT` on
+`t1_19ro79r584lmp`): author `amankrshuklaa`, body intact, score 1.
+`comment_karma` has now read 0 across every single check since
+2026-09-30 regardless of how many real comments have actually posted
+on intervening days (2026-10-01, 10-18, 10-19, 10-20, 10-21, and now
+10-26) — consistent with the 2026-10-22 finding that this is a real
+engagement ceiling, not aggregation lag.
+
+**Real finding — the 5-day "blocked on the very first attempt" streak
+(2026-10-21 through 2026-10-25) broke today, but the underlying
+throughput ceiling did not.** Today's run got exactly one comment
+through before being rate-limited on the second call, reverting to the
+2026-10-18-through-2026-10-21 shape (≈1 successful post per run) rather
+than the 2026-10-22-through-2026-10-25 shape (zero posts, blocked
+immediately). This is useful evidence that the ceiling is not a flat,
+permanent block — it fluctuates — but it is still, six real posting
+days in, capping this account at roughly one real comment per ~24h
+cycle at best, and `comment_karma` has still never moved off 0 despite
+six separate days of genuine, well-researched, non-templated comments
+actually going live. Both standing findings from the 2026-10-22 through
+2026-10-25 entries remain accurate and still need an owner decision:
+(1) a per-account comment-frequency ceiling around 1/day that doesn't
+reliably clear between daily runs, and (2) zero organic upvotes on
+every comment posted so far, a full month after account creation.
+
+**No subreddit blocked participation outright via a rules change
+today** — r/SEO, r/AskMarketing, r/DigitalMarketing rules were already
+confirmed fresh this week (2026-10-21 entry); none re-checked today
+since no new subreddit was targeted. Nothing posted to r/marketing,
+r/smallbusiness, r/Entrepreneur, r/EntrepreneurRideAlong, r/localseo,
+r/web_design, r/webdev, or r/DigitalMarketingIndia today.
+
+**Action item for tomorrow's run (last day of Week 4, 2026-10-27):**
+try the 3 remaining drafted comments above (#2 non-indexed-pages
+backlink/Links-report angle, #3 Discover drop —
+max-image-preview:large tag, #4 AskMarketing — cross-site entity
+consistency + AI-crawler log measurement gap) — after confirming each
+thread is still open and the draft angles are still non-duplicate —
+before searching for new opportunities. Tomorrow's run should also be
+the Week 4 end-of-month review point the original plan calls for:
+karma growth (still flat at 1 total / 0 comment after a full month),
+what worked (non-duplicate, specific answers on well-researched real
+threads — content quality was never the blocker), and whether to
+continue at this pace given the real throughput ceiling documented
+across 2026-10-18 through 2026-10-26.
