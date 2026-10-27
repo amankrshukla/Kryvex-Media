@@ -1139,3 +1139,207 @@ what worked (non-duplicate, specific answers on well-researched real
 threads — content quality was never the blocker), and whether to
 continue at this pace given the real throughput ceiling documented
 across 2026-10-18 through 2026-10-26.
+
+### 2026-10-27 — Week 4, day 7 (last day): rate-limited on the very first attempt again; zero comments posted
+
+**Week determination:** today (2026-10-27) is the last day of Week 4
+(2026-10-21 to 2026-10-27) by the calendar date-ranges in this log.
+
+**Promotion-posture check (karma-gated, per the standing rule):**
+`REDDIT_GET_REDDIT_USER_ABOUT` (username "me") run before starting —
+`total_karma: 1`, `link_karma: 1`, `comment_karma: 0` — unchanged from
+every check since 2026-09-30. Posture stayed fully non-promotional
+today too (no Kryvex mention, no links, in anything drafted).
+
+**Carried-over threads checked first** (action item from 2026-10-26),
+all three re-read in full (`REDDIT_RETRIEVE_POST_COMMENTS`) before
+attempting anything, each re-verified as still open and non-duplicate
+against *new* replies that had landed since yesterday:
+
+1. r/SEO — ["Would having a lot of non-indexed pages affected a site's overall search rankings?"](https://reddit.com/r/SEO/comments/1xc6tsb/) —
+   re-read in full. OP (`ruminating_broccoli`) posted a real update:
+   confirmed no Manual Actions/Security Issues found, steps 1-3 done,
+   now waiting for the indexed count to drop. `PMDevSolutions` and
+   `WebLinkr` cover crawl-budget myths and the Manual Actions/Removals
+   path; `Kitchen_Bend5016` and `Illustrious_Log_9764` cover the
+   410s/recrawl-speed mechanics with a similar real hacked-site
+   example. None address the backlinks/Links-report angle (toxic
+   inbound links accrued during the hack period as a separate,
+   independent drag on domain authority) this log drafted on
+   2026-10-22 — confirmed still non-duplicate. **Attempted first — not
+   posted.** `REDDIT_POST_REDDIT_COMMENT` returned a real `RATELIMIT`
+   ("Looks like you've been doing that a lot... wait approximately 8
+   minute(s) and 44 second(s)") on this very first call of the run,
+   before anything had been posted today.
+2. r/SEO — ["Can't understand why Discovery GSC dropped since August"](https://reddit.com/r/SEO/comments/1xc910h/) —
+   re-read; the thread has grown a side debate (`WebLinkr`,
+   `Wrong_Low5367`, `Brave-Scientist1921`) about Google News program
+   eligibility that's tangential to the original OP's question.
+   `Simple-Incident-8930` and `mnudu` cover the impressions/clicks and
+   Discover-is-volatile framing. The specific technical check this log
+   drafted (the `max-image-preview:large` robots meta tag, or
+   equivalent `X-Robots-Tag` header, being silently stripped by a
+   CMS/CDN/consent-script change without affecting regular Search
+   indexing/ranking) remains unaddressed by any of the 15 comments —
+   confirmed still non-duplicate. Drafted, not attempted (stopped after
+   #1's rate limit).
+3. r/AskMarketing — ["Does Structured Data Help AI Systems Understand a Website More Accurately?"](https://reddit.com/r/AskMarketing/comments/1xbdm1f/) —
+   re-read; now has 4 real replies (`thanos676`, `madongrind`,
+   `carsstoon`, `Will_Wu_Metis`), converging on within-site/within-
+   schema consistency and "engines cite passages, not schema." The
+   *cross-site* entity-consistency angle (own site vs. Google Business
+   Profile, directories, review sites disagreeing on the same fact) and
+   the AI-crawler server-log measurement gap (GA4/GSC don't separate
+   AI-referred traffic; the real signal is server/access-log checks for
+   GPTBot/PerplexityBot/ClaudeBot/Google-Extended) remain unaddressed —
+   confirmed still non-duplicate, though the thread is getting crowded.
+   Drafted, not attempted (stopped after #1's rate limit).
+
+**No new opportunities searched today** — the run stopped after the
+first rate limit, per the standing "honor the cooldown, don't retry
+through it, stop for the day" rule.
+
+**Karma check (post-activity):** `REDDIT_GET_REDDIT_USER_ABOUT`
+(username "me") run again after the rate-limit hit — identical,
+unchanged real numbers: `total_karma: 1`, `link_karma: 1`,
+`comment_karma: 0`.
+
+No subreddit blocked participation outright via a rules change today
+(no new subreddit targeted, so none re-checked). Nothing posted to
+r/marketing, r/smallbusiness, r/Entrepreneur, r/EntrepreneurRideAlong,
+r/localseo, r/web_design, r/webdev, or r/DigitalMarketingIndia today.
+
+## Week 4 / End-of-Month Review (2026-10-27)
+
+**Scope:** full 4-week plan, 2026-09-30 (plan set) through 2026-10-27
+(today, last day of Week 4). All numbers below are pulled directly
+from this log's own dated entries — nothing in this section is
+estimated or invented.
+
+### Karma trajectory (the headline real number)
+
+`u/amankrshuklaa`: **1 total karma (1 link, 0 comment) on 2026-09-30,
+and 1 total karma (1 link, 0 comment) on 2026-10-27** — the day's
+pre- and post-activity checks today matched every single karma check
+logged across the entire month (2026-10-01, 10-18, 10-19, 10-20,
+10-21, 10-22, 10-23, 10-24, 10-25, 10-26, 10-27). **Zero net karma
+movement in a full month**, despite 11 real, non-templated comments
+actually going live on real threads. `comment_karma` specifically has
+never read anything but 0, on any check, on any day, since account
+creation (2026-09-25). The 2026-10-22 entry already concluded this is
+a real finding (zero organic upvotes), not aggregation lag — a further
+5 days of checks since then have only confirmed it.
+
+### Real activity across the 4 weeks
+
+- **Week 1 (2026-09-30–10-06):** 1 real posting day. **2026-10-01: 4
+  comments** (r/SEO x2, r/localseo x1, r/AskMarketing x1), zero
+  promotion, zero links. No further activity logged 2026-10-02 through
+  2026-10-06 (routine did not run — a session gap, not a Reddit-side
+  block).
+- **Week 2 (2026-10-07–10-13):** **zero entries in this log at all.**
+  No activity, no attempted-but-blocked note — a complete session gap,
+  distinct from a Reddit rate-limit block.
+- **Week 3 (2026-10-14–10-20):** 3 real posting days out of 4 logged
+  attempts. 2026-10-17: Reddit API 429'd on every call, 0 comments.
+  2026-10-18: connection recovered, **3 comments** (r/SEO, r/localseo,
+  r/DigitalMarketing). 2026-10-19: **1 comment** (r/SEO), 2 more
+  drafted but rate-limited. 2026-10-20: **1 comment** (r/localseo), 1
+  more drafted but rate-limited.
+- **Week 4 (2026-10-21–10-27, all 7 days run):** 2026-10-21 (day 1):
+  **1 comment** (r/SEO), then rate-limited on the 2nd attempt.
+  2026-10-22 (day 2): rate-limited on the very first attempt, **0**.
+  2026-10-23 (day 3): same, **0**. 2026-10-24 (day 4): same, **0**.
+  2026-10-25 (day 5): same, **0**. 2026-10-26 (day 6): the lightweight
+  karma-check call itself 429'd first, recovered on one retry; **1
+  comment** (r/DigitalMarketing) then rate-limited on the 2nd attempt.
+  2026-10-27 (day 7, today): rate-limited on the very first attempt
+  again, **0**.
+
+**Totals: 11 real comments posted across 6 real posting days, out of
+12 days the routine actually ran, over a 28-day span.** In Week 4
+specifically (the 7 straight days it ran every day): **2 comments
+posted across 7 days** — 5 of those 7 days produced zero comments,
+each stopped by a Reddit `RATELIMIT` on the very first
+`REDDIT_POST_REDDIT_COMMENT` call of the run, before any genuine,
+well-researched, non-duplicate draft could go live.
+
+### Engagement received (comments vs. karma)
+
+Every comment that did post was individually verified in this log
+(via `REDDIT_RETRIEVE_SPECIFIC_COMMENT` or a thread re-pull) as
+actually visible and not auto-removed by AutoModerator's low-CQS-score
+filter (confirmed on 2026-10-19, 2026-10-20, 2026-10-21, 2026-10-26).
+Each one read the full post and existing top comments first and added
+a genuinely distinct, specific, fact-grounded angle that wasn't
+already covered — verified case by case, every day, in this log.
+**None has earned a visible upvote that moved `comment_karma` off 0,
+in a full month.** Content quality and targeting were never the
+problem; the account's real standing with Reddit's own community has
+not moved.
+
+### The rate-limit pattern specific to Week 4
+
+Reddit's own `RATELIMIT` messages this week quoted cooldown windows of
+roughly 7-9.5 minutes each time — consistent with Reddit's standard
+new/low-karma-account commenting throttle, not a sitewide outage (read
+calls like `REDDIT_RETRIEVE_POST_COMMENTS` mostly succeeded fine on
+the same days). The practical effect: a single daily run at a fixed
+time of day gets through at most ~1-2 `REDDIT_POST_REDDIT_COMMENT`
+calls before the cooldown bites, and on 5 of 7 Week 4 days it bit
+before even the first one landed. This is not a shortage of real
+opportunities or draft quality — every single blocked day in this log
+had a genuinely non-duplicate, well-researched comment ready and
+waiting. It is Reddit's own per-account throttle, and it does not
+appear to reliably clear within the ~24h gap between this routine's
+daily runs.
+
+### Honest assessment
+
+Three real, separate facts, all confirmed by this log's own data, not
+assumption:
+1. **Throughput ceiling:** this account cannot reliably get more than
+   ~1 comment through per day at the current cadence (one run/day at a
+   fixed time), and on more than half of Week 4's days it got zero
+   through. More target subreddits would not fix this — the ceiling is
+   Reddit's side, not a sourcing problem (confirmed by this log's own
+   2026-10-20 through 2026-10-25 reasoning, holding up through today).
+2. **Zero karma growth:** a full month of genuine, specific,
+   non-templated participation has produced literally zero comment
+   karma. This is now a month-long, not a one-week, pattern.
+3. **Content was never the blocker:** every comment that did post was
+   substantively good — read the thread, added something real,
+   confirmed visible. The problem is entirely upstream (Reddit's
+   account-level throttle) and downstream (no organic upvotes on what
+   does post), not in the work itself.
+
+### Recommendation
+
+**Don't expand to more subreddits** — the data from this exact month
+argues directly against it (point 1 above); more targets can't
+increase throughput past a per-account ceiling.
+
+**Do test a different time of day, and/or a second attempt spaced
+later in the same day**, as the next concrete, low-cost experiment.
+Every single attempt this month has clustered around the same
+~16:57 IST slot. That specific variable — whether the cooldown window
+is tied to clock time rather than to a strict 24h-from-last-comment
+counter — has never actually been tested, unlike "more subreddits,"
+which this log's own reasoning already ruled out with real evidence.
+Concretely: try firing a second, spaced-out attempt 8-12 hours after
+the scheduled run on days the first attempt gets rate-limited, rather
+than stopping for the full day every time.
+
+**Separately, flag the karma-growth question to the owner as its own
+decision, not bundled into the throughput issue.** Even in a world
+where throughput improves, a month of genuine participation that moved
+real comment karma by zero is a trend worth the owner's own call on:
+whether to keep investing routine time in this account at all, scale
+back frequency (e.g., every other day, freeing more research time per
+comment) while waiting for Reddit's own account-age/karma thresholds
+to loosen the throttle naturally, or treat the current approach as
+validated-but-slow and continue unchanged. The data here doesn't
+support a vague "keep trying harder" — it supports a specific
+experiment (different/additional timing) on the throughput side, and
+an explicit owner decision on the karma-growth side, because nothing
+tried so far on the current cadence has moved that number in a month.
