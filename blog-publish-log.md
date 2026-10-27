@@ -13,6 +13,88 @@ selection method, real word count, real deploy run number/conclusion,
 real sitemap resubmission confirmation. Never log a claim without having
 actually checked it that run.
 
+### 2026-10-27
+
+- Topic/query: GSC 90-day query pull checked first (2026-07-26 to
+  2026-10-24, dimension `query`, 100 rows) — same standing pattern as
+  every prior run this week, near-total volume is hyper-local "agency/
+  seo company in [city]" queries already served by the programmatic
+  geo pages, nothing new maps to a blog topic. Fell back to a real,
+  unaddressed gap instead: checked `ls blog/` and `ls industries/` —
+  of Kryvex's 9 real industry pages, Tours/Travel (`/industries/
+  tours-travel/`) was the only one still without a supporting post
+  (Home Services, Restaurants, Ecommerce, Real Estate, Healthcare,
+  Legal, Education and Fitness all covered 2026-10-19 through
+  2026-10-26). Picked Tours/Travel.
+- Title: "Digital Marketing for Tour Operators and Travel Agencies:
+  What a $35 Million FTC Case Just Changed"
+- URL: https://kryvexmedia.com/blog/digital-marketing-for-tour-operators-and-travel-agencies/
+- Word count: 2,631 (verified via isolated `<main>` word count script)
+- Links: `/industries/tours-travel/`, `/services/local-seo/`,
+  `/services/ppc/`, `/services/social-media/`,
+  `/services/content-marketing/`,
+  `/blog/digital-marketing-for-fitness-businesses/` — all confirmed to
+  exist in the repo before linking.
+- Facts cited (every one verified via WebSearch against a real,
+  identifiable source before writing, anti-fabrication rule applied in
+  full):
+  - FTC's $35 million settlement with Hopper Inc./Hopper (USA) Inc.
+    (travel-booking app), announced July 2, 2026: alleges undisclosed,
+    pre-selected "Tip" and VIP Support fees despite a "no hidden fees"
+    promise, and overstated VIP Support/Price Freeze benefits. Order
+    requires $35M in consumer redress and clear total-price/fee
+    disclosure going forward. Verified directly against the FTC's own
+    press-release URL (ftc.gov/news-events/news/press-releases/2026/07/
+    travel-app-hopper-pay-35-million-settle-ftc-allegations-it-charged-
+    fees-without-consent-deceived) and cross-checked against BetaKit,
+    Mondaq, InsidePrivacy and ComplyAuto coverage.
+  - FTC Rule on Unfair or Deceptive Fees ("Junk Fees Rule," 16 CFR Part
+    464): finalized December 2024, published in the Federal Register
+    January 10, 2025, effective May 12, 2025. Covers short-term
+    lodging and live-event tickets, explicitly reaching third-party
+    platforms, resellers and travel agents; requires total price
+    disclosure including mandatory fees; penalties up to ~$51,000/
+    violation. Verified via btlaw.com, Foley, GRC Report, Hotel-Online
+    and TechCrunch.
+  - FTC Rule on the Use of Consumer Reviews and Testimonials:
+    published in the Federal Register August 22, 2024, effective
+    October 21, 2024. Bans fake/AI-generated reviews, buying/selling
+    reviews, undisclosed incentivized reviews, and suppressing genuine
+    negative reviews. Verified via WilmerHale, Perkins Coie and
+    Troutman Pepper coverage.
+  - FTC Endorsement Guides (16 CFR Part 255), revised June 29, 2023 —
+    same real, previously-verified fact already cited accurately on
+    the 2026-10-26 fitness post, applied here to travel famtrips/
+    influencer stays under §255.5's material-connection rule.
+  No invented statistics, client results, or testimonials.
+- Also added this post's own card (`data-cat="content"`) to
+  `blog/index.html`'s `#post-grid` and today's URL to
+  `sitemap-resources.xml` (lastmod 2026-10-27) in the same commit.
+  Checked the new post's `<head>` for a noindex tag before committing
+  — none present.
+- QA: all HTML tag types balanced (div/section/article/script/head/
+  body/html/ul/header/footer/main/h2/h3/p open counts == close
+  counts); all 3 `application/ld+json` blocks (BreadcrumbList/
+  BlogPosting/FAQPage) parse as valid JSON.
+- Deploy: commit `067d72371`, pushed to
+  `claude/webtech-core-current-work-rsmbri` and fast-forwarded to
+  `main`. Run #280 (id `40467653591`), head_sha `067d72371` — exact
+  match to this commit — polled until `status: completed`, confirmed
+  `conclusion: **success**`. Note: `list_workflow_runs`/
+  `get_workflow_run` kept echoing a stale `status: in_progress` /
+  `updated_at: 07:33:26Z` reading across several consecutive polls
+  even after the run had genuinely finished (confirmed via
+  `list_workflow_jobs` on this run: `build` and `report-build-status`
+  succeeded by 07:33:28Z, `deploy` itself completed with
+  `conclusion: success` at 07:35:08Z, and a later fresh
+  `list_workflow_runs` call returned the correct `completed`/`success`
+  state with `updated_at: 07:35:08Z`) — a real stale-read artifact on
+  the run-level endpoint, not a real deploy stall, caught by cross-
+  checking the job-level endpoint per the standing verification rule.
+- Sitemap resubmission: confirmed — "Sitemap
+  'https://kryvexmedia.com/sitemap.xml' successfully submitted for site
+  'sc-domain:kryvexmedia.com'"
+
 ### 2026-10-26
 
 - Topic/query: GSC 90-day query pull checked first (2026-07-24 to

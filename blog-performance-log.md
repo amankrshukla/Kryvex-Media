@@ -793,3 +793,90 @@ unmoved). `local-seo-vs-national-seo` remains genuinely stuck at 38
 days uncrawled. Performance stayed completely flat this run — no new
 pattern to act on for post structure/topic/length since nothing in
 the real numbers moved at all.
+
+## 2026-10-27 — daily blog Routine run
+
+Published today: `digital-marketing-for-tour-operators-and-travel-
+agencies` (2,631 words). Too new (0 days old) for a URL Inspection
+signal yet, so not checked this run, consistent with the standing
+pattern for brand-new posts.
+
+**Indexing check (posts published in the last ~14 days plus the
+long-standing flagged-stuck post, via `GOOGLE_SEARCH_CONSOLE_
+INSPECT_URL`):**
+- `digital-marketing-for-fitness-businesses` (1 day old): **"URL is
+  unknown to Google."** Expected at this age.
+- `digital-marketing-for-education-businesses` (2 days old): **"URL
+  is unknown to Google."**
+- `digital-marketing-for-law-firms` (3 days old): **"URL is unknown
+  to Google."**
+- `digital-marketing-for-healthcare-providers` (4 days old): **"URL
+  is unknown to Google."**
+- `digital-marketing-for-real-estate-agents` (5 days old): **"URL is
+  unknown to Google."**
+- `ecommerce-marketing-that-actually-converts` (6 days old): **"URL
+  is unknown to Google,"** unchanged for a 4th consecutive check.
+- `digital-marketing-for-restaurants` (7 days old): **"URL is unknown
+  to Google,"** unchanged for a 5th consecutive check and now 7 days
+  with zero movement off "unknown" — the longest real stall of any
+  post tracked in this log, confirmed again this run rather than
+  assumed. **Action item from 2026-10-26 attempted this run**: tried
+  to request indexing directly rather than another passive re-check.
+  Searched the connected toolset specifically for a page-level
+  request-indexing action (`COMPOSIO_SEARCH_TOOLS`, query: "request
+  indexing of a specific URL in Google Search Console, separate from
+  URL inspection") — the only tools this `google_search_console`
+  connection actually exposes are `GOOGLE_SEARCH_CONSOLE_INSPECT_URL`
+  (diagnostic only — its own description states "Output is diagnostic
+  only... not confirmation of indexing") and feed-level
+  `GOOGLE_SEARCH_CONSOLE_SUBMIT_SITEMAP`/`GET_SITEMAP`/`LIST_SITEMAPS`.
+  There is no page-level "request indexing" tool available through
+  this connection (that capability, where it exists, normally requires
+  the separate Indexing API or the Search Console UI's manual "Request
+  Indexing" button, neither of which is exposed here). Honest finding,
+  not a workaround: **a direct indexing request isn't available via
+  the tools this routine has**, so the resubmitted sitemap (confirmed
+  again today) remains the only real discovery signal this routine can
+  actually send for this URL. The finding stands — 7 days stuck,
+  genuinely the longest of any post, with no further lever available
+  from here short of manual Search Console access.
+- `digital-marketing-for-home-services-businesses` (8 days old):
+  **"URL is unknown to Google"** — a **second regression**, back down
+  from 2026-10-26's recovery to "Discovered - currently not indexed."
+  Logging honestly rather than guessing: this post has now toggled
+  unknown → discovered → unknown across three consecutive days, which
+  reads less like a one-off reporting-lag blip (the 2026-10-22/23
+  precedent) and more like real flakiness in what URL Inspection
+  reports for this specific URL. Not escalating to "broken" without
+  more data, but no longer calling it resolved either — carrying
+  forward for another check.
+- `local-seo-vs-national-seo` (long-standing flagged-stuck post):
+  **"Crawled - currently not indexed,"** `lastCrawlTime` still
+  `2026-09-17T19:03:49Z` — now 40 days without a recrawl. Unchanged.
+
+**Performance re-pull (90-day window, page dimension, `/blog/`,
+2026-07-29 to 2026-10-25):** `how-to-cut-wasted-ad-spend-in-30-days` 33
+impressions (position ~66.5, unchanged), `email-flows-every-business-
+needs` 4 (position 20.5, unchanged), `what-is-digital-marketing` 4
+(position 3, unchanged), `seo-company-hiring-guide` 3 (position 1,
+unchanged), `/blog/` index 3 (position 5.67, unchanged),
+`10-local-seo-tactics-that-fill-your-calendar` 2 (position 1,
+unchanged), `how-to-choose-an-seo-company-in-patna` 2 (position 1,
+unchanged), `website-mistakes-costing-you-customers` 1 (position 14,
+unchanged) — **every number identical to the 2026-10-26 pull**, no
+change in either direction for any post. **Zero clicks on every post,
+still, with no exception.** None of the eight most recent posts
+(ecommerce, restaurants, home-services, real-estate, healthcare,
+law-firms, education, fitness) show any impressions yet; the new
+tour-operators post is too new to appear.
+
+**Action items:** `digital-marketing-for-restaurants` remains the top
+priority at 7 days stuck — confirmed this run that no page-level
+indexing-request tool is available here, so the only further lever is
+manual Search Console access outside this routine's toolset; flagging
+that explicitly rather than re-attempting the same unavailable action
+next time. `digital-marketing-for-home-services-businesses` needs a
+clean re-check tomorrow to see whether it settles one way or the other
+after two toggles in three days. Performance stayed completely flat
+this run — no new pattern to act on for post structure/topic/length
+since nothing in the real numbers moved at all.
