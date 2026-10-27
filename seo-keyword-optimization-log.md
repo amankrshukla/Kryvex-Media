@@ -2240,3 +2240,17 @@ depth.
   `/virginia/loudoun/`, `/new-york/bronx/`, `/washington/pierce/`,
   `/texas/fort-bend/`, `/pennsylvania/montgomery/`).
 
+**Deploy status (checked live, not guessed):** commit `0ed2b98b3` was
+pushed to `claude/webtech-core-current-work-rsmbri` and fast-forwarded
+to `main` cleanly (no rebase needed). Its own matching run (#282, id
+`40468316881`, `head_sha` exact match to `0ed2b98b3`) was found via
+`list_workflow_runs` immediately after the push. Polled it with a mix
+of fresh `list_workflow_runs` and `list_workflow_jobs` calls (not
+relying on a single cached read) — the `build` job completed
+(`success`) at 07:40:25Z, the `deploy` job's "Deploy to GitHub Pages"
+step then sat `in_progress` from 07:40:32Z for several minutes with no
+visible movement (same slow-but-not-stuck signature flagged on
+2026-10-25/26), before the run-level status resolved to
+`conclusion: **success**` at 07:42:17Z. Confirmed live — today's 10
+pages are deployed.
+
