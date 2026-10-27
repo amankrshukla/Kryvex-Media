@@ -172,29 +172,48 @@ picked (see the 2026-09-28 entry below for why this matters).
      Frisco)
 154. ~~`/georgia/gwinnett/`~~ — done 2026-10-26 (major metro county,
      Atlanta metro)
-155. *(the 7 candidates named in the prior action item are now done,
-     plus 3 more major-metro counties spotted 2026-10-26 while extending
-     the queue — confirmed to exist on disk via `ls` before being added:
-     `/pennsylvania/philadelphia/`, `/texas/collin/`, `/georgia/gwinnett/`.
-     Note: `/maryland/prince-georges/` was checked previously and does
-     **not** exist on disk — don't pick it without confirming a real
-     directory first. Next up — verify real page existence and real
-     current title/H1/intent before picking: continue the US-county tier
-     by Census population. Untried candidates spotted 2026-10-26 while
-     scanning the repo (confirmed to exist on disk via `ls`, population/
-     notability not yet re-verified, check before use) —
-     `/ohio/summit/` (Akron), `/texas/denton/` (Denton/Flower Mound),
-     `/california/kern/` (Bakersfield), `/missouri/jackson/` (Kansas City
-     side), `/nevada/washoe/` (Reno), `/virginia/loudoun/` (DC suburbs).
-     Observation from today's run, not acted on and not this routine's
-     job to fix: 9 of today's 10 pages carry well under the site's
-     standing 1,500-word `<main>` content minimum (≈620-670 words each;
-     only `/florida/pinellas/` already had deep content, at 2,001 words)
-     — consistent with CLAUDE.md's existing status note that the
+155. ~~`/ohio/summit/`~~ — done 2026-10-27 (major metro county, Akron)
+156. ~~`/texas/denton/`~~ — done 2026-10-27 (major metro county, Denton/
+     Flower Mound)
+157. ~~`/california/kern/`~~ — done 2026-10-27 (major metro county,
+     Bakersfield)
+158. ~~`/missouri/jackson/`~~ — done 2026-10-27 (major metro county,
+     Kansas City side)
+159. ~~`/nevada/washoe/`~~ — done 2026-10-27 (major metro county, Reno)
+160. ~~`/virginia/loudoun/`~~ — done 2026-10-27 (major metro county, DC
+     suburbs)
+161. ~~`/new-york/bronx/`~~ — done 2026-10-27 (major metro county, NYC)
+162. ~~`/washington/pierce/`~~ — done 2026-10-27 (major metro county,
+     Tacoma)
+163. ~~`/texas/fort-bend/`~~ — done 2026-10-27 (major metro county,
+     Houston suburbs)
+164. ~~`/pennsylvania/montgomery/`~~ — done 2026-10-27 (major metro
+     county, Philadelphia suburbs)
+165. *(all 10 candidates named in the prior action item are now done;
+     4 more major-metro counties added 2026-10-27 while extending the
+     queue — confirmed to exist on disk via `ls` before being used:
+     `/new-york/bronx/`, `/washington/pierce/`, `/texas/fort-bend/`,
+     `/pennsylvania/montgomery/`. Note: `/maryland/prince-georges/` was
+     checked previously and does **not** exist on disk — don't pick it
+     without confirming a real directory first. Next up — verify real
+     page existence and real current title/H1/intent before picking:
+     continue the US-county tier by Census population. Untried
+     candidates spotted 2026-10-27 while scanning the repo (confirmed to
+     exist on disk via `ls`, population/notability not yet re-verified,
+     check before use) — `/texas/williamson/` (Austin suburbs),
+     `/colorado/douglas/` (Denver suburbs), `/new-york/richmond/`
+     (Staten Island), `/kansas/johnson/` (Kansas City suburbs),
+     `/alabama/madison/` (Huntsville), `/louisiana/jefferson/` (New
+     Orleans suburbs), `/louisiana/orleans/` (New Orleans),
+     `/south-carolina/charleston/`, `/south-carolina/richland/`
+     (Columbia). Observation from today's run, not acted on and not this
+     routine's job to fix: all 10 of today's pages carry well under the
+     site's standing 1,500-word `<main>` content minimum (≈635-662 words
+     each) — consistent with CLAUDE.md's existing status note that the
      per-county deep-content expansion has only reached Florida's 67
-     counties so far and the remaining ~3,075 US counties are a separate,
-     not-yet-started workstream. Flagging for whoever picks that content
-     effort back up, not fixing it here.)*
+     counties so far and the remaining ~3,000+ US counties (now including
+     today's 10) are a separate, not-yet-started workstream. Flagging for
+     whoever picks that content effort back up, not fixing it here.)*
 
 ## Log
 
@@ -2114,4 +2133,110 @@ run/session: re-poll with fresh `list_workflow_runs` calls (ids
 `40287122120` / `40287338304`, or whichever later run is main's tip by
 then) until one reaches `conclusion: success`, before treating today's
 10 pages as confirmed live.
+
+### 2026-10-27
+
+10 pages: all major-metro county pages, same tier used since 2026-10-18.
+All 10 were the candidates named in the prior action item (6: Summit/OH,
+Denton/TX, Kern/CA, Jackson/MO, Washoe/NV, Loudoun/VA) plus 4 more added
+to the queue this run (confirmed to exist on disk via `ls` before being
+used): Bronx/NY, Pierce/WA, Fort Bend/TX, Montgomery/PA.
+
+**Semrush check (done live this run, not assumed):** `keyword_research`
+(no params) returned `no_api_units` — active subscription, zero balance,
+non-retryable. **Not volume-verified** — fell back to WebSearch-informed
+selection using the same pattern already established and WebSearch-
+confirmed for this exact page template across every county batch since
+2026-10-18 (most recently re-confirmed 2026-10-26). One real WebSearch
+check run this turn (`"digital marketing agency" "Denton County" OR
+"Fort Bend County" small business`) — found real competing agencies and
+directory listings (BrightLocal, Semrush agency directory) using city-
+level naming (Denton, TX; Missouri City, TX) rather than county-level,
+same finding already logged 2026-10-18 and not something this
+keyword-placement pass changes (that's a structural/URL decision, out of
+scope here). Action item: revisit all un-volume-verified county pages
+once Semrush units refresh.
+
+**Intent-match check (done for all 10 before picking a keyword):** read
+each page's real current `<title>`/`<h1>`/hero paragraph first. All 10
+already genuinely offer "digital marketing agency serving [County]
+County, [State]" to local businesses — real match for the chosen keyword
+pattern, no retargeting needed.
+
+**Keywords chosen (same pattern all 10, `[County]`/`[State]`
+substituted per page):**
+- Primary: `digital marketing agency in [County] County, [State]`
+- Secondary: `digital marketing company in [County] County, [State]`
+
+Per-page county/state: Summit/Ohio, Denton/Texas, Kern/California,
+Jackson/Missouri, Washoe/Nevada, Loudoun/Virginia, Bronx/New York,
+Pierce/Washington, Fort Bend/Texas, Montgomery/Pennsylvania.
+
+**What changed per page (scripted, applied identically to all 10,
+verified before/after counts in the script output):**
+- Meta description / `og:description` / `twitter:description`:
+  "Digital marketing agency serving [County] County, [State] —..." →
+  "Digital marketing agency in [County] County, [State] —..." (3
+  occurrences replaced per page).
+- JSON-LD `Service.description`: "Full-service digital marketing agency
+  running SEO, PPC, social media and web design for businesses in
+  [County] County, [State]." → "Full-service digital marketing agency
+  in [County] County, [State], running SEO, PPC, social media and web
+  design for local businesses." (1 occurrence per page).
+- Eyebrow/badge: "📍 [County] County, [State]" → "📍 Digital Marketing
+  Agency in [County] County, [State]" (1 occurrence per page).
+- `<h1>`: "Digital Marketing for [County] Businesses That Actually
+  Converts" → "Digital Marketing Agency in [County] County, [State]:
+  Marketing That Actually Converts" (1 occurrence per page).
+- Hero opening paragraph (`<p class="sub">`, first visible body copy
+  inside `<main>`): rewritten to two sentences — "As a digital
+  marketing agency in [County] County, [State], we build SEO, Google
+  Ads, and social media strategy specifically for [County] County
+  businesses — not a generic statewide template. We're the digital
+  marketing company in [County] County, [State] that local businesses
+  actually trust for real results." — primary keyword in the first
+  sentence, secondary in the second, both inside the real opening
+  paragraph.
+- `<title>`, `og:title`, `twitter:title` already carried the exact
+  primary phrase from original page generation — confirmed via grep
+  before editing, left unchanged.
+
+**Grep/script-verified on all 10 pages this run** (Python regex check
+against the final saved files, not assumed — see verification script
+output): primary keyword total occurrences — 10 on all 10 pages;
+secondary keyword occurrences — 1 on all 10 pages (hero paragraph only,
+kept out of meta tags); primary confirmed present inside the literal
+`<title>...</title>` text — yes on all 10; primary confirmed present
+inside the literal `<h1>...</h1>` text — yes on all 10; primary
+confirmed present inside the eyebrow/badge `<span class="cty-eyebrow">`
+text — yes on all 10; secondary confirmed present at least once inside
+`<main>` — yes on all 10. `<div>` tag balance: 94/94 on all 10. Every
+page's single `application/ld+json` block parsed successfully via
+Python `json.loads` on all 10.
+
+**Noindex finding (observational only, not acted on, per standing
+instruction):** all 10 pages carry `<meta name="robots"
+content="noindex,follow">` in `<head>` — consistent with the 2026-10-20
+site-wide audit finding and with every other county-tier page checked
+in this log so far. No noindex tags were removed or added on any of
+today's 10 pages.
+
+**Content-depth observation (out of scope for this routine, logged for
+whoever picks up the separate content-expansion workstream):** checked
+`<main>` word count on all 10 pages while verifying — all 10 run
+~635-662 words, well under the site's standing 1,500-word minimum. This
+matches CLAUDE.md's existing status note that the per-county deep-
+content expansion has so far only reached Florida's 67 counties, with
+the remaining US counties (including today's 10) not yet started. Not
+fixed here — this routine's job is keyword placement, not content
+depth.
+
+- Action items: (1) none of today's 10 pages volume-verified — Semrush
+  units still exhausted, revisit when they refresh; (2) all 10 of
+  today's pages are under the 1,500-word `<main>` standard — flagged
+  for the separate content-expansion effort, not this routine.
+- Total done today: 10 pages (`/ohio/summit/`, `/texas/denton/`,
+  `/california/kern/`, `/missouri/jackson/`, `/nevada/washoe/`,
+  `/virginia/loudoun/`, `/new-york/bronx/`, `/washington/pierce/`,
+  `/texas/fort-bend/`, `/pennsylvania/montgomery/`).
 
