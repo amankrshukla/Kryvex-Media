@@ -189,31 +189,38 @@ picked (see the 2026-09-28 entry below for why this matters).
      Houston suburbs)
 164. ~~`/pennsylvania/montgomery/`~~ — done 2026-10-27 (major metro
      county, Philadelphia suburbs)
-165. *(all 10 candidates named in the prior action item are now done;
-     4 more major-metro counties added 2026-10-27 while extending the
-     queue — confirmed to exist on disk via `ls` before being used:
-     `/new-york/bronx/`, `/washington/pierce/`, `/texas/fort-bend/`,
-     `/pennsylvania/montgomery/`. Note: `/maryland/prince-georges/` was
-     checked previously and does **not** exist on disk — don't pick it
-     without confirming a real directory first. Next up — verify real
-     page existence and real current title/H1/intent before picking:
-     continue the US-county tier by Census population. Untried
-     candidates spotted 2026-10-27 while scanning the repo (confirmed to
-     exist on disk via `ls`, population/notability not yet re-verified,
-     check before use) — `/texas/williamson/` (Austin suburbs),
-     `/colorado/douglas/` (Denver suburbs), `/new-york/richmond/`
-     (Staten Island), `/kansas/johnson/` (Kansas City suburbs),
-     `/alabama/madison/` (Huntsville), `/louisiana/jefferson/` (New
-     Orleans suburbs), `/louisiana/orleans/` (New Orleans),
-     `/south-carolina/charleston/`, `/south-carolina/richland/`
-     (Columbia). Observation from today's run, not acted on and not this
-     routine's job to fix: all 10 of today's pages carry well under the
-     site's standing 1,500-word `<main>` content minimum (≈635-662 words
-     each) — consistent with CLAUDE.md's existing status note that the
-     per-county deep-content expansion has only reached Florida's 67
-     counties so far and the remaining ~3,000+ US counties (now including
-     today's 10) are a separate, not-yet-started workstream. Flagging for
-     whoever picks that content effort back up, not fixing it here.)*
+165. ~~`/texas/williamson/`~~ — done 2026-10-28 (major metro county, Austin suburbs)
+166. ~~`/colorado/douglas/`~~ — done 2026-10-28 (major metro county, Denver suburbs)
+167. ~~`/new-york/richmond/`~~ — done 2026-10-28 (major metro county, Staten Island)
+168. ~~`/kansas/johnson/`~~ — done 2026-10-28 (major metro county, Kansas City suburbs)
+169. ~~`/alabama/madison/`~~ — done 2026-10-28 (major metro county, Huntsville)
+170. ~~`/louisiana/jefferson/`~~ — done 2026-10-28 (major metro parish, New Orleans suburbs)
+171. ~~`/louisiana/orleans/`~~ — done 2026-10-28 (major metro parish, New Orleans)
+172. ~~`/south-carolina/charleston/`~~ — done 2026-10-28 (major metro county)
+173. ~~`/south-carolina/richland/`~~ — done 2026-10-28 (major metro county, Columbia)
+174. ~~`/georgia/dekalb/`~~ — done 2026-10-28 (major metro county, Atlanta metro)
+175. *(all 10 candidates named in the prior action item are now done;
+     1 more major-metro county — `/georgia/dekalb/` — added 2026-10-28
+     while extending the queue, confirmed to exist on disk via `ls`
+     before being used. Note: `/maryland/prince-georges/` was checked
+     previously and does **not** exist on disk — don't pick it without
+     confirming a real directory first. Next up — verify real page
+     existence and real current title/H1/intent before picking: continue
+     the US-county tier by Census population. Untried candidates spotted
+     2026-10-28 while scanning the repo (confirmed to exist on disk via
+     `ls`, population/notability not yet re-verified, check before use) —
+     `/georgia/cobb/`, `/florida/lee/`, `/virginia/chesterfield/`,
+     `/north-carolina/durham/`, `/new-york/rockland/`,
+     `/connecticut/fairfield/`, `/minnesota/ramsey/`,
+     `/wisconsin/waukesha/`, `/missouri/st-charles/`. Observation from
+     today's run, not acted on and not this routine's job to fix: all 10
+     of today's pages carry well under the site's standing 1,500-word
+     `<main>` content minimum (≈636-674 words each) — consistent with
+     CLAUDE.md's existing status note that the per-county deep-content
+     expansion has only reached Florida's 67 counties so far and the
+     remaining ~3,000+ US counties (now including today's 10) are a
+     separate, not-yet-started workstream. Flagging for whoever picks
+     that content effort back up, not fixing it here.)*
 
 ## Log
 
@@ -2253,4 +2260,139 @@ visible movement (same slow-but-not-stuck signature flagged on
 2026-10-25/26), before the run-level status resolved to
 `conclusion: **success**` at 07:42:17Z. Confirmed live — today's 10
 pages are deployed.
+
+### 2026-10-28
+
+10 pages: all major-metro county/parish pages, same tier used since
+2026-10-18. All 9 candidates named in the prior action item
+(Williamson/TX, Douglas/CO, Richmond/NY, Johnson/KS, Madison/AL,
+Jefferson Parish/LA, Orleans Parish/LA, Charleston/SC, Richland/SC)
+plus 1 more added to the queue this run (confirmed to exist on disk via
+`ls` before being used): DeKalb/GA.
+
+**Semrush check (done live this run, not assumed):** `keyword_research`
+(no params) returned `no_api_units` — active subscription, zero balance,
+non-retryable. **Not volume-verified** — fell back to WebSearch-informed
+selection using the same pattern already established and WebSearch-
+confirmed for this exact page template across every county batch since
+2026-10-18 (most recently re-confirmed 2026-10-27). One real WebSearch
+check run this turn (`"digital marketing agency" "DeKalb County" OR
+"Charleston County" small business`) — found real agency-directory
+listings (BrightLocal, Semrush agency directory, Emulent) but none
+specific to DeKalb County, Georgia or Charleston County, South Carolina
+(results surfaced Charleston, WV instead, and DeKalb, Illinois instead
+of DeKalb, Georgia) — same city/directory-level naming pattern already
+logged repeatedly since 2026-10-18, not something this keyword-placement
+pass changes (structural/URL decision, out of scope here). Action item:
+revisit all un-volume-verified county pages once Semrush units refresh.
+
+**Intent-match check (done for all 10 before picking a keyword):** read
+each page's real current `<title>`/`<h1>`/hero paragraph first. All 10
+already genuinely offer "digital marketing agency serving [County/
+Parish], [State]" to local businesses — real match for the chosen
+keyword pattern, no retargeting needed.
+
+**Keywords chosen (same pattern all 10, `[County/Parish]`/`[State]`
+substituted per page):**
+- Primary: `digital marketing agency in [County County/Parish], [State]`
+- Secondary: `digital marketing company in [County County/Parish], [State]`
+
+Per-page county/state: Williamson/Texas, Douglas/Colorado,
+Richmond/New York, Johnson/Kansas, Madison/Alabama, Jefferson Parish/
+Louisiana, Orleans Parish/Louisiana, Charleston/South Carolina,
+Richland/South Carolina, DeKalb/Georgia.
+
+**What changed per page (scripted, applied identically to all 10,
+verified before/after counts in the script output; the 2 Louisiana
+pages needed one manual follow-up — see note below):**
+- Meta description / `og:description` / `twitter:description`:
+  "Digital marketing agency serving [full region] —..." →
+  "Digital marketing agency in [full region] —..." (3 occurrences
+  replaced per page).
+- JSON-LD `Service.description`: "Full-service digital marketing agency
+  running SEO, PPC, social media and web design for businesses in [full
+  region]." → "Full-service digital marketing agency in [full region],
+  running SEO, PPC, social media and web design for local businesses."
+  (1 occurrence per page).
+- Eyebrow/badge: "📍 [full region]" → "📍 Digital Marketing Agency in
+  [full region]" (1 occurrence per page).
+- `<h1>`: "Digital Marketing for [County] Businesses That Actually
+  Converts" → "Digital Marketing Agency in [full region]: Marketing
+  That Actually Converts" (1 occurrence per page).
+- Hero opening paragraph (`<p class="sub">`, first visible body copy
+  inside `<main>`): rewritten to two sentences — primary keyword in the
+  first sentence, secondary in the second, both inside the real opening
+  paragraph. Real finding mid-run: the scripted replacement's expected
+  "old" sub-paragraph text matched on 8 of 10 pages but missed on the 2
+  Louisiana pages (`/louisiana/jefferson/`, `/louisiana/orleans/`) —
+  their original template text read "built specifically for Jefferson
+  County" / "Orleans County" (a pre-existing template inconsistency:
+  calling them "County" instead of "Parish" in that one sentence, while
+  every other instance on those same pages correctly says "Parish").
+  Caught by the script's own before/after match-count output (0 matches
+  logged, not assumed fixed), then corrected with a manual `Edit` on
+  both files using the real "Parish" wording throughout the rewritten
+  paragraph, verified with the same grep check as the other 8.
+- `<title>`, `og:title`, `twitter:title` already carried the exact
+  primary phrase from original page generation — confirmed via grep
+  before editing, left unchanged.
+
+**Grep/script-verified on all 10 pages this run** (Python regex check
+against the final saved files, not assumed — see verification script
+output): primary keyword total occurrences — 10 on all 10 pages;
+secondary keyword occurrences — 1 on all 10 pages (hero paragraph only,
+kept out of meta tags); primary confirmed present inside the literal
+`<title>...</title>` text — yes on all 10; primary confirmed present
+inside the literal `<h1>...</h1>` text — yes on all 10; primary
+confirmed present inside the eyebrow/badge `<span class="cty-eyebrow">`
+text — yes on all 10; secondary confirmed present at least once inside
+`<main>` — yes on all 10. `<div>` tag balance: 94/94 on all 10. Every
+page's single `application/ld+json` block parsed successfully via
+Python `json.loads` on all 10.
+
+**Noindex finding (observational only, not acted on, per standing
+instruction):** all 10 pages carry `<meta name="robots"
+content="noindex,follow">` in `<head>` — consistent with the 2026-10-20
+site-wide audit finding and with every other county-tier page checked
+in this log so far. No noindex tags were removed or added on any of
+today's 10 pages.
+
+**Content-depth observation (out of scope for this routine, logged for
+whoever picks up the separate content-expansion workstream):** checked
+`<main>` word count on all 10 pages while verifying — all 10 run
+~636-674 words, well under the site's standing 1,500-word minimum. This
+matches CLAUDE.md's existing status note that the per-county deep-
+content expansion has so far only reached Florida's 67 counties, with
+the remaining US counties (including today's 10) not yet started. Not
+fixed here — this routine's job is keyword placement, not content
+depth.
+
+- Action items: (1) none of today's 10 pages volume-verified — Semrush
+  units still exhausted, revisit when they refresh; (2) all 10 of
+  today's pages are under the 1,500-word `<main>` standard — flagged
+  for the separate content-expansion effort, not this routine; (3) real
+  content-accuracy finding on `/louisiana/jefferson/` and
+  `/louisiana/orleans/`, checked with a follow-up grep this run, not
+  just the hero sentence this routine rewrote: both pages say "County"
+  instead of "Parish" in multiple other places too (a "Built for
+  Jefferson/Orleans County" line, a "Do you serve all of ... Parish?"
+  FAQ answer that then says "Yes, all of ... County", an "Jefferson/
+  Orleans County's competition..." sentence, and a "compete in ...
+  County?" CTA heading) — Louisiana uses parishes, not counties, so
+  this is a real factual label error carried from the shared county-
+  page template, not something this run introduced or fully fixed. This
+  run only corrected the one hero sub-paragraph it was rewriting for
+  the secondary keyword; the other instances listed above are still
+  "County" on both pages and need a dedicated fix — flagged for
+  whoever picks that up, out of scope for today's keyword-placement
+  task.
+- Total done today: 10 pages (`/texas/williamson/`, `/colorado/douglas/`,
+  `/new-york/richmond/`, `/kansas/johnson/`, `/alabama/madison/`,
+  `/louisiana/jefferson/`, `/louisiana/orleans/`,
+  `/south-carolina/charleston/`, `/south-carolina/richland/`,
+  `/georgia/dekalb/`).
+
+**Deploy status:** _pending — commit + push + fast-forward + GitHub
+Actions deploy poll in progress; this placeholder will be replaced with
+the real confirmed result before this run is reported done._
 
