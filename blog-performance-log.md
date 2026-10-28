@@ -880,3 +880,67 @@ clean re-check tomorrow to see whether it settles one way or the other
 after two toggles in three days. Performance stayed completely flat
 this run — no new pattern to act on for post structure/topic/length
 since nothing in the real numbers moved at all.
+
+## 2026-10-28 — daily blog Routine run
+
+Published today: `google-ai-mode-seo-guide-for-small-businesses` (2,501
+words) — the new fallback-tier post (service-focused deep dive on a
+real 2026 platform development), since all 9 industry pages now have a
+supporting post. Too new (0 days old) for a URL Inspection signal yet,
+so not checked this run, consistent with the standing pattern for
+brand-new posts.
+
+**Indexing check (per the 2026-10-27 action item: re-checked
+`digital-marketing-for-restaurants` and
+`digital-marketing-for-home-services-businesses`, plus the long-
+standing flagged-stuck URL):**
+- `digital-marketing-for-tour-operators-and-travel-agencies` (1 day
+  old): **"URL is unknown to Google."** Expected at this age.
+- `digital-marketing-for-home-services-businesses` (9 days old):
+  **real recovery** — back to **"Discovered - currently not indexed,"**
+  up from yesterday's regression to "URL is unknown to Google." This is
+  now the third toggle for this specific URL across four consecutive
+  checks (discovered → unknown → discovered → unknown → discovered),
+  which continues to look like real reporting flakiness for this URL
+  specifically rather than either a stable state or a real drop —
+  logging the data point honestly rather than calling it resolved.
+- `digital-marketing-for-restaurants` (8 days old): **"URL is unknown
+  to Google,"** unchanged for a 6th consecutive check. Per the
+  2026-10-27 finding (closed, not re-flagged as newly open): this
+  connection exposes no page-level "request indexing" action, only
+  diagnostic URL Inspection and feed-level sitemap tools, so there is
+  no further lever available from this routine's toolset beyond the
+  sitemap resubmission already happening every run — noting current
+  status only, as instructed, not re-opening the already-closed action
+  item.
+- `local-seo-vs-national-seo` (long-standing flagged-stuck post):
+  **"Crawled - currently not indexed,"** `lastCrawlTime` still
+  `2026-09-17T19:03:49Z` — now 41 days without a recrawl. Unchanged.
+
+**Performance re-pull (90-day window, page dimension, `/blog/`,
+2026-07-30 to 2026-10-26):** `how-to-cut-wasted-ad-spend-in-30-days` 33
+impressions (position ~66.5, unchanged), `email-flows-every-business-
+needs` 4 (position 20.5, unchanged), `what-is-digital-marketing` 4
+(position 3, unchanged), `seo-company-hiring-guide` 3 (position 1,
+unchanged), `/blog/` index 3 (position 5.67, unchanged),
+`10-local-seo-tactics-that-fill-your-calendar` 2 (position 1,
+unchanged), `how-to-choose-an-seo-company-in-patna` 2 (position 1,
+unchanged), `website-mistakes-costing-you-customers` 1 (position 14,
+unchanged) — **every number identical to the 2026-10-27 pull**, no
+change in either direction for any post. **Zero clicks on every post,
+still, with no exception**, now roughly nine weeks of flat zero-click
+data across the whole blog. None of the nine most recent posts
+(ecommerce, restaurants, home-services, real-estate, healthcare,
+law-firms, education, fitness, tour-operators) show any impressions
+yet; the new AI-Mode/SEO post is too new to appear.
+
+**Action items:** `digital-marketing-for-home-services-businesses`'s
+discovery-state toggling has now repeated enough times (3 full cycles)
+to treat as a real, URL-specific pattern rather than a one-off
+reporting-lag blip — worth noting in any future review of internal-
+linking strength to that specific post, though not actionable through
+any tool available to this routine today. `digital-marketing-for-
+restaurants` remains stuck at "unknown to Google" with no further lever
+available (closed per 2026-10-27). Performance stayed completely flat
+this run — no new pattern to act on for post structure/topic/length
+since nothing in the real numbers moved at all.

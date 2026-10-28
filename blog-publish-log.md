@@ -846,3 +846,93 @@ catch-up cycle for today's real date, not a backfill.
 - Sitemap resubmission: confirmed — "Sitemap
   'https://kryvexmedia.com/sitemap.xml' successfully submitted for site
   'sc-domain:kryvexmedia.com'"
+
+### 2026-10-28
+
+- Topic/query: GSC 90-day query pull checked first (2026-07-26 to
+  2026-10-25, dimension `query`, 100 rows) — same standing pattern as
+  every prior run this week, near-total volume is hyper-local "best
+  seo/digital marketing agency/company in [city]" queries already
+  served by the programmatic geo pages, nothing new maps to a blog
+  topic. Checked `ls blog/` — all 9 of Kryvex's industry pages now
+  have a supporting post (Restaurants 10-20 through Tours/Travel
+  10-27), so the standing "next uncovered industry page" fallback used
+  every prior run this week is now exhausted. Moved to the next
+  fallback tier CLAUDE.md names for exactly this situation: a service-
+  page-focused deep dive on a real, current, citable platform
+  development. Picked SEO, topic: Google's AI Mode/AI Overviews and
+  the two 2026 core updates — confirmed via `ls blog/` that no existing
+  post covers this angle.
+- Title: "Google AI Mode Hit 1 Billion Users: What It Actually Means
+  for Small Business SEO"
+- URL: https://kryvexmedia.com/blog/google-ai-mode-seo-guide-for-small-businesses/
+- Word count: 2,501 (verified via isolated `<main>` word count script)
+- Links: `/services/seo/`, `/services/local-seo/`,
+  `/services/content-marketing/`, `/services/email-marketing/`,
+  `/blog/content-that-ranks-a-starter-framework/`,
+  `/blog/digital-marketing-for-tour-operators-and-travel-agencies/` —
+  all confirmed to exist in the repo (`ls`) before linking.
+- Facts cited (every one verified via WebSearch against a real,
+  identifiable source before writing, anti-fabrication rule applied in
+  full):
+  - Google's own official guide "AI features and your website"
+    (developers.google.com/search/docs/appearance/ai-features): same
+    SEO fundamentals apply to AI Overviews/AI Mode as classic Search,
+    no additional technical requirements stated; AI Overviews shown
+    only when Google's systems judge them additive to classic results.
+  - Same guide's section on llms.txt: not needed for Search or AI
+    features, Google may crawl such a file but gives it no special
+    ranking weight. Corroborated by Gary Illyes (Search Central event,
+    as reported by Search Engine Land/webpronews.com: "normal SEO is
+    enough" for AI Overviews, Google won't crawl/use llms.txt for that
+    purpose) and John Mueller (Search Relations podcast, as reported
+    by letsdatascience.com: self-reported files can't be relied on by
+    LLM systems to tell sites apart).
+  - Google's own Search Status Dashboard (via Search Engine
+    Journal/SE Roundtable coverage of it): March 2026 core update
+    released Mar 27, complete Apr 8 (~12 days); May 2026 core update
+    released May 21, complete ~Jun 2 (~12 days). No companion Google
+    blog post for either — described only via dashboard/social
+    "regular update" language, which the post states accurately rather
+    than inventing a stated goal.
+  - Google I/O 2026 keynote figures (as reported by dig.watch, Thurrott
+    and other outlets covering the keynote directly): AI Mode passed 1
+    billion monthly users ~1 year after launch, query volume more than
+    doubling every quarter; AI Overviews reaching 2.5B+ monthly users.
+  - Pew Research Center study, published 2025-07-22 (real
+    browsing-panel data from a panel of US adults, not a vendor
+    estimate — cross-checked via The Register, 9to5Google, the-decoder.
+    com, and traced to pewresearch.org/short-reads/2025/07/22/): 8% of
+    AI-Overview visits click a traditional result vs 15% without one;
+    ~1% click an AI Overview source link; 26% of AI-Overview visits end
+    with no click at all vs 16% without one; AI Overviews appear on 8%
+    of 1-2 word queries vs 53% of 10+ word queries. Google's public
+    dispute of Pew's methodology stated alongside the numbers, not
+    omitted.
+  - Explicitly left out per the anti-fabrication rule: vendor-reported
+    organic-click-loss percentages from a May 2026 "Visionary
+    Marketing" analysis surfaced in research — undisclosed methodology,
+    couldn't be traced to a primary source, so excluded rather than
+    included with a vague hedge.
+  No invented statistics, client results, or testimonials.
+- Also added this post's own card (`data-cat="seo"`) to
+  `blog/index.html`'s `#post-grid` and today's URL to
+  `sitemap-resources.xml` (lastmod 2026-10-28) in the same commit.
+  Checked the new post's `<head>` for a noindex tag before committing
+  — none present.
+- QA: all HTML tag types balanced via Python script (div/section/
+  article/header/footer/main/h1/h2/h3 open counts == close counts, no
+  self-closing mismatches); all 3 `application/ld+json` blocks
+  (BreadcrumbList/BlogPosting/FAQPage) parse as valid JSON.
+- Deploy: commit `c91d8209e`, pushed to
+  `claude/webtech-core-current-work-rsmbri` and fast-forwarded to
+  `main`. Run #286 (id `40650626942`), head_sha `c91d8209e` — exact
+  match to this commit — polled until `status: completed`, confirmed
+  `conclusion: **success**` (build job finished 07:33:16Z, deploy job's
+  "Deploy to GitHub Pages" step ran 07:33:22Z→07:36:39Z, ~5.3 minutes
+  total — on the slower end of this Routine's historical range but not
+  a stall; cross-checked via `list_workflow_jobs` at each poll, no
+  stale-read artifact this run).
+- Sitemap resubmission: confirmed — "Sitemap
+  'https://kryvexmedia.com/sitemap.xml' successfully submitted for site
+  'sc-domain:kryvexmedia.com'"
