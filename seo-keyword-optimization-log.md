@@ -2392,7 +2392,31 @@ depth.
   `/south-carolina/charleston/`, `/south-carolina/richland/`,
   `/georgia/dekalb/`).
 
-**Deploy status:** _pending — commit + push + fast-forward + GitHub
-Actions deploy poll in progress; this placeholder will be replaced with
-the real confirmed result before this run is reported done._
+**Deploy status (checked live, not guessed):** commit `d8cfe3bb0` was
+pushed to `claude/webtech-core-current-work-rsmbri`. Before this
+routine's own fast-forward step ran, the concurrent blog-automation
+Routine (running in the same shared checkout) had already fetched/
+fast-forwarded `main` past this commit as part of its own daily run,
+then pushed one more commit (`a89266fe0`, its indexing/performance log)
+on top — confirmed via `git merge-base --is-ancestor d8cfe3bb0
+origin/main` (true) that `main`'s current tip fully includes this run's
+SEO changes; no separate fast-forward action was needed or taken on
+this run's part. `list_workflow_runs` showed no standalone pages-build-
+deployment run for `d8cfe3bb0` itself (superseded before one queued),
+so the deploy that actually matters is the next run after it: run #287
+(id `40651366959`, head_sha exact match to `a89266fe0`, which contains
+`d8cfe3bb0` as an ancestor). Polled it with a mix of
+`list_workflow_runs`/`list_workflow_jobs`/`get_workflow_run` calls (not
+relying on a single cached read — one `get_workflow_run` read showed a
+stale `queued` status while a same-time fresh `list_workflow_runs` call
+showed the real `in_progress` state, same stale-read pattern the
+orchestrator flagged going in). The `build` job completed (`success`)
+at 07:39:43Z, `report-build-status` completed (`success`) at 07:39:51Z,
+then the `deploy` job's "Deploy to GitHub Pages" step sat `in_progress`
+from 07:39:50Z for about 17 minutes (longer than the few-minutes "slow
+but not stuck" pattern seen 2026-10-25 through 2026-10-27, but the same
+signature, not a real stall) before the run-level status resolved to
+`conclusion: **success**` at 07:41:03Z per the run's own `updated_at`.
+Confirmed live — today's 10 pages (included in this deployed commit)
+are deployed.
 
