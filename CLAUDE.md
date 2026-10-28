@@ -84,12 +84,20 @@ don't chat.
 
 ## Daily blog automation (set 2026-09-26, standing, no approval gate)
 
-A recurring Routine publishes one new blog post per day, fully autonomously
-(the owner explicitly opted out of an approval step for this one — unlike
-the Instagram posting Routines, which stay approval-first). The
-anti-fabrication and 1,500-word rules above still apply in full; removing
-the approval step removes the human review checkpoint, not the content
-integrity bar.
+**Raised from 1 post/day to 3 posts/day on 2026-10-28, per explicit owner
+instruction** ("every day 3 blog post publish thats good"). A recurring
+Routine (`trig_01Kp3RhRu48AwQY7yqB4SofM`, daily ~12:55 IST) publishes 3 new
+blog posts per day, fully autonomously (the owner explicitly opted out of an
+approval step for this one — unlike the Instagram posting Routines, which
+stay approval-first). The anti-fabrication and 1,500-word rules above still
+apply in full to EACH of the 3 posts; removing the approval step removes the
+human review checkpoint, not the content integrity bar, and raising the
+count to 3 does not lower the bar per post — publish fewer and say so
+honestly in the log rather than padding with a weak/duplicate topic. All 9
+of Kryvex's industry pages had a supporting post by 2026-10-27, so topic
+selection now falls back to real, WebSearch-verified service-area deep
+dives (platform policy changes, new regulations, documented best-practice
+shifts) rather than re-picking an industry.
 
 Process each run follows:
 1. Pull real query data via the Composio `google_search_console` connection
@@ -170,7 +178,19 @@ file for the real method/history. None of this site's content standards
 this is the durable cross-session storage available in this
 environment.
 
-## Daily Reddit growth Routine (set 2026-09-30, standing, no approval gate)
+## Daily Reddit growth Routine (set 2026-09-30, PAUSED 2026-10-28, per owner instruction)
+
+**Disabled 2026-10-28, per explicit owner instruction** ("stop posting on
+reddit"). The trigger (`trig_01LgfZynFwWGnByFdwVptLwB`) is now
+`enabled: false` — it will not fire. Left in place (not deleted) in case the
+owner wants to resume it later; do not re-enable without an explicit
+instruction to do so. Over the full ~1-month run, comment_karma stayed flat
+at 0 despite 11+ genuine, verified comments across several real days, and
+the final week saw repeated Reddit-side rate-limit cooldowns block most
+attempts — see `reddit-growth-log.md`'s "Week 4 / End-of-Month Review"
+entry (2026-10-27) for the full data and the recommendation that preceded
+this pause. The rest of this section is left below as historical record of
+how the Routine worked while it ran.
 
 A recurring Routine (`trig_01LgfZynFwWGnByFdwVptLwB`, daily ~16:57 IST,
 self-bound to the main working session) grows Kryvex's real Reddit
@@ -317,11 +337,12 @@ Fix, applies to every publish from here on, not just the blog automation:
 ## Daily keyword-optimization automation (set 2026-09-26, standing, no approval gate)
 
 A recurring Routine (`trig_018kXGKGYidUcjnAJpLAmLWR`, daily 02:30 UTC,
-self-bound to the main working session) optimizes **10 pages/day** (raised
-from 2 on 2026-09-28, per owner instruction — same per-page rigor, just more
-pages) for target keywords, fully autonomously — same no-approval-gate model
-as the blog Routine above. Goal: improve Google ranking and organic traffic
-across the whole site, page by page.
+self-bound to the main working session) optimizes **30 pages/day** (raised
+from 10 to 30 on 2026-10-28, per explicit owner instruction — same per-page
+rigor, just more pages; previously raised from 2 to 10 on 2026-09-28) for
+target keywords, fully autonomously — same no-approval-gate model as the
+blog Routine above. Goal: improve Google ranking and organic traffic across
+the whole site, page by page.
 
 Process each run follows:
 1. Read `seo-keyword-optimization-log.md`'s priority queue and take the next
