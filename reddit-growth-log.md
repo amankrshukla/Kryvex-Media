@@ -1343,3 +1343,127 @@ support a vague "keep trying harder" — it supports a specific
 experiment (different/additional timing) on the throughput side, and
 an explicit owner decision on the karma-growth side, because nothing
 tried so far on the current cadence has moved that number in a month.
+
+### 2026-10-28 — first day after the original 4-week plan; rate-limited on the very first attempt again; zero comments posted
+
+**Where this sits:** today (2026-10-28) is the first day after the original
+4-week plan's defined span (2026-09-30 to 2026-10-27, reviewed in full in
+the Week 4 / End-of-Month Review above). The plan itself defines no "Week
+5" rules, and the owner has not yet responded to that review's
+recommendations (don't expand subreddits; test a different/additional
+posting time; treat the flat comment_karma trend as its own decision).
+Per standing instruction, nothing about approach, cadence, or posture
+changes unilaterally without that response — today re-derives posture from
+the standing rules + real current karma, same as every prior day, and runs
+at the same ~16:57 IST-equivalent slot with the same target subreddits.
+
+**Promotion-posture check (karma-gated, not calendar-gated):**
+`REDDIT_GET_REDDIT_USER_ABOUT` (username "me") run before starting —
+`total_karma: 1`, `link_karma: 1`, `comment_karma: 0` — unchanged from
+every single check logged since 2026-09-30. Per the standing rule, posture
+stayed fully non-promotional today too (no Kryvex mention, no links, in
+anything drafted).
+
+**Carried-over threads checked first** (the three left open at the end of
+Week 4), all re-read in full (`REDDIT_RETRIEVE_POST_COMMENTS`) before
+attempting anything, each re-verified as still open and non-duplicate
+against new replies that had landed since 2026-10-27:
+
+1. r/SEO — ["Would having a lot of non-indexed pages affected a site's overall search rankings?"](https://reddit.com/r/SEO/comments/1xc6tsb/) —
+   re-read in full; still the same 7 visible comments as 2026-10-26/10-27
+   (`WebLinkr`, `PMDevSolutions`, `Kitchen_Bend5016`,
+   `Illustrious_Log_9764`, `therealtricklowe`, plus 2 `[removed]` —
+   the OP's own 2026-10-27 update confirmed no Manual Actions/Security
+   Issues found and cleanup steps 1-3 already done). None address the
+   backlinks/Links-report angle this log has drafted since 2026-10-22
+   (toxic inbound links accrued during the hack period as a separate,
+   independent drag on domain authority, distinct from the raw
+   non-indexed-page count) — confirmed still non-duplicate. **Attempted
+   first — not posted.** `REDDIT_POST_REDDIT_COMMENT` returned a real
+   `RATELIMIT` ("Looks like you've been doing that a lot. Take a break
+   for 8 minutes... wait approximately 9 minute(s) and 40 second(s)") on
+   this very first call of the run, before anything had been posted
+   today.
+2. r/SEO — ["Can't understand why Discovery GSC dropped since August"](https://reddit.com/r/SEO/comments/1xc910h/) —
+   re-read in full; grew a long side-thread between `WebLinkr` and the
+   OP (`Wrong_Low5367`) and `Brave-Scientist1921` debating Google News
+   Publisher Center eligibility, authority scores (Semrush 45 /
+   Ahrefs 71), and whether individual pages were ever "cited." In that
+   exchange `WebLinkr` flagged "you need images at least 1250px wide
+   (I think)" as a Discover-program requirement — close enough to this
+   log's drafted `max-image-preview:large`/`X-Robots-Tag` angle that the
+   gap has narrowed materially since 2026-10-24 (when it was drafted).
+   **Downgraded to skip for today**: the remaining daylight between
+   "1250px images" (a content-requirement point, stated with "I think"
+   uncertainty) and the specific technical failure mode drafted here (the
+   robots meta tag / header being silently stripped by a CMS, CDN, or
+   consent-management script without affecting regular Search
+   indexing) is now narrow enough, and the thread itself has drifted
+   into an unrelated authority-score argument, that posting this today
+   would read as restating a tangential point in an already-crowded,
+   off-topic-drifted thread rather than adding real value. Not attempted
+   (would also have been blocked by #1's rate limit regardless).
+3. r/AskMarketing — ["Does Structured Data Help AI Systems Understand a Website More Accurately?"](https://reddit.com/r/AskMarketing/comments/1xbdm1f/) —
+   re-read in full; no new replies since 2026-10-27 (still `thanos676`,
+   `madongrind`, `carsstoon`, `Will_Wu_Metis` plus the AutoModerator
+   stub). All four converge on within-site/within-schema consistency and
+   "engines cite passages, not schema" — `carsstoon`'s `sameAs`-linking
+   point is the closest any reply has come, but none address the
+   *cross-site* entity-consistency angle (own site vs. Google Business
+   Profile, directories, review sites disagreeing on the same fact) as
+   the bigger AI-citation lever, or the measurement-gap point (GA4/GSC
+   don't separate AI-referred traffic from ordinary referral/direct; the
+   real signal is server/access-log checks for GPTBot/PerplexityBot/
+   ClaudeBot/Google-Extended user agents). Confirmed still non-duplicate.
+   Drafted, not attempted (stopped after #1's rate limit).
+
+**Subreddit rules re-checked fresh this week** (`REDDIT_GET_SUBREDDIT_RULES`,
+since the last check was 2026-10-21, exactly 7 days ago): r/SEO unchanged
+(links auto-removed in posts and comments, no self-promotion, Q&A-only, no
+blogs/guides/case-studies, no work/hiring offers, no asking-to-DM).
+r/AskMarketing unchanged (must be a genuine marketing question, no
+shilling/low-quality/surveys/homework, no spam/astroturfing, no
+AI-generated posts). No rule changes found at either subreddit; nothing
+blocked participation via a rules change today.
+
+**No new opportunities searched today** — the run stopped after the first
+rate limit, per the standing "honor the cooldown, don't retry through it,
+stop for the day" rule, rather than waiting out the ~9m40s cooldown and
+attempting a 2nd call.
+
+**Karma check (post-activity):** `REDDIT_GET_REDDIT_USER_ABOUT` (username
+"me") run again after the rate-limit hit — identical, unchanged real
+numbers: `total_karma: 1`, `link_karma: 1`, `comment_karma: 0`. No comment
+was posted today, so no karma movement either way is expected or claimed.
+
+**Pattern tally (continuity with the Week 4 review):** of the last 7 real
+posting-day runs (2026-10-22 through 2026-10-28), **6 of 7 were blocked by
+a Reddit `RATELIMIT` on the very first `REDDIT_POST_REDDIT_COMMENT` call of
+the run** — only 2026-10-26 got one comment through before being
+rate-limited on the second call. Today extends that pattern rather than
+breaking it. `comment_karma` has now read exactly 0 on every single check
+logged since account creation (2026-09-25), across 11 real comments posted
+on 6 real posting days. Both standing findings from the Week 4 review
+remain exactly as described there — this entry adds one more day of
+confirming data, not a new finding. No decision has come back from the
+owner yet on the review's recommendations (test a different/additional
+posting time; don't expand subreddits; treat the karma trend as a separate
+call) — continuing unchanged at the same cadence and time pending that
+response, per standing instruction.
+
+**No subreddit blocked participation outright via a rules change today.**
+Nothing posted to r/marketing, r/smallbusiness, r/Entrepreneur,
+r/EntrepreneurRideAlong, r/localseo, r/web_design, r/webdev, or
+r/DigitalMarketingIndia today — no new opportunities were searched this
+run per the rate-limit stop rule above.
+
+**Action item for tomorrow's run:** try the 2 remaining carried-over
+drafts first (#1 r/SEO non-indexed-pages backlinks/Links-report angle —
+still fully non-duplicate; #3 r/AskMarketing cross-site entity consistency
++ AI-crawler log measurement gap — still fully non-duplicate) after
+re-confirming each thread is still open and non-duplicate. Treat #2 (r/SEO
+Discover drop / `max-image-preview:large`) as likely exhausted going
+forward given today's narrowing — re-evaluate fresh rather than carrying
+it forward automatically. Continue watching for the owner's response to
+the Week 4 review before changing time, cadence, or subreddit scope on this
+Routine's own initiative.
