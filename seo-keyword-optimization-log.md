@@ -1,7 +1,8 @@
 # Kryvex Media — Daily Keyword Optimization Log
 
-Tracks the daily on-page SEO optimization Routine (10 pages/day, raised
-from 2 on 2026-09-28). Real keyword data only — Semrush when available,
+Tracks the daily on-page SEO optimization Routine (30 pages/day, raised
+from 10 on 2026-10-28, which was itself raised from 2 on 2026-09-28).
+Real keyword data only — Semrush when available,
 WebSearch-informed fallback when Semrush API units are exhausted (marked
 below). Never invent search volume, difficulty, or CPC numbers. Every page
 gets an intent-match check against its real content before a keyword is
@@ -204,15 +205,7 @@ picked (see the 2026-09-28 entry below for why this matters).
      while extending the queue, confirmed to exist on disk via `ls`
      before being used. Note: `/maryland/prince-georges/` was checked
      previously and does **not** exist on disk — don't pick it without
-     confirming a real directory first. Next up — verify real page
-     existence and real current title/H1/intent before picking: continue
-     the US-county tier by Census population. Untried candidates spotted
-     2026-10-28 while scanning the repo (confirmed to exist on disk via
-     `ls`, population/notability not yet re-verified, check before use) —
-     `/georgia/cobb/`, `/florida/lee/`, `/virginia/chesterfield/`,
-     `/north-carolina/durham/`, `/new-york/rockland/`,
-     `/connecticut/fairfield/`, `/minnesota/ramsey/`,
-     `/wisconsin/waukesha/`, `/missouri/st-charles/`. Observation from
+     confirming a real directory first. Observation from
      today's run, not acted on and not this routine's job to fix: all 10
      of today's pages carry well under the site's standing 1,500-word
      `<main>` content minimum (≈636-674 words each) — consistent with
@@ -221,6 +214,68 @@ picked (see the 2026-09-28 entry below for why this matters).
      remaining ~3,000+ US counties (now including today's 10) are a
      separate, not-yet-started workstream. Flagging for whoever picks
      that content effort back up, not fixing it here.)*
+176. ~~`/delaware/`~~ — done 2026-10-29 (US state hub)
+177. ~~`/maine/`~~ — done 2026-10-29 (US state hub)
+178. ~~`/montana/`~~ — done 2026-10-29 (US state hub)
+179. ~~`/new-hampshire/`~~ — done 2026-10-29 (US state hub)
+180. ~~`/north-dakota/`~~ — done 2026-10-29 (US state hub)
+181. ~~`/rhode-island/`~~ — done 2026-10-29 (US state hub)
+182. ~~`/south-dakota/`~~ — done 2026-10-29 (US state hub)
+183. ~~`/vermont/`~~ — done 2026-10-29 (US state hub)
+184. ~~`/wyoming/`~~ — done 2026-10-29 (US state hub)
+185. ~~`/alaska/`~~ — done 2026-10-29 (US state hub)
+186. ~~`/hawaii/`~~ — done 2026-10-29 (US state hub) *(these 11 complete
+     every one of the 50 US state hub pages — the entire state tier is
+     now done)*
+187. ~~`/georgia/cobb/`~~ — done 2026-10-29 (major metro county, Marietta/
+     Atlanta suburbs)
+188. ~~`/florida/lee/`~~ — done 2026-10-29 (major metro county, Fort Myers/
+     Southwest Florida — already had deep content from the earlier
+     Florida 67-county pass, ~1,900-word `<main>`)
+189. ~~`/virginia/chesterfield/`~~ — done 2026-10-29 (major metro county,
+     Richmond suburbs)
+190. ~~`/north-carolina/durham/`~~ — done 2026-10-29 (major metro county)
+191. ~~`/new-york/rockland/`~~ — done 2026-10-29 (major metro county)
+192. ~~`/connecticut/fairfield/`~~ — done 2026-10-29 (major metro county)
+193. ~~`/minnesota/ramsey/`~~ — done 2026-10-29 (major metro county, St. Paul)
+194. ~~`/wisconsin/waukesha/`~~ — done 2026-10-29 (major metro county,
+     Milwaukee suburbs)
+195. ~~`/missouri/st-charles/`~~ — done 2026-10-29 (major metro county,
+     St. Louis suburbs)
+196. ~~`/washington/snohomish/`~~ — done 2026-10-29 (major metro county,
+     Seattle suburbs)
+197. ~~`/texas/hidalgo/`~~ — done 2026-10-29 (major metro county, McAllen)
+198. ~~`/california/ventura/`~~ — done 2026-10-29 (major metro county)
+199. ~~`/ohio/lucas/`~~ — done 2026-10-29 (major metro county, Toledo)
+200. ~~`/virginia/henrico/`~~ — done 2026-10-29 (major metro county,
+     Richmond suburbs)
+201. ~~`/north-carolina/forsyth/`~~ — done 2026-10-29 (major metro county,
+     Winston-Salem)
+202. ~~`/florida/polk/`~~ — done 2026-10-29 (major metro county, Lakeland —
+     already had deep content from the Florida 67-county pass, ~1,970-word
+     `<main>`)
+203. ~~`/new-york/orange/`~~ — done 2026-10-29 (major metro county)
+204. ~~`/pennsylvania/bucks/`~~ — done 2026-10-29 (major metro county,
+     Philadelphia suburbs)
+205. ~~`/michigan/kent/`~~ — done 2026-10-29 (major metro county, Grand
+     Rapids)
+206. *(With the state-hub tier now fully complete, next up is purely
+     major-metro counties, then county × service sub-pages, then the
+     remaining country hubs. Untried county candidates confirmed to
+     exist on disk via `ls` on 2026-10-29 (population/notability not yet
+     re-verified, check before use): `/georgia/clayton/`,
+     `/georgia/cherokee/`, `/texas/cameron/`, `/florida/seminole/`,
+     `/california/san-joaquin/`, `/california/stanislaus/`. Real finding
+     from today's run, not acted on (this routine does not add/remove
+     noindex tags, per standing instruction) — of the 11 state hubs done
+     today, only 3 (`/delaware/`, `/maine/`, `/south-dakota/`) carry
+     `<meta name="robots" content="noindex,follow">`; the other 8
+     (`/montana/`, `/new-hampshire/`, `/north-dakota/`, `/rhode-island/`,
+     `/vermont/`, `/wyoming/`, `/alaska/`, `/hawaii/`) have **no robots
+     meta tag at all** — i.e. indexable by default, unlike the
+     46,880/52,441-page noindex majority CLAUDE.md's 2026-10-20 audit
+     found. Flagging for whoever owns the noindex/indexing-strategy
+     workstream — this run only observed and logged it.)*
 
 ## Log
 
@@ -2419,4 +2474,210 @@ signature, not a real stall) before the run-level status resolved to
 `conclusion: **success**` at 07:41:03Z per the run's own `updated_at`.
 Confirmed live — today's 10 pages (included in this deployed commit)
 are deployed.
+
+### 2026-10-29 — cadence raised to 30 pages/day (first run under new config)
+
+**First run under the cadence raised from 10 to 30 pages/day on
+2026-10-28, per explicit owner instruction.** Did all 30 at the same
+per-page rigor as every prior run — no corners cut to hit the count.
+30 pages = every remaining US state hub (11) + 19 major-metro county
+pages. This completes the entire 50-state hub tier.
+
+**Semrush checked live first, as always** (`mcp__Semrush__keyword_research`,
+no params) — returned `no_api_units` (active subscription, zero balance,
+non-retryable), same result as every check since this project started.
+**Not volume-verified** — fell back to WebSearch-informed selection,
+reusing the exact keyword pattern already established and repeatedly
+WebSearch-confirmed for these two page templates (state hubs since
+2026-09-28/2026-10-17; county pages since 2026-10-18, most recently
+2026-10-28). Two grounding WebSearch checks run this turn:
+`"digital marketing agency in" Montana small business` (real Montana
+agencies turned up — Metcalfe Media, Dev406, ClickTitan, MySource — plus
+DesignRush's "Best Montana Full-Service Digital Agency Rankings" and
+Semrush's own state-filtered agency directories, confirming "digital
+marketing agency [state]" is a real, actively-indexed phrase pattern)
+and `digital marketing agency Cobb County Georgia small business`
+(mostly city-level directory results — BrightLocal/InsideA list Marietta-
+and Smyrna-based agencies, not county-branded ones — same city-vs-county
+naming gap already logged repeatedly since 2026-10-18, a structural/URL
+decision out of scope for this keyword-placement pass).
+
+**Intent-match check (done for all 30 before picking a keyword):** read
+each page's real current `<title>`/`<h1>`/hero paragraph first. All 11
+state hubs and all 19 county pages already genuinely offer "digital
+marketing agency serving [State]" / "...[County], [State]" to local
+businesses — real match for the chosen keyword pattern on every page,
+no retargeting needed.
+
+**Keywords chosen:**
+- State hubs (11): primary `digital marketing agency in [State]`,
+  secondary `digital marketing company in [State]`.
+- County pages (19): primary `digital marketing agency in [County
+  County], [State]` (exact region string copied from each page's own
+  `<title>`), secondary `digital marketing company in [County County],
+  [State]`.
+
+**Real template gap found and fixed this run (not previously caught):**
+checking the mandatory checklist item-by-item against the 39 already-
+done state hubs (sampled Idaho, West Virginia) showed the meta
+description / `og:description` / `twitter:description` / JSON-LD
+`Service.description` fields on every state hub say "agency **serving**
+[State] businesses" / "...for businesses **across** [State]" — never
+literally "agency **in** [State]". Only title/og:title/twitter:title/
+JSON-LD `name`/H1 carried the exact primary phrase (5/5, matching every
+prior log entry's claim) — the 4 description-type fields never did, on
+any of the 39 prior state hubs, and no prior entry's "5/5" claim was
+false, but it understates what the new checklist actually demands.
+Fixed on all 11 of today's new state hubs: "serving [State] businesses"
+→ "in [State], serving businesses" (meta/og/twitter, 3 occurrences/page)
+and the JSON-LD description rewritten to "Full-service digital marketing
+agency in [State], running SEO, PPC, social media and web design for
+local businesses." (1 occurrence/page) — now genuinely contains the
+primary phrase in every required field. **Action item:** the other 39
+state hubs done 2026-09-26 through 2026-10-17 still have the old
+"serving"/"across" wording in these 4 fields and would fail this same
+strict check — worth a dedicated backfill pass, out of scope for today's
+30-page target.
+
+**What changed per page:**
+- *State hubs (11):* meta/og/twitter description ("serving" → "in,
+  serving"), JSON-LD description (see above), `<h1>` rewritten to open
+  with the primary keyword directly (matching the exact Idaho/West
+  Virginia wording pattern: "Digital marketing agency in [State]: your
+  customers are searching right now — are they finding you, or your
+  competitor?"), opening `<p class="sub">` rewritten to open with the
+  secondary keyword ("As a digital marketing company in [State], we
+  know..."). Title/og:title/twitter:title/JSON-LD `name` already carried
+  the exact primary phrase from original generation — confirmed via
+  script output, left unchanged. The `stage-eyebrow` badge on this
+  template reads "1 · AWARENESS" (a funnel-stage label, part of a 3-step
+  AWARENESS/CONSIDERATION/DECISION page design) — not a keyword badge,
+  confirmed identical and unedited across all 39 prior state hubs sampled
+  (Idaho, West Virginia) — so it was left as-is on all 11, same as every
+  state hub before it; forcing the keyword into a funnel-stage counter
+  would break that design element's meaning for no real benefit, and
+  meta/OG/JSON-LD/H1/opening-paragraph already satisfy the placement
+  requirement.
+- *County pages (19):* eyebrow/badge "📍 [full region]" → "📍 Digital
+  Marketing Agency in [full region]"; `<h1>` "Digital Marketing for
+  [Short] Businesses That Actually Converts" → "Digital Marketing Agency
+  in [full region]: Marketing That Actually Converts"; meta/og/twitter
+  description "serving" → "in"; JSON-LD description rewritten to "Full-
+  service digital marketing agency in [full region], running SEO, PPC,
+  social media and web design for local businesses."; opening `<p
+  class="sub">` rewritten to two sentences, primary keyword in the first,
+  secondary in the second ("As a digital marketing agency in [full
+  region], we build SEO, Google Ads, and social media strategy
+  specifically for [Short] County businesses — not a generic statewide
+  template. We're the digital marketing company in [full region] that
+  local businesses actually trust for real results."). Same exact
+  template and script pattern used for the 10 county pages done
+  2026-10-28. Title/og:title/twitter:title already carried the exact
+  primary phrase, left unchanged.
+- **Real template inconsistency found on `/florida/lee/` and
+  `/florida/polk/` (caught by the script's own 0-match output, not
+  assumed fixed):** both pages' `<title>`/`og:title`/`twitter:title` use
+  the region string "Lee County, FL" / "Polk County, FL" (abbreviated
+  state), but their meta description/`og:description`/
+  `twitter:description`/JSON-LD description already used the full name
+  "Lee County, Florida" / "Polk County, Florida" — a pre-existing
+  template inconsistency (same class of issue as the Louisiana
+  County/Parish mislabeling flagged 2026-10-28), not something this run
+  introduced. Both region-string variants are factually correct (FL is a
+  valid abbreviation for Florida), so this is a consistency gap, not an
+  accuracy error. Handled by applying the "serving" → "in" fix
+  separately using each field's own existing variant (title/H1/eyebrow/
+  sub-paragraph use "FL"; meta/og/twitter description/JSON-LD use
+  "Florida") — verified by script output (3 meta/og/twitter + 1 JSON-LD
+  match on both pages) rather than forcing one variant to match the
+  other. Both variant forms are logged as the primary keyword for these
+  two pages' respective fields in the verification below.
+
+**Grep/script-verified on all 30 pages this run** (Python regex checks
+against the final saved files — see verification script output, not
+assumed):
+- **State hubs (11)** — `digital marketing agency in [state]`: present
+  in `<title>`, meta description, `og:title`, `og:description`,
+  `twitter:title`, `twitter:description`, JSON-LD `name`, JSON-LD
+  `description`, and the literal `<h1>...</h1>` text — 9/9 confirmed on
+  all 11 (`/delaware/`, `/maine/`, `/montana/`, `/new-hampshire/`,
+  `/north-dakota/`, `/rhode-island/`, `/south-dakota/`, `/vermont/`,
+  `/wyoming/`, `/alaska/`, `/hawaii/`). `digital marketing company in
+  [state]` confirmed present ≥1× inside `<main>` on all 11. JSON-LD block
+  parsed successfully (Python `json.loads`) on all 11. `<div>` tag
+  balance confirmed equal open/close on all 11.
+- **County pages (19)** — `digital marketing agency in [county], [state]`:
+  present in `<title>`, meta description, `og:title`, `og:description`,
+  `twitter:title`, `twitter:description`, JSON-LD `description`, the
+  `cty-eyebrow` badge text, and the literal `<h1>...</h1>` text — 10/10
+  confirmed on all 19 (`/georgia/cobb/`, `/florida/lee/`,
+  `/virginia/chesterfield/`, `/north-carolina/durham/`,
+  `/new-york/rockland/`, `/connecticut/fairfield/`, `/minnesota/ramsey/`,
+  `/wisconsin/waukesha/`, `/missouri/st-charles/`,
+  `/washington/snohomish/`, `/texas/hidalgo/`, `/california/ventura/`,
+  `/ohio/lucas/`, `/virginia/henrico/`, `/north-carolina/forsyth/`,
+  `/florida/polk/`, `/new-york/orange/`, `/pennsylvania/bucks/`,
+  `/michigan/kent/`). `digital marketing company in [county], [state]`
+  confirmed present ≥1× inside `<main>` on all 19. Total primary-keyword
+  occurrence count: 10 on all 19 pages. JSON-LD block parsed
+  successfully on all 19. `<div>` tag balance confirmed equal open/close
+  on all 19.
+
+**Noindex finding (observational only, not acted on, per standing
+instruction — this routine does not add or remove noindex tags):**
+- All 19 county pages carry `<meta name="robots" content="noindex,follow">`
+  — consistent with every county-tier page checked so far and the
+  2026-10-20 site-wide audit.
+- The 11 state hubs are **mixed**, and this is a new, real finding:
+  only 3 (`/delaware/`, `/maine/`, `/south-dakota/`) carry
+  `noindex,follow`. The other 8 (`/montana/`, `/new-hampshire/`,
+  `/north-dakota/`, `/rhode-island/`, `/vermont/`, `/wyoming/`,
+  `/alaska/`, `/hawaii/`) have **no `<meta name="robots">` tag at all**
+  in `<head>` — i.e. indexable by default. Checked with a direct `grep`
+  against each file, not assumed. Flagged above in the priority-queue
+  action items for whoever owns the noindex/indexing-strategy
+  workstream; not acted on here.
+
+**Content-depth observation (out of scope for this routine, logged for
+whoever picks up the separate content-expansion workstream):** `<main>`
+word counts checked on all 30 pages. The 11 state hubs run 819-905 words
+each — under the 1,500-word standard, but above the ~630-670 words
+typical of the county tier (this state-hub template carries more
+baseline copy). 17 of the 19 county pages run 633-675 words — also under
+the standard, consistent with every county-tier page logged so far.
+**2 exceptions:** `/florida/lee/` (1,900 words) and `/florida/polk/`
+(1,972 words) already meet the 1,500-word standard — both are part of
+the 67 Florida counties that got the dedicated deep-content pass
+referenced in CLAUDE.md's status section, confirmed by their much higher
+word count and distinct economy/relevance/FAQ sections versus the
+generic template. Not fixed or touched here either way — this routine's
+job is keyword placement, not content depth.
+
+- Action items: (1) none of today's 30 pages volume-verified — Semrush
+  units still exhausted, revisit when they refresh; (2) 28 of today's 30
+  pages are under the 1,500-word `<main>` standard — flagged for the
+  separate content-expansion effort, not this routine; (3) the other 39
+  state hubs done before today don't have the primary keyword in their
+  meta/OG/JSON-LD description fields (see template-gap note above) —
+  worth a dedicated backfill pass; (4) 8 of the 11 state hubs done today
+  have no robots meta tag / are indexable, a real split from the rest of
+  the site's noindex-heavy pattern — flagged for the indexing-strategy
+  owner, not acted on.
+- Total done today: 30 pages — state hubs: `/delaware/`, `/maine/`,
+  `/montana/`, `/new-hampshire/`, `/north-dakota/`, `/rhode-island/`,
+  `/south-dakota/`, `/vermont/`, `/wyoming/`, `/alaska/`, `/hawaii/`
+  (completes all 50 US state hubs); county pages: `/georgia/cobb/`,
+  `/florida/lee/`, `/virginia/chesterfield/`, `/north-carolina/durham/`,
+  `/new-york/rockland/`, `/connecticut/fairfield/`, `/minnesota/ramsey/`,
+  `/wisconsin/waukesha/`, `/missouri/st-charles/`,
+  `/washington/snohomish/`, `/texas/hidalgo/`, `/california/ventura/`,
+  `/ohio/lucas/`, `/virginia/henrico/`, `/north-carolina/forsyth/`,
+  `/florida/polk/`, `/new-york/orange/`, `/pennsylvania/bucks/`,
+  `/michigan/kent/`.
+
+**Deploy status:** pending — commit + push + fast-forward + GitHub
+Actions deploy verification to follow; this section will be corrected
+in place once that completes (never claiming "live" before the matching
+deploy run shows `conclusion: success`, per the standing publish-
+verification rule).
 
