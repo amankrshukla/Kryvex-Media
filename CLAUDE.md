@@ -435,3 +435,70 @@ connection also turned out to have `siteOwner` permission (unlike the old
 manually-scoped token, which was `webmasters.readonly`), so real sitemap
 resubmission via `GOOGLE_SEARCH_CONSOLE_SUBMIT_SITEMAP` actually works now
 — confirmed live, not just theoretically available.
+
+## Site-wide noindex audit and removal (discovered 2026-10-19/20, removal ongoing)
+
+A site-wide audit (Python script reading each page's robots meta tag)
+found that **46,880 of 52,441 pages (89.4%) carried an explicit
+`<meta name="robots" content="noindex,follow">` tag** — this was the real
+reason the content-quality improvements documented above (Florida's
+67-county deep-content pass, the daily SEO keyword-optimization batches,
+etc.) weren't showing up in Google: the pages were blocked from indexing
+regardless of content quality. `robots.txt` itself was clean (`Allow: /`,
+`Disallow: /admin/` only) — the block was purely the per-page meta tag.
+Core/foundational pages (homepage, service pages, `/free-audit/`, country
+hubs like `/uk/`) were already clean/indexable; the bulk of the
+county/county-service tier and most international district pages carried
+the tag.
+
+**Phase 1 (2026-10-20, per owner instruction):** removed noindex from the
+166 country hub pages (of 190 total — the other 24 already had no robots
+tag), sourced exactly from `sitemap-international.xml`'s depth-1 URLs, via
+a precise regex script. Verified via git diff stat and a sample file check.
+The much larger county/county-service tier (~45,000+ pages) was
+deliberately left untouched at that point, pending further owner decision.
+
+**Phase 2 (2026-10-29, per explicit owner instruction):** owner directed
+removing noindex from the remaining pages. A re-scan on 2026-10-29 (before
+this phase) found 46,719 of 52,457 pages (89.1%) still noindexed —
+essentially unchanged from the original 89.4%, confirming the county/
+international tier was still fully blocked. Owner first asked to remove it
+from all remaining pages, then scaled back mid-run to **a capped first
+batch of 10,000 pages** ("remove 10k pages no index tag first") rather
+than all ~46,700 at once. The in-progress full-removal script was stopped
+after it had already processed 1,457 files (california, scotland, idaho,
+cabo-verde, cuba, mauritania, equatorial-guinea — all valid, kept as-is);
+a second script picked up from there and added exactly 8,543 more files
+(skipping the 1,457 already done) to reach exactly 10,000 total. Verified
+via grep that no stray noindex lines or blank-line artifacts remained,
+spot-checked via git diff for clean single-line removals. Committed,
+pushed, fast-forwarded to main, deploy-verified via GitHub Actions
+(`conclusion: success` required before calling it live, per the standing
+Publish verification rule above).
+
+**Remaining as of 2026-10-29: ~36,700 pages still carry the noindex tag**
+(the rest of the county/county-service tier and international districts
+not covered by phase 1 or phase 2's first 10K). Whether/when to continue
+removing noindex from the remaining pages is the owner's call — do not
+unilaterally run further large noindex-removal batches without an
+explicit instruction, since this changes real-world Google indexing
+behavior at scale (crawl budget, a sudden jump in indexed page count,
+and the open question of whether that much content is actually
+ready for real search traffic — most of these pages are still well
+under the site's 1,500-word `<main>` standard, a separate, not-yet-
+started content-expansion workstream).
+
+**Scripted removal method** (used for both phases, generalizable to a
+future phase 3): a Python script walking the repo with `os.walk`,
+matching `<meta name="robots" content="...noindex...">` via regex
+(anchored to the whole line including leading whitespace and the
+trailing newline, so removal never leaves a blank-line gap), removing
+that line from any `index.html` file that has it. For a capped batch,
+track which files were already done (e.g. via `git status --porcelain`)
+and skip them on a second pass, stopping once the total processed hits
+the target count. Always: confirm a clean git working tree before
+starting, verify the exact tag format across a few sample pages first
+(it has been consistently `<meta name="robots" content="noindex,follow">`
+with no leading indentation), spot-check diffs for single-line-only
+changes afterward, and run the standing deploy-verification check before
+reporting anything as live.
