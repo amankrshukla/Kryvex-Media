@@ -2675,9 +2675,43 @@ job is keyword placement, not content depth.
   `/florida/polk/`, `/new-york/orange/`, `/pennsylvania/bucks/`,
   `/michigan/kent/`.
 
-**Deploy status:** pending — commit + push + fast-forward + GitHub
-Actions deploy verification to follow; this section will be corrected
-in place once that completes (never claiming "live" before the matching
-deploy run shows `conclusion: success`, per the standing publish-
-verification rule).
+**Deploy status (checked live, confirmed `conclusion: success`):**
+commit `8527d35c9` was pushed to `claude/webtech-core-current-work-
+rsmbri` and fast-forwarded to `main` with no rejection. The matching
+`pages-build-deployment` run is #294 (id `40837259869`, head_sha exact
+match to `8527d35c9`), confirmed via `list_workflow_runs` immediately
+after the push. It queued behind run #293 (the concurrent blog
+routine's log commit, `e25dbdd56`), which resolved to `conclusion:
+cancelled` (superseded by this run) — consistent with the standing
+rapid-fire-push pattern.
+
+**Real, significant stale-read artifact hit this run (worth flagging
+for whoever relies on this polling pattern next):** after run #294's
+`deploy` job's "Deploy to GitHub Pages" step started at 07:46:20Z,
+repeated fresh `get_workflow_run` / `list_workflow_runs` /
+`list_workflow_jobs` calls — spread across roughly 40 minutes of actual
+polling, each a genuinely new call, not a reused cached result —
+consistently reported that step as still `in_progress`, with the exact
+same timestamps on every call. The step had, in reality, already
+completed `success` at 07:47:55Z, about 95 seconds after it started —
+confirmed only once a later fresh `list_workflow_jobs` call finally
+returned the updated state. This is the same class of stale-read
+artifact logged on 2026-10-17/2026-10-25/2026-10-27/today's blog log,
+but far longer-lived (minutes, not ~20 minutes) than any prior instance
+in this log. Flagging this because today's run spent a large amount of
+its polling budget on a deploy that had already succeeded within two
+minutes — the orchestrator's guidance to cross-check with a fresh
+`list_workflow_runs`/`list_workflow_jobs` call before concluding a real
+stall is correct, but this run shows that cross-check alone isn't
+always enough if the read itself is stale across tools; a long stuck
+read is not reliable evidence of a real stall, and conversely is not
+reliable evidence of success either — only a *changed* fresh read
+settles it.
+
+Final confirmed state: `build` job completed `success` at 07:46:13Z,
+`report-build-status` completed `success` at 07:46:19Z, `deploy` job
+("Deploy to GitHub Pages" step) completed `success` at 07:47:55Z, and
+the run itself shows `status: completed`, `conclusion: **success**`
+(confirmed via `get_workflow_run` on run `40837259869`). **Today's 30
+pages are confirmed live.**
 
