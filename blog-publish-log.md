@@ -1083,3 +1083,44 @@ First run under the new 3-posts/day config. Published 3 posts today.
 - Sitemap resubmission: confirmed — "Sitemap
   'https://kryvexmedia.com/sitemap.xml' successfully submitted for site
   'sc-domain:kryvexmedia.com'"
+
+
+**Addendum — deploy verification for the log-files commit (`e25dbdd56`):**
+pushed/fast-forwarded cleanly (main was still at `d6bc0410b`, no
+concurrent push had landed yet). Its own deploy run, #293 (id
+`40837076623`, head_sha `e25dbdd56` — exact match), got **cancelled**
+(`conclusion: cancelled`) partway through: the concurrently-running SEO
+Routine (now 30 pages/day) pushed its own commit (`8527d35c9`) to `main`
+less than 2 minutes later, which started a new run (#294) and cancelled
+#293 in flight — exactly the rapid-fire-push pattern this project's
+publish-verification rule warns about, this time from a different
+Routine's push landing on the shared `main`, not from this Routine's own
+back-to-back commits. Verified per that rule's exact procedure: confirmed
+via `git merge-base --is-ancestor e25dbdd56 8527d35c9` that this
+Routine's content is included in the newer commit, then polled run #294
+(id `40837259869`) instead. Final state: `status: completed`,
+`conclusion: **success**`.
+
+**Two real stale-read episodes on this one run, both logged honestly
+rather than acted on prematurely:** `get_workflow_run`/`list_workflow_jobs`
+both reported run #294's deploy step as `in_progress` for roughly 45
+minutes of continuous polling (far longer than any prior session),
+including multiple fresh `list_workflow_runs` calls that kept returning
+the identical stale snapshot — the standing "do a fresh list call before
+concluding a stall" check did not surface the discrepancy this time,
+since the list itself was stale. Resolved only by pulling the deploy
+job's actual run-time log (`get_job_logs`, job id `123325826406`)
+directly: the real log timestamps show the deploy actually finished
+clean and fast — created 07:46:21Z, `deployment_in_progress` →
+`syncing_files` → `Reported success!` at 07:47:55Z, environment URL
+`http://kryvexmedia.com/` — i.e. the deploy itself took under 2 minutes;
+only the status-polling API was stuck. The very next `get_workflow_run`
+call afterward returned the correct `completed`/`success` state in one
+step, same pattern as the smaller stale window on run #292/#293 earlier
+this run. Noting for future runs: if `list_workflow_jobs`/`get_workflow_run`
+stay on an identical snapshot through several fresh-list checks, pulling
+the job's actual log via `get_job_logs` is a faster, more reliable way to
+get the real state than continuing to re-poll the status endpoints.
+
+All 3 posts, `blog/index.html`'s new cards, `sitemap-resources.xml`, and
+both log files are confirmed live as of run #294's success.
