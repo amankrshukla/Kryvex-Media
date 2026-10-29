@@ -1022,7 +1022,7 @@ Done. Added two legal pages — **Privacy Policy** and **Terms & Conditions** �
 
 add email & contact number a
 email - info@webtechcore.io
-contact - +91 9110170824
+contact - +91 7079109497
 
 ## Assistant
 
@@ -1034,11 +1034,11 @@ _[tool: run_script]_
 
 _[tool: run_script]_
 
-Updated everywhere — **info@webtechcore.io** and **+91 9110170824** now replace all the old placeholder contact details across all 27 pages (footers, Contact page, legal pages, press enquiries, and the home hero). No placeholders remain.
+Updated everywhere — **info@webtechcore.io** and **+91 7079109497** now replace all the old placeholder contact details across all 27 pages (footers, Contact page, legal pages, press enquiries, and the home hero). No placeholders remain.
 
 _[tool: ready_for_verification]_
 
-Done — the real email (**info@webtechcore.io**) and phone (**+91 9110170824**) are now live across all pages.
+Done — the real email (**info@webtechcore.io**) and phone (**+91 7079109497**) are now live across all pages.
 
 ## User
 
@@ -1052,7 +1052,7 @@ _[tool: snip]_
 
 _[tool: run_script]_
 
-The footer bottom bar now shows **info@webtechcore.io · +91 9110170824 · Engineered for growth.** across all 27 pages.
+The footer bottom bar now shows **info@webtechcore.io · +91 7079109497 · Engineered for growth.** across all 27 pages.
 
 _[tool: ready_for_verification]_
 
