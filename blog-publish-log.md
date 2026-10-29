@@ -936,3 +936,150 @@ catch-up cycle for today's real date, not a backfill.
 - Sitemap resubmission: confirmed — "Sitemap
   'https://kryvexmedia.com/sitemap.xml' successfully submitted for site
   'sc-domain:kryvexmedia.com'"
+
+
+### 2026-10-29 — first run under 3-posts/day (raised 2026-10-28)
+
+First run under the new 3-posts/day config. Published 3 posts today.
+
+- Topic/query: GSC 90-day query pull checked first (2026-07-27 to
+  2026-10-26, dimension `query`, 100 rows) — same standing pattern as
+  every prior run: near-total volume is hyper-local "best seo/digital
+  marketing agency/company in [city]" queries already served by the
+  programmatic geo pages ("digital agency in madhubani" 23 impressions,
+  "best digital marketing agency in kasaragod" 7, etc.), nothing new
+  maps to a blog topic. Checked `ls blog/` — all 9 industry pages
+  already have a supporting post and the most recent post
+  (`google-ai-mode-seo-guide-for-small-businesses`, 2026-10-28) already
+  used the service-deep-dive fallback tier, so all 3 of today's topics
+  also use that fallback tier, each picked and verified via WebSearch to
+  be a distinct real 2025-2026 platform/policy development, checked via
+  `ls blog/` + targeted `grep` for overlap against all 29 prior posts and
+  against each other before writing (see commit `d6bc0410b` for the full
+  per-post overlap-check notes).
+
+**Post 1**
+- Title: "Gmail & Yahoo's Bulk Sender Rules Are Still Blocking Small
+  Business Email in 2026"
+- URL: https://kryvexmedia.com/blog/gmail-yahoo-email-sender-requirements-2026/
+- Word count: 2,134 (verified via isolated `<main>` word count script)
+- Links: `/services/email-marketing/`, `/blog/email-flows-every-business-needs/`,
+  `/services/content-marketing/`, `/free-audit/` — all confirmed to exist
+  in the repo (`ls`) before linking.
+- Facts cited (every one verified via WebSearch before writing): Google's
+  2024 bulk-sender authentication rules (SPF/DKIM/DMARC, DMARC alignment,
+  ~5,000 msg/day bulk threshold, 5.7.26-style rejection error, ~0.3% spam-
+  complaint ceiling per Google Postmaster Tools) as documented by
+  PowerDMARC, Bluehost, Triggerbee, docs.security.tamu.edu (Google's own
+  sender-guidelines page itself, support.google.com/mail/answer/81126,
+  was not directly fetchable this session — WebFetch is blocked for
+  general external domains in this environment, confirmed again this
+  run via a direct attempt that returned ENOTFOUND — so attributed via
+  the vendors/ESPs that document the same page, not claimed as a direct
+  read); one-click unsubscribe per RFC 8058 and the List-Unsubscribe/
+  List-Unsubscribe-Post headers (PowerDMARC, MessageGears); Yahoo's
+  April 2025 shift from IP-based to domain-based filtering (Bird);
+  Microsoft's May 2025 equivalent SPF/DKIM/DMARC/one-click-unsubscribe
+  requirement for Outlook.com/Hotmail/Live.com (same search). No
+  invented thresholds — every specific number above is attributed to
+  the vendor source reporting it, with the 0.1%-vs-0.3% spam-rate
+  discrepancy between sources stated honestly rather than picking one.
+
+**Post 2**
+- Title: "Google Is Retiring Dynamic Search Ads for AI Max: What Small
+  Business Advertisers Need to Know"
+- URL: https://kryvexmedia.com/blog/google-ads-ai-max-dynamic-search-ads-retirement/
+- Word count: 1,868 (verified via isolated `<main>` word count script)
+- Links: `/services/ppc/`, `/blog/google-ads-for-small-businesses/`,
+  `/blog/how-to-cut-wasted-ad-spend-in-30-days/`,
+  `/blog/google-ads-vs-meta-ads-small-business/` — all confirmed to
+  exist in the repo (`ls`) before linking.
+- Facts cited (every one verified via WebSearch before writing): Google's
+  April 2026 Ads & Commerce Blog announcement (per ppc.land, TechWyse,
+  Search Engine Land coverage, attributed to Brandon Ervin) that AI Max
+  for Search replaces Dynamic Search Ads, automatically created assets,
+  and campaign-level broad match; automatic migration starting September
+  2026 per Search Engine Land; a conflicting TechWyse report of a later
+  February 2027 reprieve specifically for un-upgraded DSA campaigns —
+  explicitly flagged in the post as conflicting reporting, not silently
+  resolved to one date; Google's self-reported 7% Search-conversion-
+  increase figure and "hundreds of thousands of advertisers" adoption
+  figure, both explicitly labeled in the post as Google's own claim
+  about its own product, not independently verified. No invented dates
+  or figures — every number traces to a named outlet.
+
+**Post 3**
+- Title: "YouTube's 'Inauthentic Content' Policy: What It Actually Means
+  for a Small Business Channel"
+- URL: https://kryvexmedia.com/blog/youtube-inauthentic-content-policy-small-business/
+- Word count: 1,731 (verified via isolated `<main>` word count script)
+- Links: `/services/youtube-management/`,
+  `/blog/youtube-management-for-small-businesses/`,
+  `/blog/content-that-ranks-a-starter-framework/`,
+  `/blog/social-media-marketing-for-small-businesses/`, `/contact/` —
+  all confirmed to exist in the repo (`ls`) before linking.
+- Facts cited (every one verified via WebSearch before writing): YouTube's
+  July 15, 2025 rename of its "repetitious content" YPP monetization
+  guideline to "inauthentic content," reported as a rename of existing
+  enforcement criteria, not a new rule, per Gulf News, Social Samosa,
+  and Exchange4Media's coverage; the subsequent clarification from Rene
+  Ritchie (YouTube Head of Editorial & Creator Liaison) that it is not
+  an AI ban, per Search Engine Journal, vidIQ, and routenote.com
+  (quoting the same core statement); YouTube's own stated examples
+  (identical-narration slideshow videos, narrative videos with only
+  superficial differences) per the same coverage. Explicitly stated in
+  the post, not glossed over: YouTube has not published an exhaustive
+  list of what counts as "inauthentic" or "mass-produced," so real
+  enforcement discretion remains — flagged as a genuine open question,
+  not resolved into false certainty.
+
+**All 3 posts**
+- QA: all 3 verified individually via Python script — `<main>` word
+  count (2,134 / 1,868 / 1,731, all well over 1,500), HTML tag balance
+  (div/section/article/header/footer/main/h1/h2/h3/ul/li/p/a open ==
+  close counts, all OK), no noindex tag present in any `<head>`, all 9
+  `application/ld+json` blocks (3 per post: BreadcrumbList/BlogPosting/
+  FAQPage) parse as valid JSON. One real mistake caught and fixed before
+  committing: the YouTube post's first draft had an unescaped `"` inside
+  a double-quoted HTML attribute (title/meta description), which
+  silently truncated the file mid-attribute on write — caught by reading
+  the file back, fixed by HTML-entity-escaping the nested quotes
+  (`&quot;`/`&#39;`) in every attribute that needed them, then
+  re-verified clean.
+- Also added all 3 post cards to `blog/index.html`'s `#post-grid`
+  (`data-cat="email"`/`"ppc"`/`"social"` respectively, matching the
+  existing filter buttons) and all 3 URLs to `sitemap-resources.xml`
+  (lastmod 2026-10-29), in the same commit as the 3 post files per the
+  publish-bundling rule — verified `blog/index.html`'s own tag balance
+  (div/section/article/a/h3) and the sitemap's XML validity
+  (`xml.etree.ElementTree.parse`) after editing both, before committing.
+- Git: staged only the 6 touched paths explicitly (3 new post
+  directories, `blog/index.html`, `sitemap-resources.xml`), never
+  `git add -A`, since the SEO Routine (now 30 pages/day) can commit
+  concurrently in this same shared checkout. `git status` showed a
+  clean tree with no other pending changes at staging time.
+- Deploy: commit `d6bc0410b`, pushed to
+  `claude/webtech-core-current-work-rsmbri` and fast-forwarded to
+  `main` cleanly (no rejection, no concurrent push this run). Run #292
+  (id `40836503358`), head_sha `d6bc0410b` — exact match to this
+  commit. Final polled state: `status: completed`,
+  `conclusion: **success**`. Real timeline (from `list_workflow_jobs`
+  once it returned fresh data): build job completed 07:37:56Z, deploy
+  job's "Deploy to GitHub Pages" step ran 07:38:02Z→07:39:12Z (~70
+  seconds) — actually one of the fastest deploys logged for this
+  Routine. **Caught a real stale-read artifact this run, logged
+  honestly per the standing verification rule**: `list_workflow_jobs`
+  kept reporting the deploy job as `status: in_progress` for roughly 20
+  minutes after it had actually completed at 07:39:12Z — multiple polls
+  over that window all returned the same stale in-progress snapshot,
+  and a fresh `list_workflow_runs` call during that window also still
+  showed the run as `in_progress` rather than surfacing the true
+  completed state. Kept polling rather than concluding a stall or
+  reporting anything live early; the next poll after that window
+  returned the true completed/success state in one step. Noting this
+  explicitly since it's the opposite of previous runs' "slow but not
+  stuck" pattern — this one was actually fast, but reported as still
+  running for far longer than it actually ran.
+- Sitemap resubmission: confirmed — "Sitemap
+  'https://kryvexmedia.com/sitemap.xml' successfully submitted for site
+  'sc-domain:kryvexmedia.com'"

@@ -944,3 +944,65 @@ restaurants` remains stuck at "unknown to Google" with no further lever
 available (closed per 2026-10-27). Performance stayed completely flat
 this run — no new pattern to act on for post structure/topic/length
 since nothing in the real numbers moved at all.
+
+
+## 2026-10-29 — daily blog Routine run (first day of 3-posts/day)
+
+Published today: `gmail-yahoo-email-sender-requirements-2026` (2,134
+words), `google-ads-ai-max-dynamic-search-ads-retirement` (1,868 words),
+`youtube-inauthentic-content-policy-small-business` (1,731 words) — all
+3 fallback-tier service deep-dives. Too new (0 days old) for a URL
+Inspection signal yet, so not checked this run, consistent with the
+standing pattern for brand-new posts.
+
+**Indexing check (per the standing priority list — posts published in
+the last ~14 days plus previously flagged-stuck URLs):**
+- `digital-marketing-for-restaurants` (11 days old, longest-stuck of the
+  recent industry posts): **real change** — now **"Discovered -
+  currently not indexed,"** up from "URL is unknown to Google" on every
+  one of the last 6 consecutive checks (2026-10-23 through 2026-10-28).
+  This is genuine forward movement (Google has now at least discovered
+  the URL via sitemap, even though it hasn't indexed it yet) — reported
+  as real progress, not spun further than that.
+- `digital-marketing-for-home-services-businesses` (12 days old):
+  **"Discovered - currently not indexed,"** same as yesterday's state —
+  first consecutive-day match after the toggling pattern logged on
+  2026-10-27/28 (discovered → unknown → discovered → unknown →
+  discovered → discovered). One repeat isn't enough to call the
+  toggling resolved, but it's the first time this URL has matched its
+  own prior-day state since the pattern started.
+- `local-seo-vs-national-seo` (long-standing flagged-stuck post):
+  **"Crawled - currently not indexed,"** `lastCrawlTime` still
+  `2026-09-17T19:03:49Z` — now 42 days without a recrawl. Unchanged.
+- `google-ai-mode-seo-guide-for-small-businesses` (1 day old):
+  **"Discovered - currently not indexed."** Expected at this age,
+  consistent with how every other post has read at 1 day old.
+
+**Performance re-pull (90-day window, page dimension, `/blog/`,
+2026-07-30 to 2026-10-28):** identical to every pull since 2026-10-27 —
+`how-to-cut-wasted-ad-spend-in-30-days` 33 impressions (position ~66.5),
+`email-flows-every-business-needs` 4 (position 20.5),
+`what-is-digital-marketing` 4 (position 3), `seo-company-hiring-guide`
+3 (position 1), `/blog/` index 3 (position 5.67),
+`10-local-seo-tactics-that-fill-your-calendar` 2 (position 1),
+`how-to-choose-an-seo-company-in-patna` 2 (position 1),
+`website-mistakes-costing-you-customers` 1 (position 14) — every number
+unchanged again, now roughly nine and a half weeks of flat zero-click
+data across the whole blog, no exception. None of the 10 most recent
+posts (ecommerce through the three new posts published today, plus
+google-ai-mode) show any impressions yet, as expected at this age.
+
+**Action items:** `digital-marketing-for-restaurants` moving from
+"unknown to Google" to "Discovered - currently not indexed" is the
+first real status change logged for that URL since it got stuck — worth
+a follow-up check in a few days to see whether it progresses to
+"Crawled" next, rather than assuming one check confirms a trend.
+`digital-marketing-for-home-services-businesses` matching its own prior
+state for the first time is also worth one more check before treating
+the toggling as settled either way. Performance stayed completely flat
+again this run — no new pattern to act on for post structure/topic/
+length since nothing in the real numbers moved. With 3 posts/day now
+the standing cadence, the indexing-check priority queue will grow
+faster than before; continuing the existing rule (last ~14 days plus
+previously-flagged-stuck) rather than checking every post every day to
+avoid wasting Inspection-API quota on posts with no new signal.
