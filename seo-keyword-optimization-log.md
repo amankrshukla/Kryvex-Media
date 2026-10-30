@@ -2938,6 +2938,7 @@ keyword placement, not content depth.
   `/north-carolina/buncombe/`, `/arizona/pinal/`, `/minnesota/dakota/`,
   `/missouri/greene/`, `/tennessee/knox/`, `/indiana/hamilton/`.
 
-**Deploy status:** see commit/push/GitHub Actions detail appended below
-once the commit is made and the deploy is polled to completion.
+**Deploy status:** confirmed. Commit `62830ef8b` deployed via
+`pages-build-deployment` run #302 (id `41021494336`), polled to
+completion — `conclusion: success`. All 30 pages are live.
 
