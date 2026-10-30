@@ -1124,3 +1124,137 @@ get the real state than continuing to re-poll the status endpoints.
 
 All 3 posts, `blog/index.html`'s new cards, `sitemap-resources.xml`, and
 both log files are confirmed live as of run #294's success.
+
+## 2026-10-30 — daily blog Routine run (3 posts, second day of 3-posts/day)
+
+**Topic selection:** Pulled GSC query data first (90-day window ending
+2026-10-27, dimension=query, site `sc-domain:kryvexmedia.com`, 100
+rows) via the Composio `google_search_console` connection. Same
+historical pattern held again: the overwhelming majority of volume is
+hyper-local "[service] in [city/state]" queries (e.g. "digital agency
+in madhubani," "best seo company in patna," "agency social media west
+virginia") already served by the programmatic geo pages — nothing in
+the pull cleanly mapped to a new blog topic. Fell back to the
+service-deep-dive tier per CLAUDE.md, picking 3 distinct angles (none
+re-picking an already-covered industry, none overlapping each other or
+any of the 32 existing posts — checked via `ls blog/` before writing):
+
+**Post 1 — SEO fallback tier**
+- Title: "Google's September 2026 Spam Update: What a 14-Day Rollout
+  Actually Means for Your Site"
+- URL: https://kryvexmedia.com/blog/google-september-2026-spam-update-what-it-means/
+- Word count: 1,773 (verified via isolated `<main>` word count script)
+- Links: `/services/seo/`, `/blog/seo-company-hiring-guide/`,
+  `/blog/signs-seo-agency-not-working/`, `/blog/local-seo-vs-national-seo/`,
+  `/free-audit/` — all confirmed to exist in the repo (`ls`) before
+  linking.
+- Facts cited (every one verified via WebSearch before writing):
+  Google's September 2026 spam update per its own Search Status
+  Dashboard, corroborated independently by Search Engine Journal,
+  Search Engine Land, and Search Engine Roundtable — live 09:15
+  Pacific on September 24, 2026, marked complete at 4:37am ET on
+  October 8, 2026 (13 days 16 hours), applying globally across all
+  languages. Explicitly stated in the post, not glossed over: none of
+  these sources, including Search Engine Journal's own coverage,
+  report Google naming a specific spam policy or tactic the update
+  targeted. Duration comparison to Google's two earlier 2026 spam
+  updates (March: ~19.5 hours; June: ~48 hours) is cited from the same
+  reporting, not invented.
+
+**Post 2 — Local SEO fallback tier**
+- Title: "Google's April 2026 Review Policy Update: What Changed on
+  Google Business Profile"
+- URL: https://kryvexmedia.com/blog/google-business-profile-review-policy-update-2026/
+- Word count: 1,664 (verified via isolated `<main>` word count script)
+- Links: `/services/local-seo/`,
+  `/blog/google-business-profile-optimization-guide/`,
+  `/blog/local-seo-vs-national-seo/`, `/free-audit/` — all confirmed to
+  exist in the repo (`ls`) before linking.
+- Facts cited (every one verified via WebSearch before writing):
+  Google's mid-April 2026 (dated to around April 17 by ppc.land's
+  coverage) addition of two clauses to its Business Profile prohibited-
+  content policy — banning merchant-directed staff review quotas, and
+  banning staff-directed review solicitation with specific requested
+  content, including content naming a staff member. Explicitly
+  corrects an overstated version of this story some secondary blogs
+  ran with (that any review naming staff is now banned outright),
+  citing Applause's and Adapt Digital's own pushback on that framing
+  as the counter-source, and explicitly flags enforcement/retroactivity
+  specifics as genuinely unconfirmed rather than asserting a false
+  certainty. No invented enforcement statistics (e.g. a specific
+  automated-detection threshold) — those claims appeared in only one
+  low-tier vendor source during research and were deliberately left
+  out per the anti-fabrication rule.
+
+**Post 3 — Web design fallback tier**
+- Title: "Website Accessibility Lawsuits Rose 27% in 2025: What Small
+  Business Owners Should Know"
+- URL: https://kryvexmedia.com/blog/ada-website-accessibility-lawsuits-2026/
+- Word count: 1,624 (verified via isolated `<main>` word count script)
+- Links: `/services/web-design/`,
+  `/blog/how-to-choose-a-web-design-company/`,
+  `/blog/website-mistakes-costing-you-customers/`,
+  `/blog/what-a-free-website-audit-checks/` — all confirmed to exist in
+  the repo (`ls`) before linking.
+- Facts cited (every one verified via WebSearch before writing):
+  Seyfarth Shaw's March 2026 report "Federal Court Website Accessibility
+  Lawsuit Filings Bounce Back in 2025" (republished on JD Supra and
+  Mondaq) — 3,117 federal website accessibility lawsuits in 2025 (+27%
+  YoY), 36% of all 8,667 federal ADA Title III filings that year (itself
+  down ~2% from 2024). Explicitly notes UsableNet's higher published
+  total is a federal-vs-federal+state methodology difference, not a
+  disagreement about the underlying trend — did not present UsableNet's
+  number as directly comparable to Seyfarth's. WCAG 2.1 AA cited as the
+  standard courts and plaintiffs' attorneys use, consistent across
+  multiple sources. The overlay-widget risk point is attributed to
+  "industry trackers covering 2026 filings" generally rather than a
+  single specific statistic, since the one source with a precise number
+  on this (134 of 432 August 2026 suits) was a single blog citing
+  UsableNet secondhand and judged not solid enough to state as a firm
+  figure — deliberately left at the qualitative level per the
+  anti-fabrication rule rather than repeating an unverified number.
+
+**All 3 posts**
+- QA: all 3 verified individually via the Python script in CLAUDE.md's
+  "Standing requirement" section — `<main>` word count (1,773 / 1,664 /
+  1,624, all well over 1,500), HTML tag balance (div/section/article/
+  header/footer/main/h1/h2/h3/ul/li/p/a/script/head/body/html open ==
+  close counts, all OK), no noindex tag present in any `<head>`, all 9
+  `application/ld+json` blocks (3 per post: BreadcrumbList/BlogPosting/
+  FAQPage) parse as valid JSON via `json.loads`.
+- Also added all 3 post cards to `blog/index.html`'s `#post-grid`
+  (`data-cat="seo"` x2, `"web"` x1, matching existing filter buttons)
+  and all 3 URLs to `sitemap-resources.xml` (lastmod 2026-10-30), in
+  the same commit as the 3 post files per the publish-bundling rule —
+  verified `blog/index.html`'s tag balance (div/section/a/h3/h2, 35
+  cards total) and the sitemap's XML validity
+  (`xml.etree.ElementTree.parse`) after editing both, before
+  committing.
+- Git: staged only the 5 touched paths explicitly (3 new post
+  directories, `blog/index.html`, `sitemap-resources.xml`), never
+  `git add -A` — `git status` at staging time showed ~30 unrelated
+  county-page files modified by the concurrently-running SEO Routine
+  (30 pages/day) in this same shared checkout, left entirely untouched.
+- Deploy: commit `df1a739f8`, pushed to
+  `claude/webtech-core-current-work-rsmbri` and fast-forwarded to
+  `main` cleanly (no rejection at push time). The commit's own deploy
+  run, #301 (id `41021402459`, head_sha `df1a739f8` — exact match),
+  got **cancelled** partway through (`conclusion: cancelled`,
+  "Upload artifact" step cancelled): the concurrently-running SEO
+  Routine pushed its own commit (`62830ef8b`, 30 major-metro county
+  pages) less than 2 minutes later, which started a new run (#302) and
+  cancelled #301 in flight — the same rapid-fire-push pattern logged
+  before on 2026-10-29. Verified per the standing publish-verification
+  rule: confirmed via `git merge-base --is-ancestor df1a739f8
+  62830ef8b` that this Routine's content is included in the newer
+  commit, then polled run #302 (id `41021494336`) instead.
+ Final state: `status: completed`,
+  `conclusion: **success**` (build job completed 07:42:15Z, deploy
+  job's "Deploy to GitHub Pages" step ran 07:42:22Z onward, full run
+  completed by 07:43:33Z). All 3 posts, `blog/index.html`'s new cards,
+  and `sitemap-resources.xml` are confirmed live as of run #302's
+  success.
+- Sitemap resubmission: confirmed — "Sitemap
+  'https://kryvexmedia.com/sitemap.xml' successfully submitted for site
+  'sc-domain:kryvexmedia.com'" (called after all 3 URLs were in the
+  sitemap, before the deploy-verification step).

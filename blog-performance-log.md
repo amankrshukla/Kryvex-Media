@@ -1006,3 +1006,67 @@ the standing cadence, the indexing-check priority queue will grow
 faster than before; continuing the existing rule (last ~14 days plus
 previously-flagged-stuck) rather than checking every post every day to
 avoid wasting Inspection-API quota on posts with no new signal.
+
+## 2026-10-30 — daily blog Routine run (3 posts)
+
+Published today: `google-september-2026-spam-update-what-it-means`
+(1,773 words), `google-business-profile-review-policy-update-2026`
+(1,664 words), `ada-website-accessibility-lawsuits-2026` (1,624 words)
+— all 3 fallback-tier service deep-dives (SEO / Local SEO / Web
+design). Too new (0 days old) for a URL Inspection signal yet, so not
+checked this run, consistent with the standing pattern for brand-new
+posts.
+
+**Indexing check (per the standing priority list — posts published in
+the last ~14 days plus previously flagged-stuck URLs; checked a subset
+today to avoid wasting Inspection-API quota on posts with no new
+signal, continuing yesterday's sampling approach now that the
+3-posts/day cadence has grown the queue):**
+- `digital-marketing-for-restaurants` (12 days old): **real
+  regression** — back to **"URL is unknown to Google,"** down from
+  yesterday's "Discovered - currently not indexed" (which had itself
+  been the first forward movement after 6 straight days stuck at
+  "unknown"). Reported honestly as a regression, not minimized — this
+  URL has now toggled between these two states multiple times across
+  the past two weeks rather than settling.
+- `digital-marketing-for-home-services-businesses` (13 days old):
+  **"Discovered - currently not indexed,"** same as yesterday — second
+  consecutive-day match, continuing to look more stable than the
+  toggling logged across 2026-10-27/28.
+- `local-seo-vs-national-seo` (long-standing flagged-stuck post):
+  **"Crawled - currently not indexed,"** `lastCrawlTime` still
+  `2026-09-17T19:03:49Z` — now 43 days without a recrawl. Unchanged.
+- `google-ai-mode-seo-guide-for-small-businesses` (2 days old):
+  **"Discovered - currently not indexed,"** same as yesterday (its
+  1-day-old reading) — expected progression at this age.
+
+**Performance re-pull (90-day window, page dimension, `/blog/`,
+2026-07-30 to 2026-10-28 — note: GSC's own data lag means today's pull
+uses the same end date as yesterday's; this is the current real data,
+not a stale repeat):** identical to every pull since 2026-10-27 —
+`how-to-cut-wasted-ad-spend-in-30-days` 33 impressions (position ~66.5),
+`email-flows-every-business-needs` 4 (position 20.5),
+`what-is-digital-marketing` 4 (position 3), `seo-company-hiring-guide`
+3 (position 1), `/blog/` index 3 (position 5.67),
+`10-local-seo-tactics-that-fill-your-calendar` 2 (position 1),
+`how-to-choose-an-seo-company-in-patna` 2 (position 1),
+`website-mistakes-costing-you-customers` 1 (position 14) — every
+number unchanged again, now roughly ten weeks of flat zero-click data
+across the whole blog, no exception. None of the posts published since
+late September show any impressions yet.
+
+**Action items:** `digital-marketing-for-restaurants` toggling back to
+"unknown to Google" after one day at "Discovered" confirms this URL
+has a genuinely unstable discovery/indexing status rather than a clean
+forward trend — worth continuing to track rather than reading either
+direction as settled. `digital-marketing-for-home-services-businesses`
+now has two consecutive matching days at "Discovered - currently not
+indexed," which is the most stable this URL has looked since the
+toggling pattern started — one more consistent check would be enough
+to call it genuinely settled. Performance stayed completely flat again
+this run — now roughly ten weeks with zero recorded clicks across every
+blog post; no new pattern in the real numbers to act on for post
+structure, topic, or length. The indexing-check queue continues to grow
+faster than it can be fully checked daily at 3 posts/day; continuing
+the sampling approach (flagged-stuck URLs plus a rotating subset of the
+~14-day window) rather than checking every eligible URL every day.
