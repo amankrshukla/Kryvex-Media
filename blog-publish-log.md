@@ -1125,6 +1125,141 @@ get the real state than continuing to re-poll the status endpoints.
 All 3 posts, `blog/index.html`'s new cards, `sitemap-resources.xml`, and
 both log files are confirmed live as of run #294's success.
 
+## 2026-10-31 — daily blog Routine run (3 posts, third day of 3-posts/day)
+
+**Topic selection:** Pulled GSC query data first (90-day window ending
+2026-10-28, dimension=query, site `sc-domain:kryvexmedia.com`, 100 rows)
+via the Composio `google_search_console` connection. Same pattern as
+every prior run held again — the top rows are almost entirely hyper-local
+"[service] in [city]" queries (e.g. "digital agency in madhubani," "best
+seo company in agra," "agency social media west virginia") already
+served by the programmatic geo pages, with nothing cleanly mapping to a
+new blog topic. Fell back to the service-deep-dive tier per CLAUDE.md,
+researching several candidate angles via WebSearch before picking 3 —
+dropped a 2026 "Instagram algorithm change" candidate after WebSearch
+showed the only well-sourced version of that story (TechCrunch) was from
+April 2024, not 2026, and dropped a "Core Web Vitals/INP 2026" candidate
+after WebSearch turned up conflicting, mostly unsourced secondary-blog
+claims with no primary confirmation. Final 3, checked against `ls blog/`
+and recent log entries to confirm no overlap with any of the 38 existing
+posts or recent topics:
+
+**Post 1 — PPC fallback tier**
+- Title: "Performance Max Isn't a Black Box Anymore: Negative Keywords &
+  Search Term Reporting Explained"
+- URL: https://kryvexmedia.com/blog/google-ads-performance-max-negative-keywords-2026/
+- Word count: 1,834 (verified via isolated `<main>` word count script)
+- Links: `/services/ppc/`, `/blog/google-ads-for-small-businesses/`,
+  `/blog/google-ads-vs-meta-ads-small-business/`,
+  `/blog/how-to-cut-wasted-ad-spend-in-30-days/` — all confirmed to exist
+  in the repo (`ls`) before linking.
+- Facts cited (every one verified via WebSearch before writing): Google's
+  own Google Ads Help documentation ("Negative keywords in Performance
+  Max campaigns" and "Unlock more visibility and control in Performance
+  Max") confirms three features now live — campaign-level negative
+  keywords up to 10,000 per campaign (Search + Shopping inventory only,
+  explicitly not Display/YouTube/Gmail), search term reporting including
+  via the Google Ads API, and channel-level performance reporting.
+  Rollout tracked across 2024-2026 via Search Engine Land, PPC Land, and
+  MediaPost coverage — explicitly noted in the post that sources disagree
+  somewhat on exact rollout dates, so the post frames this as "now live
+  and documented" rather than claiming a single precise announcement
+  date. No invented engagement/performance statistics.
+
+**Post 2 — SEO/Content marketing fallback tier**
+- Title: "Google Now Says Manual Fact-Checking of AI Content Is
+  'Critical' — What Changed on October 1, 2026"
+- URL: https://kryvexmedia.com/blog/google-ai-content-fact-checking-guidance-2026/
+- Word count: 1,758 (verified via isolated `<main>` word count script)
+- Links: `/services/content-marketing/`, `/services/seo/`,
+  `/blog/content-that-ranks-a-starter-framework/`,
+  `/blog/google-september-2026-spam-update-what-it-means/` — all
+  confirmed to exist in the repo (`ls`) before linking.
+- Facts cited (every one verified via WebSearch before writing): Google's
+  October 1, 2026 edit to its "Google Search's guidance on using
+  generative AI content on your website" help document, adding language
+  that it's "critical to manually factcheck and review all AI-generated
+  content for accuracy and trustworthiness" before publishing. Broken by
+  Search Engine Roundtable and independently confirmed by Search Engine
+  Land, Search Engine Journal (which notes the prior version was dated
+  December 10, 2025 with no such language), and MediaPost. Explicitly
+  stated in the post, matching all four sources: this is a documentation/
+  expectation update, not a new ranking penalty or AI-detection signal —
+  Google's position that it doesn't penalize content merely for being
+  AI-assisted is unchanged. No invented enforcement mechanism or
+  detection-threshold number.
+
+**Post 3 — YouTube management fallback tier**
+- Title: "YouTube Is Doubling Its Partner Program Requirements for 2027
+  — What Small Business Channels Need to Know"
+- URL: https://kryvexmedia.com/blog/youtube-partner-program-2027-changes/
+- Word count: 1,528 (verified via isolated `<main>` word count script)
+- Links: `/services/youtube-management/`,
+  `/blog/youtube-management-for-small-businesses/`,
+  `/blog/youtube-inauthentic-content-policy-small-business/`,
+  `/services/social-media/` — all confirmed to exist in the repo (`ls`)
+  before linking.
+- Facts cited (every one verified via WebSearch before writing): YouTube
+  Partner Program overhaul effective February 1, 2027, with existing
+  partners required to accept updated terms in YouTube Studio by January
+  31, 2027. Reported consistently across Search Engine Journal,
+  TheNextWeb, Hypebeast, Gulf News, and Metricool: standard full-
+  monetization path roughly doubling from 4,000 qualified watch
+  hours/12 months (or 10 million qualified Shorts views/90 days) to
+  ~8,000 watch hours or ~20 million Shorts views for new applicants; a
+  new channel-activity minimum (1,000 watch hours/year, 1 million Shorts
+  views/90 days, or 2 long-form/5 Shorts uploads) with a 90-day grace
+  period; Fan Funding/Shopping thresholds (500 subscribers + 3,000 watch
+  hours, or 3 million Shorts views) unchanged. WebFetch to YouTube/
+  Google's own primary sources (`blog.google`, `support.google.com`) was
+  blocked both times by this environment's egress proxy (hosts not on
+  the allowed-domain list) — flagged explicitly in-post and in a callout
+  that the exact figures are multi-source-reported from secondary trade
+  coverage, not independently verified against YouTube's own Help
+  Center, and that a channel should confirm its own status directly in
+  YouTube Studio. No invented rationale presented as official — the
+  "why YouTube is doing this" section is explicitly labeled as inference
+  from the reported pattern, not a quoted YouTube statement.
+
+**All 3 posts**
+- QA: all 3 verified individually via the Python script in CLAUDE.md's
+  "Standing requirement" section — `<main>` word count (1,834 / 1,758 /
+  1,528, all over 1,500), HTML tag balance (div/section/article/header/
+  footer/main/h1/h2/h3/ul/ol/li/p/a/script/head/body/html open == close
+  counts, all OK), no noindex tag present in any `<head>`, all 9
+  `application/ld+json` blocks (3 per post: BreadcrumbList/BlogPosting/
+  FAQPage) parse as valid JSON via `json.loads`.
+- Also added all 3 post cards to `blog/index.html`'s `#post-grid`
+  (`data-cat="ppc"`, `"seo"`, `"social"`, matching existing filter
+  buttons) and all 3 URLs to `sitemap-resources.xml` (lastmod
+  2026-10-31), in the same commit as the 3 post files per the publish-
+  bundling rule — verified `blog/index.html`'s tag balance (div/section/
+  a/h2/h3/svg/g/path/circle/rect, 38 cards total) and the sitemap's XML
+  validity (`xml.etree.ElementTree.parse`) after editing both, before
+  committing.
+- Git: staged only the 5 touched paths explicitly (3 new post
+  directories, `blog/index.html`, `sitemap-resources.xml`), never
+  `git add -A` — `git status` at staging time showed a clean tree (no
+  concurrently-running SEO-routine files present this run).
+- Deploy: commit `b321875fe`, pushed to
+  `claude/webtech-core-current-work-rsmbri` and fast-forwarded to `main`
+  cleanly (no rejection at push time, no competing push collision this
+  run). Deploy run #307 (id `41181237917`, head_sha `b321875fe` — exact
+  match) polled per the standing publish-verification rule via
+  `list_workflow_runs`/`get_workflow_run`: `status: completed`,
+  `conclusion: **success**` (build job ran 07:35:54–07:37:29Z, deploy
+  job's "Deploy to GitHub Pages" step ran 07:37:34–07:38:39Z, full run
+  completed by 07:38:40Z). No push collision this run — a concurrent
+  SEO-routine commit (`1f579d099`, 30 county pages) started its own
+  deploy run (#308) only after #307 had already finished, unlike
+  2026-10-30's collision. All 3 posts, `blog/index.html`'s new cards,
+  and `sitemap-resources.xml` are confirmed live as of run #307's
+  success.
+- Sitemap resubmission: confirmed — "Sitemap
+  'https://kryvexmedia.com/sitemap.xml' successfully submitted for site
+  'sc-domain:kryvexmedia.com'" (called after all 3 URLs were in the
+  sitemap, before the deploy-verification step).
+
 ## 2026-10-30 — daily blog Routine run (3 posts, second day of 3-posts/day)
 
 **Topic selection:** Pulled GSC query data first (90-day window ending

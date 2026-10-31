@@ -1007,6 +1007,73 @@ faster than before; continuing the existing rule (last ~14 days plus
 previously-flagged-stuck) rather than checking every post every day to
 avoid wasting Inspection-API quota on posts with no new signal.
 
+## 2026-10-31 — daily blog Routine run (3 posts)
+
+Published today: `google-ads-performance-max-negative-keywords-2026`
+(1,834 words), `google-ai-content-fact-checking-guidance-2026` (1,758
+words), `youtube-partner-program-2027-changes` (1,528 words) — all 3
+fallback-tier service deep-dives (PPC / SEO-Content / YouTube
+management). Too new (0 days old) for a URL Inspection signal yet, so
+not checked this run, consistent with the standing pattern for
+brand-new posts.
+
+**Indexing check (per the standing priority list — posts published in
+the last ~14 days plus previously flagged-stuck URLs; checked a subset
+today):**
+- `digital-marketing-for-restaurants` (13 days old): **"Discovered -
+  currently not indexed"** — forward movement again from yesterday's
+  regression back to "URL is unknown to Google." This URL has now
+  toggled between these two states repeatedly across three-plus weeks;
+  today's reading is forward, not a settled trend either way.
+- `digital-marketing-for-home-services-businesses` (14 days old):
+  **"Discovered - currently not indexed,"** same as the last two days —
+  third consecutive matching reading, the most stable this URL has
+  looked since the toggling pattern started in late October.
+- `local-seo-vs-national-seo` (long-standing flagged-stuck post):
+  **"Crawled - currently not indexed,"** `lastCrawlTime` still
+  `2026-09-17T19:03:49Z` — now 44 days without a recrawl. Unchanged.
+- `gmail-yahoo-email-sender-requirements-2026` (2 days old, first
+  check): **"URL is unknown to Google"** — expected at this age, no
+  action needed yet.
+
+**Performance re-pull (90-day window, page dimension, `/blog/`,
+2026-07-30 to 2026-10-29):** the first real movement in roughly ten
+weeks of otherwise completely flat data — `what-is-digital-marketing`
+5 impressions (up from 4, position improved to 2.6 from 3),
+`seo-company-hiring-guide` 4 impressions (up from 3, position 1),
+`how-to-choose-an-seo-company-in-patna` 3 impressions (up from 2,
+position 1). Unchanged from the last pull: `how-to-cut-wasted-ad-spend-
+in-30-days` 33 impressions (position ~66.5), `email-flows-every-
+business-needs` 4 (position 20.5), `/blog/` index 3 (position 5.67),
+`10-local-seo-tactics-that-fill-your-calendar` 2 (position 1),
+`website-mistakes-costing-you-customers` 1 (position 14). Clicks
+remain at zero across every single blog post and the `/blog/` index
+itself — the movement here is impressions-only, not traffic. Reported
+as a real but modest signal, not spun into more than it is: 3 posts
+gained exactly 1 impression each and nothing converted to a click.
+None of the posts published since late September show any impressions
+yet.
+
+**Action items:** the small impression upticks on 3 already-indexed,
+older posts are the first non-flat performance signal logged since
+late August — worth one more pull before reading it as a genuine trend
+rather than normal week-to-week noise at this low a volume (single-
+digit impressions). `digital-marketing-for-restaurants`'s repeated
+toggling between "unknown" and "Discovered" over three-plus weeks
+continues to look like a genuinely unstable discovery status for this
+specific URL rather than a one-off blip — no structural difference
+from its sibling pages that would explain why, so no action beyond
+continued tracking. `digital-marketing-for-home-services-businesses`
+reaching a third consecutive stable reading is worth calling settled
+at "Discovered - currently not indexed" barring a reversal. Zero
+clicks after roughly ten weeks across 19 published posts remains the
+headline number worth being honest about — content quality and
+indexing are necessary but clearly not sufficient on their own yet;
+no new structural change to post format is justified by today's data
+beyond continuing to watch whether the 3-posts/day cadence (now in its
+third day) changes total indexed-page count or impression volume over
+the coming weeks.
+
 ## 2026-10-30 — daily blog Routine run (3 posts)
 
 Published today: `google-september-2026-spam-update-what-it-means`
