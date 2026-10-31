@@ -3196,7 +3196,14 @@ content depth.
   `/texas/bell/`, `/colorado/arapahoe/`, `/colorado/larimer/`,
   `/florida/pasco/`, `/florida/sarasota/`, `/georgia/hall/`.
 
-**Deploy status:** pending — commit + push to follow, then poll GitHub
-Actions for `pages-build-deployment` on the resulting commit SHA before
-this line is updated to a confirmed conclusion.
+**Deploy status:** confirmed. Commit `1f579d099` pushed to `main`
+triggered `pages-build-deployment` run #308 (id `41181419055`), but it
+was cancelled mid-flight — a concurrently-running blog-publish-log
+commit (`c276d463f`, run #309, id `41181458612`) landed on `main`
+seconds later and superseded it, same collision pattern as 2026-10-30.
+Verified via `git merge-base --is-ancestor 1f579d099... origin/main`
+that commit `1f579d099` (this run's content) **is** an ancestor of the
+new `main` HEAD — nothing from this run was lost. Tracked run #309
+instead: polled to completion — `conclusion: success`. All 30 pages are
+live.
 
