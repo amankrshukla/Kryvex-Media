@@ -1120,5 +1120,26 @@ body.kxe-open .kx-chat,body.kxe-open .kx-wa{opacity:0!important;pointer-events:n
 })();
 </script>
 <script id="lm-photo-swap">(function(){document.querySelectorAll(".photo-cell[data-img]").forEach(function(c){var s=c.getAttribute("data-img"),im=new Image();im.onload=function(){var g=c.querySelector("svg.lm"),i=document.createElement("img"),l=c.querySelector(".photo-cell-label");i.src=s;i.alt=l?l.textContent:"";i.loading="lazy";c.insertBefore(i,c.firstChild);if(g)g.remove();};im.src=s;});})();</script>
+<!-- Kryvex conversion click tracking -->
+<script>
+(function(){
+  function track(type){
+    try{
+      window.dataLayer=window.dataLayer||[];
+      dataLayer.push({'event':'contact_click','conversion_type':type});
+      if(typeof fbq==='function'){fbq('track','Contact',{content_name:type});}
+      /* Google Ads conversion call goes here once the AW-.../label is set:
+      if(typeof gtag==='function'){gtag('event','conversion',{'send_to':'AW-CONVERSION_ID/CONVERSION_LABEL'});}
+      */
+    }catch(e){}
+  }
+  document.addEventListener('click',function(e){
+    var wa=e.target.closest('a[href^="https://wa.me/"]');
+    if(wa){track('whatsapp');return;}
+    var tel=e.target.closest('a[href^="tel:"]');
+    if(tel){track('call');}
+  });
+})();
+</script>
 </body>
 </html>

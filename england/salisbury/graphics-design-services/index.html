@@ -567,5 +567,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 })();
 </script>
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://kryvexmedia.com/"},{"@type":"ListItem","position":2,"name":"UK","item":"https://kryvexmedia.com/uk/"},{"@type":"ListItem","position":3,"name":"England","item":"https://kryvexmedia.com/england/"},{"@type":"ListItem","position":4,"name":"Salisbury","item":"https://kryvexmedia.com/england/salisbury/graphics-design-services/"}]},{"@type":"Service","serviceType":"Graphic Design","name":"Graphic Design Company in Salisbury, England","areaServed":{"@type":"City","name":"Salisbury"},"provider":{"@type":"Organization","name":"Kryvex Media","email":"info@kryvexmedia.com","areaServed":"Salisbury, England, UK"}},{"@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What will this actually cost me?","acceptedAnswer":{"@type":"Answer","text":"It depends entirely on your goals and starting point, so we don't quote blind. You'll get a transparent, itemised quote after your free audit — no hidden add-ons."}},{"@type":"Question","name":"When will I actually see a difference?","acceptedAnswer":{"@type":"Answer","text":"Paid ads tend to bring enquiries within the first few weeks; SEO and content are a slower build, usually 3–6 months. We'll give you a specific, honest timeline in your free audit rather than a generic promise."}},{"@type":"Question","name":"Am I locked into a long contract?","acceptedAnswer":{"@type":"Answer","text":"No — everything runs month-to-month. If it stops working for you, you can stop. Simple as that."}},{"@type":"Question","name":"Do you work with small businesses in Salisbury?","acceptedAnswer":{"@type":"Answer","text":"Yes — small and growing businesses across Salisbury and the wider England area are exactly who we serve. Every campaign is scoped to your actual budget."}}]}]}</script>
+<!-- Kryvex conversion click tracking -->
+<script>
+(function(){
+  function track(type){
+    try{
+      window.dataLayer=window.dataLayer||[];
+      dataLayer.push({'event':'contact_click','conversion_type':type});
+      if(typeof fbq==='function'){fbq('track','Contact',{content_name:type});}
+      /* Google Ads conversion call goes here once the AW-.../label is set:
+      if(typeof gtag==='function'){gtag('event','conversion',{'send_to':'AW-CONVERSION_ID/CONVERSION_LABEL'});}
+      */
+    }catch(e){}
+  }
+  document.addEventListener('click',function(e){
+    var wa=e.target.closest('a[href^="https://wa.me/"]');
+    if(wa){track('whatsapp');return;}
+    var tel=e.target.closest('a[href^="tel:"]');
+    if(tel){track('call');}
+  });
+})();
+</script>
 </body>
 </html>

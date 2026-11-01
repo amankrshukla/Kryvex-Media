@@ -349,5 +349,26 @@ load();
 renderLists();
 renderStat();
 </script>
+<!-- Kryvex conversion click tracking -->
+<script>
+(function(){
+  function track(type){
+    try{
+      window.dataLayer=window.dataLayer||[];
+      dataLayer.push({'event':'contact_click','conversion_type':type});
+      if(typeof fbq==='function'){fbq('track','Contact',{content_name:type});}
+      /* Google Ads conversion call goes here once the AW-.../label is set:
+      if(typeof gtag==='function'){gtag('event','conversion',{'send_to':'AW-CONVERSION_ID/CONVERSION_LABEL'});}
+      */
+    }catch(e){}
+  }
+  document.addEventListener('click',function(e){
+    var wa=e.target.closest('a[href^="https://wa.me/"]');
+    if(wa){track('whatsapp');return;}
+    var tel=e.target.closest('a[href^="tel:"]');
+    if(tel){track('call');}
+  });
+})();
+</script>
 </body>
 </html>
