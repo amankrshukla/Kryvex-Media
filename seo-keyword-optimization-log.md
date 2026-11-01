@@ -360,30 +360,61 @@ picked (see the 2026-09-28 entry below for why this matters).
 265. ~~`/florida/sarasota/`~~ — done 2026-10-31 (major metro county,
      Southwest Florida — already had deep content, ~1,962-word `<main>`)
 266. ~~`/georgia/hall/`~~ — done 2026-10-31 (major metro county, Gainesville)
-267. *(Next up: more major-metro counties not yet covered and not yet
-     verified to exist on disk — confirm each via `ls`/`test -d` before use
-     — candidates to check: Virginia's norfolk (already confirmed to exist
-     2026-10-31, not yet used), North Carolina's new-hanover (confirmed,
-     not yet used), Washington's thurston (confirmed, not yet used),
-     Minnesota's st-louis/Duluth (confirmed, not yet used), Wisconsin's
-     outagamie (confirmed, not yet used), New Jersey's union/monmouth
-     (confirmed, not yet used), New York's dutchess (confirmed, not yet
-     used), Pennsylvania's berks (confirmed, not yet used), Florida's
-     pinellas-adjacent counties already done — try other states' next-tier
-     metros (e.g. Ohio's trumbull/mahoning, Texas's smith/mclennan,
-     Georgia's chatham/richmond, California's yolo/butte) — none of these
-     latter ones verified yet. Then county × service sub-pages, then the
-     remaining ~175 country hubs. Real finding from today's run, not acted
-     on (this routine does not add/remove noindex tags): of the 30 pages
-     done today, 12 carry no `<meta name="robots">` tag at all (all 4
-     California counties, both Ohio counties, all 3 Indiana counties, both
-     Minnesota counties, and Hall County GA — 12 total) and the other 18
-     carry `noindex,follow` (all 3 Texas counties, all 4 Florida counties,
-     both North Carolina counties, both Tennessee counties, both Wisconsin
-     counties, Bell County TX, both Colorado counties — 18 total) — same
-     real state-by-state split as every prior run's finding (every page in
-     a given state shares the same indexability status), flagged for the
-     noindex/indexing-strategy owner, not acted on here.)*
+267. ~~`/virginia/norfolk/`~~ — done 2026-11-01 (major metro independent city)
+268. ~~`/virginia/chesapeake/`~~ — done 2026-11-01 (major metro independent city)
+269. ~~`/virginia/newport-news/`~~ — done 2026-11-01 (major metro independent city)
+270. ~~`/north-carolina/new-hanover/`~~ — done 2026-11-01 (major metro county, Wilmington)
+271. ~~`/north-carolina/cumberland/`~~ — done 2026-11-01 (major metro county, Fayetteville)
+272. ~~`/washington/thurston/`~~ — done 2026-11-01 (major metro county, Olympia)
+273. ~~`/washington/kitsap/`~~ — done 2026-11-01 (major metro county)
+274. ~~`/minnesota/st-louis/`~~ — done 2026-11-01 (major metro county, Duluth)
+275. ~~`/wisconsin/outagamie/`~~ — done 2026-11-01 (major metro county, Appleton)
+276. ~~`/wisconsin/kenosha/`~~ — done 2026-11-01 (major metro county)
+277. ~~`/new-jersey/union/`~~ — done 2026-11-01 (major metro county)
+278. ~~`/new-jersey/monmouth/`~~ — done 2026-11-01 (major metro county)
+279. ~~`/new-jersey/camden/`~~ — done 2026-11-01 (major metro county)
+280. ~~`/new-jersey/ocean/`~~ — done 2026-11-01 (major metro county)
+281. ~~`/new-jersey/passaic/`~~ — done 2026-11-01 (major metro county)
+282. ~~`/new-york/dutchess/`~~ — done 2026-11-01 (major metro county)
+283. ~~`/new-york/albany/`~~ — done 2026-11-01 (major metro county)
+284. ~~`/pennsylvania/berks/`~~ — done 2026-11-01 (major metro county, Reading)
+285. ~~`/pennsylvania/delaware/`~~ — done 2026-11-01 (major metro county,
+     Philadelphia suburbs)
+286. ~~`/pennsylvania/chester/`~~ — done 2026-11-01 (major metro county,
+     Philadelphia suburbs)
+287. ~~`/pennsylvania/erie/`~~ — done 2026-11-01 (major metro county)
+288. ~~`/texas/lubbock/`~~ — done 2026-11-01 (major metro county)
+289. ~~`/texas/mclennan/`~~ — done 2026-11-01 (major metro county, Waco)
+290. ~~`/ohio/trumbull/`~~ — done 2026-11-01 (major metro county, Warren)
+291. ~~`/ohio/mahoning/`~~ — done 2026-11-01 (major metro county, Youngstown)
+292. ~~`/georgia/chatham/`~~ — done 2026-11-01 (major metro county, Savannah)
+293. ~~`/georgia/richmond/`~~ — done 2026-11-01 (major metro county, Augusta)
+294. ~~`/california/yolo/`~~ — done 2026-11-01 (major metro county, Davis)
+295. ~~`/california/butte/`~~ — done 2026-11-01 (major metro county, Chico)
+296. ~~`/missouri/clay/`~~ — done 2026-11-01 (major metro county, KC suburbs,
+     Liberty)
+297. *(Real, disk-confirmed candidates for the next run, checked via `ls`
+     2026-11-01 but not all needed today: `texas/smith` (Tyler),
+     `texas/ellis`, `ohio/lake`, `california/kings`, `alabama/mobile`,
+     `alabama/montgomery`, `louisiana/caddo` (Shreveport),
+     `louisiana/st-tammany`, `kentucky/kenton`, `kentucky/boone`,
+     `oklahoma/oklahoma`, `oklahoma/tulsa`, `connecticut/hartford`,
+     `connecticut/new-haven`, `virginia/roanoke`, `north-carolina/gaston`,
+     `washington/whatcom`, `pennsylvania/luzerne`, `georgia/bibb` (Macon) —
+     19 candidates ready for a future run. Then county × service sub-pages,
+     then the remaining ~175 country hubs. Real finding from today's run,
+     not acted on (this routine does not add/remove noindex tags): of the
+     30 pages done today, 7 carry no `<meta name="robots">` tag at all
+     (`minnesota/st-louis`, both Ohio counties, both Georgia counties, both
+     California counties) and the other 23 carry `noindex,follow` (all 3
+     Virginia cities, both North Carolina counties, both Washington
+     counties, both Wisconsin counties, all 5 New Jersey counties, both New
+     York counties, all 4 Pennsylvania counties, both Texas counties,
+     `missouri/clay`) — same real state-by-state split as every prior run's
+     finding (every page in a given state shares the same indexability
+     status: MN/OH/GA/CA indexable-by-default, VA/NC/WA/WI/NJ/NY/PA/TX/MO
+     noindexed), flagged for the noindex/indexing-strategy owner, not acted
+     on here.)*
 
 ## Log
 
@@ -3206,4 +3237,165 @@ that commit `1f579d099` (this run's content) **is** an ancestor of the
 new `main` HEAD — nothing from this run was lost. Tracked run #309
 instead: polled to completion — `conclusion: success`. All 30 pages are
 live.
+
+### 2026-11-01
+
+Semrush checked live first (`mcp__Semrush__keyword_research`, no params) —
+returned `no_api_units` (non-retryable), same result as every single check
+across this entire project to date. WebSearch fallback used for all 30
+pages. A fresh grounding search was run this run: `"digital marketing
+agency in" county local SEO search intent 2026` — results were mostly
+agency-blog commentary rather than measured data, but multiple independent
+sources repeated the BrightLocal-sourced figure that ~46% of Google
+searches carry local intent, and one source explicitly warned against
+repeating an exact-match phrase like "digital marketing agency in
+[City]" in every line of a page as an outdated, low-value tactic — both
+points are consistent with this routine's existing approach (one real
+local-intent phrase, placed once per field, not stuffed). No source gave
+a verified search-volume number for "[agency] in [county]" queries
+specifically, so today's picks remain WebSearch-informed, not
+Semrush-volume-verified, same disclosure as every county page since
+2026-10-18.
+
+**Queue extension:** the priority queue's own candidate list (item 267)
+supplied all 9 already-confirmed counties (`virginia/norfolk`,
+`north-carolina/new-hanover`, `washington/thurston`, `minnesota/st-louis`,
+`wisconsin/outagamie`, `new-jersey/union`, `new-jersey/monmouth`,
+`new-york/dutchess`, `pennsylvania/berks`). 21 more were needed to reach
+30. Built a list of on-disk-but-not-yet-optimized county directories per
+state via `os.walk`, cross-referenced against every path already logged
+as done in this file, then picked 21 widely-known real counties/cities
+from that list and confirmed each with a direct `ls <path>` check before
+use — none invented: `virginia/chesapeake`, `virginia/newport-news`,
+`north-carolina/cumberland` (Fayetteville), `washington/kitsap`,
+`wisconsin/kenosha`, `new-jersey/camden`, `new-jersey/ocean`,
+`new-jersey/passaic`, `new-york/albany`, `pennsylvania/delaware`,
+`pennsylvania/chester`, `pennsylvania/erie`, `texas/lubbock`,
+`texas/mclennan` (Waco), `ohio/trumbull` (Warren), `ohio/mahoning`
+(Youngstown), `georgia/chatham` (Savannah), `georgia/richmond` (Augusta),
+`california/yolo` (Davis), `california/butte` (Chico), `missouri/clay`
+(Liberty/KC suburbs). 19 further real candidates were confirmed to exist
+but not needed today — carried into queue item 297 above for a future run.
+
+**Intent-match check (done for all 30 before picking a keyword):** read
+each page's actual current `<title>`/`cty-eyebrow` badge/`<h1>`/`<p
+class="sub">` via `grep` before editing. All 30 use the identical
+`cty-eyebrow`/`<h1>Digital Marketing for [Short] Businesses That Actually
+Converts</h1>`/`<p class="sub">` county-page template already established
+and verified since 2026-10-18 — confirmed via direct grep, no retargeting
+needed; every page genuinely offers "digital marketing agency in [County/
+City, State]" to local businesses, matching the chosen keyword exactly.
+
+**Keywords chosen (all 30):** primary `digital marketing agency in
+[County/City, State]` (exact region string extracted programmatically from
+each page's own `cty-eyebrow` badge text, not typed by hand), secondary
+`digital marketing company in [County/City, State]`. Not volume-verified —
+Semrush exhausted, WebSearch-informed only, reusing the on-page-positioning
+pattern validated by its own prior use since 2026-10-18 and re-grounded by
+today's search above.
+
+**What changed per page (all 30, same pattern as every county-page run
+since 2026-10-18), applied via a Python script
+(`/tmp/claude-0/-home-user-webtechcore-website/5f15b17b-0606-5213-999c-cb178350a082/scratchpad/optimize_counties_1101.py`)
+that extracted each page's own region/short-name strings and applied the
+edits programmatically rather than by hand, to avoid a copy-paste mismatch
+across 30 files:**
+- Eyebrow badge: `📍 [region]` → `📍 Digital Marketing Agency in [region]`.
+- `<h1>`: `Digital Marketing for [Short] Businesses That Actually Converts`
+  → `Digital Marketing Agency in [region]: Marketing That Actually
+  Converts`.
+- Meta description / `og:description` / `twitter:description`: `agency
+  serving [region]` → `agency in [region]` (3 occurrences/page).
+- JSON-LD `Service.description`: `Full-service digital marketing agency
+  running SEO, PPC, social media and web design for businesses in
+  [region].` → `Full-service digital marketing agency in [region], running
+  SEO, PPC, social media and web design for local businesses.`
+- Opening `<p class="sub">`: rewritten to two sentences, primary keyword in
+  the first, secondary in the second — `As a digital marketing agency in
+  [region], we build SEO, Google Ads, and social media strategy
+  specifically for [Short] businesses — not a generic statewide template.
+  We're the digital marketing company in [region] that local businesses
+  actually trust for real results.`
+- Title/`og:title`/`twitter:title` already carried the exact primary phrase
+  from original site generation on every page (confirmed via grep before
+  editing) — left unchanged.
+
+**Script-verified on all 30 pages this run** (a second, independent Python
+script —
+`/tmp/claude-0/-home-user-webtechcore-website/5f15b17b-0606-5213-999c-cb178350a082/scratchpad/verify_counties_1101.py`
+— re-read each saved file from disk and checked it fresh, not reused the
+edit script's own in-memory state):
+- Primary `digital marketing agency in [region]` confirmed present
+  (case-insensitive) in `<title>`, meta description, `og:title`,
+  `og:description`, `twitter:title`, `twitter:description`, the JSON-LD
+  description, the `cty-eyebrow` badge text, the literal `<h1>...</h1>`
+  text, and the opening `<p class="sub">` inside `<main>` — true on all 30.
+- Secondary `digital marketing company in [region]` confirmed present
+  inside `<main>` on all 30.
+- JSON-LD block(s) parsed successfully (Python `json.loads`) on all 30.
+- `<div>` tag balance confirmed equal open/close on all 30: 94/94 on every
+  page (none of today's 30 are part of the Florida deep-content set, so no
+  variant markup this run).
+- `git diff --stat` confirmed exactly these 30 files modified (14 lines
+  changed per file, 7 insertions/7 deletions) and a sampled diff
+  (`virginia/norfolk/index.html`) showed a clean, single-purpose,
+  intended-only change with no stray edits.
+- Full per-page verification script output: all 30 rows printed `OK`,
+  final line `ALL_OK`.
+- `git status --porcelain` confirmed only these 30 files plus this log
+  file were staged by this routine; unrelated untracked `blog/` files and
+  modified `blog-performance-log.md`/`blog/index.html`/
+  `sitemap-resources.xml` from a concurrently-running blog-publish routine
+  were seen and deliberately left untouched/unstaged.
+
+**Noindex finding (observational only, not acted on, per standing
+instruction — this routine does not add or remove noindex tags):** checked
+every page individually via regex on `name="robots"`. **7 of today's 30
+carry no `<meta name="robots">` tag at all** (indexable by default):
+`minnesota/st-louis`, both Ohio counties (`trumbull`, `mahoning`), both
+Georgia counties (`chatham`, `richmond`), both California counties (`yolo`,
+`butte`). **The other 23 carry `noindex,follow`**: all 3 Virginia cities
+(`norfolk`, `chesapeake`, `newport-news`), both North Carolina counties
+(`new-hanover`, `cumberland`), both Washington counties (`thurston`,
+`kitsap`), both Wisconsin counties (`outagamie`, `kenosha`), all 5 New
+Jersey counties (`union`, `monmouth`, `camden`, `ocean`, `passaic`), both
+New York counties (`dutchess`, `albany`), all 4 Pennsylvania counties
+(`berks`, `delaware`, `chester`, `erie`), both Texas counties (`lubbock`,
+`mclennan`), and `missouri/clay`. This is the same real state-by-state
+split every prior run has found (every page in a given state shares the
+same indexability status) — consistent with the 2026-10-20 noindex audit
+in CLAUDE.md. Flagged for the noindex/indexing-strategy owner, not acted
+on here.
+
+**Content-depth observation (out of scope for this routine, logged for
+whoever picks up the separate content-expansion workstream):** `<main>`
+word counts checked on all 30 pages via the standing word-count method
+after today's edits. All 30 run 629-670 words each — well under the
+1,500-word standard, consistent with every generic-template county page
+logged so far (none of today's 30 are part of the Florida 67-county
+deep-content set, so no exceptions this run, unlike several recent prior
+runs). Not fixed or touched here either way — this routine's job is
+keyword placement, not content depth.
+
+- Action items: (1) none of today's 30 pages volume-verified — Semrush
+  units still exhausted every single check to date, revisit when they
+  refresh; (2) all 30 of today's pages are under the 1,500-word `<main>`
+  standard — flagged for the separate content-expansion effort, not this
+  routine; (3) the state-by-state noindex split above is a real, repeatedly
+  observed pattern worth a closer look by whoever owns that workstream —
+  not acted on here; (4) 19 real, disk-confirmed county candidates are
+  already verified to exist and ready for a future run, listed in queue
+  item 297 above.
+- Total done today: 30 pages — `/virginia/norfolk/`, `/virginia/chesapeake/`,
+  `/virginia/newport-news/`, `/north-carolina/new-hanover/`,
+  `/north-carolina/cumberland/`, `/washington/thurston/`,
+  `/washington/kitsap/`, `/minnesota/st-louis/`, `/wisconsin/outagamie/`,
+  `/wisconsin/kenosha/`, `/new-jersey/union/`, `/new-jersey/monmouth/`,
+  `/new-jersey/camden/`, `/new-jersey/ocean/`, `/new-jersey/passaic/`,
+  `/new-york/dutchess/`, `/new-york/albany/`, `/pennsylvania/berks/`,
+  `/pennsylvania/delaware/`, `/pennsylvania/chester/`,
+  `/pennsylvania/erie/`, `/texas/lubbock/`, `/texas/mclennan/`,
+  `/ohio/trumbull/`, `/ohio/mahoning/`, `/georgia/chatham/`,
+  `/georgia/richmond/`, `/california/yolo/`, `/california/butte/`,
+  `/missouri/clay/`.
 
