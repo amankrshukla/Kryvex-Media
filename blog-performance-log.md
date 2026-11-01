@@ -1137,3 +1137,71 @@ structure, topic, or length. The indexing-check queue continues to grow
 faster than it can be fully checked daily at 3 posts/day; continuing
 the sampling approach (flagged-stuck URLs plus a rotating subset of the
 ~14-day window) rather than checking every eligible URL every day.
+
+## 2026-11-01 — daily blog Routine run (3 posts, fourth day of 3-posts/day)
+
+Published today: `meta-ads-product-browsing-political-blackout-2026`
+(1,824 words, Social/Meta Ads), `microsoft-365-bulk-sender-requirements-2026`
+(1,833 words, Email Marketing), `ai-generated-images-copyright-commercial-use-2026`
+(1,651 words, Graphics Design) — all 3 fallback-tier service deep-dives,
+none overlapping an already-covered industry or a topic from the prior
+few days' runs. Too new (0 days old) for a URL Inspection signal yet, so
+not checked this run, consistent with the standing pattern for brand-new
+posts.
+
+**Indexing check (per the standing priority list — posts published in
+the last ~14 days plus previously flagged-stuck URLs; checked a subset
+today continuing the sampling approach, since the indexing-check queue
+keeps growing faster than it can be fully checked daily at 3 posts/day):**
+- `local-seo-vs-national-seo` (long-standing flagged-stuck post):
+  **"Crawled - currently not indexed,"** `lastCrawlTime` still
+  `2026-09-17T19:03:49Z` — now 45 days without a recrawl. Unchanged.
+- `digital-marketing-for-restaurants`: **"URL is unknown to Google"**
+  again — back to this state, consistent with the multi-week toggling
+  pattern already logged for this URL rather than a new regression.
+- `digital-marketing-for-home-services-businesses`: **"Discovered -
+  currently not indexed,"** same as the last two checks — now a third
+  consecutive matching reading, the most stable this URL has looked
+  since the toggling pattern started. Worth calling this one settled at
+  this state barring a reversal.
+- `google-ai-mode-seo-guide-for-small-businesses`: **"Discovered -
+  currently not indexed,"** unchanged from its prior reading, expected
+  progression at this age.
+- The 3 posts from 2026-10-31 (1 day old) and the 3 from 2026-10-30
+  (2 days old) were not re-checked this run — no new signal expected
+  that quickly, consistent with the standing "don't re-check posts with
+  no new signal" rule.
+
+**Performance re-pull (90-day window, page dimension, `/blog/`,
+2026-07-30 to 2026-10-29 — GSC's own data lag means this is still a few
+days behind today's date, the current real data available, not a stale
+repeat):** almost entirely unchanged from every pull since 2026-10-27 —
+`how-to-cut-wasted-ad-spend-in-30-days` 33 impressions (position 66.5),
+`email-flows-every-business-needs` 4 (position 20.5),
+`seo-company-hiring-guide` 4 (position 1), `/blog/` index 4
+(position 6.5), `how-to-choose-an-seo-company-in-patna` 3 (position 1),
+`10-local-seo-tactics-that-fill-your-calendar` 2 (position 1),
+`website-mistakes-costing-you-customers` 1 (position 14). One real,
+small change worth flagging honestly: `what-is-digital-marketing` moved
+from 4 impressions at position 3 to **5 impressions at position 2.6** —
+a genuine tiny uptick, not invented, though at this volume (one extra
+impression) it's not a trend to draw a conclusion from yet. Zero clicks
+recorded across every blog post again — now roughly eleven weeks of
+flat zero-click data site-wide, no exception.
+
+**Action items:** `digital-marketing-for-home-services-businesses`
+reaching a third consecutive stable reading at "Discovered - currently
+not indexed" is worth treating as settled for now. `local-seo-vs-
+national-seo` has gone 45 days without a Google recrawl — this remains
+the longest-stuck post on the site and continues to get logged, not
+acted on further, since there's no lever available beyond what's
+already been tried (the post already meets the word-count and
+anti-fabrication standards). The small `what-is-digital-marketing`
+impression/position uptick is the first non-identical number logged in
+several weeks of pulls; noted honestly as a real but very small signal,
+not evidence of a structural change worth acting on yet. Zero clicks
+after eleven weeks across 42 published posts remains the headline
+number worth being honest about — continuing to watch whether the
+3-posts/day cadence, now in its fourth day, changes total indexed-page
+count or impression volume over the coming weeks rather than changing
+post structure based on no real signal.

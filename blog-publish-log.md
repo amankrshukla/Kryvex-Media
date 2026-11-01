@@ -1393,3 +1393,118 @@ any of the 32 existing posts — checked via `ls blog/` before writing):
   'https://kryvexmedia.com/sitemap.xml' successfully submitted for site
   'sc-domain:kryvexmedia.com'" (called after all 3 URLs were in the
   sitemap, before the deploy-verification step).
+
+## 2026-11-01 — daily blog Routine run (3 posts, fourth day of 3-posts/day)
+
+**Topic selection:** Pulled GSC query data first (90-day window ending
+2026-10-29, dimension=query, site `sc-domain:kryvexmedia.com`, 100 rows)
+via the Composio `google_search_console` connection. Same historical
+pattern held again: overwhelming majority of volume is hyper-local
+"[service] in [city/state]" queries (e.g. "digital agency in madhubani,"
+"best seo company in patna," "agency social media west virginia")
+already served by the programmatic geo pages — nothing in the pull
+cleanly mapped to a new blog topic. Fell back to the service-deep-dive
+tier per CLAUDE.md, picking 3 distinct angles across 3 different service
+areas (Meta ads/social, email marketing, graphics design) — none
+re-picking an already-covered industry, none overlapping each other or
+any of the 39 existing posts (checked via `ls blog/` before writing),
+and none repeating the 2026-10-30/10-31 topics (Google Sept spam update,
+GBP review policy, ADA lawsuits, PMax negative keywords, AI content
+fact-checking, YouTube Partner Program 2027).
+
+**Post 1 — Social Media / Meta Ads fallback tier**
+- Title: "Meta Turns On Product Browsing for Every Live Ad Oct 28 — And
+  Blocks New Political Ads Before the Midterms"
+- URL: https://kryvexmedia.com/blog/meta-ads-product-browsing-political-blackout-2026/
+- Word count: 1,824 (verified via isolated `<main>` word count script)
+- Links: `/services/meta-ads/`, `/services/social-media/`,
+  `/blog/small-business-guide-to-meta-ads/`,
+  `/blog/google-ads-vs-meta-ads-small-business/`, `/free-audit/` — all
+  confirmed to exist in the repo (`ls`) before linking.
+- Facts cited (every one verified via WebSearch before writing, with
+  uncertainty flagged where sources disagreed): Meta's plan, reported by
+  RelevantAudience and PPC Land, to switch on "product browsing" by
+  default for existing (not just new) Facebook/Instagram ads starting
+  October 28, 2026, with an opt-out in Advantage+ Creative/Destination
+  settings; Meta's own claimed 3% average conversion lift (explicitly
+  attributed to Meta, not presented as independently verified); open
+  questions (catalog requirement, per-account vs. portfolio scope of the
+  opt-out) explicitly flagged as unsettled in the reporting rather than
+  asserted. Separately, Meta's October 6, 2026 developer-blog notice
+  (per PPC Land) establishing a pre-midterm political/social-issue ad
+  blackout from 12:01 AM PT Oct 27 through 11:59 PM PT Nov 3, 2026 —
+  with a one-source discrepancy (a different outlet said Nov 4) explicitly
+  called out rather than silently picking one. Comparison to Meta's 2024
+  blackout window (Oct 29-Nov 5) cited from the same PPC Land reporting.
+
+**Post 2 — Email Marketing fallback tier**
+- Title: "Microsoft's Bulk Sender Rules: What the 550 5.7.515 Bounce
+  Actually Means"
+- URL: https://kryvexmedia.com/blog/microsoft-365-bulk-sender-requirements-2026/
+- Word count: 1,833 (verified via isolated `<main>` word count script;
+  initial draft was 1,513 words, judged too thin a margin above the
+  1,500 standard, so two additional substantive sections — sender
+  reputation below the hard threshold, and ESP-migration authentication
+  pitfalls — were added before finalizing, not padding/filler)
+- Links: `/services/email-marketing/`,
+  `/blog/gmail-yahoo-email-sender-requirements-2026/`,
+  `/blog/email-flows-every-business-needs/`, `/free-audit/` — all
+  confirmed to exist in the repo (`ls`) before linking.
+- Facts cited (every one verified via WebSearch before writing):
+  Microsoft's own support documentation on the 550 5.7.515 non-delivery
+  code (authentication-level failure for high-volume senders) and the
+  5,000-messages/day threshold for Microsoft's consumer services
+  (Outlook.com/Hotmail.com). Explicitly flagged as genuinely disputed in
+  the available sources, not resolved with false confidence: whether
+  Microsoft 365 *business* tenants are governed by the same 5.7.515
+  rule/threshold or a separate-but-similar tenant-level system — sources
+  disagreed, and the post says so rather than picking a side. Enforcement
+  timeline (May 2025 start, escalating to outright rejection by ~Sept
+  2025) cited from secondary trackers with "no confirmed 2026-specific
+  rule change" stated explicitly, correcting the implicit "2026 change"
+  framing some vendor blogs use.
+
+**Post 3 — Graphics Design fallback tier**
+- Title: "Can You Actually Own an AI-Generated Logo or Ad Image? What
+  Firefly, Midjourney, and Copyright Law Say"
+- URL: https://kryvexmedia.com/blog/ai-generated-images-copyright-commercial-use-2026/
+- Word count: 1,651 (verified via isolated `<main>` word count script)
+- Links: `/services/graphics-design/`,
+  `/blog/graphic-design-for-small-businesses/`,
+  `/blog/how-to-choose-a-web-design-company/`, `/free-audit/` — all
+  confirmed to exist in the repo (`ls`) before linking.
+- Facts cited (every one verified via WebSearch before writing): the US
+  Copyright Office's March 16, 2023 policy statement requiring human
+  authorship for copyright protection, and the Kashtanova case (comic
+  book registration partially cancelled for the Midjourney-generated
+  images specifically, text and human arrangement retained) as the
+  concrete precedent; a later Copyright Office letter reporting hundreds
+  of AI-incorporating works examined and many rejected for insufficient
+  human authorship/disclosure. Adobe Firefly's commercial-use rights and
+  IP indemnification on paid Creative Cloud plans vs. Midjourney's
+  commercial rights on paid plans without the same indemnification —
+  both cited from multiple consistent secondary sources, with a note to
+  verify current terms directly since licensing terms can change. The
+  Disney/Universal v. Midjourney suit (filed June 2025) cited as active,
+  unresolved litigation, not a settled outcome.
+
+**All 3 posts**
+- QA: all 3 verified individually via the Python script in CLAUDE.md's
+  "Standing requirement" section — `<main>` word count (1,824 / 1,833 /
+  1,651, all comfortably over 1,500), HTML tag balance (div/section/
+  article/header/footer/main/h1/h2/h3/ul/li/p/a/script/head/body/html
+  open == close counts, all OK), no noindex tag present in any `<head>`,
+  all 9 `application/ld+json` blocks (3 per post: BreadcrumbList/
+  BlogPosting/FAQPage) parse as valid JSON via `json.loads`.
+- Also added all 3 post cards to `blog/index.html`'s `#post-grid`
+  (`data-cat="social"` x1, `"email"` x1, `"web"` x1, matching existing
+  filter buttons) and all 3 URLs to `sitemap-resources.xml` (lastmod
+  2026-11-01), in the same commit as the 3 post files per the
+  publish-bundling rule — verified `blog/index.html`'s tag balance
+  (div/section/a/h3/h2, 41 cards total, up from 38) and the sitemap's
+  XML validity (`xml.etree.ElementTree.parse`) after editing both,
+  before committing.
+- Git: staged only the 5 touched paths explicitly (3 new post
+  directories, `blog/index.html`, `sitemap-resources.xml`) plus this log
+  update — never `git add -A`. `git status` at staging time showed no
+  unrelated files modified by any concurrently-running routine this run.
