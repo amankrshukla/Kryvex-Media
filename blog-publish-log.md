@@ -1508,3 +1508,24 @@ fact-checking, YouTube Partner Program 2027).
   directories, `blog/index.html`, `sitemap-resources.xml`) plus this log
   update — never `git add -A`. `git status` at staging time showed no
   unrelated files modified by any concurrently-running routine this run.
+- Push/fast-forward: commit `196b63ec9` pushed to
+  `claude/webtech-core-current-work-rsmbri` and fast-forwarded to `main`
+  cleanly.
+- Sitemap resubmission: confirmed — "Sitemap
+  'https://kryvexmedia.com/sitemap.xml' successfully submitted for site
+  'sc-domain:kryvexmedia.com'" (called after all 3 URLs were in the
+  sitemap, before the deploy-verification step).
+- Deploy: this commit's own run, #312 (id `41285558253`, head_sha
+  `196b63ec9` — exact match), got **cancelled** partway through: the
+  concurrently-running SEO routine pushed its own commit (`b8e4687f9`,
+  30 county/city pages) about 75 seconds later, which started run #313
+  and cancelled #312 in flight — same rapid-fire-push collision pattern
+  logged on 2026-10-30 and 2026-10-31. Verified per the standing
+  publish-verification rule: confirmed via `git merge-base --is-ancestor
+  196b63ec9 b8e4687f9` that this routine's content is included in the
+  newer commit, then polled the superseding run instead: #313 (id
+  `41285638386`). Final state: `status: completed`, `conclusion:
+  **success**` (build/upload-artifact ran 07:39:14-07:42:3x UTC, full
+  run completed by 07:42:46Z). All 3 posts, `blog/index.html`'s new
+  cards, and `sitemap-resources.xml` are confirmed live as of run
+  #313's success.
