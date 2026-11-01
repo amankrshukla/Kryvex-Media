@@ -3399,3 +3399,14 @@ keyword placement, not content depth.
   `/georgia/richmond/`, `/california/yolo/`, `/california/butte/`,
   `/missouri/clay/`.
 
+**Deploy status:** confirmed. Commit `b8e4687f9` pushed to both
+`claude/webtech-core-current-work-rsmbri` and `main` (fast-forward, no
+divergence — confirmed via `git log origin/claude/webtech-core-current-
+work-rsmbri..HEAD` returning empty after push) triggered
+`pages-build-deployment` run #313 (id `41285638386`), polled to
+completion — `status: completed`, `conclusion: success`. No push
+collision with the concurrently-running blog-publish routine this run
+(its run #312, commit `196b63ec9`, had already completed — `conclusion:
+cancelled`, superseded by its own later log commit — before this
+routine's commit landed). All 30 pages are live.
+
