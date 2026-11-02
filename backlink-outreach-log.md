@@ -624,6 +624,171 @@ All 5 "From" headers verified via `GMAIL_FETCH_MESSAGE_BY_MESSAGE_ID` to
 read `Kryvex Media <info@kryvexmedia.com>`, confirming the correct
 sending account was used on every send.
 
+### 2026-11-02 — third scheduled weekly run: 3 real opportunities, 3 real sends, no padding
+
+Third normal scheduled fire (`trig_014Z1XWCVXosm6TAVS9f5ZoX`). Confirmed the
+Gmail connection first: `GMAIL_LIST_SEND_AS` (via `gmail_scap-lee`) returned
+successfully, confirming the account is active (the explicit
+`COMPOSIO_MANAGE_CONNECTIONS` "list" call itself was denied by the
+permission layer this run, but the real `GMAIL_LIST_SEND_AS` execution
+against `gmail_scap-lee` is itself a live, successful call against that
+account, so this is treated as sufficient real confirmation). Pulled the
+signature fresh via `GMAIL_LIST_SEND_AS`: `info@kryvexmedia.com` is now
+`isDefault: true` on the account. Per the 2026-10-26 action item, this run
+skipped the manual signature append and let Gmail's API attach it
+automatically. First send verified via `GMAIL_FETCH_MESSAGE_BY_MESSAGE_ID`:
+the signature appears exactly once (`class="gmail_signature"`), fixing last
+run's duplicate-logo cosmetic issue. Real physical address and opt-out line
+still included as visible plain HTML text in every send, independent of the
+signature.
+
+**Reply/opt-out check before sending**: searched Gmail for replies from all
+20 prior contacts (embarque.io, blog.linkody.com, hunchads.com, elogic.co,
+targetbay.com, blog.contactpigeon.com, lawfuel.com, sendpulse.com,
+deonde.co, ranktracker.com, yanrefitness.com, ecommerceceo.com, jane.app,
+measuremindsgroup.com, chromatix.com.au, sprakdesign.com, buildd.co,
+ecommercefastlane.com, techwyse.com, postaffiliatepro.com) since the last
+run — zero results. No new replies, no new opt-outs. Opt-out list checked
+(still empty).
+
+**Candidates checked via live WebSearch and `SCRAPINGBEE_HTML_FETCH`
+(roughly 35 checked across real estate, legal, home services, travel,
+education, healthcare, PPC, social media, restaurants, UK small business,
+vacation rentals, fitness, HVAC, dental, and India-based digital marketing
+niches; 3 qualified and sent, the rest skipped with reasons below):**
+
+Qualified and sent:
+1. **clinicspots.com/write-for-us** (India-based healthcare/clinic
+   marketing platform, matches Kryvex's healthcare industry page) — live
+   (200). Its own FAQ states "Standard posts are free. We offer paid
+   options for sponsored content or link insertions" — the pitch explicitly
+   asked for the free standard post, not the sponsored option, so this is
+   not a paid-placement disqualification. Real contact: two Cloudflare-
+   obfuscated mailtos on the page, decoded to `writeforus@clinicspots.com`
+   and `contributionclinicspots@gmail.com`; used the former. Subject:
+   "Guest post idea for ClinicSpots: local search and reviews for small
+   clinics." Pitch: Google Business Profile basics and patient-review
+   management for a small clinic with no marketing team. **Sent**,
+   confirmed message id `1a19db8a373cf1e0`, verified via
+   `GMAIL_FETCH_MESSAGE_BY_MESSAGE_ID` that the real `From` header reads
+   `Kryvex Media <info@kryvexmedia.com>`.
+2. **hashmeta.com/write-for-us** (Singapore/Malaysia social media marketing
+   agency blog, matches Kryvex's social media service) — live (200). Page
+   text: "To submit a guest post, please contact us via the following form
+   ... or email us at [contact]," Cloudflare-obfuscated, decoded to
+   `contact@hashmeta.com`. The page's "Sponsored Content" mention is a
+   separate listed service offering, not a condition on editorial guest
+   posts — not disqualifying. Subject: "Guest post idea for Hashmeta's
+   blog: a social media content plan small businesses can actually keep up
+   with." Pitch: a realistic, low-effort social content plan for a small
+   business with no dedicated social media person. **Sent**, confirmed
+   message id `1a19db8ee8bff52b`, verified `From: Kryvex Media
+   <info@kryvexmedia.com>`.
+3. **bloggingden.com/write-for-us** (India-based blogging/digital
+   marketing/SEO/social media blog run by Satish Ithamsetty) — live (200).
+   Guidelines state 800-1500 words, up to two do-follow links in the body
+   plus one in the author bio, no payment/fee/sponsored language found
+   anywhere on the page. Real contact confirmed two ways: a Cloudflare-
+   obfuscated mailto decoded to `bloggingden@gmail.com`, and the same
+   address independently present in the page's own JSON-LD Person schema
+   as the site owner's email. Subject: "Guest post idea for BloggingDen:
+   pairing SEO and social media without two specialists." Pitch: running
+   SEO and social media together without two separate specialists, staying
+   within the stated word range. **Sent**, confirmed message id
+   `1a19db8edf5402fd`, verified `From: Kryvex Media <info@kryvexmedia.com>`.
+
+Skipped (checked live, not sent, with reason):
+- **tourfic.com/write-for-us/** (hotel/tour booking blog) — live (200), but
+  its own FAQ states explicitly "Tourfic only accepts paid guest posts. We
+  don't publish free submissions, and we don't offer free links in
+  exchange for content." Disqualified outright under the no-paid-links
+  rule.
+- **wellnesscreatives.com/guest-post-health-fitness/** (fitness/health
+  brand guest-post page) — live (200), but its own page states "Pay the
+  editorial fee" and "Pricing starts at $775." Disqualified as an explicit
+  paid-placement site.
+- **bigideasforsmallbusiness.com** (guest-blogger-submission page) — live,
+  but its own page states a "$125.00" fee for publishing and promoting a
+  guest blog, per its Guest Blogger Agreement. Disqualified as paid
+  placement.
+- **startupdonut.co.uk** (UK small business guest-post page) — per
+  WebSearch snippet of the page itself, states a standard rate of "£300
+  plus VAT" per blog. Disqualified as paid placement; not fetched further
+  since the paid policy was already explicit.
+- **geekestateblog.com/contribute/** (real estate tech/marketing blog) —
+  live (200), real pitch guidelines, but no real published submission
+  email anywhere on the page; the only email-shaped text on the page is an
+  example of a "spammy-looking" address used in the guidelines' own
+  illustration of what NOT to send from, not a real contact. No verifiable
+  contact — skipped per the no-guessing rule.
+- **selfmade.nase.org/posting-guidelines/** (NASE small business blog) —
+  live (200), confirms no payment for posts, but no email address, mailto
+  link, or submission-form link found anywhere in the fetched page text.
+  Its own `/contact/` page also returned 404. No verifiable contact —
+  skipped.
+- **fleximize.com/write-for-us** (UK small business finance/content hub) —
+  live (200), but submission is "submit your idea in the contributor form
+  above" only, no published email address. No verifiable contact —
+  skipped.
+- **buffer.com/resources/write-for-us** (Buffer's guest post program) —
+  live (200), real guidelines, but submission is "Apply using the form
+  below" only, no published email address anywhere on the page. No
+  verifiable contact — skipped.
+- **cloudsponge.com/write-for-us/** — live (200), its own schema.org
+  description states "Read the guidelines and submit the form," form-only,
+  no published email. No verifiable contact — skipped.
+- **tastyigniter.com/support/articles/guest-blogging-guidelines**
+  (restaurant software blog) — live (200), real guidelines text, but "how
+  to send it our way" is never actually specified anywhere on the page —
+  no email, no mailto, no form link in the fetched content. No verifiable
+  contact — skipped.
+- **trekksoft.com** guest-blogging-guidelines URL — confirmed 404 (page no
+  longer exists). Skipped.
+- **houst.com/knowledge-base/guest-article** (vacation rental guest-post
+  page) — confirmed 404. Skipped.
+- **mechanical-hub.com/writing-for-your-brand** (HVAC/plumbing trade blog)
+  — fetch failed (non-200). Not treated as verified live, so not
+  contacted.
+- **gopaschal.com/?p=11806** (home-services blog) — already confirmed 404
+  in the 2026-10-20 run; not re-fetched, left skipped.
+- **lawbhoomi.com/write-for-us-law/** (India legal marketing blog) —
+  Scrapingbee fetch returned a Cloudflare bot-challenge page (403), not
+  real content. Could not verify — skipped rather than guess.
+- **prowess.org.uk/guest-blog** (UK women-in-business guest-post page) —
+  fetch did not return usable page content (no real guideline/contact text
+  recovered). Could not verify — skipped.
+- **dentaly.org/en/guest-posts/** — already disqualified in the 2026-10-26
+  run (paid-placement option plus topic/expertise mismatch); not
+  re-checked, left skipped.
+- **lilachbullock.com**'s topic-specific write-for-us pages (real estate,
+  legal, home/HVAC/plumbing, travel, education, healthcare/dental, PPC/
+  advertising, social media, small business, marketing, fitness/yoga) were
+  not re-checked individually this run — already established site-wide
+  (2026-09-30, reconfirmed 2026-10-19/20/26) as having only a contact form
+  and placeholder email text, no real published address.
+- **RitFit** (`ritfitsports.com/pages/write-for-us`) and **TwoRepCave**
+  (`tworepcave.com/guest-bloggers/`) — both focus on fitness product/
+  equipment reviews and first-hand training content, not marketing-for-
+  fitness-businesses content Kryvex can genuinely write. Not fetched;
+  skipped on the same topic/expertise-mismatch basis as RitFit's
+  2026-10-20 skip.
+
+**Totals this run**: roughly 35 real candidates checked, 3 qualified and
+sent (all distinct message IDs confirmed, all 3 "From" headers verified),
+the rest skipped with reasons above — four explicit paid-placement sites
+(tourfic.com, wellnesscreatives.com, bigideasforsmallbusiness.com,
+startupdonut.co.uk), several dead/unreachable pages, and the majority
+skipped for no verifiable published contact. Well under the 10/week cap —
+not padded; this week's genuine, in-scope, non-paid, contact-verified
+opportunity count was simply lower than some prior weeks. No opt-outs
+found, no new replies found on any of the 20 prior contacts. Every send
+used `from_email: info@kryvexmedia.com`, `is_html: true`,
+`account: gmail_scap-lee`, the real signature (now auto-attached once by
+Gmail's API rather than manually appended, confirmed single occurrence),
+the real physical address, and opt-out language as visible plain text,
+with no em-dashes or hyphens used as sentence punctuation in the pitch
+copy.
+
 ### 2026-10-26 — second scheduled weekly run: 7 real opportunities, 7 real sends, 1 real reply found (declined, not an opt-out)
 
 Second normal scheduled fire (`trig_014Z1XWCVXosm6TAVS9f5ZoX`, ~07:44
