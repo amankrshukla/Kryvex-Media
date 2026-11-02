@@ -1529,3 +1529,163 @@ fact-checking, YouTube Partner Program 2027).
   run completed by 07:42:46Z). All 3 posts, `blog/index.html`'s new
   cards, and `sitemap-resources.xml` are confirmed live as of run
   #313's success.
+
+## 2026-11-02 — daily blog Routine run (3 posts, fifth day of 3-posts/day)
+
+**Topic selection:** Pulled GSC query data first (90-day window ending
+2026-10-30, dimension `query`, site `sc-domain:kryvexmedia.com`, 100
+rows). Same standing pattern as every prior run — overwhelming majority
+of volume is hyper-local "[service] in [city/state]" queries (e.g.
+"best digital marketing agency in kasaragod," "digital agency in
+madhubani," "best seo company in patna") already served by the
+programmatic geo pages — nothing in the pull cleanly mapped to a new
+blog topic. Fell back to the service-deep-dive tier per CLAUDE.md,
+picking 3 distinct angles across 3 different service areas (social
+media/paid social, PPC/shopping feeds, local SEO/GEO) — none re-picking
+an already-covered industry, none overlapping each other or any of the
+42 existing posts (checked via `ls blog/` before writing), and none
+repeating the 2026-10-30/10-31/11-01 topics (Google Sept spam update,
+GBP review policy, ADA lawsuits, PMax negative keywords, AI content
+fact-checking, YouTube Partner Program 2027, Meta product browsing/
+political blackout, Microsoft 365 bulk sender rules, AI image
+copyright).
+
+**Post 1 — Social Media fallback tier**
+- Title: "Pinterest Launches Visual Search Ads: What Small Businesses
+  Need to Know"
+- URL: https://kryvexmedia.com/blog/pinterest-visual-search-ads-2026/
+- Word count: 1,674 (verified via isolated `<main>` word count script)
+- Links: `/services/social-media/`,
+  `/blog/social-media-marketing-for-small-businesses/`,
+  `/blog/google-ads-vs-meta-ads-small-business/`,
+  `/blog/ecommerce-marketing-that-actually-converts/`, `/free-audit/` —
+  all confirmed to exist in the repo (`ls`) before linking.
+- Facts cited (every one verified via WebSearch against a primary
+  source before writing): Pinterest's own newsroom announcement
+  (newsroom.pinterest.com) of Visual Search Ads at the September 17,
+  2026 Pinterest Presents summit — placement inside visual search
+  results and enlarged Pin views, bid-for-top-response mechanics,
+  click-through to the advertiser's own site, compatibility with
+  Performance+, and a stated beta rollout "in the coming weeks" across
+  all ad markets with no further confirmed general-availability date.
+  Pinterest's own cited scale figures (80B+ monthly searches, majority
+  visual, >50% commercial intent) and its Q1 2026 earnings release
+  (631M global MAU, +11% YoY). Secondary, less-consistently-sourced
+  items (Performance+ "Priority Products," Media Network Connect, the
+  Pinterest Assistant July 2026 US expansion) explicitly flagged as
+  reported with less consistency across sources than the newsroom
+  announcement itself, and a note that a separate 2025 "Top of Search
+  Ads" feature is distinct and under-documented relative to this one.
+
+**Post 2 — PPC / Shopping fallback tier**
+- Title: "Google Merged Its Shopping Ads and Free Listings Policies in
+  September 2026 — Here's What Changed"
+- URL: https://kryvexmedia.com/blog/google-merchant-center-shopping-policy-merge-2026/
+- Word count: 1,660 (verified via isolated `<main>` word count script)
+- Links: `/services/ppc/`, `/blog/how-to-cut-wasted-ad-spend-in-30-days/`,
+  `/blog/google-ads-vs-meta-ads-small-business/`,
+  `/blog/ecommerce-marketing-that-actually-converts/`, `/free-audit/` —
+  all confirmed to exist in the repo (`ls`) before linking.
+- Facts cited (every one verified via WebSearch against Google's own
+  pages before writing): Google's Merchant Center policy-update page
+  (support.google.com/merchants/answer/17263064) — announced July 15,
+  2026, merging Shopping ads and free listing policies into one set
+  effective September 2026, with Google's own "no new restrictions as a
+  direct result" framing and the ad-only-rules-labeled-within-the-
+  merged-doc detail. Google's 2026 Merchant Center announcements change
+  log — the new pickup-cost attribute for local inventory ads/free
+  local listings, the political-content restriction effective April 16,
+  2026, and performance-reporting changes starting August 24, 2026 —
+  explicitly flagged as separate, specifically-dated changes from the
+  policy-merge announcement itself, not part of it. The April 2020 free
+  Shopping listings launch (Google's own "It's now free to sell on
+  Google" blog post, Bill Ready) cited for background context, plus one
+  independent researcher's April 2026 observation of sponsored tiles
+  inside the free-listing grid, explicitly marked as a separate,
+  secondhand observation about placements rather than policy.
+
+**Post 3 — Local SEO / GEO fallback tier**
+- Title: "Google's AI Mode Cites Itself 4x More Than AI Overviews Do
+  for Local Searches — What Two 2026 Studies Found"
+- URL: https://kryvexmedia.com/blog/ai-overviews-ai-mode-local-citations-2026/
+- Word count: 1,597 (verified via isolated `<main>` word count script)
+- Links: `/services/local-seo/`, `/services/seo/`,
+  `/blog/google-business-profile-optimization-guide/`,
+  `/blog/local-seo-vs-national-seo/`,
+  `/blog/google-ai-mode-seo-guide-for-small-businesses/` — all confirmed
+  to exist in the repo (`ls`) before linking.
+- Facts cited (every one verified via WebSearch before writing, with
+  methodology/replication caveats stated explicitly rather than
+  implied): Steady Demand's August 22, 2026 local-intent citation audit
+  (8,000 local-service searches, 86,645 total citation references) —
+  the specific percentages (AI Overviews 73.5% business-site citations
+  of 3,869 local-intent citations; AI Mode 79.8% Maps/Business-Profile
+  vs. 19.7% business-site of 40,883 local-intent citations; AI Mode
+  informational-query flip to 47.5% business-site/22.7% self-citation)
+  explicitly flagged as a single, unreplicated vendor study, not an
+  industry-settled figure. Profound's analysis of ~1.44 billion AI Mode
+  citations (April 15-June 30, 2026) reporting an ~8.4x rise in
+  google.com's own citation share, concentrated in Business Profile
+  cards/Product Knowledge Panels, cited via its secondary coverage in
+  Search Engine Journal and Gigazine (Profound's own blog post was not
+  directly accessed) — with Search Engine Journal's own caveat that
+  citation share is not the same as referral-traffic share explicitly
+  carried into the post. An earlier, separate SE Ranking study (5.7% to
+  ~17.42% self-citation, June 2025 to early 2026) cited for directional
+  context only, explicitly marked as a different methodology/window not
+  to be averaged with Profound's number.
+
+**All 3 posts**
+- QA: all 3 verified individually via the Python script in CLAUDE.md's
+  "Standing requirement" section — `<main>` word count (1,674 / 1,660 /
+  1,597, all comfortably over 1,500), HTML tag balance (div/section/
+  article/header/footer/main/h1/h2/h3/ul/ol/li/p/a/script/head/body/html
+  open == close counts, all OK), no noindex tag present in any `<head>`,
+  all 9 `application/ld+json` blocks (3 per post: BreadcrumbList/
+  BlogPosting/FAQPage) parse as valid JSON via `json.loads`, Google Ads
+  gtag (`AW-18433795545`, both the base tag and the config call) and the
+  "Kryvex conversion click tracking" script both confirmed present and
+  carried over intact from the most recently published template post.
+- Also added all 3 post cards to `blog/index.html`'s `#post-grid`
+  (`data-cat="social"` x1, `"ppc"` x1, `"seo"` x1, matching existing
+  filter buttons) and all 3 URLs to `sitemap-resources.xml` (lastmod
+  2026-11-02), in the same commit as the 3 post files per the
+  publish-bundling rule — verified `blog/index.html`'s tag balance
+  (div/section/a/h3/h2/svg, 44 cards total, up from 41) and the
+  sitemap's XML validity (`xml.etree.ElementTree.parse`) after editing
+  both, before committing.
+- Git: staged only the 5 touched paths explicitly (3 new post
+  directories, `blog/index.html`, `sitemap-resources.xml`) plus this log
+  update — never `git add -A`. `git status` at staging time showed no
+  unrelated files modified by the concurrently-running SEO routine this
+  run.
+- Push/fast-forward: commit `0014e3198` pushed to
+  `claude/webtech-core-current-work-rsmbri` and fast-forwarded to `main`
+  cleanly.
+- Sitemap resubmission: confirmed — "Sitemap
+  'https://kryvexmedia.com/sitemap.xml' successfully submitted for site
+  'sc-domain:kryvexmedia.com'" (called after all 3 URLs were in the
+  sitemap, before the deploy-verification step).
+- Deploy: this commit's own run, #321 (id `41408590872`, head_sha
+  `0014e3198` — exact match), got **cancelled** partway through: the
+  concurrently-running SEO routine pushed its own commit
+  (`23419343123ba152b9ba12c8ce72535b3fd2f85d`, a log-only commit
+  recording its prior batch's deploy conclusion) about 90 seconds
+  later, which started run #322 and cancelled #321 in flight — same
+  rapid-fire-push collision pattern logged on 2026-10-30/10-31/11-01.
+  Verified per the standing publish-verification rule: confirmed via
+  `git merge-base --is-ancestor 0014e3198 2341934312` that this
+  routine's content is included in the newer commit, then tracked the
+  superseding run instead: #322 (id `41408758388`). As of this log
+  entry, run #322's `build` job had completed with `conclusion:
+  success` and the `deploy` job's "Deploy to GitHub Pages" step was
+  genuinely in progress (confirmed at the job level, not just the
+  run level, via `list_workflow_jobs` — no stall, just a slower-than-
+  usual deploy, consistent with the SEO routine's own note in its
+  2026-11-02 commit that this run's deploy step was taking ~10 minutes
+  vs. the usual 3-4). Run #322 had not yet reached `completed` status
+  at the time this entry was written — **final conclusion for run
+  #322 still needs to be confirmed in a follow-up check** before these
+  3 posts, `blog/index.html`'s new cards, and `sitemap-resources.xml`
+  are stated as live, per the standing rule against reporting "live"
+  without a confirmed `success` conclusion.

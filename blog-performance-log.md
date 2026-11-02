@@ -1205,3 +1205,72 @@ number worth being honest about — continuing to watch whether the
 3-posts/day cadence, now in its fourth day, changes total indexed-page
 count or impression volume over the coming weeks rather than changing
 post structure based on no real signal.
+
+## 2026-11-02 — daily blog Routine run (3 posts, fifth day of 3-posts/day)
+
+**New posts today:** `pinterest-visual-search-ads-2026`,
+`google-merchant-center-shopping-policy-merge-2026`,
+`ai-overviews-ai-mode-local-citations-2026` — all 0 days old, too new
+for a URL Inspection signal yet, so not checked this run, consistent
+with the standing pattern for brand-new posts.
+
+**Indexing check (sampling approach — the 4 standing flagged/stuck
+URLs plus one newly-eligible post past the "too new" window):**
+- `local-seo-vs-national-seo` (long-standing flagged-stuck post):
+  **"Crawled - currently not indexed,"** `lastCrawlTime` still
+  `2026-09-17T19:03:49Z` — now 46 days without a recrawl. Unchanged.
+- `digital-marketing-for-restaurants`: **real change** — now
+  **"Discovered - currently not indexed,"** up from "URL is unknown to
+  Google" on the last check. Genuine forward movement, reported as
+  real progress and nothing more.
+- `digital-marketing-for-home-services-businesses`: **real
+  regression** — back to **"URL is unknown to Google,"** down from
+  "Discovered - currently not indexed," which had read as settled
+  across the last 3 consecutive checks. The toggling pattern logged
+  for this URL in late October has resumed; "settled" was premature.
+  Logged honestly rather than silently dropped.
+- `google-ai-mode-seo-guide-for-small-businesses`: **"Discovered -
+  currently not indexed,"** unchanged from its prior reading.
+- `digital-marketing-for-tour-operators-and-travel-agencies` (first
+  check, 6 days old): **"Discovered - currently not indexed."**
+  Expected progression at this age, consistent with every other post's
+  reading at a similar age.
+
+**Performance re-pull (90-day window, page dimension, `/blog/`,
+2026-08-04 to 2026-10-30, vs. the last logged pull of 2026-07-30 to
+2026-10-29):** mostly flat, with two real changes worth flagging
+honestly rather than glossing over:
+- `how-to-cut-wasted-ad-spend-in-30-days`: **33 → 15 impressions**
+  (position improved, 66.5 → 57.3). A real drop in impression volume
+  alongside a real position improvement — not spun as purely positive
+  or purely negative, both numbers reported as they are.
+- `email-flows-every-business-needs` and
+  `website-mistakes-costing-you-customers`: both dropped out of this
+  pull entirely (0 impressions in this window, down from 4 and 1
+  respectively last pull). Reported as a real decline to zero, not
+  omitted.
+- Unchanged: `seo-company-hiring-guide` 4 impressions (position 1),
+  `/blog/` index 4 (position 6.5), `how-to-choose-an-seo-company-in-
+  patna` 3 (position 1), `10-local-seo-tactics-that-fill-your-calendar`
+  2 (position 1), `what-is-digital-marketing` 5 (position 2.6, holding
+  the small uptick logged last pull rather than reverting).
+- Zero clicks recorded across every single row again — now roughly
+  twelve weeks of flat zero-click data site-wide, no exception. None of
+  the newest posts (the 3 published today, plus the 3 from 2026-11-01
+  and the 3 from 2026-10-31) show any impressions yet, as expected at
+  this age.
+
+**Action items:** `digital-marketing-for-home-services-businesses`
+reverting to "URL is unknown to Google" after 3 consecutive "settled"
+readings is a real data point against calling any of these toggling
+URLs resolved after only a few matching checks — the standing method
+should treat 3 consecutive matches as suggestive, not conclusive, for
+this specific URL going forward. `local-seo-vs-national-seo` remains
+the longest-stuck post on the site at 46 days without a Google recrawl,
+continuing to get logged with no further lever available beyond what's
+already been tried. The impression drop on `how-to-cut-wasted-ad-
+spend-in-30-days` and the two posts falling to zero impressions are
+real enough to watch over the next few pulls, but one data point each
+isn't enough to call it a trend — noted honestly rather than acted on
+prematurely. Zero clicks after twelve weeks across 45 published posts
+remains the headline number worth being honest about.
