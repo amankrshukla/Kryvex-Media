@@ -3623,8 +3623,17 @@ deep-content set).
   vanderburgh/`, `/indiana/tippecanoe/`, `/minnesota/olmsted/`,
   `/colorado/weld/`, `/virginia/stafford/`.
 
-**Deploy status:** polling in progress — recorded in a follow-up log-only
-entry once the matching `pages-build-deployment` run reaches
-`conclusion: success` (same two-commit pattern as every prior day's
-batch), per the standing publish-verification rule.
+**Deploy status:** confirmed. Commit `8e3f6ec2f` pushed to both
+`claude/webtech-core-current-work-rsmbri` and `main` (fast-forward, no
+divergence) triggered `pages-build-deployment` run #320 (id
+`41407909632`), head_sha matching the commit exactly. The `deploy` job's
+"Deploy to GitHub Pages" step ran unusually slowly this run (sat
+`in_progress` for roughly 10 minutes, well past the 3-4 minutes typical
+of recent days' runs, with `build` and `report-build-status` both
+already `success` in the meantime) but polling was continued rather than
+assumed — a fresh `list_workflow_runs` call ruled out a stale read before
+concluding it was a real, if slow, in-flight deploy, not a stall or
+failure. Final poll: `status: completed`, `conclusion: success`. No push
+collision with any concurrently-running routine this run. All 30 pages
+are live.
 
