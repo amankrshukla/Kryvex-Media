@@ -1689,3 +1689,8 @@ copyright).
   3 posts, `blog/index.html`'s new cards, and `sitemap-resources.xml`
   are stated as live, per the standing rule against reporting "live"
   without a confirmed `success` conclusion.
+
+**Follow-up (same run, confirmed before handoff):** run #322 (id
+`41408758388`) reached `status: completed`, `conclusion: **success**`.
+All 3 posts, `blog/index.html`'s new cards, and `sitemap-resources.xml`
+are confirmed live as of run #322's success.
