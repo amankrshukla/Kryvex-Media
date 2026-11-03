@@ -463,6 +463,62 @@ picked (see the 2026-09-28 entry below for why this matters).
      same indexability status: OH/CA/LA/GA/IN/MN indexable-by-default,
      TX/AL/KY/OK/CT/VA/NC/WA/PA/NJ/MO/CO noindexed), flagged for the
      noindex/indexing-strategy owner, not acted on here.)*
+328. ~~`texas/hays`~~ — done 2026-11-03 (major metro county, Austin suburbs, San Marcos)
+329. ~~`texas/comal`~~ — done 2026-11-03 (major metro county, New Braunfels)
+330. ~~`texas/randall`~~ — done 2026-11-03 (major metro county, Amarillo)
+331. ~~`texas/potter`~~ — done 2026-11-03 (major metro county, Amarillo)
+332. ~~`texas/midland`~~ — done 2026-11-03 (major metro county, Midland)
+333. ~~`texas/ector`~~ — done 2026-11-03 (major metro county, Odessa)
+334. ~~`california/placer`~~ — done 2026-11-03 (major metro county, Sacramento suburbs, Roseville)
+335. ~~`california/tulare`~~ — done 2026-11-03 (major metro county, Visalia)
+336. ~~`california/el-dorado`~~ — done 2026-11-03 (major metro county, Sacramento suburbs)
+337. ~~`florida/leon`~~ — done 2026-11-03 (major metro county, Tallahassee, state capital —
+     already had deep content from the Florida 67-county pass, ~1,874-word `<main>`)
+338. ~~`florida/escambia`~~ — done 2026-11-03 (major metro county, Pensacola — already had
+     deep content, ~1,908-word `<main>`)
+339. ~~`florida/alachua`~~ — done 2026-11-03 (major metro county, Gainesville, University of
+     Florida — already had deep content, ~1,538-word `<main>`)
+340. ~~`florida/st-johns`~~ — done 2026-11-03 (major metro county, St. Augustine — already had
+     deep content, ~2,028-word `<main>`)
+341. ~~`florida/manatee`~~ — done 2026-11-03 (major metro county, Bradenton — already had deep
+     content, ~1,803-word `<main>`)
+342. ~~`georgia/houston`~~ — done 2026-11-03 (major metro county, Warner Robins)
+343. ~~`georgia/muscogee`~~ — done 2026-11-03 (major metro county, Columbus)
+344. ~~`georgia/forsyth`~~ — done 2026-11-03 (major metro county, Atlanta suburbs)
+345. ~~`illinois/will`~~ — done 2026-11-03 (major metro county, Chicago suburbs, Joliet)
+346. ~~`illinois/lake`~~ — done 2026-11-03 (major metro county, Chicago suburbs, Waukegan)
+347. ~~`illinois/kane`~~ — done 2026-11-03 (major metro county, Chicago suburbs, Aurora/Elgin)
+348. ~~`illinois/winnebago`~~ — done 2026-11-03 (major metro county, Rockford)
+349. ~~`illinois/sangamon`~~ — done 2026-11-03 (major metro county, Springfield, state capital)
+350. ~~`michigan/macomb`~~ — done 2026-11-03 (major metro county, Detroit suburbs)
+351. ~~`michigan/washtenaw`~~ — done 2026-11-03 (major metro county, Ann Arbor, University of
+     Michigan)
+352. ~~`michigan/genesee`~~ — done 2026-11-03 (major metro county, Flint)
+353. ~~`colorado/boulder`~~ — done 2026-11-03 (major metro county, Boulder, University of
+     Colorado)
+354. ~~`colorado/mesa`~~ — done 2026-11-03 (major metro county, Grand Junction)
+355. ~~`south-carolina/greenville`~~ — done 2026-11-03 (major metro county, Greenville)
+356. ~~`south-carolina/horry`~~ — done 2026-11-03 (major metro county, Myrtle Beach)
+357. ~~`louisiana/east-baton-rouge`~~ — done 2026-11-03 (major metro parish, Baton Rouge,
+     state capital)
+358. *(All 30 candidates today were built fresh via `os.walk` across every US
+     state directory, cross-referenced against all 322 paths already logged
+     done in this file (extracted programmatically, not from memory), then
+     confirmed to exist on disk via a direct `index.html` file check before
+     use — none invented. Real finding from today's run, not acted on (this
+     routine does not add/remove noindex tags): of today's 30, 7 carry no
+     `<meta name="robots">` tag at all (`california/placer`, `california/
+     tulare`, `california/el-dorado`, `georgia/houston`, `georgia/muscogee`,
+     `georgia/forsyth`, `louisiana/east-baton-rouge`) and the other 23 carry
+     `noindex,follow`, **including all 5 of today's Florida pages** — a real
+     exception to the pattern every prior run described (Florida county
+     pages were not uniformly indexable; these 5 specifically are noindexed
+     despite already carrying deep, 1,500+-word `<main>` content from the
+     Florida 67-county pass). Flagged for the noindex/indexing-strategy
+     owner, not acted on here. Next up: county × service sub-pages, then
+     the remaining ~175 country hubs, continuing the `os.walk` candidate-
+     discovery method above since the previous day's carryover list is now
+     fully consumed.)*
 
 ## Log
 
@@ -3636,4 +3692,151 @@ concluding it was a real, if slow, in-flight deploy, not a stall or
 failure. Final poll: `status: completed`, `conclusion: success`. No push
 collision with any concurrently-running routine this run. All 30 pages
 are live.
+
+### 2026-11-03
+
+**Semrush units check**: called `keyword_research` live before starting
+(not assumed) — `no_api_units` error returned (`"The user has an active
+Semrush subscription, but does not have enough API units to complete this
+request."`), non-retryable. Same as every prior check in this log — units
+have not refreshed. All 30 picks below are WebSearch-informed, not
+Semrush-volume-verified, and reuse the keyword pattern this routine
+established and WebSearch-grounded on earlier days (logged in the
+2026-11-01/2026-11-02 entries): `digital marketing agency in [county/
+parish, state]` as primary, `digital marketing company in [county/parish,
+state]` as secondary — the same real local-intent pattern already applied
+across the whole county tier, not a fresh invention.
+
+**Intent-match check**: read each page's actual existing `<title>`, meta
+description, eyebrow badge, H1 and hero paragraph before editing (all 30).
+Every one of today's 30 is a generic county/parish "digital marketing
+agency" landing page already carrying the primary keyword in its
+`<title>`/meta/OG/Twitter (pre-existing site template) but **not** in the
+eyebrow badge or `<h1>` text itself, and not consistently in the opening
+`<main>` paragraph — the same real gap this routine has fixed on every
+county page processed so far. No intent mismatch found on any of the 30;
+all genuinely offer county-local digital marketing services.
+
+**Candidate discovery**: built via `os.walk` across every US state
+directory not yet fully covered, cross-referenced against all 322 paths
+already marked done in this file's priority queue (extracted
+programmatically from the queue text, not from memory), then confirmed to
+exist on disk via a direct `index.html` file-existence check before use —
+none invented. Prioritized real, recognizable metro/county-seat areas
+(state capitals, university counties, named metro suburbs) across 10
+states/1 parish not yet represented in today's batch size: Texas (6),
+California (3), Florida (5), Georgia (3), Illinois (5), Michigan (3),
+Colorado (2), South Carolina (2), Louisiana (1 parish).
+
+**Changes made, identical pattern on all 30 pages** (verified by an
+independent second script that re-read each saved file from disk fresh,
+not the edit script's own in-memory state — not assumed):
+- Meta description, `og:description`, `twitter:description`: "agency
+  serving [county, state]" → "agency in [county, state]" (3 occurrences
+  per page, all confirmed changed).
+- JSON-LD `Service.description`: "Full-service digital marketing agency
+  running SEO, PPC, social media and web design for businesses in [county,
+  state]." → "Full-service digital marketing agency in [county, state],
+  running SEO, PPC, social media and web design for local businesses."
+- Eyebrow badge (`cty-eyebrow`): "📍 [county, state]" → "📍 Digital
+  Marketing Agency in [county, state]".
+- `<h1>`: "Digital Marketing for [County] Businesses That Actually
+  Converts" → "Digital Marketing Agency in [county, state]: Marketing That
+  Actually Converts" — primary keyword now inside the literal `<h1>` text
+  on all 30, not just the badge.
+- Opening `<p class="sub">`: rewritten to naturally include both primary
+  ("As a digital marketing agency in [county, state], we build SEO, Google
+  Ads, and social media strategy for [local focus phrase] — not a generic
+  statewide template.") and secondary ("We're the digital marketing
+  company in [county, state] that local businesses actually trust for real
+  results.") keywords in visible `<main>` body copy. The "[local focus
+  phrase]" was extracted from each page's own pre-existing sub paragraph
+  (e.g. "Big Bend Florida" for Leon County, "Florida Panhandle" for
+  Escambia) rather than discarded, preserving each page's existing
+  page-specific regional detail instead of replacing it with boilerplate.
+  `<title>` was already correct pre-edit on all 30 (template already
+  included the primary keyword there) — no change needed.
+
+**Script-verified on all 30 pages this run** (independent verification
+script — `/tmp/claude-0/-home-user-webtechcore-website/5f15b17b-0606-5213-999c-cb178350a082/scratchpad/verify_30_1103.py`
+— re-read each file fresh and checked it, not reused the edit script's
+in-memory state):
+- Primary `digital marketing agency in [county/parish, state]` confirmed
+  present (case-insensitive) in `<title>`, meta description, `og:title`,
+  `og:description`, `twitter:title`, `twitter:description`, the JSON-LD
+  description field, the `cty-eyebrow` badge text, the literal
+  `<h1>...</h1>` text, and inside `<main>` — true on all 30.
+- Secondary `digital marketing company in [county/parish, state]`
+  confirmed present inside `<main>` on all 30.
+- JSON-LD block parsed successfully (Python `json.loads`) on all 30.
+- `<div>` tag balance confirmed equal open/close on all 30 (94/94 on the
+  25 generic-template pages; 113-116/matching on the 5 Florida pages,
+  which carry additional deep-content sections from the earlier 67-county
+  pass).
+- `git diff --stat` confirmed exactly these 30 files modified (14 lines
+  changed per file, 7 insertions/7 deletions, 210/210 total) and a sampled
+  diff (`texas/hays/index.html`) showed a clean, single-purpose, intended-
+  only change with no stray edits — the Google Ads gtag.js tag, GTM, and
+  Meta Pixel scripts were untouched on the sampled page.
+- Full per-page verification script output: all 30 rows printed `OK`,
+  final line `ALL_OK`.
+- `git status --porcelain` confirmed these are the only 30 files this
+  routine modified. **Note**: the working tree already carried unrelated
+  staged changes from another routine (3 new blog post files, `blog/
+  index.html`, `sitemap-resources.xml` — presumably that day's blog
+  publish batch, staged but not yet committed when this run started).
+  Those were left untouched and uncommitted by this routine; the commit
+  below targets only this run's 30 page files plus this log file by exact
+  pathspec, not `git add -A`, so the other routine's in-progress staged
+  work is not disturbed or bundled in.
+
+**Noindex finding (observational only, not acted on, per standing
+instruction — this routine does not add or remove noindex tags):** checked
+every page individually via regex on `name="robots"`. **7 of today's 30
+carry no `<meta name="robots">` tag at all** (indexable by default):
+`california/placer`, `california/tulare`, `california/el-dorado`,
+`georgia/houston`, `georgia/muscogee`, `georgia/forsyth`, `louisiana/
+east-baton-rouge`. **The other 23 carry `noindex,follow`** — all 6 Texas
+counties, all 5 Illinois counties, all 3 Michigan counties, both Colorado
+counties, both South Carolina counties, **and all 5 of today's Florida
+pages**. The Florida result is a genuine exception to the state-by-state
+pattern every prior entry in this log described (CA/GA/LA indexable by
+default here matches the prior pattern, but Florida does not — these 5
+Florida county pages are noindexed despite already carrying 1,500+-word
+deep `<main>` content from the Florida 67-county pass). Flagged for the
+noindex/indexing-strategy owner, not acted on here.
+
+**Content-depth observation (out of scope for this routine, logged for
+whoever picks up the separate content-expansion workstream):** `<main>`
+word counts checked on all 30 pages via the standing word-count method
+after today's edits. The 25 generic-template pages run 624-694 words each
+— well under the 1,500-word standard. The 5 Florida pages (`leon`,
+`escambia`, `alachua`, `st-johns`, `manatee`) already carry deep content
+from the earlier 67-county pass: 1,874 / 1,908 / 1,538 / 2,028 / 1,803
+words respectively — all above the 1,500-word standard already.
+
+- Action items: (1) none of today's 30 pages volume-verified — Semrush
+  units still exhausted every single check to date, revisit when they
+  refresh; (2) 25 of today's 30 pages are under the 1,500-word `<main>`
+  standard — flagged for the separate content-expansion effort, not this
+  routine; (3) the Florida noindex exception above is a real, newly
+  observed break from the prior state-by-state pattern, worth a closer
+  look by whoever owns that workstream — not acted on here; (4) a fresh
+  `os.walk` candidate search will be needed again for the next run (today's
+  candidates were newly discovered, not carried over, so none remain
+  queued).
+- Total done today: 30 pages — `/texas/hays/`, `/texas/comal/`, `/texas/
+  randall/`, `/texas/potter/`, `/texas/midland/`, `/texas/ector/`,
+  `/california/placer/`, `/california/tulare/`, `/california/el-dorado/`,
+  `/florida/leon/`, `/florida/escambia/`, `/florida/alachua/`, `/florida/
+  st-johns/`, `/florida/manatee/`, `/georgia/houston/`, `/georgia/
+  muscogee/`, `/georgia/forsyth/`, `/illinois/will/`, `/illinois/lake/`,
+  `/illinois/kane/`, `/illinois/winnebago/`, `/illinois/sangamon/`,
+  `/michigan/macomb/`, `/michigan/washtenaw/`, `/michigan/genesee/`,
+  `/colorado/boulder/`, `/colorado/mesa/`, `/south-carolina/greenville/`,
+  `/south-carolina/horry/`, `/louisiana/east-baton-rouge/`.
+
+**Deploy status:** see next entry below, recorded once the GitHub Actions
+poll confirms the exact commit's deploy conclusion (per the standing
+Publish verification rule — never report live before that's confirmed).
 
