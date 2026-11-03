@@ -1274,3 +1274,67 @@ real enough to watch over the next few pulls, but one data point each
 isn't enough to call it a trend — noted honestly rather than acted on
 prematurely. Zero clicks after twelve weeks across 45 published posts
 remains the headline number worth being honest about.
+
+## 2026-11-03 — daily blog Routine run (3 posts, sixth day of 3-posts/day)
+
+**New posts today:** `does-your-website-need-llms-txt-2026`,
+`google-meta-ai-ad-disclosure-labels-2026`, `threads-ads-global-
+rollout-2026` — all 0 days old, too new for a URL Inspection signal
+yet, so not checked this run, consistent with the standing pattern for
+brand-new posts.
+
+**Indexing check (sampling approach — the standing flagged/stuck URLs):**
+- `local-seo-vs-national-seo` (long-standing flagged-stuck post):
+  **"Crawled - currently not indexed,"** `lastCrawlTime` still
+  `2026-09-17T19:03:49Z` — now 47 days without a recrawl. Unchanged.
+- `digital-marketing-for-home-services-businesses`: **"URL is unknown
+  to Google"** — same reading as the last check (2026-11-02), no change
+  this time.
+- `digital-marketing-for-restaurants`: **real regression** — back to
+  **"URL is unknown to Google,"** down from "Discovered - currently not
+  indexed" on 2026-11-02. This URL has now toggled between these two
+  states across at least 3 consecutive checks; logged honestly as an
+  unresolved toggling pattern, not a settled state in either direction.
+- `google-ai-mode-seo-guide-for-small-businesses`: **"Discovered -
+  currently not indexed,"** unchanged from its prior reading.
+- `digital-marketing-for-tour-operators-and-travel-agencies`:
+  **"Discovered - currently not indexed,"** unchanged from its only
+  prior reading (2026-11-02).
+
+**Performance re-pull (90-day window, page dimension, `/blog/`,
+2026-08-06 to 2026-11-01, vs. the last logged pull of 2026-08-04 to
+2026-10-30):**
+- `how-to-cut-wasted-ad-spend-in-30-days`: **15 → 4 impressions**, but
+  **position improved further, 57.3 → 46.25** — a real continued drop
+  in impression volume alongside a real continued position improvement,
+  the same pattern as the last pull, reported as-is rather than spun
+  either way.
+- `/blog/` index: **4 → 5 impressions** (position 6.5 → 7.2) — a small
+  real uptick.
+- Unchanged: `10-local-seo-tactics-that-fill-your-calendar` 2 impressions
+  (position 1), `how-to-choose-an-seo-company-in-patna` 3 (position 1),
+  `seo-company-hiring-guide` 4 (position 1), `what-is-digital-marketing`
+  5 (position 2.6, holding since the uptick logged two pulls ago).
+- Still absent from this pull (0 impressions, consistent with the last
+  pull): `email-flows-every-business-needs`,
+  `website-mistakes-costing-you-customers`.
+- Zero clicks recorded across every single row again — now roughly
+  thirteen weeks of flat zero-click data site-wide, no exception. None
+  of the newest posts (today's 3, plus the 3 from 2026-11-02 and the 3
+  from 2026-11-01) show any impressions yet, as expected at this age.
+
+**Action items:** `digital-marketing-for-restaurants` toggling for a
+third consecutive check reinforces the standing lesson from
+`digital-marketing-for-home-services-businesses` logged on 2026-11-02 —
+treat any of these toggling URLs' individual readings as noise until a
+longer run of consistent checks shows otherwise, not as a settled state
+after just one or two matching reads. `local-seo-vs-national-seo`
+remains the longest-stuck post on the site at 47 days without a Google
+recrawl, continuing to get logged with no further lever available
+beyond what's already been tried. The continued impression decline on
+`how-to-cut-wasted-ad-spend-in-30-days` alongside its continued position
+improvement is now a two-pull pattern rather than a single data point —
+worth watching specifically, since a page can plausibly rank better
+while being shown for fewer distinct queries, but not yet enough pulls
+to call it a settled trend. Zero clicks after thirteen weeks across 48
+published posts remains the headline number worth being honest about.

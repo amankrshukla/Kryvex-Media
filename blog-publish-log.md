@@ -1694,3 +1694,116 @@ copyright).
 `41408758388`) reached `status: completed`, `conclusion: **success**`.
 All 3 posts, `blog/index.html`'s new cards, and `sitemap-resources.xml`
 are confirmed live as of run #322's success.
+
+## 2026-11-03 — daily blog Routine run (3 posts, sixth day of 3-posts/day)
+
+**Topic selection:** pulled GSC 90-day query data first (2026-08-01 to
+2026-10-31, dimension `query`, 100 rows, site `sc-domain:kryvexmedia.com`)
+— same recurring pattern as every prior run: overwhelming majority of
+volume is hyper-local "[service] in [city]"/"best [service] agency in
+[place]" queries already served by the programmatic geo pages, nothing
+cleanly maps to a new blog topic. Fell back to the service-deep-dive
+tier per CLAUDE.md, picking 3 angles across 3 different service areas
+(content marketing/SEO, PPC/Meta Ads/graphics, social media/Meta Ads),
+none re-picking an already-covered industry, none overlapping each
+other, and none repeating a prior day's topic.
+
+1. **`does-your-website-need-llms-txt-2026`** (Content Marketing/SEO
+   fallback tier) — 1,895 words. Sourced from: Rankability's llms.txt
+   adoption tracker (Sept 18, 2026 scan: 9.3% of top-1,000 domains / 8.3%
+   of top-10,000 confirmed adoption; earlier June 2026 figure of 8.7% of
+   top 1,000); an independent Tranco top-10,000 analysis (May 2026,
+   5.86% valid adoption); Ahrefs' June 15, 2026 study by Louise Linehan
+   and Xibeijia Guan (137,210 domains, ~97% of ~38,000 valid llms.txt
+   files got zero AI-crawler requests in May 2026, coding agents the
+   largest real consumers); Google's May 15, 2026 official AI-search
+   optimization guide and its June 2026 Search Central "Clarifying
+   guidance on llms.txt files" update (via Search Engine Journal
+   secondary coverage); the Rutgers/Wharton "Strategic Response of News
+   Publishers to Generative AI" working paper on robots.txt-blocking AI
+   crawlers (Dec 2025 version: ~23% total traffic loss; revised April
+   2026 version: ~7% weekly traffic loss within 6 weeks — both versions
+   disclosed, not just the newer one); a BuzzStream audit (70.6% of
+   blocking sites still cited anyway).
+2. **`google-meta-ai-ad-disclosure-labels-2026`** (PPC/Meta Ads/Graphics
+   fallback tier) — 1,610 words. Sourced from: Google's own support page
+   "Updates to AI labeling requirements (July 2026)" (support.google.com/
+   adspolicy/answer/17257106), with the July 9 vs. July 11, 2026 rollout-
+   date discrepancy across secondary sources disclosed rather than
+   silently picking one; Meta's tiered AI-label rollout (menu-level vs.
+   prominent next to "Sponsored" for AI-generated photorealistic humans)
+   per 2026 secondary reporting; the EU AI Act's Article 50 transparency
+   obligations, effective August 2, 2026, cross-confirmed via 3
+   independent law-firm trackers (Cooley, Sidley, BSI Group), with the
+   December 2, 2026 grace period for pre-existing systems' Art. 50(2)
+   marking duty and the €15M/3%-global-turnover penalty figure. A single-
+   sourced New York AI-performer-disclosure date and an unverified FTC
+   penalty figure were deliberately left out per the anti-fabrication
+   rule rather than included with a vague hedge.
+3. **`threads-ads-global-rollout-2026`** (Social Media/Meta Ads fallback
+   tier) — 1,619 words. Sourced from: TechCrunch's January 21, 2026
+   report that Meta was rolling Threads ads out to all users worldwide;
+   Meta's own June 16, 2026 announcement that Threads passed 500 million
+   monthly active users (up from the 400 million Meta reported in August
+   2025), reported across multiple outlets including Gigazine; format/
+   infrastructure detail (carousel + Advantage+ catalog ads, Business
+   Portfolio auto-add cutoff of January 29, 2026, Business Partners
+   brand-safety extension) from Meta's own developer documentation as
+   reported by JumpFly, Campaign Live, and ElevenForum; DAU figures
+   (150M+ vs. Similarweb's 141.5M as of Jan 7, 2026) reported with their
+   discrepancy disclosed rather than averaged into one number. A single-
+   source claim of "30-40% cheaper than Instagram" and an unverified
+   $11.3B Threads revenue projection were explicitly flagged in-post as
+   unconfirmed marketing chatter rather than stated as fact.
+
+**QA (all 3, verified via the Python script in CLAUDE.md's "Standing
+requirement" section before committing):** `<main>` word counts 1,895 /
+1,610 / 1,619 — all comfortably over 1,500. HTML tag balance (div/
+section/article/header/footer/main/h1/h2/h3/ul/ol/li/p/a/script/head/
+body/html, open count == close count) verified OK on all 3. No noindex
+tag present on any of the 3. All 9 `application/ld+json` blocks
+(BreadcrumbList/BlogPosting/FAQPage × 3) parse via `json.loads`. Every
+linked URL (3-5 per post) confirmed to exist on disk (`ls`) before
+linking. Google Ads gtag (`AW-18433795545`) and the Meta Pixel both
+carried over intact from the most recently published template post
+(`ai-overviews-ai-mode-local-citations-2026`).
+
+Also added all 3 cards to `blog/index.html`'s `#post-grid` (`data-cat`
+"social" × 1, "ppc" × 1, "content" × 1 — matching existing filter
+buttons), bringing the grid to 47 cards total (up from 44), tag balance
+re-verified after the edit (div/section/a/h3/h2/svg all matched); and
+all 3 URLs to `sitemap-resources.xml` with `lastmod` 2026-11-03, XML
+validity verified via `xml.etree.ElementTree.parse` after editing.
+
+**Git:** staged only this run's 5 touched paths explicitly (3 new post
+directories, `blog/index.html`, `sitemap-resources.xml`) — `git status`
+at staging time showed ~30 unrelated county pages modified by the
+concurrently-running noindex-removal routine, left completely untouched.
+Commit `05f7fcebe` pushed to `claude/webtech-core-current-work-rsmbri`
+and fast-forwarded to `main` cleanly.
+
+**Sitemap resubmission:** confirmed — "Sitemap
+'https://kryvexmedia.com/sitemap.xml' successfully submitted for site
+'sc-domain:kryvexmedia.com'" (called after all 3 URLs were in the
+sitemap, before the deploy-verification step).
+
+**Deploy:** this commit's own run, #327 (id `41597781033`, head_sha
+`05f7fcebe` — exact match), got **cancelled**: the concurrently-running
+SEO keyword-optimization routine pushed its own commit
+(`10e0002e2997c759008b66cb74492ebca5dd8e1c`, a 30-page keyword batch)
+about 2 minutes later, which started run #328 and cancelled #327 in
+flight — the same rapid-fire-push collision pattern logged repeatedly
+since 2026-10-30. Verified per the standing publish-verification rule:
+`git merge-base --is-ancestor 05f7fcebe43a4d52af410ef106df7067ba62b55f
+10e0002e2997c759008b66cb74492ebca5dd8e1c` confirmed this run's commit is
+included in the superseding commit, then tracked the superseding run
+instead: **#328 (id `41598014057`)**, which reached `status: completed`,
+`conclusion: success`. All 3 posts, `blog/index.html`'s new cards, and
+`sitemap-resources.xml` are confirmed live as of run #328's success.
+
+**Branch sync:** `git log origin/claude/webtech-core-current-work-rsmbri..HEAD`
+and the reverse both returned empty after the push/fast-forward, and
+`main`/`claude/webtech-core-current-work-rsmbri` both point at
+`05f7fcebe` as of this entry (main has since moved forward again via
+the SEO routine's own commit, which is expected — the two branches
+stay in sync with each other, not frozen at a single commit).
