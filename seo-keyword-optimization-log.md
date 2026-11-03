@@ -3836,7 +3836,13 @@ words respectively — all above the 1,500-word standard already.
   `/colorado/boulder/`, `/colorado/mesa/`, `/south-carolina/greenville/`,
   `/south-carolina/horry/`, `/louisiana/east-baton-rouge/`.
 
-**Deploy status:** see next entry below, recorded once the GitHub Actions
-poll confirms the exact commit's deploy conclusion (per the standing
-Publish verification rule — never report live before that's confirmed).
+**Deploy status:** confirmed. Commit `10e0002e2` pushed to both
+`claude/webtech-core-current-work-rsmbri` and `main` (fast-forward, no
+divergence; `git log` both directions between the two branches returned
+empty). Triggered `pages-build-deployment` run #328 (id `41598014057`),
+`head_sha` matching the commit exactly. A same-minute blog-automation
+commit (`05f7fcebe`) landed just before this one and queued its own run
+#327; that run was not re-checked here since this entry only needs to
+confirm *this* run's own conclusion, which it does independently. Final
+poll: `status: completed`, `conclusion: success`. All 30 pages are live.
 
