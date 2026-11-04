@@ -519,6 +519,50 @@ picked (see the 2026-09-28 entry below for why this matters).
      the remaining ~175 country hubs, continuing the `os.walk` candidate-
      discovery method above since the previous day's carryover list is now
      fully consumed.)*
+359. ~~`california/los-angeles/local-seo`~~ — done 2026-11-04 (county × service sub-page)
+360. ~~`california/los-angeles/ppc`~~ — done 2026-11-04 (county × service sub-page)
+361. ~~`california/los-angeles/social-media`~~ — done 2026-11-04 (county × service sub-page)
+362. ~~`california/los-angeles/content-marketing`~~ — done 2026-11-04 (county × service sub-page)
+363. ~~`california/los-angeles/email-marketing`~~ — done 2026-11-04 (county × service sub-page)
+364. ~~`california/los-angeles/web-design`~~ — done 2026-11-04 (county × service sub-page)
+365. ~~`illinois/cook/local-seo`~~ — done 2026-11-04 (county × service sub-page)
+366. ~~`illinois/cook/ppc`~~ — done 2026-11-04 (county × service sub-page)
+367. ~~`illinois/cook/social-media`~~ — done 2026-11-04 (county × service sub-page)
+368. ~~`illinois/cook/content-marketing`~~ — done 2026-11-04 (county × service sub-page)
+369. ~~`illinois/cook/email-marketing`~~ — done 2026-11-04 (county × service sub-page)
+370. ~~`illinois/cook/web-design`~~ — done 2026-11-04 (county × service sub-page)
+371. ~~`texas/harris/local-seo`~~ — done 2026-11-04 (county × service sub-page)
+372. ~~`texas/harris/ppc`~~ — done 2026-11-04 (county × service sub-page)
+373. ~~`texas/harris/social-media`~~ — done 2026-11-04 (county × service sub-page)
+374. ~~`texas/harris/content-marketing`~~ — done 2026-11-04 (county × service sub-page)
+375. ~~`texas/harris/email-marketing`~~ — done 2026-11-04 (county × service sub-page)
+376. ~~`texas/harris/web-design`~~ — done 2026-11-04 (county × service sub-page)
+377. ~~`arizona/maricopa/local-seo`~~ — done 2026-11-04 (county × service sub-page)
+378. ~~`arizona/maricopa/ppc`~~ — done 2026-11-04 (county × service sub-page)
+379. ~~`arizona/maricopa/social-media`~~ — done 2026-11-04 (county × service sub-page)
+380. ~~`arizona/maricopa/content-marketing`~~ — done 2026-11-04 (county × service sub-page)
+381. ~~`arizona/maricopa/email-marketing`~~ — done 2026-11-04 (county × service sub-page)
+382. ~~`arizona/maricopa/web-design`~~ — done 2026-11-04 (county × service sub-page)
+383. ~~`california/san-diego/local-seo`~~ — done 2026-11-04 (county × service sub-page)
+384. ~~`california/san-diego/ppc`~~ — done 2026-11-04 (county × service sub-page)
+385. ~~`california/san-diego/social-media`~~ — done 2026-11-04 (county × service sub-page)
+386. ~~`california/san-diego/content-marketing`~~ — done 2026-11-04 (county × service sub-page)
+387. ~~`california/san-diego/email-marketing`~~ — done 2026-11-04 (county × service sub-page)
+388. ~~`california/san-diego/web-design`~~ — done 2026-11-04 (county × service sub-page)
+389. *(First run on the county × service sub-tier (6 service pages per
+     county: `local-seo`, `ppc`, `social-media`, `content-marketing`,
+     `email-marketing`, `web-design`). Chose 5 already-optimized major
+     metro county hubs (one per the top states already covered at the
+     hub level) × all 6 of their service sub-pages = 30 pages exactly:
+     `california/los-angeles`, `illinois/cook`, `texas/harris`,
+     `arizona/maricopa`, `california/san-diego`. Each service type uses
+     ONE consistent primary/secondary keyword pair across all 5 counties
+     (the sub-pages are template-identical per service, differing only in
+     county/state/town names — same real pattern this routine has used
+     for county hubs), rather than inventing a new keyword per county for
+     the same service. Next up: remaining county × service sub-pages for
+     the other already-done metro counties, then the remaining ~175
+     country hubs.)*
 
 ## Log
 
@@ -3845,4 +3889,207 @@ commit (`05f7fcebe`) landed just before this one and queued its own run
 #327; that run was not re-checked here since this entry only needs to
 confirm *this* run's own conclusion, which it does independently. Final
 poll: `status: completed`, `conclusion: success`. All 30 pages are live.
+
+### 2026-11-04 — first pass into the county × service sub-tier (30 pages)
+
+**Semrush units check**: called `keyword_research` live before starting
+(not assumed) — same `no_api_units` error as every prior check in this
+log ("active Semrush subscription, but does not have enough API units"),
+non-retryable. All 30 picks below are WebSearch-informed, not
+Semrush-volume-verified — disclosed below per finding, with the real
+WebSearch output cited, not a fabricated number.
+
+**Scope change this run**: with the US state-hub tier and ~322 major-metro
+county hubs now done, this run moved to the next tier named in the
+2026-11-03 entry's carryover note — **county × service sub-pages** (e.g.
+`/california/los-angeles/local-seo/`, `/california/los-angeles/ppc/` —
+each already-optimized county hub has 6 of these: `local-seo`, `ppc`,
+`social-media`, `content-marketing`, `email-marketing`, `web-design`).
+Picked 5 already-done major metro counties × all 6 of their service
+sub-pages = 30 pages exactly: `california/los-angeles`, `illinois/cook`,
+`texas/harris`, `arizona/maricopa`, `california/san-diego`. Confirmed via
+direct `index.html` file-existence check before use that all 30 target
+paths exist on disk — none invented.
+
+**Intent-match check (read before picking any keyword, all 30 pages)**:
+read each page's actual `<title>`, meta description, eyebrow badge, `<h1>`,
+hero sub-paragraph and "What's included" list before choosing anything.
+Real finding: each service sub-page is more specific than its generic
+service name suggests, so the keyword had to match the *actual* included
+scope, not just the nav label:
+- `ppc` pages are titled "Google & Meta Ads" and the included list is
+  Google Search/Local Services Ads **and** Meta (Facebook/Instagram) ads
+  — matches "PPC management services" (covers both platforms), not a
+  Google-only term.
+- `content-marketing` pages are titled "Content & Reputation" and the
+  included list is **majority review-generation/reputation-monitoring**
+  items (review generation campaigns, reputation monitoring and response
+  templates) with blog content as a minority item — checked this
+  specifically because "content marketing services" alone would have been
+  a mismatch for a page that leads with reviews/reputation; retargeted to
+  "online reputation management" as the primary keyword instead, which
+  genuinely matches the page's dominant content.
+- The other four (`local-seo`, `social-media`, `email-marketing`,
+  `web-design`) matched their generic service name directly on inspection
+  — no retargeting needed.
+
+**Keyword source — WebSearch fallback, explicitly disclosed, one
+consistent pair per service type across all 5 counties** (the sub-pages
+are template-identical per service type, differing only in
+county/state/town names, so one real-world-grounded pair per service type
+is the correct unit, not a fresh invented pair per county for the same
+service):
+- `local-seo` → primary **"local SEO services"**, secondary **"Google
+  Business Profile optimization"**. WebSearch found no single reliable
+  volume figure for the exact phrase (sources disagreed and warned
+  against over-indexing on volume for local terms), but confirmed it as
+  the standard, widely-used commercial phrase across SEO agency sources
+  (straightnorth.com, lseo.com, gofishdigital.com). Secondary is a real
+  named Google product/workflow already in the page's own included list.
+- `ppc` → primary **"PPC management services"**, secondary **"Google Ads
+  management"**. WebSearch (clicksgeek.com, dinerotechlabs.com,
+  mainstreethost.com, brentonway.com) confirmed this as a standard agency
+  commercial phrase; no verified volume number found, disclosed as such.
+- `social-media` → primary **"social media marketing services"**,
+  secondary **"social media management"**. WebSearch found one
+  third-party tool citing ~6,700 global monthly searches
+  (adtargeting.io) and a different US-focused list citing ~1,300
+  (digitalsuccess.us) for the same phrase — the two sources disagree, so
+  neither figure is logged as a verified number, only as the directional
+  finding that the phrase is a real, commonly-searched term.
+- `content-marketing` → primary **"online reputation management"**
+  (chosen after the intent-match retargeting above), secondary **"review
+  generation services"**. WebSearch did not surface a volume figure for
+  this specific phrase; the pick is grounded in the intent-match finding
+  (the page's own content is majority review/reputation work), not a
+  volume claim.
+- `email-marketing` → primary **"email marketing services"**, secondary
+  **"email marketing automation"**. WebSearch (digitalsuccess.us) found
+  ~70 monthly US searches for the related long-tail "email marketing
+  services for small business" (low-confidence, undated source) and a
+  much larger 888,190/month figure for the broad "email marketing"
+  category from a different tool — neither is logged as a verified
+  number for the exact primary phrase used; disclosed as directional
+  only.
+- `web-design` → primary **"web design services"**, secondary
+  **"mobile-first website design"**. WebSearch found conflicting
+  third-party figures (~5,400/month for "web design services" on one
+  tool, ~6,600 for the related "web design near me", ~22,200 for "web
+  design company" on another) — logged as directional, not verified,
+  consistent with every other pick above.
+
+**Changes made, identical pattern within each service type across all 5
+counties** (verified fresh from disk after writing, not assumed from the
+edit script's in-memory state):
+- `<title>`, `og:title`, `twitter:title`: old "{service label} in
+  {County} County, {State} | Kryvex Media" → new "{keyword-rich label} in
+  {County} County, {State} | Kryvex Media" (3 occurrences per page, all
+  confirmed changed; e.g. "Local SEO & Map Pack in Los Angeles County,
+  California" → "Local SEO Services in Los Angeles County, California").
+- Meta description, `og:description`, `twitter:description`: old service
+  label swapped for the new keyword-rich label at the start of the
+  sentence (3 occurrences per page).
+- JSON-LD `Service.description`: same label swap (1 occurrence per page).
+- Eyebrow badge (`cty-eyebrow`): same label swap, emoji kept (1 occurrence
+  per page).
+- `<h1>`: same label swap — primary keyword now inside the literal
+  `<h1>...</h1>` text itself on all 30, not just the badge (1 occurrence
+  per page).
+- Opening `<p class="sub">` hero paragraph: rewritten to open with the
+  primary keyword phrase while keeping each page's existing descriptive
+  clause and the "Built for {County} County specifically..." sentence
+  intact (1 occurrence per page).
+- Secondary keyword placed inside the "What's included" list (`<main>`
+  body copy, not meta): reworded one existing list item per service type
+  to contain the exact secondary phrase (e.g. `local-seo`'s "Google
+  Business Profile setup and full optimization..." → "Google Business
+  Profile optimization — setup, categories, service areas, photos,
+  posts..."), for 5 of 6 service types. For `web-design`, checked first
+  and found the secondary phrase "mobile-first website design" already
+  present verbatim inside the existing included-list item ("Custom,
+  mobile-first website design and build") — left unedited and confirmed
+  by the same grep-equivalent check below rather than assumed.
+
+**Script-verified on all 30 pages this run** (independent Python
+verification script —
+`/tmp/claude-0/-home-user-webtechcore-website/5f15b17b-0606-5213-999c-cb178350a082/scratchpad/verify.py`
+— re-read each file fresh from disk):
+- Primary keyword confirmed present (case-insensitive) in `<title>`, meta
+  description, `og:title`, `og:description`, `twitter:title`,
+  `twitter:description`, the JSON-LD description field, and the literal
+  `<h1>...</h1>` text — true on all 30. Also confirmed ≥2 occurrences of
+  the primary keyword inside `<main>` on all 30 (badge + H1 + opening
+  paragraph, sometimes more).
+- Secondary keyword confirmed present (case-insensitive) inside `<main>`
+  on all 30 (exactly 1 occurrence each, including the pre-existing
+  `web-design` case).
+- JSON-LD block parsed successfully (Python `json.loads`) on all 30; also
+  checked `<main>`/`</main>` and `<h1>`/`</h1>` tag balance (exactly 1
+  open + 1 close each) on all 30 — no stray/broken tags.
+- `git diff --stat` confirmed exactly these 30 files modified (22 lines
+  changed per page for the 5 services with an included-list edit, 20
+  lines changed for `web-design` where that edit was skipped) and a
+  sampled diff (`california/los-angeles/local-seo/index.html`) showed a
+  clean, intended-only change — gtag.js, GTM, and Meta Pixel script tags
+  untouched.
+- `grep -o '<h1>[^<]*</h1>'` spot-checked directly (not just via the
+  Python script) on 5 of the 30 files spanning all 5 counties and 5 of
+  the 6 service types — each showed the primary keyword inside the
+  literal `<h1>` text, e.g. `<h1>PPC Management Services for Harris
+  County Businesses</h1>`, `<h1>Online Reputation Management for Cook
+  County Businesses</h1>`.
+- `git status --porcelain` checked before and after: the working tree
+  already carried an unrelated modified file, `blog-publish-log.md`
+  (the concurrent blog-automation routine's in-progress work). That file
+  was left untouched. The commit below stages only this run's 30 page
+  files plus this log file by exact pathspec, never `git add -A`, so the
+  blog routine's in-flight file is not disturbed or bundled in.
+
+**Noindex finding (observational only, not acted on, per standing
+instruction — this routine does not add or remove noindex tags):** checked
+every page individually via regex on `name="robots"`. All 6
+`california/los-angeles/*` and all 6 `california/san-diego/*` sub-pages
+carry **no `<meta name="robots">` tag at all** (indexable by default). All
+6 `illinois/cook/*`, all 6 `texas/harris/*`, and all 6
+`arizona/maricopa/*` sub-pages carry `noindex,follow`. This matches each
+state's own county-hub page's indexability exactly (CA indexable, IL/TX/AZ
+noindexed) — i.e. the county × service sub-pages inherit the same
+per-state indexability pattern already logged for the hub tier, with no
+new exception found this run. Flagged for the noindex/indexing-strategy
+owner, not acted on here.
+
+**Content-depth observation (out of scope for this routine, logged for
+whoever picks up the separate content-expansion workstream):** these
+county × service sub-pages use the site's lighter template (process steps
++ FAQ, no deep-research county-economy section) and remain well under the
+1,500-word `<main>` standard after today's edits — not re-measured
+page-by-page this run since the template word count is already known from
+every prior county page audited; flagged, not acted on, consistent with
+every prior entry in this log.
+
+- Action items: (1) none of today's 30 picks are Semrush-volume-verified —
+  revisit all six keyword pairs once API units refresh; (2) this is the
+  **first** run on the county × service sub-tier — each of the ~322
+  already-done county hubs has up to 6 of these sub-pages, so this is a
+  large next workstream (continue with the next already-done metro
+  counties' sub-pages tomorrow, same 6 keyword pairs, no need to re-pick
+  per county since the pairs are per-service-type, not per-county); (3)
+  the `content-marketing` retargeting to "online reputation management"
+  (away from the more generic "content marketing services") should be
+  checked against the sub-pages of any county NOT yet covered to confirm
+  the same majority-reputation template pattern holds before reusing the
+  pair blindly — spot-checked across all 5 counties done today and held
+  in every case, but worth a periodic re-check as more counties are done.
+- Total done today: 30 pages — `california/los-angeles/{local-seo,ppc,
+  social-media,content-marketing,email-marketing,web-design}`,
+  `illinois/cook/{local-seo,ppc,social-media,content-marketing,
+  email-marketing,web-design}`, `texas/harris/{local-seo,ppc,social-media,
+  content-marketing,email-marketing,web-design}`, `arizona/maricopa/
+  {local-seo,ppc,social-media,content-marketing,email-marketing,
+  web-design}`, `california/san-diego/{local-seo,ppc,social-media,
+  content-marketing,email-marketing,web-design}`.
+
+**Deploy status:** pending — commit, push, fast-forward `main`, and the
+GitHub Actions poll are recorded immediately below once each step
+completes.
 
