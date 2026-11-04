@@ -4089,7 +4089,11 @@ every prior entry in this log.
   web-design}`, `california/san-diego/{local-seo,ppc,social-media,
   content-marketing,email-marketing,web-design}`.
 
-**Deploy status:** pending — commit, push, fast-forward `main`, and the
-GitHub Actions poll are recorded immediately below once each step
-completes.
+**Deploy status:** confirmed. Commit `6c8a9dca9` pushed to both
+`claude/webtech-core-current-work-rsmbri` and `main` (fast-forward, no
+divergence; `git log` both directions between the two branches returned
+empty — confirmed via direct SHA comparison of all three refs). Triggered
+`pages-build-deployment` run #332 (id `41794182407`), `head_sha` matching
+the commit exactly. Final poll: `status: completed`, `conclusion:
+success`. All 30 pages are live.
 
