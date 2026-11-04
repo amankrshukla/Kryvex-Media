@@ -1807,3 +1807,103 @@ and the reverse both returned empty after the push/fast-forward, and
 `05f7fcebe` as of this entry (main has since moved forward again via
 the SEO routine's own commit, which is expected — the two branches
 stay in sync with each other, not frozen at a single commit).
+
+## 2026-11-04 — daily blog Routine run (3 posts, seventh day of 3-posts/day)
+
+**Topic selection:** GSC query data (`GOOGLE_SEARCH_CONSOLE_SEARCH_ANALYTICS_QUERY`,
+2026-08-02 to 2026-11-01, dimension `query`, row limit 100) was again
+almost entirely hyper-local "[service] agency in [city]" queries already
+served by the programmatic geo pages — the same pattern logged every prior
+run. All 3 topics therefore come from the service-deep-dive fallback tier,
+each a different service area (social/PPC, local SEO, email marketing),
+none repeating any of yesterday's (2026-11-03) topics (llms.txt, AI ad
+disclosure labels, Threads ads) or any of Kryvex's 9 industry pages.
+
+1. **`tiktok-us-ownership-deal-2026-advertisers`** (Social Media/PPC
+   fallback tier) — 1,675 words. Sourced from: CBS News, SCMP, and
+   Chainstoreage's reporting on the January 22, 2026 close of the TikTok
+   USDS Joint Venture LLC deal, formed under a September 25, 2025
+   executive order; the ownership split (Oracle/Silver Lake/MGX ~15% each,
+   ByteDance 19.9%, other ByteDance investors ~30.1%) per Chainstoreage/
+   Phonearena; Fortune's January 27, 2026 reporting on algorithm licensing
+   and US-data retraining, with the Bloomberg-sourced profit-sharing
+   figure explicitly flagged as unconfirmed rather than stated as fact;
+   Chainstoreage/Fortune/eMarketer's point that advertising, e-commerce,
+   and marketing are **not** run by the joint venture itself; eMarketer's
+   US ad revenue figures (~$12.29B of 2024 global revenue, $17.17B 2026
+   forecast); Digiday's coverage of marketer uncertainty and budget
+   rethinking through 2025; MediaPost's note on possible targeting/
+   moderation friction during the transition. No source found confirms
+   SMB ad tools or pricing changed because of the deal — stated explicitly
+   in the post rather than implied either way.
+2. **`google-ai-overviews-local-pack-2026`** (Local SEO fallback tier) —
+   1,726 words. Sourced from: Search Engine Roundtable's January 16, 2026
+   report "Google AI Overview Local Pack Leading To Huge Drops In
+   Visibility" (seroundtable.com), covering Joy Hawkins'/Sterling Sky's
+   documented 50%+ visibility-decline examples and Places Scout data
+   showing AI Local Packs on roughly 8% of keywords and rising; Glenn
+   Gabe's independent January 15, 2026 corroboration; Search Engine
+   Roundtable's earlier reporting on Google removing (September 2023)
+   then restoring (March 2025) the local pack inside AI Overviews.
+   Conflicting, unverified agency-blog percentages (32% vs. 12%
+   GBP-influence figures, a 15%/93% query-type split) found during
+   research are explicitly flagged in the post as agency estimates that
+   disagree with each other, not treated as established facts.
+3. **`gmail-gemini-ai-summaries-email-marketing-2026`** (Email Marketing
+   fallback tier) — 1,711 words. Sourced from: Google's January 8, 2026
+   Gemini-for-Gmail announcement, cross-confirmed via Business Today,
+   SiliconANGLE, Gigazine, and Analytics Insight (auto-generated summaries
+   free to all users; AI Inbox in limited testing; natural-language inbox
+   Q&A restricted to AI Pro/Ultra subscribers; US English rollout first,
+   more regions/languages to follow); a secondary-sourced industry
+   analysis reporting CTR falling from ~4.35% to ~3.93% and open rate
+   rising to ~45.6% post-rollout, explicitly flagged in the post as a
+   single, not-independently-audited data point rather than an industry
+   benchmark; the mechanical explanation (Gmail auto-opens an email to
+   generate its summary, which some ESPs count as a human open) tied to
+   the well-established Apple Mail Privacy Protection (2021) precedent.
+   An unverifiable "53.7% inbox placement rate" figure found during
+   research was deliberately left out of the post per the anti-fabrication
+   rule rather than included with a vague hedge.
+
+**QA (all 3, verified via the Python script in CLAUDE.md's "Standing
+requirement" section before committing):** `<main>` word counts 1,675 /
+1,726 / 1,711 — all comfortably over 1,500. HTML tag balance (div/
+section/article/header/footer/main/h1/h2/h3/ul/ol/li/p/a/script/head/
+body/html, open count == close count) verified OK on all 3. No noindex
+tag present on any of the 3. All 9 `application/ld+json` blocks
+(BreadcrumbList/BlogPosting/FAQPage × 3) parse via `json.loads`. Every
+linked URL (3-5 per post) confirmed to exist on disk (`ls`) before
+linking. Google Ads gtag (`AW-18433795545`), GTM, and the Meta Pixel all
+carried over intact from the most recently published template post
+(`threads-ads-global-rollout-2026`).
+
+Also added all 3 cards to `blog/index.html`'s `#post-grid` (`data-cat`
+"social" × 1, "seo" × 1, "email" × 1 — matching existing filter
+buttons), bringing the grid to 50 cards total (up from 47), tag balance
+re-verified after the edit (div/section/a/h3/h2/svg/article/header/
+footer/main all matched); and all 3 URLs to `sitemap-resources.xml` with
+`lastmod` 2026-11-04, XML validity verified via
+`xml.etree.ElementTree.parse` after editing.
+
+**Git:** `git status` at staging time showed only this run's 5 touched
+paths (3 new post directories, `blog/index.html`, `sitemap-resources.xml`)
+— no concurrently-running routine's changes mixed in. Commit `ee3a1071b`
+pushed to `claude/webtech-core-current-work-rsmbri` and fast-forwarded to
+`main` cleanly.
+
+**Sitemap resubmission:** confirmed — "Sitemap
+'https://kryvexmedia.com/sitemap.xml' successfully submitted for site
+'sc-domain:kryvexmedia.com'" (called after all 3 URLs were in the
+sitemap, before the deploy-verification step).
+
+**Deploy:** this commit's own run, #331 (id `41793663455`, head_sha
+`ee3a1071b` — exact match), reached `status: completed`, `conclusion:
+success` with no concurrent-push collision this run. All 3 posts,
+`blog/index.html`'s new cards, and `sitemap-resources.xml` are confirmed
+live.
+
+**Branch sync:** `git log origin/claude/webtech-core-current-work-rsmbri..HEAD`
+and the reverse both returned empty after the push/fast-forward, and
+`main`/`claude/webtech-core-current-work-rsmbri` both point at `ee3a1071b`
+as of this entry.

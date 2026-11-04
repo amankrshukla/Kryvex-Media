@@ -1338,3 +1338,74 @@ worth watching specifically, since a page can plausibly rank better
 while being shown for fewer distinct queries, but not yet enough pulls
 to call it a settled trend. Zero clicks after thirteen weeks across 48
 published posts remains the headline number worth being honest about.
+
+## 2026-11-04 — daily blog Routine run (3 posts, seventh day of 3-posts/day)
+
+**New posts today:** `tiktok-us-ownership-deal-2026-advertisers`,
+`google-ai-overviews-local-pack-2026`, `gmail-gemini-ai-summaries-email-
+marketing-2026` — all 0 days old, too new for a URL Inspection signal
+yet, so not checked this run, consistent with the standing pattern for
+brand-new posts.
+
+**Indexing check (sampling approach — the standing flagged/stuck URLs):**
+- `local-seo-vs-national-seo` (long-standing flagged-stuck post):
+  **"Crawled - currently not indexed,"** `lastCrawlTime` still
+  `2026-09-17T19:03:49Z` — now 48 days without a recrawl. Unchanged.
+- `digital-marketing-for-home-services-businesses`: **real forward
+  movement** — now **"Discovered - currently not indexed,"** up from
+  "URL is unknown to Google" on 2026-11-03.
+- `digital-marketing-for-restaurants`: **real forward movement** — now
+  **"Discovered - currently not indexed,"** up from "URL is unknown to
+  Google" on 2026-11-03. This is the fourth consecutive check on which
+  this URL has toggled between the two states; continuing to log it as
+  an unresolved toggling pattern, not a settled state.
+- `google-ai-mode-seo-guide-for-small-businesses`: **real regression,
+  first time for this URL** — now **"URL is unknown to Google,"** down
+  from "Discovered - currently not indexed" on every prior check since
+  this URL was first added to the sample. This URL had not toggled
+  before; it now joins the same unresolved-toggling category as the two
+  above rather than being treated as settled in either direction going
+  forward.
+- `digital-marketing-for-tour-operators-and-travel-agencies`:
+  **"Discovered - currently not indexed,"** unchanged from both prior
+  readings.
+
+**Performance re-pull (90-day window, page dimension, `/blog/`,
+2026-08-07 to 2026-11-02, vs. the last logged pull of 2026-08-06 to
+2026-11-01):**
+- `how-to-cut-wasted-ad-spend-in-30-days`: **4 → 0 impressions** — this
+  page has now gone from 15 to 4 to 0 impressions across the last three
+  pulls while its position had been improving each time; it has now
+  dropped out of the pull entirely. Reported as a real decline to zero,
+  not spun as anything else.
+- Unchanged: `/blog/` index 5 impressions (position 7.2),
+  `10-local-seo-tactics-that-fill-your-calendar` 2 (position 1),
+  `how-to-choose-an-seo-company-in-patna` 3 (position 1),
+  `seo-company-hiring-guide` 4 (position 1), `what-is-digital-marketing`
+  5 (position 2.6).
+- Still absent from this pull (0 impressions, consistent with recent
+  pulls): `email-flows-every-business-needs`,
+  `website-mistakes-costing-you-customers`.
+- Zero clicks recorded across every single row again — now roughly
+  fourteen weeks of flat zero-click data site-wide, no exception. None
+  of the newest posts (today's 3, plus the 3 from 2026-11-03 and the 3
+  from 2026-11-02) show any impressions yet, as expected at this age.
+
+**Action items:** `google-ai-mode-seo-guide-for-small-businesses`
+regressing to "URL is unknown to Google" after being stable at
+"Discovered - currently not indexed" on every prior check is a new data
+point — it had looked like one of the more settled URLs in the sample,
+and this shows even an apparently-stable reading on a single page can
+still move. Combined with `digital-marketing-for-restaurants` toggling
+for a fourth consecutive check, the standing lesson holds: treat any
+single reading on any of these pages as noise, not as settled, until a
+long run of consistent checks says otherwise. `local-seo-vs-national-seo`
+remains the longest-stuck post on the site at 48 days without a Google
+recrawl, continuing to get logged with no further lever available.
+`how-to-cut-wasted-ad-spend-in-30-days` falling to zero impressions after
+three consecutive pulls of 15 → 4 → 0 is now a clear enough pattern to
+flag as a real, continuing decline rather than noise, even though the
+underlying cause (fewer distinct queries triggering it, possibly
+alongside its improving position) isn't confirmed. Zero clicks after
+fourteen weeks across 51 published posts remains the headline number
+worth being honest about.
