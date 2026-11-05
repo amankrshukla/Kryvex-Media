@@ -1907,3 +1907,113 @@ live.
 and the reverse both returned empty after the push/fast-forward, and
 `main`/`claude/webtech-core-current-work-rsmbri` both point at `ee3a1071b`
 as of this entry.
+
+### 2026-11-05 — daily blog Routine run (3 posts, eighth day of 3-posts/day)
+
+- Topic/query: GSC 90-day query pull checked first (2026-08-03 to
+  2026-11-02, dimension `query`, 100 rows) — again almost entirely
+  hyper-local "[service] agency in [city]" queries already served by
+  the programmatic geo pages, same pattern as every prior run. All 3
+  topics come from the service-deep-dive fallback tier, each a
+  different service area (PPC, SEO/tooling, Meta/social ads), none
+  repeating 2026-11-04's topics (TikTok ownership, AI Overviews local
+  pack, Gmail Gemini summaries) or any of Kryvex's 9 industry pages.
+
+- **Post 1:** `/blog/google-ads-limited-ad-serving-policy-2026/` — PPC
+  fallback tier. 1,767 words. Sourced from Google's own Advertising
+  Policies Help Center entry dated August 5, 2026 ("Update to Limited
+  Ad Serving Policy"), extending the policy from mainly-Search to all
+  Google Ads products; corroborated by Search Engine Land, TechWyse,
+  and ppc.land on scope, the impression-cap (not ad-disapproval)
+  enforcement mechanism, the account-level unit of enforcement,
+  YouTube's earlier September 2024 targeted rollout, the gradual
+  timeline with full enforcement targeted for 2028, and the Limited Ad
+  Serving Appeals Form. Where outlets disagreed on the exact named
+  surface list, that disagreement is flagged explicitly in the post
+  rather than resolved by guessing.
+
+- **Post 2:** `/blog/google-search-console-ai-powered-configuration-2026/`
+  — SEO/tooling fallback tier. 1,618 words. Sourced from Google's own
+  Search Central blog post dated December 4, 2025
+  (developers.google.com/search/blog/2025/12/ai-powered-configuration),
+  corroborated by Search Engine Land, Search Engine Journal, and Search
+  Engine Roundtable on scope (Performance report for Search results
+  only, not Discover/News), the filter/comparison/metric capability,
+  the lack of sort/export support, and SERoundtable's later report of
+  full rollout. An unverified "20 requests/day" limit found in
+  secondary coverage was deliberately left out per the anti-fabrication
+  rule rather than stated as confirmed.
+
+- **Post 3:** `/blog/meta-automated-ads-retirement-advantage-plus-2026/`
+  — Meta Ads fallback tier. 1,588 words. Sourced from Social Media
+  Today's and Mobile Marketing Reads' October 2025 coverage of Meta's
+  Automated Ads phase-out in favor of Advantage+ (existing campaigns
+  keep running, new ones can't be created, deleting a campaign loses
+  its historical results); MediaPost's and ppc.land's coverage of the
+  broader Meta pattern of removing manual targeting/placement controls
+  in favor of AI-driven systems; and the separate Marketing API v25.0
+  ASC/AAC deprecation (effective across all API versions after May 19,
+  2026), explicitly distinguished in the post from the Ads Manager UI
+  retirement since they are different changes. The exact Automated Ads
+  shutdown date is not consistently stated across sources ("coming
+  months" / "next year" / "2026"), so the post states the direction as
+  confirmed and the exact date as unconfirmed rather than picking one
+  secondary source's guess.
+
+- **QA (all 3, verified via the Python script in CLAUDE.md's "Standing
+  requirement" section before committing):** `<main>` word counts
+  1,767 / 1,618 / 1,588 — all over 1,500. HTML tag balance (div/
+  section/article/header/footer/main/h1/h2/h3/ul/ol/li/p/a/script/head/
+  body/html, open count == close count) verified OK on all 3. No
+  noindex tag on any of the 3. All 9 `application/ld+json` blocks
+  (BreadcrumbList/BlogPosting/FAQPage × 3) parse via `json.loads`.
+  Every linked URL (3-5 per post) confirmed to exist on disk before
+  linking. Google Ads gtag, GTM, and Meta Pixel carried over intact
+  from the most recently published template post
+  (`gmail-gemini-ai-summaries-email-marketing-2026`).
+
+  All 3 cards added to `blog/index.html`'s `#post-grid` (`data-cat`
+  "ppc" × 1, "seo" × 1, "social" × 1 — matching existing filter
+  buttons), tag balance re-verified after the edit (div/section/a/h3/
+  h2/svg/g/rect/circle/path all matched). All 3 URLs added to
+  `sitemap-resources.xml` with `lastmod` 2026-11-05, XML validity
+  verified via `xml.etree.ElementTree.parse` after editing.
+
+- **Git:** `git status` at staging time showed only this run's 5
+  touched paths (3 new post directories, `blog/index.html`,
+  `sitemap-resources.xml`) — no concurrently-running routine's changes
+  mixed in. Commit `714551ccf` pushed to
+  `claude/webtech-core-current-work-rsmbri` and fast-forwarded to
+  `main` cleanly.
+
+- **Sitemap resubmission:** confirmed — "Sitemap
+  'https://kryvexmedia.com/sitemap.xml' successfully submitted for site
+  'sc-domain:kryvexmedia.com'" (called after all 3 URLs were in the
+  sitemap, before the deploy-verification step).
+
+- **Deploy — known collision pattern recurred:** this commit's own run,
+  #335 (id `41988735223`, head_sha `714551ccf` — exact match),
+  completed with `conclusion: cancelled`, cancelled by a concurrent
+  SEO-routine push (`e87a859e0`, "SEO: keyword-optimize second batch of
+  30 county x service sub-pages") that landed on `main` seconds later.
+  Per the standing Publish verification rule's documented recourse,
+  verified via `git merge-base --is-ancestor 714551ccf origin/main` that
+  this commit is included in the superseding commit — confirmed, it is
+  an ancestor — so the superseding commit's own deploy run is the one
+  tracked for live-verification instead: run #336 (id `41988857554`,
+  head_sha `e87a859e0`). Polled that run across several minutes (its
+  "Deploy to GitHub Pages" step ran noticeably longer than usual — about
+  12 minutes between step start and completion, re-confirmed via both
+  `get_workflow_run` and job-level `list_workflow_jobs` reads rather
+  than assumed from one stale read) until it reached
+  `status: completed`, `conclusion: success`. All 3 new posts,
+  `blog/index.html`'s new cards, and `sitemap-resources.xml` are
+  confirmed live as of this entry.
+
+**Branch sync:** `git rev-parse origin/main
+origin/claude/webtech-core-current-work-rsmbri` both resolve to the
+same commit, `e87a859e0` (the superseding SEO-routine commit that
+contains `714551ccf` as an ancestor), and
+`git log origin/main..origin/claude/webtech-core-current-work-rsmbri`
+and the reverse both return empty — the two branches are in sync.
+
