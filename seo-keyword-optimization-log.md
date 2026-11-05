@@ -4327,6 +4327,24 @@ edits — not re-measured page-by-page this run for the same reason given
   web-design}`, `california/riverside/{local-seo,ppc,social-media,
   content-marketing,email-marketing,web-design}`.
 
-**Deploy status:** pending — recorded below once the commit is pushed and
-the matching `pages-build-deployment` run completes.
+**Deploy status:** confirmed. Commit `e87a859e0` pushed to both
+`claude/webtech-core-current-work-rsmbri` and `main` (fast-forward, no
+divergence; `git log` both directions between the two branches, and
+between the local branch and `origin/claude/webtech-core-current-work-
+rsmbri`, returned empty — confirmed via direct SHA comparison of all
+three refs). Triggered `pages-build-deployment` run #336 (id
+`41988857554`), `head_sha` matching the commit exactly. First two polls
+read `in_progress` with a static `updated_at` for about 60s — a fresh
+`list_workflow_runs` call confirmed this was a real in-progress state, not
+a stale read. Final poll: `status: completed`, `conclusion: success`. All
+30 pages are live.
+
+**Note:** the first attempt to log this deploy status landed on a stray
+commit (`313dc2603`) that never made it into either branch — a real race
+with the concurrent blog-automation routine, which was pushing its own
+commit to this same shared working tree/branches at the same moment. That
+commit is orphaned in the local reflog only, never pushed, and is not
+part of either branch's history; this section is the corrected, verified
+version, committed once both branches were confirmed back in sync with
+origin.
 
