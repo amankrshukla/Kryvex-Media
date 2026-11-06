@@ -2017,3 +2017,120 @@ contains `714551ccf` as an ancestor), and
 `git log origin/main..origin/claude/webtech-core-current-work-rsmbri`
 and the reverse both return empty — the two branches are in sync.
 
+### 2026-11-06 — daily blog Routine run (3 posts, ninth day of 3-posts/day)
+
+- Topic/query: GSC 90-day query pull checked first (2026-08-04 to
+  2026-11-03, dimension `query`, 100 rows) — again almost entirely
+  hyper-local "[service] agency in [city]" queries already served by
+  the programmatic geo pages, same pattern as every prior run. All 3
+  topics come from the service-deep-dive fallback tier, each a
+  different service area (SEO/content, social/messaging, PPC/ad-tech),
+  none repeating 2026-11-05's topics (Limited Ad Serving, Search
+  Console AI config, Meta Automated Ads), 2026-11-04's topics (TikTok
+  ownership, AI Overviews local pack, Gmail Gemini summaries), or any
+  of Kryvex's 9 industry pages.
+
+- **Post 1:** `/blog/google-faq-rich-results-removed-2026/` — SEO/
+  content fallback tier. 1,855 words. Sourced from Google's own Search
+  Central blog post dated August 8, 2023
+  (developers.google.com/search/blog/2023/08/howto-faq-changes), which
+  originally restricted FAQ rich results to "well-known, authoritative
+  government and health websites," corroborated by Search Engine
+  Journal's reporting that FAQ rich results stopped appearing in
+  Google Search entirely as of May 7, 2026 (ending eligibility even for
+  the remaining government/health sites), with further removals (FAQ
+  rich result report, Rich Results Test support) described across
+  TechWyse, PPC Land, SearchAtlas, Bluehost, and Conversion.com.br
+  through June 2026. Explicitly notes per Google's standing structured-
+  data guidance that the underlying FAQPage schema itself is not
+  deprecated or harmful to keep — only the visible SERP feature was
+  removed.
+
+- **Post 2:** `/blog/whatsapp-business-pricing-update-2026/` — social/
+  messaging fallback tier. 1,590 words. Sourced from Meta's own
+  WhatsApp Business Platform pricing documentation
+  (developers.facebook.com/documentation/business-messaging/whatsapp/pricing),
+  which states Meta shares pricing updates launching October 1, 2026
+  by June 1, 2026; corroborated by multiple WhatsApp Business Solution
+  Provider guides (Zoho Community, Picky Assist, Chatimize, and others)
+  describing free-form "service" replies inside the 24-hour customer
+  service window becoming billable past a monthly free allowance per
+  phone number, where previously unlimited service replies were free.
+  Explicitly distinguishes the WhatsApp Business Platform/API
+  (affected) from the free consumer WhatsApp Business App (not
+  affected), and flags the specific free-allowance number as third-
+  party-sourced rather than independently confirmed against Meta's
+  live rate card.
+
+- **Post 3:** `/blog/google-privacy-sandbox-deprecated-2026/` — PPC/
+  ad-tech fallback tier. 1,717 words. Primary source: the Chromium
+  project's public `blink-dev` developer group "Intent to Deprecate
+  and Remove: Protected Audience" thread, confirming deprecation
+  targeted for Chrome M144 and removal for Chrome M150; corroborated
+  by CyberInsider and WindowsReport on the broader list of affected
+  Privacy Sandbox APIs and the context (Google's 2024/2025 reversal
+  to keep third-party cookies in Chrome rather than phase them out,
+  which removed Privacy Sandbox's original cookie-replacement
+  rationale). Explicitly flags that the full API list beyond Protected
+  Audience is secondary-sourced and was not independently verified
+  against Chromium's own status tracker.
+
+- **QA (all 3, verified via the Python script in CLAUDE.md's "Standing
+  requirement" section before committing):** `<main>` word counts
+  1,855 / 1,590 / 1,717 — all over 1,500. HTML tag balance (div/
+  section/article/header/footer/main/h1/h2/h3/ul/ol/li/p/a/script/head/
+  body/html, open count == close count) verified OK on all 3. No
+  noindex tag on any of the 3. All 9 `application/ld+json` blocks
+  (BreadcrumbList/BlogPosting/FAQPage × 3) parse via `json.loads`.
+  Every linked URL (4-5 per post) confirmed to exist on disk before
+  linking. Google Ads gtag, GTM, and Meta Pixel carried over intact
+  from the most recently published template post
+  (`google-ads-limited-ad-serving-policy-2026`).
+
+  All 3 cards added to `blog/index.html`'s `#post-grid` (`data-cat`
+  "seo" × 1, "social" × 1, "ppc" × 1 — matching existing filter
+  buttons), tag balance re-verified after the edit (div/section/a/h3/
+  h2/svg/g all matched). All 3 URLs added to `sitemap-resources.xml`
+  with `lastmod` 2026-11-06, XML validity verified via
+  `xml.etree.ElementTree.parse` after editing.
+
+- **Git:** `git status` at staging time showed ~30 county × service
+  sub-pages modified in the working tree by a concurrently-running SEO
+  keyword-optimization routine; staged only this run's 5 touched paths
+  explicitly by exact path (3 new post directories, `blog/index.html`,
+  `sitemap-resources.xml`), not `git add -A`, so none of the concurrent
+  routine's in-progress edits were included. Commit `d36f56100` pushed
+  to `claude/webtech-core-current-work-rsmbri` and fast-forwarded to
+  `main` cleanly.
+
+- **Sitemap resubmission:** confirmed — "Sitemap
+  'https://kryvexmedia.com/sitemap.xml' successfully submitted for site
+  'sc-domain:kryvexmedia.com'" (called after all 3 URLs were in the
+  sitemap, before the deploy-verification step).
+
+- **Deploy — known collision pattern recurred again:** this commit's
+  own run, #340 (id `42182340593`, head_sha `d36f56100` — exact match),
+  completed with `conclusion: cancelled`, cancelled by a concurrent
+  SEO-routine push (`cc4974601`, "SEO: county x service sub-pages,
+  third pass (30 pages)") that landed on `main` less than a minute
+  later. Per the standing Publish verification rule's documented
+  recourse, verified via `git merge-base --is-ancestor d36f56100
+  origin/main` that this commit is included in the superseding commit
+  — confirmed, it is an ancestor — so the superseding commit's own
+  deploy run is the one tracked for live-verification instead: run
+  #341 (id `42182419645`, head_sha `cc4974601`).
+
+- **Deploy status — real failure, not a stall (checked via actual job
+  log, not inferred from status alone):** run #341's `deploy` job got
+  stuck in GitHub's own `syncing_files` state for ~10 minutes
+  (07:43:43Z–07:53:19Z), at which point the `actions/deploy-pages@v5`
+  action's own internal 600s timeout fired (`##[error]Timeout reached,
+  aborting!`) and cancelled the Pages deployment. `conclusion: failure`.
+  This is a genuine GitHub Pages infrastructure-side stall, not a
+  content/commit problem and not the earlier push-collision pattern.
+  Per the standing Publish verification rule, today's 3 posts (and the
+  concurrent SEO routine's 30 pages, same shared commit) are **not**
+  reported as live from this run — redeploy triggered via this log
+  commit itself; see that commit's own deploy run for real
+  live-confirmation before reporting anything live.
+

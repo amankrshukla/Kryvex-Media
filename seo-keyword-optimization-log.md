@@ -4537,3 +4537,18 @@ with the next 5 major metro county hubs not yet covered —
 `california/san-francisco`, `georgia/fulton`, `texas/travis`,
 `florida/hillsborough`, `minnesota/hennepin` (next in county-hub-queue
 order, per the queue note above).
+
+**Deploy status (checked live, confirmed real failure, not a stall):**
+run #341 (id `42182419645`), head_sha `cc4974601` — exact match to this
+commit. The `build` and `report-build-status` jobs both completed
+`success`. The `deploy` job's "Deploy to GitHub Pages" step got stuck
+in GitHub's own `syncing_files` state from 07:43:43Z to 07:53:19Z (~10
+minutes, confirmed via the actual job log, not inferred), at which
+point the `actions/deploy-pages@v5` action's own internal 600s timeout
+fired, logged `##[error]Timeout reached, aborting!`, and cancelled the
+Pages deployment itself. This is a genuine deploy failure
+(`conclusion: failure`), not the earlier known push-collision pattern
+and not a stale-read artifact — confirmed via the job's actual log
+content. Content/commit is not at fault; this was a GitHub Pages
+infrastructure-side stall. Redeploy triggered by the follow-up commit
+below; see that commit's own run for the real live-confirmation.
