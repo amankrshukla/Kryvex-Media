@@ -620,6 +620,49 @@ picked (see the 2026-09-28 entry below for why this matters).
      (`keyword_research`) and still returned `no_api_units`, so no new
      volume/CPC/KD number is claimed for any of the six pairs.)*
 
+421. ~~`california/san-bernardino/local-seo`~~ — done 2026-11-06 (county × service sub-page)
+422. ~~`california/san-bernardino/ppc`~~ — done 2026-11-06 (county × service sub-page)
+423. ~~`california/san-bernardino/social-media`~~ — done 2026-11-06 (county × service sub-page)
+424. ~~`california/san-bernardino/content-marketing`~~ — done 2026-11-06 (county × service sub-page)
+425. ~~`california/san-bernardino/email-marketing`~~ — done 2026-11-06 (county × service sub-page)
+426. ~~`california/san-bernardino/web-design`~~ — done 2026-11-06 (county × service sub-page)
+427. ~~`nevada/clark/local-seo`~~ — done 2026-11-06 (county × service sub-page)
+428. ~~`nevada/clark/ppc`~~ — done 2026-11-06 (county × service sub-page)
+429. ~~`nevada/clark/social-media`~~ — done 2026-11-06 (county × service sub-page)
+430. ~~`nevada/clark/content-marketing`~~ — done 2026-11-06 (county × service sub-page)
+431. ~~`nevada/clark/email-marketing`~~ — done 2026-11-06 (county × service sub-page)
+432. ~~`nevada/clark/web-design`~~ — done 2026-11-06 (county × service sub-page)
+433. ~~`washington/king/local-seo`~~ — done 2026-11-06 (county × service sub-page)
+434. ~~`washington/king/ppc`~~ — done 2026-11-06 (county × service sub-page)
+435. ~~`washington/king/social-media`~~ — done 2026-11-06 (county × service sub-page)
+436. ~~`washington/king/content-marketing`~~ — done 2026-11-06 (county × service sub-page)
+437. ~~`washington/king/email-marketing`~~ — done 2026-11-06 (county × service sub-page)
+438. ~~`washington/king/web-design`~~ — done 2026-11-06 (county × service sub-page)
+439. ~~`texas/tarrant/local-seo`~~ — done 2026-11-06 (county × service sub-page)
+440. ~~`texas/tarrant/ppc`~~ — done 2026-11-06 (county × service sub-page)
+441. ~~`texas/tarrant/social-media`~~ — done 2026-11-06 (county × service sub-page)
+442. ~~`texas/tarrant/content-marketing`~~ — done 2026-11-06 (county × service sub-page)
+443. ~~`texas/tarrant/email-marketing`~~ — done 2026-11-06 (county × service sub-page)
+444. ~~`texas/tarrant/web-design`~~ — done 2026-11-06 (county × service sub-page)
+445. ~~`california/santa-clara/local-seo`~~ — done 2026-11-06 (county × service sub-page)
+446. ~~`california/santa-clara/ppc`~~ — done 2026-11-06 (county × service sub-page)
+447. ~~`california/santa-clara/social-media`~~ — done 2026-11-06 (county × service sub-page)
+448. ~~`california/santa-clara/content-marketing`~~ — done 2026-11-06 (county × service sub-page)
+449. ~~`california/santa-clara/email-marketing`~~ — done 2026-11-06 (county × service sub-page)
+450. ~~`california/santa-clara/web-design`~~ — done 2026-11-06 (county × service sub-page)
+451. *(Third pass on the county × service sub-tier. Picked the next 5
+     already-optimized major metro county hubs not yet covered by the
+     service sub-tier, continuing in county-hub-queue order —
+     `california/san-bernardino`, `nevada/clark`, `washington/king`,
+     `texas/tarrant`, `california/santa-clara` — confirmed via direct
+     `ls` file-existence check that all 6 service sub-pages exist on
+     disk for each, and cross-checked against this file that none of
+     the 30 target paths had been logged done before. Next up for a
+     fourth pass: `california/san-francisco`, `georgia/fulton`,
+     `texas/travis`, `florida/hillsborough`, `minnesota/hennepin` — the
+     next 5 major metro county hubs in queue order still not covered by
+     this sub-tier.)*
+
 ## Log
 
 ### 2026-09-26
@@ -4348,3 +4391,149 @@ part of either branch's history; this section is the corrected, verified
 version, committed once both branches were confirmed back in sync with
 origin.
 
+
+### 2026-11-06 — third pass into the county × service sub-tier (30 pages)
+
+**Semrush units check**: called `keyword_research` live before starting
+(not assumed) — same `no_api_units` error as every prior check in this
+log ("active Semrush subscription, but does not have enough API units"),
+non-retryable. All 30 picks below are WebSearch-informed, not
+Semrush-volume-verified, and reuse the exact same per-service-type
+pairs established 2026-11-04 and reused again 2026-11-05 — the sub-pages
+are template-identical per service type, differing only in
+county/state/town names, so one real-world-grounded pair per service
+type is the correct unit, not a fresh invented pair per county.
+
+**Scope this run**: picked the next 5 already-optimized major metro
+county hubs not yet covered by the service sub-tier, continuing in
+county-hub-queue order — `california/san-bernardino`, `nevada/clark`,
+`washington/king`, `texas/tarrant`, `california/santa-clara` — ×
+all 6 of their service sub-pages (`local-seo`, `ppc`, `social-media`,
+`content-marketing`, `email-marketing`, `web-design`) = 30 pages
+exactly. Confirmed via direct `ls` file-existence check before use that
+all 30 target paths exist on disk, and cross-checked via `grep` against
+this log file that none of the 30 had been logged done before (no
+match found for any of the 30 paths) — none invented, none duplicated.
+
+**Intent-match check (read before picking anything, all 30 pages)**: read
+each page's actual `<title>` and `<h1>` before reusing a keyword pair.
+Specifically re-checked the `content-marketing` sub-pages again this run
+(direct read of `california/san-bernardino/content-marketing/index.html`'s
+`<main>` content) — confirmed the page is still titled "Content &
+Reputation" and its "What's included" list is still majority review-
+generation/reputation-monitoring work (review generation, reputation
+monitoring/response templates) with blog content as a minority item, so
+the 2026-11-04 retargeting to "Online Reputation Management" as primary
+(rather than literal "content marketing services") still correctly
+matches real page intent. The other 5 service types matched their
+generic service name directly on inspection, as established in the prior
+two runs — no retargeting needed.
+
+**Keyword pairs used (reused from 2026-11-04, not re-invented; sources
+cited there — straightnorth.com, lseo.com, gofishdigital.com,
+clicksgeek.com, dinerotechlabs.com, mainstreethost.com, brentonway.com,
+adtargeting.io, digitalsuccess.us)**:
+- `local-seo` → primary **"Local SEO Services"**, secondary **"Google
+  Business Profile optimization"**.
+- `ppc` → primary **"PPC Management Services"**, secondary **"Google Ads
+  management"**.
+- `social-media` → primary **"Social Media Marketing Services"**,
+  secondary **"social media management"**.
+- `content-marketing` → primary **"Online Reputation Management"**,
+  secondary **"Review generation services"**.
+- `email-marketing` → primary **"Email Marketing Services"**, secondary
+  **"Email marketing automation"**.
+- `web-design` → primary **"Web Design Services"**, secondary
+  **"mobile-first website design"**.
+No new volume/CPC/KD number is claimed for any of the six pairs — still
+WebSearch-informed only, as disclosed in every prior entry reusing them.
+
+**Changes made, identical pattern within each service type across all 5
+counties** (applied via a small Python script using exact, context-
+anchored string replacements with an assertion on each match count —
+`/tmp/claude-0/-home-user-webtechcore-website/5f15b17b-0606-5213-999c-cb178350a082/scratchpad/edit_seo.py`
+— then verified fresh from disk after writing, not assumed from the
+script's in-memory state):
+- `<title>`, `og:title`, `twitter:title`: old "{service label} in
+  {County} County, {State} | Kryvex Media" → new "{keyword label} in
+  {County} County, {State} | Kryvex Media".
+- Meta description, `og:description`, `twitter:description`: old service
+  label at the start of the sentence swapped for the new keyword label
+  (rest of the sentence, including the existing descriptive clause,
+  left unchanged — matches the 2026-11-04/05 pattern).
+- JSON-LD `Service.description`: same label swap. `Service.serviceType`,
+  `Service.name`, and the breadcrumb `ListItem.name` were deliberately
+  left unchanged, matching the established pattern (only the
+  `description` field carries the new keyword).
+- Eyebrow badge (`cty-eyebrow`): same label swap, emoji kept.
+- `<h1>`: same label swap — primary keyword now inside the literal
+  `<h1>...</h1>` text on all 30, not just the badge.
+- Opening `<p class="sub">` hero paragraph: rewritten to open with the
+  primary keyword phrase while keeping each page's existing descriptive
+  clause and the "Built for {County} County specifically..." sentence
+  intact.
+- Secondary keyword placed inside the "What's included" list (`<main>`
+  body copy, not meta): reworded one existing list item per service type
+  to contain the exact secondary phrase, for 5 of 6 service types. For
+  `web-design`, checked first (as in the prior two runs) and found the
+  secondary phrase "mobile-first website design" already present
+  verbatim inside the existing included-list item ("Custom, mobile-first
+  website design and build") — left unedited.
+
+**Verified on all 30 pages this run** (independent Python verification
+script —
+`/tmp/claude-0/-home-user-webtechcore-website/5f15b17b-0606-5213-999c-cb178350a082/scratchpad/verify_seo.py`
+— re-read each file fresh from disk, plus direct spot-check `grep`
+commands, not the script alone):
+- Primary keyword confirmed present (case-insensitive) in `<title>`, meta
+  description, `og:title`, `og:description`, `twitter:title`,
+  `twitter:description`, the JSON-LD `Service.description` field, and
+  the literal `<h1>...</h1>` text — true on all 30. Spot-checked with
+  direct `grep -o '<h1>[^<]*</h1>'` on 6 of the 30 files (one per service
+  type, spanning different counties) — each showed the primary keyword
+  inside the literal `<h1>` text, e.g. `<h1>PPC Management Services for
+  Clark County Businesses</h1>`, `<h1>Online Reputation Management for
+  Tarrant County Businesses</h1>`.
+- Secondary keyword confirmed present (case-insensitive) inside `<main>`
+  on all 30 (exactly 1 occurrence each). Spot-checked with direct
+  `grep -c -i` for 6 of the 30 (one per service type) — each returned
+  exactly `1`.
+- JSON-LD block parsed successfully (Python `json.loads`) on all 30; also
+  confirmed `<main>`/`</main>` and `<h1>`/`</h1>` tag balance (exactly 1
+  open + 1 close each) and `<div>` open/close tag count equal on all 30
+  — no stray/broken tags.
+- `git diff --stat` confirmed exactly these 30 files modified (22 lines
+  changed per page for the 5 services with an included-list edit, 20
+  lines changed for `web-design` where that edit was skipped, matching
+  the 2026-11-04/05 pattern exactly) and a sampled diff
+  (`california/san-bernardino/local-seo/index.html`) showed a clean,
+  intended-only change — gtag.js, GTM, and Meta Pixel script tags
+  untouched.
+- `git status --porcelain` checked before and after: the working tree
+  already carried the concurrent blog-automation routine's in-flight
+  files (`blog/google-faq-rich-results-removed-2026/`,
+  `blog/google-privacy-sandbox-deprecated-2026/`,
+  `blog/whatsapp-business-pricing-update-2026/`, `blog/index.html`,
+  `sitemap-resources.xml`). All left untouched — this run's commit below
+  stages only the 30 page files plus this log file by exact pathspec,
+  never `git add -A`.
+
+**Noindex finding (observational only, not acted on, per standing
+instruction — this routine does not add or remove noindex tags):** checked
+every page individually via `grep -i 'name="robots"'`. All 6
+`california/san-bernardino/*` and all 6 `california/santa-clara/*`
+sub-pages carry **no `<meta name="robots">` tag at all** (indexable by
+default — both are California counties, consistent with Phase 1/2 of the
+site-wide noindex-removal work covering California). All 6
+`nevada/clark/*`, all 6 `washington/king/*`, and all 6 `texas/tarrant/*`
+sub-pages **do carry** `<meta name="robots" content="noindex,follow">` —
+consistent with the broader finding that most of the county/county-
+service tier outside the phases already run is still noindexed. No
+action taken on this — noindex removal remains a separate, owner-gated
+workstream per CLAUDE.md.
+
+**Carryover for the next run**: continue the county × service sub-tier
+with the next 5 major metro county hubs not yet covered —
+`california/san-francisco`, `georgia/fulton`, `texas/travis`,
+`florida/hillsborough`, `minnesota/hennepin` (next in county-hub-queue
+order, per the queue note above).
