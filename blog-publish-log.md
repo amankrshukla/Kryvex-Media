@@ -2134,3 +2134,9 @@ and the reverse both return empty — the two branches are in sync.
   commit itself; see that commit's own deploy run for real
   live-confirmation before reporting anything live.
 
+- **Redeploy confirmed (checked live):** commit `f00c0636c` triggered
+  run #342 (id `42184033538`), head_sha matching exactly. `build`,
+  `report-build-status`, and `deploy` jobs all completed
+  `conclusion: success` (deploy step: 07:56:47Z–07:58:22Z). Today's 3
+  posts are confirmed live.
+

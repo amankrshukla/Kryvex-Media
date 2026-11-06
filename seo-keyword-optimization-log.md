@@ -4552,3 +4552,15 @@ and not a stale-read artifact — confirmed via the job's actual log
 content. Content/commit is not at fault; this was a GitHub Pages
 infrastructure-side stall. Redeploy triggered by the follow-up commit
 below; see that commit's own run for the real live-confirmation.
+
+**Redeploy confirmed (checked live):** commit `f00c0636c` (the log
+entry recording the above failure) triggered a fresh deploy, run #342
+(id `42184033538`), head_sha matching exactly. `build`,
+`report-build-status`, and `deploy` jobs all completed
+`conclusion: success` (deploy step: 07:56:47Z–07:58:22Z, well under
+its timeout). Today's 30 county × service sub-pages are confirmed
+live. (Note: a parallel rerun of run #341's failed job was also
+triggered independently and left to resolve on its own — since
+`cc4974601` is an ancestor of `f00c0636c`, either outcome converges on
+the same final site content; run #342 is the one actually confirmed
+here.)
