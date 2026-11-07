@@ -4760,8 +4760,38 @@ tags.
 `pennsylvania/allegheny` — the next 5 major metro county hubs in
 queue order still not covered by this sub-tier.
 
-**Deploy**: commit bundles all 30 edited page files + this log update,
-staged by exact pathspec (not `git add -A`), to avoid sweeping in the
-concurrent blog-automation routine's untracked `blog/` files. Pushed to
-`claude/webtech-core-current-work-rsmbri`, fast-forwarded to `main`.
-Deploy run and conclusion recorded below once polled to completion.
+**Deploy**: commit `4541e072c` bundled all 30 edited page files + this
+log update, staged by exact pathspec (not `git add -A`), to avoid
+sweeping in the concurrent blog-automation routine's untracked `blog/`
+files. Pushed to `claude/webtech-core-current-work-rsmbri`, fast-forwarded
+to `main` (`0992eb930..4541e072c`, clean fast-forward on both branches —
+no divergence).
+
+`4541e072c`'s own deploy run (#346, id `42352325947`) was **cancelled**
+partway through: its `build` and `report-build-status` jobs both
+completed `success` quickly, but the `deploy` job's "Deploy to GitHub
+Pages" step stayed `in_progress` with no change across many repeated,
+fresh (non-stale, re-checked via both `get_workflow_run` and a fresh
+`list_workflow_runs`) polls — the same `syncing_files`-style stall
+pattern as 2026-11-06's run #341 — until a concurrent blog-automation
+push (`6923f9bd3`, "Blog publish + performance log: 2026-11-07") landed
+on top of it and GitHub cancelled run #346 in favor of a new run for
+that commit. Verified via `git merge-base --is-ancestor 4541e072c
+origin/main` (confirmed yes) that this routine's own commit is a direct
+ancestor of `6923f9bd3` — nothing from this run was lost — then tracked
+`6923f9bd3`'s own deploy run instead, per the standing recourse for a
+run cancelled by a concurrent push.
+
+**Run #347** (id `42352729789`, head_sha `6923f9bd3aeac9dbb85ee7c7eb2698c3ebf2de91`,
+which carries `4541e072c` as a direct ancestor): `build` → `success`,
+`report-build-status` → `success`, `deploy` → `success`. Overall run
+conclusion: **`success`**, confirmed via `list_workflow_runs` after
+polling to a real terminal state (not reported while `in_progress` or
+`pending`). All 30 of today's SEO-optimized pages are live.
+
+**Branch-sync confirmation**: after the superseding push, local `main`
+was fast-forwarded to `origin/main` (`6923f9bd3`), and
+`claude/webtech-core-current-work-rsmbri` re-fetched; `git rev-list
+--left-right --count claude/webtech-core-current-work-rsmbri...origin/claude/webtech-core-current-work-rsmbri`
+returned `0  0` — no divergence in either direction on the working
+branch.
