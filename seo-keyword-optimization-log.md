@@ -663,6 +663,80 @@ picked (see the 2026-09-28 entry below for why this matters).
      next 5 major metro county hubs in queue order still not covered by
      this sub-tier.)*
 
+452. ~~`california/san-francisco/local-seo`~~ — done 2026-11-07 (county × service sub-page)
+453. ~~`california/san-francisco/ppc`~~ — done 2026-11-07 (county × service sub-page)
+454. ~~`california/san-francisco/social-media`~~ — done 2026-11-07 (county × service sub-page)
+455. ~~`california/san-francisco/content-marketing`~~ — done 2026-11-07 (county × service sub-page)
+456. ~~`california/san-francisco/email-marketing`~~ — done 2026-11-07 (county × service sub-page)
+457. ~~`california/san-francisco/web-design`~~ — done 2026-11-07 (county × service sub-page)
+458. ~~`georgia/fulton/local-seo`~~ — done 2026-11-07 (county × service sub-page)
+459. ~~`georgia/fulton/ppc`~~ — done 2026-11-07 (county × service sub-page)
+460. ~~`georgia/fulton/social-media`~~ — done 2026-11-07 (county × service sub-page)
+461. ~~`georgia/fulton/content-marketing`~~ — done 2026-11-07 (county × service sub-page)
+462. ~~`georgia/fulton/email-marketing`~~ — done 2026-11-07 (county × service sub-page)
+463. ~~`georgia/fulton/web-design`~~ — done 2026-11-07 (county × service sub-page)
+464. ~~`texas/travis/local-seo`~~ — done 2026-11-07 (county × service sub-page)
+465. ~~`texas/travis/ppc`~~ — done 2026-11-07 (county × service sub-page)
+466. ~~`texas/travis/social-media`~~ — done 2026-11-07 (county × service sub-page)
+467. ~~`texas/travis/content-marketing`~~ — done 2026-11-07 (county × service sub-page)
+468. ~~`texas/travis/email-marketing`~~ — done 2026-11-07 (county × service sub-page)
+469. ~~`texas/travis/web-design`~~ — done 2026-11-07 (county × service sub-page)
+470. ~~`florida/hillsborough/local-seo`~~ — done 2026-11-07 (county × service sub-page)
+471. ~~`florida/hillsborough/ppc`~~ — done 2026-11-07 (county × service sub-page)
+472. ~~`florida/hillsborough/social-media`~~ — done 2026-11-07 (county × service sub-page)
+473. ~~`florida/hillsborough/content-marketing`~~ — done 2026-11-07 (county × service sub-page)
+474. ~~`florida/hillsborough/email-marketing`~~ — done 2026-11-07 (county × service sub-page)
+475. ~~`florida/hillsborough/web-design`~~ — done 2026-11-07 (county × service sub-page)
+476. ~~`minnesota/hennepin/local-seo`~~ — done 2026-11-07 (county × service sub-page)
+477. ~~`minnesota/hennepin/ppc`~~ — done 2026-11-07 (county × service sub-page)
+478. ~~`minnesota/hennepin/social-media`~~ — done 2026-11-07 (county × service sub-page)
+479. ~~`minnesota/hennepin/content-marketing`~~ — done 2026-11-07 (county × service sub-page)
+480. ~~`minnesota/hennepin/email-marketing`~~ — done 2026-11-07 (county × service sub-page)
+481. ~~`minnesota/hennepin/web-design`~~ — done 2026-11-07 (county × service sub-page)
+482. *(Fourth pass on the county × service sub-tier. Picked the next 5
+     already-optimized major metro county hubs not yet covered by the
+     service sub-tier, continuing in county-hub-queue order —
+     `california/san-francisco`, `georgia/fulton`, `texas/travis`,
+     `florida/hillsborough`, `minnesota/hennepin` — confirmed via direct
+     file-existence check that all 6 service sub-pages exist on disk for
+     each, and cross-checked against this file that none of the 30
+     target paths had been logged done before. Semrush checked live again
+     this run (`keyword_research`) and still returned `no_api_units`, so
+     the same 6 WebSearch-sourced primary/secondary keyword pairs
+     established 2026-11-04 (cited there: straightnorth.com, lseo.com,
+     gofishdigital.com, clicksgeek.com, dinerotechlabs.com,
+     mainstreethost.com, brentonway.com, adtargeting.io,
+     digitalsuccess.us) were reused again, not re-invented. Confirmed
+     again this run that all 5 counties' `content-marketing` sub-pages
+     are still the "Content & Reputation" / review-generation template,
+     not blog-content marketing. Real finding, not acted on (this routine
+     does not add/remove noindex tags): of today's 30 pages, the 18
+     California/Georgia/Minnesota pages (`california/san-francisco`,
+     `georgia/fulton`, `minnesota/hennepin`, 6 sub-pages each) carry
+     **no** `<meta name="robots">` tag at all, while the 12 Texas/
+     Florida pages (`texas/travis`, `florida/hillsborough`, 6 sub-pages
+     each) carry `noindex,follow` — the same real state-level split
+     every prior run on this sub-tier has found. Caught and fixed a real
+     mistake mid-run, before committing: the first pass of the batch
+     edit script placed the new primary-keyword opening sentence into
+     the `<meta name="description">` tag instead of the `<p
+     class="sub">` visible body paragraph, because both elements started
+     from the same original sentence and the script's single-first-
+     occurrence replace landed on the wrong one across all 30 files.
+     Caught by diffing one edited file against the already-verified
+     `california/los-angeles/local-seo` reference page before logging
+     anything; fixed with a second pass that restored the meta
+     description's original second sentence and moved the primary-
+     keyword sentence into the actual `<p class="sub">` body paragraph,
+     then re-verified via `grep`/Python on every one of the 30 files
+     (primary inside the real `<h1>`, ≥1 secondary-keyword match inside
+     `<main>`) before this entry was written — no page was logged done
+     until that re-verification passed. Next up for a fifth pass:
+     `massachusetts/suffolk`, `maryland/montgomery`, `michigan/oakland`,
+     `virginia/fairfax`, `pennsylvania/allegheny` — the next 5 major
+     metro county hubs in queue order still not covered by this
+     sub-tier.)*
+
 ## Log
 
 ### 2026-09-26
@@ -4564,3 +4638,130 @@ triggered independently and left to resolve on its own — since
 `cc4974601` is an ancestor of `f00c0636c`, either outcome converges on
 the same final site content; run #342 is the one actually confirmed
 here.)
+
+### 2026-11-07 — county × service sub-tier, fourth pass (30 pages)
+
+Target: 30 pages/day (unchanged). Completed all 30 at full rigor — no
+corner-cutting needed to hit the count.
+
+**Pages**: all 6 service sub-pages (`local-seo`, `ppc`, `social-media`,
+`content-marketing`, `email-marketing`, `web-design`) for the next 5
+already-optimized major metro county hubs not yet covered by this
+sub-tier, in county-hub-queue order: `california/san-francisco`,
+`georgia/fulton`, `texas/travis`, `florida/hillsborough`,
+`minnesota/hennepin`. Confirmed via direct file-existence check
+(`[ -f ... ]`) that all 6 sub-pages exist on disk for each county before
+starting, and cross-checked every one of the 30 target paths against
+this file's priority queue to confirm none had been logged done before.
+
+**Intent-match check**: read each county's un-edited `local-seo`, `ppc`,
+`social-media`, `content-marketing`, `email-marketing`, `web-design`
+pages' title/H1/badge before picking keywords. All 5 counties' templates
+match the pattern already established on this sub-tier — confirmed again
+this run that `content-marketing` is still the "Content & Reputation" /
+review-generation page, not blog-style content marketing, so the earlier
+retargeting to "Online Reputation Management" / "Review generation
+services" still applies, not a generic "content marketing" pick.
+
+**Keyword source**: Semrush (`keyword_research`) was called live again
+this run and again returned `no_api_units` — not retried further per
+that error's own guidance. Fell back to the same 6 WebSearch-sourced
+primary/secondary keyword pairs established 2026-11-04 and reused on the
+2026-11-05 and 2026-11-06 passes (sources cited there: straightnorth.com,
+lseo.com, gofishdigital.com, clicksgeek.com, dinerotechlabs.com,
+mainstreethost.com, brentonway.com, adtargeting.io, digitalsuccess.us —
+not re-verified again today, same as the prior two passes; flagged again
+that a live Semrush check should replace these once units refresh):
+
+| Service | Primary | Secondary |
+|---|---|---|
+| local-seo | Local SEO Services | Google Business Profile optimization |
+| ppc | PPC Management Services | Google Ads management |
+| social-media | Social Media Marketing Services | social media management |
+| content-marketing | Online Reputation Management | Review generation services |
+| email-marketing | Email Marketing Services | Email marketing automation |
+| web-design | Web Design Services | mobile-first website design |
+
+**Placement — what changed on every one of the 30 pages** (same pattern
+for each service type, county/state name interpolated):
+- `<title>`: service label → primary keyword (e.g. "Local SEO & Map Pack
+  in X County, Y" → "Local SEO Services in X County, Y").
+- `<meta name="description">`, `og:title`, `og:description`,
+  `twitter:title`, `twitter:description`: same label→primary swap in the
+  opening clause; the rest of each sentence (the service-specific detail
+  sentence) kept unchanged, matching the already-live reference pages.
+- JSON-LD `Service.description` field: same label→primary swap (the
+  `serviceType`, `name`, and `BreadcrumbList` entries were left as the
+  original service label, matching the established pattern on every
+  prior page in this sub-tier — e.g. `serviceType` stays "Local SEO & Map
+  Pack" while `description` reads "Local SEO Services for businesses in
+  …").
+- `cty-eyebrow` badge and the actual `<h1>…</h1>` text: label → primary
+  keyword.
+- Opening `<p class="sub">` body paragraph: reworded to open with the
+  primary keyword phrase (e.g. "Local SEO services that rank you in the
+  map pack and organic results…").
+- One "What's included" list item per page carries the secondary keyword
+  in visible body copy (e.g. "Google Business Profile optimization —
+  setup, categories, service areas, photos, posts"); for `web-design`,
+  the secondary phrase "mobile-first website design" was already present
+  verbatim in the existing list copy, so no edit was needed there —
+  confirmed by grep before concluding that, not assumed.
+- No H2 was stuffed with either keyword — the existing H2s ("How our X
+  process works", etc.) were left as-is, one natural primary placement
+  (H1 + opening paragraph) being enough per the standing checklist.
+
+**Real mistake caught and fixed before logging anything**: the first
+pass of the batch edit script used a single first-occurrence string
+replace to move the primary-keyword sentence into the opening body
+paragraph. Because the original sentence appeared twice in each file
+(once inside `<meta name="description">`, once inside the visible `<p
+class="sub">`), the replace landed on the meta tag instead of the body
+paragraph on all 30 files — leaving the actual visible opening paragraph
+unchanged and producing a redundant, slightly malformed meta description.
+Caught by diffing one of the 30 edited files against the already-live,
+previously-verified `california/los-angeles/local-seo/index.html`
+reference page before this entry was written — the two didn't match the
+expected pattern. Fixed with a second corrective script: restored each
+meta description to its original second sentence, and moved the primary-
+keyword sentence into the real `<p class="sub">` paragraph instead. Then
+re-ran the full verification below on all 30 files and only logged a page
+done once that re-verification passed — no page was marked done on the
+basis of the first, buggy pass.
+
+**Grep-verified placement** (every one of the 30 files, run after the
+fix above): confirmed for each page that (a) the primary keyword string
+is present inside the actual `<h1>…</h1>` tag text (not just nearby —
+extracted with `grep -o '<h1>[^<]*</h1>'` and checked against the
+expected primary string), and (b) the secondary keyword has ≥1
+case-insensitive match inside `<main>…</main>` content specifically
+(extracted with the standard `re.search(r'<main>(.*?)</main>', ...)`
+pattern from this file's own measurement method). Result: 30/30 pages
+pass both checks, each with exactly 1 secondary-keyword match in
+`<main>`. Also confirmed `<main>`/`</main>`, `<title>`/`</title>`, and
+`<h1>`/`</h1>` each appear exactly once per file (no structural damage
+from the edit-then-fix sequence).
+
+**Noindex observation** (recorded only, never acted on — separate
+owner-gated workstream): `california/san-francisco`, `georgia/fulton`,
+and `minnesota/hennepin` (18 pages total — all 6 sub-pages × 3 counties)
+carry **no** `<meta name="robots">` tag at all, i.e. indexable by
+default. `texas/travis` and `florida/hillsborough` (12 pages total — all
+6 sub-pages × 2 counties) carry `<meta name="robots"
+content="noindex,follow">`. This is the same real state-level split
+every prior run on this sub-tier and the county-hub tier before it has
+found (CA/GA/MN indexable-by-default, TX/FL noindexed) — flagged for the
+noindex/indexing-strategy owner, not acted on here per CLAUDE.md's
+standing instruction that this routine never adds or removes noindex
+tags.
+
+**Next up for a fifth pass**: `massachusetts/suffolk`,
+`maryland/montgomery`, `michigan/oakland`, `virginia/fairfax`,
+`pennsylvania/allegheny` — the next 5 major metro county hubs in
+queue order still not covered by this sub-tier.
+
+**Deploy**: commit bundles all 30 edited page files + this log update,
+staged by exact pathspec (not `git add -A`), to avoid sweeping in the
+concurrent blog-automation routine's untracked `blog/` files. Pushed to
+`claude/webtech-core-current-work-rsmbri`, fast-forwarded to `main`.
+Deploy run and conclusion recorded below once polled to completion.
