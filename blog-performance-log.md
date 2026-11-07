@@ -1534,3 +1534,64 @@ seo` remains the longest-stuck post on the site at 50 days without a
 Google recrawl, with no further lever available beyond what's already
 been tried and logged. Zero clicks after sixteen weeks across 57
 published posts remains the headline number worth being honest about.
+
+## 2026-11-07 — daily blog Routine run (3 posts, tenth day of 3-posts/day)
+
+**New posts today:** `linkedin-reserved-ads-open-to-all-advertisers-2026`,
+`instagram-reels-post-view-ads-expand-2026`,
+`google-ads-promotion-mode-smart-bidding-2026` — all 0 days old, too new
+for a URL Inspection signal yet, so not checked this run, consistent with
+the standing pattern for brand-new posts.
+
+**Indexing check (sampling approach — the standing flagged/stuck URLs):**
+- `local-seo-vs-national-seo` (long-standing flagged-stuck post):
+  **"Crawled - currently not indexed,"** `lastCrawlTime` still
+  `2026-09-17T19:03:49Z` — now 51 days without a recrawl. Unchanged.
+- `digital-marketing-for-home-services-businesses`: **"Discovered -
+  currently not indexed,"** unchanged from 2026-11-06.
+- `digital-marketing-for-restaurants`: **held steady** — still
+  **"Discovered - currently not indexed,"** same as 2026-11-06. This
+  breaks the six-consecutive-check toggling streak for the first time;
+  one stable reading isn't enough to call it settled, but it's worth
+  noting after a long run of flips.
+- `google-ai-mode-seo-guide-for-small-businesses`: **held steady** —
+  still **"URL is unknown to Google,"** same as 2026-11-06. Also the
+  first non-toggle reading for this URL after three consecutive flips.
+- `digital-marketing-for-tour-operators-and-travel-agencies`:
+  **"Discovered - currently not indexed,"** unchanged from every prior
+  reading.
+
+**Performance re-pull (90-day window, page dimension, `/blog/`,
+2026-08-10 to 2026-11-05, vs. the last logged pull of 2026-08-09 to
+2026-11-04):**
+- `/blog/` index: 6 impressions (position 7.33) — unchanged, identical
+  to the last pull.
+- Unchanged: `10-local-seo-tactics-that-fill-your-calendar` 2
+  (position 1), `how-to-choose-an-seo-company-in-patna` 3 (position
+  1), `seo-company-hiring-guide` 4 (position 1), `what-is-digital-
+  marketing` 5 (position 2.6).
+- `how-to-cut-wasted-ad-spend-in-30-days`: absent from this pull again
+  (0 impressions), now a fourth consecutive pull with no recovery.
+- Still absent from this pull (0 impressions, consistent with recent
+  pulls): `email-flows-every-business-needs`,
+  `website-mistakes-costing-you-customers`.
+- Zero clicks recorded across every single row again — now roughly
+  seventeen weeks of flat zero-click data site-wide, no exception. None
+  of the newest posts (today's 3, plus the 3 from 2026-11-06 and the 3
+  from 2026-11-05) show any impressions yet, as expected at this age.
+
+**Action items:** This is the second consecutive fully-stable `/blog/`
+performance pull in a row — every tracked page returned the exact same
+impressions and position as 2026-11-06's pull, again with no new
+entrants or exits apart from the continuing absence of `how-to-cut-
+wasted-ad-spend-in-30-days`, `email-flows-every-business-needs`, and
+`website-mistakes-costing-you-customers`. On indexing, both
+`digital-marketing-for-restaurants` and `google-ai-mode-seo-guide-for-
+small-businesses` held their previous state for the first time after
+six and three consecutive toggles respectively — worth watching over
+the next few checks to see whether this is the toggling finally settling
+or just one quiet reading in between flips. `local-seo-vs-national-seo`
+remains the longest-stuck post on the site at 51 days without a Google
+recrawl, with no further lever available beyond what's already been
+tried and logged. Zero clicks after seventeen weeks across 60 published
+posts remains the headline number worth being honest about.

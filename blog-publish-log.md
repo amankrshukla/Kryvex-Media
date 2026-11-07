@@ -2140,3 +2140,118 @@ and the reverse both return empty — the two branches are in sync.
   `conclusion: success` (deploy step: 07:56:47Z–07:58:22Z). Today's 3
   posts are confirmed live.
 
+
+### 2026-11-07 — daily blog Routine run (3 posts, tenth day of 3-posts/day)
+
+- Topic/query: GSC 90-day query pull checked first (2026-08-09 to
+  2026-11-04, dimension `query`, 100 rows) — again almost entirely
+  hyper-local "[service] agency in [city]" queries already served by
+  the programmatic geo pages, same pattern as every prior run. All 3
+  topics come from the service-deep-dive fallback tier, each a
+  different angle (B2B social ads, consumer video ads, PPC bidding
+  mechanics), none repeating 2026-11-06's topics (FAQ rich results
+  removed, WhatsApp pricing, Privacy Sandbox wind-down), 2026-11-05's
+  topics (Limited Ad Serving, Search Console AI config, Meta Automated
+  Ads), or any of Kryvex's 9 industry pages. Before finalizing topics,
+  cross-checked all 57 existing blog slugs (from `blog/index.html`'s
+  `data-cat` list) against the `blog/` directory — confirmed no
+  discrepancy — and ruled out two initially-considered topics (ADA
+  website accessibility, Gmail/Yahoo bulk sender requirements) once
+  that check showed both are already covered as existing posts
+  (`ada-website-accessibility-lawsuits-2026`,
+  `gmail-yahoo-email-sender-requirements-2026`).
+
+- **Post 1:** `/blog/linkedin-reserved-ads-open-to-all-advertisers-2026/`
+  — social/B2B ads fallback tier. 1,683 words. Sourced from Search
+  Engine Land's "LinkedIn opens up top-of-feed Reserved Ads to all
+  managed advertisers" (Anu Adegbola), corroborated by dataslayer.ai
+  and itechmanthra.com on the format's mechanics: fixed-rate,
+  non-auction top-of-feed placement, compatible with most Sponsored
+  Content formats, available only to managed advertisers with a
+  LinkedIn account representative rather than through self-serve
+  Campaign Manager. An unverified third-party minimum-budget figure
+  (~$15K, from dataslayer.ai alone, uncorroborated) was deliberately
+  left out of the post per the anti-fabrication rule.
+
+- **Post 2:** `/blog/instagram-reels-post-view-ads-expand-2026/` —
+  social/content ads fallback tier. 1,613 words. Sourced from Social
+  Media Today's reporting (~June 8, 2026) on Meta expanding Reels
+  post-view ads — which play automatically after an organic Reel ends,
+  rather than mid-scroll — to all advertisers globally within existing
+  Reels ad tools in Ads Manager, corroborated by Netinfluencer and
+  Pulse.bot on the same expansion and the 60-second-minimum Reel-length
+  eligibility rule. The broader 2026 NewFronts Reels ad push (Reels
+  Trending Ads, AI ad-variant tooling, catalog-based video ads) is
+  also reported consistently across these sources and cited for
+  context, not as the main topic.
+
+- **Post 3:** `/blog/google-ads-promotion-mode-smart-bidding-2026/` —
+  PPC fallback tier. 1,528 words. Sourced from Google's own Accelerate
+  blog post ("Bidding and budgeting updates to scale your growth",
+  business.google.com/us/accelerate/announcements/), plus Search
+  Engine Land's and Search Engine Journal's coverage quoting Google
+  Ads Liaison Ginny Marvin on a backend bid-target change for
+  budget-limited campaigns rolling out from August 17, 2026, and PPC
+  Land on the rollout timeline (a few weeks, advertiser notification
+  via in-product account notifications). Genuinely distinct from this
+  blog's prior PPC posts (Performance Max negative keywords, AI
+  Max/Dynamic Search Ads retirement, Limited Ad Serving) — none of
+  which cover Promotion Mode or this specific bidding change.
+
+- **QA (all 3, verified via the Python script in CLAUDE.md's "Standing
+  requirement" section before committing):** `<main>` word counts
+  1,683 / 1,613 (after a second-pass expansion on Post 2 to clear
+  1,500 cleanly) / 1,528 — all over 1,500. HTML tag balance (div/
+  section/article/header/footer/main/h1/h2/h3/ul/ol/li/p/a/script/head/
+  body/html/svg/g, open count == close count) verified OK on all 3. No
+  noindex tag on any of the 3. All 9 `application/ld+json` blocks
+  (BreadcrumbList/BlogPosting/FAQPage × 3) parse via `json.loads`.
+  Every linked URL (4-5 per post) confirmed to exist on disk before
+  linking. Google Ads gtag, GTM, and Meta Pixel carried over intact
+  from the most recently published template post
+  (`google-faq-rich-results-removed-2026`).
+
+  All 3 cards added to `blog/index.html`'s `#post-grid` (`data-cat`
+  "ppc" × 1, "social" × 2 — matching existing filter buttons), tag
+  balance re-verified after the edit (div 251/251, section 2/2, a
+  314/314, h3 59/59, h2 5/5, svg 77/77, g 72/72 — all matched). All 3
+  URLs added to `sitemap-resources.xml` with `lastmod` 2026-11-07, XML
+  validity verified via `xml.etree.ElementTree.parse` after editing.
+
+- **Git:** `git status` at staging time showed a clean working tree
+  apart from this run's own 5 touched paths (3 new post directories,
+  `blog/index.html`, `sitemap-resources.xml`) — no concurrently-running
+  routine's edits were present this time. Commit `0992eb930` pushed to
+  `claude/webtech-core-current-work-rsmbri` and fast-forwarded to
+  `main` cleanly.
+
+- **Sitemap resubmission:** confirmed — "Sitemap
+  'https://kryvexmedia.com/sitemap.xml' successfully submitted for site
+  'sc-domain:kryvexmedia.com'" (called after all 3 URLs were in the
+  sitemap, before the deploy-verification step).
+
+- **Deploy — known collision pattern recurred again:** this commit's
+  own run, #345 (id `42352132005`, head_sha `0992eb930` — exact match),
+  completed with `conclusion: cancelled`, cancelled by a concurrent
+  SEO-routine push (`4541e072c`, "SEO: county x service sub-pages,
+  fourth pass (30 pages)") that landed on `main` about 2.5 minutes
+  later. Per the standing Publish verification rule's documented
+  recourse, verified via `git merge-base --is-ancestor 0992eb930
+  origin/main` that this commit is included in the superseding commit
+  — confirmed, it is an ancestor — so the superseding commit's own
+  deploy run is the one tracked for live-verification instead: run
+  #346 (id `42352325947`, head_sha `4541e072c`).
+
+- **Deploy status — extended stall, tracked via repeated fresh reads,
+  not a single stale read:** run #346's `build` and
+  `report-build-status` jobs both completed `conclusion: success`
+  quickly. Its `deploy` job's "Deploy to GitHub Pages" step, however,
+  remained `in_progress` through more than a dozen separate polls
+  (each a fresh `list_workflow_runs`/`list_workflow_jobs` call, per
+  the standing rule to rule out a stale read before concluding a real
+  stall) without ever reaching a terminal status — the same
+  `syncing_files`-style stall pattern documented for 2026-11-06's
+  run #341, just not yet resolved to an explicit `failure` at the time
+  of this log entry. Per the standing recourse (push a small commit to
+  retrigger when a deploy is stuck), this log-update commit itself
+  serves as that retrigger; its own deploy run is tracked next, below.
