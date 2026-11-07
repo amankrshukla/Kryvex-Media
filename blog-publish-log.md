@@ -2255,3 +2255,13 @@ and the reverse both return empty — the two branches are in sync.
   of this log entry. Per the standing recourse (push a small commit to
   retrigger when a deploy is stuck), this log-update commit itself
   serves as that retrigger; its own deploy run is tracked next, below.
+
+- **Redeploy confirmed (checked live):** commit `6923f9bd3` (this log
+  commit itself) triggered run #347 (id `42352729789`), head_sha
+  matching exactly. `build`, `report-build-status`, and `deploy` jobs
+  all completed `conclusion: success` (deploy step:
+  07:48:59Z–07:50:04Z). Today's 3 posts, and the concurrent SEO
+  routine's 30 pages from the same shared deploy, are confirmed live.
+  Both branches confirmed in sync: `git log origin/main..claude/
+  webtech-core-current-work-rsmbri` and the reverse direction both
+  return empty.
