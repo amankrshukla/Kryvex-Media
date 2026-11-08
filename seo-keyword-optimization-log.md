@@ -4994,16 +4994,30 @@ ET; ET.parse(...)"` after editing — both parsed cleanly.
 
 **Sitemap resubmission**: `GOOGLE_SEARCH_CONSOLE_SUBMIT_SITEMAP` called
 for `sc-domain:kryvexmedia.com`, feedpath `https://kryvexmedia.com/sitemap.xml`
-— result logged below once the call completes this run.
+— real success response: `"Sitemap 'https://kryvexmedia.com/sitemap.xml'
+successfully submitted for site 'sc-domain:kryvexmedia.com'"`.
 
 **Commit/deploy**: page files (30) + `sitemap-us-county-services.xml` +
 `sitemap.xml` + this log file staged explicitly by exact pathspec (no
 `git add -A`, since a concurrent blog-automation agent has untracked
 files — `blog/google-ads-data-manager-hashing-dropped-2026/` and
 `blog/google-search-console-click-spike-2026/` — in the working tree that
-were deliberately left untouched), committed in one bundled commit, pushed
-to `claude/webtech-core-current-work-rsmbri`, fast-forwarded to `main`.
-Deploy run result logged below once confirmed.
+were deliberately left untouched), committed as `1d801986c`, pushed to
+`claude/webtech-core-current-work-rsmbri`, fast-forwarded to `main`.
+That commit's own deploy run (#353, id `42459832471`) was cancelled —
+superseded by the concurrent blog-automation agent's push, commit
+`04788e273c7f32907db50336862644bb96000ca4` ("Blog publish + performance
+log: 2026-11-08"). Confirmed via `git merge-base --is-ancestor 1d801986c
+04788e27...` that commit `1d801986c` (today's 30 SEO pages) is an
+ancestor of the superseding commit, so today's edits are included in its
+deploy. Tracked that run instead: run #354 (id `42459880789`) — `build`
+and `report-build-status` jobs both `success` immediately; the `deploy`
+job's "Deploy to GitHub Pages" step ran `07:44:23Z`–`07:45:4x Z` and the
+whole run completed `conclusion: success`. Today's 30 pages are
+confirmed live. Branch sync re-confirmed empty both directions
+(`git log origin/main..main`, `main..origin/main`,
+`origin/claude/webtech-core-current-work-rsmbri..claude/webtech-core-current-work-rsmbri`,
+and the reverse — all empty) and working tree clean after the push.
 
 **Next up for a sixth pass**: `ohio/franklin`, `ohio/cuyahoga`,
 `utah/salt-lake`, `ohio/hamilton`, `tennessee/davidson` — the next 5 major
