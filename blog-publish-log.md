@@ -2265,3 +2265,94 @@ and the reverse both return empty — the two branches are in sync.
   Both branches confirmed in sync: `git log origin/main..claude/
   webtech-core-current-work-rsmbri` and the reverse direction both
   return empty.
+
+### 2026-11-08 — daily blog Routine run (3 posts, eleventh day of 3-posts/day)
+
+- Topic/query: GSC 90-day query pull checked first (2026-08-10 to
+  2026-11-05, dimension `query`, 100 rows) — again almost entirely
+  hyper-local "[service] agency in [city]" queries already served by
+  the programmatic geo pages, same pattern as every prior run. All 3
+  topics come from the service-deep-dive fallback tier, each a
+  distinct angle (an SEO reporting anomaly, a Google Ads data-upload
+  mechanic, a Meta Ads conversion-measurement change), none repeating
+  2026-11-07's topics (LinkedIn Reserved Ads, Instagram Reels
+  post-view ads, Google Ads Promotion Mode) or any of Kryvex's 9
+  industry pages.
+
+- **Post 1:** `/blog/google-search-console-click-spike-2026/` — SEO
+  fallback tier. 1,778 words. Sourced from Search Engine Roundtable
+  (Barry Schwartz's Nov 3, 2026 post reporting a sudden click spike on
+  some sites' Search Console Performance reports with impressions
+  flat, plus a follow-up recap citing a reader theory of AI-agent/bot
+  traffic), corroborated by Search Engine Journal (concluding the
+  spike isn't real traffic) and Optimixed (the same clicks-up/
+  impressions-flat pattern across multiple sites it tracks). The
+  API-vs-UI discrepancy Schwartz specifically reported — 3 sites
+  showing the spike via the Search Console API but only 1 of those 3
+  showing it in the web UI — is cited directly as evidence this looks
+  like a reporting artifact rather than a real ranking change.
+
+- **Post 2:** `/blog/google-ads-data-manager-hashing-dropped-2026/` —
+  PPC fallback tier. 1,773 words. Sourced from PPC Land and the German
+  outlet drweb.de, both reporting on a Google advertiser notice
+  (reportedly sent around October 18, 2026) that Google Ads Data
+  Manager will stop requiring SHA-256 hashing of Customer Match
+  identifiers starting November 16, 2026, accepting encrypted customer
+  data by default instead. Explicitly flagged in the post as
+  secondhand trade-press reporting on an advertiser email rather than
+  a confirmed Google help-center or API-doc announcement — the post
+  has a dedicated section explaining exactly why that distinction
+  matters, and deliberately leaves out any claim about whether hashed
+  uploads will keep working, since the available sources don't say.
+
+- **Post 3:** `/blog/meta-pixel-device-conversions-black-friday-2026/`
+  — social/Meta Ads fallback tier. 1,785 words. Sourced from PPC Land
+  (reporting the Meta Pixel Events Manager toggle text "Measurement
+  starting November 12, 2026" and the two measurement inputs it
+  described), corroborated by Relevant Audience (on-by-default outside
+  the EU and UK) and Stape/La Reclame on the same rollout timing ahead
+  of Black Friday (Nov 27, 2026). PPC Land's own unanswered question —
+  how a device gets a record of which ads a user actually saw or
+  clicked — is cited directly rather than resolved with a guess.
+
+- **QA (all 3, verified via the Python script in CLAUDE.md's "Standing
+  requirement" section before committing):** `<main>` word counts
+  1,778 / 1,773 / 1,785 — all comfortably over 1,500 (Post 3 was topped
+  up from an initial 1,509-word draft with a genuinely new
+  multi-account-measurement section, not padding). HTML tag balance
+  (div/section/article/header/footer/main/h1/h2/h3/ul/ol/li/p/a/
+  script/head/body/html/svg/g, open count == close count) verified OK
+  on all 3 and on the edited `blog/index.html`. All 9
+  `application/ld+json` blocks (BreadcrumbList/BlogPosting/FAQPage ×
+  3) parse via `json.loads`. No noindex tag introduced on any of the
+  3. Every linked URL (4-5 per post, plus full nav/footer) confirmed to
+  exist on disk before linking. GTM/gtag/Meta Pixel carried over
+  intact from the most recently published template post
+  (`google-ads-promotion-mode-smart-bidding-2026`).
+
+  All 3 cards added to `blog/index.html`'s `#post-grid` (`data-cat`
+  "seo" × 1, "ppc" × 1, "social" × 1 — matching existing filter
+  buttons). All 3 URLs added to `sitemap-resources.xml` with `lastmod`
+  2026-11-08, XML validity verified via `xml.etree.ElementTree.parse`
+  after editing.
+
+- **Git:** `git status` at staging time showed a clean working tree
+  apart from this run's own 5 touched paths (3 new post directories,
+  `blog/index.html`, `sitemap-resources.xml`) — no concurrently-running
+  routine's edits were present. Commit `d65a0ad66` pushed to
+  `claude/webtech-core-current-work-rsmbri` and fast-forwarded to
+  `main` cleanly.
+
+- **Sitemap resubmission:** confirmed — "Sitemap
+  'https://kryvexmedia.com/sitemap.xml' successfully submitted for site
+  'sc-domain:kryvexmedia.com'" (called after all 3 URLs were in the
+  sitemap, before the deploy-verification step).
+
+- **Deploy — clean run, no collision this time:** this commit's own
+  run, #352 (id `42459597191`, head_sha `d65a0ad66` — exact match),
+  completed cleanly on its own: `build`, `report-build-status`, and
+  `deploy` jobs all `conclusion: success` (deploy step
+  07:39:55Z–07:41:03Z). Today's 3 posts are confirmed live. Both
+  branches confirmed in sync: `git log origin/main..origin/claude/
+  webtech-core-current-work-rsmbri` and the reverse direction both
+  return empty.
