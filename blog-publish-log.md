@@ -2356,3 +2356,116 @@ and the reverse both return empty — the two branches are in sync.
   branches confirmed in sync: `git log origin/main..origin/claude/
   webtech-core-current-work-rsmbri` and the reverse direction both
   return empty.
+
+### 2026-11-09 — daily blog Routine run (3 posts, twelfth day of 3-posts/day)
+
+- Topic/query: GSC 90-day query pull checked first (2026-08-10 to
+  2026-11-06, dimension `query`, 100 rows) — again almost entirely
+  hyper-local "[service] agency in [city]" queries already served by
+  the programmatic geo pages, same pattern as every prior run. All 3
+  topics come from the service-deep-dive fallback tier, each a
+  distinct angle, none repeating 2026-11-07's topics (LinkedIn
+  Reserved Ads, Instagram Reels post-view ads, Google Ads Promotion
+  Mode), 2026-11-08's topics (GSC click spike, Data Manager hashing,
+  Meta Pixel device conversions), or any of Kryvex's 9 industry pages.
+
+- **Post 1:** `/blog/google-search-console-multi-select-filters-2026/`
+  — SEO fallback tier. 1,805 words. Sourced from Search Engine
+  Roundtable and Optimixed (device multi-select filter added to the
+  Performance report, reported ~Nov 4, 2026), corroborated by Search
+  Engine Journal, Search Engine Land, and PPC Land's reporting on the
+  preceding Oct 6, 2026 country multi-select filter change that the
+  device change was explicitly modeled on.
+
+- **Post 2:** `/blog/meta-business-terms-update-paused-2026/` —
+  social/Meta Ads fallback tier. 1,618 words. Sourced from Reuters'
+  Nov 6, 2026 report from Brussels (carried by The Star and
+  devdiscourse) that Meta paused its planned Commercial Terms/Product
+  Catalog Terms/Self-Serve Ad Terms/Ad Creative Generative AI Terms
+  update (originally due Nov 20, 2026, itself already pushed once from
+  an Oct 30 date) on Nov 5, 2026. Corroborated by MLex (UK CMA
+  investigation into Meta's commercial terms as context for the
+  pause), 404 Media (the scraping-language criticism that prompted it),
+  CIO.com, and FourWeekMBA's timing analysis. Meta's own quoted
+  statement ("continuing to consult with stakeholders... will provide
+  a further update when we have more to share") is quoted directly
+  rather than interpreted as a commitment to any specific outcome.
+
+- **Post 3:** `/blog/ai-crawlers-content-signals-policy-2026/` —
+  content marketing/web design fallback tier. 1,800 words. Sourced
+  directly from Cloudflare's own blog posts announcing the Content
+  Signals Policy (the `search=yes, ai-train=no` / `ai-input` syntax,
+  the 3.8-million-domain auto-rollout to managed-robots.txt customers,
+  and the explicit statement that Cloudflare does not auto-set an
+  `ai-input` signal) and the separate Robotcop network-level
+  enforcement feature, corroborated by PPC Land's reporting on
+  Robotcop. The Googlebot/Google-Extended distinction — that blocking
+  Googlebot for AI purposes also removes a site from Google Search,
+  while Google-Extended is the narrower, correct lever — is sourced
+  from Google's own public documentation of its crawler behavior
+  rather than a third-party summary.
+
+- **QA (all 3, verified via the Python script in CLAUDE.md's "Standing
+  requirement" section before committing):** `<main>` word counts
+  1,805 / 1,618 / 1,800 — all comfortably over 1,500. Post 1 was topped
+  up from an initial 1,532-word draft with a genuinely new section on
+  who should actually rebuild their saved Search Console views, not
+  padding. HTML tag balance (div/section/article/header/footer/main/
+  h1/h2/h3/ul/ol/li/p/a/script/head/body/html/svg/g, open count ==
+  close count) verified OK on all 3 and on the edited `blog/index.html`.
+  All 9 `application/ld+json` blocks (BreadcrumbList/BlogPosting/
+  FAQPage × 3) parse via `json.loads`. No noindex tag introduced on any
+  of the 3. Every linked URL (4-5 per post, plus full nav/footer)
+  confirmed to exist on disk before linking. GTM/gtag/Meta Pixel
+  carried over intact from the most recently published template post
+  (`google-ads-promotion-mode-smart-bidding-2026`).
+
+  All 3 cards added to `blog/index.html`'s `#post-grid` (`data-cat`
+  "seo" × 1, "social" × 1, "content" × 1 — matching existing filter
+  buttons). All 3 URLs added to `sitemap-resources.xml` with `lastmod`
+  2026-11-09, XML validity verified via `xml.etree.ElementTree.parse`
+  after editing.
+
+- **Git:** today is Monday, so the weekly backlink-outreach Routine and
+  the daily SEO keyword-optimization Routine were both expected to run
+  concurrently in this shared working tree. `git status` at staging
+  time showed many `ohio/`, `tennessee/`, `utah/` county×service pages
+  and `sitemap-us-county-services.xml`/`sitemap.xml` modified by the
+  SEO routine — none of those paths were staged or touched by this run.
+  Staged only this run's own 5 touched paths (3 new post directories,
+  `blog/index.html`, `sitemap-resources.xml`) explicitly by name (never
+  `git add -A`). Commit `3ca4ca5bd` pushed to
+  `claude/webtech-core-current-work-rsmbri` and fast-forwarded to
+  `main` cleanly with no conflicts.
+
+- **Sitemap resubmission:** confirmed — "Sitemap
+  'https://kryvexmedia.com/sitemap.xml' successfully submitted for site
+  'sc-domain:kryvexmedia.com'" (called after all 3 URLs were in the
+  sitemap, before the deploy-verification step).
+
+- **Deploy — collision, then a stale-read false alarm:** this commit's
+  own run (#357, id `42580715263`, head_sha `3ca4ca5bd` — exact match)
+  was cancelled almost immediately, superseded by the concurrent SEO
+  routine's push one minute later (`fed4d17dd`, "SEO: county x service
+  sub-tier, sixth pass"). Verified via
+  `git merge-base --is-ancestor 3ca4ca5bd fed4d17dd` that this run's
+  commit is included in the superseding commit. Tracked that commit's
+  own run instead (#358, id `42580821738`): `build` and
+  `report-build-status` completed `conclusion: success` within about 2
+  minutes, and repeated `get_workflow_run` / `list_workflow_jobs` polls
+  over the following ~15 minutes kept showing the `deploy` job's
+  "Deploy to GitHub Pages" step as `in_progress` with an unchanged
+  `updated_at` — initially read as a real stall matching the
+  `syncing_files` pattern this file documents. A poll taken just before
+  writing this log entry showed the run had actually reached
+  `status: completed, conclusion: success` at `07:44:05Z` —
+  roughly 105 seconds after the deploy step started, a perfectly normal
+  deploy time. The ~15 minutes of apparently-unchanged `in_progress`
+  reads were themselves stale API reads, the exact caching behavior
+  this file's deploy-verification guidance separately warns can happen
+  on this project — not a real GitHub Pages stall. Logging this
+  explicitly rather than quietly discarding it, since reporting a false
+  "stuck deploy" would have been exactly the kind of unverified claim
+  the standing rules here prohibit. Today's 3 posts (and the SEO
+  routine's 30 county×service pages from the same shared deploy) are
+  confirmed live under the real, final conclusion.
