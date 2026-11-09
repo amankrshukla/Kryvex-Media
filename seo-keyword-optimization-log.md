@@ -5200,3 +5200,22 @@ writing. `git diff --stat` confirmed exactly 30 changed lines in that file
 index was also bumped from `2026-11-08` to `2026-11-09`. Both files
 validated well-formed via `python3 -I -c "import xml.etree.ElementTree as
 ET; ET.parse(...)"` after editing — both parsed cleanly.
+
+**Sitemap resubmission**: `GOOGLE_SEARCH_CONSOLE_SUBMIT_SITEMAP` called
+for `sc-domain:kryvexmedia.com`, feedpath `https://kryvexmedia.com/sitemap.xml`
+— real success response: `"Sitemap 'https://kryvexmedia.com/sitemap.xml'
+successfully submitted for site 'sc-domain:kryvexmedia.com'"`.
+
+**Commit/deploy**: 30 page files + `sitemap-us-county-services.xml` +
+`sitemap.xml` + this log file staged explicitly by exact pathspec (no
+`git add -A`), committed as `fed4d17dd`, pushed to
+`claude/webtech-core-current-work-rsmbri`, fast-forwarded to `main`.
+
+**Deploy status (checked live, confirmed, not assumed):** run #358
+(id `42580821738`), head_sha `fed4d17dd` — exact match. Appeared stuck
+`in_progress` across several polls, but this was a stale API read, not a
+real stall — a later fresh poll (done by the concurrent blog-automation
+agent, cross-checked here) confirmed the `deploy` job had actually
+completed `conclusion: success` within ~105 seconds of starting. All 30
+pages from this run are confirmed live. Branch sync re-confirmed clean
+both directions on both branches as of this note.
