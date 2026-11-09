@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18433795545"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-18433795545');
+</script>
+<!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-MNB8WNTP');</script>
+<!-- End Google Tag Manager -->
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '3203948136462091');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=3203948136462091&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Google Search Console's New Multi-Select Filters: Country & Device Together | Kryvex Media Blog</title>
+<meta name="description" content="Google Search Console's Performance report now lets you filter by several countries and, as of November 2026, several devices at once. Here's what changed, why it matters, and how to actually use it to find real opportunities in your own data.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,800;1,9..144,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/styles/theme.css">
+<link rel="stylesheet" href="/styles/blog.css">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" href="/favicon-32x32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/favicon-16x16.png" sizes="16x16" type="image/png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="canonical" href="https://kryvexmedia.com/blog/google-search-console-multi-select-filters-2026/">
+<meta property="og:url" content="https://kryvexmedia.com/blog/google-search-console-multi-select-filters-2026/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Kryvex Media">
+<meta property="og:title" content="Google Search Console's New Multi-Select Filters: Country & Device Together | Kryvex Media Blog">
+<meta property="og:description" content="Google Search Console's Performance report now lets you filter by several countries and, as of November 2026, several devices at once. Here's what changed, why it matters, and how to actually use it to find real opportunities in your own data.">
+<meta property="og:image" content="https://kryvexmedia.com/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:site" content="@kryvexmedia">
+<meta name="twitter:title" content="Google Search Console's New Multi-Select Filters: Country & Device Together | Kryvex Media Blog">
+<meta name="twitter:description" content="Google Search Console's Performance report now lets you filter by several countries and, as of November 2026, several devices at once. Here's what changed, why it matters, and how to actually use it to find real opportunities in your own data.">
+<meta name="twitter:image" content="https://kryvexmedia.com/assets/og-image.png">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://kryvexmedia.com/"},{"@type":"ListItem","position":2,"name":"Resources","item":"https://kryvexmedia.com/resources/"},{"@type":"ListItem","position":3,"name":"Blog","item":"https://kryvexmedia.com/blog/"},{"@type":"ListItem","position":4,"name":"GSC Multi-Select Country & Device Filters","item":"https://kryvexmedia.com/blog/google-search-console-multi-select-filters-2026/"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"BlogPosting","headline":"Google Search Console's New Multi-Select Filters: Country & Device Together","description":"Google Search Console's Performance report now lets you filter by several countries and, as of November 2026, several devices at once. Here's what changed, why it matters, and how to actually use it to find real opportunities in your own data.","image":"https://kryvexmedia.com/assets/og-image.png","datePublished":"2026-11-09","author":{"@type":"Organization","name":"Kryvex Media"},"publisher":{"@type":"Organization","name":"Kryvex Media","logo":{"@type":"ImageObject","url":"https://kryvexmedia.com/favicon.svg"}},"mainEntityOfPage":{"@type":"WebPage","@id":"https://kryvexmedia.com/blog/google-search-console-multi-select-filters-2026/"}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What changed in Google Search Console's Performance report?","acceptedAnswer":{"@type":"Answer","text":"As reported by Search Engine Roundtable and Optimixed around November 4, 2026, the Performance report's device filter now supports selecting more than one device type (Desktop, Mobile, Tablet) at once. This follows an October 6, 2026 change, reported by Search Engine Journal, Search Engine Land, and PPC Land, that added the same multi-select capability to the country filter."}},{"@type":"Question","name":"Why does multi-select filtering matter for SEO reporting?","acceptedAnswer":{"@type":"Answer","text":"Before multi-select, comparing a specific group of countries or devices against the rest meant exporting data for each one separately and combining it outside Search Console. Multi-select lets you build that comparison directly in the report, which is faster and reduces the chance of a copy-paste error in the combined total."}},{"@type":"Question","name":"Does this change historical data or just how you view it?","acceptedAnswer":{"@type":"Answer","text":"It only changes how you can filter and view existing data, not the data itself. Search Console still reports the same clicks, impressions, CTR, and average position it always has; multi-select just changes which rows get grouped together when you apply a filter."}}]}</script>
+</head>
+<body>
+<!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MNB8WNTP"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+<header class="k-header">
+  <div class="wrap k-nav">
+    <a href="/" class="k-logo">
+      <div class="k-logo-tile">
+        <svg width="22" height="22" viewBox="0 0 30 30" fill="none">
+          <rect x="9" y="5" width="6" height="20" rx="1.5" fill="#3B1C6C"/>
+          <path d="M15 12.5 L26 4 L20.5 14.5 Z" fill="#7046B6"/>
+          <path d="M15 17.5 L26 26 L20.5 14.5 Z" fill="#A272F5"/>
+        </svg>
+      </div>
+      <div class="k-logo-word">
+        <b>KRYVEX<span> MEDIA</span></b>
+        <small>GLOBAL DIGITAL MARKETING</small>
+      </div>
+    </a>
+    <div class="k-navlinks">
+      <a href="/">Home</a>
+      <div class="k-dd" id="dd-industries">
+        <button class="k-dd-btn" aria-expanded="false" aria-controls="panel-industries">Industries <span class="k-caret"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="k-panel wide" id="panel-industries" role="menu">
+          <div class="k-panel-label">Industries We Serve</div>
+          <div class="k-panel-grid">
+            <a href="/industries/healthcare/" class="k-item"><span class="k-item-icon">🏥</span><span><span class="k-item-title">Healthcare</span><span class="k-item-sub">Clinics, dental, wellness</span></span></a>
+            <a href="/industries/real-estate/" class="k-item"><span class="k-item-icon">🏠</span><span><span class="k-item-title">Real Estate</span><span class="k-item-sub">Agents, brokers, developers</span></span></a>
+            <a href="/industries/ecommerce/" class="k-item"><span class="k-item-icon">🛍️</span><span><span class="k-item-title">E-commerce &amp; Retail</span><span class="k-item-sub">Online &amp; omnichannel</span></span></a>
+            <a href="/industries/restaurants/" class="k-item"><span class="k-item-icon">🍽️</span><span><span class="k-item-title">Restaurants</span><span class="k-item-sub">Cafes, dining, franchises</span></span></a>
+            <a href="/industries/legal/" class="k-item"><span class="k-item-icon">⚖️</span><span><span class="k-item-title">Legal &amp; Professional</span><span class="k-item-sub">Law, finance, consulting</span></span></a>
+            <a href="/industries/home-services/" class="k-item"><span class="k-item-icon">🔧</span><span><span class="k-item-title">Home Services</span><span class="k-item-sub">Trades, repair, contractors</span></span></a>
+            <a href="/industries/education/" class="k-item"><span class="k-item-icon">🎓</span><span><span class="k-item-title">Education</span><span class="k-item-sub">Schools, courses, edtech</span></span></a>
+            <a href="/industries/fitness/" class="k-item"><span class="k-item-icon">💪</span><span><span class="k-item-title">Fitness &amp; Wellness</span><span class="k-item-sub">Gyms, studios, coaches</span></span></a>
+          </div>
+        </div>
+      </div>
+      <div class="k-dd" id="dd-services">
+        <button class="k-dd-btn" aria-expanded="false" aria-controls="panel-services">Services <span class="k-caret"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="k-panel wide" id="panel-services" role="menu">
+          <div class="k-panel-label">What We Do</div>
+          <div class="k-panel-grid">
+            <a href="/services/seo/" class="k-item"><span class="k-item-icon">🔍</span><span><span class="k-item-title">Search Engine Optimization</span><span class="k-item-sub">Organic growth</span></span></a>
+            <a href="/services/local-seo/" class="k-item"><span class="k-item-icon">📍</span><span><span class="k-item-title">Local SEO</span><span class="k-item-sub">Map &amp; near-me</span></span></a>
+            <a href="/services/ppc/" class="k-item"><span class="k-item-icon">🎯</span><span><span class="k-item-title">Paid Advertising (PPC)</span><span class="k-item-sub">Google ads</span></span></a>
+            <a href="/services/social-media/" class="k-item"><span class="k-item-icon">📱</span><span><span class="k-item-title">Social Media Marketing</span><span class="k-item-sub">Build audience</span></span></a>
+            <a href="/services/meta-ads/" class="k-item"><span class="k-item-icon">⚡</span><span><span class="k-item-title">Meta Ads Services</span><span class="k-item-sub">FB &amp; Instagram</span></span></a>
+            <a href="/services/content-marketing/" class="k-item"><span class="k-item-icon">✍️</span><span><span class="k-item-title">Content Marketing</span><span class="k-item-sub">Blogs &amp; assets</span></span></a>
+            <a href="/services/email-marketing/" class="k-item"><span class="k-item-icon">✉️</span><span><span class="k-item-title">Email Marketing</span><span class="k-item-sub">Flows &amp; campaigns</span></span></a>
+            <a href="/services/web-design/" class="k-item"><span class="k-item-icon">🖥️</span><span><span class="k-item-title">Web Design &amp; Development</span><span class="k-item-sub">Design &amp; build</span></span></a>
+            <a href="/services/graphics-design/" class="k-item"><span class="k-item-icon">🎨</span><span><span class="k-item-title">Graphics Designing</span><span class="k-item-sub">Brand visuals</span></span></a>
+            <a href="/services/youtube-management/" class="k-item"><span class="k-item-icon">▶️</span><span><span class="k-item-title">YouTube Management</span><span class="k-item-sub">Channel growth</span></span></a>
+          </div>
+          <a href="/services/" class="k-panel-all">VIEW ALL SERVICES →</a>
+        </div>
+      </div>
+      <div class="k-dd" id="dd-countries">
+        <button class="k-dd-btn" aria-expanded="false" aria-controls="panel-countries">Countries <span class="k-caret"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="k-panel wide" id="panel-countries" role="menu">
+          <div class="k-panel-label">Countries</div>
+          <div class="k-panel-grid">
+            <a href="/india/performance-marketing-agency/" class="k-item"><span class="k-item-icon">🇮🇳</span><span><span class="k-item-title">India</span><span class="k-item-sub">Live · all states</span></span></a>
+            <a href="/usa/" class="k-item"><span class="k-item-icon">🇺🇸</span><span><span class="k-item-title">USA</span><span class="k-item-sub">Live · all states</span></span></a>
+            <a href="/uk/" class="k-item"><span class="k-item-icon">🇬🇧</span><span><span class="k-item-title">UK</span><span class="k-item-sub">Live · all nations</span></span></a>
+          </div>
+        </div>
+      </div>
+      <div class="k-dd" id="dd-resources">
+        <button class="k-dd-btn" aria-expanded="false" aria-controls="panel-resources">Resources <span class="k-caret"><svg width="10" height="10" viewBox="0 0 12 12" fill="none"><path d="M2.5 4.5 L6 8 L9.5 4.5" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg></span></button>
+        <div class="k-panel" id="panel-resources" role="menu">
+          <div class="k-panel-label">Resources</div>
+          <div class="k-panel-col">
+            <a href="/free-audit/" class="k-item"><span class="k-item-icon">⚡</span><span><span class="k-item-title">Free Instant Audit</span><span class="k-item-sub">Real scores in 30 seconds</span></span></a>
+            <a href="/blog/" class="k-item"><span class="k-item-icon">📝</span><span><span class="k-item-title">Blog</span><span class="k-item-sub">Insights &amp; guides</span></span></a>
+            <a href="/resources/press-release/" class="k-item"><span class="k-item-icon">📰</span><span><span class="k-item-title">Press Release</span><span class="k-item-sub">News &amp; announcements</span></span></a>
+            <a href="/resources/case-studies/" class="k-item"><span class="k-item-icon">📊</span><span><span class="k-item-title">Case Studies</span><span class="k-item-sub">Real client results</span></span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a href="https://calendly.com/kryvexmedia-info/30min" class="k-nav-cta" target="_blank" rel="noopener">Book An Appointment</a>
+    <button class="k-burger" id="mnb" aria-label="Open menu"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h16M4 18h16"/></svg></button>
+  </div>
+</header>
+<div class="wrap b-crumb">
+  <a href="/">Home</a> <span style="margin:0 6px;color:var(--line)">/</span> <a href="/blog/">Blog</a> <span style="margin:0 6px;color:var(--line)">/</span> <span style="color:var(--ink);font-weight:700">GSC Multi-Select Country & Device Filters</span>
+</div>
+<main>
+  <section class="wrap b-art-hero">
+    <span class="b-pill" style="background:rgba(112,70,182,.12);color:var(--c-seo-1)">SEO</span>
+    <h1>Google Search Console's New Multi-Select Filters: Country &amp; Device Together</h1>
+    <p class="b-dek">Google quietly made two changes to the Search Console Performance report in the back half of 2026: a multi-select country filter in October, and a matching multi-select device filter around November 4, reported by Search Engine Roundtable and corroborated by Optimixed. Neither is a flashy feature, but together they fix a real, specific annoyance anyone who has pulled Search Console data for a multi-country or multi-device business will recognize — and they change how you should actually build your next reporting view.</p>
+    <div class="b-byline">
+      <div class="b-avatar">K</div>
+      <div class="b-byline-text"><b>Kryvex Media Team</b><br>Nov 9, 2026 · 10 min read</div>
+    </div>
+  </section>
+
+  <div class="b-hero-art">
+    <div class="b-hero-art-inner" style="background:linear-gradient(150deg,var(--c-seo-2),var(--c-seo-1))">
+      <svg width="100%" height="100%" viewBox="0 0 1180 516" preserveAspectRatio="xMidYMid slice">
+        <circle cx="1000" cy="80" r="220" fill="#fff" opacity=".08"/>
+        <circle cx="120" cy="450" r="180" fill="#fff" opacity=".08"/>
+        <g transform="translate(430,180)" opacity=".9">
+          <rect x="0" y="40" width="60" height="60" rx="6" fill="none" stroke="#fff" stroke-width="5" opacity=".55"/>
+          <rect x="80" y="20" width="60" height="80" rx="6" fill="none" stroke="#fff" stroke-width="5" opacity=".55"/>
+          <rect x="160" y="0" width="60" height="100" rx="6" fill="none" stroke="#fff" stroke-width="5" opacity=".55"/>
+        </g>
+        <g transform="translate(720,300)" opacity=".85">
+          <rect x="0" y="0" width="140" height="10" rx="5" fill="#fff" opacity=".5"/>
+          <rect x="0" y="24" width="100" height="10" rx="5" fill="#fff" opacity=".35"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+
+  <article class="b-article" style="--cat-1:var(--c-seo-1);--cat-2:var(--c-seo-2)">
+    <p><strong>Google Search Console's Performance report can now filter by more than one country at once, and, as of early November 2026, by more than one device type at once.</strong> Search Engine Journal, Search Engine Land, and PPC Land reported the country change on October 6, 2026; Search Engine Roundtable and Optimixed reported the device change around November 4, 2026, noting it followed the same multi-select pattern Google had already shipped for countries a month earlier. Neither change touches what data Search Console collects — it's purely about how you can group and view data you already have access to — but if you've ever had to stitch together separate country or device exports in a spreadsheet just to answer a simple question, this removes a real piece of busywork.</p>
+
+    <h2>What the Performance report could and couldn't do before</h2>
+    <p>Search Console's Performance report has always let you filter by a single dimension value at a time per filter type: one country, one device, one search type, one page, one query. If you wanted to see performance for, say, the US and Canada combined, or for mobile and tablet combined (treating "non-desktop" as one bucket), you had two options, neither of which was actually built into the report. You could either export the full, unfiltered dataset and group countries or devices together yourself in a spreadsheet, or you could apply one filter, note the numbers, switch the filter, note those numbers too, and manually add them — a process that gets slow and error-prone fast once you're doing it across more than two or three values, or doing it every week for a recurring report.</p>
+    <p>That one-value-at-a-time limitation wasn't a bug, just a design choice from when the report was built around a simpler mental model: look at everything, or look at one slice. It became more of a real friction point as more sites started operating across multiple countries and relying more heavily on comparing device-level behavior, especially after mobile-first indexing made "how does this perform on mobile versus desktop" a routine question rather than a special one.</p>
+
+    <h2>What actually changed: country first, then device</h2>
+    <p>According to Search Engine Journal's and Search Engine Land's October 6, 2026 coverage, Google added multi-select to the country filter in the Performance report, letting you tick several countries and see their combined totals as one filtered view rather than one country at a time. PPC Land's coverage of the same change frames it as Search Console letting sites "view several countries as one total" — which is the useful part: it's not just a faster way to flip between single-country views, it's a way to see a genuinely combined number for a specific group you define.</p>
+    <p>Search Engine Roundtable's reporting around November 4, 2026, and Optimixed's corroborating write-up, describe the same multi-select behavior arriving for the device filter, with the three device categories Search Console has always tracked — Desktop, Mobile, and Tablet — now selectable together instead of one at a time. Optimixed's framing places this explicitly after, and modeled on, the October country-filter change, which lines up with how Google has shipped Performance report improvements before: a filter pattern proven on one dimension, then extended to others once it's validated.</p>
+
+    <div class="b-callout">
+      <div class="b-callout-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/><path d="M12 8v4l3 3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg></div>
+      <p>Worth being precise about what this is and isn't: it's a UI and query capability change in the Performance report, not a change to what Search Console measures. The underlying clicks, impressions, CTR, and average-position figures for each country and device are exactly what they were before — multi-select just changes how many of those rows you can group into one combined filtered view at a time, directly inside the report, without exporting anything.</p>
+    </div>
+
+    <h2>Why this is more useful than it sounds</h2>
+    <p>The honest case for caring about a filtering UI change is that reporting friction has a real cost: every extra manual step between "I have a question about my data" and "I have the answer" is a step where someone either doesn't bother asking the question, or gets it slightly wrong by hand. A few concrete scenarios this actually helps with:</p>
+    <p><strong>Comparing a specific market group against the rest.</strong> A site serving, say, the US, UK, Canada, and Australia as its core English-speaking market can now filter to exactly those four countries as one view and compare that combined number against total performance, instead of adding four separate exports together or treating "everywhere" as the only alternative to "one country."</p>
+    <p><strong>Treating non-desktop as one real bucket.</strong> If your actual business question is "how does this page perform on anything that isn't a desktop screen," multi-selecting Mobile and Tablet together gives you that number directly, which is closer to how most sites actually think about responsive performance than Mobile-only or Tablet-only views were.</p>
+    <p><strong>Faster recurring reports.</strong> Anyone building a weekly or monthly Search Console summary for a client or stakeholder — a routine part of running SEO for a local business with a tri-state service area, for example — can now set up a saved comparison view across exactly the markets or device groups that matter to that report, rather than re-deriving a combined number from scratch every time.</p>
+
+    <h2>How to actually use it</h2>
+    <p>Open the Performance report, click the Countries filter (or the Devices filter), and where the filter previously let you pick one value and apply it, you can now tick several and apply them together as a single combined filter. From there, the report's totals, trend graph, and the Queries/Pages/Countries/Devices tabs below all reflect that combined group — you can still drill into one country or device within the filtered group by adding a second, narrower filter on top, so multi-select doesn't take away the single-value view, it adds the combined view as an option alongside it.</p>
+    <p>A practical habit worth building now that this exists: before exporting Search Console data to a spreadsheet for a country- or device-group comparison, check whether the comparison you're about to build by hand is one Search Console can now give you directly. It's a small check, but it's the kind of small check that saves real time across dozens of recurring reports over a year.</p>
+
+    <h2>What this doesn't change</h2>
+    <p>It's worth being clear-eyed about the limits here too. Multi-select filtering doesn't add any new dimension Search Console didn't already track — there's still no city-level or region-level filter inside the standard Performance report, and device categories are still limited to the same three Google has always reported. It also doesn't change Search Console's data-retention window, sampling behavior, or the well-known gaps between Search Console and server-log-level analytics. If your reporting needs go beyond what country- and device-level aggregation can answer, this update doesn't close that gap — it just makes the aggregation you can already get easier to build.</p>
+
+    <h2>Who should actually bother rebuilding their saved views</h2>
+    <p>Not every site needs to do anything differently because of this. If you run one site targeting one country on one primary device profile, the old single-value filter was never really a bottleneck — multi-select mostly matters once a site's audience is genuinely split across several markets or device types that you need to analyze as defined groups rather than individually. That describes a meaningful share of small and mid-size businesses more often than it might first appear: a services business with a service area spanning several countries, an e-commerce brand shipping to a defined regional cluster, or any agency managing Search Console across a portfolio of client sites where "show me this specific group's combined number" is a recurring request rather than a one-off.</p>
+    <p>For a business running country-specific or state-specific pages — the kind of local and international page structure many SEO-driven sites rely on — multi-select filtering is also a genuinely better fit for how those sites actually get evaluated internally. Instead of pulling single-country snapshots and manually summing them to answer "how is our core English-speaking market doing as a group," or "how is our mobile-only service area performing," you can build that exact grouping once, save it as the view you check weekly, and trust that the combined number in front of you is the real combined number rather than a hand-added approximation. That's a small mechanical change, but it's the kind of change that makes a recurring reporting habit more likely to actually happen on schedule, because the friction that used to make people skip the comparison is gone.</p>
+
+    <h2>Frequently asked questions</h2>
+
+    <h3>What changed in Google Search Console's Performance report?</h3>
+    <p>As reported by Search Engine Roundtable and Optimixed around November 4, 2026, the Performance report's device filter now supports selecting more than one device type (Desktop, Mobile, Tablet) at once. This follows an October 6, 2026 change, reported by Search Engine Journal, Search Engine Land, and PPC Land, that added the same multi-select capability to the country filter.</p>
+
+    <h3>Why does multi-select filtering matter for SEO reporting?</h3>
+    <p>Before multi-select, comparing a specific group of countries or devices against the rest meant exporting data for each one separately and combining it outside Search Console. Multi-select lets you build that comparison directly in the report, which is faster and reduces the chance of a copy-paste error in the combined total.</p>
+
+    <h3>Does this change historical data or just how you view it?</h3>
+    <p>It only changes how you can filter and view existing data, not the data itself. Search Console still reports the same clicks, impressions, CTR, and average position it always has; multi-select just changes which rows get grouped together when you apply a filter.</p>
+
+    <p>Kryvex Media's <a href="/services/seo/">SEO services</a> keep client Search Console reporting built around how the tool actually works today. For related reading, see <a href="/blog/google-search-console-click-spike-2026/">our look at the Search Console click-spike reporting anomaly</a> and <a href="/blog/google-search-console-ai-powered-configuration-2026/">our explainer on Search Console's AI-powered configuration assistant</a>, and if you want a real, honest read on how your own site is set up to be measured in the first place, start with a <a href="/free-audit/">free website audit</a>.</p>
+  </article>
+
+  <div class="b-divider"><div class="b-divider-line"></div></div>
+  <div class="b-share">
+    <span>Share</span>
+    <a href="https://x.com/intent/tweet?url=https://kryvexmedia.com/blog/google-search-console-multi-select-filters-2026/&text=Google Search Console's New Multi-Select Filters" target="_blank" rel="noopener" aria-label="Share on X"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M4 5 l6 7 -6 7 h2 l5-5.8 L16 19 h4 l-6.4-7.6 L19.5 5 h-2 l-4.6 5.4 L8 5 Z" fill="#63626E"/></svg></a>
+    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://kryvexmedia.com/blog/google-search-console-multi-select-filters-2026/" target="_blank" rel="noopener" aria-label="Share on LinkedIn"><svg width="15" height="15" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="3.5" stroke="#63626E" stroke-width="1.6"/><line x1="8" y1="10.5" x2="8" y2="17" stroke="#63626E" stroke-width="1.6" stroke-linecap="round"/><circle cx="8" cy="7.5" r="1.1" fill="#63626E"/><path d="M11.5 17 v-4 a2.5 2.5 0 0 1 5 0 v4 M11.5 13 v4" stroke="#63626E" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg></a>
+  </div>
+
+  <div class="b-cta-band">
+    <div class="b-cta-inner">
+      <h2>Is your SEO reporting keeping up with what's actually in your data?</h2>
+      <p>Get a real, honest look at your website and marketing setup — no automated guesswork.</p>
+      <a href="/free-audit/" class="b-cta-btn">Get Your Free Website Audit →</a>
+    </div>
+  </div>
+
+  <div class="wrap b-related">
+    <h3>Related Pages</h3>
+    <div class="b-rel-grid">
+      <a href="/services/seo/" class="b-rel-card">
+        <div class="b-rel-art" style="background:linear-gradient(150deg,var(--c-seo-2),var(--c-seo-1))"></div>
+        <div class="b-rel-body"><h4>SEO Services</h4></div>
+      </a>
+      <a href="/blog/google-search-console-click-spike-2026/" class="b-rel-card">
+        <div class="b-rel-art" style="background:linear-gradient(150deg,var(--c-seo-2),var(--c-seo-1))"></div>
+        <div class="b-rel-body"><h4>Search Console Click Spike</h4></div>
+      </a>
+      <a href="/blog/google-search-console-ai-powered-configuration-2026/" class="b-rel-card">
+        <div class="b-rel-art" style="background:linear-gradient(150deg,var(--c-seo-2),var(--c-seo-1))"></div>
+        <div class="b-rel-body"><h4>Search Console AI Configuration</h4></div>
+      </a>
+      <a href="/free-audit/" class="b-rel-card">
+        <div class="b-rel-art" style="background:linear-gradient(150deg,var(--c-seo-2),var(--c-seo-1))"></div>
+        <div class="b-rel-body"><h4>Free Website Audit</h4></div>
+      </a>
+    </div>
+  </div>
+</main>
+<footer class="k-footer">
+  <div class="wrap">
+    <div class="k-foot-grid">
+      <div>
+        <a href="/" class="k-logo">
+          <div class="k-logo-tile">
+            <svg width="20" height="20" viewBox="0 0 30 30" fill="none">
+              <rect x="9" y="5" width="6" height="20" rx="1.5" fill="#3B1C6C"/>
+              <path d="M15 12.5 L26 4 L20.5 14.5 Z" fill="#7046B6"/>
+              <path d="M15 17.5 L26 26 L20.5 14.5 Z" fill="#A272F5"/>
+            </svg>
+          </div>
+          <div class="k-logo-word"><b>KRYVEX<span> MEDIA</span></b></div>
+        </a>
+        <p class="k-foot-desc">The complete digital marketing partner for small businesses ready to grow — SEO, ads, social, web, and content under one roof.</p>
+        <div class="k-foot-social">
+          <a href="https://www.facebook.com/kryvexmedia" target="_blank" rel="noopener noreferrer" class="k-fsoc" aria-label="Facebook"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M14 8 h2 V5 h-2.5 C12 5 11 6 11 7.5 V9 H9 v3 h2 v7 h3 v-7 h2.2 l.5-3 H14 V8 Z" fill="#63626E"/></svg></a>
+          <a href="https://x.com/kryvexmedia" target="_blank" rel="noopener noreferrer" class="k-fsoc" aria-label="X / Twitter"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M4 5 l6 7 -6 7 h2 l5-5.8 L16 19 h4 l-6.4-7.6 L19.5 5 h-2 l-4.6 5.4 L8 5 Z" fill="#63626E"/></svg></a>
+          <a href="https://www.instagram.com/kryvexmedia" target="_blank" rel="noopener noreferrer" class="k-fsoc" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="4.5" stroke="#63626E" stroke-width="1.6"/><circle cx="12" cy="12" r="3.6" stroke="#63626E" stroke-width="1.6"/><circle cx="16.5" cy="7.5" r="1" fill="#63626E"/></svg></a>
+          <a href="https://www.linkedin.com/company/kryvexmedia" target="_blank" rel="noopener noreferrer" class="k-fsoc" aria-label="LinkedIn"><svg width="16" height="16" viewBox="0 0 24 24" fill="none"><rect x="4" y="4" width="16" height="16" rx="3.5" stroke="#63626E" stroke-width="1.6"/><line x1="8" y1="10.5" x2="8" y2="17" stroke="#63626E" stroke-width="1.6" stroke-linecap="round"/><circle cx="8" cy="7.5" r="1.1" fill="#63626E"/><path d="M11.5 17 v-4 a2.5 2.5 0 0 1 5 0 v4 M11.5 13 v4" stroke="#63626E" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg></a>
+        </div>
+      </div>
+      <div>
+        <div class="k-foot-col-label">Services</div>
+        <div class="k-foot-links">
+          <a href="/services/seo/">Search Engine Optimization</a>
+          <a href="/services/ppc/">Paid Advertising</a>
+          <a href="/services/social-media/">Social Media</a>
+          <a href="/services/web-design/">Web Design</a>
+          <a href="/services/">View all services →</a>
+        </div>
+      </div>
+      <div>
+        <div class="k-foot-col-label">Industries</div>
+        <div class="k-foot-links">
+          <a href="/industries/healthcare/">Healthcare</a>
+          <a href="/industries/real-estate/">Real Estate</a>
+          <a href="/industries/ecommerce/">E-commerce</a>
+          <a href="/industries/restaurants/">Restaurants</a>
+          <a href="/industries/home-services/">Home Services</a>
+        </div>
+      </div>
+      <div>
+        <div class="k-foot-col-label">Company</div>
+        <div class="k-foot-links">
+          <a href="/about/">About Us</a>
+          <a href="/resources/case-studies/">Case Studies</a>
+          <a href="/blog/">Blog</a>
+          <a href="/resources/press-release/">Press</a>
+          <a href="/contact/">Contact</a>
+          <a href="/sitemap/">Sitemap</a>
+        </div>
+      </div>
+    </div>
+    <div class="k-foot-bottom">
+      <div>
+        <span>© 2026 Kryvex Media. All rights reserved.</span>
+        <a href="/privacy/">Privacy Policy</a>
+        <a href="/terms/">Terms &amp; Conditions</a>
+      </div>
+      <div>
+        <span>info@kryvexmedia.com</span>
+        <a href="tel:+917079109497" style="margin-left:18px">+91 7079109497</a>
+      </div>
+    </div>
+  </div>
+</footer>
+<script>
+(function(){
+  var ids=['industries','services','countries','resources'];
+  var activeMenu=null;
+  function closeAll(){
+    document.querySelectorAll('.k-panel').forEach(function(p){p.classList.remove('open');});
+    document.querySelectorAll('.k-dd-btn').forEach(function(b){b.classList.remove('active');b.setAttribute('aria-expanded','false');});
+    document.querySelectorAll('.k-caret').forEach(function(c){c.classList.remove('open');});
+    activeMenu=null;
+  }
+  function openMenu(id){
+    closeAll();
+    var panel=document.getElementById('panel-'+id);
+    var dd=document.getElementById('dd-'+id);
+    if(!panel||!dd)return;
+    var btn=dd.querySelector('.k-dd-btn');
+    var caret=btn.querySelector('.k-caret');
+    panel.classList.add('open');
+    btn.classList.add('active');
+    btn.setAttribute('aria-expanded','true');
+    caret.classList.add('open');
+    activeMenu=id;
+  }
+  ids.forEach(function(id){
+    var dd=document.getElementById('dd-'+id);
+    if(!dd)return;
+    var btn=dd.querySelector('.k-dd-btn');
+    btn.addEventListener('click',function(e){e.stopPropagation();activeMenu===id?closeAll():openMenu(id);});
+  });
+  document.addEventListener('click',function(e){if(!e.target.closest('.k-dd'))closeAll();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeAll();});
+  var burger=document.getElementById('mnb');
+  if(burger){
+    burger.addEventListener('click',function(){
+      document.querySelector('.k-navlinks').classList.toggle('mobile-open');
+    });
+  }
+})();
+</script>
+<!-- Kryvex conversion click tracking -->
+<script>
+(function(){
+  function track(type){
+    try{
+      window.dataLayer=window.dataLayer||[];
+      dataLayer.push({'event':'contact_click','conversion_type':type});
+      if(typeof fbq==='function'){fbq('track','Contact',{content_name:type});}
+      if(typeof gtag==='function'){gtag('event','conversion',{'send_to':'AW-18433795545/hz-JCJXUmbAdENnL9dVE'});}
+    }catch(e){}
+  }
+  document.addEventListener('click',function(e){
+    var wa=e.target.closest('a[href^="https://wa.me/"]');
+    if(wa){track('whatsapp');return;}
+    var tel=e.target.closest('a[href^="tel:"]');
+    if(tel){track('call');}
+  });
+})();
+</script>
+</body>
+</html>
