@@ -5403,10 +5403,45 @@ ET; ET.parse(...)"` after editing — both parsed cleanly.
 
 **Sitemap resubmission**: `GOOGLE_SEARCH_CONSOLE_SUBMIT_SITEMAP` called
 for `sc-domain:kryvexmedia.com`, feedpath
-`https://kryvexmedia.com/sitemap.xml` — real success response logged
-below once confirmed.
+`https://kryvexmedia.com/sitemap.xml` — real success response: "Sitemap
+'https://kryvexmedia.com/sitemap.xml' successfully submitted for site
+'sc-domain:kryvexmedia.com'".
 
 **Commit/deploy**: 30 page files + `sitemap-us-county-services.xml` +
 `sitemap.xml` + this log file staged explicitly by exact pathspec (no
-`git add -A`), committed, pushed to `claude/webtech-core-current-work-rsmbri`,
-fast-forwarded to `main`. Deploy status logged below once confirmed.
+`git add -A` — two untracked blog-routine directories present in the
+shared checkout were confirmed excluded via `git status --porcelain`
+before staging), committed as `7bf656eca`, pushed to
+`claude/webtech-core-current-work-rsmbri`, fast-forwarded cleanly to
+`main` (`git merge --ff-only`, no divergence).
+
+**Deploy status — reported honestly, not assumed (standing publish-
+verification rule):** this commit's own run, #363 (id `42777076761`,
+head_sha exact match `7bf656eca`), resolved `conclusion: cancelled` —
+superseded within ~90 seconds by a concurrent blog-automation routine's
+own push (`8cb01b943`) to the same shared checkout. Confirmed via
+`git merge-base --is-ancestor 7bf656eca origin/main` (true) that
+`8cb01b943` is a real descendant containing this run's changes, same
+verification pattern used on every prior cancelled-and-superseded case
+in this log. The superseding commit's own run, #364 (id `42777231129`,
+head_sha exact match `8cb01b943`) was polled repeatedly over roughly
+30+ minutes via a mix of `get_workflow_run` and `list_workflow_jobs`
+(cross-checking for stale reads each time, per standing instruction):
+the `build` and `report-build-status` jobs both completed
+`conclusion: success` within the first ~2 minutes, but the `deploy`
+job's "Deploy to GitHub Pages" step sat `in_progress` from `07:44:53Z`
+onward with zero observable change across every subsequent poll — a
+real stall, not a stale-read artifact (job-level step data, not just
+the cached run-level summary, was re-checked and showed identically
+unchanged timestamps every time). No further commit had superseded
+`8cb01b943` as of the last check. **This exceeds every previously
+logged "slow but not stuck" resolution window in this file (longest
+prior case ~17 minutes) and was not confirmed to reach `success` before
+this entry was written — reported honestly rather than claimed live.**
+Action item for a later run/session: re-poll run #364
+(`42777231129`) first; if it has since resolved `success`, confirm and
+mark today's 30 pages live; if it is still stuck or resolves to
+`failure`/`cancelled` with nothing superseding it, push one small
+follow-up commit (per the standing stall-handling rule) to retrigger a
+fresh deploy and verify that one to `success` before calling anything
+from this run live.
