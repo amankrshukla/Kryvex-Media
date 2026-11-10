@@ -2564,8 +2564,47 @@ and the reverse both return empty — the two branches are in sync.
   (3 new post directories, `blog/index.html`, `sitemap-resources.xml`)
   explicitly by name (never `git add -A`).
 
-- **Sitemap resubmission and deploy verification:** pending — recorded
-  in a same-day follow-up to this entry once confirmed, per the
-  standing publish-verification rule (never report something live
-  before the exact matching GitHub Actions run reaches
-  `conclusion: success`).
+- **Sitemap resubmission:** confirmed — "Sitemap
+  'https://kryvexmedia.com/sitemap.xml' successfully submitted for site
+  'sc-domain:kryvexmedia.com'" (called after all 3 URLs were in the
+  sitemap, before the deploy-verification step).
+
+- **Deploy — genuinely unresolved as of this entry, not a stale read.**
+  This run's own commit (8cb01b943) first got its own deploy run, #364
+  (id `42777231129`, head_sha `8cb01b943` — exact match): build and
+  report-build-status both succeeded, but the "Deploy to GitHub Pages"
+  step sat `in_progress` with zero change across several fresh polls
+  (mixing `get_workflow_run`, `list_workflow_jobs`, and a fresh
+  `list_workflow_runs` to rule out caching each time). Before that run
+  resolved, the concurrently-running SEO keyword-optimization routine
+  pushed its own commit (`86536c8ef`) on top of main — confirmed via
+  `git merge-base --is-ancestor 8cb01b943 86536c8ef` that this run's
+  commit is included — which cancelled run #364 (`conclusion:
+  cancelled`) and started a new run, #365 (id `42777739730`, head_sha
+  `86536c8ef`). Tracked #365 instead per the standing rule: its build
+  and report-build-status jobs both completed `conclusion: success`
+  quickly (07:49:02-07:49:08Z), but its own "Deploy to GitHub Pages"
+  step has now sat `in_progress` since 07:49:09Z through more than 4
+  minutes of real, non-stale polling (job-level `started_at` timestamps
+  moved forward normally through build and report-build-status, then
+  stopped moving at the deploy step specifically) — the same symptom
+  the SEO routine's own log entry (`seo-keyword-optimization-log.md`,
+  "SEO log: record real (unresolved) deploy status for 2026-11-10 pass
+  7") independently found and reported on run #364 after 30+ minutes.
+  Two consecutive runs showing the identical "deploy step stuck,
+  nothing else stuck" pattern today points to a real, currently-ongoing
+  GitHub Pages deploy-pipeline slowdown rather than two unrelated
+  flukes. Logging this honestly as **unresolved as of 2026-11-10
+  ~07:53 UTC** rather than claiming the 3 posts are live — per the
+  standing publish-verification rule, `conclusion: success` on the
+  exact matching run is required before that claim, and it hasn't been
+  reached yet. All 3 posts, the sitemap, and the index-page cards are
+  correctly committed and pushed to both branches (confirmed in sync:
+  `git log origin/main..origin/claude/webtech-core-current-work-rsmbri`
+  and the reverse direction both return empty) and sitemap resubmission
+  is real and confirmed — only the GitHub Pages deploy-success
+  confirmation itself remains outstanding. **Action item for the next
+  automation run (or the Daily Combined Status Report) to re-poll run
+  #365 and log the real final conclusion once it lands; if it is found
+  to have failed outright rather than merely slow, retrigger with a
+  small follow-up commit per the standing rule.**
