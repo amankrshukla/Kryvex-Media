@@ -863,6 +863,48 @@ picked (see the 2026-09-28 entry below for why this matters).
      sub-page files confirmed to exist on disk via `-f` check today, not
      yet edited.)*
 
+545. ~~`tennessee/shelby/local-seo`~~ — done 2026-11-10 (county × service sub-page)
+546. ~~`tennessee/shelby/ppc`~~ — done 2026-11-10 (county × service sub-page)
+547. ~~`tennessee/shelby/social-media`~~ — done 2026-11-10 (county × service sub-page)
+548. ~~`tennessee/shelby/content-marketing`~~ — done 2026-11-10 (county × service sub-page)
+549. ~~`tennessee/shelby/email-marketing`~~ — done 2026-11-10 (county × service sub-page)
+550. ~~`tennessee/shelby/web-design`~~ — done 2026-11-10 (county × service sub-page)
+551. ~~`hawaii/honolulu/local-seo`~~ — done 2026-11-10 (county × service sub-page)
+552. ~~`hawaii/honolulu/ppc`~~ — done 2026-11-10 (county × service sub-page)
+553. ~~`hawaii/honolulu/social-media`~~ — done 2026-11-10 (county × service sub-page)
+554. ~~`hawaii/honolulu/content-marketing`~~ — done 2026-11-10 (county × service sub-page)
+555. ~~`hawaii/honolulu/email-marketing`~~ — done 2026-11-10 (county × service sub-page)
+556. ~~`hawaii/honolulu/web-design`~~ — done 2026-11-10 (county × service sub-page)
+557. ~~`florida/palm-beach/local-seo`~~ — done 2026-11-10 (county × service sub-page)
+558. ~~`florida/palm-beach/ppc`~~ — done 2026-11-10 (county × service sub-page)
+559. ~~`florida/palm-beach/social-media`~~ — done 2026-11-10 (county × service sub-page)
+560. ~~`florida/palm-beach/content-marketing`~~ — done 2026-11-10 (county × service sub-page)
+561. ~~`florida/palm-beach/email-marketing`~~ — done 2026-11-10 (county × service sub-page)
+562. ~~`florida/palm-beach/web-design`~~ — done 2026-11-10 (county × service sub-page)
+563. ~~`new-york/erie/local-seo`~~ — done 2026-11-10 (county × service sub-page)
+564. ~~`new-york/erie/ppc`~~ — done 2026-11-10 (county × service sub-page)
+565. ~~`new-york/erie/social-media`~~ — done 2026-11-10 (county × service sub-page)
+566. ~~`new-york/erie/content-marketing`~~ — done 2026-11-10 (county × service sub-page)
+567. ~~`new-york/erie/email-marketing`~~ — done 2026-11-10 (county × service sub-page)
+568. ~~`new-york/erie/web-design`~~ — done 2026-11-10 (county × service sub-page)
+569. ~~`wisconsin/milwaukee/local-seo`~~ — done 2026-11-10 (county × service sub-page)
+570. ~~`wisconsin/milwaukee/ppc`~~ — done 2026-11-10 (county × service sub-page)
+571. ~~`wisconsin/milwaukee/social-media`~~ — done 2026-11-10 (county × service sub-page)
+572. ~~`wisconsin/milwaukee/content-marketing`~~ — done 2026-11-10 (county × service sub-page)
+573. ~~`wisconsin/milwaukee/email-marketing`~~ — done 2026-11-10 (county × service sub-page)
+574. ~~`wisconsin/milwaukee/web-design`~~ — done 2026-11-10 (county × service sub-page)
+575. *(Seventh pass on the county × service sub-tier. Picked the next 5
+     already-optimized major metro county hubs not yet covered by the
+     service sub-tier, continuing in county-hub-queue order —
+     `arizona/pima`, `north-carolina/wake`, `north-carolina/mecklenburg`,
+     `california/sacramento`, `florida/orange` — confirmed via direct
+     `-f` file-existence check on all 30 target `index.html` paths, and
+     cross-checked against this file that none of the 30 target paths
+     had been logged done before. Semrush checked live again this run
+     and still returned `no_api_units`, so the same 6 WebSearch-sourced
+     keyword pairs established 2026-11-04 were reused again, not
+     re-invented. Not yet edited — for an eighth pass.)*
+
 ## Log
 
 ### 2026-09-26
@@ -5219,3 +5261,152 @@ agent, cross-checked here) confirmed the `deploy` job had actually
 completed `conclusion: success` within ~105 seconds of starting. All 30
 pages from this run are confirmed live. Branch sync re-confirmed clean
 both directions on both branches as of this note.
+
+### 2026-11-10 — county × service sub-tier, seventh pass (30 pages)
+
+**Pages**: all 6 service sub-pages (`local-seo`, `ppc`, `social-media`,
+`content-marketing`, `email-marketing`, `web-design`) for 5 major metro
+county hubs not yet covered by the service sub-tier: `tennessee/shelby`
+(Memphis), `hawaii/honolulu`, `florida/palm-beach`, `new-york/erie`
+(Buffalo), `wisconsin/milwaukee`. All 5 county hubs were previously
+logged done at the hub level (2026-10-21); none of their 30 service
+sub-pages had been logged done before this run (confirmed via grep
+against this file before starting — zero matches for all 30 target
+paths). Existence of all 30 target files confirmed via direct `-f`
+file-existence check before any edit.
+
+**Intent-match check**: read each service sub-page's actual current
+title/H1/sub paragraph before picking keywords (all 30 pages read via
+grep before editing). Confirmed again this run that `content-marketing`
+is still the "Content & Reputation" / review-generation template (not
+blog-style content marketing) across all 5 counties — the retargeting
+established 2026-11-04 still holds (checked via direct extraction of the
+`<ul class="cty-included">` list on all 5 counties' `content-marketing`
+pages before editing: all 6 showed "Blog and resource content..." as a
+minority item alongside majority review-generation/reputation-monitoring
+items, identical to every prior pass).
+
+**Keyword source**: Semrush `keyword_research` was called live this run
+(no params) and returned `no_api_units` again — "The user has an active
+Semrush subscription, but does not have enough API units to complete
+this request," non-retryable, same result as every check since
+2026-11-04. So the already-established WebSearch-sourced
+primary/secondary pairs (first sourced 2026-11-04 from
+straightnorth.com, lseo.com, gofishdigital.com, clicksgeek.com,
+dinerotechlabs.com, mainstreethost.com, brentonway.com, adtargeting.io,
+digitalsuccess.us) were reused, not re-invented. No volume/CPC/KD number
+is claimed for any pair. Action item carried forward: revisit live
+Semrush pricing/volume data for these 6 pairs once API units refresh.
+
+Keyword pairs used (identical across all 5 counties, same pairs as every
+prior pass on this sub-tier):
+
+| Service | Primary | Secondary |
+|---|---|---|
+| local-seo | Local SEO Services | Google Business Profile optimization |
+| ppc | PPC Management Services | Google Ads management |
+| social-media | Social Media Marketing Services | social media management |
+| content-marketing | Online Reputation Management | Review generation services |
+| email-marketing | Email Marketing Services | Email marketing automation |
+| web-design | Web Design Services | mobile-first website design |
+
+**Changes made per page** (same pattern every one of the 30 pages,
+applied via a single Python script asserting an exact pre-edit match on
+each field before touching it — any mismatch would have raised an error
+and stopped the run rather than silently skipping or guessing; all 30
+files passed with no exceptions):
+- `<title>`, `<meta name="description">`, `og:title`/`og:description`,
+  `twitter:title`/`twitter:description`: original service label (e.g.
+  "Local SEO & Map Pack") replaced with the primary keyword (e.g. "Local
+  SEO Services") at the start of each; the second sentence of the three
+  description tags (meta/OG/Twitter) was left completely unchanged.
+- JSON-LD `Service.description` field updated to the primary keyword
+  phrasing; the breadcrumb `name` and `Service.serviceType`/`name` fields
+  were left as the original service label (matching the established LA
+  reference pattern — confirmed by direct comparison against
+  `california/los-angeles/*`'s JSON-LD before writing the script).
+- Eyebrow badge (`.cty-eyebrow`) and the actual `<h1>` text: service label
+  replaced with the primary keyword.
+- Visible body opening paragraph (`<p class="sub">`): rewritten to open
+  with a primary-keyword sentence (the same wording already established
+  for each service type on `california/los-angeles/*` and every
+  subsequently-optimized county), keeping the existing "Built for County
+  specifically…" continuation — verified the continuation clause's exact
+  wording on all 5 counties before writing the replacement template
+  (all 5 matched "Built for {County} County specifically...").
+- Secondary keyword inserted into the first relevant `<li>` of the "What's
+  included" list for 25 of the 30 pages (`local-seo`, `ppc`,
+  `social-media`, `content-marketing`, `email-marketing` × 5 counties),
+  rewritten to match the LA reference pattern exactly (e.g. `local-seo`
+  "Google Business Profile setup and full optimization — categories…" →
+  "Google Business Profile optimization — setup, categories…"). For
+  `web-design` (5 pages), the secondary keyword "mobile-first website
+  design" was already present verbatim in the original template's first
+  `<li>` ("Custom, mobile-first website design and build") — confirmed by
+  reading the unedited source before concluding no edit was needed.
+
+**Verification — run this turn, not assumed**: an independent Python
+script (separate from the edit script) re-read all 30 files fresh from
+disk and checked, via regex scoped to each specific tag/element: primary
+keyword present in `<title>`, meta description, og:title, og:description,
+twitter:title, twitter:description, the JSON-LD `Service.description`
+field, the eyebrow badge, and inside the actual `<h1>...</h1>` text (not
+just nearby) — all 30/30 passed every check. Secondary keyword: regex
+count (case-insensitive) inside `<main>` — all 30/30 had exactly 1 match.
+A separate check confirmed, for every one of the 30 files, that the
+`<meta name="description">` content string and the `<p class="sub">` body
+text are NOT identical (the 2026-11-07 near-miss guard) — zero matches,
+i.e. the two fields differ as intended on every page. `<div>` open/close
+tag balance confirmed equal on all 30 (via regex count, e.g. 69/69 on the
+`tennessee/shelby/ppc` and `wisconsin/milwaukee/content-marketing`
+samples). Every JSON-LD block parsed successfully via Python `json.loads`
+on all 30. Spot-checked 3 files directly with `grep -c -i`/`grep -o`
+outside the verification script (`tennessee/shelby/ppc`:
+primary 10 lines/secondary 1 line, `<h1>PPC Management Services for
+Shelby County Businesses</h1>`, div 69/69; `wisconsin/milwaukee/
+content-marketing`: primary 10/secondary 1,
+`<h1>Online Reputation Management for Milwaukee County Businesses</h1>`,
+div 69/69; `florida/palm-beach/web-design`: primary 10/secondary 1,
+`<h1>Web Design Services for Palm Beach County Businesses</h1>`) —
+matched the script's results. `git diff --stat` showed exactly these 30
+files changed (22 lines/page for the 25 pages with a secondary-keyword
+`<li>` edit, 20 lines/page for the 5 `web-design` pages with no `<li>`
+edit) and a full diff of one file
+(`tennessee/shelby/local-seo/index.html`) against its prior committed
+version showed exactly the intended fields changed (title, 3× description
+tags with unchanged second sentence, OG/Twitter title, JSON-LD
+description, badge, H1, sub paragraph, one `<li>`), no stray edits —
+gtag.js/GTM/Meta Pixel script tags untouched. `git status --porcelain`
+checked before committing: two untracked blog directories from a
+concurrent blog-automation routine were present and left untouched (not
+staged).
+
+**Noindex observation (not acted on — separate, owner-gated workstream)**:
+all 30 of today's pages (`tennessee/shelby/*`, `hawaii/honolulu/*`,
+`florida/palm-beach/*`, `new-york/erie/*`, `wisconsin/milwaukee/*`) carry
+`<meta name="robots" content="noindex,follow">` (checked via
+`grep -c` on all 30 files both before and after editing — unchanged by
+this run) — unlike the 2026-11-09 pass, which found a mixed split
+(Ohio counties indexable, Utah/Tennessee noindexed), this pass's 5
+counties are 100% noindexed.
+
+**Sitemap lastmod**: all 30 edited URLs were located in
+`sitemap-us-county-services.xml` (confirmed via a Python script asserting
+exactly 1 `<url>` block match per URL before writing) and their
+`<lastmod>` bumped from `2026-09-10` to `2026-11-10`. `git diff --stat`
+confirmed exactly 30 changed lines in that file (30 insertions/30
+deletions) and no other lines touched. The
+`sitemap-us-county-services.xml` entry inside the top-level `sitemap.xml`
+index was also bumped from `2026-11-09` to `2026-11-10`. Both files
+validated well-formed via `python3 -I -c "import xml.etree.ElementTree as
+ET; ET.parse(...)"` after editing — both parsed cleanly.
+
+**Sitemap resubmission**: `GOOGLE_SEARCH_CONSOLE_SUBMIT_SITEMAP` called
+for `sc-domain:kryvexmedia.com`, feedpath
+`https://kryvexmedia.com/sitemap.xml` — real success response logged
+below once confirmed.
+
+**Commit/deploy**: 30 page files + `sitemap-us-county-services.xml` +
+`sitemap.xml` + this log file staged explicitly by exact pathspec (no
+`git add -A`), committed, pushed to `claude/webtech-core-current-work-rsmbri`,
+fast-forwarded to `main`. Deploy status logged below once confirmed.
