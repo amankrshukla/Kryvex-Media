@@ -2469,3 +2469,103 @@ and the reverse both return empty — the two branches are in sync.
   the standing rules here prohibit. Today's 3 posts (and the SEO
   routine's 30 county×service pages from the same shared deploy) are
   confirmed live under the real, final conclusion.
+
+### 2026-11-10 — daily blog Routine run (3 posts, thirteenth day of 3-posts/day)
+
+- Topic/query: GSC 90-day query pull checked first (2026-08-10 to
+  2026-11-07, dimension `query`, 100 rows) — same pattern as every
+  prior run: almost entirely hyper-local "[service] agency/company in
+  [city/state/country]" queries already served by the programmatic geo
+  pages (e.g. "digital agency in madhubani", "best digital marketing
+  agency in punjab", "digital marketing agency in etawah"), plus a
+  handful of generic head terms ("digital marketing", "digital
+  marketing agency", "digital advertising agency") already addressed by
+  existing pages. No clean new blog topic in the query data, so all 3
+  of today's topics come from the service-deep-dive fallback tier, each
+  a genuinely distinct angle across three different service areas (web
+  design/security, local SEO, PPC), none repeating 2026-11-09's topics
+  (GSC multi-select filters, Meta Business Terms pause, AI crawlers/
+  Content Signals), any prior day's topics, or any of Kryvex's 9
+  industry pages.
+
+- **Post 1:** `/blog/wordpress-cve-2026-119977-kev-what-to-do/` — web
+  design/security fallback tier. 1,680 words. Sourced from BleepingComputer
+  and SecurityAffairs' reporting that CISA added WordPress core
+  vulnerability CVE-2026-119977 to its Known Exploited Vulnerabilities
+  catalog on November 3, 2026, confirming active exploitation; the
+  CISecurity.org advisory and dailysecurityreview.com corroborating the
+  affected range (WordPress 4.7 through 7.1.3) and the October 28, 2026
+  fix in version 7.1.4; and Wordfence's own vulnerability database
+  (CVSS v3.1 8.1, High) contrasted against WordPress's own advisory
+  rating for the same issue (Low) — both severity ratings reported
+  factually with no attempt to adjudicate which is "correct." Earlier
+  2026 WordPress KEV entries (the CVE-2026-63030/CVE-2026-60137
+  "wp2shell" chain, and CVE-2026-87902) cited for pattern context, not
+  presented as new.
+
+- **Post 2:** `/blog/whitespark-2026-local-search-ranking-factors/` —
+  local SEO fallback tier. 1,583 words. Sourced from Whitespark's own
+  "Local Search Ranking Factors" report page (published November 6,
+  2025, authored by Darren Shaw — the 2026 edition, and the first
+  update to this survey in just over two years), confirming the real
+  methodology (47 experts, 187 factors, a ~2-hour survey, four weighted
+  categories including AI Search visibility as a new category for
+  2026). Specific category-weight figures (GBP signals as the largest
+  single group, reviews and on-page following, citation weight's
+  multi-year decline) are attributed explicitly to third-party
+  write-ups (Loganix, BIZiQ) summarizing the report rather than claimed
+  as directly verified from Whitespark's own page, with that caveat
+  stated plainly in the post itself — consistent with the anti-
+  fabrication rule's requirement to trace every claim to a real source
+  and be honest about what was and wasn't independently confirmed.
+
+- **Post 3:** `/blog/google-ai-mode-ads-no-opt-out-2026/` — PPC
+  fallback tier. 1,745 words. Sourced from PPC Land's reporting
+  ("advertisers in 10 more countries can't opt out of Google's AI Mode
+  ads") and RelevantAudience's coverage of the October 28, 2026
+  expansion (India, Australia, Canada, Kenya, Malaysia, New Zealand,
+  Nigeria, Pakistan, the Philippines, Singapore — 11 countries total
+  with the US — plus multiturn ads launching in the US), corroborated
+  by letsdatascience.com and phonearena.com on the no-opt-out mechanics
+  (existing Search/Shopping/Performance Max campaigns auto-eligible;
+  negative keywords, brand exclusions, and asset pinning as the only
+  remaining controls) and on the October 19, 2026 reversal of Google's
+  March 2026 no-ads-in-AI-Mode commitment. Source disagreement on the
+  exact Brazil/Mexico/UK Q4 timing stated honestly rather than resolved
+  with an invented date.
+
+- **QA (all 3, verified via the Python script in CLAUDE.md's "Standing
+  requirement" section before committing):** `<main>` word counts
+  1,680 / 1,583 / 1,745 — all comfortably over 1,500. Post 3 was topped
+  up from an initial 1,446-word draft with a genuinely new section on
+  what the multiturn ad format mechanically changes about the AI Mode
+  surface, not padding. HTML tag balance (div/section/article/header/
+  footer/main/h1/h2/h3/ul/ol/li/p/a/script/head/body/html/svg/g, open
+  count == close count) verified OK on all 3 and on the edited
+  `blog/index.html`. All 9 `application/ld+json` blocks (BreadcrumbList/
+  BlogPosting/FAQPage × 3) parse via `json.loads`. No noindex tag
+  introduced on any of the 3. Every linked URL (4-5 per post, plus full
+  nav/footer) confirmed to exist on disk before linking. GTM/gtag/Meta
+  Pixel carried over intact from the most recently published template
+  post (`ai-crawlers-content-signals-policy-2026`).
+
+  All 3 cards added to `blog/index.html`'s `#post-grid` (`data-cat`
+  "web" × 1, "seo" × 1, "ppc" × 1 — matching existing filter buttons).
+  All 3 URLs added to `sitemap-resources.xml` with `lastmod`
+  2026-11-10, XML validity verified via `xml.etree.ElementTree.parse`
+  after editing.
+
+- **Git:** `git status` at staging time showed a concurrently-running
+  SEO keyword-optimization routine's edits present (county×service
+  pages across Florida/Hawaii/New York/Tennessee/Wisconsin counties,
+  plus `sitemap-us-county-services.xml`, `sitemap.xml`, and
+  `seo-keyword-optimization-log.md`) — none of those paths were staged
+  or touched by this run. Staged only this run's own 5 touched paths
+  (3 new post directories, `blog/index.html`, `sitemap-resources.xml`)
+  explicitly by name (never `git add -A`).
+
+- **Sitemap resubmission and deploy verification:** pending — recorded
+  in a same-day follow-up to this entry once confirmed, per the
+  standing publish-verification rule (never report something live
+  before the exact matching GitHub Actions run reaches
+  `conclusion: success`).

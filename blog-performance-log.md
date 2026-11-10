@@ -1660,6 +1660,73 @@ beyond what's already been tried and logged. Zero clicks after
 eighteen weeks across 63 published posts remains the headline number
 worth being honest about.
 
+## 2026-11-10 — standing indexing + performance check (plus today's 3 new posts)
+
+**New posts today:** `wordpress-cve-2026-119977-kev-what-to-do`,
+`whitespark-2026-local-search-ranking-factors`,
+`google-ai-mode-ads-no-opt-out-2026` — all 0 days old, too new for a URL
+Inspection signal yet, so not checked this run, consistent with the
+standing pattern for brand-new posts.
+
+**Indexing check (sampling approach — the standing flagged/stuck URLs):**
+- `local-seo-vs-national-seo` (long-standing flagged-stuck post):
+  **"Crawled - currently not indexed,"** `lastCrawlTime` still
+  `2026-09-17T19:03:49Z` — now 54 days without a recrawl. Unchanged.
+- `digital-marketing-for-home-services-businesses`: **toggled back** to
+  **"URL is unknown to Google,"** down from "Discovered - currently not
+  indexed" held across every prior check since this post launched.
+  Logging this honestly rather than smoothing it over — this is a real
+  reversal, not a forward step, and the opposite direction from what
+  "toggling finally settling" would look like.
+- `digital-marketing-for-restaurants`: **held steady for a fourth
+  straight check** — still **"Discovered - currently not indexed,"**
+  same as 2026-11-06 through 2026-11-09. The strongest settling signal
+  yet for this specific URL.
+- `google-ai-mode-seo-guide-for-small-businesses`: **"Discovered -
+  currently not indexed,"** unchanged from 2026-11-09 — a second
+  consecutive stable reading after its history of toggling.
+- `digital-marketing-for-tour-operators-and-travel-agencies`:
+  **"Discovered - currently not indexed,"** unchanged from every prior
+  reading.
+
+**Performance re-pull (90-day window, page dimension, `/blog/`,
+2026-08-13 to 2026-11-08, vs. the last logged pull of 2026-08-12 to
+2026-11-07):**
+- `/blog/` index: 6 impressions (position 7.33) — unchanged from the
+  last pull.
+- Unchanged: `10-local-seo-tactics-that-fill-your-calendar` 2
+  (position 1), `how-to-choose-an-seo-company-in-patna` 3 (position
+  1), `seo-company-hiring-guide` 4 (position 1), `what-is-digital-
+  marketing` 5 (position 2.6) — identical to the prior four pulls now,
+  a fifth consecutive fully-stable reading for this set.
+- Still absent from this pull (0 impressions, consistent with recent
+  pulls): `how-to-cut-wasted-ad-spend-in-30-days` (now a seventh
+  consecutive pull with no recovery), `email-flows-every-business-needs`,
+  `website-mistakes-costing-you-customers`.
+- Zero clicks recorded across every single row again — now roughly
+  twenty weeks of flat zero-click data site-wide, no exception. None of
+  the newest posts (today's 3, the 3 from 2026-11-09, or the 3 from
+  2026-11-08) show any impressions yet, as expected at this age.
+
+**Action items:** The headline finding this run is the
+`digital-marketing-for-home-services-businesses` reversal — it had held
+"Discovered - currently not indexed" since it first appeared in these
+checks, and this pull found it back at "URL is unknown to Google"
+instead, which is a step backward in Google's own crawl/discovery
+pipeline, not noise to wave away. No action is available beyond what's
+already been tried (the post is live, in the sitemap, internally
+linked, and has carried no indexing-blocking issue at any point this
+was checked), so this is being logged as a real, unexplained regression
+to watch on the next check rather than something "fixed" by any lever
+available here. On the positive side, `digital-marketing-for-restaurants`
+now has its most stable run yet (four consecutive holds), and the core
+`/blog/` performance set has now returned the exact same five-row
+picture for five pulls running — genuinely flat, not degrading, but
+also not growing. `local-seo-vs-national-seo` remains the longest-stuck
+post on the site at 54 days without a Google recrawl. Zero clicks after
+twenty weeks across 69 published posts remains the headline number
+worth being honest about.
+
 ## 2026-11-09 — standing indexing + performance check (plus today's 3 new posts)
 
 **New posts today:** `google-search-console-multi-select-filters-2026`,
