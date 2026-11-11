@@ -351,6 +351,22 @@ Fix, applies to every publish from here on, not just the blog automation:
   deploy-success check above is the real, available verification, and it
   must be used every time, not only when something looks wrong.
 
+## Cloudflare cache purge after every publish (set 2026-11-11, per owner instruction)
+
+`kryvexmedia.com` sits behind Cloudflare (confirmed real zone, id
+`0a79823739b15c906c960c992e863cc0`, Free plan) in front of GitHub Pages.
+After a deploy is confirmed `success` per the rule above, purge Cloudflare's
+cache for every URL actually changed in that publish — new/edited pages,
+the blog index if cards were added, and any sitemap file whose `<lastmod>`
+was bumped — via `CLOUDFLARE_MCP_EXECUTE`
+(`POST /zones/0a79823739b15c906c960c992e863cc0/purge_cache`, body
+`{"files": [<real changed URLs>]}`). List the exact URLs touched that run,
+not a blanket full-zone purge, unless the owner asks for a full purge
+specifically. Requires the `cloudflare_mcp` Composio connection to be
+active in the session — if it's missing or expired, say so plainly rather
+than skipping the purge silently, and ask the owner to reconnect it (same
+pattern as any other missing connector).
+
 ## Daily keyword-optimization automation (set 2026-09-26, standing, no approval gate)
 
 A recurring Routine (`trig_018kXGKGYidUcjnAJpLAmLWR`, daily 02:30 UTC,
