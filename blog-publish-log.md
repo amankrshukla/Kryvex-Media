@@ -2608,3 +2608,136 @@ and the reverse both return empty — the two branches are in sync.
   #365 and log the real final conclusion once it lands; if it is found
   to have failed outright rather than merely slow, retrigger with a
   small follow-up commit per the standing rule.**
+
+  **Follow-up, resolved as of this run (2026-11-11):** re-checked the
+  2026-11-10 action item above before starting today's work. Run #365
+  (head_sha `86536c8ef`) was itself cancelled, superseded by a further
+  commit (`aaeb77545`, this file's own 2026-11-10 log-update commit),
+  whose own run #366 (id `42778704084`) completed `conclusion: success`
+  at `2026-11-10T07:59:01Z`. Confirmed via
+  `git merge-base --is-ancestor 86536c8ef aaeb77545` that the chain is
+  intact. 2026-11-10's 3 posts, and the SEO routine's pass 7 pages from
+  the same shared deploy window, are retroactively confirmed live under
+  that real, final `success` conclusion. No further action needed on
+  that item.
+
+### 2026-11-11 — daily blog Routine run (3 posts, fourteenth day of 3-posts/day)
+
+- Topic/query: GSC 90-day query pull checked first (2026-08-13 to
+  2026-11-08, dimension `query`, 100 rows) — again almost entirely
+  hyper-local "[service] agency/digital marketing in [city/state]"
+  queries already served by the programmatic geo pages (e.g. "digital
+  agency in madhubani" at 25 impressions/position 1.04, "digital
+  agency in bihar" at 11 impressions/position 1), with no clean mapping
+  to a new blog topic, same pattern as every prior run. All 3 topics
+  come from the service-deep-dive fallback tier, each a distinct
+  angle, none repeating 2026-11-10's topics (WordPress CVE, Whitespark
+  local ranking factors, Google AI Mode ads), any prior day's topics,
+  or any of Kryvex's 9 industry pages.
+
+- **Post 1:** `/blog/google-local-services-ads-missed-call-billing-2026/`
+  — PPC fallback tier. 1,793 words. Three separate, real 2026 changes
+  to Google Local Services Ads, sourced from Search Engine Land, PPC
+  Land, TechWyse, MediaPost, and Search Engine Roundtable: missed-call
+  billing for calls held over 20 seconds during business hours
+  (effective Oct 1, 2026, with Google Ads Liaison Ginny Marvin's public
+  clarification on the 15-day repeat-call rule, and the notice's
+  silence on when the clock starts flagged honestly as unresolved); a
+  July 2026 policy-document rename with the exact effective date (July
+  6 vs. July 31) left genuinely unclear across sources; and the real
+  headline change, LSA folding into Google Ads as a specialized
+  Performance Max campaign type phased from August 2026 into 2027,
+  starting with 9 named trades. Explicitly separated from the
+  unrelated Local Inventory Ads default-on change that some headlines
+  conflate with this migration.
+
+- **Post 2:** `/blog/adobe-firefly-commercial-terms-indemnification-2026/`
+  — graphics design fallback tier. 1,691 words. Adobe's Firefly
+  copyright indemnification, traced from the original June 2023
+  commitment (Reuters/The Star, TechCrunch) to the current Generative
+  AI Product Specific Terms dated April 23, 2026. Documented the real
+  plan-eligibility restriction from earlier terms versions (Creative
+  Cloud for teams/enterprise on a Pro Plus or Edition 4 plan) and
+  stated honestly that the current public April 2026 text's exact
+  eligibility wording could not be confirmed unchanged, per the
+  anti-fabrication rule, rather than asserted either way. Covered real,
+  sourced exclusions (beta features, custom models, API coverage tied
+  to the sales order) and Adobe's own documentation on automatic C2PA
+  Content Credentials metadata attaching to Firefly output.
+
+- **Post 3:** `/blog/x-ads-aesthetic-score-ugly-ads-policy-2026/` —
+  social media fallback tier. 1,626 words. Deliberately separates X's
+  documented, already-live 2025 "aesthetic score" CPM-discount system
+  and one-emoji ad limit (Japan/Korea exception), both on X's own
+  published ad quality policy, from Elon Musk's October 16, 2026 post
+  about banning "ugly" ads, which multiple outlets (NewsBytesApp,
+  Analytics Insight, Storyboard18) confirm has no published rulebook or
+  enforcement mechanism yet. Flagged explicitly as a founder statement
+  of direction, not an enforced policy. Also separates the unrelated
+  March 2026 "Paid Partnership" organic-content disclosure label from
+  the ad-serving policies covered. Topped up from an initial
+  1,478-word draft with a genuinely new, sourced section connecting the
+  aesthetic score to X's reported AI-driven ad push aimed at smaller
+  advertisers, not padding.
+
+- **Standing no-dash rule caught mid-run:** CLAUDE.md's "No dashes
+  between words in page content" rule was added the same morning (set
+  2026-11-11, by a different concurrent session rebuilding the
+  healthcare industry page) after this run's first commit had already
+  published all 3 posts with normal em-dash punctuation throughout.
+  Caught via the post-push `git log` check at the top of this run's
+  deploy-verification step, which surfaced the new rule's commit.
+  Rewrote every em dash used as sentence punctuation across all 3
+  posts' own authored content (title, meta tags, JSON-LD, h1, dek,
+  body, headings, callouts, in-`<main>` CTA band) into periods, commas,
+  or colons, and fixed the 3 matching card titles in `blog/index.html`.
+  Left the one pre-existing dash in each post's shared footer tagline
+  untouched, per the rule's own exception for unmodified shared
+  template text. Re-verified word counts (1,793 / 1,691 / 1,626, all
+  still over 1,500), tag balance, and JSON-LD validity after the
+  rewrite, in a second commit.
+
+- **QA (verified via the Python script in CLAUDE.md's "Standing
+  requirement" section before each commit):** final `<main>` word
+  counts 1,793 / 1,691 / 1,626 — all comfortably over 1,500. HTML tag
+  balance (div/section/article/header/footer/main/h1/h2/h3/ul/ol/li/p/
+  a/script/head/body/html/svg/g/noscript/button/span, open count ==
+  close count) verified OK on all 3 and on the edited `blog/index.html`.
+  All 9 `application/ld+json` blocks (BreadcrumbList/BlogPosting/
+  FAQPage × 3) parse via `json.loads` — caught and fixed a real bug in
+  Post 3 pre-commit, where an embedded straight double-quote in the
+  title broke the `og:title`/`twitter:title` meta attributes; fixed
+  with `&quot;` entities before committing, not discovered after. No
+  noindex tag introduced on any of the 3. Every linked URL (4-5 per
+  post, plus full nav/footer) confirmed to exist on disk before
+  linking. GTM/gtag/Meta Pixel carried over intact from the most
+  recently published template post (`google-ai-mode-ads-no-opt-out-2026`).
+
+  All 3 cards added to `blog/index.html`'s `#post-grid` (`data-cat`
+  "ppc" × 1, "web" × 1, "social" × 1 — matching existing filter
+  buttons). All 3 URLs added to `sitemap-resources.xml` with `lastmod`
+  2026-11-11, XML validity verified via `xml.etree.ElementTree.parse`
+  after editing.
+
+- **Git:** `git status` at staging time showed unrelated, unstaged
+  changes to `sitemap-industries.xml` and `sitemap.xml` (2 lines each)
+  from a concurrently-running automation (the healthcare-page lastmod
+  fix) — confirmed via `git diff --stat` that neither file was touched
+  by this run. Staged only this run's own touched paths explicitly by
+  name (never `git add -A`) across two commits: `6f4f3290b` (the 3
+  posts + index/sitemap) and `b5a0921dc` (the no-dash rewrite). Both
+  pushed to `claude/webtech-core-current-work-rsmbri` and
+  fast-forwarded to `main` cleanly, with no conflicts, interleaved with
+  unrelated commits from the concurrent healthcare-page session
+  (`0c5343e9e`, `23a0cf7f2`) between the two.
+
+- **Sitemap resubmission:** confirmed — "Sitemap
+  'https://kryvexmedia.com/sitemap.xml' successfully submitted for site
+  'sc-domain:kryvexmedia.com'" (called after all 3 URLs were in the
+  sitemap and both commits were pushed).
+
+- **Deploy — confirmed success, no collision this run.** The final
+  commit's (`b5a0921dc`) own run, #372 (id `42981818163`), completed
+  `status: completed, conclusion: success` at `2026-11-11T07:49:05Z`,
+  head_sha matching exactly. All 3 posts are confirmed live under this
+  real, final conclusion.
