@@ -29,6 +29,23 @@ industry data, etc.) must trace to a real, verifiable source — cite it in
 commit messages or research files. If a fact can't be verified, leave it out
 rather than filling the gap with something plausible-sounding.
 
+## No dashes between words in page content (set 2026-11-11, per owner instruction)
+
+Don't use em dashes, en dashes, or hyphens as sentence punctuation
+(joining or separating clauses) in any content written for a site page —
+body copy, headings, meta descriptions, FAQ answers, JSON-LD text fields,
+blog posts, everything in `<main>`. Use a period, comma, colon, or
+semicolon instead, or just restructure the sentence. A real compound word
+(e.g. "cost-per-click", "one-size-fits-all", "lower-cost-per-patient")
+is fine since that's not sentence punctuation. Applies to all future
+content, including the daily blog and SEO keyword-optimization
+automations — check for this before committing a new or edited page,
+the same way word count and tag balance are already checked. Pre-existing
+shared template/component text (e.g. the site-wide chatbot widget
+copy) hasn't been retroactively swept for this yet — fix it opportunistically
+if you're already editing that file, but it's not an independent backlog
+item unless the owner asks for a dedicated pass.
+
 ## Current status (as of 2026-09-20)
 
 - Site audit completed: baseline was ~500-630 words `<main>` content per
