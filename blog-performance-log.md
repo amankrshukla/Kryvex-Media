@@ -1848,3 +1848,73 @@ remains the longest-stuck post on the site at 55 days without a Google
 recrawl, with no further lever available beyond what's already been
 tried and logged. Zero clicks across 72 published posts remains the
 headline number worth being honest about.
+
+## 2026-11-12 — standing indexing + performance check (plus today's 3 new posts)
+
+**New posts today:** `meta-blocks-tiktok-ads-facebook-instagram-2026`,
+`google-maps-message-button-business-profile-2026`,
+`ftc-consumer-review-rule-enforcement-2026` — all 0 days old, too new
+for a URL Inspection signal yet, so not checked this run, consistent
+with the standing pattern for brand-new posts.
+
+**Indexing check (sampling approach — the standing flagged/stuck URLs):**
+- `local-seo-vs-national-seo` (long-standing flagged-stuck post):
+  **"Crawled - currently not indexed,"** `lastCrawlTime` still
+  `2026-09-17T19:03:49Z` — now 56 days without a recrawl. Unchanged.
+- `digital-marketing-for-home-services-businesses`: **regressed again**
+  to **"URL is unknown to Google,"** away from the "Discovered" reading
+  logged on 2026-11-11. This URL has now shown three different states
+  across recent checks (Discovered, URL unknown, Discovered, URL unknown
+  again) with no settling pattern, logged honestly as genuinely unstable
+  rather than guessed at.
+- `digital-marketing-for-restaurants`: **held steady for a sixth
+  straight check** — still **"Discovered - currently not indexed,"**
+  same as every reading since 2026-11-06. The most stable URL in this
+  sample.
+- `google-ai-mode-seo-guide-for-small-businesses`: **regressed** to
+  **"URL is unknown to Google,"** breaking what had been three
+  consecutive stable "Discovered" readings (2026-11-08 through
+  2026-11-11). Logged as a real regression, not glossed over just
+  because the prior trend looked like it was settling.
+- `digital-marketing-for-tour-operators-and-travel-agencies`:
+  **"Discovered - currently not indexed,"** unchanged from every prior
+  reading.
+
+**Performance re-pull (90-day window, page dimension, `/blog/`,
+2026-08-15 to 2026-11-10, vs. the last logged pull of 2026-08-14 to
+2026-11-09):**
+- `/blog/` index: **7 impressions (position 11.57)** — a real change
+  from the prior pull's 6 impressions at position 7.33. One additional
+  impression, and the average position got worse, not better. Not
+  claiming this as a trend off one data point, just logging the actual
+  number rather than rounding it into "unchanged" the way the last six
+  pulls genuinely were.
+- Unchanged: `10-local-seo-tactics-that-fill-your-calendar` 2
+  (position 1), `how-to-choose-an-seo-company-in-patna` 3 (position
+  1), `seo-company-hiring-guide` 4 (position 1), `what-is-digital-
+  marketing` 5 (position 2.6) — identical to the prior six pulls for
+  this specific set of pages.
+- Still absent from this pull (0 impressions, consistent with recent
+  pulls): `how-to-cut-wasted-ad-spend-in-30-days` (now a ninth
+  consecutive pull with no recovery), `email-flows-every-business-needs`,
+  `website-mistakes-costing-you-customers`.
+- Zero clicks recorded across every single row again — now roughly
+  twenty weeks of flat zero-click data site-wide, no exception. None of
+  the newest posts (today's 3, the 3 from 2026-11-11, or the 3 from
+  2026-11-10) show any impressions yet, as expected at this age.
+
+**Action items:** Two real regressions this run, not a clean stable
+pull: `digital-marketing-for-home-services-businesses` flipped back to
+"URL is unknown to Google" for the second time, and
+`google-ai-mode-seo-guide-for-small-businesses` broke its three-check
+stable streak the same way. Neither has an obvious cause beyond normal
+Google recrawl variability, and no action beyond continued monitoring is
+available for either. `digital-marketing-for-restaurants` remains the
+most stable tracked URL at six consecutive holds. `local-seo-vs-national-
+seo` remains the longest-stuck post on the site at 56 days without a
+Google recrawl, with no further lever available beyond what's already
+been tried and logged. The `/blog/` index's own impression count ticked
+up by one with a worse average position, too small a change to call a
+trend but real enough to log precisely rather than round off. Zero
+clicks after roughly twenty weeks across 75 published posts remains the
+headline number worth being honest about.

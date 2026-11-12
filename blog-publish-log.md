@@ -2750,3 +2750,104 @@ and the reverse both return empty — the two branches are in sync.
   completed `status: completed, conclusion: success` at
   `2026-11-11T08:00:02Z`, confirming this log update itself deployed
   cleanly too.
+
+## 2026-11-12 — daily blog Routine run (3 posts, service-deep-dive fallback tier)
+
+**Topic selection:** Pulled `GOOGLE_SEARCH_CONSOLE_SEARCH_ANALYTICS_QUERY`
+(dimension `query`, 2026-08-13 to 2026-11-09, row_limit 100). Same
+documented pattern as every prior run since 2026-09-26: the top 100 rows
+are almost entirely hyper-local "agency in [city]" / "digital marketing
+in [country]" / "best seo company in [city]" queries already served by
+the programmatic geo pages, with zero clicks across the entire set.
+`blog/` was checked (`ls`) and confirmed all 9 industry pages already
+have a supporting post. Fell back to the service-deep-dive tier per the
+Routine's own fallback instructions, and found 3 real, WebSearch-verified,
+genuinely distinct developments (not 3 angles on the same story), each
+confirmed not to duplicate any of the 72 existing posts by title/slug
+check before writing:
+
+1. **`meta-blocks-tiktok-ads-facebook-instagram-2026`** (Social, 1,580
+   words): Meta's October 8, 2026 block on TikTok's own ads on Facebook
+   and Instagram, which also reaches third-party campaigns sending
+   traffic to TikTok or other ByteDance properties, across 7 countries
+   (US, Canada, Egypt, Indonesia, Japan, Thailand, Vietnam). Sourced via
+   Reuters-carried TechRepublic reporting, cross-checked against
+   AndroidHeadlines and Innovation Village's independent coverage of the
+   same facts (country list, date, scope all agreed across sources).
+
+2. **`google-maps-message-button-business-profile-2026`** (Local SEO,
+   1,612 words): Google's November 2026 Small Business Bulletin adding
+   a Message button next to Call on Business Profiles with chat enabled,
+   routing to WhatsApp or SMS. Sourced via Search Engine Roundtable's
+   coverage, which quotes Google directly describing the feature. Two
+   adjacent items from the same bulletin, a Gemini-for-Workspace
+   integration and US/Canada call history, are explicitly flagged in the
+   post as less certain rather than stated as settled: the Workspace
+   rollout conflicts with Google's own help page (still lists work
+   accounts as excluded), and the call history item's timing wasn't
+   confirmed in the source covering it.
+
+3. **`ftc-consumer-review-rule-enforcement-2026`** (Content Marketing,
+   1,576 words): the FTC's Rule on Reviews and Testimonials (16 CFR Part
+   465, effective October 21, 2024) moving from its first public warning
+   letters (December 2025) to an actual FTC + Illinois Attorney General
+   lawsuit against Premium Home Service (May 2026) over fake reviews and
+   fake business listings. The per-violation penalty figure ($53,088)
+   was verified against the FTC's own December 2025 warning-letter
+   template, an official FTC document, not taken from a secondary blog's
+   number alone; the earlier $51,744 figure from the rule's original
+   2024 publication is cited explicitly as the pre-inflation-adjustment
+   baseline, with a note that the current figure should be checked
+   against 16 CFR 1.98 directly for anything beyond general scale.
+
+- **QA (verified via the Python script in CLAUDE.md's "Standing
+  requirement" section before committing):** final `<main>` word counts
+  1,580 / 1,612 / 1,576 (post 2 and post 3 were both initially short at
+  first draft, 1,473 and 1,440 words respectively, and were each
+  expanded with one additional substantive paragraph, not padding,
+  before re-verifying) — all comfortably over 1,500. Zero em dashes, en
+  dashes, or spaced hyphens used as sentence punctuation in any of the 3
+  posts, checked by direct string count, not a visual scan. HTML tag
+  balance (div/section/article/p/h2/h3, open count == close count)
+  verified OK on all 3 posts and on the edited `blog/index.html`. All 9
+  `application/ld+json` blocks (BreadcrumbList/BlogPosting/FAQPage × 3)
+  parse via `json.loads`. `<meta charset="utf-8">` placed as the literal
+  first line inside `<head>` on all 3 new posts, confirmed at byte offset
+  46 in each file, per the charset-placement bug found and fixed
+  sitewide on the healthcare/fitness industry pages on 2026-11-11, so
+  these 3 new posts never carried that bug in the first place rather
+  than needing a retrofit. No noindex tag introduced on any of the 3
+  (`grep`-confirmed). Every linked URL (4-5 per post, plus full nav and
+  footer) confirmed to exist on disk via direct file checks before
+  linking, not assumed.
+
+  All 3 cards added to `blog/index.html`'s `#post-grid` (`data-cat`
+  "content" × 1, "seo" × 1, "social" × 1, matching the existing filter
+  buttons), placed at the top of the grid above the 2026-11-11 posts.
+  All 3 URLs added to `sitemap-resources.xml` with `lastmod` 2026-11-12,
+  XML validity verified via `xml.etree.ElementTree.parse` after editing.
+  Site now has 75 total published posts (was 72 before this run).
+
+- **Git:** all 3 post files, the `blog/index.html` edit, and the
+  `sitemap-resources.xml` edit staged explicitly by name (never `git add
+  -A`) and committed together in a single commit, `7897963db`, then
+  pushed to `claude/webtech-core-current-work-rsmbri` and fast-forwarded
+  to `main` with no conflicts.
+
+- **Sitemap resubmission:** confirmed — "Sitemap
+  'https://kryvexmedia.com/sitemap.xml' successfully submitted for site
+  'sc-domain:kryvexmedia.com'" (called after all 3 URLs were in the
+  sitemap and the commit was pushed to `main`).
+
+- **Deploy — confirmed success.** Commit `7897963db`'s own run, #379 (id
+  `43176759103`), reached `status: completed, conclusion: success` at
+  `2026-11-12T07:42:03Z`, head_sha matching exactly. Job-level detail
+  (`list_workflow_jobs`) was checked once mid-run to confirm genuine
+  progress (build job completed, deploy job actively running) rather
+  than assuming a stall, following the lesson from 2026-11-11's real
+  GitHub Pages queue stall on a different commit that same day. All 3
+  posts are confirmed live under this real, final conclusion.
+
+- **Cloudflare cache purge:** confirmed `success: true` for the targeted
+  URLs actually changed this run (the 3 new post pages, `/blog/`, and
+  `sitemap-resources.xml`), per the standing post-publish purge rule.
