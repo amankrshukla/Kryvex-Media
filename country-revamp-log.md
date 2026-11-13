@@ -422,31 +422,79 @@ confirmation (same pattern as batches 1-6).
 (`/serbia/`, `/bosnia-and-herzegovina/`, `/north-macedonia/`, `/montenegro/`, `/albania/`,
 `/moldova/`, `/ukraine/`, `/georgia-country/`).
 
-### Remaining queue (109 countries, batches of ~8, in priority order)
+## Batch 8 (2026-11-13): jordan, morocco, tunisia, azerbaijan, uzbekistan, bangladesh, kenya, ghana
+
+**Sources used**: DataReportal/Kepios Digital 2027 reports for internet-user figures across
+all 8. SME/business figures: this batch's most consistent finding was that reliable,
+reconcilable SME GDP/employment share data is genuinely scarce across these markets, so each
+page uses the single most specific, named, dated figure available rather than an averaged or
+invented number: Jordan (cited as a range, 90%+ of businesses, given real disagreement across
+sources), Morocco (High Commission for Planning's 2019 survey, 93 percent TPME), Tunisia
+(National Statistics Institute/National Business Directory, ~97 percent micro/small),
+Azerbaijan (State Statistics Committee, 424,400 SMEs in 2024, non-oil GDP share explicitly
+distinguished from total GDP), Uzbekistan (State Statistics Committee's quarterly series,
+explicitly dated to Jan-Jun 2026), Kenya and Ghana (deliberately no single percentage used,
+given irreconcilable conflicting figures across sources), Bangladesh (explicitly noting via
+Financial Express reporting that the Bangladesh Bureau of Statistics does not compile SME
+specific GDP data at all).
+
+**Mobile money and distinctive digital-economy facts, the strongest material this batch**:
+Kenya (mobile money agent transactions equaled 53 percent of GDP in 2024 per the Central
+Bank of Kenya; M-Pesa processed 41.68 trillion shillings in the year to March 2026 per
+Safaricom) and Bangladesh (bKash's 83 million registered customers, 239.3 million mobile
+financial services accounts across all providers per Bangladesh Bank) both got real,
+large-scale, named mobile money statistics as their lead facts, genuinely distinctive
+digital economy features most markets don't have.
+
+**Regulatory enforcement, named and dated across every country**: Tunisia's INPDP publicly
+naming real ride hailing and delivery platforms, including Bolt, Glovo, Jumia and Yassir,
+over cross border data transfer violations; Azerbaijan's 2026 parliamentary overhaul of
+online advertising rules with new influencer disclosure requirements; Morocco's CNDP issuing
+specific personal data rules ahead of the 2026 parliamentary election; Kenya's Office of the
+Data Protection Commissioner fining Oppo Kenya and Liquid Telecommunications Kenya; Ghana's
+Supreme Court ruling against Vodafone Ghana over an unauthorized mobile money wallet
+registration, plus the Data Protection Commission's declared 2026 "year of enforcement."
+
+**Competitive scans** (WebSearch snippet-level): same pattern as every prior batch,
+directory/listicle-dominated results, no standout schema/FAQ signal observed.
+
+**Verification**: all 8 pages 1,616-1,713 words in `<main>`, zero em/en dashes in `<main>`,
+FAQPage JSON-LD (18 `mainEntity` items matching the HTML `<details class="faq-item">` count
+exactly on every page) plus the existing `@graph` BreadcrumbList/Service JSON-LD both valid
+and non-duplicate, all `div`/`section`/`details`/`script` tags balanced, charset correctly
+placed at byte 758, no noindex tag on any of the 8.
+
+**Deploy/cache/resubmit**: see chat log for this batch's commit hash, deploy run number, and
+confirmation (same pattern as batches 1-7).
+
+**Sitemap**: `sitemap-international.xml` lastmod bumped to 2026-11-13 for all 8 hub URLs
+(`/jordan/`, `/morocco/`, `/tunisia/`, `/azerbaijan/`, `/uzbekistan/`, `/bangladesh/`,
+`/kenya/`, `/ghana/`).
+
+### Remaining queue (101 countries, batches of ~8, in priority order)
 
 ```
 algeria, andorra, angola, antigua-and-barbuda, argentina,
-azerbaijan, bahamas, bangladesh, barbados, belarus, belize, benin,
+bahamas, barbados, belarus, belize, benin,
 botswana, burkina-faso, burundi, cabo-verde, cambodia,
 cameroon, central-african-republic, chad, chile, comoros,
 costa-rica, cuba, democratic-republic-of-congo, djibouti,
 dominica, dominican-republic, el-salvador, equatorial-guinea, eritrea, eswatini,
-ethiopia, fiji, gabon, gambia, ghana,
+ethiopia, fiji, gabon, gambia,
 grenada, guatemala, guinea-bissau, guinea, haiti, honduras,
-ivory-coast, jamaica, jordan, kenya, kiribati, laos,
+ivory-coast, jamaica, kiribati, laos,
 lesotho, liberia, libya, liechtenstein, madagascar, malawi, mali,
 marshall-islands, mauritania, mauritius, micronesia, monaco,
-morocco, mozambique, myanmar, namibia, nauru, nicaragua, niger,
+mozambique, myanmar, namibia, nauru, nicaragua, niger,
 oman, palau, palestine, panama, papua-new-guinea, paraguay, peru,
 republic-of-congo, rwanda, saint-kitts-and-nevis,
 saint-lucia, saint-vincent-and-the-grenadines, samoa, san-marino, sao-tome-and-principe,
 senegal, seychelles, sierra-leone, solomon-islands, somalia,
 south-sudan, sudan, taiwan, tajikistan, tanzania,
-timor-leste, togo, tonga, trinidad-and-tobago, tunisia, turkmenistan, tuvalu, uganda,
-uruguay, uzbekistan, vanuatu, venezuela, yemen, zambia, zimbabwe
+timor-leste, togo, tonga, trinidad-and-tobago, turkmenistan, tuvalu, uganda,
+uruguay, vanuatu, venezuela, yemen, zambia, zimbabwe
 ```
 
-Next batch (batch 8, suggested): jordan, morocco, tunisia, azerbaijan, uzbekistan,
-bangladesh, kenya, ghana — larger, more data-available Middle East/Central Asia/South Asia/
-Africa markets with real World Bank/national-statistics SME and internet-usage data
-available, same method.
+Next batch (batch 9, suggested): chile, costa-rica, dominican-republic, uruguay, panama,
+paraguay, cameroon, senegal — remaining larger Latin American and West/Central African
+markets with real World Bank/national-statistics data available, same method.
