@@ -367,32 +367,86 @@ confirmation (same pattern as batches 1-5).
 (`/estonia/`, `/luxembourg/`, `/malta/`, `/iceland/`, `/hong-kong/`, `/uae/`, `/kuwait/`,
 `/kosovo/`).
 
-### Remaining queue (117 countries, batches of ~8, in priority order)
+## Batch 7 (2026-11-13): serbia, bosnia-and-herzegovina, north-macedonia, montenegro, albania, moldova, ukraine, georgia-country
+
+**Sources used**: DataReportal/Kepios Digital reports for internet-user figures across all
+8, cited as approximate ranges for several countries where report editions showed real,
+unreconciled inconsistencies (flagged rather than smoothed over). SME figures: the OECD's SME
+Policy Index for Western Balkans and Turkiye 2026 for Serbia, Bosnia and Herzegovina, North
+Macedonia and Montenegro, a single, consistent, directly comparable source across all four;
+each country's own national statistics agency for Albania (INSTAT), Moldova (National Bureau
+of Statistics) and Georgia (Geostat). Ukraine's SME GDP/employment share could not be
+verified as current from any source and was deliberately left off that page.
+
+**EU accession status, deliberately NOT treated as uniform across the 8**: this batch's
+clearest finding was that "EU candidate" means something materially different for each
+country, and the content reflects that rather than using templated language. Albania is the
+most advanced (all 33 chapters opened, in the concluding phase as of 2026). Montenegro is the
+frontrunner by chapters closed (21 of 33 provisionally closed). Moldova and Ukraine are both
+actively negotiating, each opening 4 of 6 clusters within the same narrow window in 2026.
+Serbia has been stalled since 2021 (22 of 35 chapters opened, only 2 closed). Bosnia and
+Herzegovina's formal negotiations still had not started as of the European Commission's 2026
+report. North Macedonia is blocked by a specific, named precondition, a required constitutional
+amendment under a 2022 bilateral protocol with Bulgaria. Georgia is the most important
+distinction of all: it holds candidate status but research confirmed, via the European
+Commission's own November 2026 report, that its accession process is "effectively stalled"
+and Georgia is accurately described as "a candidate country in name only," a status this
+page is careful not to conflate with Moldova's or Ukraine's active negotiations.
+
+**Ukraine handled with explicit sensitivity**, per the research brief: the page leads with
+real, documented resilience and adaptation (the Diia digital government app's 21 million
+plus official users, Lviv's emergence as a relocated tech hub, decentralized telecom
+infrastructure) rather than war damage, and the internet-user figure carries an explicit
+caveat that population and infrastructure data carry real uncertainty given the ongoing war.
+No SME GDP/employment percentage is claimed for Ukraine since none could be verified as
+current.
+
+**Honest omissions this batch**: Ukraine's SME share, Moldova's current SME GDP share (only
+a stale 2017 figure existed), and Georgia's precise SME employment/value-added share (only the
+business-count figure, 89.1 percent, was solidly current) were all left unquantified rather
+than estimated, per the anti-fabrication rule.
+
+**Competitive scans** (WebSearch snippet-level): same pattern as every prior batch,
+directory/listicle-dominated results, no standout schema/FAQ signal observed.
+
+**Verification**: all 8 pages 1,661-1,785 words in `<main>`, zero em/en dashes in `<main>`,
+FAQPage JSON-LD (18 `mainEntity` items matching the HTML `<details class="faq-item">` count
+exactly on every page) plus the existing `@graph` BreadcrumbList/Service JSON-LD both valid
+and non-duplicate, all `div`/`section`/`details`/`script` tags balanced, charset correctly
+placed at byte 758, no noindex tag on any of the 8.
+
+**Deploy/cache/resubmit**: see chat log for this batch's commit hash, deploy run number, and
+confirmation (same pattern as batches 1-6).
+
+**Sitemap**: `sitemap-international.xml` lastmod bumped to 2026-11-13 for all 8 hub URLs
+(`/serbia/`, `/bosnia-and-herzegovina/`, `/north-macedonia/`, `/montenegro/`, `/albania/`,
+`/moldova/`, `/ukraine/`, `/georgia-country/`).
+
+### Remaining queue (109 countries, batches of ~8, in priority order)
 
 ```
-afghanistan (content already rebuilt this session, recrawl-pending only, not in rebuild queue)
-albania, algeria, andorra, angola, antigua-and-barbuda, argentina,
+algeria, andorra, angola, antigua-and-barbuda, argentina,
 azerbaijan, bahamas, bangladesh, barbados, belarus, belize, benin,
-bosnia-and-herzegovina, botswana, burkina-faso, burundi, cabo-verde, cambodia,
+botswana, burkina-faso, burundi, cabo-verde, cambodia,
 cameroon, central-african-republic, chad, chile, comoros,
 costa-rica, cuba, democratic-republic-of-congo, djibouti,
 dominica, dominican-republic, el-salvador, equatorial-guinea, eritrea, eswatini,
-ethiopia, fiji, gabon, gambia, georgia-country, ghana,
+ethiopia, fiji, gabon, gambia, ghana,
 grenada, guatemala, guinea-bissau, guinea, haiti, honduras,
 ivory-coast, jamaica, jordan, kenya, kiribati, laos,
 lesotho, liberia, libya, liechtenstein, madagascar, malawi, mali,
-marshall-islands, mauritania, mauritius, micronesia, moldova, monaco, montenegro,
+marshall-islands, mauritania, mauritius, micronesia, monaco,
 morocco, mozambique, myanmar, namibia, nauru, nicaragua, niger,
-north-macedonia, oman, palau, palestine, panama, papua-new-guinea, paraguay, peru,
+oman, palau, palestine, panama, papua-new-guinea, paraguay, peru,
 republic-of-congo, rwanda, saint-kitts-and-nevis,
 saint-lucia, saint-vincent-and-the-grenadines, samoa, san-marino, sao-tome-and-principe,
-senegal, serbia, seychelles, sierra-leone, solomon-islands, somalia,
+senegal, seychelles, sierra-leone, solomon-islands, somalia,
 south-sudan, sudan, taiwan, tajikistan, tanzania,
 timor-leste, togo, tonga, trinidad-and-tobago, tunisia, turkmenistan, tuvalu, uganda,
-ukraine, uruguay, uzbekistan, vanuatu, venezuela, yemen, zambia, zimbabwe
+uruguay, uzbekistan, vanuatu, venezuela, yemen, zambia, zimbabwe
 ```
 
-Next batch (batch 7, suggested): serbia, bosnia-and-herzegovina, north-macedonia,
-montenegro, albania, moldova, ukraine, georgia-country — remaining Balkans/Eastern Europe
-markets with available World Bank/national-statistics data and real EU-accession or
-association-agreement angles, same method.
+Next batch (batch 8, suggested): jordan, morocco, tunisia, azerbaijan, uzbekistan,
+bangladesh, kenya, ghana — larger, more data-available Middle East/Central Asia/South Asia/
+Africa markets with real World Bank/national-statistics SME and internet-usage data
+available, same method.
