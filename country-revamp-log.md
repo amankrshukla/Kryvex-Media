@@ -570,7 +570,59 @@ confirmation (same pattern as batches 1-9).
 (`/peru/`, `/guatemala/`, `/honduras/`, `/el-salvador/`, `/trinidad-and-tobago/`, `/tanzania/`,
 `/uganda/`, `/ethiopia/`).
 
-### Remaining queue (85 countries, batches of ~8, in priority order)
+## Batch 11 (2026-11-13): venezuela, zambia, zimbabwe, mozambique, madagascar, mali, niger, nicaragua
+
+**Sources used**: DataReportal/Kepios Digital reports for internet-user figures across all
+8, cited as explicit ranges for several countries given real, substantial measurement
+disagreements between DataReportal and national regulators (Zambia: 6.7-14.7 million
+depending on source; Zimbabwe: 6.5-7.2 million per Kepios vs. a separately reported 87
+percent figure that appears to measure mobile subscriptions, not unique users). SME figures
+remained the weakest category for several of these countries; Madagascar's, Niger's and
+Nicaragua's pages carry no SME GDP/employment percentage at all since none could be
+confirmed as current, per the anti-fabrication rule, rather than recycling old or
+mislabeled self-employment figures as SME statistics.
+
+**Currency and payments, the standout material for Venezuela and Zimbabwe**: Venezuela's
+economy now runs substantially on US dollars and stablecoins in practice despite the bolivar
+remaining legal tender, with USDT reported to make up over 90 percent of Binance peer to peer
+bolivar listings; Zimbabwe operates genuine dual currency pricing, with ZiG and USD accepted
+as legal tender in equal measure and point of sale systems letting customers choose which
+currency to pay in. Both facts are presented as real, current pricing realities rather than
+economic commentary.
+
+**Mobile money, again the strongest material for the African markets in this batch**:
+Zambia's mobile money sector moved 486.3 billion kwacha in 2024 alone and has been the
+country's leading retail payment platform for three consecutive years (Bank of Zambia);
+Zimbabwe's EcoCash had 11.25 million active subscribers as of June 2026 (Reserve Bank of
+Zimbabwe); Mozambique's mobile money accounts outnumber bank accounts nearly four to one
+(130.9 vs 33.8 per 100 adults, Bank of Mozambique); Madagascar's three mobile money providers
+achieved full interoperability, a genuine regional first confirmed by the GSMA.
+
+**Four genuinely differentiated data protection postures**: Mali's APDP is actively
+enforcing, with a real October 2025 case load of roughly 2,000 declaration files and formal
+notices to over 100 companies; Niger's HAPDP is established and regionally networked but has
+no documented enforcement yet; Madagascar's CMIL was only fully operationalized in December
+2023; Venezuela has no comprehensive law or regulator at all; Nicaragua has had a law since
+2012 whose enforcement body is reported as never having become fully operational; Zambia's
+and Zimbabwe's regulators are both confirmed active and enforcing in 2025/2026.
+
+**Competitive scans** (WebSearch snippet-level): same pattern as every prior batch,
+directory/listicle-dominated results, no standout schema/FAQ signal observed.
+
+**Verification**: all 8 pages 1,655-1,714 words in `<main>`, zero em/en dashes in `<main>`,
+FAQPage JSON-LD (18 `mainEntity` items matching the HTML `<details class="faq-item">` count
+exactly on every page) plus the existing `@graph` BreadcrumbList/Service JSON-LD both valid
+and non-duplicate, all `div`/`section`/`details`/`script` tags balanced, charset correctly
+placed at byte 758, no noindex tag on any of the 8.
+
+**Deploy/cache/resubmit**: see chat log for this batch's commit hash, deploy run number, and
+confirmation (same pattern as batches 1-10).
+
+**Sitemap**: `sitemap-international.xml` lastmod bumped to 2026-11-13 for all 8 hub URLs
+(`/venezuela/`, `/zambia/`, `/zimbabwe/`, `/mozambique/`, `/madagascar/`, `/mali/`, `/niger/`,
+`/nicaragua/`).
+
+### Remaining queue (77 countries, batches of ~8, in priority order)
 
 ```
 algeria, andorra, angola, antigua-and-barbuda, argentina,
@@ -582,18 +634,18 @@ dominica, equatorial-guinea, eritrea, eswatini,
 fiji, gabon, gambia,
 grenada, guinea-bissau, guinea, haiti,
 ivory-coast, jamaica, kiribati, laos,
-lesotho, liberia, libya, liechtenstein, madagascar, malawi, mali,
+lesotho, liberia, libya, liechtenstein, malawi,
 marshall-islands, mauritania, mauritius, micronesia, monaco,
-mozambique, myanmar, namibia, nauru, nicaragua, niger,
+myanmar, namibia, nauru,
 oman, palau, palestine, papua-new-guinea,
 republic-of-congo, rwanda, saint-kitts-and-nevis,
 saint-lucia, saint-vincent-and-the-grenadines, samoa, san-marino, sao-tome-and-principe,
 seychelles, sierra-leone, solomon-islands, somalia,
 south-sudan, sudan, taiwan, tajikistan,
 timor-leste, togo, tonga, turkmenistan, tuvalu,
-vanuatu, venezuela, yemen, zambia, zimbabwe
+vanuatu, yemen
 ```
 
-Next batch (batch 11, suggested): venezuela, zambia, zimbabwe, mozambique, madagascar, mali,
-niger, nicaragua — remaining larger African and Latin American markets with real World
+Next batch (batch 12, suggested): algeria, angola, cuba, cambodia, laos, burkina-faso,
+benin, namibia — remaining larger African/Southeast Asian/Caribbean markets with real World
 Bank/national-statistics data available, same method.
