@@ -720,7 +720,59 @@ confirmation (same pattern as batches 1-12).
 (`/argentina/`, `/myanmar/`, `/oman/`, `/botswana/`, `/gabon/`, `/gambia/`, `/malawi/`,
 `/haiti/`).
 
-### Remaining queue (61 countries, batches of ~8, in priority order)
+## Batch 14 (2026-11-13): ivory-coast, rwanda, libya, sudan, south-sudan, somalia, taiwan, palestine
+
+**Sources**: two parallel background research forks (4 countries each), per the standing
+method. DataReportal/Kepios Digital 2026 edition (October 2025 data) cited as the primary
+figure for all 8, with Digital 2027 explicitly flagged and not used where it showed internal
+inconsistencies: Ivory Coast's social-media growth rate not reconciling with its own stated
+internet-user growth rate; Rwanda's 2027 edition attributed to a different analyst brand
+("Manochi" instead of Kepios); Libya's 2027 edition contradicting its own stated growth
+figure within the same page; Sudan's 2027 social-media count showing an unexplained 63
+percent jump against a backdrop of active war and infrastructure damage, treated as
+unverified. Other named sources used: ARTCI (Ivory Coast's telecom/data-protection regulator),
+MTN Rwanda's Q1 2026 results and the National Bank of Rwanda, the Central Bank of Libya's
+2025 to 2026 payments statistics, Bank of Khartoum's Bankak reporting and GSMA Intelligence
+for Sudan, MTN South Sudan via Sudans Post, Hormuud Telecom's EVC Plus via ITWeb Africa and
+Somalia's Data Protection Authority, Taiwan's Ministry of Economic Affairs 2025 White Paper
+on SMEs and DGBAS's May 2026 growth forecast revision, and the Palestine Monetary Authority,
+Gaza Sky Geeks, and 7amleh for Palestine.
+
+**Sensitive-topic handling**: Libya's content states the real World Bank growth and SME
+registration data without asserting political stability or unity as settled fact, given the
+genuinely contested legitimacy between the Tripoli and eastern administrations. Sudan's
+content gives brief, factual acknowledgment of the active conflict and leads instead with the
+real, verified Bankak digital-banking lifeline story (10 million-plus subscribers against a
+pre-conflict ~15 percent banked rate per the World Bank), avoiding both false-stability claims
+and exploitative crisis framing. South Sudan and Somalia are framed around real, positive,
+sourced growth and mobile-money-adoption data (the World Bank's own 2026 Urbanization Review
+for South Sudan; Somalia's livestock/remittance economic backbone alongside its mobile-money
+system) without dwelling on either country's conflict history. Taiwan is described neutrally
+in standard business/geographic terms with no assertion on cross-strait political status.
+Palestine, the most sensitive of the eight, leads with the real, dignified Gaza tech-sector
+story (Gaza Sky Geeks, Taqat Gaza, Gaza Talents) rather than conflict framing, states the real,
+well-documented economic contraction factually without sensationalizing it, and does not use
+"war," "conflict," or "Gaza" as a page hook, per the research brief's explicit guidance.
+
+**Data gaps disclosed rather than filled**: current, reconcilable SME GDP/employment-share
+figures could not be verified for any of the 8 countries and are omitted from all of them,
+per the anti-fabrication rule (several were only supported by single unsourced-methodology
+official quotes, e.g. Rwanda's "50 percent of GDP" claim, which is explicitly flagged as
+unverified rather than used).
+
+**Verification**: all 8 pages 1,801-1,844 words in `<main>`, zero em/en dashes in `<main>`,
+FAQPage JSON-LD (18 `mainEntity` items matching the HTML `<details class="faq-item">` count
+exactly on every page), all `div`/`section`/`details`/`script` tags balanced, charset
+correctly placed, no noindex tag on any of the 8.
+
+**Deploy/cache/resubmit**: see chat log for this batch's commit hash, deploy run number, and
+confirmation (same pattern as batches 1-13).
+
+**Sitemap**: `sitemap-international.xml` lastmod bumped to 2026-11-13 for all 8 hub URLs
+(`/ivory-coast/`, `/rwanda/`, `/libya/`, `/sudan/`, `/south-sudan/`, `/somalia/`, `/taiwan/`,
+`/palestine/`).
+
+### Remaining queue (53 countries, batches of ~8, in priority order)
 
 ```
 andorra, antigua-and-barbuda,
@@ -731,22 +783,22 @@ democratic-republic-of-congo, djibouti,
 dominica, equatorial-guinea, eritrea, eswatini,
 fiji,
 grenada, guinea-bissau, guinea,
-ivory-coast, jamaica, kiribati,
-lesotho, liberia, libya, liechtenstein,
+jamaica, kiribati,
+lesotho, liberia, liechtenstein,
 marshall-islands, mauritania, mauritius, micronesia, monaco,
 nauru,
-palau, palestine, papua-new-guinea,
-republic-of-congo, rwanda, saint-kitts-and-nevis,
+palau, papua-new-guinea,
+republic-of-congo, saint-kitts-and-nevis,
 saint-lucia, saint-vincent-and-the-grenadines, samoa, san-marino, sao-tome-and-principe,
-seychelles, sierra-leone, solomon-islands, somalia,
-south-sudan, sudan, taiwan, tajikistan,
+seychelles, sierra-leone, solomon-islands,
+tajikistan,
 timor-leste, togo, tonga, turkmenistan, tuvalu,
 vanuatu, yemen
 ```
 
-Next batch (batch 14, suggested): ivory-coast, rwanda, libya, sudan, south-sudan, somalia,
-taiwan, palestine — remaining larger African/Middle Eastern markets with real World
-Bank/national-statistics data available, same method. Note the queue is now dominated by
-very small island nations and micro-states (Pacific, Caribbean, Indo-Pacific) where
-DataReportal/World Bank data availability may be considerably thinner; expect more honest
-data-gap disclosures in upcoming batches as the larger markets are worked through.
+Next batch (batch 15, suggested): burundi, central-african-republic, chad, democratic-republic-of-congo,
+eritrea, guinea, guinea-bissau, sierra-leone — the remaining mainland African markets with at
+least some World Bank/national-statistics coverage, before the queue becomes almost entirely
+small island nations and micro-states (Pacific, Caribbean, Indo-Pacific, plus a handful of
+European micro-states) where DataReportal/World Bank data availability will likely be
+considerably thinner; expect more honest data-gap disclosures in upcoming batches.
