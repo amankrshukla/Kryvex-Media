@@ -122,30 +122,72 @@ run number and conclusion once pushed.
 `sitemap.xml`'s own reference to `sitemap-international.xml` was already current from an
 earlier same-day commit.
 
-### Remaining queue (157 countries, batches of ~8, in priority order)
+### Batch 2 — 2026-11-13 — DONE
+**Countries**: france, germany, italy, spain, poland, netherlands, south-africa, colombia (8/165, 16/165 total)
+
+**Research sources used**: DataReportal/Kepios Digital [Country] reports (internet/mobile
+users and penetration, every country); OECD citing INSEE (France SME figures); IfM Bonn 2024
+(Germany Mittelstand); ISTAT via U.S. Commercial Service market overview (Italy); OECD 2025
+note + Statista (Spain); EU SBA fact sheet + Statistics Poland/GUS (Poland); TIPS (Trade and
+Industrial Policy Strategies) 2024 report (South Africa, deliberately used the more
+conservative, better-sourced 19%-of-GDP figure over higher unverified headline claims); BBVA
+Research (Colombia mipymes). GDPR/ePrivacy cookie-consent requirement cited for all 5 EU
+countries in this batch (France, Germany, Italy, Spain, Poland, Netherlands) as a genuinely
+relevant, real compliance factor, not forced into the non-EU countries. Netherlands' SME
+GDP/employment share could not be confirmed from available sources this round, flagged
+honestly rather than estimated, so that page leans more on the internet-penetration and
+GDPR facts plus the universal closing FAQs for its word count.
+
+**Competitive scans** (WebSearch snippet-level): directory/listicle-dominated (Clutch,
+DesignRush, GoodFirms, TechBehemoths, SERanking) in all 8, several visibly contradictory
+"#1 agency" vendor-written rankings, no standout schema/FAQ signal observable in any of them,
+another weak bar.
+
+**Pipeline fix found and applied this batch**: the injector script's dash-fix step was only
+applying the literal-string rules (`BIG_TEMPLATE_RULES`), not the regex rule that handles the
+"state/province/region/governorate/community/voivodeship/department" variants in the
+"— pick your X below" sentence (`BIG_TEMPLATE_REGEX_RULES`, added after batch 1 found this
+exact gap). Fixed in `inject_country_content.py` before batch 2's real files were touched;
+re-verified zero leftover dashes on all 8 afterward. Also added 3 more universal,
+country-name-only closing FAQs (no new facts needed) to the injector after batch 1's version
+undershot 1,500 words on this batch's content mix, now 5 universal closing FAQs total.
+
+**Verification**: all 8 pages 1,506-1,610 words in `<main>` (up from 932-958), zero em/en
+dashes, FAQPage + existing BreadcrumbList/Service JSON-LD both valid and non-duplicate, all
+HTML tags balanced, charset correctly placed, no noindex, internal
+region/state/province/community/voivodeship/department links confirmed still present on disk.
+
+**Deploy/cache/resubmit**: see chat log for this batch's commit hash, deploy run number, and
+confirmation (completed same pattern as batch 1).
+
+**Sitemap**: `sitemap-international.xml` lastmod bumped to 2026-11-13 for all 8 URLs (date
+rolled over from 2026-11-12 mid-session). `sitemap.xml`'s own reference to
+`sitemap-international.xml` bumped to match.
+
+### Remaining queue (149 countries, batches of ~8, in priority order)
 
 ```
 afghanistan (content already rebuilt this session, recrawl-pending only, not in rebuild queue)
 albania, algeria, andorra, angola, antigua-and-barbuda, argentina, australia, austria,
 azerbaijan, bahamas, bangladesh, barbados, belarus, belgium, belize, benin,
 bosnia-and-herzegovina, botswana, bulgaria, burkina-faso, burundi, cabo-verde, cambodia,
-cameroon, canada, central-african-republic, chad, chile, china, colombia, comoros,
+cameroon, canada, central-african-republic, chad, chile, china, comoros,
 costa-rica, croatia, cuba, czech-republic, democratic-republic-of-congo, denmark, djibouti,
 dominica, dominican-republic, el-salvador, equatorial-guinea, eritrea, estonia, eswatini,
-ethiopia, fiji, finland, france, gabon, gambia, georgia-country, germany, ghana, greece,
+ethiopia, fiji, finland, gabon, gambia, georgia-country, ghana, greece,
 grenada, guatemala, guinea-bissau, guinea, haiti, honduras, hong-kong, iceland, ireland,
-italy, ivory-coast, jamaica, japan, jordan, kenya, kiribati, kosovo, kuwait, laos, latvia,
+ivory-coast, jamaica, japan, jordan, kenya, kiribati, kosovo, kuwait, laos, latvia,
 lesotho, liberia, libya, liechtenstein, lithuania, luxembourg, madagascar, malawi, mali,
 malta, marshall-islands, mauritania, mauritius, micronesia, moldova, monaco, montenegro,
-morocco, mozambique, myanmar, namibia, nauru, netherlands, new-zealand, nicaragua, niger,
+morocco, mozambique, myanmar, namibia, nauru, new-zealand, nicaragua, niger,
 north-macedonia, norway, oman, palau, palestine, panama, papua-new-guinea, paraguay, peru,
-poland, portugal, republic-of-congo, romania, russia, rwanda, saint-kitts-and-nevis,
+portugal, republic-of-congo, romania, russia, rwanda, saint-kitts-and-nevis,
 saint-lucia, saint-vincent-and-the-grenadines, samoa, san-marino, sao-tome-and-principe,
 senegal, serbia, seychelles, sierra-leone, slovakia, slovenia, solomon-islands, somalia,
-south-africa, south-sudan, spain, sudan, sweden, switzerland, taiwan, tajikistan, tanzania,
+south-sudan, sudan, sweden, switzerland, taiwan, tajikistan, tanzania,
 timor-leste, togo, tonga, trinidad-and-tobago, tunisia, turkmenistan, tuvalu, uae, uganda,
 ukraine, uruguay, uzbekistan, vanuatu, venezuela, yemen, zambia, zimbabwe
 ```
 
-Next batch (batch 2, suggested): france, germany, italy, spain, poland, netherlands,
-south-africa, colombia — next tier of large/high-value markets, same method.
+Next batch (batch 3, suggested): china, japan, australia, canada, russia, sweden,
+switzerland, denmark — next tier of large/high-value markets, same method.
