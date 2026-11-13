@@ -164,30 +164,81 @@ confirmation (completed same pattern as batch 1).
 rolled over from 2026-11-12 mid-session). `sitemap.xml`'s own reference to
 `sitemap-international.xml` bumped to match.
 
-### Remaining queue (149 countries, batches of ~8, in priority order)
+## Batch 3 (2026-11-13): china, japan, australia, canada, russia, sweden, switzerland, denmark
+
+**Sources used**: DataReportal/Kepios Digital [country] 2026 reports for all 8 internet-user
+figures. China: State Administration for Market Regulation (private business share of
+registered entities), widely repeated private-sector employment share (flagged as a
+qualitative/widely cited figure, not a single precise official statistic). Japan: SME Agency
+data via World Economic Forum and McKinsey Global Institute (two independently sourced
+figures that align). Australia: Australian Bureau of Statistics small business figures (as of
+30 June 2025), Privacy Act reform (Privacy and Other Legislation Amendment Act 2024) legal
+analysis for the December 2024 penalty increase and pending second tranche on direct
+marketing/profiling, plus the Spam Act 2003. Canada: Innovation, Science and Economic
+Development Canada's Key Small Business Statistics (2022 data), CASL enforcement precedents
+(Porter Airlines, Compu-Finder penalties) and the 24-month implied-consent rule. Russia:
+Russia's antitrust regulator's confirmed ad ban covering Telegram, Meta and YouTube (July
+2026), platform restriction/exit dating to 2022. Sweden/Denmark: EU SBA fact sheets and OECD
+data for SME value-added/employment shares, GDPR/ePrivacy as an EU member state. Switzerland:
+Swiss government's official SME portal (kmu.admin.ch), Switzerland's own Federal Act on Data
+Protection (revised, in force since September 2023) correctly distinguished from GDPR since
+Switzerland is not an EU member.
+
+**Platform-ecosystem framing** (the standout structural finding this batch): three of these
+8 pages needed a materially different "why check" framing than any prior batch, because the
+standard Google/Meta ad-platform assumption does not hold: China (Google/Facebook/Instagram
+blocked, WeChat/Baidu/Douyin are the real channels), Japan (Google alone is insufficient,
+Yahoo! Japan Ads and LINE are standard required channels), and Russia (Google ad services and
+Meta restricted/exited since 2022, VK and Yandex are the real local alternatives). Each
+page's content and FAQs were written to reflect this honestly rather than defaulting to
+generic "we run Google and Facebook ads" copy that would be factually wrong for that market.
+
+**Competitive scans** (WebSearch snippet-level): directory/listicle-dominated (Clutch,
+DesignRush, GoodFirms, Semrush/SERanking "best agencies" lists) in all 8, same pattern as
+every prior batch, no standout schema/FAQ signal observed in any result checked.
+
+**Verification**: all 8 pages 1,573-1,754 words in `<main>` (up from the shared template
+baseline), zero em/en dashes in `<main>` (39 unicode dashes remain in the pre-existing,
+out-of-scope shared chatbot-widget chrome outside `<main>`, per the CLAUDE.md standing
+exemption, confirmed via regex scan not opportunistically touched this batch), FAQPage JSON-LD
+(18-19 `mainEntity` items matching the HTML `<details class="faq-item">` count exactly on
+every page) plus the existing `@graph` BreadcrumbList/Service JSON-LD both valid and
+non-duplicate, all `div`/`section`/`details`/`script` tags balanced, charset correctly placed
+at byte 758, no noindex tag on any of the 8.
+
+**Deploy/cache/resubmit**: see chat log for this batch's commit hash, deploy run number, and
+confirmation (same pattern as batches 1-2).
+
+**Sitemap**: `sitemap-international.xml` lastmod bumped to 2026-11-13 for all 8 hub URLs
+(`/china/`, `/japan/`, `/australia/`, `/canada/`, `/russia/`, `/sweden/`, `/switzerland/`,
+`/denmark/`).
+
+### Remaining queue (141 countries, batches of ~8, in priority order)
 
 ```
 afghanistan (content already rebuilt this session, recrawl-pending only, not in rebuild queue)
-albania, algeria, andorra, angola, antigua-and-barbuda, argentina, australia, austria,
+albania, algeria, andorra, angola, antigua-and-barbuda, argentina, austria,
 azerbaijan, bahamas, bangladesh, barbados, belarus, belgium, belize, benin,
 bosnia-and-herzegovina, botswana, bulgaria, burkina-faso, burundi, cabo-verde, cambodia,
-cameroon, canada, central-african-republic, chad, chile, china, comoros,
-costa-rica, croatia, cuba, czech-republic, democratic-republic-of-congo, denmark, djibouti,
+cameroon, central-african-republic, chad, chile, comoros,
+costa-rica, croatia, cuba, czech-republic, democratic-republic-of-congo, djibouti,
 dominica, dominican-republic, el-salvador, equatorial-guinea, eritrea, estonia, eswatini,
 ethiopia, fiji, finland, gabon, gambia, georgia-country, ghana, greece,
 grenada, guatemala, guinea-bissau, guinea, haiti, honduras, hong-kong, iceland, ireland,
-ivory-coast, jamaica, japan, jordan, kenya, kiribati, kosovo, kuwait, laos, latvia,
+ivory-coast, jamaica, jordan, kenya, kiribati, kosovo, kuwait, laos, latvia,
 lesotho, liberia, libya, liechtenstein, lithuania, luxembourg, madagascar, malawi, mali,
 malta, marshall-islands, mauritania, mauritius, micronesia, moldova, monaco, montenegro,
 morocco, mozambique, myanmar, namibia, nauru, new-zealand, nicaragua, niger,
 north-macedonia, norway, oman, palau, palestine, panama, papua-new-guinea, paraguay, peru,
-portugal, republic-of-congo, romania, russia, rwanda, saint-kitts-and-nevis,
+portugal, republic-of-congo, romania, rwanda, saint-kitts-and-nevis,
 saint-lucia, saint-vincent-and-the-grenadines, samoa, san-marino, sao-tome-and-principe,
 senegal, serbia, seychelles, sierra-leone, slovakia, slovenia, solomon-islands, somalia,
-south-sudan, sudan, sweden, switzerland, taiwan, tajikistan, tanzania,
+south-sudan, sudan, taiwan, tajikistan, tanzania,
 timor-leste, togo, tonga, trinidad-and-tobago, tunisia, turkmenistan, tuvalu, uae, uganda,
 ukraine, uruguay, uzbekistan, vanuatu, venezuela, yemen, zambia, zimbabwe
 ```
 
-Next batch (batch 3, suggested): china, japan, australia, canada, russia, sweden,
-switzerland, denmark — next tier of large/high-value markets, same method.
+Next batch (batch 4, suggested): austria, belgium, greece, portugal, ireland, new-zealand,
+norway, finland — remaining developed/high-data-availability markets (EU member states with
+Eurostat/national-stats SME data plus GDPR, English-speaking Oceania/common-law markets),
+same method.
