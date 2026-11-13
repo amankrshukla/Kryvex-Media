@@ -272,31 +272,79 @@ confirmation (same pattern as batches 1-3).
 (`/austria/`, `/belgium/`, `/greece/`, `/portugal/`, `/ireland/`, `/new-zealand/`, `/norway/`,
 `/finland/`).
 
-### Remaining queue (133 countries, batches of ~8, in priority order)
+## Batch 5 (2026-11-13): czech-republic, romania, bulgaria, croatia, slovakia, slovenia, lithuania, latvia
+
+**Sources used**: DataReportal/Kepios Digital [country] 2026/2027 reports for all 8
+internet-user figures. SME figures across all 8: the EU's own SME Performance Review/SBA
+Fact Sheet program, but research confirmed a genuine, consistent gap across every one of
+these 8 countries: no clean, current (2022+) share-of-employment/value-added percentage
+could be retrieved for any of them, only 2018/2019-edition figures and separate, more recent
+year-over-year growth/decline rates. Per the anti-fabrication rule, every SME percentage used
+in this batch is explicitly dated to its 2018 or 2019 SBA fact sheet edition in the page's own
+source note, rather than presented as a current figure. Where a more current, non-SBA source
+existed (Eurostat's cross-country small-enterprise employment comparison for Latvia, naming
+it among the EU's highest), that was used instead and is explicitly dated as a 2020-era
+Eurostat overview.
+
+**GDPR enforcement, the strongest and most current material this batch**: every one of the 8
+countries got a named, dated, sourced fine from 2024 or 2025, the most consistently strong
+regulatory material of any batch so far: Czechia (Avast Software, 13.9 million euros, April
+2024, for unlawfully transferring browsing data from roughly 100 million users), Romania
+(ANSPDCP fines against Vodafone Romania and E.ON Energie Romania totaling 230,500 euros in
+just the first four months of 2025), Croatia (AZOP's 4.5 million euro fine against a telecom
+operator, November 2025, for unlawful cross border data transfers to Serbia), Slovakia
+(Office for Personal Data Protection, 48 separate fines in 2024 alone), Slovenia (Information
+Commissioner's highest ever fine, 71,474 euros, December 2025, for covert employee computer
+monitoring), Lithuania (State Data Protection Inspectorate's 2.39 million euro fine against
+Vinted, the Lithuania founded resale marketplace, in 2024), Latvia (Data State Inspectorate's
+1.2 million euro fine against telecom SIA Tet, plus a 300,000 euro fine in October 2025 after
+a 42-municipality data breach). Bulgaria's strongest distinctive fact instead was platform
+related: Viber, not WhatsApp, leads messaging app presence there, a genuinely unusual detail
+for an EU market.
+
+**Competitive scans** (WebSearch snippet-level): same pattern as every prior batch,
+directory/listicle-dominated results, no standout schema/FAQ signal observed.
+
+**Verification**: all 8 pages 1,619-1,661 words in `<main>`, zero em/en dashes in `<main>`,
+FAQPage JSON-LD (18 `mainEntity` items matching the HTML `<details class="faq-item">` count
+exactly on every page) plus the existing `@graph` BreadcrumbList/Service JSON-LD both valid
+and non-duplicate, all `div`/`section`/`details`/`script` tags balanced, charset correctly
+placed at byte 758, no noindex tag on any of the 8.
+
+**Deploy/cache/resubmit**: see chat log for this batch's commit hash, deploy run number, and
+confirmation (same pattern as batches 1-4).
+
+**Sitemap**: `sitemap-international.xml` lastmod bumped to 2026-11-13 for all 8 hub URLs
+(`/czech-republic/`, `/romania/`, `/bulgaria/`, `/croatia/`, `/slovakia/`, `/slovenia/`,
+`/lithuania/`, `/latvia/`).
+
+### Remaining queue (125 countries, batches of ~8, in priority order)
 
 ```
 afghanistan (content already rebuilt this session, recrawl-pending only, not in rebuild queue)
 albania, algeria, andorra, angola, antigua-and-barbuda, argentina,
 azerbaijan, bahamas, bangladesh, barbados, belarus, belize, benin,
-bosnia-and-herzegovina, botswana, bulgaria, burkina-faso, burundi, cabo-verde, cambodia,
+bosnia-and-herzegovina, botswana, burkina-faso, burundi, cabo-verde, cambodia,
 cameroon, central-african-republic, chad, chile, comoros,
-costa-rica, croatia, cuba, czech-republic, democratic-republic-of-congo, djibouti,
+costa-rica, cuba, democratic-republic-of-congo, djibouti,
 dominica, dominican-republic, el-salvador, equatorial-guinea, eritrea, estonia, eswatini,
 ethiopia, fiji, gabon, gambia, georgia-country, ghana,
 grenada, guatemala, guinea-bissau, guinea, haiti, honduras, hong-kong, iceland,
-ivory-coast, jamaica, jordan, kenya, kiribati, kosovo, kuwait, laos, latvia,
-lesotho, liberia, libya, liechtenstein, lithuania, luxembourg, madagascar, malawi, mali,
+ivory-coast, jamaica, jordan, kenya, kiribati, kosovo, kuwait, laos,
+lesotho, liberia, libya, liechtenstein, luxembourg, madagascar, malawi, mali,
 malta, marshall-islands, mauritania, mauritius, micronesia, moldova, monaco, montenegro,
 morocco, mozambique, myanmar, namibia, nauru, nicaragua, niger,
 north-macedonia, oman, palau, palestine, panama, papua-new-guinea, paraguay, peru,
-republic-of-congo, romania, rwanda, saint-kitts-and-nevis,
+republic-of-congo, rwanda, saint-kitts-and-nevis,
 saint-lucia, saint-vincent-and-the-grenadines, samoa, san-marino, sao-tome-and-principe,
-senegal, serbia, seychelles, sierra-leone, slovakia, slovenia, solomon-islands, somalia,
+senegal, serbia, seychelles, sierra-leone, solomon-islands, somalia,
 south-sudan, sudan, taiwan, tajikistan, tanzania,
 timor-leste, togo, tonga, trinidad-and-tobago, tunisia, turkmenistan, tuvalu, uae, uganda,
 ukraine, uruguay, uzbekistan, vanuatu, venezuela, yemen, zambia, zimbabwe
 ```
 
-Next batch (batch 5, suggested): czech-republic, romania, bulgaria, croatia, slovakia,
-slovenia, lithuania, latvia — remaining EU member states with Eurostat/national-stats SME
-data and GDPR applicability, same method.
+Next batch (batch 6, suggested): estonia, luxembourg, malta, iceland, hong-kong, uae,
+kuwait, kosovo — remaining high-data-availability/high-income markets (Estonia completes the
+Baltic trio; Luxembourg and Malta are EU members with real financial-sector economies; UAE
+and Kuwait are real Gulf markets with available World Bank/national-statistics SME data),
+same method.
