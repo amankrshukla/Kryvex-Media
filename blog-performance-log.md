@@ -1918,3 +1918,60 @@ up by one with a worse average position, too small a change to call a
 trend but real enough to log precisely rather than round off. Zero
 clicks after roughly twenty weeks across 75 published posts remains the
 headline number worth being honest about.
+
+## 2026-11-13
+
+**Indexing check (same 5 tracked URLs as the prior run, via
+`GOOGLE_SEARCH_CONSOLE_INSPECT_URL`):**
+- `local-seo-vs-national-seo`: still **"Crawled - currently not
+  indexed,"** `lastCrawlTime` still `2026-09-17T19:03:49Z`, now 57 days
+  without a recrawl. Unchanged, remains the longest-stuck post on the
+  site.
+- `digital-marketing-for-home-services-businesses`: back to
+  **"Discovered - currently not indexed,"** flipping again from "URL is
+  unknown to Google" logged last run. This URL has now shown four
+  different readings across recent checks (Discovered, URL unknown,
+  Discovered, URL unknown, now Discovered again) with no settling
+  pattern, logged as genuinely unstable, not a real recovery.
+- `digital-marketing-for-restaurants`: **regressed** to **"URL is
+  unknown to Google,"** breaking what had been six consecutive stable
+  "Discovered - currently not indexed" readings since 2026-11-06. This
+  was the most stable tracked URL in the sample until this run.
+- `google-ai-mode-seo-guide-for-small-businesses`: still **"URL is
+  unknown to Google,"** unchanged from the regression logged last run.
+- `digital-marketing-for-tour-operators-and-travel-agencies`:
+  **regressed** to **"URL is unknown to Google,"** away from
+  "Discovered - currently not indexed," which had held in every prior
+  reading before this one. A second real regression this run, not just
+  one.
+
+**Performance re-pull (90-day window, page dimension, `/blog/`,
+2026-08-16 to 2026-11-11, vs. the last logged pull of 2026-08-15 to
+2026-11-10):**
+- `/blog/` index: **7 impressions (position 11.57)**, unchanged from
+  the immediately prior pull. After one real change logged last run,
+  this specific figure has now settled at the new level rather than
+  continuing to move.
+- Unchanged again: `10-local-seo-tactics-that-fill-your-calendar` 2
+  (position 1), `how-to-choose-an-seo-company-in-patna` 3 (position 1),
+  `seo-company-hiring-guide` 4 (position 1), `what-is-digital-
+  marketing` 5 (position 2.6), identical to every pull in this specific
+  tracked set going back multiple runs.
+- Zero clicks recorded across every row again. None of today's 3 new
+  posts, or the 3 from 2026-11-12, show any impressions yet, as expected
+  at this age.
+
+**Action items:** Two real regressions this run: `digital-marketing-
+for-restaurants` broke a genuine six-check stable streak, and
+`digital-marketing-for-tour-operators-and-travel-agencies` broke its
+own previously-unbroken streak the same way, both now reading "URL is
+unknown to Google." Neither has an obvious cause beyond normal Google
+recrawl/deindex variability, and no action beyond continued monitoring
+is available for either. `digital-marketing-for-home-services-
+businesses` flipped for a fourth time with no settling pattern, logged
+honestly as unstable rather than a recovery. `local-seo-vs-national-seo`
+remains stuck at 57 days without a recrawl. The `/blog/` index's
+impression and position figures held flat this run after moving last
+run, too early to call that a settled baseline off one flat reading.
+Zero clicks after roughly twenty-one weeks across 78 published posts
+remains the headline number worth being honest about.

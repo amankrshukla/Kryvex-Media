@@ -2851,3 +2851,102 @@ check before writing:
 - **Cloudflare cache purge:** confirmed `success: true` for the targeted
   URLs actually changed this run (the 3 new post pages, `/blog/`, and
   `sitemap-resources.xml`), per the standing post-publish purge rule.
+
+## 2026-11-13 — daily blog Routine run (3 posts, service-deep-dive fallback tier)
+
+**Topic selection:** GSC query data (90-day window, `sc-domain:kryvexmedia.com`,
+dimension `query`) pulled again this run, same pattern as every prior day —
+top 100 rows almost entirely hyper-local "agency/company in [city/state]"
+and branded queries already served by the programmatic geo pages, no clean
+new blog-topic signal. Fell back to the service-deep-dive tier. Delegated
+initial research to a background fork (foreground-run this time, not
+background, since the result was needed immediately) which found 3
+distinct, real, WebSearch-verified developments, deliberately in areas
+thinner on this blog (email/SMS compliance, web design platform features,
+analytics/PPC measurement) rather than another Google Ads or Meta Ads
+story:
+
+1. **fcc-one-to-one-consent-rule-sms-marketing-2026** (Email & SMS
+   Marketing, 1,519 words): the FCC's TCPA one-to-one consent rule for
+   SMS/call marketing — finalized, set to take effect January 27, 2025,
+   postponed by the FCC itself pending judicial review, then vacated by
+   the 11th Circuit after a challenge from the Insurance Marketing
+   Coalition. Sourced via Wiley Law's client alert, the NAR Washington
+   Report, and legal analysis republished via Mondaq. Real nuance
+   included: despite the vacature, carriers and SMS platforms have
+   largely kept enforcing the one-to-one standard as their own policy,
+   so the practical compliance bar didn't fully disappear with the rule.
+2. **wordpress-7-1-responsive-styling-2026** (Web Design, 1,506 words):
+   WordPress 7.1 ("Mary Lou") adding built-in responsive styling controls
+   directly in the Site Editor (device-preview toggle, per-breakpoint
+   block adjustments, no custom CSS required), plus theme.json-driven
+   pseudo-state styling for theme developers. Sourced via the official
+   wordpress.org announcement and the make.wordpress.org roadmap post,
+   corroborated by Linuxiac's coverage. One claim (pseudo-state styling
+   limited to buttons only in this release) was explicitly flagged in
+   the post as unconfirmed against the official announcement, not stated
+   as settled fact.
+3. **ga4-data-manager-duplicate-conversions-2026** (PPC, 1,507 words):
+   Google's GA4 Data Manager (beta), released November 6, 2026, and the
+   real documented pitfall that data flows from Analytics to Ads but not
+   the reverse, so a conversion tracked independently in both products
+   can be double counted. Sourced via ppc.land's coverage of the beta
+   release and RelevantAudience's data-connection mapping. The post also
+   explicitly flags and resolves a real naming collision: this is a
+   different feature from Google Ads' own, separately named "Data
+   Manager" (Customer Match/hashed audience matching), linking back to
+   this blog's earlier `google-ads-data-manager-hashing-dropped-2026`
+   post about that unrelated feature rather than conflating the two.
+
+**Self-check performed on all 3 before committing:** `<main>` word count
+isolated and verified via the CLAUDE.md Python snippet for each
+(1,519 / 1,506 / 1,507 — all three needed a real content expansion pass
+to clear 1,500 after an initial draft landed short, not padding, additional
+substantive paragraphs grounded in the same sourced facts). Zero em
+dashes, en dashes, or spaced hyphens in any of the 3 posts' `<main>`
+content, verified by direct character search, not assumed. All three
+JSON-LD block sets (BreadcrumbList, BlogPosting, FAQPage per post) parse
+via `json.loads`. `<meta charset="utf-8">` placed as the literal first
+line inside `<head>` on all 3 new posts, confirmed at byte offset 46 in
+each file. No noindex tag introduced on any of the 3 (`grep`-confirmed).
+Every linked URL (4-5 per post, plus full nav and footer) confirmed to
+exist on disk via direct file checks before linking, not assumed.
+
+All 3 cards added to `blog/index.html`'s `#post-grid` (`data-cat`
+"email" × 1, "web" × 1, "ppc" × 1, matching the existing filter buttons),
+placed at the top of the grid above the 2026-11-12 posts. All 3 URLs
+added to `sitemap-resources.xml` with `lastmod` 2026-11-13, XML validity
+verified via `xml.etree.ElementTree.parse` after editing. Also bumped
+the top-level `sitemap.xml`'s own reference to `sitemap-resources.xml`
+from a stale 2026-09-10 lastmod to 2026-11-13 — a real gap found this
+run (that top-level reference hadn't been kept current on prior runs
+despite `sitemap-resources.xml` itself being updated daily), fixed going
+forward. Site now has 78 total published posts (was 75 before this run).
+
+**Note on timing:** this run's scheduled trigger fired at 2026-11-13
+07:26 UTC, but execution was deliberately deferred until a concurrent,
+in-progress commit (an unrelated country-hub-page content batch, part
+of a separate standing task) finished pushing and deploying, to avoid
+two commits racing on the same branch. The blog routine's own steps
+below ran in full once that batch was clear.
+
+- **Git:** all 3 post files, the `blog/index.html` edit, the
+  `sitemap-resources.xml` edit, and the `sitemap.xml` edit staged
+  explicitly by name and committed together in a single commit, then
+  pushed to `claude/webtech-core-current-work-rsmbri` and fast-forwarded
+  to `main`.
+
+- **Sitemap resubmission:** confirmed — "Sitemap
+  'https://kryvexmedia.com/sitemap.xml' successfully submitted for site
+  'sc-domain:kryvexmedia.com'" (called after all 3 URLs were in the
+  sitemap and the commit was pushed to `main`).
+
+- **Deploy:** see this run's actual commit hash and GitHub Actions run
+  number/conclusion in the chat/session record for this date — confirmed
+  `conclusion: success` before anything was logged as live, per the
+  standing publish-verification rule.
+
+- **Cloudflare cache purge:** confirmed `success: true` for the targeted
+  URLs actually changed this run (the 3 new post pages, `/blog/`,
+  `sitemap-resources.xml`, and `sitemap.xml`), per the standing
+  post-publish purge rule.
