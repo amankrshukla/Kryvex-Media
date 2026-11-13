@@ -213,24 +213,83 @@ confirmation (same pattern as batches 1-2).
 (`/china/`, `/japan/`, `/australia/`, `/canada/`, `/russia/`, `/sweden/`, `/switzerland/`,
 `/denmark/`).
 
-### Remaining queue (141 countries, batches of ~8, in priority order)
+## Batch 4 (2026-11-13): austria, belgium, greece, portugal, ireland, new-zealand, norway, finland
+
+**Sources used**: DataReportal/Kepios Digital [country] 2026/2027 reports for all 8
+internet-user figures (several countries had a newer 2027 edition surfaced during research;
+used the edition with the clearest, most directly confirmed headline number per country, and
+noted where editions disagreed slightly, e.g. mobile-connection counts, as normal data
+revisions rather than treating one as wrong). SME figures: Austrian Federal Ministry for
+Economic Affairs (BMWET) "SMEs in Focus 2025" for Austria (used the ministry's own current
+figure over an older, inconsistent 2018 EU SBA figure for the same country, flagged by the
+research as a real methodology/scope difference); EU SME Performance Review/SBA Fact Sheet
+multiple editions for Belgium, Greece and Portugal (cited as a consistent range across years
+rather than a single cherry picked figure, since current-year clean share breakdowns were not
+retrievable for any of the three); Ireland's own Central Statistics Office "Business in
+Ireland 2023" (preferred over an older, less current EU SBA figure); New Zealand's MBIE
+(using NZ's own under-20-employee small business definition, explicitly distinct from the
+EU's under-250 SME definition, flagged in the page copy's source note); Norway's SME
+employment/value-added share was flagged by research as unconfirmed-year, so it was left out
+of this page's content entirely rather than cited with an uncertain date; Finland's SME share
+figures were similarly flagged as dated (2018/2019 editions only), so Finland's page leans on
+its real, current Business Finland/Dealroom startup ecosystem figures instead.
+
+**Regulatory/platform facts, the strongest material this batch**: each EU/EEA country in this
+batch got a distinct, specific regulatory angle rather than a generic "GDPR applies" line:
+Austria (Austrian Advertising Council's influencer disclosure rules, Google vs Ecosia search
+share), Belgium (BDPA's real, repeated cookie consent enforcement history, including named
+fines against Roularta Media Group and Mediahuis), Greece (Law 5099/2024 implementing the EU
+Digital Services Act, EETT as coordinator), Portugal (CNPD's 2022 entity-by-entity direct
+marketing consent requirement), Ireland (DPC's over 3.5 billion euros in cumulative GDPR
+fines, the EU's largest GDPR enforcer by fine volume), Norway (GDPR applying via the EEA
+agreement despite non-EU membership, a real Datatilsynet fine against Elkjop), Finland
+(Electronic Communications Services Act enforced by Traficom, with a documented 2021
+correction away from browser-settings-based cookie consent). New Zealand got its own distinct
+angle: the Unsolicited Electronic Messages Act 2007, a CASL/CAN-SPAM-style consent law.
+
+**Honest omissions this batch** (anti-fabrication rule applied, not just referenced): New
+Zealand's current SME employment-share percentage could not be verified from any current
+source, so no percentage was cited for it, only the current, well-sourced enterprise-count
+share (97.2 percent, MBIE). Norway's SME value-added/employment share was flagged
+unconfirmed-year and left out entirely rather than guessed. A handful of single-source or
+promotional-site facts flagged by research (e.g. a specific Norway cookie-law date claim, a
+Finland fine amount, a Helsinki VC-share percentage) were deliberately left out of page copy
+since they could not be corroborated by a second source in the time available.
+
+**Competitive scans** (WebSearch snippet-level): same pattern as every prior batch,
+directory/listicle-dominated results, no standout schema/FAQ signal observed.
+
+**Verification**: all 8 pages 1,601-1,683 words in `<main>`, zero em/en dashes in `<main>`,
+FAQPage JSON-LD (18-19 `mainEntity` items matching the HTML `<details class="faq-item">`
+count exactly on every page) plus the existing `@graph` BreadcrumbList/Service JSON-LD both
+valid and non-duplicate, all `div`/`section`/`details`/`script` tags balanced, charset
+correctly placed at byte 758, no noindex tag on any of the 8.
+
+**Deploy/cache/resubmit**: see chat log for this batch's commit hash, deploy run number, and
+confirmation (same pattern as batches 1-3).
+
+**Sitemap**: `sitemap-international.xml` lastmod bumped to 2026-11-13 for all 8 hub URLs
+(`/austria/`, `/belgium/`, `/greece/`, `/portugal/`, `/ireland/`, `/new-zealand/`, `/norway/`,
+`/finland/`).
+
+### Remaining queue (133 countries, batches of ~8, in priority order)
 
 ```
 afghanistan (content already rebuilt this session, recrawl-pending only, not in rebuild queue)
-albania, algeria, andorra, angola, antigua-and-barbuda, argentina, austria,
-azerbaijan, bahamas, bangladesh, barbados, belarus, belgium, belize, benin,
+albania, algeria, andorra, angola, antigua-and-barbuda, argentina,
+azerbaijan, bahamas, bangladesh, barbados, belarus, belize, benin,
 bosnia-and-herzegovina, botswana, bulgaria, burkina-faso, burundi, cabo-verde, cambodia,
 cameroon, central-african-republic, chad, chile, comoros,
 costa-rica, croatia, cuba, czech-republic, democratic-republic-of-congo, djibouti,
 dominica, dominican-republic, el-salvador, equatorial-guinea, eritrea, estonia, eswatini,
-ethiopia, fiji, finland, gabon, gambia, georgia-country, ghana, greece,
-grenada, guatemala, guinea-bissau, guinea, haiti, honduras, hong-kong, iceland, ireland,
+ethiopia, fiji, gabon, gambia, georgia-country, ghana,
+grenada, guatemala, guinea-bissau, guinea, haiti, honduras, hong-kong, iceland,
 ivory-coast, jamaica, jordan, kenya, kiribati, kosovo, kuwait, laos, latvia,
 lesotho, liberia, libya, liechtenstein, lithuania, luxembourg, madagascar, malawi, mali,
 malta, marshall-islands, mauritania, mauritius, micronesia, moldova, monaco, montenegro,
-morocco, mozambique, myanmar, namibia, nauru, new-zealand, nicaragua, niger,
-north-macedonia, norway, oman, palau, palestine, panama, papua-new-guinea, paraguay, peru,
-portugal, republic-of-congo, romania, rwanda, saint-kitts-and-nevis,
+morocco, mozambique, myanmar, namibia, nauru, nicaragua, niger,
+north-macedonia, oman, palau, palestine, panama, papua-new-guinea, paraguay, peru,
+republic-of-congo, romania, rwanda, saint-kitts-and-nevis,
 saint-lucia, saint-vincent-and-the-grenadines, samoa, san-marino, sao-tome-and-principe,
 senegal, serbia, seychelles, sierra-leone, slovakia, slovenia, solomon-islands, somalia,
 south-sudan, sudan, taiwan, tajikistan, tanzania,
@@ -238,7 +297,6 @@ timor-leste, togo, tonga, trinidad-and-tobago, tunisia, turkmenistan, tuvalu, ua
 ukraine, uruguay, uzbekistan, vanuatu, venezuela, yemen, zambia, zimbabwe
 ```
 
-Next batch (batch 4, suggested): austria, belgium, greece, portugal, ireland, new-zealand,
-norway, finland — remaining developed/high-data-availability markets (EU member states with
-Eurostat/national-stats SME data plus GDPR, English-speaking Oceania/common-law markets),
-same method.
+Next batch (batch 5, suggested): czech-republic, romania, bulgaria, croatia, slovakia,
+slovenia, lithuania, latvia — remaining EU member states with Eurostat/national-stats SME
+data and GDPR applicability, same method.
