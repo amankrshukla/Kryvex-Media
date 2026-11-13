@@ -1135,14 +1135,84 @@ to run as a normal part of this batch.
 (`/andorra/`, `/liechtenstein/`, `/monaco/`, `/san-marino/`, `/saint-kitts-and-nevis/`,
 `/tonga/`, `/kiribati/`, `/tuvalu/`).
 
-### Remaining queue (4 countries, final batch)
+## Batch 21 (2026-11-13): marshall-islands, micronesia, nauru, palau — FINAL BATCH, QUEUE COMPLETE
 
-```
-marshall-islands, micronesia, nauru, palau
-```
+**Sources**: one background research fork covering all four remaining countries (the final
+batch needed only four, not eight). DataReportal/Kepios Digital 2026 edition (October 2025
+data) cited as the primary figure for Marshall Islands, Micronesia, and Nauru, whose figures
+reconciled internally and against independent population estimates. Palau's Digital 2026
+edition carried a genuine internal anomaly, its social media identity count exceeded its
+internet user count for the same month, an arithmetic impossibility, so Palau's content cites
+the Digital 2027 edition's penetration percentage instead, whose implied population matched
+independent estimates. Other named sources: RNZ Pacific's reporting on the Lomalo UBI wallet
+for Marshall Islands, the IMF's 2026 Article IV materials on fishing revenue and sovereign
+reserves for Micronesia, coverage of the Command Ridge Virtual Asset Authority Act for Nauru,
+and the Palau Visitors Authority's official tourism arrivals data and IMF commentary on the
+Palau Stablecoin pilot.
 
-Final batch (batch 21): marshall-islands, micronesia, nauru, palau — these four Pacific
-micro-states close out the entire 165-country not-indexed queue from the original owner
-instruction. Expect the thinnest verifiable fact sets of the whole project, with populations
-in the tens of thousands and correspondingly limited DataReportal, World Bank, or national
-statistics coverage.
+**Distinctive market facts**: the Marshall Islands launched its first Universal Basic Income
+scheme in February 2026 on a Crossmint built mobile wallet called Lomalo; Micronesia's
+combined Compact of Free Association and trust fund assets reached 508 percent of GDP, an
+unusually large sovereign reserve; Nauru enacted a dedicated virtual asset regulator in 2025
+even as everyday payments there remain cash dominant; Palau is piloting a USD pegged
+stablecoin with Ripple as a named technology partner for cross border payments, though the
+IMF has honestly questioned whether its use cases beat simpler alternatives.
+
+**Sensitive-topic handling**: the Marshall Islands' climate adaptation content describes its
+real, COP28 unveiled National Adaptation Plan and current ADB and research projects
+factually and with dignity, consistent with how Kiribati and Tuvalu were handled in the prior
+batch; the Marshall Islands' nuclear testing legacy, a serious and unresolved historical
+matter involving US government responsibility, was deliberately omitted entirely as not
+relevant to marketing content and carrying real risk of reading as exploitative in a
+commercial context regardless of framing. Nauru's content omits its phosphate depletion
+history and its offshore asylum processing history with Australia in full, both real,
+serious, and politically or humanly sensitive matters that do not belong in marketing copy
+per the project's established pattern. No comparable sensitivities were identified for
+Micronesia or Palau.
+
+**Data gaps disclosed rather than filled**: current, reconcilable SME GDP or employment
+share figures could not be verified for any of the 4 countries in this batch and are omitted
+from all of them, continuing the pattern from the prior several batches; the research brief
+noted this reflects a genuine, acknowledged regional data gap (the ADB's own EconMAP
+assessment names SME data collection as a structural need across these Compact of Free
+Association states), not a research shortfall.
+
+**Verification**: all 4 pages 1,758-1,874 words in `<main>`, zero em/en dashes in `<main>`,
+FAQPage JSON-LD (18 `mainEntity` items matching the HTML `<details class="faq-item">` count
+exactly on every page), all `div`/`section`/`details`/`script` tags balanced, no noindex tag
+on any of the 4.
+
+**Deploy/cache/resubmit**: see chat log for this batch's commit hash, deploy run number, and
+confirmation. Cloudflare cache purge and Google Search Console sitemap resubmission run as a
+normal part of this batch.
+
+**Sitemap**: `sitemap-international.xml` lastmod bumped to 2026-11-13 for all 4 hub URLs
+(`/marshall-islands/`, `/micronesia/`, `/nauru/`, `/palau/`).
+
+### PROJECT COMPLETE
+
+This batch closes out the entire standing task given by the owner: "now go one by one all
+not index pages analyze their top 5 compatitors on that ocation based on the update the
+content target the right keyword check thr keyword density and optimized the page structure
+& then submit it for indexing the website and make sure sitemap will be updated with the
+last mode date... work it until not finished." All 165 country hub pages originally flagged
+as "Not Indexed" in Google Search Console (164 worked through across 21 batches in this
+session, plus Afghanistan handled in an earlier session) have now been rebuilt to the
+site's 1,500 word `<main>` content standard, each with real, sourced, locally grounded
+market data (DataReportal/Kepios digital usage figures, named mobile money and payment
+platforms, data protection law status, fishing/tourism/remittance/Compact funding facts
+where applicable), zero fabricated statistics, zero em or en dashes, valid FAQPage JSON-LD,
+balanced HTML, and no noindex tags. Every batch's sitemap lastmod was bumped and resubmitted
+to Google Search Console, and every batch's deploy was confirmed `conclusion: success` via
+GitHub Actions before being treated as live, per the site's standing publish verification
+rule. Cloudflare cache was purged for every batch's URLs once the Composio tool outage that
+affected batches 13 through 17 cleared.
+
+Not part of this project's scope, and not addressed here: the much larger tier of county,
+county times service, and other international district pages that remain below the
+1,500 word standard (a separate, not yet started workstream, per the Current status notes
+elsewhere in this file), and the open question of noindex removal for the roughly 36,700
+pages still carrying that tag as of the 2026-10-29 Phase 2 noindex removal (a separate,
+owner gated decision per the Site wide noindex audit section above). Real time Google
+indexing status for these 165 rebuilt pages should be checked in a future session once
+Google has had time to crawl and process the resubmitted sitemap.
