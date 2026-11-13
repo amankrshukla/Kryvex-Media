@@ -833,32 +833,90 @@ confirmation (same pattern as batches 1-14).
 (`/burundi/`, `/central-african-republic/`, `/chad/`, `/democratic-republic-of-congo/`,
 `/eritrea/`, `/guinea/`, `/guinea-bissau/`, `/sierra-leone/`).
 
-### Remaining queue (44 countries, batches of ~8, in priority order)
+## Batch 16 (2026-11-13): togo, djibouti, mauritania, republic-of-congo, equatorial-guinea, cabo-verde, lesotho, liberia
+
+**Sources**: two parallel background research forks (4 countries each), per the standing
+method. DataReportal/Kepios Digital 2026 edition (October 2025 data) cited as the primary
+figure for all 8, with Digital 2027 explicitly flagged and not used where it showed internal
+inconsistencies or attribution anomalies (several of this batch's 2027 editions credited
+internet analysis to a different, non-Kepios firm name). Other named sources used: IFC's 2023
+Togo private sector diagnostic and TogoFirst for Togo, Coface and African Business/Dawan
+Africa for Djibouti's port economy, the UN Economic Commission for Africa for Mauritania's
+SME figures, ARPCE and World Bank for Congo-Brazzaville, the World Bank's March 2025
+diversification report for Equatorial Guinea, Forbes Africa Lusofona for Cabo Verde's Rede
+Vinti4 network, IMF mobile money data and the Central Bank of Lesotho's 2025 Financial
+Stability Report for Lesotho, and the Central Bank of Liberia's instant payment system
+reporting for Liberia.
+
+**Distinctive market facts**: Cabo Verde was the first African country to enact a
+comprehensive data protection law (2001) and its regulator has genuinely fined institutions,
+including the central bank itself in 2017, a real enforcement record rare among this batch's
+countries; Djibouti's port and logistics activity makes up nearly 70 percent of GDP per
+Coface; Mauritania's mobile connections run to roughly 117 percent of population, reflecting
+heavy multi SIM use; Liberia's new Inclusive Instant Payment System reached 5.3 million
+transactions in its first eight months, a genuine leap in interoperable mobile money.
+
+**Sensitive-topic handling**: per the research brief's explicit recommendation, political
+succession and governance commentary for Togo, Djibouti, Mauritania, and Congo-Brazzaville
+(all of which have real, well documented sensitivities around long serving leadership or
+contested elections) was deliberately kept out of the page copy entirely, since none of it is
+necessary to support locally grounded marketing content and the risk of mischaracterizing a
+sensitive political situation in commercial copy outweighs any benefit; content instead
+focuses entirely on verified economic, digital, and regulatory facts. Lesotho's content states
+its textile sector's real 2025 job losses and US tariff pressure plainly rather than presenting
+the sector as a growth story. Liberia's content states that its 2026 Data Protection Act's
+enactment status is genuinely disputed across sources rather than asserting it as settled.
+Djibouti's foreign military base economy is referenced only as neutral economic geography
+(the US lease and others), not as governance commentary.
+
+**Data gaps disclosed rather than filled**: current, reconcilable SME GDP or employment share
+figures could not be verified for Djibouti, Congo-Brazzaville, Equatorial Guinea, Cabo Verde,
+or Liberia and are omitted from those five pages; Togo's SME GDP contribution is cited as a
+range (77 to 80 percent) across disagreeing sources rather than a single number, and
+Mauritania's UN Economic Commission for Africa figure is used while noting a separate, older,
+much lower academic estimate exists.
+
+**Verification**: all 8 pages 1,763-1,845 words in `<main>`, zero em/en dashes in `<main>`,
+FAQPage JSON-LD (18 `mainEntity` items matching the HTML `<details class="faq-item">` count
+exactly on every page), all `div`/`section`/`details`/`script` tags balanced, no noindex tag
+on any of the 8.
+
+**Deploy/cache/resubmit**: see chat log for this batch's commit hash, deploy run number, and
+confirmation (same pattern as batches 1-15). Note: the Cloudflare cache purge and Google
+Search Console sitemap resubmission steps have been failing with Service Unavailable or
+timeout errors from the Composio tool since roughly 13:00 IST today, affecting batches 13
+through 16; this is tracked separately and retried periodically without blocking the content
+pipeline itself.
+
+**Sitemap**: `sitemap-international.xml` lastmod bumped to 2026-11-13 for all 8 hub URLs
+(`/togo/`, `/djibouti/`, `/mauritania/`, `/republic-of-congo/`, `/equatorial-guinea/`,
+`/cabo-verde/`, `/lesotho/`, `/liberia/`).
+
+### Remaining queue (36 countries, batches of ~8, in priority order)
 
 ```
 andorra, antigua-and-barbuda,
 bahamas, barbados, belarus, belize,
-cabo-verde, comoros,
-djibouti,
-dominica, equatorial-guinea, eswatini,
+comoros,
+dominica, eswatini,
 fiji,
 grenada,
 jamaica, kiribati,
-lesotho, liberia, liechtenstein,
-marshall-islands, mauritania, mauritius, micronesia, monaco,
+liechtenstein,
+marshall-islands, mauritius, micronesia, monaco,
 nauru,
 palau, papua-new-guinea,
-republic-of-congo, saint-kitts-and-nevis,
+saint-kitts-and-nevis,
 saint-lucia, saint-vincent-and-the-grenadines, samoa, san-marino, sao-tome-and-principe,
 seychelles, solomon-islands,
 tajikistan,
-timor-leste, togo, tonga, turkmenistan, tuvalu,
+timor-leste, tonga, turkmenistan, tuvalu,
 vanuatu, yemen
 ```
 
-Next batch (batch 16, suggested): togo, djibouti, mauritania, republic-of-congo,
-equatorial-guinea, cabo-verde, lesotho, liberia — the last remaining mainland/coastal African
-markets with at least some World Bank/national-statistics coverage, before the queue becomes
-almost entirely small island nations and micro-states (Pacific, Caribbean, Indo-Pacific, plus
-a handful of European micro-states) where DataReportal/World Bank data availability will
-likely be considerably thinner; expect more honest data-gap disclosures in upcoming batches.
+Next batch (batch 17, suggested): yemen, eswatini, belarus, tajikistan, turkmenistan,
+mauritius, fiji, papua-new-guinea — the remaining non-micro-island markets with somewhat more
+World Bank/national-statistics coverage, before the queue becomes almost entirely Caribbean,
+Pacific, and European micro-states where DataReportal/World Bank data availability will likely
+be thin; expect more honest data-gap disclosures and shorter verifiable fact sets in upcoming
+batches.
