@@ -892,31 +892,89 @@ pipeline itself.
 (`/togo/`, `/djibouti/`, `/mauritania/`, `/republic-of-congo/`, `/equatorial-guinea/`,
 `/cabo-verde/`, `/lesotho/`, `/liberia/`).
 
-### Remaining queue (36 countries, batches of ~8, in priority order)
+## Batch 17 (2026-11-13): yemen, eswatini, belarus, tajikistan, turkmenistan, mauritius, fiji, papua-new-guinea
+
+**Sources**: two parallel background research forks (4 countries each), per the standing
+method. DataReportal/Kepios Digital 2026 edition (October 2025 data) cited as the primary
+figure for all 8; the research flagged that nearly every Digital 2027 edition in this batch
+showed year over year deltas that do not arithmetically reconcile with the same country's own
+Digital 2026 base (Eswatini, Tajikistan, Belarus, Turkmenistan, Fiji all flagged), so 2027
+figures were not used. Other named sources: Forbes Middle East's Fintech 50 list and World
+Bank remittance data for Yemen, the Eswatini Data Protection Authority's own published
+enforcement notices and the ILO's 2025 Labour Force Survey for Eswatini, Belstat (Belarus'
+national statistics committee) for Belarus' SME figures, the National Bank of Tajikistan's
+card market data and World Bank poverty data for Tajikistan, Trend.az's reporting on
+Turkmenistan's Central Bank linked banking data, the Bank of Mauritius and SME Mauritius for
+Mauritius, the Fiji Revenue and Customs Service and the Asian Development Bank's 2024 SME
+Monitor for Fiji, and the World Bank's July 2026 Economic Update for Papua New Guinea.
+
+**Distinctive market facts**: Turkmenistan has the lowest social media penetration we have
+measured (5.1 percent of population), a genuine outlier similar to Eritrea, so its content
+states that plainly and builds around its real, fast growing domestic mobile banking system
+instead (transaction volume up 140.7 percent year on year) rather than overselling social
+reach the data does not support. Eswatini's Data Protection Authority has a real, named
+enforcement record, including a finding against an insurer following a self reported breach,
+a rarer concrete example among the smaller markets revamped so far. Tajikistan's Apple Pay
+launch (July 2026) and 47.1 percent cashless transaction growth are genuinely current. Papua
+New Guinea remains among the least urbanized nations globally at roughly 13 to 15 percent
+urban.
+
+**Sensitive-topic handling**: Yemen's content is handled with the same care as Sudan and
+Myanmar in earlier batches, leading with real, verified resilience facts (ONE Cash's 32
+percent transaction growth, a World Bank backed payments infrastructure project) rather than
+conflict framing, and describing the country's two separate monetary authorities in strictly
+technical terms without naming political sides. Per the research brief's explicit
+recommendation, governance and political commentary for Belarus, Eswatini, Tajikistan,
+Turkmenistan, and Papua New Guinea's regional tribal tensions was kept out of the page copy
+entirely, consistent with the pattern established for Togo, Djibouti, Mauritania, and
+Congo-Brazzaville in batch 16; content focuses entirely on verified economic and digital
+facts. Belarus' content notes, factually and without political characterization, that
+sanctions related platform actions have affected some advertising tools, since that is
+directly relevant to what can honestly be promised to a client there.
+
+**Data gaps disclosed rather than filled**: current, reconcilable SME GDP or employment share
+figures could not be verified for Yemen, Turkmenistan, or Papua New Guinea and are omitted;
+Tajikistan's SME GDP contribution is described as significant and growing without citing a
+single number, since named sources range from about 30 to over 60 percent and do not
+reconcile.
+
+**Verification**: all 8 pages 1,750-1,947 words in `<main>`, zero em/en dashes in `<main>`,
+FAQPage JSON-LD (18 `mainEntity` items matching the HTML `<details class="faq-item">` count
+exactly on every page), all `div`/`section`/`details`/`script` tags balanced, no noindex tag
+on any of the 8.
+
+**Deploy/cache/resubmit**: see chat log for this batch's commit hash, deploy run number, and
+confirmation (same pattern as batches 1-16). The Cloudflare cache purge and Google Search
+Console sitemap resubmission steps remain affected by the Composio tool outage that began
+around 13:00 IST today, now covering batches 13 through 17; this is tracked separately (task
+list) and retried periodically without blocking the content pipeline itself.
+
+**Sitemap**: `sitemap-international.xml` lastmod bumped to 2026-11-13 for all 8 hub URLs
+(`/yemen/`, `/eswatini/`, `/belarus/`, `/tajikistan/`, `/turkmenistan/`, `/mauritius/`,
+`/fiji/`, `/papua-new-guinea/`).
+
+### Remaining queue (28 countries, batches of ~8, in priority order)
 
 ```
 andorra, antigua-and-barbuda,
-bahamas, barbados, belarus, belize,
+bahamas, barbados, belize,
 comoros,
-dominica, eswatini,
-fiji,
+dominica,
 grenada,
 jamaica, kiribati,
 liechtenstein,
-marshall-islands, mauritius, micronesia, monaco,
+marshall-islands, micronesia, monaco,
 nauru,
-palau, papua-new-guinea,
+palau,
 saint-kitts-and-nevis,
 saint-lucia, saint-vincent-and-the-grenadines, samoa, san-marino, sao-tome-and-principe,
 seychelles, solomon-islands,
-tajikistan,
-timor-leste, tonga, turkmenistan, tuvalu,
-vanuatu, yemen
+timor-leste, tonga, tuvalu,
+vanuatu
 ```
 
-Next batch (batch 17, suggested): yemen, eswatini, belarus, tajikistan, turkmenistan,
-mauritius, fiji, papua-new-guinea — the remaining non-micro-island markets with somewhat more
-World Bank/national-statistics coverage, before the queue becomes almost entirely Caribbean,
-Pacific, and European micro-states where DataReportal/World Bank data availability will likely
-be thin; expect more honest data-gap disclosures and shorter verifiable fact sets in upcoming
-batches.
+Next batch (batch 18, suggested): jamaica, bahamas, barbados, seychelles, comoros,
+sao-tome-and-principe, solomon-islands, timor-leste — the larger and more populous of the
+remaining island nations, with somewhat more World Bank or national-statistics coverage,
+before the queue is down to the smallest Pacific, Caribbean, and European micro-states
+(several under 100,000 people) where verifiable fact sets will likely be thinnest yet.
