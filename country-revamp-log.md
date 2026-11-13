@@ -772,17 +772,77 @@ confirmation (same pattern as batches 1-13).
 (`/ivory-coast/`, `/rwanda/`, `/libya/`, `/sudan/`, `/south-sudan/`, `/somalia/`, `/taiwan/`,
 `/palestine/`).
 
-### Remaining queue (53 countries, batches of ~8, in priority order)
+## Batch 15 (2026-11-13): burundi, central-african-republic, chad, democratic-republic-of-congo, eritrea, guinea, guinea-bissau, sierra-leone
+
+**Sources**: two parallel background research forks (4 countries each), per the standing
+method. DataReportal/Kepios Digital 2026 edition (October 2025 data) cited as the primary
+figure for all 8, with Digital 2027 explicitly flagged and not used where it showed internal
+inconsistencies: Burundi's 2027 edition showing a lower internet user count and penetration
+than the older Digital 2024 edition; Chad's and DR Congo's 2027 editions showing large,
+unexplained drops in absolute internet user counts versus prior editions. Other named sources
+used: the IFC and a 2025 Labour Market Profile for Burundi's MSME and informal employment
+figures, the African Development Bank for Central African Republic's 2025 growth, ARCEP and
+Societe Generale Africa (Cotontchad) for Chad, Vodacom DRC's December 2024 M Pesa figures and
+the World Bank for DR Congo, MFW4A's financial sector profile for Eritrea's absence of mobile
+money, Guineenews for Guinea's Orange Money and Simandou iron ore figures, Guinea-Bissau's
+central bank (via Rio Times) for its financial inclusion jump, and the Bank of Sierra Leone
+and Ministry of Mines for Sierra Leone's mobile money and iron ore export figures.
+
+**Distinctive market facts**: Eritrea has no operating mobile money service at all per
+multiple sources, a genuinely unusual and distinctive fact among the 103 countries revamped
+so far, stated plainly rather than papered over; Guinea-Bissau's financial inclusion rose from
+20.5 percent in 2018 to a reported 79.5 percent by end of 2025, attributed largely to
+electronic money; Guinea's Simandou iron ore project shipped its first cargo in December 2025
+and reached 8.9 million tons exported in a single quarter (Q3 2026) by government data; DR
+Congo's M Pesa reported 6.4 million active customers and 85 million dollars in annual revenue
+as of December 2024, with wallets operating in both the Congolese franc and the US dollar.
+
+**Sensitive-topic handling**: Central African Republic's content notes the UN's own
+"generally improved but fragile" security assessment rather than claiming the conflict has
+ended. Chad's content states the 2021 to 2024 political transition is formally complete per
+international reporting while noting governance watchdogs still rate the country as not fully
+democratic, and keeps the large eastern refugee crisis distinct from the national economic
+story. DR Congo's content states plainly that a real, UN documented armed conflict continues
+in parts of the east as of the most recent available reporting, kept explicitly distinct from
+the mining driven growth story centered on Kinshasa and the south, neither omitted nor
+presented as a nationwide condition. Guinea's content describes its December 2025 election and
+constitutional changes factually, attributing the UN's own characterization of a restricted
+campaign without asserting a political position. Guinea-Bissau's content states its November
+2025 political transition and the scheduled December 6, 2026 election factually, without
+presuming an outcome that has not yet occurred as of this writing. Sierra Leone's content
+references its civil war's formal end in 2002 as historical context for current stability
+rather than a dominant frame. Eritrea's content states its very low digital penetration and
+absent mobile money sector as a structural fact relevant to realistic marketing expectations,
+without editorializing on the country's governance.
+
+**Data gaps disclosed rather than filled**: current, reconcilable SME GDP/employment-share
+figures could not be verified for Central African Republic, Chad, DR Congo, Eritrea, Guinea,
+or Guinea-Bissau and are omitted from those six pages; Burundi's MSME figure (IFC, 2024) and
+Sierra Leone's private-sector-credit-to-GDP figure (AfDB) were the only two SME-adjacent
+figures that met the verification bar across this batch.
+
+**Verification**: all 8 pages 1,750-1,853 words in `<main>`, zero em/en dashes in `<main>`,
+FAQPage JSON-LD (18 `mainEntity` items matching the HTML `<details class="faq-item">` count
+exactly on every page), all `div`/`section`/`details`/`script` tags balanced, no noindex tag
+on any of the 8.
+
+**Deploy/cache/resubmit**: see chat log for this batch's commit hash, deploy run number, and
+confirmation (same pattern as batches 1-14).
+
+**Sitemap**: `sitemap-international.xml` lastmod bumped to 2026-11-13 for all 8 hub URLs
+(`/burundi/`, `/central-african-republic/`, `/chad/`, `/democratic-republic-of-congo/`,
+`/eritrea/`, `/guinea/`, `/guinea-bissau/`, `/sierra-leone/`).
+
+### Remaining queue (44 countries, batches of ~8, in priority order)
 
 ```
 andorra, antigua-and-barbuda,
 bahamas, barbados, belarus, belize,
-burundi, cabo-verde,
-central-african-republic, chad, comoros,
-democratic-republic-of-congo, djibouti,
-dominica, equatorial-guinea, eritrea, eswatini,
+cabo-verde, comoros,
+djibouti,
+dominica, equatorial-guinea, eswatini,
 fiji,
-grenada, guinea-bissau, guinea,
+grenada,
 jamaica, kiribati,
 lesotho, liberia, liechtenstein,
 marshall-islands, mauritania, mauritius, micronesia, monaco,
@@ -790,15 +850,15 @@ nauru,
 palau, papua-new-guinea,
 republic-of-congo, saint-kitts-and-nevis,
 saint-lucia, saint-vincent-and-the-grenadines, samoa, san-marino, sao-tome-and-principe,
-seychelles, sierra-leone, solomon-islands,
+seychelles, solomon-islands,
 tajikistan,
 timor-leste, togo, tonga, turkmenistan, tuvalu,
 vanuatu, yemen
 ```
 
-Next batch (batch 15, suggested): burundi, central-african-republic, chad, democratic-republic-of-congo,
-eritrea, guinea, guinea-bissau, sierra-leone — the remaining mainland African markets with at
-least some World Bank/national-statistics coverage, before the queue becomes almost entirely
-small island nations and micro-states (Pacific, Caribbean, Indo-Pacific, plus a handful of
-European micro-states) where DataReportal/World Bank data availability will likely be
-considerably thinner; expect more honest data-gap disclosures in upcoming batches.
+Next batch (batch 16, suggested): togo, djibouti, mauritania, republic-of-congo,
+equatorial-guinea, cabo-verde, lesotho, liberia — the last remaining mainland/coastal African
+markets with at least some World Bank/national-statistics coverage, before the queue becomes
+almost entirely small island nations and micro-states (Pacific, Caribbean, Indo-Pacific, plus
+a handful of European micro-states) where DataReportal/World Bank data availability will
+likely be considerably thinner; expect more honest data-gap disclosures in upcoming batches.
