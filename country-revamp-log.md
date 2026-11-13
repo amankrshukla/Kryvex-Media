@@ -669,22 +669,73 @@ confirmation (same pattern as batches 1-11).
 (`/algeria/`, `/angola/`, `/cuba/`, `/cambodia/`, `/laos/`, `/burkina-faso/`, `/benin/`,
 `/namibia/`).
 
-### Remaining queue (69 countries, batches of ~8, in priority order)
+## Batch 13 (2026-11-13): argentina, myanmar, oman, botswana, gabon, gambia, malawi, haiti
+
+**Sources used**: DataReportal/Kepios Digital reports for internet-user figures, with the
+2026 edition preferred over 2027 across most of this batch given recurring internal
+inconsistencies in the newer editions (most severe for Botswana, where the two editions
+disagreed by roughly 600,000 users). SME figures were weakly sourced across nearly the
+entire batch: Argentina's widely repeated 70 percent employment figure could not be
+verified against INDEC or OECD and is flagged as industry-repeated, not official; Myanmar's
+estimates all predate 2021; Oman's NCSI figures (82.8 percent of GDP from the private sector
+overall) are solid but the SME-specific breakdown still traces through Riyada via secondary
+reporting; Botswana's, Gabon's, Gambia's and Malawi's SME figures are all self-reported
+government/press estimates not independently confirmed, stated as ranges or omitted where
+genuinely irreconcilable.
+
+**Strong regulatory material**: Argentina's AAIP has real, active 2025-2026 enforcement,
+including a fine against Laboratorios Ferring and an open ex officio investigation into
+Mercado Pago; Oman's and Botswana's new data protection laws (Oman's 2023 PDPL, Botswana's
+Data Protection Act 18 of 2024) both have genuine extraterritorial reach relevant to foreign
+businesses targeting their residents; Gabon's APDPVP inspected Airtel Gabon and Airtel Money
+in May 2025; Gambia's first ever comprehensive data protection law only passed in November
+2025; Malawi's Data Protection Act is still phasing in compliance.
+
+**Myanmar and Haiti handled with explicit care**, per the research brief: Myanmar's content
+states that 95 verified internet shutdown events in 2025 and platform blocking during the
+2025 to 2026 election period are documented by independent monitors (Access Now, Internet in
+Myanmar), not confirmed as official government policy. Haiti's content presents MonCash's
+documented service interruptions (including an October 2024 multi-day outage) as a factual
+operational planning consideration, and GDP contraction as World Bank-reported economic
+context, deliberately avoiding exploitative framing of the country's security situation.
+
+**Distinctive market facts**: Malawi's real usage gap, per the GSMA, of only about 12.5
+percent unique mobile internet penetration despite broad network coverage; Oman's e-commerce
+share of total retail sales at only about 1 percent, a genuine whitespace opportunity; a 2014
+mapping study finding 70 percent of Gambian MSMEs are unregistered and informal.
+
+**Competitive scans** (WebSearch snippet-level): same pattern as every prior batch,
+directory/listicle-dominated results, no standout schema/FAQ signal observed.
+
+**Verification**: all 8 pages 1,656-1,702 words in `<main>`, zero em/en dashes in `<main>`,
+FAQPage JSON-LD (18 `mainEntity` items matching the HTML `<details class="faq-item">` count
+exactly on every page) plus the existing `@graph` BreadcrumbList/Service JSON-LD both valid
+and non-duplicate, all `div`/`section`/`details`/`script` tags balanced, charset correctly
+placed at byte 758, no noindex tag on any of the 8.
+
+**Deploy/cache/resubmit**: see chat log for this batch's commit hash, deploy run number, and
+confirmation (same pattern as batches 1-12).
+
+**Sitemap**: `sitemap-international.xml` lastmod bumped to 2026-11-13 for all 8 hub URLs
+(`/argentina/`, `/myanmar/`, `/oman/`, `/botswana/`, `/gabon/`, `/gambia/`, `/malawi/`,
+`/haiti/`).
+
+### Remaining queue (61 countries, batches of ~8, in priority order)
 
 ```
-andorra, antigua-and-barbuda, argentina,
+andorra, antigua-and-barbuda,
 bahamas, barbados, belarus, belize,
-botswana, burundi, cabo-verde,
+burundi, cabo-verde,
 central-african-republic, chad, comoros,
 democratic-republic-of-congo, djibouti,
 dominica, equatorial-guinea, eritrea, eswatini,
-fiji, gabon, gambia,
-grenada, guinea-bissau, guinea, haiti,
+fiji,
+grenada, guinea-bissau, guinea,
 ivory-coast, jamaica, kiribati,
-lesotho, liberia, libya, liechtenstein, malawi,
+lesotho, liberia, libya, liechtenstein,
 marshall-islands, mauritania, mauritius, micronesia, monaco,
-myanmar, nauru,
-oman, palau, palestine, papua-new-guinea,
+nauru,
+palau, palestine, papua-new-guinea,
 republic-of-congo, rwanda, saint-kitts-and-nevis,
 saint-lucia, saint-vincent-and-the-grenadines, samoa, san-marino, sao-tome-and-principe,
 seychelles, sierra-leone, solomon-islands, somalia,
@@ -693,6 +744,9 @@ timor-leste, togo, tonga, turkmenistan, tuvalu,
 vanuatu, yemen
 ```
 
-Next batch (batch 13, suggested): argentina, myanmar, oman, botswana, gabon, gambia,
-malawi, haiti — remaining larger markets across Latin America, Southeast Asia, the Gulf and
-Africa with real World Bank/national-statistics data available, same method.
+Next batch (batch 14, suggested): ivory-coast, rwanda, libya, sudan, south-sudan, somalia,
+taiwan, palestine — remaining larger African/Middle Eastern markets with real World
+Bank/national-statistics data available, same method. Note the queue is now dominated by
+very small island nations and micro-states (Pacific, Caribbean, Indo-Pacific) where
+DataReportal/World Bank data availability may be considerably thinner; expect more honest
+data-gap disclosures in upcoming batches as the larger markets are worked through.
