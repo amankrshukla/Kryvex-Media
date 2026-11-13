@@ -622,21 +622,68 @@ confirmation (same pattern as batches 1-10).
 (`/venezuela/`, `/zambia/`, `/zimbabwe/`, `/mozambique/`, `/madagascar/`, `/mali/`, `/niger/`,
 `/nicaragua/`).
 
-### Remaining queue (77 countries, batches of ~8, in priority order)
+## Batch 12 (2026-11-13): algeria, angola, cuba, cambodia, laos, burkina-faso, benin, namibia
+
+**Sources used**: DataReportal/Kepios Digital reports for internet-user figures, cited as
+explicit ranges for the several countries in this batch where recent report editions
+disagreed materially with each other (Laos, Burkina Faso), and with the safer, more
+internally-consistent edition preferred where available (Angola's 2026 edition over its
+anomalous 2027 edition). SME figures: Cambodia's 2022 Economic Census stood out as the
+strongest, most current, officially sourced figure of the batch (99.8 percent of entities are
+MSMEs); Laos's and Namibia's commonly repeated SME percentages were both found to trace to
+dated estimates (2018 and 2003/04 respectively) and are presented with that vintage stated
+explicitly; Algeria's, Angola's, Burkina Faso's and Benin's SME/informal-economy figures
+could not be pinned to a single current, authoritative source and are either omitted or
+presented as a range with multiple named sources.
+
+**Angola's real, unusually well documented enforcement record** is this batch's standout
+regulatory material: its APD issued named, dated fines against TAAG, the Development Bank of
+Angola, and Crescer Tech across 2025 and 2026, genuinely rare transparency for a market this
+size. Burkina Faso's CIL, established in 2007, was confirmed as the first operative data
+protection authority in Francophone sub-Saharan Africa, a real regional first. Cambodia and
+Namibia both still lack an enacted comprehensive data protection law as of 2026, stated
+honestly rather than implied otherwise.
+
+**Genuinely distinctive market-structure facts**: Cuba's internet-user count has shown a real
+declining trend across recent report editions, an unusual pattern worth noting rather than
+smoothing into a growth narrative, alongside the country's genuinely recent (December 2018)
+arrival of island-wide mobile internet; Algeria's recurring nationwide internet restrictions
+during its annual exam season; Namibia's split finding between Facebook (leading by registered
+users) and TikTok (leading by actual data consumption, per the country's own telecoms
+regulator); Burkina Faso's sub-18 percent bank penetration making mobile money often the only
+electronic payment option available.
+
+**Competitive scans** (WebSearch snippet-level): same pattern as every prior batch,
+directory/listicle-dominated results, no standout schema/FAQ signal observed.
+
+**Verification**: all 8 pages 1,652-1,734 words in `<main>`, zero em/en dashes in `<main>`,
+FAQPage JSON-LD (18 `mainEntity` items matching the HTML `<details class="faq-item">` count
+exactly on every page) plus the existing `@graph` BreadcrumbList/Service JSON-LD both valid
+and non-duplicate, all `div`/`section`/`details`/`script` tags balanced, charset correctly
+placed at byte 758, no noindex tag on any of the 8.
+
+**Deploy/cache/resubmit**: see chat log for this batch's commit hash, deploy run number, and
+confirmation (same pattern as batches 1-11).
+
+**Sitemap**: `sitemap-international.xml` lastmod bumped to 2026-11-13 for all 8 hub URLs
+(`/algeria/`, `/angola/`, `/cuba/`, `/cambodia/`, `/laos/`, `/burkina-faso/`, `/benin/`,
+`/namibia/`).
+
+### Remaining queue (69 countries, batches of ~8, in priority order)
 
 ```
-algeria, andorra, angola, antigua-and-barbuda, argentina,
-bahamas, barbados, belarus, belize, benin,
-botswana, burkina-faso, burundi, cabo-verde, cambodia,
+andorra, antigua-and-barbuda, argentina,
+bahamas, barbados, belarus, belize,
+botswana, burundi, cabo-verde,
 central-african-republic, chad, comoros,
-cuba, democratic-republic-of-congo, djibouti,
+democratic-republic-of-congo, djibouti,
 dominica, equatorial-guinea, eritrea, eswatini,
 fiji, gabon, gambia,
 grenada, guinea-bissau, guinea, haiti,
-ivory-coast, jamaica, kiribati, laos,
+ivory-coast, jamaica, kiribati,
 lesotho, liberia, libya, liechtenstein, malawi,
 marshall-islands, mauritania, mauritius, micronesia, monaco,
-myanmar, namibia, nauru,
+myanmar, nauru,
 oman, palau, palestine, papua-new-guinea,
 republic-of-congo, rwanda, saint-kitts-and-nevis,
 saint-lucia, saint-vincent-and-the-grenadines, samoa, san-marino, sao-tome-and-principe,
@@ -646,6 +693,6 @@ timor-leste, togo, tonga, turkmenistan, tuvalu,
 vanuatu, yemen
 ```
 
-Next batch (batch 12, suggested): algeria, angola, cuba, cambodia, laos, burkina-faso,
-benin, namibia — remaining larger African/Southeast Asian/Caribbean markets with real World
-Bank/national-statistics data available, same method.
+Next batch (batch 13, suggested): argentina, myanmar, oman, botswana, gabon, gambia,
+malawi, haiti — remaining larger markets across Latin America, Southeast Asia, the Gulf and
+Africa with real World Bank/national-statistics data available, same method.
