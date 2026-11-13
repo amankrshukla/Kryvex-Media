@@ -1015,26 +1015,76 @@ are back to running as a normal part of every batch going forward.
 (`/jamaica/`, `/bahamas/`, `/barbados/`, `/seychelles/`, `/comoros/`,
 `/sao-tome-and-principe/`, `/solomon-islands/`, `/timor-leste/`).
 
-### Remaining queue (20 countries, batches of ~8, in priority order)
+## Batch 19 (2026-11-13): belize, antigua-and-barbuda, grenada, saint-lucia, saint-vincent-and-the-grenadines, dominica, samoa, vanuatu
+
+**Sources**: two parallel background research forks (4 countries each), per the standing
+method. DataReportal/Kepios Digital 2026 edition (October 2025 data) cited as the primary
+figure for all 8; Belize's and Antigua and Barbuda's Digital 2027 editions both showed
+year-over-year deltas that do not arithmetically reconcile with their own stated figures and
+were not used, while Grenada's and Saint Lucia's 2027 editions showed no comparable
+inconsistency but the 2026 edition was still used as the default per the standing preference.
+Other named sources: the World Bank's July 2025 catastrophe linked credit announcement for
+Belize, the IMF's 2025/2026 Article IV reports for Antigua and Barbuda and Grenada, the
+Caribbean Development Bank's 2025 MSME support package and Saint Lucia's own Data Protection
+Act commencement order for Saint Lucia, the Eastern Caribbean Central Bank's DCash and Fast
+Payment System announcements for Saint Vincent and the Grenadines, the World Bank's Hurricane
+Maria damage assessment for Dominica, the Central Bank of Samoa's tourism reporting for
+Samoa, and the World Bank's GRADE assessment of Vanuatu's December 2024 earthquake.
+
+**Distinctive market facts**: a real homegrown mobile payment platform, ClicCash, launched
+in Antigua and Barbuda in February 2026; Saint Lucia's Data Protection Act has been partially
+in force since January 31, 2023, the most concrete data protection status found among its
+immediate Eastern Caribbean neighbors; Dominica has rebuilt about a quarter of its housing
+stock to hurricane resistant codes since Hurricane Maria; Vanuatu's December 2024 earthquake
+caused damage equal to 17 percent of 2023 GDP on its own, with combined 2024 disaster losses
+reaching roughly a quarter of GDP; the regional Eastern Caribbean Central Bank shelved its
+DCash digital currency program in February 2026 in favor of a new Fast Payment System,
+affecting Grenada and Saint Vincent and the Grenadines alike.
+
+**Sensitive-topic handling**: Belize's, Saint Vincent and the Grenadines', Dominica's, and
+Vanuatu's content include real, documented hurricane, volcanic, and earthquake resilience
+facts as legitimate economic planning context, consistent with the standing allowance for
+factual disaster resilience information. Grenada's content cites its real, documented
+citizenship by investment revenue decline but omits a live political dispute over the
+content of its 2023 Data Protection Act, consistent with the project's pattern of keeping
+governance disputes out of marketing copy. Saint Lucia's content omits scrutiny of its
+citizenship by investment program's security and due diligence practices. Antigua and
+Barbuda's content omits a December 2025 US visa restriction tied to its citizenship by
+investment program, since that touches foreign policy and program legitimacy questions
+outside the scope of marketing content.
+
+**Data gaps disclosed rather than filled**: current, reconcilable SME GDP or employment
+share figures could not be verified for any of the 8 countries in this batch and are omitted
+from all of them, the first batch where every country hit that gap; Samoa's content notes the
+Asian Development Bank itself explicitly states no reliable MSME data exists for the country,
+an honest fact in its own right rather than a gap to paper over.
+
+**Verification**: all 8 pages 1,768-1,938 words in `<main>`, zero em/en dashes in `<main>`,
+FAQPage JSON-LD (18 `mainEntity` items matching the HTML `<details class="faq-item">` count
+exactly on every page), all `div`/`section`/`details`/`script` tags balanced, no noindex tag
+on any of the 8.
+
+**Deploy/cache/resubmit**: see chat log for this batch's commit hash, deploy run number, and
+confirmation. Cloudflare cache purge and Google Search Console sitemap resubmission continue
+to run as a normal part of this batch.
+
+**Sitemap**: `sitemap-international.xml` lastmod bumped to 2026-11-13 for all 8 hub URLs
+(`/belize/`, `/antigua-and-barbuda/`, `/grenada/`, `/saint-lucia/`,
+`/saint-vincent-and-the-grenadines/`, `/dominica/`, `/samoa/`, `/vanuatu/`).
+
+### Remaining queue (12 countries, final two batches)
 
 ```
-andorra, antigua-and-barbuda,
-belize,
-dominica,
-grenada, kiribati,
-liechtenstein,
-marshall-islands, micronesia, monaco,
-nauru,
-palau,
-saint-kitts-and-nevis,
-saint-lucia, saint-vincent-and-the-grenadines, samoa, san-marino,
-tonga, tuvalu,
-vanuatu
+andorra, liechtenstein, monaco, san-marino,
+kiribati, marshall-islands, micronesia, nauru,
+palau, saint-kitts-and-nevis, tonga, tuvalu
 ```
 
-Next batch (batch 19, suggested): belize, antigua-and-barbuda, grenada, saint-lucia,
-saint-vincent-and-the-grenadines, dominica, samoa, vanuatu — the larger-population remaining
-Caribbean and Pacific states, before the final batch of the smallest micro-states (Andorra,
-Liechtenstein, Monaco, San Marino, Nauru, Tuvalu, Palau, Kiribati, Marshall Islands,
-Micronesia, Saint Kitts and Nevis, Tonga), several of which have populations under 50,000 and
-will likely have the thinnest verifiable fact sets of the entire project.
+Next batch (batch 20, suggested): andorra, liechtenstein, monaco, san-marino,
+saint-kitts-and-nevis, tonga, kiribati, tuvalu — the four European micro-states together with
+four smaller Caribbean/Pacific states, leaving the final batch 21 (marshall-islands,
+micronesia, nauru, palau) to close out the entire 165-country queue. These final 12 are
+expected to have the thinnest verifiable fact sets of the whole project, several with
+populations under 50,000 and correspondingly limited DataReportal, World Bank, or national
+statistics coverage; honest "not verifiable" disclosures will likely be more frequent than
+usual in these last two batches.
