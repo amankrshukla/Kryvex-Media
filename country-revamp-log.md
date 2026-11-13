@@ -1072,19 +1072,77 @@ to run as a normal part of this batch.
 (`/belize/`, `/antigua-and-barbuda/`, `/grenada/`, `/saint-lucia/`,
 `/saint-vincent-and-the-grenadines/`, `/dominica/`, `/samoa/`, `/vanuatu/`).
 
-### Remaining queue (12 countries, final two batches)
+## Batch 20 (2026-11-13): andorra, liechtenstein, monaco, san-marino, saint-kitts-and-nevis, tonga, kiribati, tuvalu
+
+**Sources**: two parallel background research forks (4 countries each), per the standing
+method. DataReportal/Kepios Digital 2026 edition (October 2025 data) cited as the primary
+figure for all 8; several Digital 2027 editions showed non-reconciling year-over-year deltas
+and were not used, most severely Tuvalu's, whose 2027 social media figure nearly doubled
+against a declining internet-user trend, an implausible pattern DataReportal itself has
+separately disclaimed for this country. Other named sources: the Andorran Banking
+Association's 2025 annual report and APDA's enforcement record for Andorra, Liechtenstein's
+Office of Statistics and FMA licensing announcements, IMSEE (Monaco's statistics institute)
+and the Monaco government's own FATF status language, the IMF's 2025 Article IV review and
+BKN301 Group trade press for San Marino, St. Kitts Nevis Anguilla National Bank for Saint
+Kitts and Nevis, the IMF's 2025 mission statement on Tonga's volcanic recovery, Kiribati's
+Ministry of Finance fishing license revenue reporting, and RNZ Pacific and the Australian
+government's Falepili Union reporting for Tuvalu.
+
+**Pipeline fix**: the shared dash-fix regex only matched single-word administrative division
+names in the hero note's "pick your X below" sentence (fixed for hyphenated names in batch
+10). Kiribati's hero note uses the two-word phrase "island group," which broke the same
+pattern again. Widened the regex to match any word-and-space sequence before "below.", fixed
+with no regressions across the rest of this batch.
+
+**Distinctive market facts**: Monaco's population density of roughly 25,732 people per
+square kilometer is the highest of any sovereign country; Liechtenstein notably lacks TWINT,
+Switzerland's dominant mobile payment app, despite sharing its currency; San Marino is home
+to BKN301 Group, a global banking as a service company; Andorra's card payment volume reached
+half of its GDP in 2025; Kiribati's fishing license revenue supplied 209.9 million dollars in
+2024 alone, historically the large majority of government income; Tuvalu's Falepili Union
+with Australia is the world's first bilateral climate mobility treaty, already resettling its
+first families as of January 2026.
+
+**Sensitive-topic handling**: Monaco's FATF grey list status (since June 2024) is stated
+factually as still pending removal per the government's own most recent language, not
+claimed resolved. Andorra's and San Marino's EU Association Agreements, both signed October
+19, 2026, are described as pending ratification, not yet in force, with Andorra's content
+noting real, documented domestic debate over the deal. Saint Kitts and Nevis' and Tonga's
+content omits citizenship by investment program scrutiny and monarchy and electoral reform
+commentary respectively, per the established pattern. Kiribati's and Tuvalu's climate and
+sea level content, per the research brief's explicit guidance, states real, current
+adaptation and planning programs (Kiribati's World Bank funded outer islands project and
+COP31 financing proposal; Tuvalu's Future Now Project and the Falepili Union) factually and
+with dignity, deliberately avoiding "sinking island" or disappearing nation framing that the
+people closest to Tuvalu's own program have said misrepresents how they see their situation.
+
+**Data gaps disclosed rather than filled**: current, reconcilable SME GDP or employment
+share figures could not be verified for any of the 8 countries in this batch and are omitted
+from all of them; Liechtenstein's and Monaco's content instead cite the real, dated company
+and employee counts their own statistics offices publish, without presenting those as an SME
+percentage.
+
+**Verification**: all 8 pages 1,767-1,859 words in `<main>`, zero em/en dashes in `<main>`,
+FAQPage JSON-LD (18 `mainEntity` items matching the HTML `<details class="faq-item">` count
+exactly on every page), all `div`/`section`/`details`/`script` tags balanced, no noindex tag
+on any of the 8.
+
+**Deploy/cache/resubmit**: see chat log for this batch's commit hash, deploy run number, and
+confirmation. Cloudflare cache purge and Google Search Console sitemap resubmission continue
+to run as a normal part of this batch.
+
+**Sitemap**: `sitemap-international.xml` lastmod bumped to 2026-11-13 for all 8 hub URLs
+(`/andorra/`, `/liechtenstein/`, `/monaco/`, `/san-marino/`, `/saint-kitts-and-nevis/`,
+`/tonga/`, `/kiribati/`, `/tuvalu/`).
+
+### Remaining queue (4 countries, final batch)
 
 ```
-andorra, liechtenstein, monaco, san-marino,
-kiribati, marshall-islands, micronesia, nauru,
-palau, saint-kitts-and-nevis, tonga, tuvalu
+marshall-islands, micronesia, nauru, palau
 ```
 
-Next batch (batch 20, suggested): andorra, liechtenstein, monaco, san-marino,
-saint-kitts-and-nevis, tonga, kiribati, tuvalu — the four European micro-states together with
-four smaller Caribbean/Pacific states, leaving the final batch 21 (marshall-islands,
-micronesia, nauru, palau) to close out the entire 165-country queue. These final 12 are
-expected to have the thinnest verifiable fact sets of the whole project, several with
-populations under 50,000 and correspondingly limited DataReportal, World Bank, or national
-statistics coverage; honest "not verifiable" disclosures will likely be more frequent than
-usual in these last two batches.
+Final batch (batch 21): marshall-islands, micronesia, nauru, palau — these four Pacific
+micro-states close out the entire 165-country not-indexed queue from the original owner
+instruction. Expect the thinnest verifiable fact sets of the whole project, with populations
+in the tens of thousands and correspondingly limited DataReportal, World Bank, or national
+statistics coverage.
