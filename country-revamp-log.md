@@ -471,30 +471,75 @@ confirmation (same pattern as batches 1-7).
 (`/jordan/`, `/morocco/`, `/tunisia/`, `/azerbaijan/`, `/uzbekistan/`, `/bangladesh/`,
 `/kenya/`, `/ghana/`).
 
-### Remaining queue (101 countries, batches of ~8, in priority order)
+## Batch 9 (2026-11-13): chile, costa-rica, dominican-republic, uruguay, panama, paraguay, cameroon, senegal
+
+**Sources used**: DataReportal/Kepios Digital reports for internet-user figures across all
+8. SME figures: each country's own best available national source, with GDP/employment
+shares again the weakest-sourced category (Panama's MSME GDP/employment share could not be
+confirmed from any Panama-specific source and is not used; Cameroon's GDP contribution
+estimates ranged 20-36% across sources and are presented only as a range in the research,
+not as a single figure on the page). Uruguay stood out as the best-sourced SME figure of the
+batch: its National Statistics Institute's September 2024 thematic document gives a clean,
+current, officially sourced percentage, used directly.
+
+**Mobile money, the strongest material for Cameroon and Senegal**: Cameroon's MTN Mobile
+Money (5.845 million active users in 2024) and Orange Money together processed over 2.7
+billion transactions worth more than 32 trillion CFA francs in 2025, per company reporting
+and Financial Afrik; Senegal's Orange Money alone reported 13.6 million active users in the
+first quarter of 2026, per Sonatel's own results, against a national population of roughly
+18 to 19 million. Wave's specific Senegal user numbers were found only in a single
+non-authoritative commercial source with internally conflicting figures and were deliberately
+left out.
+
+**Regulatory landscape, genuinely varied across the batch**: Chile's first dedicated data
+protection authority (Law 21.719, published December 2024) is still a maturing regime with no
+enforcement record yet, explicitly distinguished from an authority with an active enforcement
+history; Uruguay's URCDP, by contrast, has operated since 2008 and issued a real 2026
+resolution; the Dominican Republic has no dedicated private sector enforcement authority at
+all, a genuinely distinctive regulatory gap; Panama's ANTAI and Senegal's CDP both have real,
+named enforcement powers and history; Paraguay enacted its first ever comprehensive data
+protection law only in November 2025, a genuinely current development.
+
+**Competitive scans** (WebSearch snippet-level): same pattern as every prior batch,
+directory/listicle-dominated results, no standout schema/FAQ signal observed.
+
+**Verification**: all 8 pages 1,625-1,714 words in `<main>`, zero em/en dashes in `<main>`,
+FAQPage JSON-LD (18 `mainEntity` items matching the HTML `<details class="faq-item">` count
+exactly on every page) plus the existing `@graph` BreadcrumbList/Service JSON-LD both valid
+and non-duplicate, all `div`/`section`/`details`/`script` tags balanced, charset correctly
+placed at byte 758, no noindex tag on any of the 8.
+
+**Deploy/cache/resubmit**: see chat log for this batch's commit hash, deploy run number, and
+confirmation (same pattern as batches 1-8).
+
+**Sitemap**: `sitemap-international.xml` lastmod bumped to 2026-11-13 for all 8 hub URLs
+(`/chile/`, `/costa-rica/`, `/dominican-republic/`, `/uruguay/`, `/panama/`, `/paraguay/`,
+`/cameroon/`, `/senegal/`).
+
+### Remaining queue (93 countries, batches of ~8, in priority order)
 
 ```
 algeria, andorra, angola, antigua-and-barbuda, argentina,
 bahamas, barbados, belarus, belize, benin,
 botswana, burkina-faso, burundi, cabo-verde, cambodia,
-cameroon, central-african-republic, chad, chile, comoros,
-costa-rica, cuba, democratic-republic-of-congo, djibouti,
-dominica, dominican-republic, el-salvador, equatorial-guinea, eritrea, eswatini,
+central-african-republic, chad, comoros,
+cuba, democratic-republic-of-congo, djibouti,
+dominica, el-salvador, equatorial-guinea, eritrea, eswatini,
 ethiopia, fiji, gabon, gambia,
 grenada, guatemala, guinea-bissau, guinea, haiti, honduras,
 ivory-coast, jamaica, kiribati, laos,
 lesotho, liberia, libya, liechtenstein, madagascar, malawi, mali,
 marshall-islands, mauritania, mauritius, micronesia, monaco,
 mozambique, myanmar, namibia, nauru, nicaragua, niger,
-oman, palau, palestine, panama, papua-new-guinea, paraguay, peru,
+oman, palau, palestine, papua-new-guinea, peru,
 republic-of-congo, rwanda, saint-kitts-and-nevis,
 saint-lucia, saint-vincent-and-the-grenadines, samoa, san-marino, sao-tome-and-principe,
-senegal, seychelles, sierra-leone, solomon-islands, somalia,
+seychelles, sierra-leone, solomon-islands, somalia,
 south-sudan, sudan, taiwan, tajikistan, tanzania,
 timor-leste, togo, tonga, trinidad-and-tobago, turkmenistan, tuvalu, uganda,
-uruguay, vanuatu, venezuela, yemen, zambia, zimbabwe
+vanuatu, venezuela, yemen, zambia, zimbabwe
 ```
 
-Next batch (batch 9, suggested): chile, costa-rica, dominican-republic, uruguay, panama,
-paraguay, cameroon, senegal — remaining larger Latin American and West/Central African
-markets with real World Bank/national-statistics data available, same method.
+Next batch (batch 10, suggested): peru, guatemala, honduras, el-salvador, trinidad-and-tobago,
+tanzania, uganda, ethiopia — remaining larger Latin American and East African markets with
+real World Bank/national-statistics data available, same method.
