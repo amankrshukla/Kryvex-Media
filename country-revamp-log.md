@@ -318,7 +318,56 @@ confirmation (same pattern as batches 1-4).
 (`/czech-republic/`, `/romania/`, `/bulgaria/`, `/croatia/`, `/slovakia/`, `/slovenia/`,
 `/lithuania/`, `/latvia/`).
 
-### Remaining queue (125 countries, batches of ~8, in priority order)
+## Batch 6 (2026-11-13): estonia, luxembourg, malta, iceland, hong-kong, uae, kuwait, kosovo
+
+**Sources used**: DataReportal/Kepios Digital [country] 2026 reports for internet-user
+figures across all 8. Estonia: official e-Residency program data (e-resident.gov.ee),
+genuinely strong, current (2025) figures on new e-residents, companies founded, and state
+revenue generated, used as the page's primary stats instead of an unverifiable SME
+percentage. Luxembourg: the CNPD's well documented 746 million euro Amazon fine (July 2021),
+still the largest GDPR fine ever issued; SME value-added share flagged explicitly as sourced
+via Statista/Eurostat rather than a directly confirmed current EU SBA figure. Malta: National
+Statistics Office 2023 data (52.6 percent of value added from SMEs), a genuinely current,
+government sourced figure, a rare win this batch; Malta Gaming Authority's 2025 annual report
+for iGaming's real, measured share of GDP. Iceland: confirmed EEA/GDPR status via the July
+2018 EEA Joint Committee decision and Iceland's own Act No. 90/2018, enforced by Personuvernd.
+Hong Kong: Trade and Industry Department's current (June 2026) SME count, and the genuinely
+important, verifiable fact that Google, Facebook, Instagram and WhatsApp are open and
+unrestricted there, unlike mainland China. UAE: Ministry of Economy SME figures, explicitly
+flagged as a 2022 data point and specifically about non-oil GDP, not total GDP, per research
+findings that the two are often conflated in secondary reporting. Kuwait: confirmed, genuinely
+distinctive fact that Kuwait has no VAT at all, one of only two GCC states without one; SME/
+GDP contribution figures were found to range so widely (3 to 20 percent across inconsistent
+2016-2022 sources) that no specific percentage was used on the page, per the anti-fabrication
+rule. Kosovo: Kosovo Agency of Statistics 2024 census (population and median age), and a
+deliberate correction of a common misconception, that Kosovo is accurately a potential
+candidate for EU membership, not yet a formal candidate, confirmed via November 2026
+reporting.
+
+**Honest omissions this batch**: Iceland's SME share figure was left out entirely after
+research could not confirm a clean, current Statistics Iceland figure comparable to the EU's
+SBA fact sheets. Kuwait's SME/GDP contribution was left unquantified for the same reason, the
+available figures disagreed by nearly an order of magnitude. Luxembourg's Amazon fine appeal
+status was described only through its original 2021 fine, not its disputed, unconfirmed later
+appeal outcome, since research found conflicting reports that could not be resolved.
+
+**Competitive scans** (WebSearch snippet-level): same pattern as every prior batch,
+directory/listicle-dominated results, no standout schema/FAQ signal observed.
+
+**Verification**: all 8 pages 1,621-1,702 words in `<main>`, zero em/en dashes in `<main>`,
+FAQPage JSON-LD (18 `mainEntity` items matching the HTML `<details class="faq-item">` count
+exactly on every page) plus the existing `@graph` BreadcrumbList/Service JSON-LD both valid
+and non-duplicate, all `div`/`section`/`details`/`script` tags balanced, charset correctly
+placed at byte 758, no noindex tag on any of the 8.
+
+**Deploy/cache/resubmit**: see chat log for this batch's commit hash, deploy run number, and
+confirmation (same pattern as batches 1-5).
+
+**Sitemap**: `sitemap-international.xml` lastmod bumped to 2026-11-13 for all 8 hub URLs
+(`/estonia/`, `/luxembourg/`, `/malta/`, `/iceland/`, `/hong-kong/`, `/uae/`, `/kuwait/`,
+`/kosovo/`).
+
+### Remaining queue (117 countries, batches of ~8, in priority order)
 
 ```
 afghanistan (content already rebuilt this session, recrawl-pending only, not in rebuild queue)
@@ -327,24 +376,23 @@ azerbaijan, bahamas, bangladesh, barbados, belarus, belize, benin,
 bosnia-and-herzegovina, botswana, burkina-faso, burundi, cabo-verde, cambodia,
 cameroon, central-african-republic, chad, chile, comoros,
 costa-rica, cuba, democratic-republic-of-congo, djibouti,
-dominica, dominican-republic, el-salvador, equatorial-guinea, eritrea, estonia, eswatini,
+dominica, dominican-republic, el-salvador, equatorial-guinea, eritrea, eswatini,
 ethiopia, fiji, gabon, gambia, georgia-country, ghana,
-grenada, guatemala, guinea-bissau, guinea, haiti, honduras, hong-kong, iceland,
-ivory-coast, jamaica, jordan, kenya, kiribati, kosovo, kuwait, laos,
-lesotho, liberia, libya, liechtenstein, luxembourg, madagascar, malawi, mali,
-malta, marshall-islands, mauritania, mauritius, micronesia, moldova, monaco, montenegro,
+grenada, guatemala, guinea-bissau, guinea, haiti, honduras,
+ivory-coast, jamaica, jordan, kenya, kiribati, laos,
+lesotho, liberia, libya, liechtenstein, madagascar, malawi, mali,
+marshall-islands, mauritania, mauritius, micronesia, moldova, monaco, montenegro,
 morocco, mozambique, myanmar, namibia, nauru, nicaragua, niger,
 north-macedonia, oman, palau, palestine, panama, papua-new-guinea, paraguay, peru,
 republic-of-congo, rwanda, saint-kitts-and-nevis,
 saint-lucia, saint-vincent-and-the-grenadines, samoa, san-marino, sao-tome-and-principe,
 senegal, serbia, seychelles, sierra-leone, solomon-islands, somalia,
 south-sudan, sudan, taiwan, tajikistan, tanzania,
-timor-leste, togo, tonga, trinidad-and-tobago, tunisia, turkmenistan, tuvalu, uae, uganda,
+timor-leste, togo, tonga, trinidad-and-tobago, tunisia, turkmenistan, tuvalu, uganda,
 ukraine, uruguay, uzbekistan, vanuatu, venezuela, yemen, zambia, zimbabwe
 ```
 
-Next batch (batch 6, suggested): estonia, luxembourg, malta, iceland, hong-kong, uae,
-kuwait, kosovo — remaining high-data-availability/high-income markets (Estonia completes the
-Baltic trio; Luxembourg and Malta are EU members with real financial-sector economies; UAE
-and Kuwait are real Gulf markets with available World Bank/national-statistics SME data),
-same method.
+Next batch (batch 7, suggested): serbia, bosnia-and-herzegovina, north-macedonia,
+montenegro, albania, moldova, ukraine, georgia-country — remaining Balkans/Eastern Europe
+markets with available World Bank/national-statistics data and real EU-accession or
+association-agreement angles, same method.
