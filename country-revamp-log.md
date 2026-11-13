@@ -516,7 +516,61 @@ confirmation (same pattern as batches 1-8).
 (`/chile/`, `/costa-rica/`, `/dominican-republic/`, `/uruguay/`, `/panama/`, `/paraguay/`,
 `/cameroon/`, `/senegal/`).
 
-### Remaining queue (93 countries, batches of ~8, in priority order)
+## Batch 10 (2026-11-13): peru, guatemala, honduras, el-salvador, trinidad-and-tobago, tanzania, uganda, ethiopia
+
+**Pipeline fix found and applied this batch**: the injector's dash-fix regex for the "pick
+your X below" sentence (`BIG_TEMPLATE_REGEX_RULES` in `fix_country_dashes.py`) only matched a
+single `\w+` word, so it missed Uganda's "sub-region" variant (a hyphenated word). Fixed by
+widening the pattern to `[\w-]+`; re-verified zero leftover dashes across all 8 countries in
+this batch afterward, and this fix carries forward automatically for any future country whose
+hero note uses a hyphenated local administrative-division name.
+
+**Sources used**: DataReportal/Kepios Digital reports for internet-user figures across all
+8, cited as ranges for several countries given real inconsistencies between report editions
+(Honduras, Trinidad and Tobago, Uganda). SME figures: Peru's ComexPeru (with a genuinely
+notable finding that MYPE's GDP share has fallen from roughly 25 percent a decade ago to 14.2
+percent in 2024, even as their share of total businesses, 99.6 percent, stayed effectively
+unchanged), Guatemala's MINECO/AGN, El Salvador's CONAMYPE, with Honduras and Trinidad and
+Tobago's GDP/employment shares left as ranges or omitted entirely given genuinely
+irreconcilable source disagreement (Trinidad and Tobago's own Central Bank acknowledged this
+data gap as far back as 2008).
+
+**Mobile money, the strongest material for Tanzania, Uganda and Ethiopia**: Tanzania's 87.05
+million active mobile money accounts (TCRA, June 2026, with the correct current branding
+Mixx by Yas, not the outdated Tigo Pesa name, following Tigo Tanzania's 2024 rebrand to Yas);
+Uganda's 263 trillion shilling mobile money volume in just the first seven months of 2026
+(Bank of Uganda); Ethiopia's mobile money adoption rising from 4.7 to 19.4 percent of adults
+between 2021 and 2024 (World Bank Global Findex) alongside telebirr's 58.6 million users.
+
+**Regulatory facts handled with real nuance**: Peru's new 18 percent IGV tax on foreign
+digital platforms (Netflix, Spotify, SaaS providers); El Salvador's brand new November 2024
+data protection law; Guatemala's confirmed absence of any comprehensive data protection law;
+Trinidad and Tobago's Data Protection Act, only partially proclaimed since 2011; Uganda's 12
+percent data excise duty, the successor to its 2018 social media tax, still in effect; and
+Ethiopia's documented history of regional internet restrictions during unrest, stated as a
+general pattern per Freedom House and NetBlocks rather than asserting a specific current-day
+status. El Salvador's Bitcoin legal tender status was deliberately NOT presented as evidence
+of mainstream payment adoption: independent academic surveys (UCA, NBER) show real
+transactional use fell from over 25 percent in 2021 to 8.1 percent by 2024, even as ownership
+remains comparatively high, and the page reflects that honest, declining-use framing.
+
+**Competitive scans** (WebSearch snippet-level): same pattern as every prior batch,
+directory/listicle-dominated results, no standout schema/FAQ signal observed.
+
+**Verification**: all 8 pages 1,614-1,791 words in `<main>`, zero em/en dashes in `<main>`,
+FAQPage JSON-LD (18 `mainEntity` items matching the HTML `<details class="faq-item">` count
+exactly on every page) plus the existing `@graph` BreadcrumbList/Service JSON-LD both valid
+and non-duplicate, all `div`/`section`/`details`/`script` tags balanced, charset correctly
+placed at byte 758, no noindex tag on any of the 8.
+
+**Deploy/cache/resubmit**: see chat log for this batch's commit hash, deploy run number, and
+confirmation (same pattern as batches 1-9).
+
+**Sitemap**: `sitemap-international.xml` lastmod bumped to 2026-11-13 for all 8 hub URLs
+(`/peru/`, `/guatemala/`, `/honduras/`, `/el-salvador/`, `/trinidad-and-tobago/`, `/tanzania/`,
+`/uganda/`, `/ethiopia/`).
+
+### Remaining queue (85 countries, batches of ~8, in priority order)
 
 ```
 algeria, andorra, angola, antigua-and-barbuda, argentina,
@@ -524,22 +578,22 @@ bahamas, barbados, belarus, belize, benin,
 botswana, burkina-faso, burundi, cabo-verde, cambodia,
 central-african-republic, chad, comoros,
 cuba, democratic-republic-of-congo, djibouti,
-dominica, el-salvador, equatorial-guinea, eritrea, eswatini,
-ethiopia, fiji, gabon, gambia,
-grenada, guatemala, guinea-bissau, guinea, haiti, honduras,
+dominica, equatorial-guinea, eritrea, eswatini,
+fiji, gabon, gambia,
+grenada, guinea-bissau, guinea, haiti,
 ivory-coast, jamaica, kiribati, laos,
 lesotho, liberia, libya, liechtenstein, madagascar, malawi, mali,
 marshall-islands, mauritania, mauritius, micronesia, monaco,
 mozambique, myanmar, namibia, nauru, nicaragua, niger,
-oman, palau, palestine, papua-new-guinea, peru,
+oman, palau, palestine, papua-new-guinea,
 republic-of-congo, rwanda, saint-kitts-and-nevis,
 saint-lucia, saint-vincent-and-the-grenadines, samoa, san-marino, sao-tome-and-principe,
 seychelles, sierra-leone, solomon-islands, somalia,
-south-sudan, sudan, taiwan, tajikistan, tanzania,
-timor-leste, togo, tonga, trinidad-and-tobago, turkmenistan, tuvalu, uganda,
+south-sudan, sudan, taiwan, tajikistan,
+timor-leste, togo, tonga, turkmenistan, tuvalu,
 vanuatu, venezuela, yemen, zambia, zimbabwe
 ```
 
-Next batch (batch 10, suggested): peru, guatemala, honduras, el-salvador, trinidad-and-tobago,
-tanzania, uganda, ethiopia — remaining larger Latin American and East African markets with
-real World Bank/national-statistics data available, same method.
+Next batch (batch 11, suggested): venezuela, zambia, zimbabwe, mozambique, madagascar, mali,
+niger, nicaragua — remaining larger African and Latin American markets with real World
+Bank/national-statistics data available, same method.
