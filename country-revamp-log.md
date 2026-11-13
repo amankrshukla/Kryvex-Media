@@ -953,28 +953,88 @@ list) and retried periodically without blocking the content pipeline itself.
 (`/yemen/`, `/eswatini/`, `/belarus/`, `/tajikistan/`, `/turkmenistan/`, `/mauritius/`,
 `/fiji/`, `/papua-new-guinea/`).
 
-### Remaining queue (28 countries, batches of ~8, in priority order)
+## Batch 18 (2026-11-13): jamaica, bahamas, barbados, seychelles, comoros, sao-tome-and-principe, solomon-islands, timor-leste
+
+**Sources**: two parallel background research forks (4 countries each), per the standing
+method. DataReportal/Kepios Digital 2026 edition (October 2025 data) cited as the primary
+figure for all 8, with Digital 2027 figures flagged and not used where year over year deltas
+did not reconcile with the 2026 base (most notably Solomon Islands, whose 2027 edition showed
+internet users falling while social media identities rose over the same window, an
+unexplained pattern). Other named sources: the World Bank and Inter American Development
+Bank's joint Hurricane Melissa damage assessment and the Bank of Jamaica for Jamaica, the
+Central Bank of The Bahamas and a 2025 IMF climate vulnerability paper for the Bahamas, the
+Central Bank of Barbados and a 2024 regional mobile payment study for Barbados, the
+Information Commission Seychelles and World Bank tourism data for Seychelles, reporting on
+Axian Group's MVola license for Comoros, the African Development Bank's October 2025 loan
+announcement for São Tomé and Príncipe, the country's first National Economic Establishment
+Census (October 2025) for Solomon Islands, and World Bank post oil phase reporting for
+Timor-Leste.
+
+**Distinctive market facts**: the Bahamas' Sand Dollar was the world's first live retail
+central bank digital currency; Barbados pioneered the Climate Resilient Debt Clause, letting
+it pause debt payments for up to two years after a natural disaster, and cut public debt from
+178.9 percent of GDP in 2018 to 93.3 percent by January 2026; Seychelles went roughly two
+decades without an operative data protection law before one finally took effect in December
+2023; Comoros produces an estimated 50 to 70 percent of the world's ylang ylang supply;
+Solomon Islands recorded its first current account surplus since 2012 in 2025, driven by
+mining's rise from about 4 percent of exports in 2019 to more than half by 2025; Timor-Leste's
+oil production formally ended in 2025, moving the World Bank to describe a genuine "post oil
+phase."
+
+**Sensitive-topic handling**: Jamaica's content includes Hurricane Melissa's real, documented
+economic impact (the World Bank and IDB's joint 8.8 billion dollar damage estimate, about 41
+percent of 2024 GDP, and the ILO's count of more than 30,000 jobs lost) as a legitimate
+economic resilience fact, but omits crime rate commentary entirely, per the research brief's
+own recommendation, since official crime statistics and public perception data conflict and
+the topic carries more political and reputational risk than marketing value. The Bahamas',
+Barbados', and Seychelles' content include real hurricane and climate vulnerability facts
+(IMF and World Bank sourced) as legitimate business planning context, consistent with the
+standing allowance for factual economic resilience factors. Solomon Islands' content omits a
+recent fatal mine landslide and a contested 2026 change of prime minister entirely, and
+Comoros' content omits its extensive coup history, both per the project's established pattern
+of keeping governance and tragedy out of marketing copy. Timor-Leste's content describes its
+post oil transition in purely economic terms without independence or nation building
+narrative.
+
+**Data gaps disclosed rather than filled**: current, reconcilable SME GDP or employment share
+figures could not be verified for Jamaica, the Bahamas, Comoros, São Tomé and Príncipe, or
+Timor-Leste and are omitted; Barbados' and Seychelles' figures rely on the most recent named
+surveys available (2016 and 2019 respectively) since no more current reconciled figure exists.
+
+**Verification**: all 8 pages 1,747-1,903 words in `<main>`, zero em/en dashes in `<main>`,
+FAQPage JSON-LD (18 `mainEntity` items matching the HTML `<details class="faq-item">` count
+exactly on every page), all `div`/`section`/`details`/`script` tags balanced, no noindex tag
+on any of the 8.
+
+**Deploy/cache/resubmit**: see chat log for this batch's commit hash, deploy run number, and
+confirmation. The Composio tool outage affecting Cloudflare cache purges and Google Search
+Console sitemap resubmission (batches 13 through 17) cleared during this session; both steps
+are back to running as a normal part of every batch going forward.
+
+**Sitemap**: `sitemap-international.xml` lastmod bumped to 2026-11-13 for all 8 hub URLs
+(`/jamaica/`, `/bahamas/`, `/barbados/`, `/seychelles/`, `/comoros/`,
+`/sao-tome-and-principe/`, `/solomon-islands/`, `/timor-leste/`).
+
+### Remaining queue (20 countries, batches of ~8, in priority order)
 
 ```
 andorra, antigua-and-barbuda,
-bahamas, barbados, belize,
-comoros,
+belize,
 dominica,
-grenada,
-jamaica, kiribati,
+grenada, kiribati,
 liechtenstein,
 marshall-islands, micronesia, monaco,
 nauru,
 palau,
 saint-kitts-and-nevis,
-saint-lucia, saint-vincent-and-the-grenadines, samoa, san-marino, sao-tome-and-principe,
-seychelles, solomon-islands,
-timor-leste, tonga, tuvalu,
+saint-lucia, saint-vincent-and-the-grenadines, samoa, san-marino,
+tonga, tuvalu,
 vanuatu
 ```
 
-Next batch (batch 18, suggested): jamaica, bahamas, barbados, seychelles, comoros,
-sao-tome-and-principe, solomon-islands, timor-leste — the larger and more populous of the
-remaining island nations, with somewhat more World Bank or national-statistics coverage,
-before the queue is down to the smallest Pacific, Caribbean, and European micro-states
-(several under 100,000 people) where verifiable fact sets will likely be thinnest yet.
+Next batch (batch 19, suggested): belize, antigua-and-barbuda, grenada, saint-lucia,
+saint-vincent-and-the-grenadines, dominica, samoa, vanuatu — the larger-population remaining
+Caribbean and Pacific states, before the final batch of the smallest micro-states (Andorra,
+Liechtenstein, Monaco, San Marino, Nauru, Tuvalu, Palau, Kiribati, Marshall Islands,
+Micronesia, Saint Kitts and Nevis, Tonga), several of which have populations under 50,000 and
+will likely have the thinnest verifiable fact sets of the entire project.
