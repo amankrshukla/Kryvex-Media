@@ -68,9 +68,65 @@ Per district:
 ## Remaining queue
 
 Batch 1: Munger, Muzaffarpur, Purnia, Saran, Katihar — DONE (2026-11-14, see entry below)
-Batch 2: Kaimur, Khagaria, Kishanganj, Madhepura, Saharsa
+Batch 2: Kaimur, Khagaria, Kishanganj, Madhepura, Saharsa — DONE (2026-11-14, see entry below)
 Batch 3: Samastipur, Sheikhpura, Sheohar, Siwan, Supaul
 Batch 4: Arwal, East Champaran, Gopalganj, Jehanabad, West Champaran
+
+## Batch 2 completed (2026-11-14): Kaimur, Khagaria, Kishanganj, Madhepura, Saharsa
+
+Same method as batch 1: H1/badge fixed to exact-match "digital marketing
+agency in <district>", real local-economy section added, 2 new FAQ items
++ FAQPage JSON-LD per page (none had any before), all dashes removed from
+`<main>` and meta. Word counts: Kaimur 1508, Khagaria 1511, Kishanganj
+1509, Madhepura 1500, Saharsa 1512 (up from a shared baseline of
+978-988).
+
+Real sourced facts added per district (WebSearch, Semrush still out of
+API units):
+- **Kaimur**: Mundeshwari Temple (widely cited as one of India's oldest
+  still-functioning Hindu temples), Kudra's rice-milling hub (~12 large
+  mills + ~400 smaller ones), agriculture ~46.6% of workforce, 21,799
+  registered MSMEs, Kaimur Wildlife Sanctuary in the Vindhya hills.
+- **Khagaria**: One District One Product designations (bamboo art,
+  banana, maize), surrounded by 7 rivers (Ganga, Kamla Balan, Kosi,
+  Budhi Gandak, Kareh, Kali Kosi, Bagmati) causing annual flooding,
+  agriculture ~71.4% of workforce, near-total absence of local
+  processing industry, Barauni-Guwahati railway junction.
+- **Kishanganj**: Bihar's only tea-growing district (acreage estimates
+  conflict across sources, flagged as such), real processing-capacity
+  bottleneck (far fewer units than traders say are needed), jute/
+  pineapple/maize crops, Seemanchal border-trade position, named among
+  the country's most backward districts in 2006.
+- **Madhepura**: electric locomotive factory (genuine large Indian
+  Railways investment), Kosi division major corn/makhana producer,
+  flood-silt-fertility dynamic (with one account describing recent
+  flood deposits as sandier/less fertile, flagged as a documented
+  shift rather than settled fact), B.N. Mandal University, micro-
+  enterprise clusters (sweets/namkeen, bamboo work in Raniganj).
+- **Saharsa**: A-category railway junction on the East Central Railway
+  (Samastipur division), Kosi division headquarters (covering Saharsa/
+  Madhepura/Supaul), corn/makhana exports (per one source, to US/
+  Australia/France/Japan/England), district formed 1954 and reduced in
+  size when Madhepura was carved out in 1981.
+
+Competitor research (WebSearch): **Mayank Digital Labs** again recurs
+as the one real, confirmed competitor with dedicated pages for every
+district in this batch. Other names found were either small,
+unverifiable local listings (Tezthink Web Solutions in Madhepura, on
+IndiaMART), Patna/Darbhanga-based generalists serving the whole state
+(NetrX Digital, Debug Digital, Vyapar Wallah, Neoera Digital, Gudsoft
+Digital Solution, Assurah Marketing Agency), or unverified names from a
+promotional AAMAX "Top 10" listicle for Kishanganj and Madhepura
+(KishanganjDigital Hub, TeaGarden Digital, NortheastBihar Digital,
+WebGrow Kishanganj, KosiValley Marketing) that are not treated as
+confirmed real businesses anywhere in this project. Not placed on
+customer-facing page copy, same as batch 1.
+
+Verification performed on every file, same checklist as batch 1: word
+count, zero remaining dashes in `<main>`/meta, HTML tag balance,
+FAQPage JSON-LD validity + 11/11 FAQ-count match, no stray noindex,
+charset meta position intact. All verified on scratchpad test copies
+first, then re-verified after writing to the real repo files.
 
 ## Batch 1 completed (2026-11-14): Munger, Muzaffarpur, Purnia, Saran, Katihar
 
