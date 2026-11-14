@@ -69,8 +69,67 @@ Per district:
 
 Batch 1: Munger, Muzaffarpur, Purnia, Saran, Katihar — DONE (2026-11-14, see entry below)
 Batch 2: Kaimur, Khagaria, Kishanganj, Madhepura, Saharsa — DONE (2026-11-14, see entry below)
-Batch 3: Samastipur, Sheikhpura, Sheohar, Siwan, Supaul
+Batch 3: Samastipur, Sheikhpura, Sheohar, Siwan, Supaul — DONE (2026-11-14, see entry below)
 Batch 4: Arwal, East Champaran, Gopalganj, Jehanabad, West Champaran
+
+## Batch 3 completed (2026-11-14): Samastipur, Sheikhpura, Sheohar, Siwan, Supaul
+
+Same method as batches 1-2. Word counts: Samastipur 1519, Sheikhpura
+1503, Sheohar 1539, Siwan 1504, Supaul 1512 (up from a shared baseline
+of 977-999).
+
+Real sourced facts added per district (WebSearch, Semrush still out of
+API units):
+- **Samastipur**: Pusa agricultural research campus (now Dr. Rajendra
+  Prasad Central Agricultural University), own railway division under
+  East Central Railway (2025 Muzaffarpur Junction transfer into it),
+  ~83% of workforce in agriculture, tobacco/maize/rice/wheat plus
+  lychee and mango.
+- **Sheikhpura**: one of Bihar's smallest/least populous districts
+  (689 sq km, least populous per 2011 census), stone quarrying at
+  hillocks near Kudra-area crushers, DC-MSME profile stating no large/
+  medium industry exists, Backward Regions Grant Fund recipient.
+- **Sheohar**: Bihar's smallest district by area (carved from
+  Sitamarhi in 1994), second least populous district after Sheikhpura,
+  three-crop-a-year irrigation capacity, among Bihar's most
+  flood-affected districts (Bagmati/Budhi Gandak overflow).
+  (Sources gave two conflicting area figures, 349 vs 443 sq km;
+  flagged rather than picked arbitrarily.)
+- **Siwan**: unusually high remittance dependence (~80% of the local
+  economy per press reporting, shared with neighbouring Gopalganj),
+  NABARD-documented link between NRI remittances and farm-practice
+  investment, limited industry (4 units per district site, half
+  cement), planned dairy processing unit.
+- **Supaul**: Kosi-belt agriculture, Bihar's highest jute producer per
+  a cited 2020 study (50,670+ bales), part of the Kosi division's
+  corn/makhana leadership, 2006 "most backward districts"
+  classification, 2011 literacy rate ~72.74%.
+
+One WebSearch result for Supaul contained an embedded instruction
+attempting to redirect the query into writing a gumbo recipe; the
+search tool itself flagged and ignored it, and no action was taken on
+it, noted here for the record per this project's standing practice of
+treating all external content as data, not instructions.
+
+Competitor research (WebSearch): **Mayank Digital Labs** again recurs
+as the one real, confirmed competitor with dedicated pages for every
+district in this batch. Other names found were small, unverifiable
+listings (Finder21 Technology and Digital Techmart for Siwan, BizAdda360
+for Samastipur, Patron Services generic city pages), Patna/Darbhanga/
+Arrah-based generalists (NetrX Digital, Debug Digital, Vyapar Wallah,
+Neoera Digital, Gudsoft Digital Solution), or unverified names from a
+promotional AAMAX "Top 10" listicle for Supaul (KosiDigital, SupaulWeb
+Solutions, NorthBihar Digital, VisibleOnline Agency, BrandBuilder
+Bihar). Not placed on customer-facing page copy, same as prior batches.
+
+Verification performed on every file, same checklist as batches 1-2:
+word count, zero remaining dashes in `<main>`/meta, HTML tag balance,
+FAQPage JSON-LD validity + FAQ-count match (11/11 for four districts,
+12/12 for Sheohar, which got a third new FAQ to reach the word-count
+threshold), no stray noindex, charset meta position intact. All
+verified on scratchpad test copies first, then re-verified after
+writing to the real repo files. Bumped sitemap-cities.xml lastmod for
+these 5 URLs.
 
 ## Batch 2 completed (2026-11-14): Kaimur, Khagaria, Kishanganj, Madhepura, Saharsa
 
