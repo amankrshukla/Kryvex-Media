@@ -70,7 +70,74 @@ Per district:
 Batch 1: Munger, Muzaffarpur, Purnia, Saran, Katihar — DONE (2026-11-14, see entry below)
 Batch 2: Kaimur, Khagaria, Kishanganj, Madhepura, Saharsa — DONE (2026-11-14, see entry below)
 Batch 3: Samastipur, Sheikhpura, Sheohar, Siwan, Supaul — DONE (2026-11-14, see entry below)
-Batch 4: Arwal, East Champaran, Gopalganj, Jehanabad, West Champaran
+Batch 4: Arwal, East Champaran, Gopalganj, Jehanabad, West Champaran — DONE (2026-11-14, see entry below)
+
+## Batch 4 completed (2026-11-14): Arwal, East Champaran, Gopalganj, Jehanabad, West Champaran
+
+Final batch. Same method as batches 1-3. Word counts: Arwal 1512, East
+Champaran 1541, Gopalganj 1500, Jehanabad 1513, West Champaran 1502 (up
+from a shared baseline of ~969-1020).
+
+Real sourced facts added per district (WebSearch, Semrush still out of
+API units):
+- **Arwal**: carved from Jehanabad/Aurangabad territory, among Bihar's
+  three least populous districts (with Sheikhpura/Sheohar), ~82% of
+  workforce cultivators/agricultural labourers, official state profile
+  listing 100+ metal-based and dozens of leather-based units (directly
+  contradicting some older "no industry" claims, flagged as such).
+- **East Champaran**: Motihari HQ, Bagmati-linked flood/famine/drought
+  history, real agro-industrial base (sugar/rice mills, cottage
+  industry), September 2026 CM announcement on restarting the closed
+  Sri Hanuman Sugar and Industries mill (flagged as announced, not
+  completed), Gandhi's Champaran movement history.
+- **Gopalganj**: ~80% remittance-dependent economy per press reporting
+  (shared with Siwan), real sugar industry (4 mills + government
+  distillery at Mirganj/Harakhua/Sidhwalia/Sasamusa), reported recent
+  ethanol production start (undated in sources, flagged).
+- **Jehanabad**: ~54% of workforce in agriculture, genuinely distinct
+  education/coaching sector tied to Patna proximity, documented
+  Naxalite/Red Corridor history with multiple sources citing real
+  improvement, 2001 administrative split that created Arwal.
+- **West Champaran**: Bettiah HQ, Bihar's largest sugarcane producer in
+  2022, 6 named sugar-mill towns, Valmiki Tiger Reserve covering ~17.4%
+  of district area on the India-Nepal border.
+
+Competitor research (WebSearch): **Mayank Digital Labs** again recurs
+as the one real, confirmed competitor with dedicated pages for every
+district in this batch. Other names found were unverifiable IndiaMART
+listings (Websoftlink Technology, Tech Maximize for Gopalganj, Masterji
+Pix for Jehanabad), a garbled/unconfirmed Clutch listing ("Ratori
+Media") for Bettiah, Patna/Darbhanga/Gaya/Arrah-based generalists
+(NetrX Digital, Debug Digital, Vyapar Wallah, Neoera Digital, Gudsoft
+Digital Solution, Assurah Marketing Agency), and generic Patron
+Services city pages. Not placed on customer-facing page copy, same as
+prior batches.
+
+Verification performed on every file, same checklist as prior batches:
+word count, zero remaining dashes in `<main>`/meta, HTML tag balance,
+FAQPage JSON-LD validity + 11/11 FAQ-count match, no stray noindex,
+charset meta position intact. All verified on scratchpad test copies
+first, then re-verified after writing to the real repo files. Bumped
+sitemap-cities.xml lastmod for these 5 URLs.
+
+## Project status: all 4 batches / 20 not-indexed districts complete (2026-11-14)
+
+All 20 Bihar district pages that were "Not Indexed" per the 2026-11-14
+GSC check (logged at the top of this file) have now been optimized:
+content/keyword/SEO rewrite, real local-economy research, competitor
+research, FAQPage JSON-LD added, dashes removed, word counts raised
+from a shared ~970-1020 baseline to 1500+ on every page, deployed live
+(GitHub Actions runs #411-413, all `conclusion: success`), Cloudflare
+cache purged, sitemap resubmitted to GSC, and the Revamp Pages sheet's
+Optimization column updated for all 20 rows.
+
+What this project did not do: re-check real-time GSC indexing status
+for these 20 URLs after the rewrites. Google's indexing decision takes
+time to reflect a content change, so re-checking immediately would not
+yet show a meaningful result. A follow-up indexing check in a future
+session (not scheduled as part of this project) would be the way to
+see whether the rewrites actually moved any of these 20 pages from
+"Not Indexed" toward "Discovered" or "Indexed."
 
 ## Batch 3 completed (2026-11-14): Samastipur, Sheikhpura, Sheohar, Siwan, Supaul
 
