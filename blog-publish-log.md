@@ -3159,3 +3159,22 @@ over.
   editing. Also bumped the top-level `sitemap.xml`'s own reference to
   `sitemap-resources.xml` from 2026-11-14 to 2026-11-17. Site now has
   85 total published posts (was 82 before this run).
+
+- **Git:** all 3 post files + `blog/index.html` + both sitemap edits +
+  the blog-performance-log.md indexing/performance entry bundled into
+  one commit (`2228b4e06`), pushed to
+  `claude/webtech-core-current-work-rsmbri` and fast-forwarded to
+  `main`.
+
+- **Deploy:** run #415 (`https://github.com/amankrshukla/webtechcore-website/actions/runs/44040600654`),
+  `conclusion: success`, confirmed via polling before anything was
+  logged as live.
+
+- **Sitemap resubmission:** confirmed — "Sitemap
+  'https://kryvexmedia.com/sitemap.xml' successfully submitted for site
+  'sc-domain:kryvexmedia.com'".
+
+- **Cloudflare cache purge:** confirmed `success: true` for the
+  targeted URLs actually changed this run (the 3 new post pages,
+  `/blog/`, `sitemap-resources.xml`, and `sitemap.xml`), per the
+  standing post-publish purge rule.
