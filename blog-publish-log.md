@@ -3060,3 +3060,102 @@ how a prior cancellation artifact (2026-09-26) was handled.
   URLs actually changed this run (the 3 new post pages, `/blog/`,
   `sitemap-resources.xml`, and `sitemap.xml`), per the standing
   post-publish purge rule.
+
+### 2026-11-17 — resuming after a 3-day gap (2026-11-15, 2026-11-16 missed)
+
+**Honest note on the gap:** the scheduled trigger fired on 2026-11-15,
+2026-11-16, and 2026-11-17, but the session was occupied the entire
+time with the Bihar district-page optimization project (a separate,
+large multi-batch task) and did not process any of these firings until
+2026-11-17, when all three queued notifications were read together.
+Rather than fabricate separate publish entries for 2026-11-15 and
+2026-11-16 that never actually happened, this entry covers only the 3
+posts genuinely written and published today, 2026-11-17. The 2-day gap
+with zero posts published is logged here as a real fact, not papered
+over.
+
+- Topic/query: GSC 90-day query pull checked first (2026-08-15 to
+  2026-11-14, dimension `query`, 100 rows) — same standing pattern as
+  every prior run, near-total volume is hyper-local "agency/digital
+  marketing in [city/country]" queries already served by the
+  programmatic geo pages, nothing new maps to a blog topic. Fell back
+  to the service-deep-dive tier for all 3, picking 3 distinct real
+  developments across 3 different service areas (web design/ecommerce,
+  local SEO, content marketing), none of which overlap with each other
+  or with any already-published post. One originally-considered topic,
+  Google Local Services Ads migrating into Google Ads, was dropped
+  after checking `ls blog/` and finding it already comprehensively
+  covered by the existing `/blog/google-local-services-ads-missed-call-billing-2026/`
+  post (2026-11-11) — caught before writing, not after.
+
+1. **shopify-fall-26-edition-what-changed** (Web Design/E-commerce,
+   1,535 words): Shopify's Fall '26 Edition (reported ship date
+   disputed across sources — Oct 28 vs Nov 2, 2026; update count
+   disputed — ~150 vs 222). Covers Shop Pay checkout now working
+   inside AI shopping agents (Meta's Muse, Claude's Duet/Instinct
+   modes, Grok per one source), the new shop.md/Shop MCP tool letting
+   assistants like ChatGPT/Claude shop on a customer's behalf, Sidekick
+   admin assistant moving from "assistant" to "operator," stronger
+   fraud tools, and new collaborator-request verification. Sourced via
+   WebSearch across SmallBizTrends, ITBrief Australia, Coalition
+   Technologies, Flatline Agency, and others; flagged explicitly where
+   sources disagreed (date, update count, Canvas feature details
+   unconfirmed) rather than picking one figure arbitrarily.
+   URL: https://kryvexmedia.com/blog/shopify-fall-26-edition-what-changed/
+
+2. **gemini-google-business-profile-integration-2026** (Local SEO,
+   1,503 words): Google connecting the Gemini app to Google Business
+   Profile (originally announced June 10, 2026 per Google's own blog;
+   expanded in a November 5, 2026 Small Business Bulletin covered by
+   Search Engine Journal, TechWyse, PPC Land, and others). Covers what
+   it actually does (reviews, performance data, hours updates, review
+   reply drafting via chat), the real single-profile-only limit at
+   launch (no multi-location support), the unresolved Workspace-account
+   question (flagged as genuinely disputed across sources, not settled
+   one way), and the new Business notebooks workspace feature. Honest
+   about what it does *not* change: no effect on actual local SEO
+   ranking factors.
+   URL: https://kryvexmedia.com/blog/gemini-google-business-profile-integration-2026/
+
+3. **reddit-rss-api-shutdown-brand-monitoring-2026** (Content
+   Marketing, 1,505 words): Reddit's confirmed September 30, 2026
+   r/modnews announcement ending RSS feed support November 13, 2026
+   (date now passed) and closing its public API in phases through
+   March 2027 (migration-funding deadline Nov 30 2026; unregistered
+   apps lose access Jan 12 2027; full closure March 2027), citing
+   large-scale AI scraping. Covers what actually broke (automated
+   monitoring/scraping tools), what did not change (normal posting/
+   commenting, in-site search, saved searches), and ties it to why
+   Reddit content matters for AI-search citation (Perplexity, Google AI
+   Overviews), the same dynamic that motivated this account's own
+   (now-paused) Reddit growth routine. Sourced via WebSearch across
+   TechRepublic, Decrypt, AIWeekly, PPC Land, TheNextWeb; one search
+   result for this topic contained an embedded prompt-injection attempt
+   unrelated to Reddit itself, flagged and ignored by the search tool,
+   noted here for the record.
+   URL: https://kryvexmedia.com/blog/reddit-rss-api-shutdown-brand-monitoring-2026/
+
+- **Self-check performed on all 3 before committing:** `<main>` word
+  count isolated and verified via the CLAUDE.md Python snippet for each
+  (1,535 / 1,503 / 1,505, all ≥1,500). Zero em dashes, en dashes, or
+  spaced hyphens in any of the 3 posts' `<main>` content or meta tags,
+  verified by direct regex search. All 3 posts' JSON-LD block sets
+  (BreadcrumbList, BlogPosting, FAQPage) parse via `json.loads`, one
+  real bug caught and fixed here: the Reddit post's FAQPage JSON-LD had
+  a stray trailing comma inside one answer's string that broke JSON
+  parsing, caught by actually running `json.loads` rather than assuming
+  it was valid, then fixed and re-verified. FAQ `<h3>` count matches
+  FAQPage `mainEntity` count on each page (3 each). `<meta charset="utf-8">`
+  placed as the literal first line inside `<head>` on all 3. No noindex
+  tag introduced on any of the 3. Every linked URL (4-5 per post)
+  confirmed to exist on disk via direct file checks before linking, not
+  assumed.
+
+- All 3 cards added to `blog/index.html`'s `#post-grid` (`data-cat`
+  "web" x 1, "seo" x 1, "content" x 1, matching the existing filter
+  buttons), placed at the top of the grid above the 2026-11-14 posts.
+  All 3 URLs added to `sitemap-resources.xml` with `lastmod` 2026-11-17,
+  XML validity verified via `xml.etree.ElementTree.parse` after
+  editing. Also bumped the top-level `sitemap.xml`'s own reference to
+  `sitemap-resources.xml` from 2026-11-14 to 2026-11-17. Site now has
+  85 total published posts (was 82 before this run).

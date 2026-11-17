@@ -2030,3 +2030,60 @@ a real plateau rather than pull-to-pull noise, though it is log-worthy
 as an observation, not a conclusion. Zero clicks after roughly
 twenty-one weeks across 81 published posts remains the headline number
 worth being honest about.
+
+## 2026-11-17
+
+**Note on timing:** this check also covers the 2026-11-15/2026-11-16
+gap during which the session was occupied with the Bihar
+district-page project (see blog-publish-log.md's 2026-11-17 entry for
+the full explanation). No indexing/performance checks were run on
+2026-11-15 or 2026-11-16 either, logged here honestly rather than
+fabricated.
+
+**Indexing check (same 5 tracked URLs, via
+`GOOGLE_SEARCH_CONSOLE_INSPECT_URL`):**
+- `local-seo-vs-national-seo`: still **"Crawled - currently not
+  indexed,"** `lastCrawlTime` still `2026-09-17T19:03:49Z`, now 61 days
+  without a recrawl (up from 58 on 2026-11-14). Still the longest-stuck
+  post on the site by a wide margin, no new lever available.
+- `digital-marketing-for-home-services-businesses`: **"Discovered -
+  currently not indexed,"** unchanged from the 2026-11-14 reading. Two
+  consecutive stable readings now, after four prior flips, a real sign
+  this one may finally be settling rather than conclusive proof of it.
+- `digital-marketing-for-restaurants`: **"Discovered - currently not
+  indexed,"** unchanged from 2026-11-14, holding the recovery from the
+  regression two checks ago.
+- `google-ai-mode-seo-guide-for-small-businesses`: **"Discovered -
+  currently not indexed,"** unchanged from 2026-11-14.
+- `digital-marketing-for-tour-operators-and-travel-agencies`:
+  **"Discovered - currently not indexed,"** unchanged from 2026-11-14,
+  holding its own recovery.
+
+All four "Discovered" URLs held their reading from the prior check,
+the first time this specific set has been fully stable run to run in
+several checks. Logged as an observation worth continued monitoring,
+not a claim that any of them are now resolved or indexed.
+
+**Performance re-pull (90-day window, page dimension, `/blog/`,
+2026-08-20 to 2026-11-17, vs. the 2026-11-14 pull of 2026-08-17 to
+2026-11-12):**
+- `/blog/` index: **7 impressions (position 11.57)**, identical to the
+  prior pull, now unchanged across four consecutive pulls.
+- Also unchanged: `10-local-seo-tactics-that-fill-your-calendar` 2
+  impressions (position 1), `how-to-choose-an-seo-company-in-patna` 3
+  (position 1), `seo-company-hiring-guide` 4 (position 1),
+  `what-is-digital-marketing` 5 (position 2.6), identical figures to
+  every pull in this specific tracked set going back multiple runs.
+- Zero clicks recorded across every row again. None of today's 3 new
+  posts show impressions yet, as expected at this age; the 3 posts
+  from 2026-11-14 also show none yet.
+
+**Action items:** The indexing picture for the four "Discovered" URLs
+is the most stable it has been in weeks, worth one more check before
+calling it settled given this set's real history of flipping. The
+`/blog/` index and the four tracked post-level rows have now held
+completely flat for four consecutive pulls, a real plateau at this
+point, not noise. `local-seo-vs-national-seo` remains genuinely stuck,
+now past two months without a recrawl, with no new lever available.
+Zero clicks after roughly twenty-two weeks across 85 published posts
+remains the headline number worth being honest about.
